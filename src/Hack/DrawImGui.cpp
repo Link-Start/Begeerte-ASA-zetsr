@@ -95,6 +95,7 @@ namespace g_DrawImGui {
 
 				if (ImGui::BeginTabBar("MainTabBar", ImGuiTabBarFlags_None)) {
 
+					/*
 					if (ImGui::BeginTabItem(U8("自瞄"))) {
 						ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
 						BeginTabRegion("AimBotRegion");
@@ -111,6 +112,7 @@ namespace g_DrawImGui {
 						ImGui::PopStyleVar();
 						ImGui::EndTabItem();
 					}
+					 */
 
 					if (ImGui::BeginTabItem(U8("视觉"))) {
 						ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
@@ -575,7 +577,7 @@ namespace g_DrawImGui {
 			ImGui::PopFont();
 		}
 
-		g_Aimbot::Tick();
+		// g_Aimbot::Tick();
 		g_DrawESP::DrawESP();
 		LuaManager::Get().Lua_OnPaint();
 	}

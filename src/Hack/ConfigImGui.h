@@ -8,6 +8,7 @@
 #include "../Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 #include "Configs.h"
 #include "DrawImGui.h"
+#include "Util.h"
 
 #include <cstdio>
 #include <string>
@@ -18,11 +19,11 @@
 
 namespace g_DrawImGui {
 	namespace ThemeColors {
-		const ImVec4 BG = ImVec4(7.0f / 255.0f, 8.0f / 255.0f, 10.0f / 255.0f, 1.0f);
-		const ImVec4 MUTED = ImVec4(154.0f / 255.0f, 163.0f / 255.0f, 178.0f / 255.0f, 1.0f);
-		const ImVec4 TEXT = ImVec4(215.0f / 255.0f, 225.0f / 255.0f, 234.0f / 255.0f, 1.0f);
-		const ImVec4 ACCENT = ImVec4(110.0f / 255.0f, 231.0f / 255.0f, 183.0f / 255.0f, 1.0f);
-		const ImVec4 ACCENT2 = ImVec4(79.0f / 255.0f, 214.0f / 255.0f, 166.0f / 255.0f, 1.0f);
+		const ImVec4 BG = ImVec4(7.0f * g_Util::inv255, 8.0f * g_Util::inv255, 10.0f * g_Util::inv255, 1.0f);
+		const ImVec4 MUTED = ImVec4(154.0f * g_Util::inv255, 163.0f * g_Util::inv255, 178.0f * g_Util::inv255, 1.0f);
+		const ImVec4 TEXT = ImVec4(215.0f * g_Util::inv255, 225.0f * g_Util::inv255, 234.0f * g_Util::inv255, 1.0f);
+		const ImVec4 ACCENT = ImVec4(110.0f * g_Util::inv255, 231.0f * g_Util::inv255, 183.0f * g_Util::inv255, 1.0f);
+		const ImVec4 ACCENT2 = ImVec4(79.0f * g_Util::inv255, 214.0f * g_Util::inv255, 166.0f * g_Util::inv255, 1.0f);
 		const ImVec4 GLASS_BORDER = ImVec4(1.0f, 1.0f, 1.0f, 0.04f);
 		const ImVec4 SHADOW = ImVec4(0.01f, 0.02f, 0.09f, 0.7f);
 	}
@@ -239,30 +240,37 @@ namespace g_DrawImGui {
 		storage->SetFloat(anim_id, check_anim);
 
 		ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(5.0f, 5.0f));
-		ImGui::PushStyleVar(ImGuiStyleVar_Alpha, g_MenuAlpha);
 
-		bool dummy_v = false;
+		float backup_checkmark_alpha = g.Style.Colors[ImGuiCol_CheckMark].w;
+		g.Style.Colors[ImGuiCol_CheckMark].w = 0.0f;
+
+		bool dummy_v = *v;
 		bool pressed = ImGui::Checkbox(label, &dummy_v);
 		if (pressed) {
 			*v = !(*v);
 		}
 
+		g.Style.Colors[ImGuiCol_CheckMark].w = backup_checkmark_alpha;
+
 		if (check_anim > 0.001f)
 		{
-			ImVec2 check_bb_min = ImGui::GetItemRectMin();
-			check_bb_min.x += g.Style.FramePadding.x;
-			check_bb_min.y += g.Style.FramePadding.y;
+			ImVec2 item_min = ImGui::GetItemRectMin();
+			float frame_size = g.FontSize + g.Style.FramePadding.y * 2.0f;
 
-			float check_sz = g.FontSize;
+			ImVec2 check_pos;
+			check_pos.x = item_min.x + g.Style.FramePadding.x;
+			check_pos.y = item_min.y + g.Style.FramePadding.y;
 
 			ImVec4 check_col = ThemeColors::ACCENT;
 			check_col.w *= (check_anim * g_MenuAlpha);
-			ImU32 col_u32 = ImGui::GetColorU32(check_col);
 
-			ImGui::RenderCheckMark(ImGui::GetWindowDrawList(), check_bb_min, col_u32, check_sz);
+			if (check_col.w > 0.001f) {
+				ImU32 col_u32 = ImGui::GetColorU32(check_col);
+				ImGui::RenderCheckMark(ImGui::GetWindowDrawList(), check_pos, col_u32, g.FontSize);
+			}
 		}
 
-		ImGui::PopStyleVar(2);
+		ImGui::PopStyleVar();
 		return pressed;
 	}
 
