@@ -2,10 +2,10 @@
 
 namespace g_MDX12 {
     // Fonts
-    ImFont* g_Alibaba_PuHuiTi_Regular = nullptr;
-    ImFont* g_Alibaba_PuHuiTi_Bold = nullptr;
-    ImFont* g_Alibaba_PuHuiTi_Heavy = nullptr;
-    ImFont* g_Alibaba_PuHuiTi_Light = nullptr;
+    // ImFont* g_Alibaba_PuHuiTi_Regular = nullptr;
+    // ImFont* g_Alibaba_PuHuiTi_Bold = nullptr;
+    // ImFont* g_Alibaba_PuHuiTi_Heavy = nullptr;
+    // ImFont* g_Alibaba_PuHuiTi_Light = nullptr;
     ImFont* g_Alibaba_PuHuiTi_Medium = nullptr;
 
     // Hook original function pointers

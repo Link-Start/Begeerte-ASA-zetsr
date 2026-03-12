@@ -41,15 +41,15 @@ public:
 DUMPER7_ASSERTS_UAnimationBudgetBlueprintLibrary;
 
 // Class AnimationBudgetAllocator.SkeletalMeshComponentBudgeted
-// 0x0020 (0x13B0 - 0x1390)
+// 0x0020 (0x13D0 - 0x13B0)
 class USkeletalMeshComponentBudgeted final : public USkeletalMeshComponent
 {
 public:
-	uint8                                         Pad_1388[0x20];                                    // 0x1388(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	uint8                                         bAutoRegisterWithBudgetAllocator : 1;              // 0x13A8(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
-	uint8                                         bAutoCalculateSignificance : 1;                    // 0x13A8(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
-	uint8                                         bShouldUseActorRenderedFlag : 1;                   // 0x13A8(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
-	uint8                                         Pad_13A9[0x7];                                     // 0x13A9(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_13A8[0x20];                                    // 0x13A8(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         bAutoRegisterWithBudgetAllocator : 1;              // 0x13C8(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
+	uint8                                         bAutoCalculateSignificance : 1;                    // 0x13C8(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
+	uint8                                         bShouldUseActorRenderedFlag : 1;                   // 0x13C8(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
+	uint8                                         Pad_13C9[0x7];                                     // 0x13C9(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void SetAutoRegisterWithBudgetAllocator(bool bInAutoRegisterWithBudgetAllocator);

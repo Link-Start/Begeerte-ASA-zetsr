@@ -19,7 +19,7 @@ namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass UI_ExpandedModSlot.UI_ExpandedModSlot_C
-// 0x0648 (0x0E80 - 0x0838)
+// 0x0718 (0x0F50 - 0x0838)
 class UUI_ExpandedModSlot_C final : public UCFCoreUIWidget_C
 {
 public:
@@ -48,11 +48,11 @@ public:
 	class UUI_StoreMenu_C*                        StoreMenuRef;                                      // 0x0900(0x0008)(Edit, BlueprintVisible, ZeroConstructor, InstancedReference, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
 	TMulticastInlineDelegate<void()>              OnDisableClicked;                                  // 0x0908(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	TArray<EGameModsEvent>                        evts;                                              // 0x0918(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	struct FInstallProgressMod                    ModInfo;                                           // 0x0928(0x0538)(Edit, BlueprintVisible, ContainsInstancedReference, ExposeOnSpawn)
-	class FString                                 ImageUrl;                                          // 0x0E60(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
-	bool                                          DebugScreenshotDownloading;                        // 0x0E70(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_E71[0x7];                                      // 0x0E71(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UUI_ModPage_C*                          AssociatedModPage;                                 // 0x0E78(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	struct FInstallProgressMod                    ModInfo;                                           // 0x0928(0x0608)(Edit, BlueprintVisible, ContainsInstancedReference, ExposeOnSpawn)
+	class FString                                 ImageUrl;                                          // 0x0F30(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
+	bool                                          DebugScreenshotDownloading;                        // 0x0F40(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_F41[0x7];                                      // 0x0F41(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UUI_ModPage_C*                          AssociatedModPage;                                 // 0x0F48(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void Animation_UpdateModImage(class UImage* IMG_GameImage);

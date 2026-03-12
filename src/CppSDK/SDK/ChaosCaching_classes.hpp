@@ -13,9 +13,9 @@
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "MovieSceneTracks_classes.hpp"
-#include "ChaosCaching_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
+#include "ChaosCaching_structs.hpp"
 #include "MovieScene_classes.hpp"
 
 
@@ -68,18 +68,18 @@ public:
 DUMPER7_ASSERTS_UChaosCacheCollection;
 
 // Class ChaosCaching.ChaosCacheManager
-// 0x00B0 (0x0530 - 0x0480)
+// 0x00B0 (0x0538 - 0x0488)
 class AChaosCacheManager : public AActor
 {
 public:
-	class UChaosCacheCollection*                  CacheCollection;                                   // 0x0480(0x0008)(Edit, ZeroConstructor, DisableEditOnTemplate, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	ECacheMode                                    CacheMode;                                         // 0x0488(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EStartMode                                    StartMode;                                         // 0x0489(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_48A[0x2];                                      // 0x048A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         StartTime;                                         // 0x048C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_490[0x8];                                      // 0x0490(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FObservedComponent>             ObservedComponents;                                // 0x0498(0x0010)(Edit, ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_4A8[0x88];                                     // 0x04A8(0x0088)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UChaosCacheCollection*                  CacheCollection;                                   // 0x0488(0x0008)(Edit, ZeroConstructor, DisableEditOnTemplate, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	ECacheMode                                    CacheMode;                                         // 0x0490(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EStartMode                                    StartMode;                                         // 0x0491(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_492[0x2];                                      // 0x0492(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         StartTime;                                         // 0x0494(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_498[0x8];                                      // 0x0498(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FObservedComponent>             ObservedComponents;                                // 0x04A0(0x0010)(Edit, ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_4B0[0x88];                                     // 0x04B0(0x0088)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void EnablePlayback(int32 Index_0, bool bEnable);
@@ -110,7 +110,7 @@ public:
 DUMPER7_ASSERTS_AChaosCacheManager;
 
 // Class ChaosCaching.ChaosCachePlayer
-// 0x0000 (0x0530 - 0x0530)
+// 0x0000 (0x0538 - 0x0538)
 class AChaosCachePlayer final : public AChaosCacheManager
 {
 public:

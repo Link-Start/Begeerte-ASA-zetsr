@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass ThatchDoorPlacementEmitter.ThatchDoorPlacementEmitter_C
-// 0x0000 (0x05A0 - 0x05A0)
+// 0x0000 (0x05A8 - 0x05A8)
 class AThatchDoorPlacementEmitter_C final : public APrimalEmitterSpawnable
 {
 public:

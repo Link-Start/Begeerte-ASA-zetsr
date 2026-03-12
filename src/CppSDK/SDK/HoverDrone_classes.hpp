@@ -20,63 +20,63 @@ namespace SDK
 {
 
 // Class HoverDrone.HoverDroneMovementComponent
-// 0x03C0 (0x0568 - 0x01A8)
+// 0x03C0 (0x0570 - 0x01B0)
 class UHoverDroneMovementComponent final : public USpectatorPawnMovement
 {
 public:
-	uint8                                         Pad_1A8[0x18];                                     // 0x01A8(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         MaxAllowedSpeedIndex;                              // 0x01C0(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C4[0x4];                                      // 0x01C4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void()>              MaxAllowedSpeedUpdated;                            // 0x01C8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, BlueprintCallable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D8[0x48];                                     // 0x01D8(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         DirectRotationInputYawScale;                       // 0x0220(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         DirectRotationInputPitchScale;                     // 0x0224(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_228[0x18];                                     // 0x0228(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         DirectRotationInputInterpSpeed;                    // 0x0240(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bUseFOVScaling;                                    // 0x0244(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_245[0x3];                                      // 0x0245(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector2D                              CameraFovRange;                                    // 0x0248(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FVector2D                              InputFovScaleRange;                                // 0x0258(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         RotAcceleration;                                   // 0x0268(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         RotDeceleration;                                   // 0x026C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         MaxPitchRotSpeed;                                  // 0x0270(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         MaxYawRotSpeed;                                    // 0x0274(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         FullAirFrictionVelocity;                           // 0x0278(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_27C[0x4];                                      // 0x027C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                MovementAccelFactor;                               // 0x0280(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_298[0x170];                                    // 0x0298(0x0170)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FDroneSpeedParameters>          DroneSpeedParameters;                              // 0x0408(0x0010)(Edit, BlueprintVisible, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	TArray<struct FDroneSpeedParameters>          DroneSpeedParameters_NewModel;                     // 0x0418(0x0010)(Edit, BlueprintVisible, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	float                                         Acceleration_NewModel;                             // 0x0428(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         Deceleration_NewModel;                             // 0x042C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         MaxSpeed_NewModel;                                 // 0x0430(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         MaxYawRotSpeed_NewModel;                           // 0x0434(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         MaxPitchRotSpeed_NewModel;                         // 0x0438(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         RotAcceleration_NewModel;                          // 0x043C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         RotDeceleration_NewModel;                          // 0x0440(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bUseNewDroneFlightModel;                           // 0x0444(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_445[0x3];                                      // 0x0445(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         MinAirFriction;                                    // 0x0448(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	int32                                         DroneSpeedParamIndex;                              // 0x044C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_450[0x4];                                      // 0x0450(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         MinSpeedHeight;                                    // 0x0454(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         MaxSpeedHeight;                                    // 0x0458(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         MaxSpeedHeightMultiplier;                          // 0x045C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         MinPitch;                                          // 0x0460(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         MaxPitch;                                          // 0x0464(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_468[0x4];                                      // 0x0468(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         DroneMaxAltitude;                                  // 0x046C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_470[0x8];                                      // 0x0470(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         MinHoverHeight;                                    // 0x0478(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         MaintainHoverHeightTolerance;                      // 0x047C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         MaintainHoverHeightPredictionTime;                 // 0x0480(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_484[0x3C];                                     // 0x0484(0x003C)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         ForceFacingInterpInTime;                           // 0x04C0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         bSimulateRotation : 1;                             // 0x04C4(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bIgnoreDroneLimiters : 1;                          // 0x04C4(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_4C5[0x33];                                     // 0x04C5(0x0033)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         FollowedActorPositionInterpSpeed;                  // 0x04F8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_4FC[0x6C];                                     // 0x04FC(0x006C)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_1B0[0x18];                                     // 0x01B0(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         MaxAllowedSpeedIndex;                              // 0x01C8(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1CC[0x4];                                      // 0x01CC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void()>              MaxAllowedSpeedUpdated;                            // 0x01D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, BlueprintCallable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1E0[0x48];                                     // 0x01E0(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         DirectRotationInputYawScale;                       // 0x0228(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         DirectRotationInputPitchScale;                     // 0x022C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_230[0x18];                                     // 0x0230(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         DirectRotationInputInterpSpeed;                    // 0x0248(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bUseFOVScaling;                                    // 0x024C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_24D[0x3];                                      // 0x024D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector2D                              CameraFovRange;                                    // 0x0250(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FVector2D                              InputFovScaleRange;                                // 0x0260(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         RotAcceleration;                                   // 0x0270(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         RotDeceleration;                                   // 0x0274(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         MaxPitchRotSpeed;                                  // 0x0278(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         MaxYawRotSpeed;                                    // 0x027C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         FullAirFrictionVelocity;                           // 0x0280(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_284[0x4];                                      // 0x0284(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                MovementAccelFactor;                               // 0x0288(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_2A0[0x170];                                    // 0x02A0(0x0170)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FDroneSpeedParameters>          DroneSpeedParameters;                              // 0x0410(0x0010)(Edit, BlueprintVisible, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	TArray<struct FDroneSpeedParameters>          DroneSpeedParameters_NewModel;                     // 0x0420(0x0010)(Edit, BlueprintVisible, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	float                                         Acceleration_NewModel;                             // 0x0430(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         Deceleration_NewModel;                             // 0x0434(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         MaxSpeed_NewModel;                                 // 0x0438(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         MaxYawRotSpeed_NewModel;                           // 0x043C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         MaxPitchRotSpeed_NewModel;                         // 0x0440(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         RotAcceleration_NewModel;                          // 0x0444(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         RotDeceleration_NewModel;                          // 0x0448(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bUseNewDroneFlightModel;                           // 0x044C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_44D[0x3];                                      // 0x044D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         MinAirFriction;                                    // 0x0450(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	int32                                         DroneSpeedParamIndex;                              // 0x0454(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_458[0x4];                                      // 0x0458(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         MinSpeedHeight;                                    // 0x045C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         MaxSpeedHeight;                                    // 0x0460(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         MaxSpeedHeightMultiplier;                          // 0x0464(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         MinPitch;                                          // 0x0468(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         MaxPitch;                                          // 0x046C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_470[0x4];                                      // 0x0470(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         DroneMaxAltitude;                                  // 0x0474(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_478[0x8];                                      // 0x0478(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         MinHoverHeight;                                    // 0x0480(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         MaintainHoverHeightTolerance;                      // 0x0484(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         MaintainHoverHeightPredictionTime;                 // 0x0488(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_48C[0x3C];                                     // 0x048C(0x003C)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         ForceFacingInterpInTime;                           // 0x04C8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         bSimulateRotation : 1;                             // 0x04CC(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bIgnoreDroneLimiters : 1;                          // 0x04CC(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_4CD[0x33];                                     // 0x04CD(0x0033)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         FollowedActorPositionInterpSpeed;                  // 0x0500(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_504[0x6C];                                     // 0x0504(0x006C)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void AddRotationalVelocity(const struct FRotator& RotationalVel);
@@ -102,11 +102,11 @@ public:
 DUMPER7_ASSERTS_UHoverDroneMovementComponent;
 
 // Class HoverDrone.HoverDronePawnBase
-// 0x0008 (0x0568 - 0x0560)
+// 0x0008 (0x0570 - 0x0568)
 class AHoverDronePawnBase : public ADefaultPawn
 {
 public:
-	class UCameraComponent*                       CameraComponent;                                   // 0x0560(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UCameraComponent*                       CameraComponent;                                   // 0x0568(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()
@@ -125,20 +125,20 @@ public:
 DUMPER7_ASSERTS_AHoverDronePawnBase;
 
 // Class HoverDrone.HoverDronePawn
-// 0x00D0 (0x0638 - 0x0568)
+// 0x00D0 (0x0640 - 0x0570)
 class AHoverDronePawn final : public AHoverDronePawnBase
 {
 public:
-	bool                                          bIsTiltingEnabled;                                 // 0x0568(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAllowSpeedChange;                                 // 0x0569(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bConstrainMovementToXYPlane;                       // 0x056A(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_56B[0x5];                                      // 0x056B(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FIIRInterpolatorRotator                DroneTiltInterpolator;                             // 0x0570(0x0078)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	struct FVector                                TiltUpVector;                                      // 0x05E8(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bEnableTiltLimits;                                 // 0x0600(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_601[0x7];                                      // 0x0601(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FRotator                               TiltLimits;                                        // 0x0608(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_620[0x18];                                     // 0x0620(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bIsTiltingEnabled;                                 // 0x0570(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAllowSpeedChange;                                 // 0x0571(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bConstrainMovementToXYPlane;                       // 0x0572(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_573[0x5];                                      // 0x0573(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FIIRInterpolatorRotator                DroneTiltInterpolator;                             // 0x0578(0x0078)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	struct FVector                                TiltUpVector;                                      // 0x05F0(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bEnableTiltLimits;                                 // 0x0608(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_609[0x7];                                      // 0x0609(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FRotator                               TiltLimits;                                        // 0x0610(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_628[0x18];                                     // 0x0628(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void BeginLookat();
@@ -172,12 +172,12 @@ public:
 DUMPER7_ASSERTS_AHoverDronePawn;
 
 // Class HoverDrone.HoverDroneSpeedLimitBox
-// 0x0008 (0x04D8 - 0x04D0)
+// 0x0008 (0x04E0 - 0x04D8)
 class AHoverDroneSpeedLimitBox final : public AVolume
 {
 public:
-	int32                                         MaxAllowedSpeedIndex;                              // 0x04D0(0x0004)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4D4[0x4];                                      // 0x04D4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	int32                                         MaxAllowedSpeedIndex;                              // 0x04D8(0x0004)(Edit, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4DC[0x4];                                      // 0x04DC(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

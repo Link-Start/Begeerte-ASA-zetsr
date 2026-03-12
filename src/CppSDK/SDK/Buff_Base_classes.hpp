@@ -18,12 +18,12 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass Buff_Base.Buff_Base_C
-// 0x0010 (0x0BC8 - 0x0BB8)
+// 0x0010 (0x0BD0 - 0x0BC0)
 class ABuff_Base_C : public APrimalBuff
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0BB8(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	bool                                          bDismountingBuff;                                  // 0x0BC0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0BC0(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	bool                                          bDismountingBuff;                                  // 0x0BC8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void BPDeactivated(class AActor* ForInstigator);

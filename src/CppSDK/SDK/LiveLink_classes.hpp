@@ -12,11 +12,11 @@
 
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "Engine_classes.hpp"
 #include "LiveLink_structs.hpp"
 #include "LiveLinkInterface_structs.hpp"
 #include "LiveLinkInterface_classes.hpp"
 #include "TimeManagement_classes.hpp"
-#include "Engine_classes.hpp"
 
 
 namespace SDK
@@ -235,12 +235,12 @@ public:
 DUMPER7_ASSERTS_ULiveLinkBlueprintLibrary;
 
 // Class LiveLink.LiveLinkComponent
-// 0x0020 (0x00D8 - 0x00B8)
+// 0x0020 (0x00E0 - 0x00C0)
 class ULiveLinkComponent final : public UActorComponent
 {
 public:
-	TMulticastInlineDelegate<void(float DeltaTime)> OnLiveLinkUpdated;                               // 0x00B8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C8[0x10];                                      // 0x00C8(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(float DeltaTime)> OnLiveLinkUpdated;                               // 0x00C0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_D0[0x10];                                      // 0x00D0(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void GetAvailableSubjectNames(TArray<class FName>* SubjectNames);
@@ -265,15 +265,15 @@ public:
 DUMPER7_ASSERTS_ULiveLinkComponent;
 
 // Class LiveLink.LiveLinkDrivenComponent
-// 0x0018 (0x00D0 - 0x00B8)
+// 0x0018 (0x00D8 - 0x00C0)
 class ULiveLinkDrivenComponent final : public UActorComponent
 {
 public:
-	struct FLiveLinkSubjectName                   SubjectName;                                       // 0x00B8(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ActorTransformBone;                                // 0x00C0(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bModifyActorTransform;                             // 0x00C8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bSetRelativeLocation;                              // 0x00C9(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_CA[0x6];                                       // 0x00CA(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FLiveLinkSubjectName                   SubjectName;                                       // 0x00C0(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   ActorTransformBone;                                // 0x00C8(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bModifyActorTransform;                             // 0x00D0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bSetRelativeLocation;                              // 0x00D1(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_D2[0x6];                                       // 0x00D2(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

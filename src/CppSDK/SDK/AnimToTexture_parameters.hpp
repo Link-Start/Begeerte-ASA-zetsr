@@ -107,7 +107,7 @@ struct AnimToTextureInstancePlaybackLibrary_GetAutoPlayDataFromDataAsset final
 {
 public:
 	const class UAnimToTextureDataAsset*          DataAsset;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         animationIndex;                                    // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         AnimationIndex;                                    // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FAnimToTextureAutoPlayData             AutoPlayData;                                      // 0x000C(0x0010)(Parm, OutParm, NoDestructor, NativeAccessSpecifierPublic)
 	float                                         TimeOffset;                                        // 0x001C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         PlayRate;                                          // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -137,7 +137,7 @@ struct AnimToTextureInstancePlaybackLibrary_GetFrameDataFromDataAsset final
 {
 public:
 	const class UAnimToTextureDataAsset*          DataAsset;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         animationIndex;                                    // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         AnimationIndex;                                    // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Time;                                              // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FAnimToTextureFrameData                AutoPlayData;                                      // 0x0010(0x0008)(Parm, OutParm, NoDestructor, NativeAccessSpecifierPublic)
 	float                                         TimeOffset;                                        // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)

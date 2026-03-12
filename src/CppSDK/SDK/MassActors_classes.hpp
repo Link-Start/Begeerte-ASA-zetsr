@@ -175,14 +175,14 @@ public:
 DUMPER7_ASSERTS_UMassActorSubsystem;
 
 // Class MassActors.MassAgentComponent
-// 0x0100 (0x01B8 - 0x00B8)
+// 0x0100 (0x01C0 - 0x00C0)
 class UMassAgentComponent final : public UActorComponent
 {
 public:
-	uint8                                         Pad_B8[0xA0];                                      // 0x00B8(0x00A0)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FMassEntityConfig                      EntityConfig;                                      // 0x0158(0x0030)(Edit, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_188[0x2C];                                     // 0x0188(0x002C)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FMassNetworkID                         NetID;                                             // 0x01B4(0x0004)(Net, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_C0[0xA0];                                      // 0x00C0(0x00A0)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FMassEntityConfig                      EntityConfig;                                      // 0x0160(0x0030)(Edit, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_190[0x2C];                                     // 0x0190(0x002C)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FMassNetworkID                         NetID;                                             // 0x01BC(0x0004)(Net, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 
 public:
 	void Disable();

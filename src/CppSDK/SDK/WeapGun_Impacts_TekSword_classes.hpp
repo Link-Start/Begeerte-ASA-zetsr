@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass WeapGun_Impacts_TekSword.WeapGun_Impacts_TekSword_C
-// 0x0000 (0x08A0 - 0x08A0)
+// 0x0000 (0x08A8 - 0x08A8)
 class AWeapGun_Impacts_TekSword_C final : public AWeapGun_Impacts_C
 {
 public:

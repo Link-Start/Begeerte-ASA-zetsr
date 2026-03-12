@@ -10,13 +10,13 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
-#include "CoreUObject_classes.hpp"
+#include "MovieScene_structs.hpp"
+#include "MovieScene_classes.hpp"
 #include "DaySequence_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
-#include "MovieScene_structs.hpp"
-#include "MovieScene_classes.hpp"
+#include "CoreUObject_structs.hpp"
+#include "CoreUObject_classes.hpp"
 #include "DeveloperSettings_classes.hpp"
 
 
@@ -24,29 +24,29 @@ namespace SDK
 {
 
 // Class DaySequence.DaySequenceActor
-// 0x0168 (0x05E8 - 0x0480)
+// 0x0168 (0x05F0 - 0x0488)
 class ADaySequenceActor : public AInfo
 {
 public:
-	uint8                                         Pad_480[0x10];                                     // 0x0480(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	class UCurveFloat*                            DayInterpCurve;                                    // 0x0490(0x0008)(Edit, BlueprintVisible, Net, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UDaySequenceCollectionAsset*            DaySequenceCollection;                             // 0x0498(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	int32                                         Bias;                                              // 0x04A0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4A4[0x4];                                      // 0x04A4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMovieSceneBindingOverrides*            BindingOverrides;                                  // 0x04A8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         bReplicatePlayback : 1;                            // 0x04B0(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_4B1[0x7];                                      // 0x04B1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UDaySequencePlayer*                     SequencePlayer;                                    // 0x04B8(0x0008)(ExportObject, Net, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UDaySequence*                           RootSequence;                                      // 0x04C0(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	float                                         SequenceUpdateInterval;                            // 0x04C8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bRunDayCycle;                                      // 0x04CC(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bUseInterpCurve;                                   // 0x04CD(0x0001)(Edit, BlueprintVisible, Net, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_4CE[0x2];                                      // 0x04CE(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FDaySequenceTime                       DayLength;                                         // 0x04D0(0x000C)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	struct FDaySequenceTime                       TimePerCycle;                                      // 0x04DC(0x000C)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	struct FDaySequenceTime                       InitialTimeOfDay;                                  // 0x04E8(0x000C)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_4F4[0xA4];                                     // 0x04F4(0x00A4)(Fixing Size After Last Property [ Dumper-7 ])
-	TMap<TSubclassOf<class UDaySequenceConditionTag>, class UDaySequenceConditionTag*> TrackConditionMap; // 0x0598(0x0050)(Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	uint8                                         Pad_488[0x10];                                     // 0x0488(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	class UCurveFloat*                            DayInterpCurve;                                    // 0x0498(0x0008)(Edit, BlueprintVisible, Net, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UDaySequenceCollectionAsset*            DaySequenceCollection;                             // 0x04A0(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	int32                                         Bias;                                              // 0x04A8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4AC[0x4];                                      // 0x04AC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMovieSceneBindingOverrides*            BindingOverrides;                                  // 0x04B0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	uint8                                         bReplicatePlayback : 1;                            // 0x04B8(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_4B9[0x7];                                      // 0x04B9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UDaySequencePlayer*                     SequencePlayer;                                    // 0x04C0(0x0008)(ExportObject, Net, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UDaySequence*                           RootSequence;                                      // 0x04C8(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	float                                         SequenceUpdateInterval;                            // 0x04D0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bRunDayCycle;                                      // 0x04D4(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bUseInterpCurve;                                   // 0x04D5(0x0001)(Edit, BlueprintVisible, Net, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_4D6[0x2];                                      // 0x04D6(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FDaySequenceTime                       DayLength;                                         // 0x04D8(0x000C)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	struct FDaySequenceTime                       TimePerCycle;                                      // 0x04E4(0x000C)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	struct FDaySequenceTime                       InitialTimeOfDay;                                  // 0x04F0(0x000C)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_4FC[0xA4];                                     // 0x04FC(0x00A4)(Fixing Size After Last Property [ Dumper-7 ])
+	TMap<TSubclassOf<class UDaySequenceConditionTag>, class UDaySequenceConditionTag*> TrackConditionMap; // 0x05A0(0x0050)(Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	bool ContainsDaySequence(const class UDaySequence* InDaySequence);
@@ -86,17 +86,17 @@ public:
 DUMPER7_ASSERTS_ADaySequenceActor;
 
 // Class DaySequence.BaseDaySequenceActor
-// 0x0038 (0x0620 - 0x05E8)
+// 0x0038 (0x0628 - 0x05F0)
 class ABaseDaySequenceActor : public ADaySequenceActor
 {
 public:
-	class USceneComponent*                        SunRootComponent;                                  // 0x05E8(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UDirectionalLightComponent*             SunComponent;                                      // 0x05F0(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class USkyAtmosphereComponent*                SkyAtmosphereComponent;                            // 0x05F8(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class USkyLightComponent*                     SkyLightComponent;                                 // 0x0600(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UExponentialHeightFogComponent*         ExponentialHeightFogComponent;                     // 0x0608(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UVolumetricCloudComponent*              VolumetricCloudComponent;                          // 0x0610(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UStaticMeshComponent*                   SkySphereComponent;                                // 0x0618(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class USceneComponent*                        SunRootComponent;                                  // 0x05F0(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UDirectionalLightComponent*             SunComponent;                                      // 0x05F8(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class USkyAtmosphereComponent*                SkyAtmosphereComponent;                            // 0x0600(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class USkyLightComponent*                     SkyLightComponent;                                 // 0x0608(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UExponentialHeightFogComponent*         ExponentialHeightFogComponent;                     // 0x0610(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UVolumetricCloudComponent*              VolumetricCloudComponent;                          // 0x0618(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UStaticMeshComponent*                   SkySphereComponent;                                // 0x0620(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()
@@ -191,35 +191,35 @@ public:
 DUMPER7_ASSERTS_UDaySequenceModifierEasingFunction;
 
 // Class DaySequence.DaySequenceModifierComponent
-// 0x00D0 (0x0330 - 0x0260)
+// 0x00D0 (0x0340 - 0x0270)
 class UDaySequenceModifierComponent final : public USceneComponent
 {
 public:
-	class ADaySequenceActor*                      TargetActor;                                       // 0x0258(0x0008)(BlueprintVisible, ZeroConstructor, Transient, DuplicateTransient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_260[0x10];                                     // 0x0260(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FComponentReference>            VolumeShapeComponents;                             // 0x0270(0x0010)(Edit, BlueprintVisible, ZeroConstructor, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	TWeakObjectPtr<class APlayerController>       WeakBlendTarget;                                   // 0x0280(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UDaySequence*                           UserDaySequence;                                   // 0x0288(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UDaySequence*                           TransientSequence;                                 // 0x0290(0x0008)(BlueprintVisible, ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UDaySequenceCollectionAsset*            DaySequenceCollection;                             // 0x0298(0x0008)(Edit, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UDaySequenceModifierEasingFunction*     EasingFunction;                                    // 0x02A0(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	int32                                         Bias;                                              // 0x02A8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         DayNightCycleTime;                                 // 0x02AC(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         BlendAmount;                                       // 0x02B0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         UserBlendWeight;                                   // 0x02B4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	EDayNightCycleMode                            DayNightCycle;                                     // 0x02B8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	EDaySequenceModifierMode                      Mode;                                              // 0x02B9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	EDaySequenceModifierUserBlendPolicy           BlendPolicy;                                       // 0x02BA(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_2BB[0x5];                                      // 0x02BB(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void()>              OnPostReinitializeSubSequences;                    // 0x02C0(0x0010)(ZeroConstructor, Transient, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
-	TMulticastInlineDelegate<void()>              OnPostEnableModifier;                              // 0x02D0(0x0010)(ZeroConstructor, Transient, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
-	uint8                                         bIgnoreBias : 1;                                   // 0x02E0(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
-	uint8                                         bIsComponentEnabled : 1;                           // 0x02E0(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (BlueprintVisible, BlueprintReadOnly, Transient, DuplicateTransient, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
-	uint8                                         bIsEnabled : 1;                                    // 0x02E0(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (BlueprintVisible, BlueprintReadOnly, Transient, DuplicateTransient, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
-	uint8                                         bPreview : 1;                                      // 0x02E0(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, BlueprintVisible, Transient, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
-	uint8                                         bUseCollection : 1;                                // 0x02E0(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
-	uint8                                         bSmoothBlending : 1;                               // 0x02E0(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
-	uint8                                         Pad_2E1[0x4F];                                     // 0x02E1(0x004F)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class ADaySequenceActor*                      TargetActor;                                       // 0x0268(0x0008)(BlueprintVisible, ZeroConstructor, Transient, DuplicateTransient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	uint8                                         Pad_270[0x10];                                     // 0x0270(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FComponentReference>            VolumeShapeComponents;                             // 0x0280(0x0010)(Edit, BlueprintVisible, ZeroConstructor, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	TWeakObjectPtr<class APlayerController>       WeakBlendTarget;                                   // 0x0290(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UDaySequence*                           UserDaySequence;                                   // 0x0298(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UDaySequence*                           TransientSequence;                                 // 0x02A0(0x0008)(BlueprintVisible, ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UDaySequenceCollectionAsset*            DaySequenceCollection;                             // 0x02A8(0x0008)(Edit, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UDaySequenceModifierEasingFunction*     EasingFunction;                                    // 0x02B0(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	int32                                         Bias;                                              // 0x02B8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         DayNightCycleTime;                                 // 0x02BC(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         BlendAmount;                                       // 0x02C0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         UserBlendWeight;                                   // 0x02C4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	EDayNightCycleMode                            DayNightCycle;                                     // 0x02C8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	EDaySequenceModifierMode                      Mode;                                              // 0x02C9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	EDaySequenceModifierUserBlendPolicy           BlendPolicy;                                       // 0x02CA(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_2CB[0x5];                                      // 0x02CB(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void()>              OnPostReinitializeSubSequences;                    // 0x02D0(0x0010)(ZeroConstructor, Transient, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
+	TMulticastInlineDelegate<void()>              OnPostEnableModifier;                              // 0x02E0(0x0010)(ZeroConstructor, Transient, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
+	uint8                                         bIgnoreBias : 1;                                   // 0x02F0(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
+	uint8                                         bIsComponentEnabled : 1;                           // 0x02F0(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (BlueprintVisible, BlueprintReadOnly, Transient, DuplicateTransient, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
+	uint8                                         bIsEnabled : 1;                                    // 0x02F0(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (BlueprintVisible, BlueprintReadOnly, Transient, DuplicateTransient, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
+	uint8                                         bPreview : 1;                                      // 0x02F0(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, BlueprintVisible, Transient, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
+	uint8                                         bUseCollection : 1;                                // 0x02F0(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
+	uint8                                         bSmoothBlending : 1;                               // 0x02F0(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
+	uint8                                         Pad_2F1[0x4F];                                     // 0x02F1(0x004F)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void BindToDaySequenceActor(class ADaySequenceActor* DaySequenceActor);
@@ -247,16 +247,16 @@ public:
 DUMPER7_ASSERTS_UDaySequenceModifierComponent;
 
 // Class DaySequence.DaySequenceModifierVolume
-// 0x0038 (0x04B8 - 0x0480)
+// 0x0038 (0x04C0 - 0x0488)
 class ADaySequenceModifierVolume final : public AActor
 {
 public:
-	class UDaySequenceModifierComponent*          DaySequenceModifier;                               // 0x0480(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UBoxComponent*                          DefaultBox;                                        // 0x0488(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class ADaySequenceActor*                      DaySequenceActor;                                  // 0x0490(0x0008)(ZeroConstructor, Transient, DuplicateTransient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class APlayerController*                      CachedPlayerController;                            // 0x0498(0x0008)(ZeroConstructor, Transient, DuplicateTransient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class AActor*                                 CurrentBlendTarget;                                // 0x04A0(0x0008)(ZeroConstructor, Transient, DuplicateTransient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_4A8[0x10];                                     // 0x04A8(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UDaySequenceModifierComponent*          DaySequenceModifier;                               // 0x0488(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UBoxComponent*                          DefaultBox;                                        // 0x0490(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class ADaySequenceActor*                      DaySequenceActor;                                  // 0x0498(0x0008)(ZeroConstructor, Transient, DuplicateTransient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class APlayerController*                      CachedPlayerController;                            // 0x04A0(0x0008)(ZeroConstructor, Transient, DuplicateTransient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class AActor*                                 CurrentBlendTarget;                                // 0x04A8(0x0008)(ZeroConstructor, Transient, DuplicateTransient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	uint8                                         Pad_4B0[0x10];                                     // 0x04B0(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void OnDaySequenceActorBound(class ADaySequenceActor* InActor);
@@ -354,11 +354,11 @@ public:
 DUMPER7_ASSERTS_UProceduralDaySequenceBuilder;
 
 // Class DaySequence.SunMoonDaySequenceActor
-// 0x0008 (0x0628 - 0x0620)
+// 0x0008 (0x0630 - 0x0628)
 class ASunMoonDaySequenceActor final : public ABaseDaySequenceActor
 {
 public:
-	class UDirectionalLightComponent*             MoonComponent;                                     // 0x0620(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UDirectionalLightComponent*             MoonComponent;                                     // 0x0628(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()
@@ -572,11 +572,11 @@ public:
 DUMPER7_ASSERTS_UDaySequenceProjectSettings;
 
 // Class DaySequence.DaySequenceProvider
-// 0x0010 (0x0490 - 0x0480)
+// 0x0010 (0x0498 - 0x0488)
 class ADaySequenceProvider : public AActor
 {
 public:
-	TArray<class UDaySequence*>                   DaySequenceAssets;                                 // 0x0480(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	TArray<class UDaySequence*>                   DaySequenceAssets;                                 // 0x0488(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()
@@ -644,16 +644,16 @@ public:
 DUMPER7_ASSERTS_UDaySequenceTrack;
 
 // Class DaySequence.EnvironmentLightingActor
-// 0x0030 (0x04C0 - 0x0490)
+// 0x0030 (0x04C8 - 0x0498)
 class AEnvironmentLightingActor final : public ADaySequenceProvider
 {
 public:
-	class USkyAtmosphereComponent*                SkyAtmosphereComponent;                            // 0x0490(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class USkyLightComponent*                     SkyLightComponent;                                 // 0x0498(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class USceneComponent*                        SunRootComponent;                                  // 0x04A0(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UDirectionalLightComponent*             SunComponent;                                      // 0x04A8(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UExponentialHeightFogComponent*         ExponentialHeightFogComponent;                     // 0x04B0(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UVolumetricCloudComponent*              VolumetricCloudComponent;                          // 0x04B8(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class USkyAtmosphereComponent*                SkyAtmosphereComponent;                            // 0x0498(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class USkyLightComponent*                     SkyLightComponent;                                 // 0x04A0(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class USceneComponent*                        SunRootComponent;                                  // 0x04A8(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UDirectionalLightComponent*             SunComponent;                                      // 0x04B0(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UExponentialHeightFogComponent*         ExponentialHeightFogComponent;                     // 0x04B8(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UVolumetricCloudComponent*              VolumetricCloudComponent;                          // 0x04C0(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()

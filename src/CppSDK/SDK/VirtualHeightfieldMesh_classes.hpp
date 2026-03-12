@@ -75,11 +75,11 @@ public:
 DUMPER7_ASSERTS_UMaterialExpressionHeightfieldMinMaxTexture;
 
 // Class VirtualHeightfieldMesh.VirtualHeightfieldMesh
-// 0x0008 (0x0488 - 0x0480)
+// 0x0008 (0x0490 - 0x0488)
 class AVirtualHeightfieldMesh final : public AActor
 {
 public:
-	class UVirtualHeightfieldMeshComponent*       VirtualHeightfieldMeshComponent;                   // 0x0480(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class UVirtualHeightfieldMeshComponent*       VirtualHeightfieldMeshComponent;                   // 0x0488(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()
@@ -98,29 +98,29 @@ public:
 DUMPER7_ASSERTS_AVirtualHeightfieldMesh;
 
 // Class VirtualHeightfieldMesh.VirtualHeightfieldMeshComponent
-// 0x0070 (0x0670 - 0x0600)
+// 0x0070 (0x0680 - 0x0610)
 class UVirtualHeightfieldMeshComponent final : public UPrimitiveComponent
 {
 public:
-	TSoftObjectPtr<class ARuntimeVirtualTextureVolume> VirtualTexture;                               // 0x05F8(0x0028)(Edit, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class ARuntimeVirtualTextureVolume*           VirtualTextureRef;                                 // 0x0620(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UObject*                                VirtualTextureThumbnail;                           // 0x0628(0x0008)(Edit, ZeroConstructor, Transient, EditConst, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	bool                                          bCopyBoundsButton;                                 // 0x0630(0x0001)(Edit, ZeroConstructor, Transient, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_631[0x7];                                      // 0x0631(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UHeightfieldMinMaxTexture*              MinMaxTexture;                                     // 0x0638(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	int32                                         NumMinMaxTextureBuildLevels;                       // 0x0640(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bBuildMinMaxTextureButton;                         // 0x0644(0x0001)(Edit, ZeroConstructor, Transient, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_645[0x3];                                      // 0x0645(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMaterialInterface*                     Material;                                          // 0x0648(0x0008)(Edit, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	float                                         LOD0ScreenSize;                                    // 0x0650(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         Lod0Distribution;                                  // 0x0654(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         LodDistribution;                                   // 0x0658(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         LodBiasScale;                                      // 0x065C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	int32                                         NumForceLoadLods;                                  // 0x0660(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	int32                                         NumOcclusionLods;                                  // 0x0664(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bHiddenInEditor;                                   // 0x0668(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bWorldPositionOffsetVelocity;                      // 0x0669(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_66A[0x6];                                      // 0x066A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TSoftObjectPtr<class ARuntimeVirtualTextureVolume> VirtualTexture;                               // 0x0608(0x0028)(Edit, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class ARuntimeVirtualTextureVolume*           VirtualTextureRef;                                 // 0x0630(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UObject*                                VirtualTextureThumbnail;                           // 0x0638(0x0008)(Edit, ZeroConstructor, Transient, EditConst, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	bool                                          bCopyBoundsButton;                                 // 0x0640(0x0001)(Edit, ZeroConstructor, Transient, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_641[0x7];                                      // 0x0641(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UHeightfieldMinMaxTexture*              MinMaxTexture;                                     // 0x0648(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	int32                                         NumMinMaxTextureBuildLevels;                       // 0x0650(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bBuildMinMaxTextureButton;                         // 0x0654(0x0001)(Edit, ZeroConstructor, Transient, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_655[0x3];                                      // 0x0655(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMaterialInterface*                     Material;                                          // 0x0658(0x0008)(Edit, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	float                                         LOD0ScreenSize;                                    // 0x0660(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         Lod0Distribution;                                  // 0x0664(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         LodDistribution;                                   // 0x0668(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         LodBiasScale;                                      // 0x066C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	int32                                         NumForceLoadLods;                                  // 0x0670(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	int32                                         NumOcclusionLods;                                  // 0x0674(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bHiddenInEditor;                                   // 0x0678(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bWorldPositionOffsetVelocity;                      // 0x0679(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_67A[0x6];                                      // 0x067A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void GatherHideFlags(bool* InOutHidePrimitivesInEditor, bool* InOutHidePrimitivesInGame) const;

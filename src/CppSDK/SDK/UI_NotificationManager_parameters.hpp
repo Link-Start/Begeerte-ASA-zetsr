@@ -30,7 +30,7 @@ public:
 DUMPER7_ASSERTS_UI_NotificationManager_C_CreateNotify;
 
 // Function UI_NotificationManager.UI_NotificationManager_C.ExecuteUbergraph_UI_NotificationManager
-// 0x0588 (0x0588 - 0x0000)
+// 0x0658 (0x0658 - 0x0000)
 struct UI_NotificationManager_C_ExecuteUbergraph_UI_NotificationManager final
 {
 public:
@@ -39,21 +39,21 @@ public:
 	class UUI_Notification_C*                     CallFunc_CreateNotify_ReturnValue;                 // 0x0008(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0010(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FInstallProgressMod                    K2Node_CustomEvent_InstallProgressMod;             // 0x0018(0x0538)(ConstParm, ContainsInstancedReference)
-	class FString                                 CallFunc_GetModName_Name;                          // 0x0550(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0560(0x0010)()
-	class UUI_Notification_C*                     CallFunc_CreateNotify_ReturnValue_1;               // 0x0570(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	class UUI_Notification_C*                     CallFunc_CreateNotify_ReturnValue_2;               // 0x0578(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	class UUI_Notification_C*                     CallFunc_CreateNotify_ReturnValue_3;               // 0x0580(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	struct FInstallProgressMod                    K2Node_CustomEvent_InstallProgressMod;             // 0x0018(0x0608)(ConstParm, ContainsInstancedReference)
+	class FString                                 CallFunc_GetModName_Name;                          // 0x0620(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0630(0x0010)()
+	class UUI_Notification_C*                     CallFunc_CreateNotify_ReturnValue_1;               // 0x0640(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class UUI_Notification_C*                     CallFunc_CreateNotify_ReturnValue_2;               // 0x0648(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class UUI_Notification_C*                     CallFunc_CreateNotify_ReturnValue_3;               // 0x0650(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_UI_NotificationManager_C_ExecuteUbergraph_UI_NotificationManager;
 
 // Function UI_NotificationManager.UI_NotificationManager_C.PlayInstalledNotification
-// 0x0538 (0x0538 - 0x0000)
+// 0x0608 (0x0608 - 0x0000)
 struct UI_NotificationManager_C_PlayInstalledNotification final
 {
 public:
-	struct FInstallProgressMod                    InstallProgressMod;                                // 0x0000(0x0538)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, ContainsInstancedReference)
+	struct FInstallProgressMod                    InstallProgressMod;                                // 0x0000(0x0608)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, ContainsInstancedReference)
 };
 DUMPER7_ASSERTS_UI_NotificationManager_C_PlayInstalledNotification;
 

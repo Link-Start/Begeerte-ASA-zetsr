@@ -47,13 +47,13 @@ public:
 DUMPER7_ASSERTS_UMassSimulationSettings;
 
 // Class MassSimulation.MassSimulationSubsystem
-// 0x0480 (0x04B8 - 0x0038)
+// 0x04B0 (0x04E8 - 0x0038)
 class UMassSimulationSubsystem final : public UMassSubsystemBase
 {
 public:
-	uint8                                         Pad_38[0x460];                                     // 0x0038(0x0460)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FMassRuntimePipeline                   RuntimePipeline;                                   // 0x0498(0x0018)(Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_4B0[0x8];                                      // 0x04B0(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_38[0x490];                                     // 0x0038(0x0490)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FMassRuntimePipeline                   RuntimePipeline;                                   // 0x04C8(0x0018)(Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_4E0[0x8];                                      // 0x04E0(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

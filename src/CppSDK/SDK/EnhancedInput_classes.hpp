@@ -164,11 +164,11 @@ public:
 DUMPER7_ASSERTS_UEnhancedInputActionValueBinding;
 
 // Class EnhancedInput.EnhancedInputComponent
-// 0x0038 (0x0178 - 0x0140)
+// 0x0038 (0x0180 - 0x0148)
 class UEnhancedInputComponent final : public UInputComponent
 {
 public:
-	uint8                                         Pad_140[0x38];                                     // 0x0140(0x0038)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_148[0x38];                                     // 0x0148(0x0038)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	struct FInputActionValue GetBoundActionValue(const class UInputAction* Action) const;

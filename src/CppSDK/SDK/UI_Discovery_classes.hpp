@@ -10,10 +10,10 @@
 
 #include "Basic.hpp"
 
-#include "cfcore_structs.hpp"
 #include "Engine_structs.hpp"
-#include "UI_BasePage_classes.hpp"
+#include "cfcore_structs.hpp"
 #include "UMG_structs.hpp"
+#include "UI_BasePage_classes.hpp"
 
 
 namespace SDK

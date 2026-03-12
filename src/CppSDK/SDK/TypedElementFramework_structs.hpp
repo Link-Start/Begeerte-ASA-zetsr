@@ -46,31 +46,6 @@ struct alignas(0x01) FEditorDataStorageColumn
 #pragma pack(pop)
 DUMPER7_ASSERTS_FEditorDataStorageColumn;
 
-// ScriptStruct TypedElementFramework.TypedElementAlertActionColumn
-// 0x0040 (0x0040 - 0x0000)
-struct alignas(0x10) FTypedElementAlertActionColumn final : public FEditorDataStorageColumn
-{
-public:
-	uint8                                         Pad_0[0x40];                                       // 0x0000(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FTypedElementAlertActionColumn;
-
-// ScriptStruct TypedElementFramework.EditorDataStorageTag
-// 0x0001 (0x0001 - 0x0000)
-struct FEditorDataStorageTag
-{
-public:
-	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FEditorDataStorageTag;
-
-// ScriptStruct TypedElementFramework.FolderTag
-// 0x0000 (0x0001 - 0x0001)
-struct FFolderTag final : public FEditorDataStorageTag
-{
-};
-DUMPER7_ASSERTS_FFolderTag;
-
 // ScriptStruct TypedElementFramework.ScriptTypedElementHandle
 // 0x0008 (0x0008 - 0x0000)
 struct alignas(0x08) FScriptTypedElementHandle final
@@ -79,6 +54,15 @@ public:
 	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FScriptTypedElementHandle;
+
+// ScriptStruct TypedElementFramework.TestColumnA
+// 0x0001 (0x0001 - 0x0000)
+struct FTestColumnA final : public FEditorDataStorageColumn
+{
+public:
+	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FTestColumnA;
 
 // ScriptStruct TypedElementFramework.TypedElementAlertColumn
 // 0x0020 (0x0020 - 0x0000)
@@ -100,6 +84,24 @@ public:
 	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FTypedElementChildAlertColumn;
+
+// ScriptStruct TypedElementFramework.TypedElementAlertActionColumn
+// 0x0040 (0x0040 - 0x0000)
+struct alignas(0x10) FTypedElementAlertActionColumn final : public FEditorDataStorageColumn
+{
+public:
+	uint8                                         Pad_0[0x40];                                       // 0x0000(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FTypedElementAlertActionColumn;
+
+// ScriptStruct TypedElementFramework.EditorDataStorageTag
+// 0x0001 (0x0001 - 0x0000)
+struct FEditorDataStorageTag
+{
+public:
+	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FEditorDataStorageTag;
 
 // ScriptStruct TypedElementFramework.TypedElementUObjectColumn
 // 0x0008 (0x0008 - 0x0000)
@@ -217,6 +219,13 @@ struct FSimpleWidgetConstructor final : public FTypedElementWidgetConstructor
 {
 };
 DUMPER7_ASSERTS_FSimpleWidgetConstructor;
+
+// ScriptStruct TypedElementFramework.FolderTag
+// 0x0000 (0x0001 - 0x0001)
+struct FFolderTag final : public FEditorDataStorageTag
+{
+};
+DUMPER7_ASSERTS_FFolderTag;
 
 // ScriptStruct TypedElementFramework.TedsRowHandle
 // 0x0008 (0x0008 - 0x0000)
@@ -521,15 +530,6 @@ public:
 	struct FSlateColor                            Color;                                             // 0x0000(0x0014)(NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FSlateColorColumn;
-
-// ScriptStruct TypedElementFramework.TestColumnA
-// 0x0001 (0x0001 - 0x0000)
-struct FTestColumnA final : public FEditorDataStorageColumn
-{
-public:
-	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FTestColumnA;
 
 // ScriptStruct TypedElementFramework.TestColumnB
 // 0x0001 (0x0001 - 0x0000)

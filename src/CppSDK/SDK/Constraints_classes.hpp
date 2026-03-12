@@ -49,11 +49,11 @@ public:
 DUMPER7_ASSERTS_UConstraintSubsystem;
 
 // Class Constraints.ConstraintsActor
-// 0x0008 (0x0488 - 0x0480)
+// 0x0008 (0x0490 - 0x0488)
 class AConstraintsActor final : public AActor
 {
 public:
-	class UConstraintsManager*                    ConstraintsManager;                                // 0x0480(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UConstraintsManager*                    ConstraintsManager;                                // 0x0488(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()

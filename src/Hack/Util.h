@@ -6,6 +6,8 @@
 #include <string>
 
 namespace g_Util {
+    static const float inv255 = 1.0f / 255.0f; 
+
     inline std::string ToLower(std::string s) {
         std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c) {
             return std::tolower(c);
@@ -18,27 +20,16 @@ namespace g_Util {
     }
 
     inline ImU32 ToImColor(float r, float g, float b, float a) {
-        return ImGui::ColorConvertFloat4ToU32(ImVec4(r / 255.0f, g / 255.0f, b / 255.0f, a / 255.0f));
+        return ImGui::ColorConvertFloat4ToU32(ImVec4(r * inv255, g * inv255, b * inv255, a * inv255));
     }
 
     inline ImU32 GetHealthColor(float healthPercent) {
-        healthPercent = (healthPercent < 0.0f) ? 0.0f : (healthPercent > 1.0f) ? 1.0f : healthPercent;
+        healthPercent = fmaxf(0.0f, fminf(healthPercent, 1.0f));
 
-        float r, g, b;
-        if (healthPercent > 0.5f) {
-            float t = (healthPercent - 0.5f) * 2.0f;
-            r = 1.0f - t;
-            g = 1.0f;
-            b = 0.0f;
-        }
-        else {
-            float t = healthPercent * 2.0f;
-            r = 1.0f;
-            g = t;
-            b = 0.0f;
-        }
+        float r = fminf(1.0f, 2.0f - 2.0f * healthPercent);
+        float g = fminf(1.0f, 2.0f * healthPercent);
 
-        return ToImColor(r * 255.0f, g * 255.0f, b * 255.0f, 255.0f);
+        return ToImColor(r * 255.0f, g * 255.0f, 0.0f, 255.0f);
     }
 
     inline bool IsEntityMatch(std::string displayName, std::string filter) {

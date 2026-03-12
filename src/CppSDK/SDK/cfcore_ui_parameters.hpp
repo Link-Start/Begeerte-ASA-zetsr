@@ -178,33 +178,33 @@ public:
 DUMPER7_ASSERTS_CFCoreUIInstallProgressModHelperFunctionsLibrary_UpdateInstallProgressModsLoadOrder;
 
 // Function cfcore_ui.CFCoreUISubsystem.MakeFInstallProgressMod
-// 0x0738 (0x0738 - 0x0000)
+// 0x0808 (0x0808 - 0x0000)
 struct CFCoreUISubsystem_MakeFInstallProgressMod final
 {
 public:
 	struct FCFCoreMod                             mod;                                               // 0x0000(0x0200)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FInstallProgressMod                    ReturnValue;                                       // 0x0200(0x0538)(Parm, OutParm, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	struct FInstallProgressMod                    ReturnValue;                                       // 0x0200(0x0608)(Parm, OutParm, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_MakeFInstallProgressMod;
 
 // Function cfcore_ui.CFCoreUISubsystem.MakeFInstallProgressModFromID
-// 0x0540 (0x0540 - 0x0000)
+// 0x0610 (0x0610 - 0x0000)
 struct CFCoreUISubsystem_MakeFInstallProgressModFromID final
 {
 public:
 	int64                                         ID;                                                // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FInstallProgressMod                    ReturnValue;                                       // 0x0008(0x0538)(Parm, OutParm, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	struct FInstallProgressMod                    ReturnValue;                                       // 0x0008(0x0608)(Parm, OutParm, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_MakeFInstallProgressModFromID;
 
 // Function cfcore_ui.CFCoreUISubsystem.SetMod
-// 0x0AC0 (0x0AC0 - 0x0000)
+// 0x0C60 (0x0C60 - 0x0000)
 struct CFCoreUISubsystem_SetMod final
 {
 public:
 	struct FCFCoreMod                             mod;                                               // 0x0000(0x0200)(Parm, NativeAccessSpecifierPublic)
-	struct FInstalledMod                          InInstalledMod;                                    // 0x0200(0x0460)(Parm, NativeAccessSpecifierPublic)
-	struct FInstalledMod                          OutInstalledMod;                                   // 0x0660(0x0460)(Parm, OutParm, NativeAccessSpecifierPublic)
+	struct FInstalledMod                          InInstalledMod;                                    // 0x0200(0x0530)(Parm, NativeAccessSpecifierPublic)
+	struct FInstalledMod                          OutInstalledMod;                                   // 0x0730(0x0530)(Parm, OutParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_SetMod;
 
@@ -237,14 +237,14 @@ public:
 DUMPER7_ASSERTS_CFCoreUISubsystem_CancelModInstallation;
 
 // Function cfcore_ui.CFCoreUISubsystem.GetModById
-// 0x0548 (0x0548 - 0x0000)
+// 0x0618 (0x0618 - 0x0000)
 struct CFCoreUISubsystem_GetModById final
 {
 public:
-	struct FInstallProgressMod                    OutMod;                                            // 0x0000(0x0538)(Parm, OutParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	int64                                         ID;                                                // 0x0538(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0540(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_541[0x7];                                      // 0x0541(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FInstallProgressMod                    OutMod;                                            // 0x0000(0x0608)(Parm, OutParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	int64                                         ID;                                                // 0x0608(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0610(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_611[0x7];                                      // 0x0611(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_GetModById;
 
@@ -298,20 +298,20 @@ public:
 DUMPER7_ASSERTS_CFCoreUISubsystem_OnCancelModInstallation;
 
 // Function cfcore_ui.CFCoreUISubsystem.OnFinishedInstalling
-// 0x0460 (0x0460 - 0x0000)
+// 0x0530 (0x0530 - 0x0000)
 struct CFCoreUISubsystem_OnFinishedInstalling final
 {
 public:
-	struct FInstalledMod                          InstalledMod;                                      // 0x0000(0x0460)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FInstalledMod                          InstalledMod;                                      // 0x0000(0x0530)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_OnFinishedInstalling;
 
 // Function cfcore_ui.CFCoreUISubsystem.OnFinishedUpdating
-// 0x0460 (0x0460 - 0x0000)
+// 0x0530 (0x0530 - 0x0000)
 struct CFCoreUISubsystem_OnFinishedUpdating final
 {
 public:
-	struct FInstalledMod                          updatedMod;                                        // 0x0000(0x0460)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FInstalledMod                          updatedMod;                                        // 0x0000(0x0530)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_OnFinishedUpdating;
 
@@ -426,11 +426,11 @@ public:
 DUMPER7_ASSERTS_CFCoreUISubsystem_OnSearchModsError;
 
 // Function cfcore_ui.CFCoreUISubsystem.OnUninstall
-// 0x0460 (0x0460 - 0x0000)
+// 0x0530 (0x0530 - 0x0000)
 struct CFCoreUISubsystem_OnUninstall final
 {
 public:
-	struct FInstalledMod                          InstalledMod;                                      // 0x0000(0x0460)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FInstalledMod                          InstalledMod;                                      // 0x0000(0x0530)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_OnUninstall;
 
@@ -500,12 +500,12 @@ public:
 DUMPER7_ASSERTS_CFCoreUISubsystem_RegisterPurchaseModsDelegate;
 
 // Function cfcore_ui.CFCoreUISubsystem.SearchMods
-// 0x0050 (0x0050 - 0x0000)
+// 0x0060 (0x0060 - 0x0000)
 struct CFCoreUISubsystem_SearchMods final
 {
 public:
-	struct FCFCoreSearchModsFilter                Filter;                                            // 0x0000(0x0048)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FCFCoreApiRequestPagination            pagination;                                        // 0x0048(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	struct FCFCoreSearchModsFilter                Filter;                                            // 0x0000(0x0058)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FCFCoreApiRequestPagination            pagination;                                        // 0x0058(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_SearchMods;
 

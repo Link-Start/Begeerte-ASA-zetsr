@@ -52,19 +52,19 @@ public:
 DUMPER7_ASSERTS_UKismetProceduralMeshLibrary;
 
 // Class ProceduralMeshComponent.ProceduralMeshComponent
-// 0x0080 (0x06B0 - 0x0630)
+// 0x0080 (0x06C0 - 0x0640)
 class UProceduralMeshComponent : public UMeshComponent
 {
 public:
-	uint8                                         Pad_630[0x8];                                      // 0x0630(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bUseComplexAsSimpleCollision;                      // 0x0638(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUseAsyncCooking;                                  // 0x0639(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_63A[0x6];                                      // 0x063A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class UBodySetup*                             ProcMeshBodySetup;                                 // 0x0640(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TArray<struct FProcMeshSection>               ProcMeshSections;                                  // 0x0648(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
-	TArray<struct FKConvexElem>                   CollisionConvexElems;                              // 0x0658(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
-	struct FBoxSphereBounds                       LocalBounds;                                       // 0x0668(0x0038)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPrivate)
-	TArray<class UBodySetup*>                     AsyncBodySetupQueue;                               // 0x06A0(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	uint8                                         Pad_640[0x8];                                      // 0x0640(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bUseComplexAsSimpleCollision;                      // 0x0648(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUseAsyncCooking;                                  // 0x0649(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_64A[0x6];                                      // 0x064A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	class UBodySetup*                             ProcMeshBodySetup;                                 // 0x0650(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TArray<struct FProcMeshSection>               ProcMeshSections;                                  // 0x0658(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<struct FKConvexElem>                   CollisionConvexElems;                              // 0x0668(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
+	struct FBoxSphereBounds                       LocalBounds;                                       // 0x0678(0x0038)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPrivate)
+	TArray<class UBodySetup*>                     AsyncBodySetupQueue;                               // 0x06B0(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
 
 public:
 	void AddCollisionConvexMesh(const TArray<struct FVector>& ConvexVerts);

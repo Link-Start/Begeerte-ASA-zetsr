@@ -173,7 +173,7 @@ struct FTraceControlChannelsDesc final
 {
 public:
 	TArray<class FString>                         Channels;                                          // 0x0000(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<uint32>                                Ids;                                               // 0x0010(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<uint32>                                ids;                                               // 0x0010(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
 	TArray<class FString>                         Descriptions;                                      // 0x0020(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
 	TArray<uint32>                                ReadOnlyIds;                                       // 0x0030(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
 };

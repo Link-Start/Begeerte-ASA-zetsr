@@ -21,11 +21,11 @@ namespace SDK
 {
 
 // Class MassReplication.MassClientBubbleInfoBase
-// 0x0018 (0x0498 - 0x0480)
+// 0x0018 (0x04A0 - 0x0488)
 class AMassClientBubbleInfoBase final : public AInfo
 {
 public:
-	uint8                                         Pad_480[0x18];                                     // 0x0480(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_488[0x18];                                     // 0x0488(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

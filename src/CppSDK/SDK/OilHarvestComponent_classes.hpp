@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass OilHarvestComponent.OilHarvestComponent_C
-// 0x0000 (0x0228 - 0x0228)
+// 0x0000 (0x0230 - 0x0230)
 class UOilHarvestComponent_C final : public UStoneHarvestComponent_RequiresMetal_C
 {
 public:

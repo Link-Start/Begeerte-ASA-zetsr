@@ -1,209 +1,157 @@
+local ImGui, SDK, PC, Character, System, Actor = ImGui, SDK, PC, Character, System, Actor
+local floor, min, format, tostring = math.floor, math.min, string.format, tostring
+local os_date = os.date
+
+local STR_POOL_PERCENT = {}
+local STR_POOL_INT = {}
+for i = 0, 1000 do
+    if i <= 100 then STR_POOL_PERCENT[i] = i .. "%" end
+    STR_POOL_INT[i] = tostring(i)
+end
+
 local WatermarkRenderer = {
-    -- 默认视觉配置
     DEFAULT_CONFIG = {
-        fade = 40,         -- 渐变宽度
-        padX = -10,        -- 横向内边距
-        padY = 5,         -- 纵向内边距
-        alpha = 50,        -- 背景透明度
-        shadowA = 127,     -- 文本阴影透明度
-        lerpSpeed = 10.0,  -- 平滑改变尺寸的速度 (数值越大越快)
+        fade = 40, padX = -10, padY = 5, alpha = 50, shadowA = 127, lerpSpeed = 10.0,
         defaultColor = {r = 255, g = 255, b = 255, a = 200}
     },
-
     _state = {
-        lastUpdateFPS = 0,
-        lastUpdateCPU_Usage = 0,
-        lastUpdateCPU_Freq = 0,
-        lastUpdateGPU_Usage = 0,
-        cachedFPS = 0,
-        cachedCPU_Usage = 0,
-        cachedCPU_Freq = 0,
-        cachedGPU_Usage = 0,
-        updateRateFPS = 1.0,
-        updateRateCPU_Usage = 1.0,
-        updateRateCPU_Freq = 1.0,
-        updateRateGPU_Usage = 1.0,
-        
-        -- 新增：用于平滑过渡的状态变量
-        currentWidth = 0,  -- 当前背景宽度
-        currentHeight = 0, -- 当前背景高度
-        isInitialized = false -- 是否已初始化尺寸
+        lastUpdateTimer = 1.0,
+        updateRate = 1.0,
+        currentWidth = 0,
+        currentHeight = 0,
+        targetHeight = 0,
+        isInitialized = false
     }
 }
 
---- 线性插值辅助函数
-local function Lerp(start, finish, t)
-    return start + (finish - start) * t
-end
+local COL_WHITE  = ImGui.Color(255, 255, 255, 200)
+local COL_ORANGE = ImGui.Color(255, 99, 71, 255)
+local COL_SHADOW = nil
+local COL_BG     = nil
+local COL_TRANSPARENT = ImGui.Color(0, 0, 0, 0)
 
---- 内部渲染函数：支持多颜色片段与平滑背景
---- @param segments table 格式：{{text="xxx", color={r,g,b,a}}, ...}
---- @param x number 目标起始X坐标 (这通常是计算出的对齐位置)
---- @param y number 目标起始Y坐标
---- @param customConfig table 可选配置
-function WatermarkRenderer.DrawMultiColor(segments, x, y, customConfig)
-    -- 1. 配置合并
+local staticSegments = {
+    { text = "Begeerte     ", color = COL_WHITE, _w = 0 },
+    { text = "0", color = COL_ORANGE, _w = 0 },         -- [2] FPS
+    { text = " FPS    ", color = COL_WHITE, _w = 0 },
+    { text = "0", color = COL_ORANGE, _w = 0 },         -- [4] PING
+    { text = " PING    ", color = COL_WHITE, _w = 0 },
+    { text = "0%", color = COL_ORANGE, _w = 0 },        -- [6] CPU%
+    { text = " CPU    ", color = COL_WHITE, _w = 0 },
+    { text = "0.0", color = COL_ORANGE, _w = 0 },       -- [8] GHZ
+    { text = " GHZ    ", color = COL_WHITE, _w = 0 },
+    { text = "0%", color = COL_ORANGE, _w = 0 },        -- [10] GPU%
+    { text = " GPU    ", color = COL_WHITE, _w = 0 },
+    { text = "0", color = COL_ORANGE, _w = 0 },         -- [12] Actors
+    { text = " Actors    ", color = COL_WHITE, _w = 0 },
+    { text = "00:00:00", color = COL_WHITE, _w = 0 }    -- [14] Time
+}
+
+function WatermarkRenderer.DrawMultiColor(segments, x, y)
     local cfg = WatermarkRenderer.DEFAULT_CONFIG
-    if customConfig then
-        cfg = setmetatable(customConfig, { __index = WatermarkRenderer.DEFAULT_CONFIG })
+    local state = WatermarkRenderer._state
+    
+    if not COL_SHADOW then
+        COL_SHADOW = ImGui.Color(0, 0, 0, cfg.shadowA)
+        COL_BG = ImGui.Color(0, 0, 0, cfg.alpha)
     end
 
-    -- 2. 计算实时文本总尺寸 (目标尺寸)
     local targetTextW = 0
-    local targetTextH = 0
-    for _, seg in ipairs(segments) do
-        local size = ImGui.CalcTextSize(seg.text)
-        seg._w = size.x 
-        targetTextW = targetTextW + size.x
-        if size.y > targetTextH then targetTextH = size.y end
+    for i=1, #segments do
+        targetTextW = targetTextW + segments[i]._w
     end
 
     local targetW = targetTextW + cfg.padX * 2
-    local targetH = targetTextH + cfg.padY * 2
+    local targetH = state.targetHeight + cfg.padY * 2
     local dt = ImGui.GetDeltaTime()
 
-    -- 3. 平滑尺寸处理 (关键点)
-    local state = WatermarkRenderer._state
-    if not state.isInitialized or state.currentWidth == 0 then
-        state.currentWidth = targetW
-        state.currentHeight = targetH
+    if not state.isInitialized then
+        state.currentWidth, state.currentHeight = targetW, targetH
         state.isInitialized = true
     else
-        -- 使用指数衰减插值，实现平滑移动
-        local lerpFactor = math.min(1.0, dt * cfg.lerpSpeed)
-        state.currentWidth = Lerp(state.currentWidth, targetW, lerpFactor)
-        state.currentHeight = Lerp(state.currentHeight, targetH, lerpFactor)
+        local lerpFactor = min(1.0, dt * cfg.lerpSpeed)
+        state.currentWidth = state.currentWidth + (targetW - state.currentWidth) * lerpFactor
+        state.currentHeight = state.currentHeight + (targetH - state.currentHeight) * lerpFactor
     end
 
-    -- 4. 布局坐标计算
-    -- 注意：由于宽度在变，为了保持右侧对齐，我们需要重新计算起始点坐标
-    local x0 = math.floor(x + (targetW - state.currentWidth))
-    local x1 = x0 + cfg.fade
-    local x2 = x1 + state.currentWidth
+    local x0 = floor(x + (targetW - state.currentWidth))
+    local x1, y1 = x0 + cfg.fade, floor(y)
+    local x2, y2 = x1 + state.currentWidth, y1 + floor(state.currentHeight)
     local x3 = x2 + cfg.fade
-    local y1 = math.floor(y)
-    local y2 = y1 + math.floor(state.currentHeight)
 
-    -- 颜色对象
-    local colT = ImGui.Color(0, 0, 0, 0)
-    local colS = ImGui.Color(0, 0, 0, cfg.alpha)
+    ImGui.AddRectFilledMultiColor(x0, y1, x1, y2, COL_TRANSPARENT, COL_BG, COL_BG, COL_TRANSPARENT)
+    ImGui.AddRectFilled(x1, y1, x2, y2, COL_BG, 0)
+    ImGui.AddRectFilledMultiColor(x2, y1, x3, y2, COL_BG, COL_TRANSPARENT, COL_TRANSPARENT, COL_BG)
 
-    -- 5. 绘制背景装饰
-    ImGui.AddRectFilledMultiColor(x0, y1, x1, y2, colT, colS, colS, colT) -- 左侧渐变
-    ImGui.AddRectFilled(x1, y1, x2, y2, colS, 0)                          -- 中间块
-    ImGui.AddRectFilledMultiColor(x2, y1, x3, y2, colS, colT, colT, colS) -- 右侧渐变
-
-    -- 6. 逐段渲染文字
-    -- 文字渲染通常紧贴实时内容，所以起点基于 x1 (背景起始点) 加上 padX
-    local currentX = x1 + cfg.padX
-    local textPosY = y1 + cfg.padY
-
-    for _, seg in ipairs(segments) do
-        local c = seg.color or cfg.defaultColor
-        local colMain = ImGui.Color(c.r, c.g, c.b, c.a or 255)
-        local colShadow = ImGui.Color(0, 0, 0, cfg.shadowA)
-
-        ImGui.AddText(currentX + 1, textPosY + 1, colShadow, seg.text)
-        ImGui.AddText(currentX, textPosY, colMain, seg.text)
-        currentX = currentX + seg._w
+    local curX = x1 + cfg.padX
+    local curY = y1 + cfg.padY
+    for i=1, #segments do
+        local seg = segments[i]
+        local txt = seg.text
+        ImGui.AddText(curX + 1, curY + 1, COL_SHADOW, txt)
+        ImGui.AddText(curX, curY, seg.color, txt)
+        curX = curX + seg._w
     end
 end
 
---- 辅助函数：计算片段组的总渲染宽度 (包含固定渐变部分)
-function WatermarkRenderer.GetSegmentsWidth(segments)
-    local w = 0
-    for _, seg in ipairs(segments) do
-        w = w + ImGui.CalcTextSize(seg.text).x
-    end
-    local cfg = WatermarkRenderer.DEFAULT_CONFIG
-    return w + (cfg.padX * 2) + (cfg.fade * 2)
-end
+local CHAR_CLASS, DINO_CLASS
 
--- 业务模块
-local function Main()
+function Main()
     local screenSize = ImGui.GetScreenSize()
     if not screenSize then return end
 
-    local pc = SDK.GetLocalPC()
-    local myPawn = PC.GetPawn(pc)
-    local ping = (pc == 0 or myPawn == 0) and 0 or Character.GetExactPing(myPawn)
-
-    -- 数据更新逻辑
-    local cpu_usage, cpu_freq = System.GetCPUStats()
-    local gpu_usage = System.GetGPUStats()
     local state = WatermarkRenderer._state
     local dt = ImGui.GetDeltaTime()
 
-    state.lastUpdateFPS = state.lastUpdateFPS + dt
-    state.lastUpdateCPU_Usage = state.lastUpdateCPU_Usage + dt
-    state.lastUpdateCPU_Freq = state.lastUpdateCPU_Freq + dt
-    state.lastUpdateGPU_Usage = state.lastUpdateGPU_Usage + dt
+    state.lastUpdateTimer = state.lastUpdateTimer + dt
+    
+    if state.lastUpdateTimer >= state.updateRate then
+        staticSegments[14].text = os_date("%H:%M:%S")
+        
+        local fps = floor(ImGui.GetFPS())
+        staticSegments[2].text = STR_POOL_INT[fps] or tostring(fps)
+        
+        local pc = SDK.GetLocalPC()
+        local myPawn = (pc ~= 0) and PC.GetPawn(pc) or 0
+        local ping = (myPawn ~= 0) and floor(Character.GetExactPing(myPawn)) or 0
+        staticSegments[4].text = STR_POOL_INT[ping] or tostring(ping)
 
-    if state.lastUpdateFPS >= state.updateRateFPS then
-        state.cachedFPS = ImGui.GetFPS()
-        state.lastUpdateFPS = 0
-    end
-    if state.lastUpdateCPU_Usage >= state.updateRateCPU_Usage then
-        state.cachedCPU_Usage = cpu_usage
-        state.lastUpdateCPU_Usage = 0
-    end
-    if state.lastUpdateCPU_Freq >= state.updateRateCPU_Freq then
-        state.cachedCPU_Freq = cpu_freq
-        state.lastUpdateCPU_Freq = 0
-    end
-    if state.lastUpdateGPU_Usage >= state.updateRateGPU_Usage then
-        state.cachedGPU_Usage = gpu_usage
-        state.lastUpdateGPU_Usage = 0
-    end
-
-    -- 统计玩家和生物数量
-    local actors = SDK.GetActors()
-    local actorCount = 0
-    local charClass = SDK.GetCharacterClass()
-    local dinoClass = SDK.GetDinoClass()
-
-    for _, addr in ipairs(actors) do
-        if Actor.IsA(addr, charClass) or Actor.IsA(addr, dinoClass) then
-            actorCount = actorCount + 1
+        local cpu_usage, cpu_freq = System.GetCPUStats()
+        local cpu_int = floor(cpu_usage)
+        staticSegments[6].text = STR_POOL_PERCENT[cpu_int] or (cpu_int .. "%")
+        staticSegments[8].text = format("%.1f", cpu_freq * 0.001)
+        
+        local gpu_int = floor(System.GetGPUStats())
+        staticSegments[10].text = STR_POOL_PERCENT[gpu_int] or (gpu_int .. "%")
+        
+        if not CHAR_CLASS then CHAR_CLASS = SDK.GetCharacterClass() end
+        if not DINO_CLASS then DINO_CLASS = SDK.GetDinoClass() end
+        local actors = SDK.GetActors()
+        local count = 0
+        for i=1, #actors do
+            local addr = actors[i]
+            if Actor.IsA(addr, CHAR_CLASS) or Actor.IsA(addr, DINO_CLASS) then
+                count = count + 1
+            end
         end
+        staticSegments[12].text = STR_POOL_INT[count] or tostring(count)
+
+        local maxH = 0
+        for i=1, #staticSegments do
+            local size = ImGui.CalcTextSize(staticSegments[i].text)
+            staticSegments[i]._w = size.x
+            if size.y > maxH then maxH = size.y end
+        end
+        state.targetHeight = maxH
+        
+        state.lastUpdateTimer = 0
     end
 
-    local dateStr = os.date("%H:%M:%S")
-
-    local colors = {
-        white  = {r = 255, g = 255, b = 255},
-        orange = {r = 255, g = 99, b = 71}
-    }
-
-    local segments = {
-        { text = "Begeerte     " },
-        { text = string.format("%.0f", state.cachedFPS), color = colors.orange },
-        { text = " FPS    " },
-        { text = string.format("%.0f", ping), color = colors.orange },
-        { text = " PING    " },
-        { text = string.format("%.0f%%", state.cachedCPU_Usage), color = colors.orange },
-        { text = " CPU    " },
-        { text = string.format("%.1f", state.cachedCPU_Freq / 1000), color = colors.orange },
-        { text = " GHZ    " },
-        { text = string.format("%.0f%%", state.cachedGPU_Usage), color = colors.orange },
-        { text = " GPU    " },
-        { text = string.format("%d", actorCount), color = colors.orange },
-        { text = " Actors    " },
-        { text = dateStr }
-    }
-
-    -- 布局计算
-    -- 注意：drawX 是目标文本应该在的位置，DrawMultiColor 内部会处理背景的平滑尺寸
-    local totalW = WatermarkRenderer.GetSegmentsWidth(segments)
-    local margin = 5
-    local drawX = screenSize.x - totalW - margin
-    local drawY = margin
-
-    -- 最终渲染
-    WatermarkRenderer.DrawMultiColor(segments, drawX, drawY)
+    local cfg = WatermarkRenderer.DEFAULT_CONFIG
+    local totalW = state.currentWidth + (cfg.fade * 2)
+    WatermarkRenderer.DrawMultiColor(staticSegments, screenSize.x - totalW - 5, 5)
 end
 
--- 渲染回调入口
 function OnPaint()
     Main()
 end

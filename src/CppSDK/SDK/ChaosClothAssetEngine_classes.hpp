@@ -21,25 +21,25 @@ namespace SDK
 {
 
 // Class ChaosClothAssetEngine.ChaosClothComponent
-// 0x00D0 (0x0AA0 - 0x09D0)
+// 0x00D0 (0x0AB0 - 0x09E0)
 class UChaosClothComponent final : public USkinnedMeshComponent
 {
 public:
-	uint8                                         Pad_9D0[0x8];                                      // 0x09D0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FDataflowSimulationAsset               SimulationAsset;                                   // 0x09D8(0x0058)(Edit, AdvancedDisplay, NativeAccessSpecifierPrivate)
-	uint8                                         bUseAttachedParentAsPoseComponent : 1;             // 0x0A30(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
-	uint8                                         bWaitForParallelTask : 1;                          // 0x0A30(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
-	uint8                                         bEnableSimulation : 1;                             // 0x0A30(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, BlueprintVisible, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
-	uint8                                         bSuspendSimulation : 1;                            // 0x0A30(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, BlueprintVisible, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
-	uint8                                         bBindToLeaderComponent : 1;                        // 0x0A30(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
-	uint8                                         bTeleport : 1;                                     // 0x0A30(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Edit, BlueprintVisible, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
-	uint8                                         bReset : 1;                                        // 0x0A30(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Edit, BlueprintVisible, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
-	uint8                                         Pad_A31[0x3];                                      // 0x0A31(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         BlendWeight;                                       // 0x0A34(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         ClothGeometryScale;                                // 0x0A38(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_A3C[0x4];                                      // 0x0A3C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UChaosClothAssetInteractor*             ClothOutfitInteractor;                             // 0x0A40(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	uint8                                         Pad_A48[0x58];                                     // 0x0A48(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_9E0[0x8];                                      // 0x09E0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FDataflowSimulationAsset               SimulationAsset;                                   // 0x09E8(0x0058)(Edit, AdvancedDisplay, NativeAccessSpecifierPrivate)
+	uint8                                         bUseAttachedParentAsPoseComponent : 1;             // 0x0A40(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
+	uint8                                         bWaitForParallelTask : 1;                          // 0x0A40(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
+	uint8                                         bEnableSimulation : 1;                             // 0x0A40(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, BlueprintVisible, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
+	uint8                                         bSuspendSimulation : 1;                            // 0x0A40(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, BlueprintVisible, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
+	uint8                                         bBindToLeaderComponent : 1;                        // 0x0A40(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
+	uint8                                         bTeleport : 1;                                     // 0x0A40(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Edit, BlueprintVisible, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
+	uint8                                         bReset : 1;                                        // 0x0A40(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Edit, BlueprintVisible, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
+	uint8                                         Pad_A41[0x3];                                      // 0x0A41(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         BlendWeight;                                       // 0x0A44(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         ClothGeometryScale;                                // 0x0A48(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_A4C[0x4];                                      // 0x0A4C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UChaosClothAssetInteractor*             ClothOutfitInteractor;                             // 0x0A50(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	uint8                                         Pad_A58[0x58];                                     // 0x0A58(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void AddCollisionSource(class USkinnedMeshComponent* SourceComponent, const class UPhysicsAsset* SourcePhysicsAsset, bool bUseSphylsOnly);

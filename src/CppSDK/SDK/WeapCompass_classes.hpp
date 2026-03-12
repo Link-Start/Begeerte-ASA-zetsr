@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass WeapCompass.WeapCompass_C
-// 0x0000 (0x1408 - 0x1408)
+// 0x0000 (0x1410 - 0x1410)
 class AWeapCompass_C final : public AWeapGPS_C
 {
 public:

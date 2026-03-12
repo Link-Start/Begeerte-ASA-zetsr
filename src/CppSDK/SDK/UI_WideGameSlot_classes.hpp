@@ -21,7 +21,7 @@ namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass UI_WideGameSlot.UI_WideGameSlot_C
-// 0x0668 (0x0EA0 - 0x0838)
+// 0x0738 (0x0F70 - 0x0838)
 class UUI_WideGameSlot_C final : public UCFCoreUIWidget_C
 {
 public:
@@ -47,18 +47,18 @@ public:
 	class UUI_StoreMenu_C*                        StoreMenuRef;                                      // 0x08D8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, InstancedReference, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
 	TMulticastInlineDelegate<void()>              OnDisableClicked;                                  // 0x08E0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	TArray<EGameModsEvent>                        evts;                                              // 0x08F0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	struct FInstallProgressMod                    ModInfo;                                           // 0x0900(0x0538)(Edit, BlueprintVisible, ContainsInstancedReference, ExposeOnSpawn)
-	class FString                                 ImageUrl;                                          // 0x0E38(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
-	bool                                          DebugScreenshotDownloading;                        // 0x0E48(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_E49[0x7];                                      // 0x0E49(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UUI_ModPage_C*                          AssociatedModPage;                                 // 0x0E50(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	TMulticastInlineDelegate<void(const struct FInstallProgressMod& ModInfo)> OnClicked;             // 0x0E58(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	bool                                          Initialized;                                       // 0x0E68(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	EInstallStatus                                Installation_Status;                               // 0x0E69(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_E6A[0x6];                                      // 0x0E6A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(const struct FInstallProgressMod& ModInfo)> OnHovered;             // 0x0E70(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	TMulticastInlineDelegate<void(const struct FInstallProgressMod& ModInfo)> OnUnhovered;           // 0x0E80(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	TMulticastInlineDelegate<void(const struct FInstallProgressMod& ModInfo)> OnCheckBoxToggle;      // 0x0E90(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	struct FInstallProgressMod                    ModInfo;                                           // 0x0900(0x0608)(Edit, BlueprintVisible, ContainsInstancedReference, ExposeOnSpawn)
+	class FString                                 ImageUrl;                                          // 0x0F08(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
+	bool                                          DebugScreenshotDownloading;                        // 0x0F18(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_F19[0x7];                                      // 0x0F19(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UUI_ModPage_C*                          AssociatedModPage;                                 // 0x0F20(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	TMulticastInlineDelegate<void(const struct FInstallProgressMod& ModInfo)> OnClicked;             // 0x0F28(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	bool                                          Initialized;                                       // 0x0F38(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	EInstallStatus                                Installation_Status;                               // 0x0F39(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_F3A[0x6];                                      // 0x0F3A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(const struct FInstallProgressMod& ModInfo)> OnHovered;             // 0x0F40(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	TMulticastInlineDelegate<void(const struct FInstallProgressMod& ModInfo)> OnUnhovered;           // 0x0F50(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	TMulticastInlineDelegate<void(const struct FInstallProgressMod& ModInfo)> OnCheckBoxToggle;      // 0x0F60(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 
 public:
 	void ApplyThemeSettingsToAll();

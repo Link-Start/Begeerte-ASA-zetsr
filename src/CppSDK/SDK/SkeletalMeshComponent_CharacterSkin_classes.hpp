@@ -17,16 +17,16 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass SkeletalMeshComponent_CharacterSkin.SkeletalMeshComponent_CharacterSkin_C
-// 0x0020 (0x1410 - 0x13F0)
+// 0x0020 (0x1430 - 0x1410)
 class USkeletalMeshComponent_CharacterSkin_C final : public USkeletalMeshComponentWithSoftRef
 {
 public:
-	class UClass*                                 BoneModiferContainer;                              // 0x13F0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	bool                                          bOverrideBoneModifers;                             // 0x13F8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_13F9[0x7];                                     // 0x13F9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UClass*                                 ExtraBoneModifierContainer;                        // 0x1400(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	bool                                          bOverrideBoneModifers_UsingPlayerProportions;      // 0x1408(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          LocalShouldIgnorePlayerProportions;                // 0x1409(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class UClass*                                 BoneModiferContainer;                              // 0x1410(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	bool                                          bOverrideBoneModifers;                             // 0x1418(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_1419[0x7];                                     // 0x1419(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UClass*                                 ExtraBoneModifierContainer;                        // 0x1420(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	bool                                          bOverrideBoneModifers_UsingPlayerProportions;      // 0x1428(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          LocalShouldIgnorePlayerProportions;                // 0x1429(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void AddedAsPrimalItemAttachment();

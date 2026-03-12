@@ -143,6 +143,8 @@ namespace g_DrawESP {
                     continue;
                 }
 
+                float dist = (LocalPC->Pawn && TargetActor) ? LocalPC->Pawn->GetDistanceTo(TargetActor) * 0.01f : 0.0f;
+
                 SDK::APlayerState* TargetPS = TargetChar->PlayerState;
 
                 bool isDead = TargetChar->IsDead();
@@ -205,10 +207,7 @@ namespace g_DrawESP {
                     }
 
                     if (entry.shouldDrawDistance) {
-                        float dist = 0.0f;
-                        if (LocalPC->Pawn && TargetActor) {
-                            dist = LocalPC->Pawn->GetDistanceTo(TargetActor) / 100.0f;
-                        }
+                        float dist = (LocalPC->Pawn && TargetActor) ? LocalPC->Pawn->GetDistanceTo(TargetActor) * 0.01f : 0.0f;
                         entry.flags.push_back({ std::to_string((int)dist) + "m", g_Util::ToImColor(200, 200, 200, 255), g_ESP::FlagPos::Right });
                     }
 
@@ -333,10 +332,7 @@ namespace g_DrawESP {
                 }
 
                 if (bDrawDistance) {
-                    float dist = 0.0f;
-                    if (LocalPC->Pawn && TargetActor) {
-                        dist = LocalPC->Pawn->GetDistanceTo(TargetActor) / 100.0f;
-                    }
+                    float dist = (LocalPC->Pawn && TargetActor) ? LocalPC->Pawn->GetDistanceTo(TargetActor) * 0.01f : 0.0f;
                     entry.flags.push_back({ std::to_string((int)dist) + "m", g_Util::GetU32Color(DistanceColor), g_ESP::FlagPos::Right });
                 }
 
@@ -352,10 +348,7 @@ namespace g_DrawESP {
                             entry.targetAlpha = entry.configBoxAlpha;
                             entry.flags.clear();
                             if (bDrawName && !entry.name.empty()) entry.flags.push_back({ entry.name, entry.nameColor, g_ESP::FlagPos::Right });
-                            float dist = 0.0f;
-                            if (LocalPC->Pawn && TargetActor) {
-                                dist = LocalPC->Pawn->GetDistanceTo(TargetActor) / 100.0f;
-                            }
+                            float dist = (LocalPC->Pawn && TargetActor) ? LocalPC->Pawn->GetDistanceTo(TargetActor) * 0.01f : 0.0f;
                             if (bDrawDistance) entry.flags.push_back({ std::to_string((int)(dist)) + "m", g_Util::GetU32Color(DistanceColor), g_ESP::FlagPos::Right });
                         }
                         else {
@@ -375,10 +368,7 @@ namespace g_DrawESP {
                 TargetActor->GetActorBounds(false, &Origin, &Extend, false);
 
                 SDK::FVector WaterSurfaceLocation = { Origin.X, Origin.Y, Origin.Z + Extend.Z };
-                float dist = 0.0f;
-                if (LocalPC->Pawn && TargetActor) {
-                    dist = LocalPC->Pawn->GetDistanceTo(TargetActor) / 100.0f;
-                }
+                float dist = (LocalPC->Pawn && TargetActor) ? LocalPC->Pawn->GetDistanceTo(TargetActor) * 0.01f : 0.0f;
 
                 entry.targetAlpha = 0.0f;
                 entry.aliveThisFrame = false;
@@ -406,10 +396,7 @@ namespace g_DrawESP {
                     continue;
                 }
 
-                float dist = 0.0f;
-                if (LocalPC->Pawn && TargetActor) {
-                    dist = LocalPC->Pawn->GetDistanceTo(TargetActor) / 100.0f;
-                }
+                float dist = (LocalPC->Pawn && TargetActor) ? LocalPC->Pawn->GetDistanceTo(TargetActor) * 0.01f : 0.0f;
                 if (dist > g_Config::DroppedItemMaxDistance) {
                     entry.targetAlpha = 0.0f;
                     entry.aliveThisFrame = false;
@@ -631,10 +618,7 @@ namespace g_DrawESP {
                     }
                 }
 
-                float dist = 0.0f;
-                if (LocalPC->Pawn && TargetActor) {
-                    dist = LocalPC->Pawn->GetDistanceTo(TargetActor) / 100.0f;
-                }
+                float dist = (LocalPC->Pawn && TargetActor) ? LocalPC->Pawn->GetDistanceTo(TargetActor) * 0.01f : 0.0f;
 
                 if (dist > g_Config::StructureMaxDistance) {
                     entry.targetAlpha = 0.0f;

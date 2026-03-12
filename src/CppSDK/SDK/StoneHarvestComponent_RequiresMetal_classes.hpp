@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass StoneHarvestComponent_RequiresMetal.StoneHarvestComponent_RequiresMetal_C
-// 0x0000 (0x0228 - 0x0228)
+// 0x0000 (0x0230 - 0x0230)
 class UStoneHarvestComponent_RequiresMetal_C : public UStoneHarvestComponent_C
 {
 public:

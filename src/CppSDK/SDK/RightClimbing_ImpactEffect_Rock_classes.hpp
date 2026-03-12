@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass RightClimbing_ImpactEffect_Rock.RightClimbing_ImpactEffect_Rock_C
-// 0x0000 (0x04D0 - 0x04D0)
+// 0x0000 (0x04D8 - 0x04D8)
 class ARightClimbing_ImpactEffect_Rock_C final : public AClimbing_ImpactEffect_C
 {
 public:

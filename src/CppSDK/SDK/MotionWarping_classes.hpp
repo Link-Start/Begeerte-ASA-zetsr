@@ -99,16 +99,16 @@ public:
 DUMPER7_ASSERTS_UAnimNotifyState_MotionWarping;
 
 // Class MotionWarping.AttributeBasedRootMotionComponent
-// 0x00E8 (0x01A0 - 0x00B8)
+// 0x00F0 (0x01B0 - 0x00C0)
 class UAttributeBasedRootMotionComponent final : public UActorComponent
 {
 public:
-	bool                                          bEnableRootMotion;                                 // 0x00B8(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_B9[0x3];                                       // 0x00B9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	EAttributeBasedRootMotionMode                 Mode;                                              // 0x00BC(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C0[0x30];                                      // 0x00C0(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
-	TWeakObjectPtr<class ACharacter>              CharacterOwner;                                    // 0x00F0(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_F8[0xA8];                                      // 0x00F8(0x00A8)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bEnableRootMotion;                                 // 0x00C0(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C1[0x3];                                       // 0x00C1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	EAttributeBasedRootMotionMode                 Mode;                                              // 0x00C4(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C8[0x38];                                      // 0x00C8(0x0038)(Fixing Size After Last Property [ Dumper-7 ])
+	TWeakObjectPtr<class ACharacter>              CharacterOwner;                                    // 0x0100(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_108[0xA8];                                     // 0x0108(0x00A8)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -152,16 +152,16 @@ public:
 DUMPER7_ASSERTS_UMotionWarpingUtilities;
 
 // Class MotionWarping.MotionWarpingComponent
-// 0x0040 (0x00F8 - 0x00B8)
+// 0x0040 (0x0100 - 0x00C0)
 class UMotionWarpingComponent final : public UActorComponent
 {
 public:
-	bool                                          bSearchForWindowsInAnimsWithinMontages;            // 0x00B8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_B9[0x7];                                       // 0x00B9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(class UMotionWarpingComponent* MotionWarpingComp)> OnPreUpdate;    // 0x00C0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	class UMotionWarpingBaseAdapter*              OwnerAdapter;                                      // 0x00D0(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	TArray<class URootMotionModifier*>            Modifiers;                                         // 0x00D8(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	TArray<struct FMotionWarpingTarget>           WarpTargets;                                       // 0x00E8(0x0010)(Net, ZeroConstructor, Transient, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	bool                                          bSearchForWindowsInAnimsWithinMontages;            // 0x00C0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C1[0x7];                                       // 0x00C1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(class UMotionWarpingComponent* MotionWarpingComp)> OnPreUpdate;    // 0x00C8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	class UMotionWarpingBaseAdapter*              OwnerAdapter;                                      // 0x00D8(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	TArray<class URootMotionModifier*>            Modifiers;                                         // 0x00E0(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	TArray<struct FMotionWarpingTarget>           WarpTargets;                                       // 0x00F0(0x0010)(Net, ZeroConstructor, Transient, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
 
 public:
 	void AddOrUpdateWarpTarget(const struct FMotionWarpingTarget& WarpTarget);

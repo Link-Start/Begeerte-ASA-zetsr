@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass WoodHarvestComponent.WoodHarvestComponent_C
-// 0x0000 (0x0228 - 0x0228)
+// 0x0000 (0x0230 - 0x0230)
 class UWoodHarvestComponent_C final : public UAttackHarvestComponent_Base_C
 {
 public:

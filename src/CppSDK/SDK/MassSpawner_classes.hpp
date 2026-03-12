@@ -164,22 +164,22 @@ public:
 DUMPER7_ASSERTS_UMassEntityZoneGraphSpawnPointsGenerator;
 
 // Class MassSpawner.MassSpawner
-// 0x00A8 (0x0528 - 0x0480)
+// 0x00A8 (0x0530 - 0x0488)
 class AMassSpawner final : public AActor
 {
 public:
-	TMulticastInlineDelegate<void()>              OnSpawningFinishedEvent;                           // 0x0480(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnDespawningFinishedEvent;                         // 0x0490(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	int32                                         Count;                                             // 0x04A0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_4A4[0x4];                                      // 0x04A4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FMassSpawnedEntityType>         EntityTypes;                                       // 0x04A8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	TArray<struct FMassSpawnDataGenerator>        SpawnDataGenerators;                               // 0x04B8(0x0010)(Edit, ZeroConstructor, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	uint8                                         bAutoSpawnOnBeginPlay : 1;                         // 0x04C8(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
-	uint8                                         bOverrideSchematics : 1;                           // 0x04C8(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
-	uint8                                         Pad_4C9[0x7];                                      // 0x04C9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UMassProcessor*>                 PostSpawnProcessors;                               // 0x04D0(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	float                                         SpawningCountScale;                                // 0x04E0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_4E4[0x44];                                     // 0x04E4(0x0044)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void()>              OnSpawningFinishedEvent;                           // 0x0488(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              OnDespawningFinishedEvent;                         // 0x0498(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	int32                                         Count;                                             // 0x04A8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_4AC[0x4];                                      // 0x04AC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FMassSpawnedEntityType>         EntityTypes;                                       // 0x04B0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+	TArray<struct FMassSpawnDataGenerator>        SpawnDataGenerators;                               // 0x04C0(0x0010)(Edit, ZeroConstructor, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	uint8                                         bAutoSpawnOnBeginPlay : 1;                         // 0x04D0(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
+	uint8                                         bOverrideSchematics : 1;                           // 0x04D0(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected))
+	uint8                                         Pad_4D1[0x7];                                      // 0x04D1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class UMassProcessor*>                 PostSpawnProcessors;                               // 0x04D8(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	float                                         SpawningCountScale;                                // 0x04E8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_4EC[0x44];                                     // 0x04EC(0x0044)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void ClearTemplates();

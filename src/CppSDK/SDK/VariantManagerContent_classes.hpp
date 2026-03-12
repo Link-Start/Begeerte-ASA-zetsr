@@ -50,12 +50,12 @@ public:
 DUMPER7_ASSERTS_ULevelVariantSets;
 
 // Class VariantManagerContent.LevelVariantSetsActor
-// 0x0070 (0x04F0 - 0x0480)
+// 0x0070 (0x04F8 - 0x0488)
 class ALevelVariantSetsActor final : public AActor
 {
 public:
-	struct FSoftObjectPath                        LevelVariantSets;                                  // 0x0480(0x0020)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TMap<TSubclassOf<class UObject>, class ULevelVariantSetsFunctionDirector*> DirectorInstances;    // 0x04A0(0x0050)(Transient, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	struct FSoftObjectPath                        LevelVariantSets;                                  // 0x0488(0x0020)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TMap<TSubclassOf<class UObject>, class ULevelVariantSetsFunctionDirector*> DirectorInstances;    // 0x04A8(0x0050)(Transient, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
 
 public:
 	class ULevelVariantSets* GetLevelVariantSets(bool bLoad);
@@ -264,14 +264,14 @@ public:
 DUMPER7_ASSERTS_UPropertyValueSoftObject;
 
 // Class VariantManagerContent.SwitchActor
-// 0x0028 (0x04A8 - 0x0480)
+// 0x0028 (0x04B0 - 0x0488)
 class ASwitchActor final : public AActor
 {
 public:
-	uint8                                         Pad_480[0x18];                                     // 0x0480(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	class USceneComponent*                        SceneComponent;                                    // 0x0498(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	int32                                         LastSelectedOption;                                // 0x04A0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_4A4[0x4];                                      // 0x04A4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_488[0x18];                                     // 0x0488(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	class USceneComponent*                        SceneComponent;                                    // 0x04A0(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	int32                                         LastSelectedOption;                                // 0x04A8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_4AC[0x4];                                      // 0x04AC(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void SelectOption(int32 OptionIndex);

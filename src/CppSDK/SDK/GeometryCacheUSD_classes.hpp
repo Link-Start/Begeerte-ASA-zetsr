@@ -40,7 +40,7 @@ public:
 DUMPER7_ASSERTS_UGeometryCacheTrackUsd;
 
 // Class GeometryCacheUSD.GeometryCacheUsdComponent
-// 0x0000 (0x06C0 - 0x06C0)
+// 0x0000 (0x06D0 - 0x06D0)
 class UGeometryCacheUsdComponent final : public UGeometryCacheComponent
 {
 public:

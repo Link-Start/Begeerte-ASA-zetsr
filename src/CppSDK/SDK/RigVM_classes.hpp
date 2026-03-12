@@ -10,10 +10,10 @@
 
 #include "Basic.hpp"
 
+#include "RigVM_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "Engine_classes.hpp"
-#include "RigVM_structs.hpp"
 #include "DeveloperSettings_classes.hpp"
 
 
@@ -214,7 +214,7 @@ DUMPER7_ASSERTS_URigVMMemoryStorageGeneratorClass;
 
 // Class RigVM.RigVMMemoryStorage
 // 0x0000 (0x0028 - 0x0028)
-class URigVMMemoryStorage : public UObject
+class URigVMMemoryStorage final : public UObject
 {
 public:
 	static class UClass* StaticClass()

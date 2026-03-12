@@ -20,7 +20,7 @@ namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass UI_ShowcaseSlot.UI_ShowcaseSlot_C
-// 0x0620 (0x0E58 - 0x0838)
+// 0x06F0 (0x0F28 - 0x0838)
 class UUI_ShowcaseSlot_C final : public UCFCoreUIWidget_C
 {
 public:
@@ -35,11 +35,11 @@ public:
 	bool                                          IsCurrent;                                         // 0x0878(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_879[0x7];                                      // 0x0879(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	class UUI_Discovery_C*                        Discovery;                                         // 0x0880(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	struct FInstallProgressMod                    ShowcaseModInfo;                                   // 0x0888(0x0538)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
-	TMulticastInlineDelegate<void()>              ReadyToStart;                                      // 0x0DC0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	struct FCarouselItem                          CarouselItem;                                      // 0x0DD0(0x0078)(Edit, BlueprintVisible, DisableEditOnInstance)
-	class UTexture2DDynamic*                      IMG_MainImage;                                     // 0x0E48(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	class UTexture2DDynamic*                      IMG_Thumbnail;                                     // 0x0E50(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	struct FInstallProgressMod                    ShowcaseModInfo;                                   // 0x0888(0x0608)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
+	TMulticastInlineDelegate<void()>              ReadyToStart;                                      // 0x0E90(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	struct FCarouselItem                          CarouselItem;                                      // 0x0EA0(0x0078)(Edit, BlueprintVisible, DisableEditOnInstance)
+	class UTexture2DDynamic*                      IMG_MainImage;                                     // 0x0F18(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	class UTexture2DDynamic*                      IMG_Thumbnail;                                     // 0x0F20(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void BndEvt__UI_ShowcaseSlot_Button_GoToModPage_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature();

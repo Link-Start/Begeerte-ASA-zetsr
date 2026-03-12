@@ -21,23 +21,23 @@ namespace SDK
 {
 
 // Class MRMesh.MockDataMeshTrackerComponent
-// 0x0070 (0x02D0 - 0x0260)
+// 0x0070 (0x02E0 - 0x0270)
 class UMockDataMeshTrackerComponent final : public USceneComponent
 {
 public:
-	TMulticastInlineDelegate<void(int32 Index, const TArray<struct FVector>& Vertices, const TArray<int32>& Triangles, const TArray<struct FVector>& Normals, const TArray<float>& Confidence)> OnMeshTrackerUpdated; // 0x0258(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	bool                                          ScanWorld;                                         // 0x0268(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          RequestNormals;                                    // 0x0269(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          RequestVertexConfidence;                           // 0x026A(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EMeshTrackerVertexColorMode                   VertexColorMode;                                   // 0x026B(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_26C[0x4];                                      // 0x026C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FColor>                         BlockVertexColors;                                 // 0x0270(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	struct FLinearColor                           VertexColorFromConfidenceZero;                     // 0x0280(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FLinearColor                           VertexColorFromConfidenceOne;                      // 0x0290(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         UpdateInterval;                                    // 0x02A0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2A4[0x4];                                      // 0x02A4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMRMeshComponent*                       MRMesh;                                            // 0x02A8(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_2B0[0x20];                                     // 0x02B0(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(int32 Index, const TArray<struct FVector>& Vertices, const TArray<int32>& Triangles, const TArray<struct FVector>& Normals, const TArray<float>& Confidence)> OnMeshTrackerUpdated; // 0x0268(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	bool                                          ScanWorld;                                         // 0x0278(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          RequestNormals;                                    // 0x0279(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          RequestVertexConfidence;                           // 0x027A(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EMeshTrackerVertexColorMode                   VertexColorMode;                                   // 0x027B(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_27C[0x4];                                      // 0x027C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FColor>                         BlockVertexColors;                                 // 0x0280(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	struct FLinearColor                           VertexColorFromConfidenceZero;                     // 0x0290(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FLinearColor                           VertexColorFromConfidenceOne;                      // 0x02A0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         UpdateInterval;                                    // 0x02B0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2B4[0x4];                                      // 0x02B4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMRMeshComponent*                       MRMesh;                                            // 0x02B8(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	uint8                                         Pad_2C0[0x20];                                     // 0x02C0(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void ConnectMRMesh(class UMRMeshComponent* InMRMeshPtr);
@@ -86,20 +86,20 @@ public:
 DUMPER7_ASSERTS_UMRMeshBodyHolder;
 
 // Class MRMesh.MRMeshComponent
-// 0x0080 (0x0680 - 0x0600)
+// 0x0080 (0x0690 - 0x0610)
 class UMRMeshComponent final : public UPrimitiveComponent
 {
 public:
-	uint8                                         Pad_5F8[0x8];                                      // 0x05F8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMaterialInterface*                     Material;                                          // 0x0600(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	class UMaterialInterface*                     WireframeMaterial;                                 // 0x0608(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	bool                                          bCreateMeshProxySections;                          // 0x0610(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bUpdateNavMeshOnMeshUpdate;                        // 0x0611(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_612[0x1];                                      // 0x0612(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bNeverCreateCollisionMesh;                         // 0x0613(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_614[0x44];                                     // 0x0614(0x0044)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UMRMeshBodyHolder*>              BodyHolders;                                       // 0x0658(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	uint8                                         Pad_668[0x18];                                     // 0x0668(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_608[0x8];                                      // 0x0608(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMaterialInterface*                     Material;                                          // 0x0610(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class UMaterialInterface*                     WireframeMaterial;                                 // 0x0618(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	bool                                          bCreateMeshProxySections;                          // 0x0620(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bUpdateNavMeshOnMeshUpdate;                        // 0x0621(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_622[0x1];                                      // 0x0622(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bNeverCreateCollisionMesh;                         // 0x0623(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_624[0x44];                                     // 0x0624(0x0044)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class UMRMeshBodyHolder*>              BodyHolders;                                       // 0x0668(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	uint8                                         Pad_678[0x18];                                     // 0x0678(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void Clear();

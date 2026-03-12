@@ -31,10 +31,10 @@ extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg
 // Main namespace for all globals
 namespace g_MDX12 {
     // Fonts
-    extern ImFont* g_Alibaba_PuHuiTi_Regular;
-    extern ImFont* g_Alibaba_PuHuiTi_Bold;
-    extern ImFont* g_Alibaba_PuHuiTi_Heavy;
-    extern ImFont* g_Alibaba_PuHuiTi_Light;
+    // extern ImFont* g_Alibaba_PuHuiTi_Regular;
+    // extern ImFont* g_Alibaba_PuHuiTi_Bold;
+    // extern ImFont* g_Alibaba_PuHuiTi_Heavy;
+    // extern ImFont* g_Alibaba_PuHuiTi_Light;
     extern ImFont* g_Alibaba_PuHuiTi_Medium;
 
     // Hook function pointer types

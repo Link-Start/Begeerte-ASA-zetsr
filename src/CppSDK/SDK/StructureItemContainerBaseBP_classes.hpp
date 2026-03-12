@@ -17,11 +17,11 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass StructureItemContainerBaseBP.StructureItemContainerBaseBP_C
-// 0x0008 (0x11E8 - 0x11E0)
+// 0x0008 (0x11F0 - 0x11E8)
 class AStructureItemContainerBaseBP_C : public APrimalStructureItemContainer
 {
 public:
-	class USphereComponent*                       StasisComponent;                                   // 0x11E0(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class USphereComponent*                       StasisComponent;                                   // 0x11E8(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void BPOnTransferAll(class UPrimalInventoryComponent* ToInventory);

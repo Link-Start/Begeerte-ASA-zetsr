@@ -1456,6 +1456,34 @@ void USentryHint::Initialize()
 }
 
 
+// Function Sentry.SentryLibrary.ByteArrayToString
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const TArray<uint8>&                    Array                                                  (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class FString USentryLibrary::ByteArrayToString(const TArray<uint8>& Array)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("SentryLibrary", "ByteArrayToString");
+
+	Params::SentryLibrary_ByteArrayToString Parms{};
+
+	Parms.Array = std::move(Array);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function Sentry.SentryLibrary.CreateSentryAttachmentWithData
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
@@ -1674,6 +1702,64 @@ class USentryUser* USentryLibrary::CreateSentryUser(const class FString& email, 
 	Parms.Username = std::move(Username);
 	Parms.IpAddress = std::move(IpAddress);
 	Parms.Data = std::move(Data);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Sentry.SentryLibrary.SaveStringToFile
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// const class FString&                    InString                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class FString&                    Filename                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class FString USentryLibrary::SaveStringToFile(const class FString& InString, const class FString& Filename)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("SentryLibrary", "SaveStringToFile");
+
+	Params::SentryLibrary_SaveStringToFile Parms{};
+
+	Parms.InString = std::move(InString);
+	Parms.Filename = std::move(Filename);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Sentry.SentryLibrary.StringToBytesArray
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// const class FString&                    InString                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TArray<uint8>                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+
+TArray<uint8> USentryLibrary::StringToBytesArray(const class FString& InString)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("SentryLibrary", "StringToBytesArray");
+
+	Params::SentryLibrary_StringToBytesArray Parms{};
+
+	Parms.InString = std::move(InString);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

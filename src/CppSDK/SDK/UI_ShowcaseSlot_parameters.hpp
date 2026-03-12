@@ -19,17 +19,17 @@ namespace SDK::Params
 {
 
 // Function UI_ShowcaseSlot.UI_ShowcaseSlot_C.ConstructModShowcase
-// 0x05B0 (0x05B0 - 0x0000)
+// 0x0680 (0x0680 - 0x0000)
 struct UI_ShowcaseSlot_C_ConstructModShowcase final
 {
 public:
 	struct FCarouselItem                          InfoCarouseItem;                                   // 0x0000(0x0078)(BlueprintVisible, BlueprintReadOnly, Parm)
-	struct FInstallProgressMod                    ShowcaseModInfo_0;                                 // 0x0078(0x0538)(BlueprintVisible, BlueprintReadOnly, Parm, ContainsInstancedReference)
+	struct FInstallProgressMod                    ShowcaseModInfo_0;                                 // 0x0078(0x0608)(BlueprintVisible, BlueprintReadOnly, Parm, ContainsInstancedReference)
 };
 DUMPER7_ASSERTS_UI_ShowcaseSlot_C_ConstructModShowcase;
 
 // Function UI_ShowcaseSlot.UI_ShowcaseSlot_C.ExecuteUbergraph_UI_ShowcaseSlot
-// 0x0800 (0x0800 - 0x0000)
+// 0x08D0 (0x08D0 - 0x0000)
 struct UI_ShowcaseSlot_C_ExecuteUbergraph_UI_ShowcaseSlot final
 {
 public:
@@ -71,26 +71,26 @@ public:
 	bool                                          CallFunc_GetIsEnabled_ReturnValue;                 // 0x01D0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_1D1[0x7];                                      // 0x01D1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FCarouselItem                          K2Node_CustomEvent_InfoCarouseItem;                // 0x01D8(0x0078)()
-	struct FInstallProgressMod                    K2Node_CustomEvent_ShowcaseModInfo;                // 0x0250(0x0538)(ContainsInstancedReference)
-	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0788(0x0010)()
-	class UAsyncTaskDownloadImage*                CallFunc_DownloadImage_ReturnValue;                // 0x0798(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_NotEqual_StrStr_ReturnValue;              // 0x07A0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_IsValid_ReturnValue_7;                    // 0x07A1(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_IsValid_ReturnValue_8;                    // 0x07A2(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_7A3[0x5];                                      // 0x07A3(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAsyncTaskDownloadImage*                CallFunc_DownloadImage_ReturnValue_1;              // 0x07A8(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_NotEqual_StrStr_ReturnValue_1;            // 0x07B0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_IsValid_ReturnValue_9;                    // 0x07B1(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_7B2[0x6];                                      // 0x07B2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class FText                                   CallFunc_MakeLiteralText_ReturnValue;              // 0x07B8(0x0010)()
-	bool                                          CallFunc_EqualEqual_TextText_ReturnValue;          // 0x07C8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_7C9[0x7];                                      // 0x07C9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UPanelSlot*                             CallFunc_AddChild_ReturnValue;                     // 0x07D0(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	class UPanelSlot*                             CallFunc_AddChild_ReturnValue_1;                   // 0x07D8(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	bool                                          K2Node_Event_IsDesignTime;                         // 0x07E0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_7E1[0x7];                                      // 0x07E1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        CallFunc_Add_DoubleDouble_A_ImplicitCast;          // 0x07E8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	float                                         CallFunc_SetPercent_InPercent_ImplicitCast;        // 0x07F0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FInstallProgressMod                    K2Node_CustomEvent_ShowcaseModInfo;                // 0x0250(0x0608)(ContainsInstancedReference)
+	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0858(0x0010)()
+	class UAsyncTaskDownloadImage*                CallFunc_DownloadImage_ReturnValue;                // 0x0868(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_NotEqual_StrStr_ReturnValue;              // 0x0870(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValid_ReturnValue_7;                    // 0x0871(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValid_ReturnValue_8;                    // 0x0872(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_873[0x5];                                      // 0x0873(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	class UAsyncTaskDownloadImage*                CallFunc_DownloadImage_ReturnValue_1;              // 0x0878(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_NotEqual_StrStr_ReturnValue_1;            // 0x0880(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValid_ReturnValue_9;                    // 0x0881(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_882[0x6];                                      // 0x0882(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	class FText                                   CallFunc_MakeLiteralText_ReturnValue;              // 0x0888(0x0010)()
+	bool                                          CallFunc_EqualEqual_TextText_ReturnValue;          // 0x0898(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_899[0x7];                                      // 0x0899(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UPanelSlot*                             CallFunc_AddChild_ReturnValue;                     // 0x08A0(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class UPanelSlot*                             CallFunc_AddChild_ReturnValue_1;                   // 0x08A8(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	bool                                          K2Node_Event_IsDesignTime;                         // 0x08B0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_8B1[0x7];                                      // 0x08B1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        CallFunc_Add_DoubleDouble_A_ImplicitCast;          // 0x08B8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	float                                         CallFunc_SetPercent_InPercent_ImplicitCast;        // 0x08C0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_UI_ShowcaseSlot_C_ExecuteUbergraph_UI_ShowcaseSlot;
 

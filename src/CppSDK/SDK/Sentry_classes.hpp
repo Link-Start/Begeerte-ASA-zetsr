@@ -274,6 +274,7 @@ DUMPER7_ASSERTS_USentryHint;
 class USentryLibrary final : public UBlueprintFunctionLibrary
 {
 public:
+	static class FString ByteArrayToString(const TArray<uint8>& Array);
 	static class USentryAttachment* CreateSentryAttachmentWithData(const TArray<uint8>& Data, const class FString& Filename, const class FString& ContentType);
 	static class USentryAttachment* CreateSentryAttachmentWithPath(const class FString& Path, const class FString& Filename, const class FString& ContentType);
 	static class USentryBreadcrumb* CreateSentryBreadcrumb(const class FString& Message, const class FString& Type, const class FString& Category, const TMap<class FString, struct FSentryVariant>& Data, ESentryLevel Level);
@@ -281,6 +282,8 @@ public:
 	static class USentryFeedback* CreateSentryFeedback(const class FString& Message, const class FString& Name_0, const class FString& email, const class FString& EventId);
 	static class USentryTransactionContext* CreateSentryTransactionContext(const class FString& Name_0, const class FString& Operation);
 	static class USentryUser* CreateSentryUser(const class FString& email, const class FString& ID, const class FString& Username, const class FString& IpAddress, const TMap<class FString, class FString>& Data);
+	static class FString SaveStringToFile(const class FString& InString, const class FString& Filename);
+	static TArray<uint8> StringToBytesArray(const class FString& InString);
 
 public:
 	static class UClass* StaticClass()

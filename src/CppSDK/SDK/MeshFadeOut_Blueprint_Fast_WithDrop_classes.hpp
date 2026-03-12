@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass MeshFadeOut_Blueprint_Fast_WithDrop.MeshFadeOut_Blueprint_Fast_WithDrop_C
-// 0x0000 (0x0510 - 0x0510)
+// 0x0000 (0x0518 - 0x0518)
 class AMeshFadeOut_Blueprint_Fast_WithDrop_C final : public AMeshFadeOut_Blueprint_WithDrop_C
 {
 public:

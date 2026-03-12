@@ -10,15 +10,15 @@
 
 #include "Basic.hpp"
 
-#include "cfcore_structs.hpp"
 #include "cfcore_ui_structs.hpp"
+#include "cfcore_structs.hpp"
 
 
 namespace SDK::Params
 {
 
 // Function UI_BrowseMods.UI_BrowseMods_C.ExecuteUbergraph_UI_BrowseMods
-// 0x0088 (0x0088 - 0x0000)
+// 0x0098 (0x0098 - 0x0000)
 struct UI_BrowseMods_C_ExecuteUbergraph_UI_BrowseMods final
 {
 public:
@@ -27,13 +27,13 @@ public:
 	class ABP_CFCorePluginManager_C*              CallFunc_GetPluginManager_Output;                  // 0x0008(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	int32                                         CallFunc_CalculateModsPerPage_Mods;                // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FCFCoreSearchModsFilter                CallFunc_FilterModInfo_ReturnValue;                // 0x0018(0x0048)()
-	int32                                         CallFunc_Int32_SubOne_ReturnValue;                 // 0x0060(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Multiply_IntInt_ReturnValue;              // 0x0064(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FCFCoreApiRequestPagination            CallFunc_MakeApiRequestPagination_ReturnValue;     // 0x0068(0x0008)(NoDestructor)
-	class UCFCoreUISubsystem*                     CallFunc_GetGameInstanceSubsystem_ReturnValue;     // 0x0070(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UCFCoreUISubsystem*                     CallFunc_GetGameInstanceSubsystem_ReturnValue_1;   // 0x0078(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_SubscribeViewToEvents_ReturnValue;        // 0x0080(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FCFCoreSearchModsFilter                CallFunc_FilterModInfo_ReturnValue;                // 0x0018(0x0058)()
+	int32                                         CallFunc_Int32_SubOne_ReturnValue;                 // 0x0070(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Multiply_IntInt_ReturnValue;              // 0x0074(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FCFCoreApiRequestPagination            CallFunc_MakeApiRequestPagination_ReturnValue;     // 0x0078(0x0008)(NoDestructor)
+	class UCFCoreUISubsystem*                     CallFunc_GetGameInstanceSubsystem_ReturnValue;     // 0x0080(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UCFCoreUISubsystem*                     CallFunc_GetGameInstanceSubsystem_ReturnValue_1;   // 0x0088(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_SubscribeViewToEvents_ReturnValue;        // 0x0090(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_UI_BrowseMods_C_ExecuteUbergraph_UI_BrowseMods;
 

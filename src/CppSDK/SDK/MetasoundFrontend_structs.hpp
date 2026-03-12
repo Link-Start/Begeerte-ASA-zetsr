@@ -91,6 +91,22 @@ enum class EMetasoundFrontendLiteralType : uint8
 	EMetasoundFrontendLiteralType_MAX        = 13,
 };
 
+// ScriptStruct MetasoundFrontend.MetasoundFrontendLiteral
+// 0x0058 (0x0058 - 0x0000)
+struct FMetasoundFrontendLiteral final
+{
+public:
+	EMetasoundFrontendLiteralType                 Type;                                              // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         AsNumDefault;                                      // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	TArray<bool>                                  AsBoolean;                                         // 0x0008(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<int32>                                 AsInteger;                                         // 0x0018(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<float>                                 AsFloat;                                           // 0x0028(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<class FString>                         AsString;                                          // 0x0038(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<class UObject*>                        AsUObject;                                         // 0x0048(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FMetasoundFrontendLiteral;
+
 // ScriptStruct MetasoundFrontend.NodeTemplateGenerateInterfaceParams
 // 0x0020 (0x0020 - 0x0000)
 struct FNodeTemplateGenerateInterfaceParams final
@@ -110,6 +126,18 @@ public:
 };
 DUMPER7_ASSERTS_FMetaSoundFrontendGraphComment;
 
+// ScriptStruct MetasoundFrontend.MetasoundFrontendEdge
+// 0x0040 (0x0040 - 0x0000)
+struct FMetasoundFrontendEdge final
+{
+public:
+	struct FGuid                                  FromNodeID;                                        // 0x0000(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGuid                                  FromVertexID;                                      // 0x0010(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGuid                                  ToNodeID;                                          // 0x0020(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGuid                                  ToVertexID;                                        // 0x0030(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FMetasoundFrontendEdge;
+
 // ScriptStruct MetasoundFrontend.MetasoundFrontendVersionNumber
 // 0x0008 (0x0008 - 0x0000)
 struct FMetasoundFrontendVersionNumber final
@@ -119,6 +147,15 @@ public:
 	int32                                         Minor;                                             // 0x0004(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FMetasoundFrontendVersionNumber;
+
+// ScriptStruct MetasoundFrontend.MetasoundFrontendClassStyleDisplay
+// 0x0001 (0x0001 - 0x0000)
+struct FMetasoundFrontendClassStyleDisplay final
+{
+public:
+	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FMetasoundFrontendClassStyleDisplay;
 
 // ScriptStruct MetasoundFrontend.MetasoundFrontendVersion
 // 0x0010 (0x0010 - 0x0000)
@@ -151,22 +188,6 @@ public:
 };
 DUMPER7_ASSERTS_FMetasoundFrontendVertexHandle;
 
-// ScriptStruct MetasoundFrontend.MetasoundFrontendLiteral
-// 0x0058 (0x0058 - 0x0000)
-struct FMetasoundFrontendLiteral final
-{
-public:
-	EMetasoundFrontendLiteralType                 Type;                                              // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         AsNumDefault;                                      // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	TArray<bool>                                  AsBoolean;                                         // 0x0008(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
-	TArray<int32>                                 AsInteger;                                         // 0x0018(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
-	TArray<float>                                 AsFloat;                                           // 0x0028(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
-	TArray<class FString>                         AsString;                                          // 0x0038(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
-	TArray<class UObject*>                        AsUObject;                                         // 0x0048(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FMetasoundFrontendLiteral;
-
 // ScriptStruct MetasoundFrontend.MetasoundFrontendVertexLiteral
 // 0x0068 (0x0068 - 0x0000)
 struct FMetasoundFrontendVertexLiteral final
@@ -176,23 +197,6 @@ public:
 	struct FMetasoundFrontendLiteral              Value;                                             // 0x0010(0x0058)(Edit, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FMetasoundFrontendVertexLiteral;
-
-// ScriptStruct MetasoundFrontend.MetasoundFrontendClassVertex
-// 0x0014 (0x0034 - 0x0020)
-struct FMetasoundFrontendClassVertex : public FMetasoundFrontendVertex
-{
-public:
-	struct FGuid                                  NodeID;                                            // 0x0020(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EMetasoundFrontendVertexAccessType            AccessType;                                        // 0x0030(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FMetasoundFrontendClassVertex;
-
-// ScriptStruct MetasoundFrontend.MetasoundFrontendClassOutput
-// 0x0000 (0x0034 - 0x0034)
-struct FMetasoundFrontendClassOutput final : public FMetasoundFrontendClassVertex
-{
-};
-DUMPER7_ASSERTS_FMetasoundFrontendClassOutput;
 
 // ScriptStruct MetasoundFrontend.MetasoundFrontendVariable
 // 0x00B8 (0x00B8 - 0x0000)
@@ -230,16 +234,6 @@ public:
 };
 DUMPER7_ASSERTS_FMetasoundFrontendNodeStyleDisplay;
 
-// ScriptStruct MetasoundFrontend.MetasoundFrontendInterfaceVertexBinding
-// 0x0010 (0x0010 - 0x0000)
-struct FMetasoundFrontendInterfaceVertexBinding final
-{
-public:
-	class FName                                   OutputName;                                        // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   InputName;                                         // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FMetasoundFrontendInterfaceVertexBinding;
-
 // ScriptStruct MetasoundFrontend.MetasoundFrontendNodeStyle
 // 0x0001 (0x0001 - 0x0000)
 struct FMetasoundFrontendNodeStyle final
@@ -262,18 +256,6 @@ public:
 };
 DUMPER7_ASSERTS_FMetasoundFrontendNode;
 
-// ScriptStruct MetasoundFrontend.MetasoundFrontendEdge
-// 0x0040 (0x0040 - 0x0000)
-struct FMetasoundFrontendEdge final
-{
-public:
-	struct FGuid                                  FromNodeID;                                        // 0x0000(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGuid                                  FromVertexID;                                      // 0x0010(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGuid                                  ToNodeID;                                          // 0x0020(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGuid                                  ToVertexID;                                        // 0x0030(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FMetasoundFrontendEdge;
-
 // ScriptStruct MetasoundFrontend.MetasoundFrontendEdgeStyleLiteralColorPair
 // 0x0068 (0x0068 - 0x0000)
 struct FMetasoundFrontendEdgeStyleLiteralColorPair final
@@ -283,17 +265,6 @@ public:
 	struct FLinearColor                           Color;                                             // 0x0058(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FMetasoundFrontendEdgeStyleLiteralColorPair;
-
-// ScriptStruct MetasoundFrontend.MetasoundFrontendClassName
-// 0x0018 (0x0018 - 0x0000)
-struct FMetasoundFrontendClassName final
-{
-public:
-	class FName                                   NameSpace;                                         // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   Name;                                              // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   Variant;                                           // 0x0010(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FMetasoundFrontendClassName;
 
 // ScriptStruct MetasoundFrontend.MetasoundFrontendEdgeStyle
 // 0x0028 (0x0028 - 0x0000)
@@ -327,19 +298,6 @@ public:
 };
 DUMPER7_ASSERTS_FMetasoundFrontendGraph;
 
-// ScriptStruct MetasoundFrontend.MetasoundFrontendInterfaceBinding
-// 0x0038 (0x0038 - 0x0000)
-struct FMetasoundFrontendInterfaceBinding final
-{
-public:
-	struct FMetasoundFrontendVersion              OutputInterfaceVersion;                            // 0x0000(0x0010)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FMetasoundFrontendVersion              InputInterfaceVersion;                             // 0x0010(0x0010)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         BindingPriority;                                   // 0x0020(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FMetasoundFrontendInterfaceVertexBinding> VertexBindings;                          // 0x0028(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FMetasoundFrontendInterfaceBinding;
-
 // ScriptStruct MetasoundFrontend.MetasoundFrontendVertexMetadata
 // 0x0001 (0x0001 - 0x0000)
 struct FMetasoundFrontendVertexMetadata final
@@ -349,25 +307,15 @@ public:
 };
 DUMPER7_ASSERTS_FMetasoundFrontendVertexMetadata;
 
-// ScriptStruct MetasoundFrontend.MetasoundFrontendGraphClassPresetOptions
-// 0x0058 (0x0058 - 0x0000)
-struct FMetasoundFrontendGraphClassPresetOptions final
+// ScriptStruct MetasoundFrontend.MetasoundFrontendClassVertex
+// 0x0014 (0x0034 - 0x0020)
+struct FMetasoundFrontendClassVertex : public FMetasoundFrontendVertex
 {
 public:
-	bool                                          bIsPreset;                                         // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TSet<class FName>                             InputsInheritingDefault;                           // 0x0008(0x0050)(NativeAccessSpecifierPublic)
+	struct FGuid                                  NodeID;                                            // 0x0020(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EMetasoundFrontendVertexAccessType            AccessType;                                        // 0x0030(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FMetasoundFrontendGraphClassPresetOptions;
-
-// ScriptStruct MetasoundFrontend.MetasoundFrontendClassStyleDisplay
-// 0x0001 (0x0001 - 0x0000)
-struct FMetasoundFrontendClassStyleDisplay final
-{
-public:
-	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FMetasoundFrontendClassStyleDisplay;
+DUMPER7_ASSERTS_FMetasoundFrontendClassVertex;
 
 // ScriptStruct MetasoundFrontend.MetasoundFrontendClassInputDefault
 // 0x0068 (0x0068 - 0x0000)
@@ -398,6 +346,13 @@ public:
 	struct FMetasoundFrontendLiteral              DefaultLiteral;                                    // 0x0038(0x0058)(Edit, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FMetasoundFrontendClassVariable;
+
+// ScriptStruct MetasoundFrontend.MetasoundFrontendClassOutput
+// 0x0000 (0x0034 - 0x0034)
+struct FMetasoundFrontendClassOutput final : public FMetasoundFrontendClassVertex
+{
+};
+DUMPER7_ASSERTS_FMetasoundFrontendClassOutput;
 
 // ScriptStruct MetasoundFrontend.MetasoundFrontendClassEnvironmentVariable
 // 0x0014 (0x0014 - 0x0000)
@@ -432,6 +387,29 @@ public:
 };
 DUMPER7_ASSERTS_FMetasoundFrontendClassInterface;
 
+// ScriptStruct MetasoundFrontend.MetasoundFrontendInterfaceVertexBinding
+// 0x0010 (0x0010 - 0x0000)
+struct FMetasoundFrontendInterfaceVertexBinding final
+{
+public:
+	class FName                                   OutputName;                                        // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   InputName;                                         // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FMetasoundFrontendInterfaceVertexBinding;
+
+// ScriptStruct MetasoundFrontend.MetasoundFrontendInterfaceBinding
+// 0x0038 (0x0038 - 0x0000)
+struct FMetasoundFrontendInterfaceBinding final
+{
+public:
+	struct FMetasoundFrontendVersion              OutputInterfaceVersion;                            // 0x0000(0x0010)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FMetasoundFrontendVersion              InputInterfaceVersion;                             // 0x0010(0x0010)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         BindingPriority;                                   // 0x0020(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FMetasoundFrontendInterfaceVertexBinding> VertexBindings;                          // 0x0028(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FMetasoundFrontendInterfaceBinding;
+
 // ScriptStruct MetasoundFrontend.MetasoundFrontendInterfaceUClassOptions
 // 0x0014 (0x0014 - 0x0000)
 struct FMetasoundFrontendInterfaceUClassOptions final
@@ -453,6 +431,17 @@ public:
 	TArray<struct FMetasoundFrontendInterfaceUClassOptions> UClassOptions;                           // 0x0050(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FMetasoundFrontendInterface;
+
+// ScriptStruct MetasoundFrontend.MetasoundFrontendClassName
+// 0x0018 (0x0018 - 0x0000)
+struct FMetasoundFrontendClassName final
+{
+public:
+	class FName                                   NameSpace;                                         // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   Name;                                              // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   Variant;                                           // 0x0010(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FMetasoundFrontendClassName;
 
 // ScriptStruct MetasoundFrontend.MetasoundFrontendClassMetadata
 // 0x0034 (0x0034 - 0x0000)
@@ -490,6 +479,17 @@ public:
 	struct FMetasoundFrontendClassInterface       Interface;                                         // 0x0050(0x0040)(Edit, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FMetasoundFrontendClass;
+
+// ScriptStruct MetasoundFrontend.MetasoundFrontendGraphClassPresetOptions
+// 0x0058 (0x0058 - 0x0000)
+struct FMetasoundFrontendGraphClassPresetOptions final
+{
+public:
+	bool                                          bIsPreset;                                         // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TSet<class FName>                             InputsInheritingDefault;                           // 0x0008(0x0050)(NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FMetasoundFrontendGraphClassPresetOptions;
 
 // ScriptStruct MetasoundFrontend.MetasoundFrontendGraphClass
 // 0x0068 (0x00F8 - 0x0090)

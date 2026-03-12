@@ -69,13 +69,13 @@ public:
 DUMPER7_ASSERTS_UResonanceAudioBlueprintFunctionLibrary;
 
 // Class ResonanceAudio.ResonanceAudioDirectivityVisualizer
-// 0x0080 (0x0500 - 0x0480)
+// 0x0080 (0x0508 - 0x0488)
 class AResonanceAudioDirectivityVisualizer final : public AActor
 {
 public:
-	uint8                                         Pad_480[0x70];                                     // 0x0480(0x0070)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMaterial*                              Material;                                          // 0x04F0(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	class UResonanceAudioSpatializationSourceSettings* Settings;                                     // 0x04F8(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	uint8                                         Pad_488[0x70];                                     // 0x0488(0x0070)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMaterial*                              Material;                                          // 0x04F8(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class UResonanceAudioSpatializationSourceSettings* Settings;                                     // 0x0500(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()

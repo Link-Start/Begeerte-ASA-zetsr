@@ -296,15 +296,14 @@ public:
 };
 DUMPER7_ASSERTS_FWeightmapData;
 
-// ScriptStruct Landscape.PhysicalMaterialInput
-// 0x0030 (0x0030 - 0x0000)
-struct FPhysicalMaterialInput final
+// ScriptStruct Landscape.GizmoSelectData
+// 0x0050 (0x0050 - 0x0000)
+struct alignas(0x08) FGizmoSelectData final
 {
 public:
-	class UPhysicalMaterial*                      PhysicalMaterial;                                  // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	struct FExpressionInput                       Input;                                             // 0x0008(0x0028)(NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_0[0x50];                                       // 0x0000(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FPhysicalMaterialInput;
+DUMPER7_ASSERTS_FGizmoSelectData;
 
 // ScriptStruct Landscape.LandscapePerLODMaterialOverride
 // 0x0010 (0x0010 - 0x0000)
@@ -393,15 +392,6 @@ public:
 	struct FWeightmapData                         WeightmapData;                                     // 0x0008(0x0030)(NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FLandscapeLayerComponentData;
-
-// ScriptStruct Landscape.GizmoSelectData
-// 0x0050 (0x0050 - 0x0000)
-struct alignas(0x08) FGizmoSelectData final
-{
-public:
-	uint8                                         Pad_0[0x50];                                       // 0x0000(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FGizmoSelectData;
 
 // ScriptStruct Landscape.GrassVariety
 // 0x0230 (0x0230 - 0x0000)
@@ -661,6 +651,16 @@ public:
 	uint8                                         Pad_9[0x2F];                                       // 0x0009(0x002F)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FLandscapeTexture2DMipMap;
+
+// ScriptStruct Landscape.PhysicalMaterialInput
+// 0x0030 (0x0030 - 0x0000)
+struct FPhysicalMaterialInput final
+{
+public:
+	class UPhysicalMaterial*                      PhysicalMaterial;                                  // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	struct FExpressionInput                       Input;                                             // 0x0008(0x0028)(NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FPhysicalMaterialInput;
 
 }
 

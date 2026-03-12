@@ -14,9 +14,9 @@
 #include "CoreUObject_classes.hpp"
 #include "MovieScene_structs.hpp"
 #include "MovieScene_classes.hpp"
-#include "CinematicCamera_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
+#include "CinematicCamera_structs.hpp"
 #include "TemplateSequence_structs.hpp"
 
 
@@ -343,16 +343,16 @@ public:
 DUMPER7_ASSERTS_UTemplateSequencePropertyScalingEvaluatorSystem;
 
 // Class TemplateSequence.TemplateSequenceActor
-// 0x0068 (0x04E8 - 0x0480)
+// 0x0068 (0x04F0 - 0x0488)
 class ATemplateSequenceActor final : public AActor
 {
 public:
-	uint8                                         Pad_480[0x8];                                      // 0x0480(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FMovieSceneSequencePlaybackSettings    PlaybackSettings;                                  // 0x0488(0x0028)(Edit, BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
-	class UTemplateSequencePlayer*                SequencePlayer;                                    // 0x04B0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, Net, ZeroConstructor, Transient, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	struct FSoftObjectPath                        TemplateSequence;                                  // 0x04B8(0x0020)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FTemplateSequenceBindingOverrideData   BindingOverride;                                   // 0x04D8(0x000C)(BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4E4[0x4];                                      // 0x04E4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_488[0x8];                                      // 0x0488(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FMovieSceneSequencePlaybackSettings    PlaybackSettings;                                  // 0x0490(0x0028)(Edit, BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
+	class UTemplateSequencePlayer*                SequencePlayer;                                    // 0x04B8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, Net, ZeroConstructor, Transient, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	struct FSoftObjectPath                        TemplateSequence;                                  // 0x04C0(0x0020)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FTemplateSequenceBindingOverrideData   BindingOverride;                                   // 0x04E0(0x000C)(BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4EC[0x4];                                      // 0x04EC(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void SetBinding(class AActor* Actor, bool bOverridesDefault);

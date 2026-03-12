@@ -517,6 +517,16 @@ public:
 };
 DUMPER7_ASSERTS_SentryHint_AddAttachment;
 
+// Function Sentry.SentryLibrary.ByteArrayToString
+// 0x0020 (0x0020 - 0x0000)
+struct SentryLibrary_ByteArrayToString final
+{
+public:
+	TArray<uint8>                                 Array;                                             // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+	class FString                                 ReturnValue;                                       // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SentryLibrary_ByteArrayToString;
+
 // Function Sentry.SentryLibrary.CreateSentryAttachmentWithData
 // 0x0038 (0x0038 - 0x0000)
 struct SentryLibrary_CreateSentryAttachmentWithData final
@@ -605,6 +615,27 @@ public:
 	class USentryUser*                            ReturnValue;                                       // 0x0090(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_SentryLibrary_CreateSentryUser;
+
+// Function Sentry.SentryLibrary.SaveStringToFile
+// 0x0030 (0x0030 - 0x0000)
+struct SentryLibrary_SaveStringToFile final
+{
+public:
+	class FString                                 InString;                                          // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Filename;                                          // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 ReturnValue;                                       // 0x0020(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SentryLibrary_SaveStringToFile;
+
+// Function Sentry.SentryLibrary.StringToBytesArray
+// 0x0020 (0x0020 - 0x0000)
+struct SentryLibrary_StringToBytesArray final
+{
+public:
+	class FString                                 InString;                                          // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<uint8>                                 ReturnValue;                                       // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SentryLibrary_StringToBytesArray;
 
 // Function Sentry.SentryLog.SetBody
 // 0x0010 (0x0010 - 0x0000)

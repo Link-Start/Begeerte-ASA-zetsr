@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass Drill_HarvestImpactEmitter_Wood.Drill_HarvestImpactEmitter_Wood_C
-// 0x0000 (0x05A0 - 0x05A0)
+// 0x0000 (0x05A8 - 0x05A8)
 class ADrill_HarvestImpactEmitter_Wood_C final : public APrimalEmitterSpawnable
 {
 public:

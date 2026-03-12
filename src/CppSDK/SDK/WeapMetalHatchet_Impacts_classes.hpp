@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass WeapMetalHatchet_Impacts.WeapMetalHatchet_Impacts_C
-// 0x0000 (0x08A0 - 0x08A0)
+// 0x0000 (0x08A8 - 0x08A8)
 class AWeapMetalHatchet_Impacts_C final : public AMeleeFist_Impacts_C
 {
 public:

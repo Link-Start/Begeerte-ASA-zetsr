@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass LeftClimbing_ImpactEffect_Metal.LeftClimbing_ImpactEffect_Metal_C
-// 0x0000 (0x04D0 - 0x04D0)
+// 0x0000 (0x04D8 - 0x04D8)
 class ALeftClimbing_ImpactEffect_Metal_C final : public AClimbing_ImpactEffect_C
 {
 public:

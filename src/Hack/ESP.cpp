@@ -40,7 +40,7 @@ namespace g_ESP {
             drawList->AddRectFilled(ImVec2(barBgTop.x - 1, barBgTop.y - 1), ImVec2(barBgBottom.x + 1, barBgBottom.y + 1), g_Util::ToImColor(0, 0, 0, a * 0.7f));
 
             ImVec4 col = ImGui::ColorConvertU32ToFloat4(color);
-            col.w = a / 255.0f;
+            col.w = a * g_Util::inv255;
             ImU32 barColor = ImGui::ColorConvertFloat4ToU32(col);
 
             if (currentValue > 0) {
@@ -61,7 +61,7 @@ namespace g_ESP {
             drawList->AddRectFilled(ImVec2(barBgTop.x - 1, barBgTop.y - 1), ImVec2(barBgBottom.x + 1, barBgBottom.y + 1), g_Util::ToImColor(0, 0, 0, a * 0.7f));
 
             ImVec4 col = ImGui::ColorConvertU32ToFloat4(color);
-            col.w = a / 255.0f;
+            col.w = a * g_Util::inv255;
             ImU32 barColor = ImGui::ColorConvertFloat4ToU32(col);
 
             if (currentValue > 0) {
@@ -82,7 +82,7 @@ namespace g_ESP {
             drawList->AddRectFilled(ImVec2(barBgLeft.x - 1, barBgLeft.y - 1), ImVec2(barBgRight.x + 1, barBgRight.y + 1), g_Util::ToImColor(0, 0, 0, a * 0.7f));
 
             ImVec4 col = ImGui::ColorConvertU32ToFloat4(color);
-            col.w = a / 255.0f;
+            col.w = a * g_Util::inv255;
             ImU32 barColor = ImGui::ColorConvertFloat4ToU32(col);
 
             if (currentValue > 0) {
@@ -103,7 +103,7 @@ namespace g_ESP {
             drawList->AddRectFilled(ImVec2(barBgLeft.x - 1, barBgLeft.y - 1), ImVec2(barBgRight.x + 1, barBgRight.y + 1), g_Util::ToImColor(0, 0, 0, a * 0.7f));
 
             ImVec4 col = ImGui::ColorConvertU32ToFloat4(color);
-            col.w = a / 255.0f;
+            col.w = a * g_Util::inv255;
             ImU32 barColor = ImGui::ColorConvertFloat4ToU32(col);
 
             if (currentValue > 0) {

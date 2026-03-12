@@ -1552,7 +1552,7 @@ DUMPER7_ASSERTS_FMovieSceneObjectBindingID;
 struct FMovieSceneObjectBindingIDs final
 {
 public:
-	TArray<struct FMovieSceneObjectBindingID>     Ids;                                               // 0x0000(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FMovieSceneObjectBindingID>     ids;                                               // 0x0000(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FMovieSceneObjectBindingIDs;
 

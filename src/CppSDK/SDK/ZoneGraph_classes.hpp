@@ -19,18 +19,18 @@ namespace SDK
 {
 
 // Class ZoneGraph.ZoneGraphData
-// 0x0130 (0x05B0 - 0x0480)
+// 0x0130 (0x05B8 - 0x0488)
 class AZoneGraphData final : public AActor
 {
 public:
-	uint8                                         Pad_480[0x1];                                      // 0x0480(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bEnableDrawing;                                    // 0x0481(0x0001)(Edit, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_482[0x6];                                      // 0x0482(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class UZoneGraphRenderingComponent*           RenderingComp;                                     // 0x0488(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, DuplicateTransient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	struct FZoneGraphStorage                      ZoneStorage;                                       // 0x0490(0x00F0)(Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_580[0x28];                                     // 0x0580(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
-	uint32                                        CombinedShapeHash;                                 // 0x05A8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_5AC[0x4];                                      // 0x05AC(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_488[0x1];                                      // 0x0488(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bEnableDrawing;                                    // 0x0489(0x0001)(Edit, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_48A[0x6];                                      // 0x048A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	class UZoneGraphRenderingComponent*           RenderingComp;                                     // 0x0490(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, DuplicateTransient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	struct FZoneGraphStorage                      ZoneStorage;                                       // 0x0498(0x00F0)(Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_588[0x28];                                     // 0x0588(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
+	uint32                                        CombinedShapeHash;                                 // 0x05B0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_5B4[0x4];                                      // 0x05B4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -49,11 +49,11 @@ public:
 DUMPER7_ASSERTS_AZoneGraphData;
 
 // Class ZoneGraph.ZoneGraphRenderingComponent
-// 0x0010 (0x0610 - 0x0600)
+// 0x0010 (0x0620 - 0x0610)
 class UZoneGraphRenderingComponent final : public UPrimitiveComponent
 {
 public:
-	uint8                                         Pad_5F8[0x18];                                     // 0x05F8(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_608[0x18];                                     // 0x0608(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -126,11 +126,11 @@ public:
 DUMPER7_ASSERTS_UZoneGraphSubsystem;
 
 // Class ZoneGraph.ZoneShape
-// 0x0008 (0x0488 - 0x0480)
+// 0x0008 (0x0490 - 0x0488)
 class AZoneShape final : public AActor
 {
 public:
-	class UZoneShapeComponent*                    ShapeComponent;                                    // 0x0480(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UZoneShapeComponent*                    ShapeComponent;                                    // 0x0488(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()
@@ -149,21 +149,21 @@ public:
 DUMPER7_ASSERTS_AZoneShape;
 
 // Class ZoneGraph.ZoneShapeComponent
-// 0x0060 (0x0660 - 0x0600)
+// 0x0060 (0x0670 - 0x0610)
 class UZoneShapeComponent final : public UPrimitiveComponent
 {
 public:
-	struct FZoneLaneProfileRef                    LaneProfile;                                       // 0x05F8(0x0018)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPrivate)
-	bool                                          bReverseLaneProfile;                               // 0x0610(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_611[0x7];                                      // 0x0611(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FZoneLaneProfileRef>            PerPointLaneProfiles;                              // 0x0618(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPrivate)
-	TArray<struct FZoneShapePoint>                Points;                                            // 0x0628(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPrivate)
-	EFZoneShapeType                               ShapeType;                                         // 0x0638(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	EZoneShapePolygonRoutingType                  PolygonRoutingType;                                // 0x0639(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_63A[0x2];                                      // 0x063A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FZoneGraphTagMask                      Tags;                                              // 0x063C(0x0004)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	TArray<struct FZoneShapeConnector>            ShapeConnectors;                                   // 0x0640(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPrivate)
-	TArray<struct FZoneShapeConnection>           ConnectedShapes;                                   // 0x0650(0x0010)(ZeroConstructor, Transient, ContainsInstancedReference, NativeAccessSpecifierPrivate)
+	struct FZoneLaneProfileRef                    LaneProfile;                                       // 0x0608(0x0018)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPrivate)
+	bool                                          bReverseLaneProfile;                               // 0x0620(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_621[0x7];                                      // 0x0621(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FZoneLaneProfileRef>            PerPointLaneProfiles;                              // 0x0628(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPrivate)
+	TArray<struct FZoneShapePoint>                Points;                                            // 0x0638(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPrivate)
+	EFZoneShapeType                               ShapeType;                                         // 0x0648(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	EZoneShapePolygonRoutingType                  PolygonRoutingType;                                // 0x0649(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_64A[0x2];                                      // 0x064A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FZoneGraphTagMask                      Tags;                                              // 0x064C(0x0004)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	TArray<struct FZoneShapeConnector>            ShapeConnectors;                                   // 0x0650(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPrivate)
+	TArray<struct FZoneShapeConnection>           ConnectedShapes;                                   // 0x0660(0x0010)(ZeroConstructor, Transient, ContainsInstancedReference, NativeAccessSpecifierPrivate)
 
 public:
 	void SetPolygonRoutingType(const EZoneShapePolygonRoutingType NewType);

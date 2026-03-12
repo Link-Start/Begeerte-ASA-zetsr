@@ -72,7 +72,7 @@ public:
 DUMPER7_ASSERTS_BP_ServerModsLoading_C_BPHighlightWidgetOnStart;
 
 // Function BP_ServerModsLoading.BP_ServerModsLoading_C.CalculateTatalModsSize
-// 0x06A8 (0x06A8 - 0x0000)
+// 0x0778 (0x0778 - 0x0000)
 struct BP_ServerModsLoading_C_CalculateTatalModsSize final
 {
 public:
@@ -80,24 +80,24 @@ public:
 	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	int32                                         Temp_int_Array_Index_Variable;                     // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FInstallProgressMod                    CallFunc_Array_Get_Item;                           // 0x0010(0x0538)(ContainsInstancedReference)
-	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0548(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FCFCoreFileSize                        CallFunc_Get_Mod_Size_SizeStruct;                  // 0x054C(0x000C)(NoDestructor)
-	class FText                                   CallFunc_Get_Mod_Size_SizeInText;                  // 0x0558(0x0010)()
-	int64                                         CallFunc_Get_Mod_Size_bytes;                       // 0x0568(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0570(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_571[0x3];                                      // 0x0571(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         Temp_int_Array_Index_Variable_1;                   // 0x0574(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Array_Length_ReturnValue_1;               // 0x0578(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_57C[0x4];                                      // 0x057C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FFile                                  CallFunc_Array_Get_Item_1;                         // 0x0580(0x0108)()
-	bool                                          CallFunc_EqualEqual_Int64Int64_ReturnValue;        // 0x0688(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_689[0x7];                                      // 0x0689(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	int64                                         CallFunc_Add_Int64Int64_ReturnValue;               // 0x0690(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         Temp_int_Loop_Counter_Variable_1;                  // 0x0698(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_IntInt_ReturnValue_1;                // 0x069C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_69D[0x3];                                      // 0x069D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         CallFunc_Add_IntInt_ReturnValue_1;                 // 0x06A0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FInstallProgressMod                    CallFunc_Array_Get_Item;                           // 0x0010(0x0608)(ContainsInstancedReference)
+	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0618(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FCFCoreFileSize                        CallFunc_Get_Mod_Size_SizeStruct;                  // 0x061C(0x000C)(NoDestructor)
+	class FText                                   CallFunc_Get_Mod_Size_SizeInText;                  // 0x0628(0x0010)()
+	int64                                         CallFunc_Get_Mod_Size_bytes;                       // 0x0638(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0640(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_641[0x3];                                      // 0x0641(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         Temp_int_Array_Index_Variable_1;                   // 0x0644(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Array_Length_ReturnValue_1;               // 0x0648(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_64C[0x4];                                      // 0x064C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FFile                                  CallFunc_Array_Get_Item_1;                         // 0x0650(0x0108)()
+	bool                                          CallFunc_EqualEqual_Int64Int64_ReturnValue;        // 0x0758(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_759[0x7];                                      // 0x0759(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	int64                                         CallFunc_Add_Int64Int64_ReturnValue;               // 0x0760(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         Temp_int_Loop_Counter_Variable_1;                  // 0x0768(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_IntInt_ReturnValue_1;                // 0x076C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_76D[0x3];                                      // 0x076D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CallFunc_Add_IntInt_ReturnValue_1;                 // 0x0770(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_BP_ServerModsLoading_C_CalculateTatalModsSize;
 
@@ -137,7 +137,7 @@ public:
 DUMPER7_ASSERTS_BP_ServerModsLoading_C_DownloadAllModsByFileIDs;
 
 // Function BP_ServerModsLoading.BP_ServerModsLoading_C.ExecuteUbergraph_BP_ServerModsLoading
-// 0x0630 (0x0630 - 0x0000)
+// 0x0700 (0x0700 - 0x0000)
 struct BP_ServerModsLoading_C_ExecuteUbergraph_BP_ServerModsLoading final
 {
 public:
@@ -147,20 +147,20 @@ public:
 	TDelegate<void(const struct FCFCoreError& Error)> K2Node_CreateDelegate_OutputDelegate;          // 0x0010(0x0010)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	TDelegate<void(const struct FKey& Key, EViewState State)> K2Node_CreateDelegate_OutputDelegate_1; // 0x0020(0x0010)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	struct FCFCoreError                           K2Node_CustomEvent_error;                          // 0x0030(0x0038)(ConstParm)
-	struct FInstallProgressMod                    CallFunc_Array_Get_Item;                           // 0x0068(0x0538)(ContainsInstancedReference)
-	TDelegate<void()>                             K2Node_CreateDelegate_OutputDelegate_2;            // 0x05A0(0x0010)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	struct FKey                                   K2Node_CustomEvent_Key;                            // 0x05B0(0x0018)(HasGetValueTypeHash)
-	EViewState                                    K2Node_CustomEvent_State;                          // 0x05C8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_EqualEqual_ByteByte_ReturnValue;          // 0x05C9(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_EqualEqual_KeyKey_ReturnValue;            // 0x05CA(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_5CB[0x5];                                      // 0x05CB(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	class UCFCoreSubsystem*                       CallFunc_GetEngineSubsystem_ReturnValue_1;         // 0x05D0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_BPGetGlobalUIData_bIsPsOrXbUi;            // 0x05D8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_5D9[0x7];                                      // 0x05D9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UPrimalGlobalUIData*                    CallFunc_BPGetGlobalUIData_ReturnValue;            // 0x05E0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UTexture2D*                             CallFunc_GetIconForKeyName_ReturnValue;            // 0x05E8(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	struct FGeometry                              K2Node_Event_MyGeometry;                           // 0x05F0(0x0038)(IsPlainOldData, NoDestructor)
-	float                                         K2Node_Event_InDeltaTime;                          // 0x0628(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FInstallProgressMod                    CallFunc_Array_Get_Item;                           // 0x0068(0x0608)(ContainsInstancedReference)
+	TDelegate<void()>                             K2Node_CreateDelegate_OutputDelegate_2;            // 0x0670(0x0010)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	struct FKey                                   K2Node_CustomEvent_Key;                            // 0x0680(0x0018)(HasGetValueTypeHash)
+	EViewState                                    K2Node_CustomEvent_State;                          // 0x0698(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_EqualEqual_ByteByte_ReturnValue;          // 0x0699(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_EqualEqual_KeyKey_ReturnValue;            // 0x069A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_69B[0x5];                                      // 0x069B(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	class UCFCoreSubsystem*                       CallFunc_GetEngineSubsystem_ReturnValue_1;         // 0x06A0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_BPGetGlobalUIData_bIsPsOrXbUi;            // 0x06A8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_6A9[0x7];                                      // 0x06A9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UPrimalGlobalUIData*                    CallFunc_BPGetGlobalUIData_ReturnValue;            // 0x06B0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UTexture2D*                             CallFunc_GetIconForKeyName_ReturnValue;            // 0x06B8(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	struct FGeometry                              K2Node_Event_MyGeometry;                           // 0x06C0(0x0038)(IsPlainOldData, NoDestructor)
+	float                                         K2Node_Event_InDeltaTime;                          // 0x06F8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_BP_ServerModsLoading_C_ExecuteUbergraph_BP_ServerModsLoading;
 
@@ -189,13 +189,13 @@ public:
 DUMPER7_ASSERTS_BP_ServerModsLoading_C_ModInstallingError;
 
 // Function BP_ServerModsLoading.BP_ServerModsLoading_C.ModInstallingSuccess
-// 0x0468 (0x0468 - 0x0000)
+// 0x0538 (0x0538 - 0x0000)
 struct BP_ServerModsLoading_C_ModInstallingSuccess final
 {
 public:
-	struct FInstalledMod                          InstalledMod;                                      // 0x0000(0x0460)(BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
-	int32                                         CallFunc_Int32_AddOne_ReturnValue;                 // 0x0460(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Int32_AddOne_ReturnValue_1;               // 0x0464(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FInstalledMod                          InstalledMod;                                      // 0x0000(0x0530)(BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+	int32                                         CallFunc_Int32_AddOne_ReturnValue;                 // 0x0530(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Int32_AddOne_ReturnValue_1;               // 0x0534(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_BP_ServerModsLoading_C_ModInstallingSuccess;
 
@@ -209,7 +209,7 @@ public:
 DUMPER7_ASSERTS_BP_ServerModsLoading_C_OnError;
 
 // Function BP_ServerModsLoading.BP_ServerModsLoading_C.ParsingMods
-// 0x0550 (0x0550 - 0x0000)
+// 0x0620 (0x0620 - 0x0000)
 struct BP_ServerModsLoading_C_ParsingMods final
 {
 public:
@@ -217,9 +217,9 @@ public:
 	int32                                         Temp_int_Loop_Counter_Variable;                    // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FInstallProgressMod                    CallFunc_Array_Get_Item;                           // 0x0010(0x0538)(ContainsInstancedReference)
-	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0548(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x054C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FInstallProgressMod                    CallFunc_Array_Get_Item;                           // 0x0010(0x0608)(ContainsInstancedReference)
+	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0618(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x061C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_BP_ServerModsLoading_C_ParsingMods;
 

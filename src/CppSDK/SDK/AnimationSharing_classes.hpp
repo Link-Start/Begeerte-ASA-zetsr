@@ -163,14 +163,14 @@ public:
 DUMPER7_ASSERTS_UAnimSharingInstance;
 
 // Class AnimationSharing.AnimationSharingManager
-// 0x0070 (0x0098 - 0x0028)
+// 0x0078 (0x00A0 - 0x0028)
 class UAnimationSharingManager final : public UObject
 {
 public:
 	TArray<class USkeleton*>                      Skeletons;                                         // 0x0028(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 	TArray<class UAnimSharingInstance*>           PerSkeletonData;                                   // 0x0038(0x0010)(Edit, ZeroConstructor, Transient, EditConst, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 	TArray<class FName>                           SkeletonTags;                                      // 0x0048(0x0010)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_58[0x40];                                      // 0x0058(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_58[0x48];                                      // 0x0058(0x0048)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static bool AnimationSharingEnabled();

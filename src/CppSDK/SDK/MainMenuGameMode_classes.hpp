@@ -17,11 +17,11 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass MainMenuGameMode.MainMenuGameMode_C
-// 0x0008 (0x0610 - 0x0608)
+// 0x0008 (0x0618 - 0x0610)
 class AMainMenuGameMode_C final : public AShooterGame_Menu
 {
 public:
-	class USceneComponent*                        DefaultSceneRoot;                                  // 0x0608(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class USceneComponent*                        DefaultSceneRoot;                                  // 0x0610(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
 
 public:
 	static class UClass* StaticClass()

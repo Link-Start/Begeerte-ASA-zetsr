@@ -10,12 +10,12 @@
 
 #include "Basic.hpp"
 
-#include "LiveLinkComponents_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "LiveLinkInterface_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
-#include "LiveLinkInterface_structs.hpp"
+#include "LiveLinkComponents_structs.hpp"
 
 
 namespace SDK
@@ -117,20 +117,20 @@ public:
 DUMPER7_ASSERTS_ULiveLinkTransformController;
 
 // Class LiveLinkComponents.LiveLinkComponentController
-// 0x00A8 (0x0160 - 0x00B8)
+// 0x00A8 (0x0168 - 0x00C0)
 class ULiveLinkComponentController final : public UActorComponent
 {
 public:
-	struct FLiveLinkSubjectRepresentation         SubjectRepresentation;                             // 0x00B8(0x0010)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-	TMap<TSubclassOf<class ULiveLinkRole>, class ULiveLinkControllerBase*> ControllerMap;            // 0x00C8(0x0050)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, NoClear, Interp, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	bool                                          bUpdateInEditor;                                   // 0x0118(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_119[0x7];                                      // 0x0119(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(float DeltaTime)> OnLiveLinkUpdated;                               // 0x0120(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnControllerMapUpdatedDelegate;                    // 0x0130(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	bool                                          bDisableEvaluateLiveLinkWhenSpawnable;             // 0x0140(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEvaluateLiveLink;                                 // 0x0141(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUpdateInPreviewEditor;                            // 0x0142(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_143[0x1D];                                     // 0x0143(0x001D)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FLiveLinkSubjectRepresentation         SubjectRepresentation;                             // 0x00C0(0x0010)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	TMap<TSubclassOf<class ULiveLinkRole>, class ULiveLinkControllerBase*> ControllerMap;            // 0x00D0(0x0050)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, NoClear, Interp, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	bool                                          bUpdateInEditor;                                   // 0x0120(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_121[0x7];                                      // 0x0121(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(float DeltaTime)> OnLiveLinkUpdated;                               // 0x0128(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void()>              OnControllerMapUpdatedDelegate;                    // 0x0138(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	bool                                          bDisableEvaluateLiveLinkWhenSpawnable;             // 0x0148(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEvaluateLiveLink;                                 // 0x0149(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUpdateInPreviewEditor;                            // 0x014A(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_14B[0x1D];                                     // 0x014B(0x001D)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void SetControlledComponent(TSubclassOf<class ULiveLinkRole> InRoleClass, class UActorComponent* InComponent);

@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass DinoDeathHarvestingComponent_Base.DinoDeathHarvestingComponent_Base_C
-// 0x0000 (0x0228 - 0x0228)
+// 0x0000 (0x0230 - 0x0230)
 class UDinoDeathHarvestingComponent_Base_C : public UAttackHarvestComponent_Base_C
 {
 public:

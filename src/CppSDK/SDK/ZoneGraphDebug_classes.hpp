@@ -43,30 +43,30 @@ public:
 DUMPER7_ASSERTS_UZoneLaneTest;
 
 // Class ZoneGraphDebug.ZoneGraphTestingComponent
-// 0x02D0 (0x08D0 - 0x0600)
+// 0x02D0 (0x08E0 - 0x0610)
 class UZoneGraphTestingComponent final : public UPrimitiveComponent
 {
 public:
-	uint8                                         Pad_5F8[0x10];                                     // 0x05F8(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	class UZoneGraphSubsystem*                    ZoneGraph;                                         // 0x0608(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	struct FZoneGraphLaneLocation                 LaneLocation;                                      // 0x0610(0x0070)(Transient, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	struct FZoneGraphLaneLocation                 NextLaneLocation;                                  // 0x0680(0x0070)(Transient, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	struct FZoneGraphLaneLocation                 NearestLaneLocation;                               // 0x06F0(0x0070)(Transient, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	struct FVector                                SearchExtent;                                      // 0x0760(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         AdvanceDistance;                                   // 0x0778(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_77C[0x4];                                      // 0x077C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                NearestTestOffset;                                 // 0x0780(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FZoneGraphTagFilter                    QueryFilter;                                       // 0x0798(0x000C)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	bool                                          bDrawLinkedLanes;                                  // 0x07A4(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bDrawLaneTangentVectors;                           // 0x07A5(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bDrawLaneSmoothing;                                // 0x07A6(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bDrawBVTreeQuery;                                  // 0x07A7(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bDrawLanePath;                                     // 0x07A8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_7A9[0x7];                                      // 0x07A9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class AZoneGraphTestingActor*                 OtherActor;                                        // 0x07B0(0x0008)(Edit, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_7B8[0x100];                                    // 0x07B8(0x0100)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UZoneLaneTest*>                  CustomTests;                                       // 0x08B8(0x0010)(Edit, ExportObject, ZeroConstructor, ContainsInstancedReference, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_8C8[0x8];                                      // 0x08C8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_608[0x10];                                     // 0x0608(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	class UZoneGraphSubsystem*                    ZoneGraph;                                         // 0x0618(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	struct FZoneGraphLaneLocation                 LaneLocation;                                      // 0x0620(0x0070)(Transient, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	struct FZoneGraphLaneLocation                 NextLaneLocation;                                  // 0x0690(0x0070)(Transient, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	struct FZoneGraphLaneLocation                 NearestLaneLocation;                               // 0x0700(0x0070)(Transient, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	struct FVector                                SearchExtent;                                      // 0x0770(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         AdvanceDistance;                                   // 0x0788(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_78C[0x4];                                      // 0x078C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                NearestTestOffset;                                 // 0x0790(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FZoneGraphTagFilter                    QueryFilter;                                       // 0x07A8(0x000C)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	bool                                          bDrawLinkedLanes;                                  // 0x07B4(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bDrawLaneTangentVectors;                           // 0x07B5(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bDrawLaneSmoothing;                                // 0x07B6(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bDrawBVTreeQuery;                                  // 0x07B7(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bDrawLanePath;                                     // 0x07B8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_7B9[0x7];                                      // 0x07B9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class AZoneGraphTestingActor*                 OtherActor;                                        // 0x07C0(0x0008)(Edit, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	uint8                                         Pad_7C8[0x100];                                    // 0x07C8(0x0100)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class UZoneLaneTest*>                  CustomTests;                                       // 0x08C8(0x0010)(Edit, ExportObject, ZeroConstructor, ContainsInstancedReference, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	uint8                                         Pad_8D8[0x8];                                      // 0x08D8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void DisableCustomTests();
@@ -89,11 +89,11 @@ public:
 DUMPER7_ASSERTS_UZoneGraphTestingComponent;
 
 // Class ZoneGraphDebug.ZoneGraphTestingActor
-// 0x0008 (0x0488 - 0x0480)
+// 0x0008 (0x0490 - 0x0488)
 class AZoneGraphTestingActor final : public AActor
 {
 public:
-	class UZoneGraphTestingComponent*             DebugComp;                                         // 0x0480(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UZoneGraphTestingComponent*             DebugComp;                                         // 0x0488(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	void DisableCustomTests();

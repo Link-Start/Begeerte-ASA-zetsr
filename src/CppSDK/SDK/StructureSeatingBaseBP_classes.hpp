@@ -17,13 +17,13 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass StructureSeatingBaseBP.StructureSeatingBaseBP_C
-// 0x0018 (0x1338 - 0x1320)
+// 0x0018 (0x1340 - 0x1328)
 class AStructureSeatingBaseBP_C final : public APrimalStructureSeating
 {
 public:
-	class UChildActorComponent*                   TargetingEmitter;                                  // 0x1320(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class USphereComponent*                       StasisComponent;                                   // 0x1328(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	bool                                          bAllowFishing;                                     // 0x1330(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class UChildActorComponent*                   TargetingEmitter;                                  // 0x1328(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class USphereComponent*                       StasisComponent;                                   // 0x1330(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	bool                                          bAllowFishing;                                     // 0x1338(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	static class UClass* StaticClass()

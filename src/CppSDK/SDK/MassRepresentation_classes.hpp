@@ -11,8 +11,8 @@
 #include "Basic.hpp"
 
 #include "MassEntity_classes.hpp"
-#include "MassSpawner_classes.hpp"
 #include "MassRepresentation_structs.hpp"
+#include "MassSpawner_classes.hpp"
 #include "CoreUObject_classes.hpp"
 #include "Engine_classes.hpp"
 
@@ -353,12 +353,12 @@ public:
 DUMPER7_ASSERTS_UMassUpdateISMProcessor;
 
 // Class MassRepresentation.MassVisualizationComponent
-// 0x0160 (0x0218 - 0x00B8)
+// 0x0160 (0x0220 - 0x00C0)
 class UMassVisualizationComponent final : public UActorComponent
 {
 public:
-	TArray<struct FMassInstancedStaticMeshInfo>   InstancedStaticMeshInfos;                          // 0x00B8(0x0010)(ZeroConstructor, Transient, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_C8[0x150];                                     // 0x00C8(0x0150)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TArray<struct FMassInstancedStaticMeshInfo>   InstancedStaticMeshInfos;                          // 0x00C0(0x0010)(ZeroConstructor, Transient, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_D0[0x150];                                     // 0x00D0(0x0150)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -403,11 +403,11 @@ public:
 DUMPER7_ASSERTS_UMassVisualizationLODProcessor;
 
 // Class MassRepresentation.MassVisualizer
-// 0x0008 (0x0488 - 0x0480)
+// 0x0008 (0x0490 - 0x0488)
 class AMassVisualizer final : public AActor
 {
 public:
-	class UMassVisualizationComponent*            VisComponent;                                      // 0x0480(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UMassVisualizationComponent*            VisComponent;                                      // 0x0488(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()

@@ -567,6 +567,33 @@ void UCFCoreSubsystem::AnalyticsSendModBrowsingFunnelImpression(const struct FMo
 }
 
 
+// Function cfcore.CFCoreSubsystem.ApiDiagnosticsInit
+// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const TDelegate<void(const struct FDiagnosticsInitData& init_data)>&on_success                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const TDelegate<void(const struct FCFCoreError& Error)>&on_error                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCFCoreSubsystem::ApiDiagnosticsInit(const TDelegate<void(const struct FDiagnosticsInitData& init_data)>& on_success, const TDelegate<void(const struct FCFCoreError& Error)>& on_error)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreSubsystem", "ApiDiagnosticsInit");
+
+	Params::CFCoreSubsystem_ApiDiagnosticsInit Parms{};
+
+	Parms.on_success = on_success;
+	Parms.on_error = on_error;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function cfcore.CFCoreSubsystem.ApiEntitlementsRedeemCode
 // (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
@@ -1024,7 +1051,7 @@ void UCFCoreSubsystem::ApiGetModsHighlightsV3(const struct FCFCoreGetModsHighlig
 // Function cfcore.CFCoreSubsystem.ApiGetModsSubscriptions
 // (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// const struct FCFCoreApiRequestPagination&pagination                                             (Parm, NoDestructor, NativeAccessSpecifierPublic)
+// const struct FCFCoreApiRequestPagination&pagination                                             (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 // const TDelegate<void(const TArray<struct FCFCoreMod>& mods, const struct FCFCoreApiResponsePagination& pagination)>&on_subscriptions                                       (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const TDelegate<void(const struct FCFCoreError& Error)>&on_error                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1039,6 +1066,35 @@ void UCFCoreSubsystem::ApiGetModsSubscriptions(const struct FCFCoreApiRequestPag
 
 	Parms.pagination = std::move(pagination);
 	Parms.on_subscriptions = on_subscriptions;
+	Parms.on_error = on_error;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function cfcore.CFCoreSubsystem.ApiGetModsSubscriptionsIds
+// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const struct FCFCoreApiRequestPagination&pagination                                             (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+// const TDelegate<void(const TArray<int64>& ids, const struct FCFCoreApiResponsePagination& pagination)>&on_subscriptions_ids                                   (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const TDelegate<void(const struct FCFCoreError& Error)>&on_error                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCFCoreSubsystem::ApiGetModsSubscriptionsIds(const struct FCFCoreApiRequestPagination& pagination, const TDelegate<void(const TArray<int64>& ids, const struct FCFCoreApiResponsePagination& pagination)>& on_subscriptions_ids, const TDelegate<void(const struct FCFCoreError& Error)>& on_error)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreSubsystem", "ApiGetModsSubscriptionsIds");
+
+	Params::CFCoreSubsystem_ApiGetModsSubscriptionsIds Parms{};
+
+	Parms.pagination = std::move(pagination);
+	Parms.on_subscriptions_ids = on_subscriptions_ids;
 	Parms.on_error = on_error;
 
 	auto Flgs = Func->FunctionFlags;
@@ -1365,6 +1421,35 @@ void UCFCoreSubsystem::ApiSubscribe(const struct FSubscribeRequest& Request, con
 }
 
 
+// Function cfcore.CFCoreSubsystem.ApiSubscribeMods
+// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const struct FSubscribeModsRequest&     Request                                                (Parm, NativeAccessSpecifierPublic)
+// const TDelegate<void()>&                on_success                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const TDelegate<void(const struct FCFCoreError& Error)>&on_error                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCFCoreSubsystem::ApiSubscribeMods(const struct FSubscribeModsRequest& Request, const TDelegate<void()>& on_success, const TDelegate<void(const struct FCFCoreError& Error)>& on_error)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreSubsystem", "ApiSubscribeMods");
+
+	Params::CFCoreSubsystem_ApiSubscribeMods Parms{};
+
+	Parms.Request = std::move(Request);
+	Parms.on_success = on_success;
+	Parms.on_error = on_error;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function cfcore.CFCoreSubsystem.ApiUnblockMods
 // (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
@@ -1560,6 +1645,33 @@ void UCFCoreSubsystem::CancelInstallation(int64 mod_id, TDelegate<void()> on_suc
 	Parms.mod_id = mod_id;
 	Parms.on_success = on_success;
 	Parms.on_error = on_error;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function cfcore.CFCoreSubsystem.CleanTempDir
+// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Parameters:
+// TDelegate<void()>                       OnSuccess                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(const struct FCFCoreError& Error)>OnError                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCFCoreSubsystem::CleanTempDir(TDelegate<void()> OnSuccess, TDelegate<void(const struct FCFCoreError& Error)> OnError)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreSubsystem", "CleanTempDir");
+
+	Params::CFCoreSubsystem_CleanTempDir Parms{};
+
+	Parms.OnSuccess = OnSuccess;
+	Parms.OnError = OnError;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1849,15 +1961,41 @@ void UCFCoreSubsystem::GetMyPremiumMods(const TDelegate<void(const TArray<int64>
 }
 
 
+// Function cfcore.CFCoreSubsystem.GetSystemInstalledMods
+// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// TDelegate<void(const TArray<struct FInstalledMod>& installed_mods)>on_installed_mods                                      (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const TDelegate<void(const struct FCFCoreError& Error)>&on_error                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCFCoreSubsystem::GetSystemInstalledMods(TDelegate<void(const TArray<struct FInstalledMod>& installed_mods)> on_installed_mods, const TDelegate<void(const struct FCFCoreError& Error)>& on_error)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreSubsystem", "GetSystemInstalledMods");
+
+	Params::CFCoreSubsystem_GetSystemInstalledMods Parms{};
+
+	Parms.on_installed_mods = on_installed_mods;
+	Parms.on_error = on_error;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function cfcore.CFCoreSubsystem.Initialize
 // (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // const struct FCFCoreSettings&           Settings                                               (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// const struct FCFCoreInitializationOptions&Options                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // const TDelegate<void()>&                OnInitialized                                          (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const TDelegate<void(const struct FCFCoreError& Error)>&OnError                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCFCoreSubsystem::Initialize(const struct FCFCoreSettings& Settings, const struct FCFCoreInitializationOptions& Options, const TDelegate<void()>& OnInitialized, const TDelegate<void(const struct FCFCoreError& Error)>& OnError)
+void UCFCoreSubsystem::Initialize(const struct FCFCoreSettings& Settings, const TDelegate<void()>& OnInitialized, const TDelegate<void(const struct FCFCoreError& Error)>& OnError)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1867,7 +2005,6 @@ void UCFCoreSubsystem::Initialize(const struct FCFCoreSettings& Settings, const 
 	Params::CFCoreSubsystem_Initialize Parms{};
 
 	Parms.Settings = std::move(Settings);
-	Parms.Options = std::move(Options);
 	Parms.OnInitialized = OnInitialized;
 	Parms.OnError = OnError;
 

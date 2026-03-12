@@ -19,12 +19,12 @@ namespace SDK
 {
 
 // Class HoldoutComposite.HoldoutCompositeComponent
-// 0x0000 (0x0260 - 0x0260)
+// 0x0000 (0x0270 - 0x0270)
 class UHoldoutCompositeComponent final : public USceneComponent
 {
 public:
-	bool                                          bIsEnabled;                                        // 0x0258(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_259[0x7];                                      // 0x0259(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bIsEnabled;                                        // 0x0268(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_269[0x7];                                      // 0x0269(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void SetEnabled(bool bInEnabled);

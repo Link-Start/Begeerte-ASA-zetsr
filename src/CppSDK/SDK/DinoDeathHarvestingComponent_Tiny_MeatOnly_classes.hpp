@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass DinoDeathHarvestingComponent_Tiny_MeatOnly.DinoDeathHarvestingComponent_Tiny_MeatOnly_C
-// 0x0000 (0x0228 - 0x0228)
+// 0x0000 (0x0230 - 0x0230)
 class UDinoDeathHarvestingComponent_Tiny_MeatOnly_C final : public UDinoDeathHarvestingComponent_Base_C
 {
 public:

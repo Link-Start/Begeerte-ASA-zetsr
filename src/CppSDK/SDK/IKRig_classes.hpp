@@ -12,8 +12,8 @@
 
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "Engine_classes.hpp"
 #include "IKRig_structs.hpp"
+#include "Engine_classes.hpp"
 #include "PBIK_structs.hpp"
 
 
@@ -187,11 +187,11 @@ public:
 DUMPER7_ASSERTS_URootMotionGeneratorOp;
 
 // Class IKRig.IKRigComponent
-// 0x0018 (0x00D0 - 0x00B8)
+// 0x0018 (0x00D8 - 0x00C0)
 class UIKRigComponent final : public UActorComponent
 {
 public:
-	uint8                                         Pad_B8[0x18];                                      // 0x00B8(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_C0[0x18];                                      // 0x00C0(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void ClearAllGoals();

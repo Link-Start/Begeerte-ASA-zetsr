@@ -18,13 +18,13 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass Buff_OverrideVelocity.Buff_OverrideVelocity_C
-// 0x0028 (0x0BE0 - 0x0BB8)
+// 0x0028 (0x0BE8 - 0x0BC0)
 class ABuff_OverrideVelocity_C : public APrimalBuff
 {
 public:
-	struct FVector                                NewFallVelocity;                                   // 0x0BB8(0x0018)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        MaxNewFallVelocity;                                // 0x0BD0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bPreventDefaultFallZVelocity;                      // 0x0BD8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FVector                                NewFallVelocity;                                   // 0x0BC0(0x0018)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        MaxNewFallVelocity;                                // 0x0BD8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bPreventDefaultFallZVelocity;                      // 0x0BE0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void BPDeactivated(class AActor* ForInstigator);

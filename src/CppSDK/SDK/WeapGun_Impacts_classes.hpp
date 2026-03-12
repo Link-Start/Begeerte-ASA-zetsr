@@ -17,11 +17,11 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass WeapGun_Impacts.WeapGun_Impacts_C
-// 0x0008 (0x08A0 - 0x0898)
+// 0x0008 (0x08A8 - 0x08A0)
 class AWeapGun_Impacts_C : public AShooterImpactEffect
 {
 public:
-	class USceneComponent*                        DefaultSceneRoot;                                  // 0x0898(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class USceneComponent*                        DefaultSceneRoot;                                  // 0x08A0(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
 
 public:
 	static class UClass* StaticClass()

@@ -21,19 +21,19 @@ namespace SDK
 {
 
 // Class GameplayDebugger.GameplayDebuggerCategoryReplicator
-// 0x00C0 (0x0540 - 0x0480)
+// 0x00C0 (0x0548 - 0x0488)
 class AGameplayDebuggerCategoryReplicator final : public AActor
 {
 public:
-	class APlayerController*                      OwnerPC;                                           // 0x0480(0x0008)(Net, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	bool                                          bIsEnabled;                                        // 0x0488(0x0001)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_489[0x7];                                      // 0x0489(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGameplayDebuggerNetPack               ReplicatedData;                                    // 0x0490(0x0018)(Net, RepNotify, Protected, NativeAccessSpecifierProtected)
-	struct FGameplayDebuggerDebugActor            DebugActor;                                        // 0x04A8(0x0014)(Net, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_4BC[0x4];                                      // 0x04BC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGameplayDebuggerVisLogSync            VisLogSync;                                        // 0x04C0(0x0010)(Net, Protected, NativeAccessSpecifierProtected)
-	class UGameplayDebuggerRenderingComponent*    RenderingComp;                                     // 0x04D0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_4D8[0x68];                                     // 0x04D8(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class APlayerController*                      OwnerPC;                                           // 0x0488(0x0008)(Net, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	bool                                          bIsEnabled;                                        // 0x0490(0x0001)(Net, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_491[0x7];                                      // 0x0491(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGameplayDebuggerNetPack               ReplicatedData;                                    // 0x0498(0x0018)(Net, RepNotify, Protected, NativeAccessSpecifierProtected)
+	struct FGameplayDebuggerDebugActor            DebugActor;                                        // 0x04B0(0x0014)(Net, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_4C4[0x4];                                      // 0x04C4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGameplayDebuggerVisLogSync            VisLogSync;                                        // 0x04C8(0x0010)(Net, Protected, NativeAccessSpecifierProtected)
+	class UGameplayDebuggerRenderingComponent*    RenderingComp;                                     // 0x04D8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	uint8                                         Pad_4E0[0x68];                                     // 0x04E0(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void ClientDataPackPacket(const struct FGameplayDebuggerDataPackRPCParams& Params_0);
@@ -161,14 +161,14 @@ public:
 DUMPER7_ASSERTS_UGameplayDebuggerLocalController;
 
 // Class GameplayDebugger.GameplayDebuggerPlayerManager
-// 0x0030 (0x04B0 - 0x0480)
+// 0x0030 (0x04B8 - 0x0488)
 class AGameplayDebuggerPlayerManager final : public AActor
 {
 public:
-	uint8                                         Pad_480[0x8];                                      // 0x0480(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FGameplayDebuggerPlayerData>    PlayerData;                                        // 0x0488(0x0010)(ZeroConstructor, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	TArray<class AGameplayDebuggerCategoryReplicator*> PendingRegistrations;                         // 0x0498(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_4A8[0x8];                                      // 0x04A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_488[0x8];                                      // 0x0488(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FGameplayDebuggerPlayerData>    PlayerData;                                        // 0x0490(0x0010)(ZeroConstructor, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	TArray<class AGameplayDebuggerCategoryReplicator*> PendingRegistrations;                         // 0x04A0(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	uint8                                         Pad_4B0[0x8];                                      // 0x04B0(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -187,11 +187,11 @@ public:
 DUMPER7_ASSERTS_AGameplayDebuggerPlayerManager;
 
 // Class GameplayDebugger.GameplayDebuggerRenderingComponent
-// 0x0060 (0x06B0 - 0x0650)
+// 0x0060 (0x06C0 - 0x0660)
 class UGameplayDebuggerRenderingComponent final : public UDebugDrawComponent
 {
 public:
-	uint8                                         Pad_648[0x68];                                     // 0x0648(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_658[0x68];                                     // 0x0658(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

@@ -52,7 +52,7 @@ namespace g_DrawImGui {
 		}
 
 		if (g_MenuAlpha > 0.001f) {
-			ImGui::PushFont(g_MDX12::g_Alibaba_PuHuiTi_Bold);
+			// ImGui::PushFont(g_MDX12::g_Alibaba_PuHuiTi_Bold);
 
 			ImGui::GetStyle().WindowMinSize = ImVec2(720.0f, 720.0f);
 			ImGui::SetNextWindowSize(ImVec2(720, 720), ImGuiCond_FirstUseEver);
@@ -63,8 +63,8 @@ namespace g_DrawImGui {
 
 			ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
 
-			ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(7.0f / 255.0f, 8.0f / 255.0f, 10.0f / 255.0f, 0.97f));
-			ImGui::PushStyleColor(ImGuiCol_Border, ImVec4(110.0f / 255.0f, 231.0f / 255.0f, 183.0f / 255.0f, 0.08f));
+			ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(7.0f * g_Util::inv255, 8.0f * g_Util::inv255, 10.0f * g_Util::inv255, 0.97f));
+			ImGui::PushStyleColor(ImGuiCol_Border, ImVec4(110.0f * g_Util::inv255, 231.0f * g_Util::inv255, 183.0f * g_Util::inv255, 0.08f));
 
 			ImGuiWindowFlags wFlags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar;
 			ImGui::GetIO().ConfigWindowsResizeFromEdges = false;
@@ -279,11 +279,7 @@ namespace g_DrawImGui {
 									if (displayName.empty() || displayName == "None") continue;
 
 									if (g_Util::IsEntityMatch(displayName, g_Config::entitySearchBuf)) {
-										float dist = 0.0f;
-										if (LocalPC->Pawn && TargetActor) {
-											dist = LocalPC->Pawn->GetDistanceTo(TargetActor) / 100.0f;
-										}
-
+										float dist = (LocalPC->Pawn && TargetActor) ? LocalPC->Pawn->GetDistanceTo(TargetActor) * 0.01f : 0.0f;
 										float curHP = TargetChar->GetHealth();
 										float maxHP = TargetChar->GetMaxHealth();
 
@@ -346,10 +342,7 @@ namespace g_DrawImGui {
 									}
 
 									if (g_Util::IsStructureMatch(structureName, g_Config::structureSearchBuf)) {
-										float dist = 0.0f;
-										if (LocalPC->Pawn && TargetActor) {
-											dist = LocalPC->Pawn->GetDistanceTo(TargetActor) / 100.0f;
-										}
+										float dist = (LocalPC->Pawn && TargetActor) ? LocalPC->Pawn->GetDistanceTo(TargetActor) * 0.01f : 0.0f;
 
 										std::string ownerStr = Structure->OwnerName.ToString();
 										if (ownerStr.empty() || ownerStr == "None") {
@@ -508,7 +501,7 @@ namespace g_DrawImGui {
 
 						if (ImGui::BeginChild("##LuaScriptListChild", ImVec2(0, 300), true)) {
 							if (scripts.empty()) {
-								ImGui::SetCursorPosY(ImGui::GetWindowHeight() / 2 - 10);
+								ImGui::SetCursorPosY(ImGui::GetWindowHeight() * 0.5 - 10);
 								// ImGui::TextDisabled(U8("无可用脚本"));
 							}
 							else {

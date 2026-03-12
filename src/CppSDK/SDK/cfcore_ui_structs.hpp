@@ -110,20 +110,20 @@ public:
 DUMPER7_ASSERTS_FScreenshotInfo;
 
 // ScriptStruct cfcore_ui.InstallProgressMod
-// 0x0538 (0x0538 - 0x0000)
+// 0x0608 (0x0608 - 0x0000)
 struct FInstallProgressMod final
 {
 public:
-	struct FInstalledMod                          mod;                                               // 0x0000(0x0460)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FLibraryProgress                       progress;                                          // 0x0460(0x0040)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4A0[0x1];                                      // 0x04A0(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	EInstallStatus                                installStatus;                                     // 0x04A1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4A2[0x6];                                      // 0x04A2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class UTexture2DDynamic*                      DynamicImage;                                      // 0x04A8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TMap<class UTexture2D*, class FText>          ShowcaseImages;                                    // 0x04B0(0x0050)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FScreenshotInfo                        Screenshots_Info;                                  // 0x0500(0x0020)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	TArray<struct FCategory>                      Categories;                                        // 0x0520(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	class UWidget*                                ModSlotRef;                                        // 0x0530(0x0008)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FInstalledMod                          mod;                                               // 0x0000(0x0530)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FLibraryProgress                       progress;                                          // 0x0530(0x0040)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	uint8                                         Pad_570[0x1];                                      // 0x0570(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	EInstallStatus                                installStatus;                                     // 0x0571(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_572[0x6];                                      // 0x0572(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	class UTexture2DDynamic*                      DynamicImage;                                      // 0x0578(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TMap<class UTexture2D*, class FText>          ShowcaseImages;                                    // 0x0580(0x0050)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FScreenshotInfo                        Screenshots_Info;                                  // 0x05D0(0x0020)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	TArray<struct FCategory>                      Categories;                                        // 0x05F0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	class UWidget*                                ModSlotRef;                                        // 0x0600(0x0008)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FInstallProgressMod;
 
