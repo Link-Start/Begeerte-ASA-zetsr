@@ -11,8 +11,8 @@
 #include "Basic.hpp"
 
 #include "Engine_structs.hpp"
-#include "PrimalItem_Note_classes.hpp"
 #include "ArrayOfStrings_structs.hpp"
+#include "PrimalItem_Note_classes.hpp"
 
 
 namespace SDK

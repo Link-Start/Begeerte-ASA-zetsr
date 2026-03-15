@@ -15,8 +15,8 @@
 #include "Engine_structs.hpp"
 #include "ENUM_InputDevices_structs.hpp"
 #include "ENUM_SideTabs_structs.hpp"
-#include "UMG_structs.hpp"
 #include "CFCoreUIWidget_MainModShop_classes.hpp"
+#include "UMG_structs.hpp"
 
 
 namespace SDK

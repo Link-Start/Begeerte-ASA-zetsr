@@ -14,8 +14,8 @@
 #include "SlateCore_structs.hpp"
 #include "cfcore_ui_structs.hpp"
 #include "cfcore_structs.hpp"
-#include "CFCoreUIWidget_classes.hpp"
 #include "UMG_structs.hpp"
+#include "CFCoreUIWidget_classes.hpp"
 
 
 namespace SDK
