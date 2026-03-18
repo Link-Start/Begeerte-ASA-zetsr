@@ -12,8 +12,8 @@
 
 #include "Engine_structs.hpp"
 #include "ENUM_OverlayProfiles_structs.hpp"
-#include "CoreUObject_structs.hpp"
 #include "CFCoreUIWidget_classes.hpp"
+#include "CoreUObject_structs.hpp"
 #include "UMG_structs.hpp"
 
 
