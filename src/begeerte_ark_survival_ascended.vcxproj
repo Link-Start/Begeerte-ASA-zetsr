@@ -149,6 +149,7 @@
     <ClCompile Include="Minimal-D3D12-Hook-ImGui\Main\hook.cpp" />
     <ClCompile Include="Minimal-D3D12-Hook-ImGui\Main\input.cpp" />
     <ClCompile Include="Minimal-D3D12-Hook-ImGui\Main\mdx12_globals.cpp" />
+    <ClCompile Include="Minimal-D3D12-Hook-ImGui\Main\mdx12_libs.cpp" />
     <ClCompile Include="Minimal-D3D12-Hook-ImGui\Main\render.cpp" />
     <ClCompile Include="Minimal-D3D12-Hook-ImGui\Main\setup_imgui.cpp" />
   </ItemGroup>

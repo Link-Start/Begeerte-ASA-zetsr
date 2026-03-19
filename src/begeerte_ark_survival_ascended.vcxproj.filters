@@ -425,6 +425,9 @@
     <ClCompile Include="Minimal-D3D12-Hook-ImGui\ImGui\imgui_widgets.cpp">
       <Filter>Minimal-D3D12-Hook-ImGui\ImGui</Filter>
     </ClCompile>
+    <ClCompile Include="Minimal-D3D12-Hook-ImGui\Main\mdx12_libs.cpp">
+      <Filter>Minimal-D3D12-Hook-ImGui\Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Object Include="LuaJIT-2.1\src\lj_vm.obj">
