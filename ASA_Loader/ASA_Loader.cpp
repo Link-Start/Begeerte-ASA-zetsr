@@ -7,7 +7,6 @@
 #include <thread>
 #include <tlhelp32.h>
 #include <vector>
-
 #pragma comment(lib, "wininet.lib")
 #pragma comment(lib, "kernel32.lib")
 #pragma comment(lib, "psapi.lib")
@@ -23,30 +22,6 @@ void WriteToConsoleBuffer(const std::string& text) {
     HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     DWORD written = 0;
     WriteFile(h, text.c_str(), (DWORD)text.length(), &written, NULL);
-}
-
-// --- 核心功能：挂起/恢复进程所有线程 ---
-typedef LONG(NTAPI* pNtSuspendProcess)(HANDLE ProcessHandle);
-typedef LONG(NTAPI* pNtResumeProcess)(HANDLE ProcessHandle);
-
-// 使用 ntdll 未公开 API 可以更高效地挂起整个进程
-bool SetProcessState(DWORD procID, bool suspend) {
-    HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, procID);
-    if (!hProcess) return false;
-
-    HMODULE hNtDll = GetModuleHandleA("ntdll.dll");
-    if (hNtDll) {
-        if (suspend) {
-            auto NtSuspendProcess = (pNtSuspendProcess)GetProcAddress(hNtDll, "NtSuspendProcess");
-            if (NtSuspendProcess) NtSuspendProcess(hProcess);
-        }
-        else {
-            auto NtResumeProcess = (pNtResumeProcess)GetProcAddress(hNtDll, "NtResumeProcess");
-            if (NtResumeProcess) NtResumeProcess(hProcess);
-        }
-    }
-    CloseHandle(hProcess);
-    return true;
 }
 
 // --- 业务逻辑：下载 DLL ---
@@ -126,24 +101,6 @@ DWORD FindProcessId(const char* procName) {
     return processID;
 }
 
-// --- 业务逻辑：检查模块是否已加载 ---
-bool IsModuleLoaded(DWORD procID, const char* moduleName) {
-    HANDLE hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE | TH32CS_SNAPMODULE32, procID);
-    if (hSnapshot == INVALID_HANDLE_VALUE) return false;
-    MODULEENTRY32 me32 = { sizeof(MODULEENTRY32) };
-    bool found = false;
-    if (Module32First(hSnapshot, &me32)) {
-        do {
-            if (_stricmp(me32.szModule, moduleName) == 0) {
-                found = true;
-                break;
-            }
-        } while (Module32Next(hSnapshot, &me32));
-    }
-    CloseHandle(hSnapshot);
-    return found;
-}
-
 // --- 业务逻辑：注入 DLL ---
 bool InjectDLL(DWORD procID) {
     HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, procID);
@@ -179,15 +136,6 @@ int main() {
     DWORD procID = FindProcessId(TARGET_PROCESS);
     WriteToConsoleBuffer("[+] Target found! PID: " + std::to_string(procID) + "\n");
 
-    // 等待 DX12 初始化以确保渲染上下文准备就绪
-    WriteToConsoleBuffer("[*] Waiting for DX12 modules...\n");
-    while (!IsModuleLoaded(procID, "d3d12.dll")) { Sleep(500); }
-    Sleep(1000);
-
-    // 关键步骤：挂起进程
-    WriteToConsoleBuffer("[!] Suspending target process...\n");
-    SetProcessState(procID, true);
-
     WriteToConsoleBuffer("[*] Injecting DLL...\n");
     if (InjectDLL(procID)) {
         WriteToConsoleBuffer("[+] Injection successful!\n");
@@ -195,10 +143,6 @@ int main() {
     else {
         WriteToConsoleBuffer("[-] Injection failed!\n");
     }
-
-    // 关键步骤：恢复进程
-    WriteToConsoleBuffer("[!] Resuming target process...\n");
-    SetProcessState(procID, false);
 
     WriteToConsoleBuffer(">>> Done. Exiting in 5s...\n");
     Sleep(5000);
