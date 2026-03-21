@@ -341,7 +341,7 @@ namespace g_DrawESP {
                     std::string nameForESP = TargetPS
                         ? TargetPS->GetPlayerName().ToString()
                         : TargetChar->GetDescriptiveName().ToString();
-                    if (!g_Util::IsEntityMatch(nameForESP, rawEntityFilter)) {
+                    if (!g_Util::IsEntityMatchMulti(nameForESP, rawEntityFilter)) {
                         entry.targetAlpha = 0.0f;
                         entry.aliveThisFrame = false;
                         continue;
@@ -590,7 +590,7 @@ namespace g_DrawESP {
                 if (hasStructureFilter) {
                     std::string sName = Structure->GetDescriptiveName().ToString();
                     if (sName.empty() || sName == "None") sName = "Structure";
-                    if (!g_Util::IsStructureMatch(sName, rawStructFilter)) {
+                    if (!g_Util::IsStructureMatchMulti(sName, rawStructFilter)) {
                         entry.targetAlpha = 0.0f;
                         entry.aliveThisFrame = false;
                         continue;

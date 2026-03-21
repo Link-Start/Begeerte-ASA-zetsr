@@ -8,6 +8,7 @@
 #include "../../external/SDK/SDK_Headers.hpp"
 
 namespace g_DrawImGui {
+
 	void EntityList_Menu() {
 		if (ImGui::BeginTabItem(U8("生物列表"))) {
 			ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
@@ -20,8 +21,29 @@ namespace g_DrawImGui {
 			ImGui::SameLine();
 
 			ImGui::PushItemWidth(-1.0f);
-			ImGui::InputTextWithHint("##EntitySearch", U8("输入生物名称进行过滤 (如: 南巨)..."), g_Config::entitySearchBuf, IM_ARRAYSIZE(g_Config::entitySearchBuf));
+			ImGui::InputTextWithHint("##EntitySearch", U8("输入生物名称进行过滤，多个用逗号分隔 (如: 南巨,霸王龙,迅猛龙)..."), g_Config::entitySearchBuf, IM_ARRAYSIZE(g_Config::entitySearchBuf));
 			ImGui::PopItemWidth();
+
+			// 显示当前激活的筛选词列表
+			{
+				std::string filter = g_Config::entitySearchBuf;
+				if (!filter.empty()) {
+					std::vector<std::string> tokens = g_Util::SplitFilterTokens(filter);
+					std::vector<std::string> validTokens;
+					for (const auto& t : tokens) {
+						if (!t.empty()) validTokens.push_back(t);
+					}
+					if (!validTokens.empty()) {
+						ImGui::Spacing();
+						ImGui::TextDisabled(U8("当前筛选 (%zu 项):"), validTokens.size());
+						ImGui::SameLine();
+						for (size_t i = 0; i < validTokens.size(); i++) {
+							ImGui::TextColored(ThemeColors::ACCENT, "%s", validTokens[i].c_str());
+							if (i + 1 < validTokens.size()) ImGui::SameLine();
+						}
+					}
+				}
+			}
 
 			ImGui::Spacing();
 			if (ImGui::BeginChild("##EntityListChild", ImVec2(0, 0), true)) {
@@ -32,7 +54,6 @@ namespace g_DrawImGui {
 				if (World && World->PersistentLevel && LocalPC && LocalPC->Pawn) {
 					SDK::TArray<SDK::AActor*>& Actors = World->PersistentLevel->Actors;
 					SDK::AActor* LocalPawn = LocalPC->Pawn;
-					std::string searchFilter = g_Config::entitySearchBuf;
 
 					for (int i = 0; i < Actors.Num(); i++) {
 						SDK::AActor* TargetActor = Actors[i];
@@ -59,7 +80,8 @@ namespace g_DrawImGui {
 
 						if (displayName.empty() || displayName == "None") continue;
 
-						if (g_Util::IsEntityMatch(displayName, g_Config::entitySearchBuf)) {
+						// 使用多关键词 OR 匹配替换原有的单关键词匹配
+						if (g_Util::IsEntityMatchMulti(displayName, g_Config::entitySearchBuf)) {
 							float dist = (LocalPC && LocalPC->Pawn && TargetActor) ? LocalPC->Pawn->GetDistanceTo(TargetActor) * 0.01f : 0.0f;
 							float curHP = TargetChar->GetHealth();
 							float maxHP = TargetChar->GetMaxHealth();

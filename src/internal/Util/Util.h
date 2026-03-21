@@ -4,6 +4,7 @@
 #include <cmath>
 #include <algorithm>
 #include <string>
+#include <sstream>
 
 namespace g_Util {
     static const float inv255 = 1.0f / 255.0f; 
@@ -57,6 +58,37 @@ namespace g_Util {
         return true;
     }
 
+    inline static std::vector<std::string> SplitFilterTokens(const std::string& filter) {
+        std::vector<std::string> tokens;
+        std::stringstream ss(filter);
+        std::string token;
+        while (std::getline(ss, token, ',')) {
+            size_t start = token.find_first_not_of(" \t");
+            size_t end = token.find_last_not_of(" \t");
+            if (start != std::string::npos && end != std::string::npos) {
+                tokens.push_back(token.substr(start, end - start + 1));
+            }
+            else if (start != std::string::npos) {
+                tokens.push_back(token.substr(start));
+            }
+        }
+        return tokens;
+    }
+
+    inline static bool IsEntityMatchMulti(const std::string& displayName, const char* filterBuf) {
+        std::string filter = filterBuf;
+        if (filter.empty()) return true;
+
+        std::vector<std::string> tokens = SplitFilterTokens(filter);
+        if (tokens.empty()) return true;
+
+        for (const std::string& token : tokens) {
+            if (token.empty()) continue;
+            if (g_Util::IsEntityMatch(displayName, token.c_str())) return true;
+        }
+        return false;
+    }
+
     inline bool IsStructureMatch(const std::string& structureName, const std::string& filter) {
         if (filter.empty()) return true;
 
@@ -67,6 +99,20 @@ namespace g_Util {
         std::transform(lowerFilter.begin(), lowerFilter.end(), lowerFilter.begin(), ::tolower);
 
         return lowerName.find(lowerFilter) != std::string::npos;
+    }
+
+    static bool IsStructureMatchMulti(const std::string& structureName, const char* filterBuf) {
+        std::string filter = filterBuf;
+        if (filter.empty()) return true;
+
+        std::vector<std::string> tokens = SplitFilterTokens(filter);
+        if (tokens.empty()) return true;
+
+        for (const std::string& token : tokens) {
+            if (token.empty()) continue;
+            if (g_Util::IsStructureMatch(structureName, token.c_str())) return true;
+        }
+        return false;
     }
 
     inline SDK::APlayerController* GetLocalPC() {

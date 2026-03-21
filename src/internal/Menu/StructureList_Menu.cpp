@@ -20,8 +20,28 @@ namespace g_DrawImGui {
 			ImGui::SameLine();
 
 			ImGui::PushItemWidth(-1.0f);
-			ImGui::InputTextWithHint("##StructureSearch", U8("输入建筑名称进行过滤 (如: 大门)..."), g_Config::structureSearchBuf, IM_ARRAYSIZE(g_Config::structureSearchBuf));
+			ImGui::InputTextWithHint("##StructureSearch", U8("输入建筑名称进行过滤，多个用逗号分隔 (如: 大门,墙,地板)..."), g_Config::structureSearchBuf, IM_ARRAYSIZE(g_Config::structureSearchBuf));
 			ImGui::PopItemWidth();
+
+			{
+				std::string filter = g_Config::structureSearchBuf;
+				if (!filter.empty()) {
+					std::vector<std::string> tokens = g_Util::SplitFilterTokens(filter);
+					std::vector<std::string> validTokens;
+					for (const auto& t : tokens) {
+						if (!t.empty()) validTokens.push_back(t);
+					}
+					if (!validTokens.empty()) {
+						ImGui::Spacing();
+						ImGui::TextDisabled(U8("当前筛选 (%zu 项):"), validTokens.size());
+						ImGui::SameLine();
+						for (size_t i = 0; i < validTokens.size(); i++) {
+							ImGui::TextColored(ThemeColors::ACCENT, "%s", validTokens[i].c_str());
+							if (i + 1 < validTokens.size()) ImGui::SameLine();
+						}
+					}
+				}
+			}
 
 			ImGui::Spacing();
 			if (ImGui::BeginChild("##StructureListChild", ImVec2(0, 0), true)) {
@@ -31,7 +51,6 @@ namespace g_DrawImGui {
 
 				if (World && World->PersistentLevel && LocalPC && LocalPC->Pawn) {
 					SDK::TArray<SDK::AActor*>& Actors = World->PersistentLevel->Actors;
-					std::string searchFilter = g_Config::structureSearchBuf;
 
 					for (int i = 0; i < Actors.Num(); i++) {
 						SDK::AActor* TargetActor = Actors[i];
@@ -49,7 +68,7 @@ namespace g_DrawImGui {
 							structureName = "Structure";
 						}
 
-						if (g_Util::IsStructureMatch(structureName, g_Config::structureSearchBuf)) {
+						if (g_Util::IsStructureMatchMulti(structureName, g_Config::structureSearchBuf)) {
 							float dist = (LocalPC && LocalPC->Pawn && TargetActor) ? LocalPC->Pawn->GetDistanceTo(TargetActor) * 0.01f : 0.0f;
 
 							std::string ownerStr = Structure->OwnerName.ToString();
