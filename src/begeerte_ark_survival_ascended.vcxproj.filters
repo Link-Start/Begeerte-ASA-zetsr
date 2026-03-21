@@ -1,450 +1,467 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Hack">
-      <UniqueIdentifier>{5ffd617a-c27f-4e99-8cec-4acf994dac33}</UniqueIdentifier>
+    <Filter Include="external">
+      <UniqueIdentifier>{d8c84638-b1b3-4776-a9c1-599df2491824}</UniqueIdentifier>
     </Filter>
-    <Filter Include="sol2">
-      <UniqueIdentifier>{fd9629f3-f2d3-4d15-bb44-fa7ec71ffa1f}</UniqueIdentifier>
+    <Filter Include="external\LuaJIT-2.1">
+      <UniqueIdentifier>{3f77e17c-8366-4b30-b4de-c3075f7cbf20}</UniqueIdentifier>
     </Filter>
-    <Filter Include="LuaJIT-2.1">
-      <UniqueIdentifier>{6f351db4-9bb8-4260-8237-adbadf72fd40}</UniqueIdentifier>
+    <Filter Include="external\LuaJIT-2.1\src">
+      <UniqueIdentifier>{0006eefe-c715-47d5-9ef7-d23d1aad3241}</UniqueIdentifier>
     </Filter>
-    <Filter Include="LuaJIT-2.1\src">
-      <UniqueIdentifier>{f9ffb7ad-96a3-4481-952a-9bada9451e51}</UniqueIdentifier>
+    <Filter Include="external\Minimal-D3D12-Hook-ImGui">
+      <UniqueIdentifier>{41e3ca16-7424-481e-8328-212d5c3a91da}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Minimal-D3D12-Hook-ImGui">
-      <UniqueIdentifier>{5a139855-ed3e-475b-a1df-5aa0fe10e019}</UniqueIdentifier>
+    <Filter Include="external\Minimal-D3D12-Hook-ImGui\Font">
+      <UniqueIdentifier>{f47d2658-f509-4fea-9505-628aa9b1173e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Minimal-D3D12-Hook-ImGui\MinHook">
-      <UniqueIdentifier>{d83be54c-6568-4f87-affa-c6a065d3f2c4}</UniqueIdentifier>
+    <Filter Include="external\Minimal-D3D12-Hook-ImGui\ImGui">
+      <UniqueIdentifier>{625ba480-0b87-4858-9868-5092c599bd8d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Minimal-D3D12-Hook-ImGui\MinHook\include">
-      <UniqueIdentifier>{94eaac07-47a6-4acd-9136-1845e0127c19}</UniqueIdentifier>
+    <Filter Include="external\Minimal-D3D12-Hook-ImGui\Main">
+      <UniqueIdentifier>{97ee93e4-9fab-46eb-be24-2aae9113242b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Minimal-D3D12-Hook-ImGui\Main">
-      <UniqueIdentifier>{a188242a-55cd-41fc-976d-70b2fa7d7c29}</UniqueIdentifier>
+    <Filter Include="external\Minimal-D3D12-Hook-ImGui\MinHook">
+      <UniqueIdentifier>{550a56b8-a52f-401c-aa27-f1c6cb0851c3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Minimal-D3D12-Hook-ImGui\ImGui">
-      <UniqueIdentifier>{e6c87817-5dc0-4315-88ea-64ca4cb8f152}</UniqueIdentifier>
+    <Filter Include="external\Minimal-D3D12-Hook-ImGui\MinHook\include">
+      <UniqueIdentifier>{a2a1d641-47b8-4c54-8f55-d64d9fff33bf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Minimal-D3D12-Hook-ImGui\Font">
-      <UniqueIdentifier>{977cd746-1a49-4643-9ede-1eaf98018361}</UniqueIdentifier>
+    <Filter Include="external\SDK">
+      <UniqueIdentifier>{832a86cc-2d57-4311-ad9b-6b118e3ca9b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\SDK\CppSDK">
+      <UniqueIdentifier>{8dfb665e-4a38-4db8-896e-25b4000c5049}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\SDK\CppSDK\SDK">
+      <UniqueIdentifier>{4ecc1655-5146-4e34-a7d0-15618e8688af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\sol2">
+      <UniqueIdentifier>{db0a6749-6586-473e-a49d-41fbd5fb3ffb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal">
+      <UniqueIdentifier>{ea99faab-4323-4500-9f98-135aa89513fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\Config">
+      <UniqueIdentifier>{655f9f8c-713e-4d9d-85d9-666d2484281e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\ESP">
+      <UniqueIdentifier>{146e9827-3933-4db4-82e5-e1395a4acd7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\Legit">
+      <UniqueIdentifier>{0c251a25-45d5-4aa3-b3d7-05d601ad305b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\Legit\Aimbot">
+      <UniqueIdentifier>{eaa24300-16a4-4f4f-bc35-8ad76fccfbcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\Lua">
+      <UniqueIdentifier>{f8ae5bd2-3f00-40a1-8f81-406c31511012}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\Menu">
+      <UniqueIdentifier>{5a150650-a9c0-4d8a-b879-508d02eee17a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\Util">
+      <UniqueIdentifier>{a1738878-9f03-4b9e-95f3-562a1121ee44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dllmain">
+      <UniqueIdentifier>{233658c2-9a34-430d-bb69-b18660712743}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Hack\Configs.h">
-      <Filter>Hack</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_vm.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="Hack\DrawESP.h">
-      <Filter>Hack</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_vmevent.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="Hack\DrawImGui.h">
-      <Filter>Hack</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lua.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="Hack\ESP.h">
-      <Filter>Hack</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lua.hpp">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="Hack\Aimbot.h">
-      <Filter>Hack</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\luaconf.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="Hack\LuaManager.h">
-      <Filter>Hack</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\luajit.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="sol2\sol.hpp">
-      <Filter>sol2</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\luajit_rolling.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="sol2\config.hpp">
-      <Filter>sol2</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lualib.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="sol2\forward.hpp">
-      <Filter>sol2</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lauxlib.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="Hack\SDK_Headers.hpp">
-      <Filter>Hack</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_alloc.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="Hack\ConfigManager.h">
-      <Filter>Hack</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_arch.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="Hack\infoCPU.h">
-      <Filter>Hack</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_asm.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="Hack\infoGPU.h">
-      <Filter>Hack</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_asm_arm.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lua.hpp">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_asm_arm64.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lualib.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_asm_mips.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\luajit_rolling.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_asm_ppc.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\luajit.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_asm_x86.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\luaconf.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_bc.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lua.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_bcdef.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_vmevent.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_bcdump.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_vm.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_buf.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_udata.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_carith.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_traceerr.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_ccall.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_trace.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_ccallback.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_target_x86.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_cconv.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_target_ppc.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_cdata.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_target_mips.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_char.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_target_arm64.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_clib.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_target_arm.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_cparse.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_target.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_crecord.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_tab.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_ctype.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_strscan.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_debug.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_strfmt.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_def.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_str.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_dispatch.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_state.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_emit_arm.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_snap.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_emit_arm64.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_serialize.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_emit_mips.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_record.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_emit_ppc.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_recdef.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_emit_x86.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_profile.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_err.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_prng.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_errmsg.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_parse.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_ff.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_obj.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_ffdef.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_meta.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_ffrecord.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_mcode.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_folddef.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_libdef.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_frame.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_lib.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_func.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_lex.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_gc.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_jit.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_gdbjit.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_iropt.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_ir.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_ircall.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_ircall.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_ir.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_iropt.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_gdbjit.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_jit.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_gc.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_lex.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_func.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_lib.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_frame.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_libdef.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_folddef.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_mcode.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_ffrecord.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_meta.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_ffdef.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_obj.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_ff.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_parse.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_errmsg.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_prng.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_err.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_profile.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_emit_x86.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_recdef.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_emit_ppc.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_record.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_emit_mips.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_serialize.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_emit_arm64.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_snap.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_emit_arm.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_state.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_dispatch.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_str.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_def.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_strfmt.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_debug.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_strscan.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_ctype.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_tab.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_crecord.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_target.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_cparse.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_target_arm.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_clib.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_target_arm64.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_char.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_target_mips.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_cdata.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_target_ppc.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_cconv.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_target_x86.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_ccallback.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_trace.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_ccall.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_traceerr.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_carith.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\LuaJIT-2.1\src\lj_udata.h">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_buf.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\Font\Alibaba-PuHuiTi-Medium.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\Font</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_bcdump.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imconfig.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_bcdef.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_bc.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_impl_dx12.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_asm_x86.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_impl_win32.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_asm_ppc.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_internal.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_asm_mips.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imstb_rectpack.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_asm_arm64.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imstb_textedit.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_asm_arm.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imstb_truetype.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_asm.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\Main\mdx12_api.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_arch.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\MinHook\include\MinHook.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\MinHook\include</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lj_alloc.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\SDK\SDK_Headers.hpp">
+      <Filter>external\SDK</Filter>
     </ClInclude>
-    <ClInclude Include="LuaJIT-2.1\src\lauxlib.h">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <ClInclude Include="external\sol2\config.hpp">
+      <Filter>external\sol2</Filter>
     </ClInclude>
-    <ClInclude Include="Minimal-D3D12-Hook-ImGui\MinHook\include\MinHook.h">
-      <Filter>Minimal-D3D12-Hook-ImGui\MinHook\include</Filter>
+    <ClInclude Include="external\sol2\forward.hpp">
+      <Filter>external\sol2</Filter>
     </ClInclude>
-    <ClInclude Include="Minimal-D3D12-Hook-ImGui\Main\mdx12_api.h">
-      <Filter>Minimal-D3D12-Hook-ImGui\Main</Filter>
+    <ClInclude Include="external\sol2\sol.hpp">
+      <Filter>external\sol2</Filter>
     </ClInclude>
-    <ClInclude Include="Minimal-D3D12-Hook-ImGui\ImGui\imconfig.h">
-      <Filter>Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    <ClInclude Include="internal\Config\ConfigManager.h">
+      <Filter>internal\Config</Filter>
     </ClInclude>
-    <ClInclude Include="Minimal-D3D12-Hook-ImGui\ImGui\imgui.h">
-      <Filter>Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    <ClInclude Include="internal\Config\Configs.h">
+      <Filter>internal\Config</Filter>
     </ClInclude>
-    <ClInclude Include="Minimal-D3D12-Hook-ImGui\ImGui\imgui_impl_dx12.h">
-      <Filter>Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    <ClInclude Include="internal\ESP\DrawESP.h">
+      <Filter>internal\ESP</Filter>
     </ClInclude>
-    <ClInclude Include="Minimal-D3D12-Hook-ImGui\ImGui\imgui_impl_win32.h">
-      <Filter>Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    <ClInclude Include="internal\ESP\ESP.h">
+      <Filter>internal\ESP</Filter>
     </ClInclude>
-    <ClInclude Include="Minimal-D3D12-Hook-ImGui\ImGui\imgui_internal.h">
-      <Filter>Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    <ClInclude Include="internal\Lua\LuaManager.h">
+      <Filter>internal\Lua</Filter>
     </ClInclude>
-    <ClInclude Include="Minimal-D3D12-Hook-ImGui\ImGui\imstb_rectpack.h">
-      <Filter>Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    <ClInclude Include="internal\Menu\ConfigImGui.h">
+      <Filter>internal\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="Minimal-D3D12-Hook-ImGui\ImGui\imstb_textedit.h">
-      <Filter>Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    <ClInclude Include="internal\Menu\DrawImGui.h">
+      <Filter>internal\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="Minimal-D3D12-Hook-ImGui\ImGui\imstb_truetype.h">
-      <Filter>Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    <ClInclude Include="internal\Util\infoCPU.h">
+      <Filter>internal\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Minimal-D3D12-Hook-ImGui\Font\Alibaba-PuHuiTi-Medium.h">
-      <Filter>Minimal-D3D12-Hook-ImGui\Font</Filter>
+    <ClInclude Include="internal\Util\infoGPU.h">
+      <Filter>internal\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Hack\Util.h">
-      <Filter>Hack</Filter>
-    </ClInclude>
-    <ClInclude Include="Hack\ConfigImGui.h">
-      <Filter>Hack</Filter>
+    <ClInclude Include="internal\Util\Util.h">
+      <Filter>internal\Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Hack\dllmain.cpp">
-      <Filter>Hack</Filter>
-    </ClCompile>
-    <ClCompile Include="Hack\DrawESP.cpp">
-      <Filter>Hack</Filter>
-    </ClCompile>
-    <ClCompile Include="Hack\DrawImGui.cpp">
-      <Filter>Hack</Filter>
-    </ClCompile>
-    <ClCompile Include="Hack\ESP.cpp">
-      <Filter>Hack</Filter>
-    </ClCompile>
-    <ClCompile Include="Hack\Aimbot.cpp">
-      <Filter>Hack</Filter>
-    </ClCompile>
-    <ClCompile Include="Hack\LuaManager.cpp">
-      <Filter>Hack</Filter>
-    </ClCompile>
-    <ClCompile Include="Hack\SDK_Impl.cpp">
-      <Filter>Hack</Filter>
-    </ClCompile>
-    <ClCompile Include="Hack\ConfigManager.cpp">
-      <Filter>Hack</Filter>
-    </ClCompile>
-    <ClCompile Include="Hack\infoCPU.cpp">
-      <Filter>Hack</Filter>
-    </ClCompile>
-    <ClCompile Include="Hack\infoGPU.cpp">
-      <Filter>Hack</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaJIT-2.1\src\ljamalg.c">
-      <Filter>LuaJIT-2.1\src</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaJIT-2.1\src\luajit.c">
-      <Filter>LuaJIT-2.1\src</Filter>
-    </ClCompile>
-    <ClCompile Include="Minimal-D3D12-Hook-ImGui\Main\hook.cpp">
-      <Filter>Minimal-D3D12-Hook-ImGui\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Minimal-D3D12-Hook-ImGui\Main\input.cpp">
-      <Filter>Minimal-D3D12-Hook-ImGui\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Minimal-D3D12-Hook-ImGui\Main\mdx12_globals.cpp">
-      <Filter>Minimal-D3D12-Hook-ImGui\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Minimal-D3D12-Hook-ImGui\Main\render.cpp">
-      <Filter>Minimal-D3D12-Hook-ImGui\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Minimal-D3D12-Hook-ImGui\Main\setup_imgui.cpp">
-      <Filter>Minimal-D3D12-Hook-ImGui\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Minimal-D3D12-Hook-ImGui\ImGui\imgui.cpp">
-      <Filter>Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="Minimal-D3D12-Hook-ImGui\ImGui\imgui_demo.cpp">
-      <Filter>Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="Minimal-D3D12-Hook-ImGui\ImGui\imgui_draw.cpp">
-      <Filter>Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="Minimal-D3D12-Hook-ImGui\ImGui\imgui_impl_dx12.cpp">
-      <Filter>Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="Minimal-D3D12-Hook-ImGui\ImGui\imgui_impl_win32.cpp">
-      <Filter>Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="Minimal-D3D12-Hook-ImGui\ImGui\imgui_tables.cpp">
-      <Filter>Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="Minimal-D3D12-Hook-ImGui\ImGui\imgui_widgets.cpp">
-      <Filter>Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="Minimal-D3D12-Hook-ImGui\Main\mdx12_libs.cpp">
-      <Filter>Minimal-D3D12-Hook-ImGui\Main</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Object Include="LuaJIT-2.1\src\lj_vm.obj">
-      <Filter>LuaJIT-2.1\src</Filter>
+    <Object Include="external\LuaJIT-2.1\src\lj_vm.obj">
+      <Filter>external\LuaJIT-2.1\src</Filter>
     </Object>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Minimal-D3D12-Hook-ImGui\LICENSE">
-      <Filter>Minimal-D3D12-Hook-ImGui</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Minimal-D3D12-Hook-ImGui\MinHook\LICENSE.txt">
-      <Filter>Minimal-D3D12-Hook-ImGui\MinHook</Filter>
-    </Text>
-    <Text Include="Minimal-D3D12-Hook-ImGui\ImGui\LICENSE.txt">
-      <Filter>Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </Text>
+    <ClCompile Include="external\LuaJIT-2.1\src\ljamalg.c">
+      <Filter>external\LuaJIT-2.1\src</Filter>
+    </ClCompile>
+    <ClCompile Include="external\LuaJIT-2.1\src\luajit.c">
+      <Filter>external\LuaJIT-2.1\src</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_demo.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_draw.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_impl_dx12.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_impl_win32.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_tables.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_widgets.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\Main\input.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\Main\mdx12_globals.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\Main\mdx12_libs.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\Main\render.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\Main\setup_imgui.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\Main\hook.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="external\SDK\SDK_Impl.cpp">
+      <Filter>external\SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Config\ConfigManager.cpp">
+      <Filter>internal\Config</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\ESP\DrawESP.cpp">
+      <Filter>internal\ESP</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\ESP\ESP.cpp">
+      <Filter>internal\ESP</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Lua\LuaManager.cpp">
+      <Filter>internal\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Menu\DrawImGui.cpp">
+      <Filter>internal\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Util\infoCPU.cpp">
+      <Filter>internal\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Util\infoGPU.cpp">
+      <Filter>internal\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>dllmain</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
