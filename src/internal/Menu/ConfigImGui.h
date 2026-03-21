@@ -1,4 +1,4 @@
-#define NOMINMAX  
+Ôªø#define NOMINMAX  
 #if defined(__cpp_char8_t)
 #define U8(str) reinterpret_cast<const char*>(u8##str)
 #else
@@ -28,7 +28,7 @@ namespace g_DrawImGui {
 		const ImVec4 SHADOW = ImVec4(0.01f, 0.02f, 0.09f, 0.7f);
 	}
 
-	void SetupCustomImGuiStyle()
+	inline void SetupCustomImGuiStyle()
 	{
 		ImGuiStyle& style = ImGui::GetStyle();
 
@@ -130,7 +130,7 @@ namespace g_DrawImGui {
 		return max_text_w + extra;
 	}
 
-	void DrawCustomColorPicker(const char* label_id, float* col_ptr, bool active, const char* display_text)
+	inline void DrawCustomColorPicker(const char* label_id, float* col_ptr, bool active, const char* display_text)
 	{
 		ImGuiContext& g = *GImGui;
 		ImGuiStorage* storage = ImGui::GetStateStorage();
@@ -195,17 +195,17 @@ namespace g_DrawImGui {
 
 			if (hovered && ImGui::IsMouseReleased(ImGuiMouseButton_Right)) ImGui::OpenPopup(popup_id);
 
-			const char* popup_items[] = { U8("∏¥÷∆"), U8("’≥Ã˘") };
+			const char* popup_items[] = { U8("Â§çÂà∂"), U8("Á≤òË¥¥") };
 			float popup_min_w = CalcPopupMinWidthForItems(popup_items, IM_ARRAYSIZE(popup_items));
 			ImGui::SetNextWindowSizeConstraints(ImVec2(std::max(180.0f, popup_min_w), 0.0f), ImVec2(FLT_MAX, FLT_MAX));
 
 			if (ImGui::BeginPopup(popup_id, ImGuiWindowFlags_AlwaysAutoResize))
 			{
-				if (ImGui::MenuItem(U8("∏¥÷∆"))) {
+				if (ImGui::MenuItem(U8("Â§çÂà∂"))) {
 					g_saved_color[0] = col_ptr[0]; g_saved_color[1] = col_ptr[1];
 					g_saved_color[2] = col_ptr[2]; g_saved_color[3] = col_ptr[3];
 				}
-				if (ImGui::MenuItem(U8("’≥Ã˘"))) {
+				if (ImGui::MenuItem(U8("Á≤òË¥¥"))) {
 					col_ptr[0] = g_saved_color[0]; col_ptr[1] = g_saved_color[1];
 					col_ptr[2] = g_saved_color[2]; col_ptr[3] = g_saved_color[3];
 				}
@@ -224,12 +224,12 @@ namespace g_DrawImGui {
 		ImGui::EndGroup();
 	}
 
-	void DrawCustomColorPicker(const char* label_id, float* col_ptr, const char* display_text)
+	inline void DrawCustomColorPicker(const char* label_id, float* col_ptr, const char* display_text)
 	{
 		DrawCustomColorPicker(label_id, col_ptr, true, display_text);
 	}
 
-	bool DrawCustomCheckbox(const char* label, bool* v)
+	inline bool DrawCustomCheckbox(const char* label, bool* v)
 	{
 		ImGuiContext& g = *GImGui;
 		ImGuiStorage* storage = ImGui::GetStateStorage();
@@ -274,7 +274,7 @@ namespace g_DrawImGui {
 		return pressed;
 	}
 
-	bool DrawCustomSliderFloat(const char* label, float* v, float v_min, float v_max, const char* fmt = "%.1f", float step = 1.0f, const char* custom_text = nullptr)
+	inline bool DrawCustomSliderFloat(const char* label, float* v, float v_min, float v_max, const char* fmt = "%.1f", float step = 1.0f, const char* custom_text = nullptr)
 	{
 		if (v_max <= v_min) return false;
 
@@ -439,7 +439,7 @@ namespace g_DrawImGui {
 		return value_changed;
 	}
 
-	void DrawColorPickerRow(const char* checkbox_label, bool* checkbox_value, const char* color_picker_label, float* color_value)
+	inline void DrawColorPickerRow(const char* checkbox_label, bool* checkbox_value, const char* color_picker_label, float* color_value)
 	{
 		DrawCustomCheckbox(checkbox_label, checkbox_value);
 
@@ -456,7 +456,7 @@ namespace g_DrawImGui {
 		DrawCustomColorPicker(color_picker_label, color_value, *checkbox_value, nullptr);
 	}
 
-	bool CustomSelectable(const char* label, bool selected, float rounding = 6.0f) {
+	inline bool CustomSelectable(const char* label, bool selected, float rounding = 6.0f) {
 		ImGuiWindow* window = ImGui::GetCurrentWindow();
 		if (window->SkipItems) return false;
 
@@ -493,21 +493,21 @@ namespace g_DrawImGui {
 		return pressed;
 	}
 
-	void BeginTabRegion(const char* id)
+	inline void BeginTabRegion(const char* id)
 	{
 		ImGui::PushStyleVar(ImGuiStyleVar_ChildRounding, 14.0f);
 		ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(7.0f / 255.0f, 8.0f / 255.0f, 10.0f / 255.0f, 0.88f));
 		ImGui::BeginChild(id, ImVec2(0, 0), true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
 	}
 
-	void EndTabRegion()
+	inline void EndTabRegion()
 	{
 		ImGui::EndChild();
 		ImGui::PopStyleColor();
 		ImGui::PopStyleVar();
 	}
 
-	void DrawAnimatedSeparator()
+	inline void DrawAnimatedSeparator()
 	{
 		ImDrawList* draw = ImGui::GetWindowDrawList();
 		ImVec2 pos = ImGui::GetCursorScreenPos();

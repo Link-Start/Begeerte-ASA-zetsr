@@ -384,6 +384,24 @@
     <ClInclude Include="internal\Util\Util.h">
       <Filter>internal\Util</Filter>
     </ClInclude>
+    <ClInclude Include="internal\Menu\EntityList_Menu.h">
+      <Filter>internal\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Menu\StructureList_Menu.h">
+      <Filter>internal\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Menu\Aimbot_Menu.h">
+      <Filter>internal\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Menu\Visuals_Menu.h">
+      <Filter>internal\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Menu\Configs_Menu.h">
+      <Filter>internal\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Menu\Lua_Menu.h">
+      <Filter>internal\Menu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Object Include="external\LuaJIT-2.1\src\lj_vm.obj">
@@ -462,6 +480,24 @@
     </ClCompile>
     <ClCompile Include="dllmain.cpp">
       <Filter>dllmain</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Menu\EntityList_Menu.cpp">
+      <Filter>internal\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Menu\StructureList_Menu.cpp">
+      <Filter>internal\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Menu\Aimbot_Menu.cpp">
+      <Filter>internal\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Menu\Visuals_Menu.cpp">
+      <Filter>internal\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Menu\Configs_Menu.cpp">
+      <Filter>internal\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Menu\Lua_Menu.cpp">
+      <Filter>internal\Menu</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -119,8 +119,14 @@
     <ClInclude Include="internal\ESP\DrawESP.h" />
     <ClInclude Include="internal\ESP\ESP.h" />
     <ClInclude Include="internal\Lua\LuaManager.h" />
+    <ClInclude Include="internal\Menu\Aimbot_Menu.h" />
     <ClInclude Include="internal\Menu\ConfigImGui.h" />
+    <ClInclude Include="internal\Menu\Configs_Menu.h" />
     <ClInclude Include="internal\Menu\DrawImGui.h" />
+    <ClInclude Include="internal\Menu\EntityList_Menu.h" />
+    <ClInclude Include="internal\Menu\Lua_Menu.h" />
+    <ClInclude Include="internal\Menu\StructureList_Menu.h" />
+    <ClInclude Include="internal\Menu\Visuals_Menu.h" />
     <ClInclude Include="internal\Util\infoCPU.h" />
     <ClInclude Include="internal\Util\infoGPU.h" />
     <ClInclude Include="internal\Util\Util.h" />
@@ -150,7 +156,13 @@
     <ClCompile Include="internal\ESP\DrawESP.cpp" />
     <ClCompile Include="internal\ESP\ESP.cpp" />
     <ClCompile Include="internal\Lua\LuaManager.cpp" />
+    <ClCompile Include="internal\Menu\Aimbot_Menu.cpp" />
+    <ClCompile Include="internal\Menu\Configs_Menu.cpp" />
     <ClCompile Include="internal\Menu\DrawImGui.cpp" />
+    <ClCompile Include="internal\Menu\EntityList_Menu.cpp" />
+    <ClCompile Include="internal\Menu\Lua_Menu.cpp" />
+    <ClCompile Include="internal\Menu\StructureList_Menu.cpp" />
+    <ClCompile Include="internal\Menu\Visuals_Menu.cpp" />
     <ClCompile Include="internal\Util\infoCPU.cpp" />
     <ClCompile Include="internal\Util\infoGPU.cpp" />
   </ItemGroup>
