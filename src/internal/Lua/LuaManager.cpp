@@ -578,3 +578,23 @@ void LuaManager::Lua_OnPaint() {
         }
     }
 }
+
+void LuaManager::Lua_OnMenuOpen() {
+    std::lock_guard<std::mutex> lock(m_luaMutex);
+    if (!m_lua || !m_lua->lua_state()) return;
+
+    for (auto& script : m_scripts) {
+        if (!script.isLoaded || script.hasError || !script.env.valid()) continue;
+
+        sol::object MenuOpenObj = script.env["OnMenuOpen"];
+        if (MenuOpenObj.is<sol::protected_function>()) {
+            sol::protected_function MenuOpenFunc = MenuOpenObj;
+            auto result = MenuOpenFunc();
+            if (!result.valid()) {
+                sol::error err = result;
+                script.hasError = true;
+                script.lastError = "Runtime Error: " + std::string(err.what());
+            }
+        }
+    }
+}

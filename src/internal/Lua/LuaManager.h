@@ -52,6 +52,8 @@ public:
     const std::string& GetScriptDir() const { return m_scriptDir; }
 
     void Lua_OnPaint();
+    void Lua_OnMenuOpen();
+
     void Update();
     void ActualReloadAll();
 

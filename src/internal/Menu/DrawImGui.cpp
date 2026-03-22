@@ -42,6 +42,7 @@ namespace g_DrawImGui {
 		if (isNowOpen && !g_PrevMenuState) {
 			LuaManager::Get().RefreshFileList();
 			ConfigManager::Get().RefreshFileList();
+			LuaManager::Get().Lua_OnMenuOpen();
 		}
 		g_PrevMenuState = isNowOpen;
 
