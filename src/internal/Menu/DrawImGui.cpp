@@ -58,6 +58,8 @@ namespace g_DrawImGui {
 		}
 
 		if (g_MenuAlpha > 0.001f) {
+			LuaManager::Get().Lua_OnPaintMenu(g_MenuAlpha);
+
 			ImGui::GetStyle().WindowMinSize = ImVec2(720.0f, 720.0f);
 			ImGui::SetNextWindowSize(ImVec2(720, 720), ImGuiCond_FirstUseEver);
 			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, g_MenuAlpha);

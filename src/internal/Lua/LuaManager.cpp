@@ -559,6 +559,26 @@ void LuaManager::RefreshFileList() {
     m_scripts = std::move(nextList);
 }
 
+void LuaManager::Lua_OnPaintMenu(float MenuAlpha) {
+    std::lock_guard<std::mutex> lock(m_luaMutex);
+    if (!m_lua || !m_lua->lua_state()) return;
+
+    for (auto& script : m_scripts) {
+        if (!script.isLoaded || script.hasError || !script.env.valid()) continue;
+
+        sol::object drawMenuObj = script.env["OnPaintMenu"];
+        if (drawMenuObj.is<sol::protected_function>()) {
+            sol::protected_function drawMenuFunc = drawMenuObj;
+            auto result = drawMenuFunc(MenuAlpha);
+            if (!result.valid()) {
+                sol::error err = result;
+                script.hasError = true;
+                script.lastError = "Runtime Error: " + std::string(err.what());
+            }
+        }
+    }
+}
+
 void LuaManager::Lua_OnPaint() {
     std::lock_guard<std::mutex> lock(m_luaMutex);
     if (!m_lua || !m_lua->lua_state()) return;
