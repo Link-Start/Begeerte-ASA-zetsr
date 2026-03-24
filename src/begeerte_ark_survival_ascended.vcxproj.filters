@@ -67,6 +67,9 @@
     <Filter Include="dllmain">
       <UniqueIdentifier>{233658c2-9a34-430d-bb69-b18660712743}</UniqueIdentifier>
     </Filter>
+    <Filter Include="internal\Log">
+      <UniqueIdentifier>{caf8c24f-0fb3-44cf-befe-9b44d118059f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\LuaJIT-2.1\src\lj_vm.h">
@@ -402,6 +405,9 @@
     <ClInclude Include="internal\Menu\Lua_Menu.h">
       <Filter>internal\Menu</Filter>
     </ClInclude>
+    <ClInclude Include="internal\Log\LogManager.h">
+      <Filter>internal\Log</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Object Include="external\LuaJIT-2.1\src\lj_vm.obj">
@@ -498,6 +504,9 @@
     </ClCompile>
     <ClCompile Include="internal\Menu\Lua_Menu.cpp">
       <Filter>internal\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Log\LogManager.cpp">
+      <Filter>internal\Log</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

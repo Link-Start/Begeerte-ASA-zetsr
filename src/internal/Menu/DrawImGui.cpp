@@ -18,6 +18,7 @@
 #include "Configs_Menu.h"
 #include "Lua_Menu.h"
 // #include "Aimbot.h"
+#include "../Log/LogManager.h"
 #include "../Config/ConfigManager.h"
 #include "../Lua/LuaManager.h"
 #include "../Util/Util.h"
@@ -123,6 +124,7 @@ namespace g_DrawImGui {
 
 		// g_Aimbot::Tick();
 		g_DrawESP::DrawESP();
+		g_LogManager::Run();
 		LuaManager::Get().Lua_OnPaint();
 	}
 }

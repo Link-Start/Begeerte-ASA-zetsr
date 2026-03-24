@@ -4,6 +4,7 @@
 #include "../Util/infoCPU.h"
 #include "../Util/infoGPU.h"
 #include "../Util/Util.h"
+#include "../Log/LogManager.h"
 #include <algorithm>
 #include <iostream>
 
@@ -133,14 +134,23 @@ void LuaManager::Initialize(const std::string& scriptDir) {
     RefreshFileList();
 }
 
+void LuaManager::BindClient() {
+    if (!m_lua) return;
+
+    sol::table client = m_lua->create_named_table("Client");
+
+    client.set_function("AddLog", [](float r, float g, float b, float a, const std::string& text) {
+        g_LogManager::AddLog(r, g, b, a, text);
+        });
+}
+
 void LuaManager::BindImGui() {
     if (!m_lua) return;
 
-    auto imgui = m_lua->create_named_table("ImGui");
+    sol::table imgui = m_lua->create_named_table("ImGui");
     auto dl = []() { return ImGui::GetBackgroundDrawList(); };
 
     imgui.set_function("Color", [](int r, int g, int b, int a) { return IM_COL32(r, g, b, a); });
-
 
     imgui.set_function("GetDeltaTime", []() {
         return ImGui::GetIO().DeltaTime;
@@ -276,9 +286,9 @@ void LuaManager::BindSDK() {
         "ServerConnection", &SDK::UNetDriver::ServerConnection
         );
 
-    auto sdk = m_lua->create_named_table("SDK");
+    sol::table sdk = m_lua->create_named_table("SDK");
     sdk.set_function("GetNetDriver", []() -> sol::optional<SDK::UNetDriver*> {
-        auto W = SDK::UWorld::GetWorld();
+        SDK::UWorld* W = SDK::UWorld::GetWorld();
         if (W && W->NetDriver) {
             return W->NetDriver;
         }
@@ -286,20 +296,20 @@ void LuaManager::BindSDK() {
         });
 
     sdk.set_function("GetLocalPC", []() {
-        auto pc = g_Util::GetLocalPC();
-        return (pc) ? (uintptr_t)pc : 0;
+        SDK::APlayerController* pc = g_Util::GetLocalPC();
+        return (pc && pc->Pawn) ? (uintptr_t)pc : 0;
         });
 
     sdk.set_function("GetActors", [this](sol::this_state s) {
         sol::state_view lua(s);
         sol::table res = lua.create_table();
-        auto W = SDK::UWorld::GetWorld();
+        SDK::UWorld* W = SDK::UWorld::GetWorld();
 
         if (W && W->PersistentLevel) {
             int idx = 1;
-            auto& actors = W->PersistentLevel->Actors;
+            SDK::TArray<SDK::AActor*>& actors = W->PersistentLevel->Actors;
             for (int i = 0; i < actors.Num(); i++) {
-                auto a = actors[i];
+                SDK::AActor* a = actors[i];
                 if (a) {
                     res[idx++] = (uintptr_t)a;
                 }
@@ -314,19 +324,19 @@ void LuaManager::BindSDK() {
     sdk.set_function("GetContainerClass", []() { return (uintptr_t)SDK::APrimalStructureItemContainer::StaticClass(); });
     sdk.set_function("GetTurretClass", []() { return (uintptr_t)SDK::APrimalStructureTurret::StaticClass(); });
 
-    auto actor_api = m_lua->create_named_table("Actor");
+    sol::table actor_api = m_lua->create_named_table("Actor");
     actor_api.set_function("IsA", [](uintptr_t a, uintptr_t cls) { return (a && cls) ? ((SDK::AActor*)a)->IsA((SDK::UClass*)cls) : false; });
     actor_api.set_function("GetLocation", [](uintptr_t a) -> sol::optional<SDK::FVector> { return (a) ? sol::make_optional(((SDK::AActor*)a)->K2_GetActorLocation()) : sol::nullopt; });
     actor_api.set_function("GetDistance", [](uintptr_t a, uintptr_t b) { return (a && b) ? ((SDK::AActor*)a)->GetDistanceTo((SDK::AActor*)b) : 0.0f; });
     actor_api.set_function("IsHidden", [](uintptr_t a) { return a ? (bool)((SDK::AActor*)a)->bHidden : true; });
     actor_api.set_function("GetClassName", [](uintptr_t a) -> std::string {
-        auto act = (SDK::AActor*)a;
+        SDK::AActor* act = (SDK::AActor*)a;
         return (act && act->Class) ? act->Class->GetName() : "";
         });
 
-    auto char_api = m_lua->create_named_table("Character");
+    sol::table char_api = m_lua->create_named_table("Character");
     char_api.set_function("GetInfo", [](uintptr_t a) {
-        auto c = (SDK::APrimalCharacter*)a;
+        SDK::APrimalCharacter* c = (SDK::APrimalCharacter*)a;
         if (!c) return std::make_tuple(0.0f, 0.0f, false, std::string("Unknown"));
 
         std::string name = c->GetDescriptiveName().ToString();
@@ -339,7 +349,7 @@ void LuaManager::BindSDK() {
     char_api.set_function("GetExactPing", [](uintptr_t a) {
         float ping = 0.0f;
 
-        auto c = (SDK::APrimalCharacter*)a;
+        SDK::APrimalCharacter* c = (SDK::APrimalCharacter*)a;
         if (!c) return ping;
         if (c->PlayerState) ping = c->PlayerState->GetExactPing();
 
@@ -351,12 +361,12 @@ void LuaManager::BindSDK() {
         return (int)g_ESP::GetRelation((SDK::APrimalCharacter*)target, (SDK::APrimalCharacter*)local);
         });
 
-    auto item_api = m_lua->create_named_table("Item");
+    sol::table item_api = m_lua->create_named_table("Item");
     item_api.set_function("GetDroppedInfo", [](uintptr_t a) {
-        auto dropped = (SDK::ADroppedItem*)a;
+        SDK::ADroppedItem* dropped = (SDK::ADroppedItem*)a;
         if (!dropped || !dropped->MyItem) return std::make_tuple(false, std::string(""), 0, 0.0f, false, std::string(""));
 
-        auto it = dropped->MyItem;
+        SDK::UPrimalItem* it = dropped->MyItem;
         std::string name = it->DescriptiveNameBase.ToString();
         if (it->CustomItemName.IsValid() && !it->CustomItemName.ToString().empty()) name = it->CustomItemName.ToString();
 
@@ -364,15 +374,15 @@ void LuaManager::BindSDK() {
         return std::make_tuple(true, name, it->ItemQuantity, it->ItemRating, (bool)it->bIsBlueprint, className);
         });
 
-    auto cont_api = m_lua->create_named_table("Container");
+    sol::table cont_api = m_lua->create_named_table("Container");
     cont_api.set_function("GetInfo", [](uintptr_t a) {
-        auto c = (SDK::APrimalStructureItemContainer*)a;
+        SDK::APrimalStructureItemContainer* c = (SDK::APrimalStructureItemContainer*)a;
         std::string name = c ? c->GetDescriptiveName().ToString() : "";
         if (name.empty() || name == "None") name = "Supply Crate";
         return name;
         });
 
-    auto pc_api = m_lua->create_named_table("PC");
+    sol::table pc_api = m_lua->create_named_table("PC");
     pc_api.set_function("GetPawn", [](uintptr_t pc) -> uintptr_t { return pc ? (uintptr_t)((SDK::APlayerController*)pc)->Pawn : 0; });
     pc_api.set_function("ProjectToScreen", [](uintptr_t pc, SDK::FVector worldLoc) -> std::tuple<bool, float, float> {
         SDK::FVector2D screenPos;
@@ -383,7 +393,7 @@ void LuaManager::BindSDK() {
 
 void LuaManager::BindSystem() {
     if (!m_lua) return;
-    auto system_api = m_lua->create_named_table("System");
+    sol::table system_api = m_lua->create_named_table("System");
 
     system_api.set_function("GetCPUStats", []() -> std::tuple<double, double> {
         g_infoCPU::CPUStats stats;
@@ -412,6 +422,7 @@ void LuaManager::InitVM() {
     m_lua.reset(new sol::state());
     m_lua->open_libraries();
 
+    BindClient();
     BindImGui();
     BindSDK();
     BindSystem();
@@ -505,6 +516,9 @@ bool LuaManager::ExecuteScript(LuaScript& script) {
         sol::error err = load_result;
         script.hasError = true;
         script.lastError = "Load Error: " + std::string(err.what());
+
+        std::string errorMsg = "[!] " + script.name + ": " + std::string(err.what());
+        g_LogManager::AddLog(255.f, 50.f, 50.f, 255.f, errorMsg);
         return false;
     }
 
@@ -516,6 +530,9 @@ bool LuaManager::ExecuteScript(LuaScript& script) {
         sol::error err = exec_result;
         script.hasError = true;
         script.lastError = "Exec Error: " + std::string(err.what());
+
+        std::string errorMsg = "[!] " + script.name + ": " + std::string(err.what());
+        g_LogManager::AddLog(255.f, 50.f, 50.f, 255.f, errorMsg);
         return false;
     }
 
@@ -574,6 +591,9 @@ void LuaManager::Lua_OnPaintMenu(float MenuAlpha) {
                 sol::error err = result;
                 script.hasError = true;
                 script.lastError = "Runtime Error: " + std::string(err.what());
+
+                std::string errorMsg = "[!] " + script.name + ": " + std::string(err.what());
+                g_LogManager::AddLog(255.f, 50.f, 50.f, 255.f, errorMsg);
             }
         }
     }
@@ -594,6 +614,9 @@ void LuaManager::Lua_OnPaint() {
                 sol::error err = result;
                 script.hasError = true;
                 script.lastError = "Runtime Error: " + std::string(err.what());
+
+                std::string errorMsg = "[!] " + script.name + ": " + std::string(err.what());
+                g_LogManager::AddLog(255.f, 50.f, 50.f, 255.f, errorMsg);
             }
         }
     }
@@ -614,6 +637,9 @@ void LuaManager::Lua_OnMenuOpen() {
                 sol::error err = result;
                 script.hasError = true;
                 script.lastError = "Runtime Error: " + std::string(err.what());
+
+                std::string errorMsg = "[!] " + script.name + ": " + std::string(err.what());
+                g_LogManager::AddLog(255.f, 50.f, 50.f, 255.f, errorMsg);
             }
         }
     }
