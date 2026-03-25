@@ -17,7 +17,6 @@
 namespace g_Hook {
     typedef void* (__fastcall* tWorldFunction)(SDK::UWorld* rcx, void* rdx, void* r8, void* r9);
     tWorldFunction oWorldTick = nullptr;
-    void* last_pWorldTick = nullptr;
 
     void* __fastcall hkUWorldTick(SDK::UWorld* rcx, void* rdx, void* r8, void* r9) {
         g_MDX12::SetupUWorldTick(rcx);
@@ -26,32 +25,19 @@ namespace g_Hook {
     }
 
     void initUWorldTick() {
-        SDK::UWorld* pWorld = SDK::UWorld::GetWorld();
-
-        // 只有在世界有效时才操作
-        if (pWorld && pWorld->OwningGameInstance && pWorld->PersistentLevel) {
-            void** vtable = *reinterpret_cast<void***>(pWorld);
-            if (!vtable) return;
-
-            void* currentTarget = vtable[220];
-            if (currentTarget && currentTarget != last_pWorldTick) {
-                if (last_pWorldTick) {
-                    MH_DisableHook(last_pWorldTick);
-                    MH_RemoveHook(last_pWorldTick);
-                }
-
-                if (MH_CreateHook(currentTarget, &hkUWorldTick, reinterpret_cast<LPVOID*>(&oWorldTick)) == MH_OK) {
-                    MH_EnableHook(currentTarget);
-                    last_pWorldTick = currentTarget;
-                }
-            }
+        SDK::UWorld* pWorld = nullptr;
+        while (!pWorld) {
+            pWorld = SDK::UWorld::GetWorld();
+            if (pWorld && pWorld->OwningGameInstance) break;
+            Sleep(1);
         }
-        else {
-            // 如果不在游戏世界中，清理旧 Hook
-            if (last_pWorldTick) {
-                MH_DisableHook(last_pWorldTick);
-                MH_RemoveHook(last_pWorldTick);
-                last_pWorldTick = nullptr;
+
+        void** vtable = *reinterpret_cast<void***>(pWorld);
+        void* pTarget = vtable[220];
+
+        if (pTarget) {
+            if (MH_CreateHook(pTarget, &g_Hook::hkUWorldTick, reinterpret_cast<LPVOID*>(&g_Hook::oWorldTick)) == MH_OK) {
+                // MH_EnableHook(pTarget);
             }
         }
     }
