@@ -12,12 +12,15 @@
 #include "../ESP/DrawESP.h"
 #include "ConfigImGui.h"
 #include "DrawImGui.h"
+
+// #include "Aimbot.h"
 #include "Visuals_Menu.h"
 #include "EntityList_Menu.h"
 #include "StructureList_Menu.h"
+#include "Misc_Menu.h"
 #include "Configs_Menu.h"
 #include "Lua_Menu.h"
-// #include "Aimbot.h"
+
 #include "../Log/LogManager.h"
 #include "../Config/ConfigManager.h"
 #include "../Lua/LuaManager.h"
@@ -106,6 +109,7 @@ namespace g_DrawImGui {
 					Visuals_Menu();
 					EntityList_Menu();
 					StructureList_Menu();
+					Misc_Menu();
 					Configs_Menu();
 					Lua_Menu();
 

@@ -51,6 +51,7 @@ public:
     lua_State* GetState() { return m_lua ? m_lua->lua_state() : nullptr; }
     const std::string& GetScriptDir() const { return m_scriptDir; }
 
+    void Lua_OnWorldTick();
     void Lua_OnPaintMenu(float MenuAlpha);
     void Lua_OnPaint();
     void Lua_OnMenuOpen();

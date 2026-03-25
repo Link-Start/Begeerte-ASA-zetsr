@@ -70,6 +70,12 @@
     <Filter Include="internal\Log">
       <UniqueIdentifier>{caf8c24f-0fb3-44cf-befe-9b44d118059f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="internal\UWorld">
+      <UniqueIdentifier>{a37df62d-49d4-4efd-951e-aa9e033b5952}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\Hack">
+      <UniqueIdentifier>{fdbbfa70-1a4b-4147-b85c-a86fb49e4eb5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\LuaJIT-2.1\src\lj_vm.h">
@@ -408,6 +414,15 @@
     <ClInclude Include="internal\Log\LogManager.h">
       <Filter>internal\Log</Filter>
     </ClInclude>
+    <ClInclude Include="internal\UWorld\Tick.h">
+      <Filter>internal\UWorld</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Hack\Hack.h">
+      <Filter>internal\Hack</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Menu\Misc_Menu.h">
+      <Filter>internal\Menu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Object Include="external\LuaJIT-2.1\src\lj_vm.obj">
@@ -507,6 +522,15 @@
     </ClCompile>
     <ClCompile Include="internal\Log\LogManager.cpp">
       <Filter>internal\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\UWorld\Tick.cpp">
+      <Filter>internal\UWorld</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Hack\Hack.cpp">
+      <Filter>internal\Hack</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Menu\Misc_Menu.cpp">
+      <Filter>internal\Menu</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

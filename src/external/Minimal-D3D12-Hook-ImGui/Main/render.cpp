@@ -105,8 +105,9 @@ namespace g_MDX12 {
         // Implementation here
     }
 
-    void Initialize() {
-        CreateThread(nullptr, 0, MainThread, nullptr, 0, nullptr);
+    void Initialize(LPVOID lpParam) {
+        // CreateThread(nullptr, 0, MainThread, nullptr, 0, nullptr);
+        MainThread(lpParam);
     }
 }
 

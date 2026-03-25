@@ -97,6 +97,9 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
         file << "# Configuration File\n";
         file << "# Format: key=value\n\n";
 
+        // 其他功能
+        CONFIG_BOOL(g_Config::bAutoFeed);
+
         // 生物列表
         file << "[EntityList]\n";
         CONFIG_STRING(g_Config::entitySearchBuf, 256);
@@ -256,6 +259,9 @@ bool ConfigManager::LoadConfig(const std::string& filename) {
         }
 
         file.close();
+        // 其他功能
+        LOAD_BOOL(g_Config::bAutoFeed);
+
         // 生物列表
         LOAD_STRING(g_Config::entitySearchBuf, 256);
         LOAD_BOOL(g_Config::bEnableFilter);

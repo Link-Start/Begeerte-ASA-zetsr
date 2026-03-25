@@ -103,5 +103,6 @@ namespace g_MDX12 {
     // Callback functions
     namespace g_Callbacks {
         SetupImGuiCallback g_setupImGuiCallback = nullptr;
+        SetupUWorldTickCallback g_setupUWorldTickCallback = nullptr;
     }
 }

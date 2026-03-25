@@ -118,6 +118,7 @@
     <ClInclude Include="internal\Config\Configs.h" />
     <ClInclude Include="internal\ESP\DrawESP.h" />
     <ClInclude Include="internal\ESP\ESP.h" />
+    <ClInclude Include="internal\Hack\Hack.h" />
     <ClInclude Include="internal\Log\LogManager.h" />
     <ClInclude Include="internal\Lua\LuaManager.h" />
     <ClInclude Include="internal\Menu\Aimbot_Menu.h" />
@@ -126,11 +127,13 @@
     <ClInclude Include="internal\Menu\DrawImGui.h" />
     <ClInclude Include="internal\Menu\EntityList_Menu.h" />
     <ClInclude Include="internal\Menu\Lua_Menu.h" />
+    <ClInclude Include="internal\Menu\Misc_Menu.h" />
     <ClInclude Include="internal\Menu\StructureList_Menu.h" />
     <ClInclude Include="internal\Menu\Visuals_Menu.h" />
     <ClInclude Include="internal\Util\infoCPU.h" />
     <ClInclude Include="internal\Util\infoGPU.h" />
     <ClInclude Include="internal\Util\Util.h" />
+    <ClInclude Include="internal\UWorld\Tick.h" />
   </ItemGroup>
   <ItemGroup>
     <Object Include="external\LuaJIT-2.1\src\lj_vm.obj" />
@@ -156,6 +159,7 @@
     <ClCompile Include="internal\Config\ConfigManager.cpp" />
     <ClCompile Include="internal\ESP\DrawESP.cpp" />
     <ClCompile Include="internal\ESP\ESP.cpp" />
+    <ClCompile Include="internal\Hack\Hack.cpp" />
     <ClCompile Include="internal\Log\LogManager.cpp" />
     <ClCompile Include="internal\Lua\LuaManager.cpp" />
     <ClCompile Include="internal\Menu\Aimbot_Menu.cpp" />
@@ -163,10 +167,12 @@
     <ClCompile Include="internal\Menu\DrawImGui.cpp" />
     <ClCompile Include="internal\Menu\EntityList_Menu.cpp" />
     <ClCompile Include="internal\Menu\Lua_Menu.cpp" />
+    <ClCompile Include="internal\Menu\Misc_Menu.cpp" />
     <ClCompile Include="internal\Menu\StructureList_Menu.cpp" />
     <ClCompile Include="internal\Menu\Visuals_Menu.cpp" />
     <ClCompile Include="internal\Util\infoCPU.cpp" />
     <ClCompile Include="internal\Util\infoGPU.cpp" />
+    <ClCompile Include="internal\UWorld\Tick.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

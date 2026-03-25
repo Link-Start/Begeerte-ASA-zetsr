@@ -1,6 +1,10 @@
 #pragma once
 
 namespace g_Config {
+    // 其他功能
+    inline bool bUnlockExplorerNotes = false;
+    inline bool bAutoFeed = false;
+
     // 生物列表
     inline char entitySearchBuf[256] = { 0 };
     inline bool bEnableFilter = false;

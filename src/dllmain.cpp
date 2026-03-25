@@ -6,6 +6,7 @@
 #include "internal/Menu/DrawImGui.h"
 #include "internal/Lua/LuaManager.h"
 #include "internal/Config/ConfigManager.h"
+#include "internal/UWorld/Tick.h"
 
 extern "C" {
 #include "external/Minimal-D3D12-Hook-ImGui/MinHook/src/buffer.c"
@@ -14,9 +15,11 @@ extern "C" {
 #include "external/Minimal-D3D12-Hook-ImGui/MinHook/src/hde/hde64.c"
 }
 
-void init() {
-    g_MDX12::Initialize();
+void init(LPVOID lpParam) {
+    g_MDX12::Initialize(lpParam);
     g_MDX12::SetSetupImGuiCallback(g_DrawImGui::MyImGuiDraw);
+    g_MDX12::SetSetupUWorldTickCallback(g_UWorld::Tick);
+    // g_Hook::initWorldTick();
 
     ConfigManager::Get().Initialize("cfg");
     LuaManager::Get().Initialize("lua");
@@ -24,7 +27,7 @@ void init() {
 }
 
 void MainThread(LPVOID lpParam) {
-    init();
+    init(lpParam);
 }
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved)

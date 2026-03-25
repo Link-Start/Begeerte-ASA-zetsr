@@ -33,6 +33,18 @@ namespace g_Util {
         return ToImColor(r * 255.0f, g * 255.0f, 0.0f, 255.0f);
     }
 
+    inline bool IsCookedMeat(SDK::UPrimalItem* Item) {
+        if (!Item || !Item->Class) return false;
+        std::string name = Item->Class->GetName();
+        return name.find("PrimalItemConsumable_CookedMeat") != std::string::npos;
+    }
+
+    inline bool IsRawMeat(SDK::UPrimalItem* Item) {
+        if (!Item || !Item->Class) return false;
+        std::string name = Item->Class->GetName();
+        return name.find("PrimalItemConsumable_RawMeat") != std::string::npos;
+    }
+
     inline bool IsEntityMatch(std::string displayName, std::string filter) {
         if (filter.empty()) return true;
 
@@ -157,5 +169,38 @@ namespace g_Util {
         input.type = INPUT_MOUSE;
         input.mi.dwFlags = bPress ? MOUSEEVENTF_LEFTDOWN : MOUSEEVENTF_LEFTUP;
         SendInput(1, &input, sizeof(INPUT));
+    }
+
+    inline void ProcessDinoFeed(SDK::AShooterPlayerController* PC, SDK::APrimalDinoCharacter* Dino) {
+        if (!Dino || Dino->IsDead()) return;
+
+        float curHP = Dino->GetHealth();
+        float maxHP = Dino->GetMaxHealth();
+        if (maxHP <= 0.0f || curHP >= (maxHP - 1.0f)) return;
+
+        SDK::UPrimalInventoryComponent* Inv = Dino->MyInventoryComponent;
+        if (!Inv) return;
+
+        SDK::TArray<SDK::UPrimalItem*>& Items = Inv->InventoryItems;
+        SDK::UPrimalItem* BestMeat = nullptr;
+
+        // 寻找食物：优先熟肉，其次生肉
+        for (int i = 0; i < Items.Num(); i++) {
+            SDK::UPrimalItem* Item = Items[i];
+            if (!Item || !Item->Class) continue;
+
+            if (IsCookedMeat(Item)) {
+                BestMeat = Item;
+                break; // 熟肉回血多，找到直接跳出
+            }
+            if (IsRawMeat(Item)) {
+                BestMeat = Item; // 先记下生肉，继续看有没有熟肉
+            }
+        }
+
+        if (BestMeat) {
+            // 使用针对龙的 RPC
+            PC->ServerRequestInventoryUseItem(Inv, BestMeat->ItemID);
+        }
     }
 }

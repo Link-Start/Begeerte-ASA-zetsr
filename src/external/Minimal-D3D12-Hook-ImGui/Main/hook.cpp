@@ -6,11 +6,56 @@
 #include "../Font/Alibaba-PuHuiTi-Medium.h"
 // #include "../Font/Alibaba-PuHuiTi-Regular.h"
 
+// #include "../../../internal/Hook/Hook.h"
+
 #pragma warning(push)
 #pragma warning(disable: 26451)
 #pragma warning(disable: 26812)
 #pragma warning(disable: 6387)
 #pragma warning(pop)
+
+namespace g_Hook {
+    typedef void* (__fastcall* tWorldFunction)(SDK::UWorld* rcx, void* rdx, void* r8, void* r9);
+    tWorldFunction oWorldTick = nullptr;
+    void* last_pWorldTick = nullptr;
+
+    void* __fastcall hkUWorldTick(SDK::UWorld* rcx, void* rdx, void* r8, void* r9) {
+        g_MDX12::SetupUWorldTick(rcx);
+
+        return oWorldTick(rcx, rdx, r8, r9);
+    }
+
+    void initUWorldTick() {
+        SDK::UWorld* pWorld = SDK::UWorld::GetWorld();
+
+        // 只有在世界有效时才操作
+        if (pWorld && pWorld->OwningGameInstance && pWorld->PersistentLevel) {
+            void** vtable = *reinterpret_cast<void***>(pWorld);
+            if (!vtable) return;
+
+            void* currentTarget = vtable[220];
+            if (currentTarget && currentTarget != last_pWorldTick) {
+                if (last_pWorldTick) {
+                    MH_DisableHook(last_pWorldTick);
+                    MH_RemoveHook(last_pWorldTick);
+                }
+
+                if (MH_CreateHook(currentTarget, &hkUWorldTick, reinterpret_cast<LPVOID*>(&oWorldTick)) == MH_OK) {
+                    MH_EnableHook(currentTarget);
+                    last_pWorldTick = currentTarget;
+                }
+            }
+        }
+        else {
+            // 如果不在游戏世界中，清理旧 Hook
+            if (last_pWorldTick) {
+                MH_DisableHook(last_pWorldTick);
+                MH_RemoveHook(last_pWorldTick);
+                last_pWorldTick = nullptr;
+            }
+        }
+    }
+}
 
 namespace g_MDX12 {
     void STDMETHODCALLTYPE hkExecuteCommandLists(ID3D12CommandQueue* queue, UINT NumCommandLists, ID3D12CommandList* const* ppCommandLists) {
@@ -301,7 +346,7 @@ namespace g_MDX12 {
         return hr;
     }
 
-    DWORD WINAPI MainThread(LPVOID) {
+    DWORD WINAPI MainThread(LPVOID lpParam) {
         if (MH_Initialize() != MH_OK) return 0;
 
         // ---------------------------------------------------------------
@@ -314,6 +359,8 @@ namespace g_MDX12 {
             // WaitAndLoad 目前是死循环直到成功，不会返回 false，此处作为保险
             return 0;
         }
+
+        g_Hook::initUWorldTick();
 
         // 此时 d3d12.dll 与 dxgi.dll 已被目标进程加载，可以安全操作
         while (true) {
@@ -390,6 +437,9 @@ namespace g_MDX12 {
 
             DestroyWindow(tempWnd);
             UnregisterClass(wc.lpszClassName, wc.hInstance);
+
+            g_Hook::initUWorldTick();
+
             Sleep(1);
         }
 
