@@ -76,6 +76,12 @@
     <Filter Include="internal\CheatData">
       <UniqueIdentifier>{7175f10b-9563-4423-9ef2-f994f0c5cccb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="internal\UWorld\NetDriver">
+      <UniqueIdentifier>{40730184-d41d-4cc1-a994-eea9fd934ab6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\UWorld\NetDriver\ServerConnection">
+      <UniqueIdentifier>{259234b2-7d42-4c88-8c11-16741d8b57a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\LuaJIT-2.1\src\lj_vm.h">
@@ -429,6 +435,9 @@
     <ClInclude Include="internal\CheatData\CheatData.hpp">
       <Filter>internal\CheatData</Filter>
     </ClInclude>
+    <ClInclude Include="internal\UWorld\NetDriver\ServerConnection\HandleDisconnect.h">
+      <Filter>internal\UWorld\NetDriver\ServerConnection</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Object Include="external\LuaJIT-2.1\src\lj_vm.obj">
@@ -537,6 +546,9 @@
     </ClCompile>
     <ClCompile Include="internal\Menu\Misc_Menu.cpp">
       <Filter>internal\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\UWorld\NetDriver\ServerConnection\HandleDisconnect.cpp">
+      <Filter>internal\UWorld\NetDriver\ServerConnection</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

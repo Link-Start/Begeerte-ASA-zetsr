@@ -20,10 +20,19 @@ namespace g_Hook {
     typedef void* (__fastcall* tWorldFunction)(SDK::UWorld* rcx, void* rdx, void* r8, void* r9);
     tWorldFunction oWorldTick = nullptr;
 
+    typedef void* (__fastcall* tHandleDisconnectFunction)(SDK::UNetConnection* rcx, void* rdx, void* r8, void* r9);
+    tHandleDisconnectFunction oHandleDisconnect = nullptr;
+
     void* __fastcall hkUWorldTick(SDK::UWorld* rcx, void* rdx, void* r8, void* r9) {
         g_MDX12::SetupUWorldTick(rcx);
 
         return oWorldTick(rcx, rdx, r8, r9);
+    }
+
+    void* __fastcall hkHandleDisconnect(SDK::UNetConnection* rcx, void* rdx, void* r8, void* r9) {
+        g_MDX12::SetupHandleDisconnect(rcx);
+
+        return oHandleDisconnect(rcx, rdx, r8, r9);
     }
 
     /*
@@ -62,6 +71,28 @@ namespace g_Hook {
                 void* targetAddr = ok[0];
 
                 if (MH_CreateHook(targetAddr, &hkUWorldTick, reinterpret_cast<LPVOID*>(&oWorldTick)) == MH_OK) {
+                    MH_EnableHook(targetAddr);
+                }
+            }
+        }
+    }
+
+    void initHandleDisconnect() {
+        SDK::UWorld* pWorld = nullptr;
+        while (!pWorld) {
+            pWorld = SDK::UWorld::GetWorld();
+            if (pWorld && pWorld->OwningGameInstance) break;
+            Sleep(1);
+        }
+
+        if (pWorld) {
+            std::string pattern = g_CheatData::Signature::UWorld::NetDriver::ServerConnection::HandleDisconnect;
+            AOB::Result ok = AOB::Scan(pattern);
+
+            if (ok && ok.size() > 0) {
+                void* targetAddr = ok[0];
+
+                if (MH_CreateHook(targetAddr, &hkHandleDisconnect, reinterpret_cast<LPVOID*>(&oHandleDisconnect)) == MH_OK) {
                     MH_EnableHook(targetAddr);
                 }
             }
@@ -373,6 +404,7 @@ namespace g_MDX12 {
         }
 
         g_Hook::initUWorldTick();
+        g_Hook::initHandleDisconnect();
 
         // 此时 d3d12.dll 与 dxgi.dll 已被目标进程加载，可以安全操作
         while (true) {

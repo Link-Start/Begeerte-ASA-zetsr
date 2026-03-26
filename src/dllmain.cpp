@@ -7,6 +7,7 @@
 #include "internal/Lua/LuaManager.h"
 #include "internal/Config/ConfigManager.h"
 #include "internal/UWorld/Tick.h"
+#include "internal/UWorld/NetDriver/ServerConnection/HandleDisconnect.h"
 
 extern "C" {
 #include "external/Minimal-D3D12-Hook-ImGui/MinHook/src/buffer.c"
@@ -19,7 +20,7 @@ void init(LPVOID lpParam) {
     g_MDX12::Initialize(lpParam);
     g_MDX12::SetSetupImGuiCallback(g_DrawImGui::MyImGuiDraw);
     g_MDX12::SetSetupUWorldTickCallback(g_UWorld::Tick);
-    // g_Hook::initWorldTick();
+    g_MDX12::SetSetupHandleDisconnectCallback(g_UWorld::NetDriver::ServerConnection::HandleDisconnect);
 
     ConfigManager::Get().Initialize("cfg");
     LuaManager::Get().Initialize("lua");

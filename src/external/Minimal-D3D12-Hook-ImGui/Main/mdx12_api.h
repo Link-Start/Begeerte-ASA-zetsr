@@ -164,6 +164,7 @@ namespace g_MDX12 {
     void FinalCleanupAll();
     void SetupImGui(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT Flags);
     void SetupUWorldTick(SDK::UWorld* rcx);
+    void SetupHandleDisconnect(SDK::UNetConnection* rcx);
 
     // Main thread initialization
     DWORD WINAPI MainThread(LPVOID);
@@ -171,19 +172,23 @@ namespace g_MDX12 {
     // Callback function type for custom ImGui drawing
     typedef void(*SetupImGuiCallback)(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT Flags);
     typedef void(*SetupUWorldTickCallback)(SDK::UWorld* rcx);
+    typedef void(*SetupHandleDisconnectCallback)(SDK::UNetConnection* rcx);
 
     namespace g_Callbacks {
         extern SetupImGuiCallback g_setupImGuiCallback;
         extern SetupUWorldTickCallback g_setupUWorldTickCallback;
+        extern SetupHandleDisconnectCallback g_setupHandleDisconnectCallback;
     }
 
     // Public API
     void Initialize(LPVOID lpParam);
     void SetSetupImGuiCallback(SetupImGuiCallback callback);
     void SetSetupUWorldTickCallback(SetupUWorldTickCallback callback);
+    void SetSetupHandleDisconnectCallback(SetupHandleDisconnectCallback callback);
 }
 
 // Export for DLL
 extern "C" __declspec(dllexport) void SetOverlayWaitTimeout(UINT ms);
 extern "C" __declspec(dllexport) void SetSetupImGuiCallback(g_MDX12::SetupImGuiCallback callback);
 extern "C" __declspec(dllexport) void SetSetupUWorldTickCallback(g_MDX12::SetupUWorldTickCallback callback);
+extern "C" __declspec(dllexport) void SetSetupHandleDisconnectCallback(g_MDX12::SetupHandleDisconnectCallback callback);

@@ -11,6 +11,16 @@ namespace g_MDX12 {
         }
     }
 
+    void SetSetupHandleDisconnectCallback(SetupHandleDisconnectCallback callback) {
+        g_Callbacks::g_setupHandleDisconnectCallback = callback;
+    }
+
+    void SetupHandleDisconnect(SDK::UNetConnection* rcx) {
+        if (g_Callbacks::g_setupHandleDisconnectCallback) {
+            g_Callbacks::g_setupHandleDisconnectCallback(rcx);
+        }
+    }
+
     void SetSetupImGuiCallback(SetupImGuiCallback callback) {
         g_Callbacks::g_setupImGuiCallback = callback;
     }
