@@ -11,7 +11,7 @@ namespace g_Hack {
     static int32_t g_CurrentNoteIndex = 0;
     static const int32_t g_MaxNoteIndex = 200;
 
-    void UnlockExplorerNotes(SDK::UWorld* World) {
+    void Suicide(SDK::UWorld* World) {
         if (!World || !World->OwningGameInstance || World->OwningGameInstance->LocalPlayers.Num() == 0) return;
 
         SDK::ULocalPlayer* LP = World->OwningGameInstance->LocalPlayers[0];
@@ -19,6 +19,28 @@ namespace g_Hack {
 
         if (!LP->PlayerController->IsA(SDK::AShooterPlayerController::StaticClass())) return;
         SDK::AShooterPlayerController* PC = static_cast<SDK::AShooterPlayerController*>(LP->PlayerController);
+
+        if (!PC) return;
+
+        if (PC->Character && PC->Character->IsA(SDK::AShooterCharacter::StaticClass())) {
+            SDK::AShooterCharacter* MyHuman = static_cast<SDK::AShooterCharacter*>(PC->Character);
+
+            if (MyHuman) {
+                MyHuman->BPSuicide();
+            }
+        }
+    }
+
+    void UnlockExplorerNotes(SDK::UWorld* World) {
+        if (!World || !World->OwningGameInstance || World->OwningGameInstance->LocalPlayers.Num() == 0) return;
+
+        SDK::ULocalPlayer* LP = World->OwningGameInstance->LocalPlayers[0];
+        if (!LP || !LP->PlayerController || !LP->PlayerController->Pawn) return;
+
+        if (!LP->PlayerController->IsA(SDK::AShooterPlayerController::StaticClass())) return;
+        SDK::AShooterPlayerController* PC = static_cast<SDK::AShooterPlayerController*>(LP->PlayerController);
+
+        if (!PC)  return;
 
         if (g_CurrentNoteIndex <= g_MaxNoteIndex) {
             PC->UnlockExplorerNote(g_CurrentNoteIndex, true, true);
@@ -44,7 +66,10 @@ namespace g_Hack {
 
         else if (PC->Character && PC->Character->IsA(SDK::AShooterCharacter::StaticClass())) {
             SDK::AShooterCharacter* MyHuman = static_cast<SDK::AShooterCharacter*>(PC->Character);
-            TargetDino = MyHuman->GetRidingDino();
+
+            if (MyHuman) {
+                TargetDino = MyHuman->GetRidingDino();
+            }
         }
 
         // 只有找到恐龙时才执行喂食逻辑

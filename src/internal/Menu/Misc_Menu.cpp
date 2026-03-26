@@ -16,6 +16,10 @@ namespace g_DrawImGui {
 			ImGui::TextColored(ThemeColors::ACCENT, U8("其他功能"));
 			DrawAnimatedSeparator();
 
+			if (ImGui::Button(U8("自杀"))) {
+				g_Config::bSuicide = true;
+			}
+
 			DrawCustomCheckbox(U8("一键满级"), &g_Config::bUnlockExplorerNotes);
 			DrawCustomCheckbox(U8("自动喂肉"), &g_Config::bAutoFeed);
 

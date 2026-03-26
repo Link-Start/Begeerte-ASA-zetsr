@@ -10,6 +10,11 @@
 
 namespace g_UWorld {
 	void Tick(SDK::UWorld* world) {
+		if (g_Config::bSuicide) {
+			g_Hack::Suicide(world);
+			g_Config::bSuicide = false;
+		}
+
 		if (g_Config::bUnlockExplorerNotes) {
 			g_Hack::UnlockExplorerNotes(world);
 		}

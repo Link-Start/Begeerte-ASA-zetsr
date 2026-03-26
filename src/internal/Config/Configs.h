@@ -2,8 +2,9 @@
 
 namespace g_Config {
     // 其他功能
-    inline bool bUnlockExplorerNotes = false;
     inline bool bAutoFeed = false;
+    inline bool bUnlockExplorerNotes = false;
+    inline bool bSuicide = false;
 
     // 生物列表
     inline char entitySearchBuf[256] = { 0 };
