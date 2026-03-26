@@ -51,6 +51,7 @@
 
 | 函数签名 | 返回值 | 说明 | C++
 | --- | --- | --- | --- |
+| `OnDisconnect(string ServerIP, int ServerPort)` |  | 在退出服务器的时候触发 |  |
 | `OnWorldTick()` |  | 在UWorld运行时每帧触发 |  |
 | `OnPaint()` |  | 在这里使用 ImGui API 进行绘制 | `HRESULT STDMETHODCALLTYPE hkPresent(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT Flags)` |
 | `OnPaintMenu(float MenuAlpha)` |  | 在这里使用 ImGui API 进行绘制，只在外挂菜单被打开时触发 |  |
