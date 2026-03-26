@@ -24,35 +24,6 @@
 namespace SDK
 {
 
-// Class GameplayAbilities.AbilitySystemCheatManagerExtension
-// 0x0000 (0x0028 - 0x0028)
-class UAbilitySystemCheatManagerExtension final : public UCheatManagerExtension
-{
-public:
-	void AbilityActivate(const class FString& PartialName) const;
-	void AbilityCancel(const class FString& PartialName) const;
-	void AbilityGrant(const class FString& AssetSearchString) const;
-	void AbilityListGranted() const;
-	void EffectApply(const class FString& PartialName, float EffectLevel) const;
-	void EffectListActive() const;
-	void EffectRemove(const class FString& NameOrHandle) const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("AbilitySystemCheatManagerExtension")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"AbilitySystemCheatManagerExtension")
-	}
-	static class UAbilitySystemCheatManagerExtension* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UAbilitySystemCheatManagerExtension>();
-	}
-};
-DUMPER7_ASSERTS_UAbilitySystemCheatManagerExtension;
-
 // Class GameplayAbilities.GameplayEffectComponent
 // 0x0000 (0x0028 - 0x0028)
 class UGameplayEffectComponent : public UObject
@@ -73,28 +44,28 @@ public:
 };
 DUMPER7_ASSERTS_UGameplayEffectComponent;
 
-// Class GameplayAbilities.RemoveOtherGameplayEffectComponent
-// 0x0010 (0x0038 - 0x0028)
-class URemoveOtherGameplayEffectComponent final : public UGameplayEffectComponent
+// Class GameplayAbilities.TargetTagsGameplayEffectComponent
+// 0x0060 (0x0088 - 0x0028)
+class UTargetTagsGameplayEffectComponent final : public UGameplayEffectComponent
 {
 public:
-	TArray<struct FGameplayEffectQuery>           RemoveGameplayEffectQueries;                       // 0x0028(0x0010)(Edit, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	struct FInheritedTagContainer                 InheritableGrantedTagsContainer;                   // 0x0028(0x0060)(Edit, BlueprintReadOnly, DisableEditOnInstance, NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("RemoveOtherGameplayEffectComponent")
+		STATIC_CLASS_IMPL("TargetTagsGameplayEffectComponent")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"RemoveOtherGameplayEffectComponent")
+		STATIC_NAME_IMPL(L"TargetTagsGameplayEffectComponent")
 	}
-	static class URemoveOtherGameplayEffectComponent* GetDefaultObj()
+	static class UTargetTagsGameplayEffectComponent* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<URemoveOtherGameplayEffectComponent>();
+		return GetDefaultObjImpl<UTargetTagsGameplayEffectComponent>();
 	}
 };
-DUMPER7_ASSERTS_URemoveOtherGameplayEffectComponent;
+DUMPER7_ASSERTS_UTargetTagsGameplayEffectComponent;
 
 // Class GameplayAbilities.AbilitySystemDebugHUD
 // 0x0000 (0x0580 - 0x0580)
@@ -259,6 +230,35 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UAbilityAsync_WaitGameplayTagCountChanged;
+
+// Class GameplayAbilities.AbilitySystemCheatManagerExtension
+// 0x0000 (0x0028 - 0x0028)
+class UAbilitySystemCheatManagerExtension final : public UCheatManagerExtension
+{
+public:
+	void AbilityActivate(const class FString& PartialName) const;
+	void AbilityCancel(const class FString& PartialName) const;
+	void AbilityGrant(const class FString& AssetSearchString) const;
+	void AbilityListGranted() const;
+	void EffectApply(const class FString& PartialName, float EffectLevel) const;
+	void EffectListActive() const;
+	void EffectRemove(const class FString& NameOrHandle) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("AbilitySystemCheatManagerExtension")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"AbilitySystemCheatManagerExtension")
+	}
+	static class UAbilitySystemCheatManagerExtension* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UAbilitySystemCheatManagerExtension>();
+	}
+};
+DUMPER7_ASSERTS_UAbilitySystemCheatManagerExtension;
 
 // Class GameplayAbilities.AbilityTask
 // 0x0018 (0x0080 - 0x0068)
@@ -669,6 +669,29 @@ public:
 };
 DUMPER7_ASSERTS_UImmunityGameplayEffectComponent;
 
+// Class GameplayAbilities.RemoveOtherGameplayEffectComponent
+// 0x0010 (0x0038 - 0x0028)
+class URemoveOtherGameplayEffectComponent final : public UGameplayEffectComponent
+{
+public:
+	TArray<struct FGameplayEffectQuery>           RemoveGameplayEffectQueries;                       // 0x0028(0x0010)(Edit, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("RemoveOtherGameplayEffectComponent")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"RemoveOtherGameplayEffectComponent")
+	}
+	static class URemoveOtherGameplayEffectComponent* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<URemoveOtherGameplayEffectComponent>();
+	}
+};
+DUMPER7_ASSERTS_URemoveOtherGameplayEffectComponent;
+
 // Class GameplayAbilities.TargetTagRequirementsGameplayEffectComponent
 // 0x0198 (0x01C0 - 0x0028)
 class UTargetTagRequirementsGameplayEffectComponent final : public UGameplayEffectComponent
@@ -693,29 +716,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UTargetTagRequirementsGameplayEffectComponent;
-
-// Class GameplayAbilities.TargetTagsGameplayEffectComponent
-// 0x0060 (0x0088 - 0x0028)
-class UTargetTagsGameplayEffectComponent final : public UGameplayEffectComponent
-{
-public:
-	struct FInheritedTagContainer                 InheritableGrantedTagsContainer;                   // 0x0028(0x0060)(Edit, BlueprintReadOnly, DisableEditOnInstance, NativeAccessSpecifierPrivate)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("TargetTagsGameplayEffectComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"TargetTagsGameplayEffectComponent")
-	}
-	static class UTargetTagsGameplayEffectComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UTargetTagsGameplayEffectComponent>();
-	}
-};
-DUMPER7_ASSERTS_UTargetTagsGameplayEffectComponent;
 
 // Class GameplayAbilities.AbilityAsync_WaitAttributeChanged
 // 0x0058 (0x0090 - 0x0038)

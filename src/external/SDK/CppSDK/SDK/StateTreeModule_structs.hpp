@@ -418,17 +418,6 @@ public:
 };
 DUMPER7_ASSERTS_FStateTreeAnyEnum;
 
-// ScriptStruct StateTreeModule.StateTreeBooleanOperationPropertyFunctionInstanceData
-// 0x0003 (0x0003 - 0x0000)
-struct FStateTreeBooleanOperationPropertyFunctionInstanceData final
-{
-public:
-	bool                                          bLeft;                                             // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bRight;                                            // 0x0001(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bResult;                                           // 0x0002(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FStateTreeBooleanOperationPropertyFunctionInstanceData;
-
 // ScriptStruct StateTreeModule.StateTreeIndex16
 // 0x0002 (0x0002 - 0x0000)
 struct FStateTreeIndex16 final
@@ -473,28 +462,6 @@ public:
 };
 DUMPER7_ASSERTS_FStateTreeNodeBase;
 
-// ScriptStruct StateTreeModule.StateTreePropertyRef
-// 0x0002 (0x0002 - 0x0000)
-struct FStateTreePropertyRef
-{
-public:
-	struct FStateTreeIndex16                      RefAccessIndex;                                    // 0x0000(0x0002)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-};
-DUMPER7_ASSERTS_FStateTreePropertyRef;
-
-// ScriptStruct StateTreeModule.StateTreeBlueprintPropertyRef
-// 0x000E (0x0010 - 0x0002)
-struct FStateTreeBlueprintPropertyRef final : public FStateTreePropertyRef
-{
-public:
-	EStateTreePropertyRefType                     RefType;                                           // 0x0002(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         bIsRefToArray : 1;                                 // 0x0003(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
-	uint8                                         bIsOptional : 1;                                   // 0x0003(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UObject*                                TypeObject;                                        // 0x0008(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FStateTreeBlueprintPropertyRef;
-
 // ScriptStruct StateTreeModule.StateTreeTaskBase
 // 0x0008 (0x0028 - 0x0020)
 struct FStateTreeTaskBase : public FStateTreeNodeBase
@@ -523,12 +490,53 @@ public:
 };
 DUMPER7_ASSERTS_FStateTreeRunParallelStateTreeTask;
 
+// ScriptStruct StateTreeModule.StateTreeBooleanOperationPropertyFunctionInstanceData
+// 0x0003 (0x0003 - 0x0000)
+struct FStateTreeBooleanOperationPropertyFunctionInstanceData final
+{
+public:
+	bool                                          bLeft;                                             // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bRight;                                            // 0x0001(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bResult;                                           // 0x0002(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FStateTreeBooleanOperationPropertyFunctionInstanceData;
+
+// ScriptStruct StateTreeModule.StateTreeInstanceData
+// 0x0010 (0x0010 - 0x0000)
+struct alignas(0x08) FStateTreeInstanceData final
+{
+public:
+	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FStateTreeInstanceData;
+
 // ScriptStruct StateTreeModule.StateTreePropertyFunctionBase
 // 0x0000 (0x0020 - 0x0020)
 struct FStateTreePropertyFunctionBase : public FStateTreeNodeBase
 {
 };
 DUMPER7_ASSERTS_FStateTreePropertyFunctionBase;
+
+// ScriptStruct StateTreeModule.StateTreeConditionBase
+// 0x0008 (0x0028 - 0x0020)
+struct FStateTreeConditionBase : public FStateTreeNodeBase
+{
+public:
+	EStateTreeExpressionOperand                   Operand;                                           // 0x0020(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int8                                          DeltaIndent;                                       // 0x0021(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EStateTreeConditionEvaluationMode             EvaluationMode;                                    // 0x0022(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_23[0x5];                                       // 0x0023(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FStateTreeConditionBase;
+
+// ScriptStruct StateTreeModule.StateTreeBlueprintConditionWrapper
+// 0x0008 (0x0030 - 0x0028)
+struct FStateTreeBlueprintConditionWrapper final : public FStateTreeConditionBase
+{
+public:
+	TSubclassOf<class UStateTreeConditionBlueprintBase> ConditionClass;                              // 0x0028(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FStateTreeBlueprintConditionWrapper;
 
 // ScriptStruct StateTreeModule.StateTreePropertyFunctionCommonBase
 // 0x0000 (0x0020 - 0x0020)
@@ -568,15 +576,6 @@ public:
 };
 DUMPER7_ASSERTS_FStateTreeBooleanNotOperationPropertyFunctionInstanceData;
 
-// ScriptStruct StateTreeModule.GameplayTagQueryConditionInstanceData
-// 0x0020 (0x0020 - 0x0000)
-struct FGameplayTagQueryConditionInstanceData final
-{
-public:
-	struct FGameplayTagContainer                  TagContainer;                                      // 0x0000(0x0020)(Edit, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FGameplayTagQueryConditionInstanceData;
-
 // ScriptStruct StateTreeModule.StateTreeBooleanNotPropertyFunction
 // 0x0000 (0x0020 - 0x0020)
 struct FStateTreeBooleanNotPropertyFunction final : public FStateTreePropertyFunctionCommonBase
@@ -592,6 +591,15 @@ public:
 	struct FStateTreeDataHandle                   DataHandle;                                        // 0x0000(0x0006)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FStateTreeExternalDataHandle;
+
+// ScriptStruct StateTreeModule.StateTreeObjectIsValidConditionInstanceData
+// 0x0008 (0x0008 - 0x0000)
+struct FStateTreeObjectIsValidConditionInstanceData final
+{
+public:
+	class UObject*                                Object;                                            // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FStateTreeObjectIsValidConditionInstanceData;
 
 // ScriptStruct StateTreeModule.StateTreeExternalDataDesc
 // 0x0018 (0x0018 - 0x0000)
@@ -632,13 +640,6 @@ public:
 };
 DUMPER7_ASSERTS_FStateTreeActiveStates;
 
-// ScriptStruct StateTreeModule.StateTreeEvaluatorBase
-// 0x0000 (0x0020 - 0x0020)
-struct FStateTreeEvaluatorBase : public FStateTreeNodeBase
-{
-};
-DUMPER7_ASSERTS_FStateTreeEvaluatorBase;
-
 // ScriptStruct StateTreeModule.StateTreeTransitionSource
 // 0x0008 (0x0008 - 0x0000)
 struct alignas(0x02) FStateTreeTransitionSource final
@@ -647,13 +648,6 @@ public:
 	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FStateTreeTransitionSource;
-
-// ScriptStruct StateTreeModule.StateTreeEvaluatorCommonBase
-// 0x0000 (0x0020 - 0x0020)
-struct FStateTreeEvaluatorCommonBase final : public FStateTreeEvaluatorBase
-{
-};
-DUMPER7_ASSERTS_FStateTreeEvaluatorCommonBase;
 
 // ScriptStruct StateTreeModule.StateTreeSharedEvent
 // 0x0010 (0x0010 - 0x0000)
@@ -679,35 +673,23 @@ public:
 };
 DUMPER7_ASSERTS_FStateTreeTransitionDelayedState;
 
-// ScriptStruct StateTreeModule.StateTreeConditionBase
-// 0x0008 (0x0028 - 0x0020)
-struct FStateTreeConditionBase : public FStateTreeNodeBase
-{
-public:
-	EStateTreeExpressionOperand                   Operand;                                           // 0x0020(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int8                                          DeltaIndent;                                       // 0x0021(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EStateTreeConditionEvaluationMode             EvaluationMode;                                    // 0x0022(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_23[0x5];                                       // 0x0023(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FStateTreeConditionBase;
-
-// ScriptStruct StateTreeModule.StateTreeConditionCommonBase
-// 0x0000 (0x0028 - 0x0028)
-struct FStateTreeConditionCommonBase : public FStateTreeConditionBase
-{
-};
-DUMPER7_ASSERTS_FStateTreeConditionCommonBase;
-
-// ScriptStruct StateTreeModule.StateTreeCompareIntCondition
+// ScriptStruct StateTreeModule.StateTreeBlueprintTaskWrapper
 // 0x0008 (0x0030 - 0x0028)
-struct FStateTreeCompareIntCondition final : public FStateTreeConditionCommonBase
+struct FStateTreeBlueprintTaskWrapper final : public FStateTreeTaskBase
 {
 public:
-	bool                                          bInvert;                                           // 0x0028(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EGenericAICheck                               Operator;                                          // 0x0029(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2A[0x6];                                       // 0x002A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TSubclassOf<class UStateTreeTaskBlueprintBase> TaskClass;                                        // 0x0028(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FStateTreeCompareIntCondition;
+DUMPER7_ASSERTS_FStateTreeBlueprintTaskWrapper;
+
+// ScriptStruct StateTreeModule.StateTreeInstanceObjectWrapper
+// 0x0008 (0x0008 - 0x0000)
+struct FStateTreeInstanceObjectWrapper final
+{
+public:
+	class UObject*                                InstanceObject;                                    // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FStateTreeInstanceObjectWrapper;
 
 // ScriptStruct StateTreeModule.StateTreeExecutionFrame
 // 0x0030 (0x0030 - 0x0000)
@@ -769,15 +751,6 @@ public:
 };
 DUMPER7_ASSERTS_FStateTreeTransitionResult;
 
-// ScriptStruct StateTreeModule.StateTreeBlueprintEvaluatorWrapper
-// 0x0008 (0x0028 - 0x0020)
-struct FStateTreeBlueprintEvaluatorWrapper final : public FStateTreeEvaluatorBase
-{
-public:
-	TSubclassOf<class UStateTreeEvaluatorBlueprintBase> EvaluatorClass;                              // 0x0020(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FStateTreeBlueprintEvaluatorWrapper;
-
 // ScriptStruct StateTreeModule.RecordedStateTreeExecutionFrame
 // 0x0028 (0x0028 - 0x0000)
 struct FRecordedStateTreeExecutionFrame final
@@ -819,14 +792,162 @@ public:
 };
 DUMPER7_ASSERTS_FRecordedStateTreeTransitionResult;
 
-// ScriptStruct StateTreeModule.StateTreeInstanceData
-// 0x0010 (0x0010 - 0x0000)
-struct alignas(0x08) FStateTreeInstanceData final
+// ScriptStruct StateTreeModule.StateTreeCompareIntConditionInstanceData
+// 0x0008 (0x0008 - 0x0000)
+struct FStateTreeCompareIntConditionInstanceData final
 {
 public:
-	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	int32                                         Left;                                              // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Right;                                             // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FStateTreeInstanceData;
+DUMPER7_ASSERTS_FStateTreeCompareIntConditionInstanceData;
+
+// ScriptStruct StateTreeModule.StateTreeFloatCombinaisonPropertyFunctionInstanceData
+// 0x000C (0x000C - 0x0000)
+struct FStateTreeFloatCombinaisonPropertyFunctionInstanceData final
+{
+public:
+	float                                         Left;                                              // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Right;                                             // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Result;                                            // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FStateTreeFloatCombinaisonPropertyFunctionInstanceData;
+
+// ScriptStruct StateTreeModule.StateTreeAddFloatPropertyFunction
+// 0x0000 (0x0020 - 0x0020)
+struct FStateTreeAddFloatPropertyFunction final : public FStateTreePropertyFunctionCommonBase
+{
+};
+DUMPER7_ASSERTS_FStateTreeAddFloatPropertyFunction;
+
+// ScriptStruct StateTreeModule.StateTreeEvaluatorBase
+// 0x0000 (0x0020 - 0x0020)
+struct FStateTreeEvaluatorBase : public FStateTreeNodeBase
+{
+};
+DUMPER7_ASSERTS_FStateTreeEvaluatorBase;
+
+// ScriptStruct StateTreeModule.StateTreeNodeIdToIndex
+// 0x0014 (0x0014 - 0x0000)
+struct FStateTreeNodeIdToIndex final
+{
+public:
+	struct FGuid                                  ID;                                                // 0x0000(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FStateTreeIndex16                      Index;                                             // 0x0010(0x0002)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_12[0x2];                                       // 0x0012(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FStateTreeNodeIdToIndex;
+
+// ScriptStruct StateTreeModule.StateTreeSubtractFloatPropertyFunction
+// 0x0000 (0x0020 - 0x0020)
+struct FStateTreeSubtractFloatPropertyFunction final : public FStateTreePropertyFunctionCommonBase
+{
+};
+DUMPER7_ASSERTS_FStateTreeSubtractFloatPropertyFunction;
+
+// ScriptStruct StateTreeModule.StateTreeMultiplyFloatPropertyFunction
+// 0x0000 (0x0020 - 0x0020)
+struct FStateTreeMultiplyFloatPropertyFunction final : public FStateTreePropertyFunctionCommonBase
+{
+};
+DUMPER7_ASSERTS_FStateTreeMultiplyFloatPropertyFunction;
+
+// ScriptStruct StateTreeModule.StateTreeEvaluatorCommonBase
+// 0x0000 (0x0020 - 0x0020)
+struct FStateTreeEvaluatorCommonBase final : public FStateTreeEvaluatorBase
+{
+};
+DUMPER7_ASSERTS_FStateTreeEvaluatorCommonBase;
+
+// ScriptStruct StateTreeModule.StateTreeDivideFloatPropertyFunction
+// 0x0000 (0x0020 - 0x0020)
+struct FStateTreeDivideFloatPropertyFunction final : public FStateTreePropertyFunctionCommonBase
+{
+};
+DUMPER7_ASSERTS_FStateTreeDivideFloatPropertyFunction;
+
+// ScriptStruct StateTreeModule.StateTreeSingleFloatPropertyFunctionInstanceData
+// 0x0008 (0x0008 - 0x0000)
+struct FStateTreeSingleFloatPropertyFunctionInstanceData final
+{
+public:
+	float                                         Input;                                             // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Result;                                            // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FStateTreeSingleFloatPropertyFunctionInstanceData;
+
+// ScriptStruct StateTreeModule.StateTreeInvertFloatPropertyFunction
+// 0x0000 (0x0020 - 0x0020)
+struct FStateTreeInvertFloatPropertyFunction final : public FStateTreePropertyFunctionCommonBase
+{
+};
+DUMPER7_ASSERTS_FStateTreeInvertFloatPropertyFunction;
+
+// ScriptStruct StateTreeModule.StateTreeAbsoluteFloatPropertyFunction
+// 0x0000 (0x0020 - 0x0020)
+struct FStateTreeAbsoluteFloatPropertyFunction final : public FStateTreePropertyFunctionCommonBase
+{
+};
+DUMPER7_ASSERTS_FStateTreeAbsoluteFloatPropertyFunction;
+
+// ScriptStruct StateTreeModule.GameplayTagContainerMatchConditionInstanceData
+// 0x0040 (0x0040 - 0x0000)
+struct FGameplayTagContainerMatchConditionInstanceData final
+{
+public:
+	struct FGameplayTagContainer                  TagContainer;                                      // 0x0000(0x0020)(Edit, NativeAccessSpecifierPublic)
+	struct FGameplayTagContainer                  OtherContainer;                                    // 0x0020(0x0020)(Edit, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FGameplayTagContainerMatchConditionInstanceData;
+
+// ScriptStruct StateTreeModule.StateTreeIndex8
+// 0x0001 (0x0001 - 0x0000)
+struct FStateTreeIndex8 final
+{
+public:
+	uint8                                         Value;                                             // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+};
+DUMPER7_ASSERTS_FStateTreeIndex8;
+
+// ScriptStruct StateTreeModule.StateTreeMakeIntervalPropertyFunctionInstanceData
+// 0x0010 (0x0010 - 0x0000)
+struct FStateTreeMakeIntervalPropertyFunctionInstanceData final
+{
+public:
+	float                                         min_0;                                             // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         max_0;                                             // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FFloatInterval                         Result;                                            // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FStateTreeMakeIntervalPropertyFunctionInstanceData;
+
+// ScriptStruct StateTreeModule.StateTreeMakeIntervalPropertyFunction
+// 0x0000 (0x0020 - 0x0020)
+struct FStateTreeMakeIntervalPropertyFunction final : public FStateTreePropertyFunctionCommonBase
+{
+};
+DUMPER7_ASSERTS_FStateTreeMakeIntervalPropertyFunction;
+
+// ScriptStruct StateTreeModule.StateTreeReference
+// 0x0028 (0x0028 - 0x0000)
+struct FStateTreeReference final
+{
+public:
+	class UStateTree*                             StateTree;                                         // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	struct FInstancedPropertyBag                  Parameters;                                        // 0x0008(0x0010)(Edit, Protected, NativeAccessSpecifierProtected)
+	TArray<struct FGuid>                          PropertyOverrides;                                 // 0x0018(0x0010)(Edit, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+};
+DUMPER7_ASSERTS_FStateTreeReference;
+
+// ScriptStruct StateTreeModule.StateTreeIntCombinaisonPropertyFunctionInstanceData
+// 0x000C (0x000C - 0x0000)
+struct FStateTreeIntCombinaisonPropertyFunctionInstanceData final
+{
+public:
+	int32                                         Left;                                              // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Right;                                             // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Result;                                            // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FStateTreeIntCombinaisonPropertyFunctionInstanceData;
 
 // ScriptStruct StateTreeModule.StateTreeConsiderationBase
 // 0x0008 (0x0028 - 0x0020)
@@ -847,187 +968,6 @@ public:
 	struct FInstancedPropertyBag                  Parameters;                                        // 0x0000(0x0010)(NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FCompactStateTreeParameters;
-
-// ScriptStruct StateTreeModule.StateTreeFloatCombinaisonPropertyFunctionInstanceData
-// 0x000C (0x000C - 0x0000)
-struct FStateTreeFloatCombinaisonPropertyFunctionInstanceData final
-{
-public:
-	float                                         Left;                                              // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Right;                                             // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Result;                                            // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FStateTreeFloatCombinaisonPropertyFunctionInstanceData;
-
-// ScriptStruct StateTreeModule.StateTreeAddFloatPropertyFunction
-// 0x0000 (0x0020 - 0x0020)
-struct FStateTreeAddFloatPropertyFunction final : public FStateTreePropertyFunctionCommonBase
-{
-};
-DUMPER7_ASSERTS_FStateTreeAddFloatPropertyFunction;
-
-// ScriptStruct StateTreeModule.StateTreeEnumInputConsiderationInstanceData
-// 0x0010 (0x0010 - 0x0000)
-struct FStateTreeEnumInputConsiderationInstanceData final
-{
-public:
-	struct FStateTreeAnyEnum                      Input;                                             // 0x0000(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FStateTreeEnumInputConsiderationInstanceData;
-
-// ScriptStruct StateTreeModule.StateTreeSubtractFloatPropertyFunction
-// 0x0000 (0x0020 - 0x0020)
-struct FStateTreeSubtractFloatPropertyFunction final : public FStateTreePropertyFunctionCommonBase
-{
-};
-DUMPER7_ASSERTS_FStateTreeSubtractFloatPropertyFunction;
-
-// ScriptStruct StateTreeModule.StateTreeMultiplyFloatPropertyFunction
-// 0x0000 (0x0020 - 0x0020)
-struct FStateTreeMultiplyFloatPropertyFunction final : public FStateTreePropertyFunctionCommonBase
-{
-};
-DUMPER7_ASSERTS_FStateTreeMultiplyFloatPropertyFunction;
-
-// ScriptStruct StateTreeModule.StateTreeDivideFloatPropertyFunction
-// 0x0000 (0x0020 - 0x0020)
-struct FStateTreeDivideFloatPropertyFunction final : public FStateTreePropertyFunctionCommonBase
-{
-};
-DUMPER7_ASSERTS_FStateTreeDivideFloatPropertyFunction;
-
-// ScriptStruct StateTreeModule.StateTreeSingleFloatPropertyFunctionInstanceData
-// 0x0008 (0x0008 - 0x0000)
-struct FStateTreeSingleFloatPropertyFunctionInstanceData final
-{
-public:
-	float                                         Input;                                             // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Result;                                            // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FStateTreeSingleFloatPropertyFunctionInstanceData;
-
-// ScriptStruct StateTreeModule.GameplayTagMatchConditionInstanceData
-// 0x0028 (0x0028 - 0x0000)
-struct FGameplayTagMatchConditionInstanceData final
-{
-public:
-	struct FGameplayTagContainer                  TagContainer;                                      // 0x0000(0x0020)(Edit, NativeAccessSpecifierPublic)
-	struct FGameplayTag                           Tag;                                               // 0x0020(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FGameplayTagMatchConditionInstanceData;
-
-// ScriptStruct StateTreeModule.StateTreeInvertFloatPropertyFunction
-// 0x0000 (0x0020 - 0x0020)
-struct FStateTreeInvertFloatPropertyFunction final : public FStateTreePropertyFunctionCommonBase
-{
-};
-DUMPER7_ASSERTS_FStateTreeInvertFloatPropertyFunction;
-
-// ScriptStruct StateTreeModule.StateTreeAbsoluteFloatPropertyFunction
-// 0x0000 (0x0020 - 0x0020)
-struct FStateTreeAbsoluteFloatPropertyFunction final : public FStateTreePropertyFunctionCommonBase
-{
-};
-DUMPER7_ASSERTS_FStateTreeAbsoluteFloatPropertyFunction;
-
-// ScriptStruct StateTreeModule.StateTreeIndex8
-// 0x0001 (0x0001 - 0x0000)
-struct FStateTreeIndex8 final
-{
-public:
-	uint8                                         Value;                                             // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-};
-DUMPER7_ASSERTS_FStateTreeIndex8;
-
-// ScriptStruct StateTreeModule.StateTreeReference
-// 0x0028 (0x0028 - 0x0000)
-struct FStateTreeReference final
-{
-public:
-	class UStateTree*                             StateTree;                                         // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	struct FInstancedPropertyBag                  Parameters;                                        // 0x0008(0x0010)(Edit, Protected, NativeAccessSpecifierProtected)
-	TArray<struct FGuid>                          PropertyOverrides;                                 // 0x0018(0x0010)(Edit, ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-};
-DUMPER7_ASSERTS_FStateTreeReference;
-
-// ScriptStruct StateTreeModule.StateTreeRunParallelStateTreeTaskInstanceData
-// 0x0040 (0x0040 - 0x0000)
-struct FStateTreeRunParallelStateTreeTaskInstanceData final
-{
-public:
-	struct FStateTreeReference                    StateTree;                                         // 0x0000(0x0028)(Edit, NativeAccessSpecifierPublic)
-	struct FStateTreeInstanceData                 TreeInstanceData;                                  // 0x0028(0x0010)(Transient, NativeAccessSpecifierPublic)
-	class UStateTree*                             RunningStateTree;                                  // 0x0038(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FStateTreeRunParallelStateTreeTaskInstanceData;
-
-// ScriptStruct StateTreeModule.StateTreeMakeIntervalPropertyFunctionInstanceData
-// 0x0010 (0x0010 - 0x0000)
-struct FStateTreeMakeIntervalPropertyFunctionInstanceData final
-{
-public:
-	float                                         min_0;                                             // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         max_0;                                             // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FFloatInterval                         Result;                                            // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FStateTreeMakeIntervalPropertyFunctionInstanceData;
-
-// ScriptStruct StateTreeModule.CompactEventDesc
-// 0x0010 (0x0010 - 0x0000)
-struct FCompactEventDesc final
-{
-public:
-	class UScriptStruct*                          PayloadStruct;                                     // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	struct FGameplayTag                           Tag;                                               // 0x0008(0x0008)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FCompactEventDesc;
-
-// ScriptStruct StateTreeModule.StateTreeRandomTimeDuration
-// 0x0004 (0x0004 - 0x0000)
-struct FStateTreeRandomTimeDuration final
-{
-public:
-	uint16                                        Duration;                                          // 0x0000(0x0002)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint16                                        RandomVariance;                                    // 0x0002(0x0002)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-};
-DUMPER7_ASSERTS_FStateTreeRandomTimeDuration;
-
-// ScriptStruct StateTreeModule.CompactStateTransition
-// 0x0020 (0x0020 - 0x0000)
-struct FCompactStateTransition final
-{
-public:
-	struct FCompactEventDesc                      RequiredEvent;                                     // 0x0000(0x0010)(NoDestructor, NativeAccessSpecifierPublic)
-	uint16                                        ConditionsBegin;                                   // 0x0010(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FStateTreeStateHandle                  State;                                             // 0x0012(0x0002)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FStateTreeRandomTimeDuration           Delay;                                             // 0x0014(0x0004)(NoDestructor, NativeAccessSpecifierPublic)
-	EStateTreeTransitionTrigger                   Trigger;                                           // 0x0018(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EStateTreeTransitionPriority                  Priority;                                          // 0x0019(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EStateTreeSelectionFallback                   Fallback;                                          // 0x001A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         ConditionsNum;                                     // 0x001B(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         bTransitionEnabled : 1;                            // 0x001C(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bConsumeEventOnSelect : 1;                         // 0x001C(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FCompactStateTransition;
-
-// ScriptStruct StateTreeModule.StateTreeMakeIntervalPropertyFunction
-// 0x0000 (0x0020 - 0x0020)
-struct FStateTreeMakeIntervalPropertyFunction final : public FStateTreePropertyFunctionCommonBase
-{
-};
-DUMPER7_ASSERTS_FStateTreeMakeIntervalPropertyFunction;
-
-// ScriptStruct StateTreeModule.StateTreeIntCombinaisonPropertyFunctionInstanceData
-// 0x000C (0x000C - 0x0000)
-struct FStateTreeIntCombinaisonPropertyFunctionInstanceData final
-{
-public:
-	int32                                         Left;                                              // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         Right;                                             // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         Result;                                            // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FStateTreeIntCombinaisonPropertyFunctionInstanceData;
 
 // ScriptStruct StateTreeModule.StateTreeAddIntPropertyFunction
 // 0x0000 (0x0020 - 0x0020)
@@ -1074,6 +1014,22 @@ struct FStateTreeInvertIntPropertyFunction final : public FStateTreePropertyFunc
 };
 DUMPER7_ASSERTS_FStateTreeInvertIntPropertyFunction;
 
+// ScriptStruct StateTreeModule.StateTreeAbsoluteIntPropertyFunction
+// 0x0000 (0x0020 - 0x0020)
+struct FStateTreeAbsoluteIntPropertyFunction final : public FStateTreePropertyFunctionCommonBase
+{
+};
+DUMPER7_ASSERTS_FStateTreeAbsoluteIntPropertyFunction;
+
+// ScriptStruct StateTreeModule.StateTreePropertyRef
+// 0x0002 (0x0002 - 0x0000)
+struct FStateTreePropertyRef
+{
+public:
+	struct FStateTreeIndex16                      RefAccessIndex;                                    // 0x0000(0x0002)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+};
+DUMPER7_ASSERTS_FStateTreePropertyRef;
+
 // ScriptStruct StateTreeModule.StateTreePropertyIndirection
 // 0x0018 (0x0018 - 0x0000)
 struct FStateTreePropertyIndirection final
@@ -1089,39 +1045,42 @@ public:
 };
 DUMPER7_ASSERTS_FStateTreePropertyIndirection;
 
-// ScriptStruct StateTreeModule.StateTreePropertyCopy
-// 0x0058 (0x0058 - 0x0000)
-struct FStateTreePropertyCopy final
+// ScriptStruct StateTreeModule.StateTreePropertyAccess
+// 0x0030 (0x0030 - 0x0000)
+struct FStateTreePropertyAccess final
 {
 public:
 	struct FStateTreePropertyIndirection          SourceIndirection;                                 // 0x0000(0x0018)(NoDestructor, NativeAccessSpecifierPublic)
-	struct FStateTreePropertyIndirection          TargetIndirection;                                 // 0x0018(0x0018)(NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_30[0x10];                                      // 0x0030(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	class UStruct*                                SourceStructType;                                  // 0x0040(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	int32                                         CopySize;                                          // 0x0048(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FStateTreeDataHandle                   SourceDataHandle;                                  // 0x004C(0x0006)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EStateTreePropertyCopyType                    Type;                                              // 0x0052(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_53[0x1];                                       // 0x0053(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FStateTreeIndex16                      SourceStructIndex;                                 // 0x0054(0x0002)(Deprecated, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_56[0x2];                                       // 0x0056(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_18[0x8];                                       // 0x0018(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class UStruct*                                SourceStructType;                                  // 0x0020(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	struct FStateTreeDataHandle                   SourceDataHandle;                                  // 0x0028(0x0006)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2E[0x2];                                       // 0x002E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FStateTreePropertyCopy;
+DUMPER7_ASSERTS_FStateTreePropertyAccess;
 
-// ScriptStruct StateTreeModule.StateTreeAbsoluteIntPropertyFunction
-// 0x0000 (0x0020 - 0x0020)
-struct FStateTreeAbsoluteIntPropertyFunction final : public FStateTreePropertyFunctionCommonBase
-{
-};
-DUMPER7_ASSERTS_FStateTreeAbsoluteIntPropertyFunction;
-
-// ScriptStruct StateTreeModule.StateTreeBlueprintConditionWrapper
-// 0x0008 (0x0030 - 0x0028)
-struct FStateTreeBlueprintConditionWrapper final : public FStateTreeConditionBase
+// ScriptStruct StateTreeModule.StateTreeBlueprintPropertyRef
+// 0x000E (0x0010 - 0x0002)
+struct FStateTreeBlueprintPropertyRef final : public FStateTreePropertyRef
 {
 public:
-	TSubclassOf<class UStateTreeConditionBlueprintBase> ConditionClass;                              // 0x0028(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EStateTreePropertyRefType                     RefType;                                           // 0x0002(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         bIsRefToArray : 1;                                 // 0x0003(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
+	uint8                                         bIsOptional : 1;                                   // 0x0003(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UObject*                                TypeObject;                                        // 0x0008(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
 };
-DUMPER7_ASSERTS_FStateTreeBlueprintConditionWrapper;
+DUMPER7_ASSERTS_FStateTreeBlueprintPropertyRef;
+
+// ScriptStruct StateTreeModule.StateTreeRunParallelStateTreeTaskInstanceData
+// 0x0040 (0x0040 - 0x0000)
+struct FStateTreeRunParallelStateTreeTaskInstanceData final
+{
+public:
+	struct FStateTreeReference                    StateTree;                                         // 0x0000(0x0028)(Edit, NativeAccessSpecifierPublic)
+	struct FStateTreeInstanceData                 TreeInstanceData;                                  // 0x0028(0x0010)(Transient, NativeAccessSpecifierPublic)
+	class UStateTree*                             RunningStateTree;                                  // 0x0038(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FStateTreeRunParallelStateTreeTaskInstanceData;
 
 // ScriptStruct StateTreeModule.StateTreeBlueprintConsiderationWrapper
 // 0x0008 (0x0030 - 0x0028)
@@ -1132,24 +1091,32 @@ public:
 };
 DUMPER7_ASSERTS_FStateTreeBlueprintConsiderationWrapper;
 
-// ScriptStruct StateTreeModule.StateTreeBlueprintTaskWrapper
-// 0x0008 (0x0030 - 0x0028)
-struct FStateTreeBlueprintTaskWrapper final : public FStateTreeTaskBase
+// ScriptStruct StateTreeModule.StateTreeBlueprintEvaluatorWrapper
+// 0x0008 (0x0028 - 0x0020)
+struct FStateTreeBlueprintEvaluatorWrapper final : public FStateTreeEvaluatorBase
 {
 public:
-	TSubclassOf<class UStateTreeTaskBlueprintBase> TaskClass;                                        // 0x0028(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UStateTreeEvaluatorBlueprintBase> EvaluatorClass;                              // 0x0020(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FStateTreeBlueprintTaskWrapper;
+DUMPER7_ASSERTS_FStateTreeBlueprintEvaluatorWrapper;
 
-// ScriptStruct StateTreeModule.StateTreeCompareIntConditionInstanceData
-// 0x0008 (0x0008 - 0x0000)
-struct FStateTreeCompareIntConditionInstanceData final
+// ScriptStruct StateTreeModule.StateTreeConditionCommonBase
+// 0x0000 (0x0028 - 0x0028)
+struct FStateTreeConditionCommonBase : public FStateTreeConditionBase
+{
+};
+DUMPER7_ASSERTS_FStateTreeConditionCommonBase;
+
+// ScriptStruct StateTreeModule.StateTreeCompareIntCondition
+// 0x0008 (0x0030 - 0x0028)
+struct FStateTreeCompareIntCondition final : public FStateTreeConditionCommonBase
 {
 public:
-	int32                                         Left;                                              // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         Right;                                             // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bInvert;                                           // 0x0028(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EGenericAICheck                               Operator;                                          // 0x0029(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2A[0x6];                                       // 0x002A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FStateTreeCompareIntConditionInstanceData;
+DUMPER7_ASSERTS_FStateTreeCompareIntCondition;
 
 // ScriptStruct StateTreeModule.StateTreeCompareFloatConditionInstanceData
 // 0x0010 (0x0010 - 0x0000)
@@ -1250,6 +1217,16 @@ struct FStateTreeRandomCondition final : public FStateTreeConditionCommonBase
 };
 DUMPER7_ASSERTS_FStateTreeRandomCondition;
 
+// ScriptStruct StateTreeModule.GameplayTagMatchConditionInstanceData
+// 0x0028 (0x0028 - 0x0000)
+struct FGameplayTagMatchConditionInstanceData final
+{
+public:
+	struct FGameplayTagContainer                  TagContainer;                                      // 0x0000(0x0020)(Edit, NativeAccessSpecifierPublic)
+	struct FGameplayTag                           Tag;                                               // 0x0020(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FGameplayTagMatchConditionInstanceData;
+
 // ScriptStruct StateTreeModule.GameplayTagMatchCondition
 // 0x0008 (0x0030 - 0x0028)
 struct FGameplayTagMatchCondition final : public FStateTreeConditionCommonBase
@@ -1260,16 +1237,6 @@ public:
 	uint8                                         Pad_2A[0x6];                                       // 0x002A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FGameplayTagMatchCondition;
-
-// ScriptStruct StateTreeModule.GameplayTagContainerMatchConditionInstanceData
-// 0x0040 (0x0040 - 0x0000)
-struct FGameplayTagContainerMatchConditionInstanceData final
-{
-public:
-	struct FGameplayTagContainer                  TagContainer;                                      // 0x0000(0x0020)(Edit, NativeAccessSpecifierPublic)
-	struct FGameplayTagContainer                  OtherContainer;                                    // 0x0020(0x0020)(Edit, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FGameplayTagContainerMatchConditionInstanceData;
 
 // ScriptStruct StateTreeModule.GameplayTagContainerMatchCondition
 // 0x0008 (0x0030 - 0x0028)
@@ -1283,6 +1250,15 @@ public:
 };
 DUMPER7_ASSERTS_FGameplayTagContainerMatchCondition;
 
+// ScriptStruct StateTreeModule.GameplayTagQueryConditionInstanceData
+// 0x0020 (0x0020 - 0x0000)
+struct FGameplayTagQueryConditionInstanceData final
+{
+public:
+	struct FGameplayTagContainer                  TagContainer;                                      // 0x0000(0x0020)(Edit, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FGameplayTagQueryConditionInstanceData;
+
 // ScriptStruct StateTreeModule.GameplayTagQueryCondition
 // 0x0050 (0x0078 - 0x0028)
 struct FGameplayTagQueryCondition final : public FStateTreeConditionCommonBase
@@ -1293,15 +1269,6 @@ public:
 	uint8                                         Pad_71[0x7];                                       // 0x0071(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FGameplayTagQueryCondition;
-
-// ScriptStruct StateTreeModule.StateTreeObjectIsValidConditionInstanceData
-// 0x0008 (0x0008 - 0x0000)
-struct FStateTreeObjectIsValidConditionInstanceData final
-{
-public:
-	class UObject*                                Object;                                            // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FStateTreeObjectIsValidConditionInstanceData;
 
 // ScriptStruct StateTreeModule.StateTreeObjectIsValidCondition
 // 0x0008 (0x0030 - 0x0028)
@@ -1424,6 +1391,15 @@ public:
 };
 DUMPER7_ASSERTS_FStateTreeEnumValueScorePairs;
 
+// ScriptStruct StateTreeModule.StateTreeEnumInputConsiderationInstanceData
+// 0x0010 (0x0010 - 0x0000)
+struct FStateTreeEnumInputConsiderationInstanceData final
+{
+public:
+	struct FStateTreeAnyEnum                      Input;                                             // 0x0000(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FStateTreeEnumInputConsiderationInstanceData;
+
 // ScriptStruct StateTreeModule.StateTreeEnumInputConsideration
 // 0x0010 (0x0038 - 0x0028)
 struct FStateTreeEnumInputConsideration final : public FStateTreeConsiderationCommonBase
@@ -1441,15 +1417,6 @@ public:
 	TArray<struct FStateTreeSharedEvent>          SharedEvents;                                      // 0x0000(0x0010)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
 };
 DUMPER7_ASSERTS_FStateTreeEventQueue;
-
-// ScriptStruct StateTreeModule.StateTreeInstanceObjectWrapper
-// 0x0008 (0x0008 - 0x0000)
-struct FStateTreeInstanceObjectWrapper final
-{
-public:
-	class UObject*                                InstanceObject;                                    // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FStateTreeInstanceObjectWrapper;
 
 // ScriptStruct StateTreeModule.StateTreeTemporaryInstanceData
 // 0x0028 (0x0028 - 0x0000)
@@ -1572,6 +1539,24 @@ public:
 };
 DUMPER7_ASSERTS_FStateTreePropertyBinding;
 
+// ScriptStruct StateTreeModule.StateTreePropertyCopy
+// 0x0058 (0x0058 - 0x0000)
+struct FStateTreePropertyCopy final
+{
+public:
+	struct FStateTreePropertyIndirection          SourceIndirection;                                 // 0x0000(0x0018)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FStateTreePropertyIndirection          TargetIndirection;                                 // 0x0018(0x0018)(NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_30[0x10];                                      // 0x0030(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	class UStruct*                                SourceStructType;                                  // 0x0040(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	int32                                         CopySize;                                          // 0x0048(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FStateTreeDataHandle                   SourceDataHandle;                                  // 0x004C(0x0006)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EStateTreePropertyCopyType                    Type;                                              // 0x0052(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_53[0x1];                                       // 0x0053(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FStateTreeIndex16                      SourceStructIndex;                                 // 0x0054(0x0002)(Deprecated, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_56[0x2];                                       // 0x0056(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FStateTreePropertyCopy;
+
 // ScriptStruct StateTreeModule.StateTreePropertyCopyBatch
 // 0x0020 (0x0020 - 0x0000)
 struct FStateTreePropertyCopyBatch final
@@ -1584,19 +1569,6 @@ public:
 	struct FStateTreeIndex16                      PropertyFunctionsEnd;                              // 0x001E(0x0002)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FStateTreePropertyCopyBatch;
-
-// ScriptStruct StateTreeModule.StateTreePropertyAccess
-// 0x0030 (0x0030 - 0x0000)
-struct FStateTreePropertyAccess final
-{
-public:
-	struct FStateTreePropertyIndirection          SourceIndirection;                                 // 0x0000(0x0018)(NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_18[0x8];                                       // 0x0018(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UStruct*                                SourceStructType;                                  // 0x0020(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	struct FStateTreeDataHandle                   SourceDataHandle;                                  // 0x0028(0x0006)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2E[0x2];                                       // 0x002E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FStateTreePropertyAccess;
 
 // ScriptStruct StateTreeModule.StateTreePropertyBindings
 // 0x0078 (0x0078 - 0x0000)
@@ -1632,6 +1604,45 @@ public:
 	TArray<struct FStateTreeReferenceOverrideItem> OverrideItems;                                    // 0x0000(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
 };
 DUMPER7_ASSERTS_FStateTreeReferenceOverrides;
+
+// ScriptStruct StateTreeModule.StateTreeRandomTimeDuration
+// 0x0004 (0x0004 - 0x0000)
+struct FStateTreeRandomTimeDuration final
+{
+public:
+	uint16                                        Duration;                                          // 0x0000(0x0002)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint16                                        RandomVariance;                                    // 0x0002(0x0002)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+};
+DUMPER7_ASSERTS_FStateTreeRandomTimeDuration;
+
+// ScriptStruct StateTreeModule.CompactEventDesc
+// 0x0010 (0x0010 - 0x0000)
+struct FCompactEventDesc final
+{
+public:
+	class UScriptStruct*                          PayloadStruct;                                     // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	struct FGameplayTag                           Tag;                                               // 0x0008(0x0008)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FCompactEventDesc;
+
+// ScriptStruct StateTreeModule.CompactStateTransition
+// 0x0020 (0x0020 - 0x0000)
+struct FCompactStateTransition final
+{
+public:
+	struct FCompactEventDesc                      RequiredEvent;                                     // 0x0000(0x0010)(NoDestructor, NativeAccessSpecifierPublic)
+	uint16                                        ConditionsBegin;                                   // 0x0010(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FStateTreeStateHandle                  State;                                             // 0x0012(0x0002)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FStateTreeRandomTimeDuration           Delay;                                             // 0x0014(0x0004)(NoDestructor, NativeAccessSpecifierPublic)
+	EStateTreeTransitionTrigger                   Trigger;                                           // 0x0018(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EStateTreeTransitionPriority                  Priority;                                          // 0x0019(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EStateTreeSelectionFallback                   Fallback;                                          // 0x001A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         ConditionsNum;                                     // 0x001B(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         bTransitionEnabled : 1;                            // 0x001C(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bConsumeEventOnSelect : 1;                         // 0x001C(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FCompactStateTransition;
 
 // ScriptStruct StateTreeModule.CompactStateTreeState
 // 0x0058 (0x0058 - 0x0000)
@@ -1683,17 +1694,6 @@ public:
 	uint8                                         Pad_12[0x2];                                       // 0x0012(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FStateTreeStateIdToHandle;
-
-// ScriptStruct StateTreeModule.StateTreeNodeIdToIndex
-// 0x0014 (0x0014 - 0x0000)
-struct FStateTreeNodeIdToIndex final
-{
-public:
-	struct FGuid                                  ID;                                                // 0x0000(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FStateTreeIndex16                      Index;                                             // 0x0010(0x0002)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_12[0x2];                                       // 0x0012(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FStateTreeNodeIdToIndex;
 
 // ScriptStruct StateTreeModule.StateTreeTransitionIdToIndex
 // 0x0014 (0x0014 - 0x0000)

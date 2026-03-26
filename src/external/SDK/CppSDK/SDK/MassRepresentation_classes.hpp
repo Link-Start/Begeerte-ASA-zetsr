@@ -11,8 +11,8 @@
 #include "Basic.hpp"
 
 #include "MassEntity_classes.hpp"
-#include "MassRepresentation_structs.hpp"
 #include "MassSpawner_classes.hpp"
+#include "MassRepresentation_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "Engine_classes.hpp"
 

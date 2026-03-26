@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
 #include "AnimToTexture_structs.hpp"
+#include "CoreUObject_structs.hpp"
 #include "Engine_classes.hpp"
 
 
@@ -49,7 +49,7 @@ public:
 	TArray<struct FAnimToTextureAnimSequenceInfo> AnimSequences;                                     // 0x01E0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
 	bool                                          bAutoPlay;                                         // 0x01F0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1F1[0x3];                                      // 0x01F1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         AnimationIndex;                                    // 0x01F4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         animationIndex;                                    // 0x01F4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         Frame;                                             // 0x01F8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EAnimToTextureNumBoneInfluences               NumBoneInfluences;                                 // 0x01FC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1FD[0x3];                                      // 0x01FD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
@@ -98,9 +98,9 @@ class UAnimToTextureInstancePlaybackLibrary final : public UBlueprintFunctionLib
 public:
 	static bool BatchUpdateInstancesAutoPlayData(class UInstancedStaticMeshComponent* InstancedMeshComponent, const TArray<struct FAnimToTextureAutoPlayData>& AutoPlayData, const TArray<struct FMatrix>& Transforms, bool bMarkRenderStateDirty);
 	static bool BatchUpdateInstancesFrameData(class UInstancedStaticMeshComponent* InstancedMeshComponent, const TArray<struct FAnimToTextureFrameData>& FrameData, const TArray<struct FMatrix>& Transforms, bool bMarkRenderStateDirty);
-	static bool GetAutoPlayDataFromDataAsset(const class UAnimToTextureDataAsset* DataAsset, int32 AnimationIndex, struct FAnimToTextureAutoPlayData* AutoPlayData, float TimeOffset, float PlayRate);
+	static bool GetAutoPlayDataFromDataAsset(const class UAnimToTextureDataAsset* DataAsset, int32 animationIndex, struct FAnimToTextureAutoPlayData* AutoPlayData, float TimeOffset, float PlayRate);
 	static float GetFrame(float Time, float StartFrame, float EndFrame, float TimeOffset, float PlayRate, float SampleRate);
-	static bool GetFrameDataFromDataAsset(const class UAnimToTextureDataAsset* DataAsset, int32 AnimationIndex, float Time, struct FAnimToTextureFrameData* AutoPlayData, float TimeOffset, float PlayRate);
+	static bool GetFrameDataFromDataAsset(const class UAnimToTextureDataAsset* DataAsset, int32 animationIndex, float Time, struct FAnimToTextureFrameData* AutoPlayData, float TimeOffset, float PlayRate);
 	static bool SetupInstancedMeshComponent(class UInstancedStaticMeshComponent* InstancedMeshComponent, int32 NumInstances, bool bAutoPlay);
 	static bool UpdateInstanceAutoPlayData(class UInstancedStaticMeshComponent* InstancedMeshComponent, int32 InstanceIndex, const struct FAnimToTextureAutoPlayData& AutoPlayData, bool bMarkRenderStateDirty);
 	static bool UpdateInstanceFrameData(class UInstancedStaticMeshComponent* InstancedMeshComponent, int32 InstanceIndex, const struct FAnimToTextureFrameData& FrameData, bool bMarkRenderStateDirty);

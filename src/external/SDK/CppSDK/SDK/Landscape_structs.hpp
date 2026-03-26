@@ -296,14 +296,23 @@ public:
 };
 DUMPER7_ASSERTS_FWeightmapData;
 
-// ScriptStruct Landscape.GizmoSelectData
-// 0x0050 (0x0050 - 0x0000)
-struct alignas(0x08) FGizmoSelectData final
+// ScriptStruct Landscape.LayerBlendInput
+// 0x0088 (0x0088 - 0x0000)
+struct FLayerBlendInput final
 {
 public:
-	uint8                                         Pad_0[0x50];                                       // 0x0000(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class FName                                   LayerName;                                         // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	ELandscapeLayerBlendType                      BlendType;                                         // 0x0008(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FExpressionInput                       LayerInput;                                        // 0x0010(0x0028)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FExpressionInput                       HeightInput;                                       // 0x0038(0x0028)(NoDestructor, NativeAccessSpecifierPublic)
+	float                                         PreviewWeight;                                     // 0x0060(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_64[0x4];                                       // 0x0064(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                ConstLayerInput;                                   // 0x0068(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ConstHeightInput;                                  // 0x0080(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_84[0x4];                                       // 0x0084(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FGizmoSelectData;
+DUMPER7_ASSERTS_FLayerBlendInput;
 
 // ScriptStruct Landscape.LandscapePerLODMaterialOverride
 // 0x0010 (0x0010 - 0x0000)
@@ -392,6 +401,15 @@ public:
 	struct FWeightmapData                         WeightmapData;                                     // 0x0008(0x0030)(NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FLandscapeLayerComponentData;
+
+// ScriptStruct Landscape.GizmoSelectData
+// 0x0050 (0x0050 - 0x0000)
+struct alignas(0x08) FGizmoSelectData final
+{
+public:
+	uint8                                         Pad_0[0x50];                                       // 0x0000(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FGizmoSelectData;
 
 // ScriptStruct Landscape.GrassVariety
 // 0x0230 (0x0230 - 0x0000)
@@ -558,24 +576,6 @@ public:
 	struct FExpressionInput                       Input;                                             // 0x0010(0x0028)(NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FGrassInput;
-
-// ScriptStruct Landscape.LayerBlendInput
-// 0x0088 (0x0088 - 0x0000)
-struct FLayerBlendInput final
-{
-public:
-	class FName                                   LayerName;                                         // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ELandscapeLayerBlendType                      BlendType;                                         // 0x0008(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FExpressionInput                       LayerInput;                                        // 0x0010(0x0028)(NoDestructor, NativeAccessSpecifierPublic)
-	struct FExpressionInput                       HeightInput;                                       // 0x0038(0x0028)(NoDestructor, NativeAccessSpecifierPublic)
-	float                                         PreviewWeight;                                     // 0x0060(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_64[0x4];                                       // 0x0064(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                ConstLayerInput;                                   // 0x0068(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ConstHeightInput;                                  // 0x0080(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_84[0x4];                                       // 0x0084(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FLayerBlendInput;
 
 // ScriptStruct Landscape.LandscapeBrushParameters
 // 0x0080 (0x0080 - 0x0000)

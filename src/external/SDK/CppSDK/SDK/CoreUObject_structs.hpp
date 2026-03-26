@@ -728,15 +728,6 @@ enum class EVerseEffectSet : uint8
 	EVerseEffectSet_MAX                      = 128,
 };
 
-// ScriptStruct CoreUObject.PerPlatformInt
-// 0x0004 (0x0004 - 0x0000)
-struct FPerPlatformInt final
-{
-public:
-	int32                                         Default;                                           // 0x0000(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FPerPlatformInt;
-
 // ScriptStruct CoreUObject.Vector
 // 0x0018 (0x0018 - 0x0000)
 struct FVector
@@ -1077,6 +1068,15 @@ public:
 };
 DUMPER7_ASSERTS_FInterpCurvePointVector2D;
 
+// ScriptStruct CoreUObject.PerPlatformFloat
+// 0x0004 (0x0004 - 0x0000)
+struct FPerPlatformFloat final
+{
+public:
+	float                                         Default;                                           // 0x0000(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FPerPlatformFloat;
+
 // ScriptStruct CoreUObject.Quat
 // 0x0020 (0x0020 - 0x0000)
 struct alignas(0x10) FQuat final
@@ -1233,25 +1233,6 @@ public:
 };
 DUMPER7_ASSERTS_FAutomationExecutionEntry;
 
-// ScriptStruct CoreUObject.FrameRate
-// 0x0008 (0x0008 - 0x0000)
-struct FFrameRate
-{
-public:
-	int32                                         Numerator;                                         // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         Denominator;                                       // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FFrameRate;
-
-// ScriptStruct CoreUObject.PerPlatformFrameRate
-// 0x0008 (0x0008 - 0x0000)
-struct FPerPlatformFrameRate final
-{
-public:
-	struct FFrameRate                             Default;                                           // 0x0000(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FPerPlatformFrameRate;
-
 // ScriptStruct CoreUObject.Box
 // 0x0038 (0x0038 - 0x0000)
 struct FBox final
@@ -1263,6 +1244,15 @@ public:
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FBox;
+
+// ScriptStruct CoreUObject.VerseSessionVar
+// 0x0020 (0x0020 - 0x0000)
+struct FVerseSessionVar final
+{
+public:
+	TFieldPath<class FMapProperty>                Property;                                          // 0x0000(0x0020)(HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FVerseSessionVar;
 
 // ScriptStruct CoreUObject.Box2D
 // 0x0028 (0x0028 - 0x0000)
@@ -1498,15 +1488,15 @@ public:
 };
 DUMPER7_ASSERTS_FFrameNumberRange;
 
-// ScriptStruct CoreUObject.PropertyBagPropertyDescMetaData
-// 0x0018 (0x0018 - 0x0000)
-struct FPropertyBagPropertyDescMetaData final
+// ScriptStruct CoreUObject.FrameRate
+// 0x0008 (0x0008 - 0x0000)
+struct FFrameRate
 {
 public:
-	class FName                                   Key;                                               // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Value;                                             // 0x0008(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Numerator;                                         // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Denominator;                                       // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FPropertyBagPropertyDescMetaData;
+DUMPER7_ASSERTS_FFrameRate;
 
 // ScriptStruct CoreUObject.FrameTime
 // 0x0008 (0x0008 - 0x0000)
@@ -1526,6 +1516,24 @@ public:
 	int32                                         InternalId;                                        // 0x0000(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 };
 DUMPER7_ASSERTS_FInputDeviceId;
+
+// ScriptStruct CoreUObject.InstancedStruct
+// 0x0010 (0x0010 - 0x0000)
+struct alignas(0x08) FInstancedStruct final
+{
+public:
+	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FInstancedStruct;
+
+// ScriptStruct CoreUObject.InstancedPropertyBag
+// 0x0010 (0x0010 - 0x0000)
+struct FInstancedPropertyBag
+{
+public:
+	struct FInstancedStruct                       Value;                                             // 0x0000(0x0010)(Edit, Protected, NativeAccessSpecifierProtected)
+};
+DUMPER7_ASSERTS_FInstancedPropertyBag;
 
 // ScriptStruct CoreUObject.Int32Interval
 // 0x0008 (0x0008 - 0x0000)
@@ -1620,15 +1628,6 @@ public:
 	int64                                         Y;                                                 // 0x0008(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FInt64Point;
-
-// ScriptStruct CoreUObject.PropertyTextFName
-// 0x0018 (0x0018 - 0x0000)
-struct alignas(0x08) FPropertyTextFName final
-{
-public:
-	uint8                                         Pad_0[0x18];                                       // 0x0000(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FPropertyTextFName;
 
 // ScriptStruct CoreUObject.Int64Rect
 // 0x0020 (0x0020 - 0x0000)
@@ -1970,15 +1969,6 @@ public:
 };
 DUMPER7_ASSERTS_FPrimalPODVariant;
 
-// ScriptStruct CoreUObject.PerPlatformBool
-// 0x0001 (0x0001 - 0x0000)
-struct FPerPlatformBool final
-{
-public:
-	bool                                          Default;                                           // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FPerPlatformBool;
-
 // ScriptStruct CoreUObject.PrimalPropertyBag
 // 0x0050 (0x0050 - 0x0000)
 struct alignas(0x08) FPrimalPropertyBag final
@@ -1996,6 +1986,16 @@ public:
 	uint8                                         Pad_0[0x28];                                       // 0x0000(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FPrimalVariant;
+
+// ScriptStruct CoreUObject.VersePersistentVar
+// 0x0030 (0x0030 - 0x0000)
+struct FVersePersistentVar final
+{
+public:
+	class FString                                 Path;                                              // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TFieldPath<class FMapProperty>                Property;                                          // 0x0010(0x0020)(HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FVersePersistentVar;
 
 // ScriptStruct CoreUObject.PrimaryAssetType
 // 0x0008 (0x0008 - 0x0000)
@@ -2701,6 +2701,15 @@ public:
 };
 DUMPER7_ASSERTS_FOverriddenPropertySet;
 
+// ScriptStruct CoreUObject.PropertyTextFName
+// 0x0018 (0x0018 - 0x0000)
+struct alignas(0x08) FPropertyTextFName final
+{
+public:
+	uint8                                         Pad_0[0x18];                                       // 0x0000(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FPropertyTextFName;
+
 // ScriptStruct CoreUObject.PropertyTextString
 // 0x0020 (0x0020 - 0x0000)
 struct alignas(0x08) FPropertyTextString final
@@ -2709,15 +2718,6 @@ public:
 	uint8                                         Pad_0[0x20];                                       // 0x0000(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FPropertyTextString;
-
-// ScriptStruct CoreUObject.InstancedStruct
-// 0x0010 (0x0010 - 0x0000)
-struct alignas(0x08) FInstancedStruct final
-{
-public:
-	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FInstancedStruct;
 
 // ScriptStruct CoreUObject.InstancedStructContainer
 // 0x0010 (0x0010 - 0x0000)
@@ -2737,6 +2737,16 @@ public:
 };
 DUMPER7_ASSERTS_FPropertyBagContainerTypes;
 
+// ScriptStruct CoreUObject.PropertyBagPropertyDescMetaData
+// 0x0018 (0x0018 - 0x0000)
+struct FPropertyBagPropertyDescMetaData final
+{
+public:
+	class FName                                   Key;                                               // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Value;                                             // 0x0008(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FPropertyBagPropertyDescMetaData;
+
 // ScriptStruct CoreUObject.PropertyBagPropertyDesc
 // 0x0030 (0x0030 - 0x0000)
 struct FPropertyBagPropertyDesc final
@@ -2750,15 +2760,6 @@ public:
 	uint8                                         Pad_24[0xC];                                       // 0x0024(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FPropertyBagPropertyDesc;
-
-// ScriptStruct CoreUObject.InstancedPropertyBag
-// 0x0010 (0x0010 - 0x0000)
-struct FInstancedPropertyBag
-{
-public:
-	struct FInstancedStruct                       Value;                                             // 0x0000(0x0010)(Edit, Protected, NativeAccessSpecifierProtected)
-};
-DUMPER7_ASSERTS_FInstancedPropertyBag;
 
 // ScriptStruct CoreUObject.PropertyBagMissingStruct
 // 0x0001 (0x0001 - 0x0000)
@@ -2815,6 +2816,15 @@ public:
 };
 DUMPER7_ASSERTS_FStructCookedMetaDataStore;
 
+// ScriptStruct CoreUObject.PerPlatformInt
+// 0x0004 (0x0004 - 0x0000)
+struct FPerPlatformInt final
+{
+public:
+	int32                                         Default;                                           // 0x0000(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FPerPlatformInt;
+
 // ScriptStruct CoreUObject.FreezablePerPlatformInt
 // 0x0004 (0x0004 - 0x0000)
 struct alignas(0x04) FFreezablePerPlatformInt final
@@ -2824,33 +2834,23 @@ public:
 };
 DUMPER7_ASSERTS_FFreezablePerPlatformInt;
 
-// ScriptStruct CoreUObject.PerPlatformFloat
-// 0x0004 (0x0004 - 0x0000)
-struct FPerPlatformFloat final
+// ScriptStruct CoreUObject.PerPlatformBool
+// 0x0001 (0x0001 - 0x0000)
+struct FPerPlatformBool final
 {
 public:
-	float                                         Default;                                           // 0x0000(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          Default;                                           // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FPerPlatformFloat;
+DUMPER7_ASSERTS_FPerPlatformBool;
 
-// ScriptStruct CoreUObject.VersePersistentVar
-// 0x0030 (0x0030 - 0x0000)
-struct FVersePersistentVar final
+// ScriptStruct CoreUObject.PerPlatformFrameRate
+// 0x0008 (0x0008 - 0x0000)
+struct FPerPlatformFrameRate final
 {
 public:
-	class FString                                 Path;                                              // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TFieldPath<class FMapProperty>                Property;                                          // 0x0010(0x0020)(HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FFrameRate                             Default;                                           // 0x0000(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FVersePersistentVar;
-
-// ScriptStruct CoreUObject.VerseSessionVar
-// 0x0020 (0x0020 - 0x0000)
-struct FVerseSessionVar final
-{
-public:
-	TFieldPath<class FMapProperty>                Property;                                          // 0x0000(0x0020)(HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FVerseSessionVar;
+DUMPER7_ASSERTS_FPerPlatformFrameRate;
 
 // ScriptStruct CoreUObject.VerseClassVarAccessor
 // 0x0010 (0x0010 - 0x0000)

@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="external\AOBScan\AOBScan.hpp" />
     <ClInclude Include="external\LuaJIT-2.1\src\lauxlib.h" />
     <ClInclude Include="external\LuaJIT-2.1\src\lj_alloc.h" />
     <ClInclude Include="external\LuaJIT-2.1\src\lj_arch.h" />
@@ -114,6 +115,7 @@
     <ClInclude Include="external\sol2\config.hpp" />
     <ClInclude Include="external\sol2\forward.hpp" />
     <ClInclude Include="external\sol2\sol.hpp" />
+    <ClInclude Include="internal\CheatData\CheatData.hpp" />
     <ClInclude Include="internal\Config\ConfigManager.h" />
     <ClInclude Include="internal\Config\Configs.h" />
     <ClInclude Include="internal\ESP\DrawESP.h" />

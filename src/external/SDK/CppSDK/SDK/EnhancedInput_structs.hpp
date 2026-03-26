@@ -216,6 +216,15 @@ public:
 };
 DUMPER7_ASSERTS_FPlayerMappableKeyQueryOptions;
 
+// ScriptStruct EnhancedInput.KeyConsumptionOptions
+// 0x0018 (0x0018 - 0x0000)
+struct alignas(0x08) FKeyConsumptionOptions final
+{
+public:
+	uint8                                         Pad_0[0x18];                                       // 0x0000(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FKeyConsumptionOptions;
+
 // ScriptStruct EnhancedInput.InputActionValue
 // 0x0020 (0x0020 - 0x0000)
 struct alignas(0x08) FInputActionValue final
@@ -225,16 +234,18 @@ public:
 };
 DUMPER7_ASSERTS_FInputActionValue;
 
-// ScriptStruct EnhancedInput.InputCancelAction
-// 0x0010 (0x0010 - 0x0000)
-struct FInputCancelAction final
+// ScriptStruct EnhancedInput.BlueprintEnhancedInputActionBinding
+// 0x0018 (0x0018 - 0x0000)
+struct FBlueprintEnhancedInputActionBinding final
 {
 public:
-	class UInputAction*                           CancelAction;                                      // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         CancellationStates;                                // 0x0008(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UInputAction*                           InputAction;                                       // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	ETriggerEvent                                 TriggerEvent;                                      // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   FunctionNameToBind;                                // 0x000C(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FInputCancelAction;
+DUMPER7_ASSERTS_FBlueprintEnhancedInputActionBinding;
 
 // ScriptStruct EnhancedInput.InjectedInput
 // 0x0040 (0x0040 - 0x0000)
@@ -276,15 +287,6 @@ public:
 };
 DUMPER7_ASSERTS_FMapPlayerKeyArgs;
 
-// ScriptStruct EnhancedInput.InjectedInputArray
-// 0x0010 (0x0010 - 0x0000)
-struct FInjectedInputArray final
-{
-public:
-	TArray<struct FInjectedInput>                 Injected;                                          // 0x0000(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FInjectedInputArray;
-
 // ScriptStruct EnhancedInput.PlayerMappableKeyProfileCreationArgs
 // 0x0030 (0x0030 - 0x0000)
 struct FPlayerMappableKeyProfileCreationArgs final
@@ -299,23 +301,6 @@ public:
 	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FPlayerMappableKeyProfileCreationArgs;
-
-// ScriptStruct EnhancedInput.EnhancedActionKeyMapping
-// 0x0050 (0x0050 - 0x0000)
-struct FEnhancedActionKeyMapping final
-{
-public:
-	TArray<class UInputTrigger*>                  Triggers;                                          // 0x0000(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TArray<class UInputModifier*>                 Modifiers;                                         // 0x0010(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UInputAction*                           Action;                                            // 0x0020(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	struct FKey                                   Key;                                               // 0x0028(0x0018)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         bShouldBeIgnored : 1;                              // 0x0040(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Transient, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bHasAlwaysTickTrigger : 1;                         // 0x0040(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Transient, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	EPlayerMappableKeySettingBehaviors            SettingBehavior;                                   // 0x0041(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_42[0x6];                                       // 0x0042(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class UPlayerMappableKeySettings*             PlayerMappableKeySettings;                         // 0x0048(0x0008)(Edit, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FEnhancedActionKeyMapping;
 
 // ScriptStruct EnhancedInput.PlayerKeyMapping
 // 0x0080 (0x0080 - 0x0000)
@@ -365,18 +350,22 @@ public:
 };
 DUMPER7_ASSERTS_FPlayerMappableKeyOptions;
 
-// ScriptStruct EnhancedInput.BlueprintEnhancedInputActionBinding
-// 0x0018 (0x0018 - 0x0000)
-struct FBlueprintEnhancedInputActionBinding final
+// ScriptStruct EnhancedInput.EnhancedActionKeyMapping
+// 0x0050 (0x0050 - 0x0000)
+struct FEnhancedActionKeyMapping final
 {
 public:
-	class UInputAction*                           InputAction;                                       // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	ETriggerEvent                                 TriggerEvent;                                      // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   FunctionNameToBind;                                // 0x000C(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TArray<class UInputTrigger*>                  Triggers;                                          // 0x0000(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TArray<class UInputModifier*>                 Modifiers;                                         // 0x0010(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UInputAction*                           Action;                                            // 0x0020(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	struct FKey                                   Key;                                               // 0x0028(0x0018)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         bShouldBeIgnored : 1;                              // 0x0040(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Transient, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bHasAlwaysTickTrigger : 1;                         // 0x0040(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Transient, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	EPlayerMappableKeySettingBehaviors            SettingBehavior;                                   // 0x0041(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_42[0x6];                                       // 0x0042(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	class UPlayerMappableKeySettings*             PlayerMappableKeySettings;                         // 0x0048(0x0008)(Edit, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 };
-DUMPER7_ASSERTS_FBlueprintEnhancedInputActionBinding;
+DUMPER7_ASSERTS_FEnhancedActionKeyMapping;
 
 // ScriptStruct EnhancedInput.DefaultContextSetting
 // 0x0030 (0x0030 - 0x0000)
@@ -402,14 +391,14 @@ public:
 };
 DUMPER7_ASSERTS_FModifyContextOptions;
 
-// ScriptStruct EnhancedInput.KeyConsumptionOptions
-// 0x0018 (0x0018 - 0x0000)
-struct alignas(0x08) FKeyConsumptionOptions final
+// ScriptStruct EnhancedInput.InjectedInputArray
+// 0x0010 (0x0010 - 0x0000)
+struct FInjectedInputArray final
 {
 public:
-	uint8                                         Pad_0[0x18];                                       // 0x0000(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TArray<struct FInjectedInput>                 Injected;                                          // 0x0000(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FKeyConsumptionOptions;
+DUMPER7_ASSERTS_FInjectedInputArray;
 
 // ScriptStruct EnhancedInput.InputActionInstance
 // 0x0060 (0x0060 - 0x0000)
@@ -453,6 +442,17 @@ public:
 	float                                         TimeToPressKey;                                    // 0x000C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FInputComboStepData;
+
+// ScriptStruct EnhancedInput.InputCancelAction
+// 0x0010 (0x0010 - 0x0000)
+struct FInputCancelAction final
+{
+public:
+	class UInputAction*                           CancelAction;                                      // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	uint8                                         CancellationStates;                                // 0x0008(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FInputCancelAction;
 
 }
 

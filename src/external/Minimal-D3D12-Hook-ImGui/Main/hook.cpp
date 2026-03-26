@@ -1,4 +1,6 @@
 #include "mdx12_api.h"
+#include "../../AOBScan/AOBScan.hpp"
+#include "../../../internal/CheatData/CheatData.hpp"
 
 // #include "../Font/Alibaba-PuHuiTi-Bold.h"
 // #include "../Font/Alibaba-PuHuiTi-Heavy.h"
@@ -24,6 +26,7 @@ namespace g_Hook {
         return oWorldTick(rcx, rdx, r8, r9);
     }
 
+    /*
     void initUWorldTick() {
         SDK::UWorld* pWorld = nullptr;
         while (!pWorld) {
@@ -33,11 +36,34 @@ namespace g_Hook {
         }
 
         void** vtable = *reinterpret_cast<void***>(pWorld);
-        void* pTarget = vtable[220];
+        void* pTarget = vtable[336]; // 220
 
         if (pTarget) {
             if (MH_CreateHook(pTarget, &g_Hook::hkUWorldTick, reinterpret_cast<LPVOID*>(&g_Hook::oWorldTick)) == MH_OK) {
                 // MH_EnableHook(pTarget);
+            }
+        }
+    }
+    */
+
+    void initUWorldTick() {
+        SDK::UWorld* pWorld = nullptr;
+        while (!pWorld) {
+            pWorld = SDK::UWorld::GetWorld();
+            if (pWorld && pWorld->OwningGameInstance) break;
+            Sleep(1);
+        }
+
+        if (pWorld) {
+            std::string pattern = g_CheatData::Signature::UWorld::Tick;
+            AOB::Result ok = AOB::Scan(pattern);
+
+            if (ok && ok.size() > 0) {
+                void* targetAddr = ok[0];
+
+                if (MH_CreateHook(targetAddr, &hkUWorldTick, reinterpret_cast<LPVOID*>(&oWorldTick)) == MH_OK) {
+                    MH_EnableHook(targetAddr);
+                }
             }
         }
     }

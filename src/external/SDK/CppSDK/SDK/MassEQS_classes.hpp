@@ -15,8 +15,8 @@
 #include "AIModule_structs.hpp"
 #include "AIModule_classes.hpp"
 #include "MassEntity_classes.hpp"
-#include "Engine_classes.hpp"
 #include "MassEQS_structs.hpp"
+#include "Engine_classes.hpp"
 
 
 namespace SDK

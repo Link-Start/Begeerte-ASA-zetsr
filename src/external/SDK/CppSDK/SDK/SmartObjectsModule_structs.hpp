@@ -10,11 +10,11 @@
 
 #include "Basic.hpp"
 
-#include "GameplayTags_structs.hpp"
 #include "WorldConditions_structs.hpp"
+#include "GameplayTags_structs.hpp"
 #include "CoreUObject_structs.hpp"
-#include "Engine_structs.hpp"
 #include "PropertyBindingUtils_structs.hpp"
+#include "Engine_structs.hpp"
 
 
 namespace SDK
@@ -168,6 +168,13 @@ public:
 };
 DUMPER7_ASSERTS_FSmartObjectDefinitionData;
 
+// ScriptStruct SmartObjectsModule.SmartObjectSlotAnnotation
+// 0x0000 (0x0008 - 0x0008)
+struct FSmartObjectSlotAnnotation : public FSmartObjectDefinitionData
+{
+};
+DUMPER7_ASSERTS_FSmartObjectSlotAnnotation;
+
 // ScriptStruct SmartObjectsModule.SmartObjectHandle
 // 0x0008 (0x0008 - 0x0000)
 struct FSmartObjectHandle final
@@ -200,22 +207,6 @@ public:
 };
 DUMPER7_ASSERTS_FSmartObjectEventData;
 
-// ScriptStruct SmartObjectsModule.SmartObjectWorldConditionBase
-// 0x0000 (0x0010 - 0x0010)
-struct FSmartObjectWorldConditionBase : public FWorldConditionBase
-{
-};
-DUMPER7_ASSERTS_FSmartObjectWorldConditionBase;
-
-// ScriptStruct SmartObjectsModule.WorldCondition_SmartObjectActorTagQueryState
-// 0x0008 (0x0008 - 0x0000)
-struct alignas(0x08) FWorldCondition_SmartObjectActorTagQueryState final
-{
-public:
-	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FWorldCondition_SmartObjectActorTagQueryState;
-
 // ScriptStruct SmartObjectsModule.SmartObjectUserCapsuleParams
 // 0x000C (0x000C - 0x0000)
 struct FSmartObjectUserCapsuleParams final
@@ -227,13 +218,6 @@ public:
 };
 DUMPER7_ASSERTS_FSmartObjectUserCapsuleParams;
 
-// ScriptStruct SmartObjectsModule.SmartObjectSlotAnnotation
-// 0x0000 (0x0008 - 0x0008)
-struct FSmartObjectSlotAnnotation : public FSmartObjectDefinitionData
-{
-};
-DUMPER7_ASSERTS_FSmartObjectSlotAnnotation;
-
 // ScriptStruct SmartObjectsModule.SmartObjectAnnotation_SlotUserCollision
 // 0x0010 (0x0018 - 0x0008)
 struct FSmartObjectAnnotation_SlotUserCollision final : public FSmartObjectSlotAnnotation
@@ -244,6 +228,13 @@ public:
 	struct FSmartObjectUserCapsuleParams          Capsule;                                           // 0x000C(0x000C)(Edit, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FSmartObjectAnnotation_SlotUserCollision;
+
+// ScriptStruct SmartObjectsModule.SmartObjectWorldConditionBase
+// 0x0000 (0x0010 - 0x0010)
+struct FSmartObjectWorldConditionBase : public FWorldConditionBase
+{
+};
+DUMPER7_ASSERTS_FSmartObjectWorldConditionBase;
 
 // ScriptStruct SmartObjectsModule.SmartObjectSlotEntranceAnnotation
 // 0x0048 (0x0050 - 0x0008)
@@ -690,6 +681,15 @@ public:
 	struct FGameplayTagQuery                      TagQuery;                                          // 0x0028(0x0048)(Edit, Protected, NativeAccessSpecifierProtected)
 };
 DUMPER7_ASSERTS_FSmartObjectWorldConditionSlotTagQuery;
+
+// ScriptStruct SmartObjectsModule.WorldCondition_SmartObjectActorTagQueryState
+// 0x0008 (0x0008 - 0x0000)
+struct alignas(0x08) FWorldCondition_SmartObjectActorTagQueryState final
+{
+public:
+	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FWorldCondition_SmartObjectActorTagQueryState;
 
 // ScriptStruct SmartObjectsModule.WorldCondition_SmartObjectActorTagQuery
 // 0x0058 (0x0068 - 0x0010)

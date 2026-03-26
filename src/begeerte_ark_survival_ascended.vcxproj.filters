@@ -31,12 +31,6 @@
     <Filter Include="external\SDK">
       <UniqueIdentifier>{832a86cc-2d57-4311-ad9b-6b118e3ca9b1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="external\SDK\CppSDK">
-      <UniqueIdentifier>{8dfb665e-4a38-4db8-896e-25b4000c5049}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="external\SDK\CppSDK\SDK">
-      <UniqueIdentifier>{4ecc1655-5146-4e34-a7d0-15618e8688af}</UniqueIdentifier>
-    </Filter>
     <Filter Include="external\sol2">
       <UniqueIdentifier>{db0a6749-6586-473e-a49d-41fbd5fb3ffb}</UniqueIdentifier>
     </Filter>
@@ -75,6 +69,12 @@
     </Filter>
     <Filter Include="internal\Hack">
       <UniqueIdentifier>{fdbbfa70-1a4b-4147-b85c-a86fb49e4eb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\AOBScan">
+      <UniqueIdentifier>{84d6609c-3136-4a69-be80-1c40bf074064}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\CheatData">
+      <UniqueIdentifier>{7175f10b-9563-4423-9ef2-f994f0c5cccb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -422,6 +422,12 @@
     </ClInclude>
     <ClInclude Include="internal\Menu\Misc_Menu.h">
       <Filter>internal\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="external\AOBScan\AOBScan.hpp">
+      <Filter>external\AOBScan</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\CheatData\CheatData.hpp">
+      <Filter>internal\CheatData</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

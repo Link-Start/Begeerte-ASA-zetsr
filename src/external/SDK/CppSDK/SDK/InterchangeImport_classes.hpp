@@ -10,58 +10,41 @@
 
 #include "Basic.hpp"
 
-#include "UnrealUSDWrapper_structs.hpp"
-#include "InterchangeCore_classes.hpp"
+#include "USDClasses_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "USDClasses_structs.hpp"
-#include "InterchangeImport_structs.hpp"
+#include "InterchangeCore_classes.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
+#include "InterchangeImport_structs.hpp"
+#include "UnrealUSDWrapper_structs.hpp"
 
 
 namespace SDK
 {
 
-// Class InterchangeImport.InterchangeActorFactory
-// 0x0000 (0x0030 - 0x0030)
-class UInterchangeActorFactory : public UInterchangeFactoryBase
+// Class InterchangeImport.InterchangeMaterialFactory
+// 0x0008 (0x0038 - 0x0030)
+class UInterchangeMaterialFactory final : public UInterchangeFactoryBase
 {
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InterchangeActorFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InterchangeActorFactory")
-	}
-	static class UInterchangeActorFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInterchangeActorFactory>();
-	}
-};
-DUMPER7_ASSERTS_UInterchangeActorFactory;
+	uint8                                         Pad_30[0x8];                                       // 0x0030(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
-// Class InterchangeImport.InterchangeCameraActorFactory
-// 0x0000 (0x0030 - 0x0030)
-class UInterchangeCameraActorFactory final : public UInterchangeActorFactory
-{
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("InterchangeCameraActorFactory")
+		STATIC_CLASS_IMPL("InterchangeMaterialFactory")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"InterchangeCameraActorFactory")
+		STATIC_NAME_IMPL(L"InterchangeMaterialFactory")
 	}
-	static class UInterchangeCameraActorFactory* GetDefaultObj()
+	static class UInterchangeMaterialFactory* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UInterchangeCameraActorFactory>();
+		return GetDefaultObjImpl<UInterchangeMaterialFactory>();
 	}
 };
-DUMPER7_ASSERTS_UInterchangeCameraActorFactory;
+DUMPER7_ASSERTS_UInterchangeMaterialFactory;
 
 // Class InterchangeImport.InterchangeAnimationPayloadInterface
 // 0x0000 (0x0000 - 0x0000)
@@ -115,6 +98,46 @@ public:
 };
 DUMPER7_ASSERTS_UInterchangeAssetUserData;
 
+// Class InterchangeImport.InterchangeActorFactory
+// 0x0000 (0x0030 - 0x0030)
+class UInterchangeActorFactory : public UInterchangeFactoryBase
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InterchangeActorFactory")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InterchangeActorFactory")
+	}
+	static class UInterchangeActorFactory* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInterchangeActorFactory>();
+	}
+};
+DUMPER7_ASSERTS_UInterchangeActorFactory;
+
+// Class InterchangeImport.InterchangeSkeletalMeshActorFactory
+// 0x0000 (0x0030 - 0x0030)
+class UInterchangeSkeletalMeshActorFactory final : public UInterchangeActorFactory
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InterchangeSkeletalMeshActorFactory")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InterchangeSkeletalMeshActorFactory")
+	}
+	static class UInterchangeSkeletalMeshActorFactory* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInterchangeSkeletalMeshActorFactory>();
+	}
+};
+DUMPER7_ASSERTS_UInterchangeSkeletalMeshActorFactory;
+
 // Class InterchangeImport.InterchangeBlockedTexturePayloadInterface
 // 0x0000 (0x0000 - 0x0000)
 class IInterchangeBlockedTexturePayloadInterface final
@@ -143,29 +166,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_IInterchangeBlockedTexturePayloadInterface;
-
-// Class InterchangeImport.InterchangeDDSTranslator
-// 0x0010 (0x0048 - 0x0038)
-class UInterchangeDDSTranslator final : public UInterchangeTranslatorBase
-{
-public:
-	uint8                                         Pad_38[0x10];                                      // 0x0038(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InterchangeDDSTranslator")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InterchangeDDSTranslator")
-	}
-	static class UInterchangeDDSTranslator* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInterchangeDDSTranslator>();
-	}
-};
-DUMPER7_ASSERTS_UInterchangeDDSTranslator;
 
 // Class InterchangeImport.InterchangeDecalActorFactory
 // 0x0000 (0x0030 - 0x0030)
@@ -207,28 +207,28 @@ public:
 };
 DUMPER7_ASSERTS_UInterchangeLevelFactory;
 
-// Class InterchangeImport.InterchangeStaticMeshFactory
-// 0x00F0 (0x0120 - 0x0030)
-class UInterchangeStaticMeshFactory final : public UInterchangeFactoryBase
+// Class InterchangeImport.InterchangeImageWrapperTranslator
+// 0x0010 (0x0048 - 0x0038)
+class UInterchangeImageWrapperTranslator final : public UInterchangeTranslatorBase
 {
 public:
-	uint8                                         Pad_30[0xF0];                                      // 0x0030(0x00F0)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_38[0x10];                                      // 0x0038(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("InterchangeStaticMeshFactory")
+		STATIC_CLASS_IMPL("InterchangeImageWrapperTranslator")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"InterchangeStaticMeshFactory")
+		STATIC_NAME_IMPL(L"InterchangeImageWrapperTranslator")
 	}
-	static class UInterchangeStaticMeshFactory* GetDefaultObj()
+	static class UInterchangeImageWrapperTranslator* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UInterchangeStaticMeshFactory>();
+		return GetDefaultObjImpl<UInterchangeImageWrapperTranslator>();
 	}
 };
-DUMPER7_ASSERTS_UInterchangeStaticMeshFactory;
+DUMPER7_ASSERTS_UInterchangeImageWrapperTranslator;
 
 // Class InterchangeImport.InterchangeLevelSequenceFactory
 // 0x0008 (0x0038 - 0x0030)
@@ -272,6 +272,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UInterchangeLightActorFactory;
+
+// Class InterchangeImport.InterchangeCameraActorFactory
+// 0x0000 (0x0030 - 0x0030)
+class UInterchangeCameraActorFactory final : public UInterchangeActorFactory
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InterchangeCameraActorFactory")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InterchangeCameraActorFactory")
+	}
+	static class UInterchangeCameraActorFactory* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInterchangeCameraActorFactory>();
+	}
+};
+DUMPER7_ASSERTS_UInterchangeCameraActorFactory;
 
 // Class InterchangeImport.InterchangeMeshPayloadInterface
 // 0x0000 (0x0000 - 0x0000)
@@ -431,29 +451,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_IInterchangeTexturePayloadInterface;
-
-// Class InterchangeImport.InterchangeImageWrapperTranslator
-// 0x0010 (0x0048 - 0x0038)
-class UInterchangeImageWrapperTranslator final : public UInterchangeTranslatorBase
-{
-public:
-	uint8                                         Pad_38[0x10];                                      // 0x0038(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InterchangeImageWrapperTranslator")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InterchangeImageWrapperTranslator")
-	}
-	static class UInterchangeImageWrapperTranslator* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInterchangeImageWrapperTranslator>();
-	}
-};
-DUMPER7_ASSERTS_UInterchangeImageWrapperTranslator;
 
 // Class InterchangeImport.InterchangeVariantSetPayloadInterface
 // 0x0000 (0x0000 - 0x0000)
@@ -1128,26 +1125,6 @@ public:
 };
 DUMPER7_ASSERTS_UMaterialExpressionMaterialXPremult;
 
-// Class InterchangeImport.InterchangeSkeletonFactory
-// 0x0000 (0x0030 - 0x0030)
-class UInterchangeSkeletonFactory final : public UInterchangeFactoryBase
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InterchangeSkeletonFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InterchangeSkeletonFactory")
-	}
-	static class UInterchangeSkeletonFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInterchangeSkeletonFactory>();
-	}
-};
-DUMPER7_ASSERTS_UInterchangeSkeletonFactory;
-
 // Class InterchangeImport.MaterialExpressionMaterialXRampLeftRight
 // 0x0080 (0x0130 - 0x00B0)
 class UMaterialExpressionMaterialXRampLeftRight final : public UMaterialExpression
@@ -1202,28 +1179,25 @@ public:
 };
 DUMPER7_ASSERTS_UMaterialExpressionMaterialXRampTopBottom;
 
-// Class InterchangeImport.MaterialExpressionMaterialXUnpremult
-// 0x0028 (0x00D8 - 0x00B0)
-class UMaterialExpressionMaterialXUnpremult final : public UMaterialExpression
+// Class InterchangeImport.InterchangeCineCameraActorFactory
+// 0x0000 (0x0030 - 0x0030)
+class UInterchangeCineCameraActorFactory final : public UInterchangeActorFactory
 {
-public:
-	struct FExpressionInput                       Input;                                             // 0x00B0(0x0028)(NoDestructor, NativeAccessSpecifierPublic)
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("MaterialExpressionMaterialXUnpremult")
+		STATIC_CLASS_IMPL("InterchangeCineCameraActorFactory")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"MaterialExpressionMaterialXUnpremult")
+		STATIC_NAME_IMPL(L"InterchangeCineCameraActorFactory")
 	}
-	static class UMaterialExpressionMaterialXUnpremult* GetDefaultObj()
+	static class UInterchangeCineCameraActorFactory* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UMaterialExpressionMaterialXUnpremult>();
+		return GetDefaultObjImpl<UInterchangeCineCameraActorFactory>();
 	}
 };
-DUMPER7_ASSERTS_UMaterialExpressionMaterialXUnpremult;
+DUMPER7_ASSERTS_UInterchangeCineCameraActorFactory;
 
 // Class InterchangeImport.MaterialExpressionMaterialXRemap
 // 0x00D8 (0x0188 - 0x00B0)
@@ -1282,6 +1256,29 @@ public:
 };
 DUMPER7_ASSERTS_UMaterialExpressionMaterialXRotate2D;
 
+// Class InterchangeImport.InterchangeMaterialFunctionFactory
+// 0x0008 (0x0038 - 0x0030)
+class UInterchangeMaterialFunctionFactory final : public UInterchangeFactoryBase
+{
+public:
+	uint8                                         Pad_30[0x8];                                       // 0x0030(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InterchangeMaterialFunctionFactory")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InterchangeMaterialFunctionFactory")
+	}
+	static class UInterchangeMaterialFunctionFactory* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInterchangeMaterialFunctionFactory>();
+	}
+};
+DUMPER7_ASSERTS_UInterchangeMaterialFunctionFactory;
+
 // Class InterchangeImport.MaterialExpressionMaterialXScreen
 // 0x0080 (0x0130 - 0x00B0)
 class UMaterialExpressionMaterialXScreen final : public UMaterialExpression
@@ -1338,26 +1335,6 @@ public:
 };
 DUMPER7_ASSERTS_UMaterialExpressionMaterialXSplitLeftRight;
 
-// Class InterchangeImport.InterchangePhysicsAssetFactory
-// 0x0000 (0x0030 - 0x0030)
-class UInterchangePhysicsAssetFactory final : public UInterchangeFactoryBase
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InterchangePhysicsAssetFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InterchangePhysicsAssetFactory")
-	}
-	static class UInterchangePhysicsAssetFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInterchangePhysicsAssetFactory>();
-	}
-};
-DUMPER7_ASSERTS_UInterchangePhysicsAssetFactory;
-
 // Class InterchangeImport.MaterialExpressionMaterialXSplitTopBottom
 // 0x00A8 (0x0158 - 0x00B0)
 class UMaterialExpressionMaterialXSplitTopBottom final : public UMaterialExpression
@@ -1411,6 +1388,26 @@ public:
 };
 DUMPER7_ASSERTS_UMaterialExpressionMaterialXSwizzle;
 
+// Class InterchangeImport.InterchangeSkeletonFactory
+// 0x0000 (0x0030 - 0x0030)
+class UInterchangeSkeletonFactory final : public UInterchangeFactoryBase
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InterchangeSkeletonFactory")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InterchangeSkeletonFactory")
+	}
+	static class UInterchangeSkeletonFactory* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInterchangeSkeletonFactory>();
+	}
+};
+DUMPER7_ASSERTS_UInterchangeSkeletonFactory;
+
 // Class InterchangeImport.MaterialExpressionMaterialXTextureSampleParameterBlur
 // 0x0010 (0x0230 - 0x0220)
 class UMaterialExpressionMaterialXTextureSampleParameterBlur final : public UMaterialExpressionTextureSampleParameter2D
@@ -1438,51 +1435,28 @@ public:
 };
 DUMPER7_ASSERTS_UMaterialExpressionMaterialXTextureSampleParameterBlur;
 
-// Class InterchangeImport.InterchangeMaterialFactory
-// 0x0008 (0x0038 - 0x0030)
-class UInterchangeMaterialFactory final : public UInterchangeFactoryBase
+// Class InterchangeImport.MaterialExpressionMaterialXUnpremult
+// 0x0028 (0x00D8 - 0x00B0)
+class UMaterialExpressionMaterialXUnpremult final : public UMaterialExpression
 {
 public:
-	uint8                                         Pad_30[0x8];                                       // 0x0030(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FExpressionInput                       Input;                                             // 0x00B0(0x0028)(NoDestructor, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("InterchangeMaterialFactory")
+		STATIC_CLASS_IMPL("MaterialExpressionMaterialXUnpremult")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"InterchangeMaterialFactory")
+		STATIC_NAME_IMPL(L"MaterialExpressionMaterialXUnpremult")
 	}
-	static class UInterchangeMaterialFactory* GetDefaultObj()
+	static class UMaterialExpressionMaterialXUnpremult* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UInterchangeMaterialFactory>();
+		return GetDefaultObjImpl<UMaterialExpressionMaterialXUnpremult>();
 	}
 };
-DUMPER7_ASSERTS_UInterchangeMaterialFactory;
-
-// Class InterchangeImport.InterchangeMaterialFunctionFactory
-// 0x0008 (0x0038 - 0x0030)
-class UInterchangeMaterialFunctionFactory final : public UInterchangeFactoryBase
-{
-public:
-	uint8                                         Pad_30[0x8];                                       // 0x0030(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InterchangeMaterialFunctionFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InterchangeMaterialFunctionFactory")
-	}
-	static class UInterchangeMaterialFunctionFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInterchangeMaterialFunctionFactory>();
-	}
-};
-DUMPER7_ASSERTS_UInterchangeMaterialFunctionFactory;
+DUMPER7_ASSERTS_UMaterialExpressionMaterialXUnpremult;
 
 // Class InterchangeImport.InterchangeOBJTranslator
 // 0x0018 (0x0050 - 0x0038)
@@ -1507,6 +1481,26 @@ public:
 };
 DUMPER7_ASSERTS_UInterchangeOBJTranslator;
 
+// Class InterchangeImport.InterchangePhysicsAssetFactory
+// 0x0000 (0x0030 - 0x0030)
+class UInterchangePhysicsAssetFactory final : public UInterchangeFactoryBase
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InterchangePhysicsAssetFactory")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InterchangePhysicsAssetFactory")
+	}
+	static class UInterchangePhysicsAssetFactory* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInterchangePhysicsAssetFactory>();
+	}
+};
+DUMPER7_ASSERTS_UInterchangePhysicsAssetFactory;
+
 // Class InterchangeImport.InterchangeSkeletalMeshFactory
 // 0x00A0 (0x00D0 - 0x0030)
 class UInterchangeSkeletalMeshFactory final : public UInterchangeFactoryBase
@@ -1530,25 +1524,28 @@ public:
 };
 DUMPER7_ASSERTS_UInterchangeSkeletalMeshFactory;
 
-// Class InterchangeImport.InterchangeCineCameraActorFactory
-// 0x0000 (0x0030 - 0x0030)
-class UInterchangeCineCameraActorFactory final : public UInterchangeActorFactory
+// Class InterchangeImport.InterchangeStaticMeshFactory
+// 0x00F0 (0x0120 - 0x0030)
+class UInterchangeStaticMeshFactory final : public UInterchangeFactoryBase
 {
+public:
+	uint8                                         Pad_30[0xF0];                                      // 0x0030(0x00F0)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("InterchangeCineCameraActorFactory")
+		STATIC_CLASS_IMPL("InterchangeStaticMeshFactory")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"InterchangeCineCameraActorFactory")
+		STATIC_NAME_IMPL(L"InterchangeStaticMeshFactory")
 	}
-	static class UInterchangeCineCameraActorFactory* GetDefaultObj()
+	static class UInterchangeStaticMeshFactory* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UInterchangeCineCameraActorFactory>();
+		return GetDefaultObjImpl<UInterchangeStaticMeshFactory>();
 	}
 };
-DUMPER7_ASSERTS_UInterchangeCineCameraActorFactory;
+DUMPER7_ASSERTS_UInterchangeStaticMeshFactory;
 
 // Class InterchangeImport.InterchangeLevelInstanceActorFactory
 // 0x0000 (0x0030 - 0x0030)
@@ -1570,26 +1567,6 @@ public:
 };
 DUMPER7_ASSERTS_UInterchangeLevelInstanceActorFactory;
 
-// Class InterchangeImport.InterchangeSkeletalMeshActorFactory
-// 0x0000 (0x0030 - 0x0030)
-class UInterchangeSkeletalMeshActorFactory final : public UInterchangeActorFactory
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InterchangeSkeletalMeshActorFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InterchangeSkeletalMeshActorFactory")
-	}
-	static class UInterchangeSkeletalMeshActorFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInterchangeSkeletalMeshActorFactory>();
-	}
-};
-DUMPER7_ASSERTS_UInterchangeSkeletalMeshActorFactory;
-
 // Class InterchangeImport.InterchangeStaticMeshActorFactory
 // 0x0000 (0x0030 - 0x0030)
 class UInterchangeStaticMeshActorFactory final : public UInterchangeActorFactory
@@ -1609,6 +1586,29 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UInterchangeStaticMeshActorFactory;
+
+// Class InterchangeImport.InterchangeDDSTranslator
+// 0x0010 (0x0048 - 0x0038)
+class UInterchangeDDSTranslator final : public UInterchangeTranslatorBase
+{
+public:
+	uint8                                         Pad_38[0x10];                                      // 0x0038(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InterchangeDDSTranslator")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InterchangeDDSTranslator")
+	}
+	static class UInterchangeDDSTranslator* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInterchangeDDSTranslator>();
+	}
+};
+DUMPER7_ASSERTS_UInterchangeDDSTranslator;
 
 // Class InterchangeImport.InterchangeIESTranslator
 // 0x0008 (0x0040 - 0x0038)
