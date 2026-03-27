@@ -17,6 +17,36 @@
 namespace SDK::Params
 {
 
+// Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.UpdateButtonSwitcherStatus
+// 0x0610 (0x0610 - 0x0000)
+struct UI_Button_InstallSwitcher_C_UpdateButtonSwitcherStatus final
+{
+public:
+	struct FInstallProgressMod                    ModInfo;                                           // 0x0000(0x0608)(BlueprintVisible, BlueprintReadOnly, Parm, ContainsInstancedReference)
+	bool                                          CallFunc_GetIsModValid_IsValid;                    // 0x0608(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          K2Node_SwitchEnum_CmpSuccess;                      // 0x0609(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          K2Node_SwitchEnum_CmpSuccess_1;                    // 0x060A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_UI_Button_InstallSwitcher_C_UpdateButtonSwitcherStatus;
+
+// Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.UpdateButtonCollor
+// 0x0001 (0x0001 - 0x0000)
+struct UI_Button_InstallSwitcher_C_UpdateButtonCollor final
+{
+public:
+	ENUM_Install                                  ButtonStatus;                                      // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_UI_Button_InstallSwitcher_C_UpdateButtonCollor;
+
+// Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.SetProgress
+// 0x0608 (0x0608 - 0x0000)
+struct UI_Button_InstallSwitcher_C_SetProgress final
+{
+public:
+	struct FInstallProgressMod                    InstallProgressMod;                                // 0x0000(0x0608)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, ContainsInstancedReference)
+};
+DUMPER7_ASSERTS_UI_Button_InstallSwitcher_C_SetProgress;
+
 // Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.ExecuteUbergraph_UI_Button_InstallSwitcher
 // 0x0640 (0x0640 - 0x0000)
 struct UI_Button_InstallSwitcher_C_ExecuteUbergraph_UI_Button_InstallSwitcher final
@@ -38,36 +68,6 @@ public:
 	float                                         CallFunc_SetPercent_InPercent_ImplicitCast_1;      // 0x063C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_UI_Button_InstallSwitcher_C_ExecuteUbergraph_UI_Button_InstallSwitcher;
-
-// Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.SetProgress
-// 0x0608 (0x0608 - 0x0000)
-struct UI_Button_InstallSwitcher_C_SetProgress final
-{
-public:
-	struct FInstallProgressMod                    InstallProgressMod;                                // 0x0000(0x0608)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, ContainsInstancedReference)
-};
-DUMPER7_ASSERTS_UI_Button_InstallSwitcher_C_SetProgress;
-
-// Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.UpdateButtonCollor
-// 0x0001 (0x0001 - 0x0000)
-struct UI_Button_InstallSwitcher_C_UpdateButtonCollor final
-{
-public:
-	ENUM_Install                                  ButtonStatus;                                      // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_UI_Button_InstallSwitcher_C_UpdateButtonCollor;
-
-// Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.UpdateButtonSwitcherStatus
-// 0x0610 (0x0610 - 0x0000)
-struct UI_Button_InstallSwitcher_C_UpdateButtonSwitcherStatus final
-{
-public:
-	struct FInstallProgressMod                    ModInfo;                                           // 0x0000(0x0608)(BlueprintVisible, BlueprintReadOnly, Parm, ContainsInstancedReference)
-	bool                                          CallFunc_GetIsModValid_IsValid;                    // 0x0608(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          K2Node_SwitchEnum_CmpSuccess;                      // 0x0609(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          K2Node_SwitchEnum_CmpSuccess_1;                    // 0x060A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_UI_Button_InstallSwitcher_C_UpdateButtonSwitcherStatus;
 
 }
 

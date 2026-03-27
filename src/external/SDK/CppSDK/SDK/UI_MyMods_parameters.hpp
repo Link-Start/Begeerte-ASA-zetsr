@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "cfcore_ui_structs.hpp"
 #include "ENUM_SideTabs_structs.hpp"
+#include "cfcore_ui_structs.hpp"
 #include "cfcore_structs.hpp"
 
 
