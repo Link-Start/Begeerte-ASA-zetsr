@@ -8,8 +8,6 @@
 #include "../Font/Alibaba-PuHuiTi-Medium.h"
 // #include "../Font/Alibaba-PuHuiTi-Regular.h"
 
-// #include "../../../internal/Hook/Hook.h"
-
 #pragma warning(push)
 #pragma warning(disable: 26451)
 #pragma warning(disable: 26812)
@@ -23,6 +21,9 @@ namespace g_Hook {
     typedef void* (__fastcall* tHandleDisconnectFunction)(SDK::UNetConnection* rcx, void* rdx, void* r8, void* r9);
     tHandleDisconnectFunction oHandleDisconnect = nullptr;
 
+    typedef void(__fastcall* tOutputTextLine)(SDK::UConsole* Console, SDK::FString* Message, void* r8, void* r9);
+    tOutputTextLine oOutputTextLine = nullptr;
+
     void* __fastcall hkUWorldTick(SDK::UWorld* rcx, void* rdx, void* r8, void* r9) {
         g_MDX12::SetupUWorldTick(rcx);
 
@@ -35,6 +36,18 @@ namespace g_Hook {
         return oHandleDisconnect(rcx, rdx, r8, r9);
     }
 
+    void __fastcall hkOutputTextLine(SDK::UConsole* rcx, SDK::FString* Message, void* r8, void* r9) {
+        if (rcx && Message) {
+            g_MDX12::SetupOutputTextLine(rcx, Message);
+        }
+
+        if (oOutputTextLine) {
+            oOutputTextLine(rcx, Message, r8, r9);
+        }
+    }
+
+    // 2026/3/29
+    // 不再需要这种方法了，因为UWorld的虚表无法在游戏更新后稳定
     /*
     void initUWorldTick() {
         SDK::UWorld* pWorld = nullptr;
@@ -93,6 +106,28 @@ namespace g_Hook {
                 void* targetAddr = ok[0];
 
                 if (MH_CreateHook(targetAddr, &hkHandleDisconnect, reinterpret_cast<LPVOID*>(&oHandleDisconnect)) == MH_OK) {
+                    MH_EnableHook(targetAddr);
+                }
+            }
+        }
+    }
+
+    void initOutputTextLine() {
+        SDK::UWorld* pWorld = nullptr;
+        while (!pWorld) {
+            pWorld = SDK::UWorld::GetWorld();
+            if (pWorld && pWorld->OwningGameInstance) break;
+            Sleep(1);
+        }
+
+        if (pWorld) {
+            std::string pattern = g_CheatData::Signature::UEngine::UGameViewportClient::UConsole::OutputTextLine;
+            AOB::Result ok = AOB::Scan(pattern);
+
+            if (ok && ok.size() > 0) {
+                void* targetAddr = ok[0];
+
+                if (MH_CreateHook(targetAddr, &hkOutputTextLine, reinterpret_cast<LPVOID*>(&oOutputTextLine)) == MH_OK) {
                     MH_EnableHook(targetAddr);
                 }
             }
@@ -392,12 +427,7 @@ namespace g_MDX12 {
     DWORD WINAPI MainThread(LPVOID lpParam) {
         if (MH_Initialize() != MH_OK) return 0;
 
-        // ---------------------------------------------------------------
-        // [关键修复] 等待目标进程自然加载 d3d12.dll 与 dxgi.dll
-        // 使用 GetModuleHandleA 而非 LoadLibraryA：
-        //   - GetModuleHandleA 只查询已加载的模块，不会强制加载
-        //   - LoadLibraryA 在进程尚未准备好时强制加载可能引发崩溃
-        // ---------------------------------------------------------------
+        // 等待目标进程自然加载 d3d12.dll 与 dxgi.dll
         if (!g_RuntimeModules::WaitAndLoad()) {
             // WaitAndLoad 目前是死循环直到成功，不会返回 false，此处作为保险
             return 0;
@@ -405,6 +435,7 @@ namespace g_MDX12 {
 
         g_Hook::initUWorldTick();
         g_Hook::initHandleDisconnect();
+        g_Hook::initOutputTextLine();
 
         // 此时 d3d12.dll 与 dxgi.dll 已被目标进程加载，可以安全操作
         while (true) {
@@ -451,16 +482,16 @@ namespace g_MDX12 {
                 void** swapVTable = *reinterpret_cast<void***>(tempSwapChain);
                 void** queueVTable = *reinterpret_cast<void***>(tempQueue);
 
-                if (swapVTable && swapVTable[8]) {
-                    MH_CreateHook(swapVTable[8], reinterpret_cast<LPVOID>(hkPresent), reinterpret_cast<LPVOID*>(&g_HookFunctions::g_oPresent));
+                if (swapVTable && swapVTable[g_CheatData::VTable::D3D12::Present]) {
+                    MH_CreateHook(swapVTable[g_CheatData::VTable::D3D12::Present], reinterpret_cast<LPVOID>(hkPresent), reinterpret_cast<LPVOID*>(&g_HookFunctions::g_oPresent));
                 }
 
-                if (swapVTable && swapVTable[13]) {
-                    MH_CreateHook(swapVTable[13], reinterpret_cast<LPVOID>(hkResizeBuffers), reinterpret_cast<LPVOID*>(&g_HookFunctions::g_oResizeBuffers));
+                if (swapVTable && swapVTable[g_CheatData::VTable::D3D12::ResizeBuffers]) {
+                    MH_CreateHook(swapVTable[g_CheatData::VTable::D3D12::ResizeBuffers], reinterpret_cast<LPVOID>(hkResizeBuffers), reinterpret_cast<LPVOID*>(&g_HookFunctions::g_oResizeBuffers));
                 }
 
-                if (queueVTable && queueVTable[10]) {
-                    MH_CreateHook(queueVTable[10], reinterpret_cast<LPVOID>(hkExecuteCommandLists), reinterpret_cast<LPVOID*>(&g_HookFunctions::g_oExecuteCommandLists));
+                if (queueVTable && queueVTable[g_CheatData::VTable::D3D12::ExecuteCommandLists]) {
+                    MH_CreateHook(queueVTable[g_CheatData::VTable::D3D12::ExecuteCommandLists], reinterpret_cast<LPVOID>(hkExecuteCommandLists), reinterpret_cast<LPVOID*>(&g_HookFunctions::g_oExecuteCommandLists));
                 }
 
                 MH_EnableHook(MH_ALL_HOOKS);
@@ -482,7 +513,10 @@ namespace g_MDX12 {
             DestroyWindow(tempWnd);
             UnregisterClass(wc.lpszClassName, wc.hInstance);
 
-            g_Hook::initUWorldTick();
+            // 2026/3/29
+            // 才发现不知道啥时候初始化了两次，初始化的时候居然一直没崩溃，minhook确实厉害
+            // 好吧，它其实正在循环初始化，简直是狗屎
+            // g_Hook::initUWorldTick();
 
             Sleep(1);
         }

@@ -1,6 +1,16 @@
 #include "mdx12_api.h"
 
 namespace g_MDX12 {
+    void SetSetupOutputTextLineCallback(SetupOutputTextLineCallback callback) {
+        g_Callbacks::g_setupOutputTextLineCallback = callback;
+    }
+
+    void SetupOutputTextLine(SDK::UConsole* rcx, SDK::FString* Message) {
+        if (g_Callbacks::g_setupOutputTextLineCallback) {
+            g_Callbacks::g_setupOutputTextLineCallback(rcx, Message);
+        }
+    }
+
     void SetSetupUWorldTickCallback(SetupUWorldTickCallback callback) {
         g_Callbacks::g_setupUWorldTickCallback = callback;
     }

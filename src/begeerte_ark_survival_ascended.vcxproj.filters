@@ -82,6 +82,15 @@
     <Filter Include="internal\UWorld\NetDriver\ServerConnection">
       <UniqueIdentifier>{259234b2-7d42-4c88-8c11-16741d8b57a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="internal\UEngine">
+      <UniqueIdentifier>{c6f53996-62a4-4791-8692-f777ecfe55e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\UEngine\UGameViewportClient">
+      <UniqueIdentifier>{9d33ca70-13ed-468c-b4dc-1dc0161d8d27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\UEngine\UGameViewportClient\UConsole">
+      <UniqueIdentifier>{9e202d8a-cc65-465a-a795-839e664f6a7e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\LuaJIT-2.1\src\lj_vm.h">
@@ -438,6 +447,9 @@
     <ClInclude Include="internal\UWorld\NetDriver\ServerConnection\HandleDisconnect.h">
       <Filter>internal\UWorld\NetDriver\ServerConnection</Filter>
     </ClInclude>
+    <ClInclude Include="internal\UEngine\UGameViewportClient\UConsole\OutputTextLine.h">
+      <Filter>internal\UEngine\UGameViewportClient\UConsole</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Object Include="external\LuaJIT-2.1\src\lj_vm.obj">
@@ -549,6 +561,9 @@
     </ClCompile>
     <ClCompile Include="internal\UWorld\NetDriver\ServerConnection\HandleDisconnect.cpp">
       <Filter>internal\UWorld\NetDriver\ServerConnection</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\UEngine\UGameViewportClient\UConsole\OutputTextLine.cpp">
+      <Filter>internal\UEngine\UGameViewportClient\UConsole</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

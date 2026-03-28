@@ -105,5 +105,6 @@ namespace g_MDX12 {
         SetupImGuiCallback g_setupImGuiCallback = nullptr;
         SetupUWorldTickCallback g_setupUWorldTickCallback = nullptr;
         SetupHandleDisconnectCallback g_setupHandleDisconnectCallback = nullptr;
+        SetupOutputTextLineCallback g_setupOutputTextLineCallback = nullptr;
     }
 }

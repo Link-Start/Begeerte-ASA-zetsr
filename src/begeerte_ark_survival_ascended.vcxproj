@@ -132,6 +132,7 @@
     <ClInclude Include="internal\Menu\Misc_Menu.h" />
     <ClInclude Include="internal\Menu\StructureList_Menu.h" />
     <ClInclude Include="internal\Menu\Visuals_Menu.h" />
+    <ClInclude Include="internal\UEngine\UGameViewportClient\UConsole\OutputTextLine.h" />
     <ClInclude Include="internal\Util\infoCPU.h" />
     <ClInclude Include="internal\Util\infoGPU.h" />
     <ClInclude Include="internal\Util\Util.h" />
@@ -173,6 +174,7 @@
     <ClCompile Include="internal\Menu\Misc_Menu.cpp" />
     <ClCompile Include="internal\Menu\StructureList_Menu.cpp" />
     <ClCompile Include="internal\Menu\Visuals_Menu.cpp" />
+    <ClCompile Include="internal\UEngine\UGameViewportClient\UConsole\OutputTextLine.cpp" />
     <ClCompile Include="internal\Util\infoCPU.cpp" />
     <ClCompile Include="internal\Util\infoGPU.cpp" />
     <ClCompile Include="internal\UWorld\NetDriver\ServerConnection\HandleDisconnect.cpp" />

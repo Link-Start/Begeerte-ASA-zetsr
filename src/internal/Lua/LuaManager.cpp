@@ -576,6 +576,29 @@ void LuaManager::RefreshFileList() {
     m_scripts = std::move(nextList);
 }
 
+void LuaManager::Lua_OnConsoleMessage(std::string Message) {
+    std::lock_guard<std::mutex> lock(m_luaMutex);
+    if (!m_lua || !m_lua->lua_state()) return;
+
+    for (auto& script : m_scripts) {
+        if (!script.isLoaded || script.hasError || !script.env.valid()) continue;
+
+        sol::object ConsoleMessageObj = script.env["OnConsoleMessage"];
+        if (ConsoleMessageObj.is<sol::protected_function>()) {
+            sol::protected_function ConsoleMessageFunc = ConsoleMessageObj;
+            auto result = ConsoleMessageFunc(Message);
+            if (!result.valid()) {
+                sol::error err = result;
+                script.hasError = true;
+                script.lastError = "Runtime Error: " + std::string(err.what());
+
+                std::string errorMsg = "[!] " + script.name + ": " + std::string(err.what());
+                g_LogManager::AddLog(255.f, 50.f, 50.f, 255.f, errorMsg);
+            }
+        }
+    }
+}
+
 void LuaManager::Lua_OnDisconnect(std::string ServerIP, int32_t ServerPort) {
     std::lock_guard<std::mutex> lock(m_luaMutex);
     if (!m_lua || !m_lua->lua_state()) return;

@@ -50,7 +50,8 @@ public:
 
     lua_State* GetState() { return m_lua ? m_lua->lua_state() : nullptr; }
     const std::string& GetScriptDir() const { return m_scriptDir; }
-
+    
+    void Lua_OnConsoleMessage(std::string Message);
     void Lua_OnDisconnect(std::string ServerIP, int32_t ServerPort);
     void Lua_OnWorldTick();
     void Lua_OnPaintMenu(float MenuAlpha);
