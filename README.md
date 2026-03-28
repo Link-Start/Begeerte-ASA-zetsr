@@ -51,6 +51,7 @@
 
 | 函数签名 | 返回值 | 说明 | C++
 | --- | --- | --- | --- |
+| `OnConsoleMessage(message)` |  | 在控制台日志被打印的时候触发 |  |
 | `OnDisconnect(string ServerIP, int ServerPort)` |  | 在退出服务器的时候触发 |  |
 | `OnWorldTick()` |  | 在UWorld运行时每帧触发 |  |
 | `OnPaint()` |  | 在这里使用 ImGui API 进行绘制 | `HRESULT STDMETHODCALLTYPE hkPresent(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT Flags)` |
