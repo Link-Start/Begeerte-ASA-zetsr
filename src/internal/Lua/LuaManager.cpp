@@ -134,6 +134,39 @@ void LuaManager::Initialize(const std::string& scriptDir) {
     RefreshFileList();
 }
 
+void LuaManager::Bind_G() {
+    if (!m_lua) return;
+
+    sol::function tostring = (*m_lua)["tostring"];
+
+    (*m_lua)["print"] = [this, tostring](sol::variadic_args args) {
+        std::string output;
+        for (auto it = args.begin(); it != args.end(); ++it) {
+            // 使用 tostring(arg) 而不是直接 get<string>
+            std::string s = tostring(*it);
+            output += s;
+            if (it + 1 != args.end()) output += "\t";
+        }
+        g_LogManager::AddLog(255.0f, 255.0f, 255.0f, 200.0f, output);
+    };
+
+    (*m_lua)["printf"] = [this](sol::variadic_args args) {
+        if (args.size() == 0) return;
+
+        sol::table string_lib = (*m_lua)["string"];
+        sol::function format = string_lib["format"];
+
+        auto result = format.call<sol::optional<std::string>>(sol::as_args(args));
+
+        if (result) {
+            g_LogManager::AddLog(255.0f, 255.0f, 255.0f, 200.0f, *result);
+        }
+        else {
+            g_LogManager::AddLog(255.0f, 0.0f, 0.0f, 255.0f, "printf Error: invalid format or arguments");
+        }
+    };
+}
+
 void LuaManager::BindClient() {
     if (!m_lua) return;
 
@@ -422,6 +455,7 @@ void LuaManager::InitVM() {
     m_lua.reset(new sol::state());
     m_lua->open_libraries();
 
+    Bind_G();
     BindClient();
     BindImGui();
     BindSDK();

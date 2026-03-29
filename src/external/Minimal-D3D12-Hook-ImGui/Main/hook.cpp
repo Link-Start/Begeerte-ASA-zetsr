@@ -1,7 +1,8 @@
 #include "mdx12_api.h"
+#include "hook.h"
 #include "../../AOBScan/AOBScan.hpp"
 #include "../../../internal/CheatData/CheatData.hpp"
-
+#include "../../../internal/Config/Configs.h"
 // #include "../Font/Alibaba-PuHuiTi-Bold.h"
 // #include "../Font/Alibaba-PuHuiTi-Heavy.h"
 // #include "../Font/Alibaba-PuHuiTi-Light.h"
@@ -132,6 +133,17 @@ namespace g_Hook {
                 }
             }
         }
+    }
+
+    void StopAllHooks() {
+        g_MDX12::g_MenuState::g_isOpen = false;
+        g_MDX12::g_InputState::g_blockMouseInput = false;
+        g_MDX12::g_InputState::g_blockKeyboardInput = false;
+
+        while (ShowCursor(TRUE) < 0);
+        ClipCursor(nullptr);
+
+        MH_DisableHook(MH_ALL_HOOKS);
     }
 }
 

@@ -76,6 +76,7 @@ private:
     std::vector<LuaScript> m_scripts;
 
     void InitVM();
+    void Bind_G();
     void BindClient();
     void BindImGui();
     void BindSDK();

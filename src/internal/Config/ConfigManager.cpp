@@ -163,6 +163,7 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
         // ½¨Öþ
         file << "[Structures]\n";
         CONFIG_BOOL(g_Config::bDrawStructures);
+        CONFIG_BOOL(g_Config::bOnlyDrawStructuresEnemy);
         CONFIG_FLOAT(g_Config::StructureMaxDistance);
         CONFIG_COLOR(g_Config::StructureNameColor);
         CONFIG_COLOR(g_Config::StructureOwnerColor);
@@ -312,6 +313,7 @@ bool ConfigManager::LoadConfig(const std::string& filename) {
         
         // ½¨Öþ
         LOAD_BOOL(g_Config::bDrawStructures);
+        LOAD_BOOL(g_Config::bOnlyDrawStructuresEnemy);
         LOAD_FLOAT(g_Config::StructureMaxDistance);
         LOAD_COLOR(g_Config::StructureNameColor);
         LOAD_COLOR(g_Config::StructureOwnerColor);

@@ -56,6 +56,7 @@ namespace g_Config {
 
     // ½¨Öþ
     inline bool bDrawStructures = true;
+    inline bool bOnlyDrawStructuresEnemy = false;
     inline float StructureMaxDistance = 10000.0f;
     inline float StructureNameColor[4] = { 1.0f, 1.0f, 0.7f, 1.0f };
     inline float StructureOwnerColor[4] = { 0.4f, 1.0f, 1.0f, 1.0f };

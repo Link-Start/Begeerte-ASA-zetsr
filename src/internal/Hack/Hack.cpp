@@ -5,11 +5,34 @@
 #include "../Util/Util.h"
 #include "../Config/ConfigManager.h"
 #include "../Lua/LuaManager.h"
+#include "../Log/LogManager.h"
 #include "Hack.h"
 
 namespace g_Hack {
     static int32_t g_CurrentNoteIndex = 0;
     static const int32_t g_MaxNoteIndex = 200;
+
+    void DumpServerInfo() {
+        SDK::UWorld* World = SDK::UWorld::GetWorld();
+        if (!World || !World->OwningGameInstance || !World->NetDriver) {
+            g_LogManager::AddLog(255, 200, 255, 255, "当前不在服务器内");
+            return;
+        }
+
+        SDK::UNetDriver* NetDriver = World->NetDriver;
+        if (!NetDriver || !NetDriver->ServerConnection) {
+            g_LogManager::AddLog(255, 200, 255, 255, "当前不在服务器内");
+            return;
+        }
+
+        SDK::UNetConnection* ServerConnection = NetDriver->ServerConnection;
+        if (!ServerConnection) {
+            g_LogManager::AddLog(255, 200, 255, 255, "当前不在服务器内");
+            return;
+        }
+
+        g_LogManager::AddLog(255, 200, 255, 255, std::format("[{}] [{}]", ServerConnection->GetFirstIP(), ServerConnection->GetPort()));
+    }
 
     void Suicide(SDK::UWorld* World) {
         if (!World || !World->OwningGameInstance || World->OwningGameInstance->LocalPlayers.Num() == 0) return;

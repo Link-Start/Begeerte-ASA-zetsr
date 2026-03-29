@@ -1,10 +1,12 @@
 #pragma once
 #define NOMINMAX  
 #include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
+#include "../../external/Minimal-D3D12-Hook-ImGui/Main/hook.h"
 #include "../Config/Configs.h"
 #include "ConfigImGui.h"
 #include "Misc_Menu.h"
 #include "../Util/Util.h"
+#include "../Hack/Hack.h"
 #include "../../external/SDK/SDK_Headers.hpp"
 
 namespace g_DrawImGui {
@@ -20,10 +22,21 @@ namespace g_DrawImGui {
 				g_Config::bSuicide = true;
 			}
 
+			ImGui::SameLine();
+			if (ImGui::Button(U8("卸载"))) {
+				g_Hook::StopAllHooks();
+			}
+
+			ImGui::SameLine();
+			if (ImGui::Button(U8("获取服务器信息"))) {
+				g_Hack::DumpServerInfo();
+			}
+
+			DrawAnimatedSeparator();
+
 			DrawCustomCheckbox(U8("一键满级"), &g_Config::bUnlockExplorerNotes);
 			DrawCustomCheckbox(U8("自动喂肉"), &g_Config::bAutoFeed);
 
-			ImGui::SameLine();
 			DrawAnimatedSeparator();
 
 			EndTabRegion();

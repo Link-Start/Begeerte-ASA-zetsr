@@ -450,6 +450,9 @@
     <ClInclude Include="internal\UEngine\UGameViewportClient\UConsole\OutputTextLine.h">
       <Filter>internal\UEngine\UGameViewportClient\UConsole</Filter>
     </ClInclude>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\Main\hook.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Object Include="external\LuaJIT-2.1\src\lj_vm.obj">

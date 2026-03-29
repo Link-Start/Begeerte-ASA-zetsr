@@ -10,21 +10,11 @@
 #include <unordered_map>
 #include <cmath>
 #include <memory>
-#include <cstdio>   // snprintf
+#include <cstdio>
 
 namespace g_DrawESP {
     static constexpr float FADE_IN_TIME = 0.10f;
     static constexpr float FADE_OUT_TIME = 0.20f;
-
-    // -----------------------------------------------------------------------
-    // 小工具：用 snprintf 替代 std::to_string 避免每帧堆分配
-    // -----------------------------------------------------------------------
-    static inline std::string IntToStr(int v)
-    {
-        char buf[32];
-        snprintf(buf, sizeof(buf), "%d", v);
-        return buf; // NRVO / SSO，比 std::to_string 开销低
-    }
 
     struct CachedFlag {
         std::string text;
@@ -53,7 +43,7 @@ namespace g_DrawESP {
 
     struct ESPEntry {
         uintptr_t      actorKey = 0;
-        ActorType      actorType = ActorType::Unknown; // 缓存类型，避免每帧 IsA
+        ActorType      actorType = ActorType::Unknown;
         SDK::FVector   lastWorldLoc{};
         g_ESP::BoxRect cachedRect;
         std::string    name;
@@ -63,6 +53,7 @@ namespace g_DrawESP {
 
         ImU32  boxColor = 0;
         ImU32  nameColor = 0;
+        ImU32  distanceColor = 0;
         float  configBoxAlpha = 1.0f;
         float  targetAlpha = 0.0f;
         float  alpha = 0.0f;
@@ -95,92 +86,7 @@ namespace g_DrawESP {
     static std::vector<WaterCandidate> waterCandidates;
     static std::vector<uintptr_t>      s_toErase;
 
-    // -----------------------------------------------------------------------
-    static float ApproachAlpha(float cur, float target, float deltaSeconds, float fadeTime)
-    {
-        if (fadeTime <= 0.0f) return target;
-        float diff = target - cur;
-        float maxStep = deltaSeconds / fadeTime;
-        if (fabsf(diff) <= maxStep) return target;
-        return cur + (diff > 0.0f ? maxStep : -maxStep);
-    }
-
-    // -----------------------------------------------------------------------
-    // 根据 className 映射颜色——用 strstr 代替 std::string::find，减少转换开销
-    // -----------------------------------------------------------------------
-    static ImU32 ResolveDroppedItemColor(const std::string& className, float itemRating, int quantity)
-    {
-        const char* cn = className.c_str();
-
-        if (strstr(cn, "PrimalItem_WeaponEmptyCryopod"))
-            return g_Util::GetU32Color(g_Config::DroppedItemCryopodColor);
-        if (strstr(cn, "Egg"))
-            return g_Util::GetU32Color(g_Config::DroppedItemEggColor);
-        if (quantity >= 1000)
-            return g_Util::GetU32Color(g_Config::DroppedItemPiledColor);
-        if (strstr(cn, "PrimalItemResource_FungalWood") || strstr(cn, "PrimalItemResource_Wood"))
-            return g_Util::GetU32Color(g_Config::DroppedItemWoodColor);
-        if (strstr(cn, "PrimalItemResource_Thatch"))
-            return g_Util::GetU32Color(g_Config::DroppedItemThatchColor);
-        if (strstr(cn, "PrimalItemResource_Hide"))
-            return g_Util::GetU32Color(g_Config::DroppedItemHideColor);
-        if (strstr(cn, "PrimalItemResource_Pelt"))
-            return g_Util::GetU32Color(g_Config::DroppedItemPeltColor);
-        if (strstr(cn, "PrimalItemResource_Keratin"))
-            return g_Util::GetU32Color(g_Config::DroppedItemKeratinColor);
-        if (strstr(cn, "PrimalItemResource_Chitin"))
-            return g_Util::GetU32Color(g_Config::DroppedItemChitinColor);
-        if (strstr(cn, "PrimalItemResource_CorruptedPolymer"))
-            return g_Util::GetU32Color(g_Config::DroppedItemCorruptedPolymerColor);
-        if (strstr(cn, "PrimalItemResource_Polymer_Organic"))
-            return g_Util::GetU32Color(g_Config::DroppedItemPolymer_OrganicColor);
-        if (strstr(cn, "PrimalItemResource_Polymer"))
-            return g_Util::GetU32Color(g_Config::DroppedItemPolymerColor);
-        if (strstr(cn, "PrimalItemResource_ScrapMetalIngot") ||
-            strstr(cn, "PrimalItemResource_MetalIngot") ||
-            strstr(cn, "PrimalItemResource_ScrapMetal") ||
-            strstr(cn, "PrimalItemResource_Metal"))
-            return g_Util::GetU32Color(g_Config::DroppedItemMetalColor);
-        if (strstr(cn, "PrimalItemResource_Stone"))
-            return g_Util::GetU32Color(g_Config::DroppedItemStoneColor);
-        if (strstr(cn, "PrimalItemResource_Crystal"))
-            return g_Util::GetU32Color(g_Config::DroppedItemCrystalColor);
-        if (strstr(cn, "PrimalItemResource_Gem_Fertile") ||
-            strstr(cn, "PrimalItemResource_Gem_BioLum") ||
-            strstr(cn, "PrimalItemResource_Gem_Element") ||
-            strstr(cn, "PrimalItemResource_BlueSap") ||
-            strstr(cn, "PrimalItemResource_RedSap"))
-            return g_Util::GetU32Color(g_Config::DroppedItemGemColor);
-        if (strstr(cn, "PrimalItemResource_Silicon") ||
-            strstr(cn, "PrimalItemResource_BlackPearl"))
-            return g_Util::GetU32Color(g_Config::DroppedItemPearlColor);
-        if (strstr(cn, "PrimalItemConsumable_SpoiledMeat"))
-            return g_Util::GetU32Color(g_Config::DroppedItemSpoiledMeatColor);
-        if (strstr(cn, "PrimalItemConsumable_RawMeat") ||
-            strstr(cn, "PrimalItemConsumable_RawPrimeMeat") ||
-            strstr(cn, "PrimalItemConsumable_RawMutton") ||
-            strstr(cn, "PrimalItemConsumable_RawPrimeMeat_Fish") ||
-            strstr(cn, "PrimalItemConsumable_RawMeat_Fish") ||
-            strstr(cn, "PrimalItemConsumable_CookedMeat") ||
-            strstr(cn, "PrimalItemConsumable_CookedPrimeMeat") ||
-            strstr(cn, "PrimalItemConsumable_CookedLambChop") ||
-            strstr(cn, "PrimalItemConsumable_CookedPrimeMeat_Fish") ||
-            strstr(cn, "PrimalItemConsumable_CookedMeat_Fish") ||
-            strstr(cn, "PrimalItemConsumable_CookedMeat_Jerky") ||
-            strstr(cn, "PrimalItemConsumable_CookedPrimeMeat_Jerky"))
-            return g_Util::GetU32Color(g_Config::DroppedItemMeatColor);
-
-        // 按品质评级上色
-        if (itemRating >= 10.0f) return g_Util::ToImColor(0, 255, 255, 255);
-        if (itemRating >= 7.0f) return g_Util::ToImColor(255, 255, 0, 255);
-        if (itemRating >= 4.5f) return g_Util::ToImColor(160, 32, 240, 255);
-        if (itemRating >= 2.5f) return g_Util::ToImColor(0, 191, 255, 255);
-        if (itemRating >= 1.25f) return g_Util::ToImColor(50, 205, 50, 255);
-
-        return g_Util::GetU32Color(g_Config::DroppedItemNameColor);
-    }
-
-    // -----------------------------------------------------------------------
+    // 主函数
     void DrawESP()
     {
         SDK::UWorld* World = SDK::UWorld::GetWorld();
@@ -274,14 +180,17 @@ namespace g_DrawESP {
                     g_ESP::RelationType relation = g_ESP::GetRelation(TargetChar, LocalChar);
                     bool   bShowRagdoll = false;
                     float* RagdollCol = nullptr;
+                    float* DistCol = nullptr;
 
                     if (relation == g_ESP::RelationType::Team) {
                         bShowRagdoll = g_Config::bDrawRagdollTeam;
                         RagdollCol = g_Config::RagdollColorTeam;
+                        DistCol = g_Config::DistanceColorTeam;
                     }
                     else {
                         bShowRagdoll = g_Config::bDrawRagdoll;
                         RagdollCol = g_Config::RagdollColor;
+                        DistCol = g_Config::DistanceColor;
                     }
 
                     if (!bShowRagdoll) {
@@ -301,6 +210,7 @@ namespace g_DrawESP {
 
                     entry.cachedRect = rect;
                     entry.boxColor = g_Util::GetU32Color(RagdollCol);
+                    entry.distanceColor = g_Util::GetU32Color(DistCol);
                     entry.configBoxAlpha = RagdollCol[3];
                     entry.targetAlpha = 1.0f;
                     entry.aliveThisFrame = true;
@@ -328,8 +238,8 @@ namespace g_DrawESP {
                     }
                     if (entry.shouldDrawDistance) {
                         entry.flags.push_back({
-                            IntToStr((int)dist) + "m",
-                            g_Util::ToImColor(200, 200, 200, 255),
+                            g_Util::IntToStr((int)dist) + "m",
+                            entry.distanceColor,
                             g_ESP::FlagPos::Right
                             });
                     }
@@ -431,21 +341,21 @@ namespace g_DrawESP {
                 if (bDrawHealthBar) {
                     const float healthPct = (entry.cachedMaxHP > 0.0f) ? (entry.cachedHP / entry.cachedMaxHP) : 0.0f;
                     const ImU32 hpCol = g_Util::GetHealthColor(healthPct);
-                    entry.flags.push_back({ IntToStr((int)entry.cachedHP), hpCol, g_ESP::FlagPos::Left });
+                    entry.flags.push_back({ g_Util::IntToStr((int)entry.cachedHP), hpCol, g_ESP::FlagPos::Left });
                     entry.bars.push_back({ entry.cachedHP, entry.cachedMaxHP, hpCol, g_ESP::BarPos::Left, g_ESP::BarOrientation::Vertical });
                 }
 
                 if (bDrawTorpor && entry.cachedMaxTorpor > 0.0f) {
                     const ImU32 torporCol = g_Util::GetU32Color(TorporColor);
                     entry.flags.push_back({
-                        IntToStr((int)entry.cachedTorpor) + "/" + IntToStr((int)entry.cachedMaxTorpor),
+                        g_Util::IntToStr((int)entry.cachedTorpor) + "/" + g_Util::IntToStr((int)entry.cachedMaxTorpor),
                         torporCol, g_ESP::FlagPos::Bottom
                         });
                     entry.bars.push_back({ entry.cachedTorpor, entry.cachedMaxTorpor, torporCol, g_ESP::BarPos::Bottom, g_ESP::BarOrientation::Horizontal });
                 }
 
                 if (bDrawDistance)
-                    entry.flags.push_back({ IntToStr((int)dist) + "m", g_Util::GetU32Color(DistanceColor), g_ESP::FlagPos::Right });
+                    entry.flags.push_back({ g_Util::IntToStr((int)dist) + "m", g_Util::GetU32Color(DistanceColor), g_ESP::FlagPos::Right });
 
                 // 屏幕空间可见性判断
                 SDK::FVector2D screenPos;
@@ -464,7 +374,7 @@ namespace g_DrawESP {
                         if (bDrawName && !entry.name.empty())
                             entry.flags.push_back({ entry.name, entry.nameColor, g_ESP::FlagPos::Right });
                         if (bDrawDistance)
-                            entry.flags.push_back({ IntToStr((int)dist) + "m", g_Util::GetU32Color(DistanceColor), g_ESP::FlagPos::Right });
+                            entry.flags.push_back({ g_Util::IntToStr((int)dist) + "m", g_Util::GetU32Color(DistanceColor), g_ESP::FlagPos::Right});
                     }
                     else {
                         entry.targetAlpha = 0.0f;
@@ -493,15 +403,10 @@ namespace g_DrawESP {
                 const SDK::FVector WaterSurfaceLoc = { Origin.X, Origin.Y, Origin.Z + Extend.Z };
                 const float dist = (LocalPC && LocalPC->Pawn && TargetActor) ? LocalPC->Pawn->GetDistanceTo(TargetActor) * 0.01f : 0.0f;
 
-                entry.targetAlpha = 0.0f;
-                entry.aliveThisFrame = false;
+                entry.aliveThisFrame = true;
+                entry.targetAlpha = 1.0f;
 
-                SDK::FVector2D screenPos;
-                if (LocalPC->ProjectWorldLocationToScreen(WaterSurfaceLoc, &screenPos, false)) {
-                    if (screenPos.X > 0 && screenPos.X < screenW && screenPos.Y > 0 && screenPos.Y < screenH) {
-                        waterCandidates.push_back({ TargetActor, dist, screenPos, WaterSurfaceLoc });
-                    }
-                }
+                waterCandidates.push_back({ TargetActor, dist, SDK::FVector2D{0,0}, WaterSurfaceLoc });
             }
 
             // ============================================================
@@ -525,19 +430,24 @@ namespace g_DrawESP {
                 }
 
                 SDK::FVector2D screenPos;
-                if (!LocalPC->ProjectWorldLocationToScreen(actorLoc, &screenPos, false)
-                    || !(screenPos.X > 0 && screenPos.X < screenW && screenPos.Y > 0 && screenPos.Y < screenH))
-                {
-                    entry.targetAlpha = 0.0f;
-                    entry.aliveThisFrame = false;
-                    continue;
+                bool bIsProjected = LocalPC && LocalPC->ProjectWorldLocationToScreen(actorLoc, &screenPos, false);
+                bool bOnScreen = bIsProjected && (screenPos.X > 0 && screenPos.X < screenW && screenPos.Y > 0 && screenPos.Y < screenH);
+
+                if (bIsProjected) {
+                    entry.cachedRect.topLeft = ImVec2(screenPos.X - 5, screenPos.Y - 5);
+                    entry.cachedRect.bottomRight = ImVec2(screenPos.X + 5, screenPos.Y + 5);
+                    entry.cachedRect.valid = true;
                 }
 
-                entry.targetAlpha = 1.0f;
-                entry.isItem = true;
-                entry.cachedRect.topLeft = ImVec2(screenPos.X - 5, screenPos.Y - 5);
-                entry.cachedRect.bottomRight = ImVec2(screenPos.X + 5, screenPos.Y + 5);
-                entry.cachedRect.valid = true;
+                if (!bOnScreen) {
+                    entry.targetAlpha = 0.0f;
+                    entry.aliveThisFrame = false;
+                }
+                else {
+                    entry.targetAlpha = 1.0f;
+                    entry.aliveThisFrame = true;
+                    entry.isItem = true;
+                }
 
                 // 物品名（按优先级取第一个有效来源）
                 std::string itemName;
@@ -553,18 +463,17 @@ namespace g_DrawESP {
 
                 const std::string className = Item->Class ? Item->Class->GetName() : "";
                 const int         quantity = Item->ItemQuantity;
-                const ImU32       finalCol = ResolveDroppedItemColor(className, Item->ItemRating, quantity);
+                const ImU32       finalCol = g_Util::ResolveDroppedItemColor(className, Item->ItemRating, quantity);
 
                 entry.flags.clear();
                 entry.bars.clear();
 
-                std::string label = "[" + itemName + "]";
-                if (quantity > 1)       label += " x" + IntToStr(quantity);
+                std::string label = "[" + itemName + "";
+                if (quantity > 1) label += " x" + g_Util::IntToStr(quantity);
                 if (Item->bIsBlueprint) label = "[BP] " + label;
 
-                entry.flags.push_back({ std::move(label),  finalCol, g_ESP::FlagPos::Right });
-                entry.flags.push_back({ IntToStr((int)dist) + "m",
-                    g_Util::GetU32Color(g_Config::DroppedItemDistanceColor), g_ESP::FlagPos::Right });
+                entry.flags.push_back({ std::move(label) + "] (" + g_Util::IntToStr((int)dist) + "m" + ")", finalCol, g_ESP::FlagPos::Right});
+                // entry.flags.push_back({ g_Util::IntToStr((int)dist) + "m", g_Util::GetU32Color(g_Config::DroppedItemDistanceColor), g_ESP::FlagPos::Right });
 
                 entry.boxColor = finalCol;
                 entry.nameColor = g_Util::GetU32Color(g_Config::DroppedItemNameColor);
@@ -582,6 +491,13 @@ namespace g_DrawESP {
                 SDK::APrimalStructure* Structure = static_cast<SDK::APrimalStructure*>(TargetActor);
 
                 if (Structure->Health <= 0.0f) {
+                    entry.targetAlpha = 0.0f;
+                    entry.aliveThisFrame = false;
+                    continue;
+                }
+
+                bool isTeam = LocalChar && (LocalChar->TribeName.ToString() == Structure->OwnerName.ToString());
+                if (g_Config::bOnlyDrawStructuresEnemy && isTeam) {
                     entry.targetAlpha = 0.0f;
                     entry.aliveThisFrame = false;
                     continue;
@@ -605,20 +521,25 @@ namespace g_DrawESP {
                 }
 
                 SDK::FVector2D screenPos;
-                if (!LocalPC->ProjectWorldLocationToScreen(actorLoc, &screenPos, false)
-                    || !(screenPos.X > 0 && screenPos.X < screenW && screenPos.Y > 0 && screenPos.Y < screenH))
-                {
-                    entry.targetAlpha = 0.0f;
-                    entry.aliveThisFrame = false;
-                    continue;
+                bool bProjected = LocalPC && LocalPC->ProjectWorldLocationToScreen(actorLoc, &screenPos, false);
+
+                if (bProjected) {
+                    entry.cachedRect.topLeft = ImVec2(screenPos.X - 2, screenPos.Y - 2);
+                    entry.cachedRect.bottomRight = ImVec2(screenPos.X + 2, screenPos.Y + 2);
+                    entry.cachedRect.valid = true;
                 }
 
-                entry.aliveThisFrame = true;
-                entry.targetAlpha = 1.0f;
-                entry.isItem = true;
-                entry.cachedRect.valid = true;
-                entry.cachedRect.topLeft = ImVec2(screenPos.X - 2, screenPos.Y - 2);
-                entry.cachedRect.bottomRight = ImVec2(screenPos.X + 2, screenPos.Y + 2);
+                bool bOnScreen = bProjected && (screenPos.X > 0 && screenPos.X < screenW && screenPos.Y > 0 && screenPos.Y < screenH);
+
+                if (bOnScreen) {
+                    entry.aliveThisFrame = true;
+                    entry.targetAlpha = 1.0f;
+                    entry.isItem = true;
+                }
+                else {
+                    entry.targetAlpha = 0.0f;
+                    entry.aliveThisFrame = false;
+                }
 
                 std::string sName = Structure->GetDescriptiveName().ToString();
                 if (sName.empty() || sName == "None") sName = "Structure";
@@ -629,21 +550,17 @@ namespace g_DrawESP {
                 const int   hpPctInt = (int)(healthPct * 100.0f);
                 const ImU32 hpColor = g_Util::GetHealthColor(healthPct);
 
-                std::string ownerStr = Structure->OwnerName.ToString();
-                if (ownerStr.empty() || ownerStr == "None") ownerStr = "*";
+                std::string owner = Structure->OwnerName.ToString();
+                std::string ownerStf = (owner.empty() || owner == "None") ? "" : " [" + owner + "]";
 
                 entry.flags.clear();
                 entry.bars.clear();
-                entry.flags.push_back({ "[" + sName + "]",
-                    g_Util::GetU32Color(g_Config::StructureNameColor), g_ESP::FlagPos::Right });
-                entry.flags.push_back({ std::move(ownerStr),
-                    g_Util::GetU32Color(g_Config::StructureOwnerColor), g_ESP::FlagPos::Right });
+
                 entry.flags.push_back({
-                    IntToStr((int)curHP) + " (" + IntToStr(hpPctInt) + "%)",
-                    hpColor, g_ESP::FlagPos::Right
-                    });
-                entry.flags.push_back({ IntToStr((int)dist) + "m",
-                    g_Util::GetU32Color(g_Config::StructureDistanceColor), g_ESP::FlagPos::Right });
+                    "[" + sName + "]" + std::move(ownerStf) + " [" + g_Util::IntToStr(hpPctInt) + "%] (" + g_Util::IntToStr((int)dist) + "m" + ")",
+                    hpColor,
+                    g_ESP::FlagPos::Right
+                });
 
                 entry.shouldDrawTorpor = false;
             }
@@ -669,6 +586,14 @@ namespace g_DrawESP {
                     return a.dist < b.dist;
                 });
 
+            for (auto& wc : waterCandidates) {
+                uintptr_t key = reinterpret_cast<uintptr_t>(wc.actor);
+                if (s_entries.count(key)) {
+                    s_entries[key].targetAlpha = 0.0f;
+                    s_entries[key].aliveThisFrame = false; // 暂时设为 false，只有前 N 名才设为 true
+                }
+            }
+
             const int showCount = ((int)waterCandidates.size() < g_Config::WaterMaxCount)
                 ? (int)waterCandidates.size()
                 : g_Config::WaterMaxCount;
@@ -678,30 +603,46 @@ namespace g_DrawESP {
             const ImU32 waterDistColor = g_Util::GetU32Color(g_Config::WaterDistanceColor);
 
             // 水源标签静态缓存，避免每帧宽字符转换
-            static const std::string kWaterLabel = SDK::FString(L"[水源]").ToString();
+            static const std::string kWaterLabel = SDK::FString(L"[水源").ToString();
 
             for (int wi = 0; wi < showCount; wi++) {
                 const WaterCandidate& wc = waterCandidates[wi];
                 uintptr_t             wkey = reinterpret_cast<uintptr_t>(wc.actor);
                 ESPEntry& wEntry = s_entries[wkey];
 
-                wEntry.aliveThisFrame = true;
-                wEntry.targetAlpha = 1.0f;
-                wEntry.isItem = true;
-                wEntry.cachedRect.topLeft = ImVec2(wc.screenPos.X - 2, wc.screenPos.Y - 2);
-                wEntry.cachedRect.bottomRight = ImVec2(wc.screenPos.X + 2, wc.screenPos.Y + 2);
-                wEntry.cachedRect.valid = true;
-                wEntry.flags.clear();
-                wEntry.bars.clear();
+                SDK::FVector2D currentScreenPos;
+                if (LocalPC && LocalPC->ProjectWorldLocationToScreen(wc.surfaceLoc, &currentScreenPos, false)) {
+                    wEntry.cachedRect.topLeft = ImVec2(currentScreenPos.X - 2, currentScreenPos.Y - 2);
+                    wEntry.cachedRect.bottomRight = ImVec2(currentScreenPos.X + 2, currentScreenPos.Y + 2);
+                    wEntry.cachedRect.valid = true;
 
-                wEntry.flags.push_back({ kWaterLabel, waterColor, g_ESP::FlagPos::Right });
-                wEntry.flags.push_back({ IntToStr((int)wc.dist) + "m", waterDistColor, g_ESP::FlagPos::Right });
+                    const bool onScreen = currentScreenPos.X > 0 && currentScreenPos.X < screenW
+                        && currentScreenPos.Y > 0 && currentScreenPos.Y < screenH;
 
-                wEntry.shouldDrawBox = false;
-                wEntry.shouldDrawHealthBar = false;
-                wEntry.shouldDrawName = false;
-                wEntry.shouldDrawDistance = true;
-                wEntry.shouldDrawTorpor = false;
+                    if (onScreen) {
+                        wEntry.aliveThisFrame = true;
+                        wEntry.targetAlpha = 1.0f;
+                        wEntry.isItem = true;
+
+                        wEntry.flags.clear();
+                        wEntry.bars.clear();
+                        wEntry.flags.push_back({ kWaterLabel + "] (" + g_Util::IntToStr((int)wc.dist) + "m" + ")", waterColor, g_ESP::FlagPos::Right });
+
+                        wEntry.shouldDrawBox = false;
+                        wEntry.shouldDrawHealthBar = false;
+                        wEntry.shouldDrawName = false;
+                        wEntry.shouldDrawDistance = true;
+                        wEntry.shouldDrawTorpor = false;
+                    }
+                    else {
+                        wEntry.targetAlpha = 0.0f;
+                        wEntry.aliveThisFrame = false;
+                    }
+                }
+                else {
+                    wEntry.targetAlpha = 0.0f;
+                    wEntry.aliveThisFrame = false;
+                }
             }
         }
 
@@ -714,7 +655,7 @@ namespace g_DrawESP {
             ESPEntry& entry = kv.second;
 
             const float fadeTime = (entry.targetAlpha > entry.alpha) ? FADE_IN_TIME : FADE_OUT_TIME;
-            entry.alpha = ApproachAlpha(entry.alpha, entry.targetAlpha, deltaTime, fadeTime);
+            entry.alpha = g_Util::ApproachAlpha(entry.alpha, entry.targetAlpha, deltaTime, fadeTime);
 
             if (entry.alpha <= 0.001f && entry.targetAlpha <= 0.001f && !entry.aliveThisFrame) {
                 s_toErase.push_back(kv.first);
@@ -747,6 +688,7 @@ namespace g_DrawESP {
                 for (const auto& f : entry.flags)
                     fm.AddFlag(entry.cachedRect, f.text, f.color, f.pos, entry.alpha, &bm);
 
+                /*
                 if (entry.isOOF) {
                     std::vector<g_ESP::OOFFlag> oofFlags;
                     oofFlags.reserve(entry.flags.size());
@@ -754,6 +696,7 @@ namespace g_DrawESP {
                         oofFlags.push_back({ ff.text, ff.color });
                     g_ESP::DrawOutOfFOV(entry.lastWorldLoc, LocalPC, oofFlags, entry.alpha);
                 }
+                */
             }
         }
 

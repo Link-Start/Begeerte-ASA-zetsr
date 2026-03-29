@@ -1,6 +1,7 @@
 #pragma once
 #include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 #include "../../external/SDK/SDK_Headers.hpp"
+#include "../Config/Configs.h"
 #include <cmath>
 #include <algorithm>
 #include <string>
@@ -184,23 +185,111 @@ namespace g_Util {
         SDK::TArray<SDK::UPrimalItem*>& Items = Inv->InventoryItems;
         SDK::UPrimalItem* BestMeat = nullptr;
 
-        // 瀵绘壘椋熺墿锛氫紭鍏堢啛鑲夛紝鍏舵鐢熻倝
+        // 寻找食物：优先熟肉，其次生肉
         for (int i = 0; i < Items.Num(); i++) {
             SDK::UPrimalItem* Item = Items[i];
             if (!Item || !Item->Class) continue;
 
             if (IsCookedMeat(Item)) {
                 BestMeat = Item;
-                break; // 鐔熻倝鍥炶澶氾紝鎵惧埌鐩存帴璺冲嚭
+                break; // 熟肉回血多，找到直接跳出
             }
             if (IsRawMeat(Item)) {
-                BestMeat = Item; // 鍏堣涓嬬敓鑲夛紝缁х画鐪嬫湁娌℃湁鐔熻倝
+                BestMeat = Item; // 先记下生肉，继续看有没有熟肉
             }
         }
 
         if (BestMeat) {
-            // 浣跨敤閽堝榫欑殑 RPC
+            // 使用针对龙的 RPC
             PC->ServerRequestInventoryUseItem(Inv, BestMeat->ItemID);
         }
+    }
+
+    inline static std::string IntToStr(int v)
+    {
+        char buf[32];
+        snprintf(buf, sizeof(buf), "%d", v);
+        return buf; // NRVO / SSO，比 std::to_string 开销低
+    }
+
+    inline static float ApproachAlpha(float cur, float target, float deltaSeconds, float fadeTime)
+    {
+        if (fadeTime <= 0.0f) return target;
+        float diff = target - cur;
+        float maxStep = deltaSeconds / fadeTime;
+        if (fabsf(diff) <= maxStep) return target;
+        return cur + (diff > 0.0f ? maxStep : -maxStep);
+    }
+
+    inline static ImU32 ResolveDroppedItemColor(const std::string& className, float itemRating, int quantity)
+    {
+        const char* cn = className.c_str();
+
+        if (strstr(cn, "PrimalItem_WeaponEmptyCryopod"))
+            return g_Util::GetU32Color(g_Config::DroppedItemCryopodColor);
+        if (strstr(cn, "Egg"))
+            return g_Util::GetU32Color(g_Config::DroppedItemEggColor);
+        if (quantity >= 1000)
+            return g_Util::GetU32Color(g_Config::DroppedItemPiledColor);
+        if (strstr(cn, "PrimalItemResource_FungalWood") || strstr(cn, "PrimalItemResource_Wood"))
+            return g_Util::GetU32Color(g_Config::DroppedItemWoodColor);
+        if (strstr(cn, "PrimalItemResource_Thatch"))
+            return g_Util::GetU32Color(g_Config::DroppedItemThatchColor);
+        if (strstr(cn, "PrimalItemResource_Hide"))
+            return g_Util::GetU32Color(g_Config::DroppedItemHideColor);
+        if (strstr(cn, "PrimalItemResource_Pelt"))
+            return g_Util::GetU32Color(g_Config::DroppedItemPeltColor);
+        if (strstr(cn, "PrimalItemResource_Keratin"))
+            return g_Util::GetU32Color(g_Config::DroppedItemKeratinColor);
+        if (strstr(cn, "PrimalItemResource_Chitin"))
+            return g_Util::GetU32Color(g_Config::DroppedItemChitinColor);
+        if (strstr(cn, "PrimalItemResource_CorruptedPolymer"))
+            return g_Util::GetU32Color(g_Config::DroppedItemCorruptedPolymerColor);
+        if (strstr(cn, "PrimalItemResource_Polymer_Organic"))
+            return g_Util::GetU32Color(g_Config::DroppedItemPolymer_OrganicColor);
+        if (strstr(cn, "PrimalItemResource_Polymer"))
+            return g_Util::GetU32Color(g_Config::DroppedItemPolymerColor);
+        if (strstr(cn, "PrimalItemResource_ScrapMetalIngot") ||
+            strstr(cn, "PrimalItemResource_MetalIngot") ||
+            strstr(cn, "PrimalItemResource_ScrapMetal") ||
+            strstr(cn, "PrimalItemResource_Metal"))
+            return g_Util::GetU32Color(g_Config::DroppedItemMetalColor);
+        if (strstr(cn, "PrimalItemResource_Stone"))
+            return g_Util::GetU32Color(g_Config::DroppedItemStoneColor);
+        if (strstr(cn, "PrimalItemResource_Crystal"))
+            return g_Util::GetU32Color(g_Config::DroppedItemCrystalColor);
+        if (strstr(cn, "PrimalItemResource_Gem_Fertile") ||
+            strstr(cn, "PrimalItemResource_Gem_BioLum") ||
+            strstr(cn, "PrimalItemResource_Gem_Element") ||
+            strstr(cn, "PrimalItemResource_BlueSap") ||
+            strstr(cn, "PrimalItemResource_RedSap"))
+            return g_Util::GetU32Color(g_Config::DroppedItemGemColor);
+        if (strstr(cn, "PrimalItemResource_Silicon") ||
+            strstr(cn, "PrimalItemResource_BlackPearl"))
+            return g_Util::GetU32Color(g_Config::DroppedItemPearlColor);
+        if (strstr(cn, "PrimalItemConsumable_SpoiledMeat"))
+            return g_Util::GetU32Color(g_Config::DroppedItemSpoiledMeatColor);
+        if (strstr(cn, "PrimalItemConsumable_RawMeat") ||
+            strstr(cn, "PrimalItemConsumable_RawPrimeMeat") ||
+            strstr(cn, "PrimalItemConsumable_RawMutton") ||
+            strstr(cn, "PrimalItemConsumable_RawPrimeMeat_Fish") ||
+            strstr(cn, "PrimalItemConsumable_RawMeat_Fish") ||
+            strstr(cn, "PrimalItemConsumable_CookedMeat") ||
+            strstr(cn, "PrimalItemConsumable_CookedPrimeMeat") ||
+            strstr(cn, "PrimalItemConsumable_CookedLambChop") ||
+            strstr(cn, "PrimalItemConsumable_CookedPrimeMeat_Fish") ||
+            strstr(cn, "PrimalItemConsumable_CookedMeat_Fish") ||
+            strstr(cn, "PrimalItemConsumable_CookedMeat_Jerky") ||
+            strstr(cn, "PrimalItemConsumable_CookedPrimeMeat_Jerky"))
+            return g_Util::GetU32Color(g_Config::DroppedItemMeatColor);
+
+        // 按品质评级上色
+        if (itemRating >= 10.0f) return g_Util::ToImColor(0, 255, 255, 255);
+        if (itemRating >= 7.0f) return g_Util::ToImColor(255, 255, 0, 255);
+        if (itemRating >= 4.5f) return g_Util::ToImColor(160, 32, 240, 255);
+        if (itemRating >= 2.5f) return g_Util::ToImColor(0, 191, 255, 255);
+        if (itemRating >= 1.25f) return g_Util::ToImColor(50, 205, 50, 255);
+
+        return g_Util::GetU32Color(g_Config::DroppedItemNameColor);
     }
 }

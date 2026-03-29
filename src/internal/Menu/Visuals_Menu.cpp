@@ -25,8 +25,8 @@ namespace g_DrawImGui {
             ImGui::TextColored(ThemeColors::ACCENT, U8("额外信息"));
             DrawAnimatedSeparator();
             DrawColorPickerRow(U8("距离"), &g_Config::bDrawDistance, "DistCol1", g_Config::DistanceColor);
-            DrawColorPickerRow(U8("显示瞄准点"), &g_Config::bDrawAimPoints, "AimPointsCol1", g_Config::AimPointsColor);
-            DrawColorPickerRow(U8("显示瞄准骨骼"), &g_Config::bDrawAimSkeleton, "AimSkeletonCol1", g_Config::AimSkeletonColor);
+            // DrawColorPickerRow(U8("显示瞄准点"), &g_Config::bDrawAimPoints, "AimPointsCol1", g_Config::AimPointsColor);
+            // DrawColorPickerRow(U8("显示瞄准骨骼"), &g_Config::bDrawAimSkeleton, "AimSkeletonCol1", g_Config::AimSkeletonColor);
             DrawAnimatedSeparator();
 
             ImGui::TextColored(ThemeColors::ACCENT, U8("世界信息"));
@@ -34,7 +34,7 @@ namespace g_DrawImGui {
 
             DrawColorPickerRow(U8("掉落的物品"), &g_Config::bDrawDroppedItems, "DroppedItemNameCol", g_Config::DroppedItemNameColor);
             if (g_Config::bDrawDroppedItems) {
-                DrawCustomColorPicker("DroppedItemDistanceCol", g_Config::DroppedItemDistanceColor, U8("物品距离"));
+                // DrawCustomColorPicker("DroppedItemDistanceCol", g_Config::DroppedItemDistanceColor, U8("物品距离"));
                 DrawCustomColorPicker("DroppedItemPiledCol", g_Config::DroppedItemPiledColor, U8("堆叠颜色"));
                 DrawCustomColorPicker("DroppedItemCryopodCol", g_Config::DroppedItemCryopodColor, U8("低温仓颜色"));
                 DrawCustomColorPicker("DroppedItemEggCol", g_Config::DroppedItemEggColor, U8("蛋颜色"));
@@ -58,21 +58,24 @@ namespace g_DrawImGui {
             }
             DrawAnimatedSeparator();
 
-            DrawColorPickerRow(U8("显示建筑"), &g_Config::bDrawStructures, "StructureNameCol", g_Config::StructureNameColor);
+            // DrawColorPickerRow(U8("显示建筑"), &g_Config::bDrawStructures, "StructureNameCol", g_Config::StructureNameColor);
+            DrawCustomCheckbox(U8("显示建筑"), &g_Config::bDrawStructures);
             if (g_Config::bDrawStructures) {
-                DrawCustomColorPicker("StructureOwnerCol", g_Config::StructureOwnerColor, U8("建筑所有者"));
-                DrawCustomColorPicker("StructureDistanceCol", g_Config::StructureDistanceColor, U8("建筑距离"));
+                // DrawCustomColorPicker("StructureOwnerCol", g_Config::StructureOwnerColor, U8("建筑所有者"));
+                // DrawCustomColorPicker("StructureDistanceCol", g_Config::StructureDistanceColor, U8("建筑距离"));
+                DrawCustomCheckbox(U8("仅显示敌人建筑"), &g_Config::bOnlyDrawStructuresEnemy);
                 DrawCustomSliderFloat(U8("建筑显示距离"), &g_Config::StructureMaxDistance, 1.0f, 10000.0f, "%.0f", 1.0f, "m");
             }
             DrawAnimatedSeparator();
 
             DrawColorPickerRow(U8("显示水源"), &g_Config::bDrawWater, "WaterNameCol", g_Config::WaterNameColor);
             if (g_Config::bDrawWater) {
-                DrawCustomColorPicker("WaterDistanceCol", g_Config::WaterDistanceColor, U8("水源距离"));
+                // DrawCustomColorPicker("WaterDistanceCol", g_Config::WaterDistanceColor, U8("水源距离"));
                 DrawCustomSliderFloat(U8("显示最近水源数量"), &g_Config::WaterMaxCount, 1.0f, 10.0f, "%.0f", 1.0f, U8("个"));
             }
             DrawAnimatedSeparator();
 
+            /*
             DrawColorPickerRow(U8("显示视野外的威胁"), &g_Config::bEnableOOF, "OOFCol1", g_Config::OOFColor);
             if (g_Config::bEnableOOF) {
                 float avail = ImGui::GetContentRegionAvail().x;
@@ -89,6 +92,7 @@ namespace g_DrawImGui {
                 DrawCustomSliderFloat(U8("最小透明度"), &g_Config::OOFMinAlpha, 0.1f, 0.9f, "%.2f", 0.01f);
                 DrawCustomSliderFloat(U8("最大透明度"), &g_Config::OOFMaxAlpha, 0.2f, 1.0f, "%.2f", 0.01f);
             }
+            */
 
             EndTabRegion();
             ImGui::PopStyleVar();
