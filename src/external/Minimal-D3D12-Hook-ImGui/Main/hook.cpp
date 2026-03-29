@@ -143,6 +143,10 @@ namespace g_Hook {
         while (ShowCursor(TRUE) < 0);
         ClipCursor(nullptr);
 
+        if (g_MDX12::g_ProcessWindow::g_mainWindow != nullptr) {
+            g_MDX12::inputhook::Remove(g_MDX12::g_ProcessWindow::g_mainWindow);
+        }
+
         MH_DisableHook(MH_ALL_HOOKS);
     }
 }

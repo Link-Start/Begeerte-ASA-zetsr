@@ -10,87 +10,111 @@
 
 namespace g_DrawImGui {
     void Lua_Menu() {
-		LuaManager::Get().Update();
-		if (ImGui::BeginTabItem(U8("脚本"))) {
-			auto& mgr = LuaManager::Get();
-			auto& scripts = mgr.GetScripts();
+        // 每一帧更新状态（处理重置逻辑）
+        LuaManager::Get().Update();
 
-			ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
-			BeginTabRegion("LuaManagerRegion");
+        if (ImGui::BeginTabItem(U8("脚本"))) {
+            auto& mgr = LuaManager::Get();
+            auto& scripts = mgr.GetScripts();
 
-			ImGui::TextColored(ThemeColors::ACCENT, U8("脚本管理系统"));
-			DrawAnimatedSeparator();
+            ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
+            BeginTabRegion("LuaManagerRegion");
 
-			if (ImGui::Button(U8("刷新列表"))) {
-				mgr.RefreshFileList();
-			}
-			ImGui::SameLine();
-			if (ImGui::Button(U8("打开目录"))) {
-				std::string path = mgr.GetScriptDir();
-				ShellExecuteA(NULL, "open", path.c_str(), NULL, NULL, SW_SHOWDEFAULT);
-			}
+            // --- 第一部分：全局总开关 ---
+            bool isEnabled = mgr.IsEnabled();
+            ImGui::PushStyleColor(ImGuiCol_Text, ThemeColors::ACCENT);
+            if (DrawCustomCheckbox(U8("启用 Lua 管理器"), &isEnabled)) {
+                // 当点击 Checkbox 时触发管理器状态切换
+                mgr.SetEnabled(isEnabled);
+            }
+            ImGui::PopStyleColor();
 
-			ImGui::Spacing();
+            // ImGui::SameLine();
+            // ImGui::TextDisabled(U8("(关闭将卸载所有脚本)"));
 
-			if (ImGui::BeginChild("##LuaScriptListChild", ImVec2(0, 300), true)) {
-				if (scripts.empty()) {
-					ImGui::SetCursorPosY(ImGui::GetWindowHeight() * 0.5 - 10);
-					// ImGui::TextDisabled(U8("无可用脚本"));
-				}
-				else {
-					for (int i = 0; i < (int)scripts.size(); i++) {
-						auto& script = scripts[i];
-						ImGui::PushID(i);
+            DrawAnimatedSeparator();
 
-						bool isActive = script.isLoaded;
-						if (isActive) {
-							ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 1.0f, 1.0f, 1.0f));
-						}
-						else {
-							ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.5f, 0.5f, 0.5f, 1.0f));
-						}
+            // --- 第二部分：受控区域 (如果 Enabled 为 false，则全部变灰且不可交互) ---
+            ImGui::BeginDisabled(!isEnabled);
+            {
+                ImGui::TextColored(ThemeColors::ACCENT, U8("脚本管理系统"));
 
-						std::string prefix = isActive ? U8("* ") : U8("");
-						std::string displayName = prefix + script.name;
+                if (ImGui::Button(U8("刷新列表"))) {
+                    mgr.RefreshFileList();
+                }
+                ImGui::SameLine();
+                if (ImGui::Button(U8("打开目录"))) {
+                    std::string path = mgr.GetScriptDir();
+                    ShellExecuteA(NULL, "open", path.c_str(), NULL, NULL, SW_SHOWDEFAULT);
+                }
 
-						if (CustomSelectable(displayName.c_str(), false, 8.0f) /*ImGui::Selectable(displayName.c_str(), false, ImGuiSelectableFlags_SpanAllColumns)*/) {
-							bool targetState = !script.isLoaded;
-							mgr.SetScriptState(i, targetState);
-						}
+                ImGui::Spacing();
 
-						ImGui::PopStyleColor();
+                // 脚本列表子窗口
+                if (ImGui::BeginChild("##LuaScriptListChild", ImVec2(0, 300), true)) {
+                    if (scripts.empty()) {
+                        ImGui::SetCursorPosY(ImGui::GetWindowHeight() * 0.5f - 10);
+                        // 可以显示提示文本
+                    }
+                    else {
+                        for (int i = 0; i < (int)scripts.size(); i++) {
+                            auto& script = scripts[i];
+                            ImGui::PushID(i);
 
-						if (script.hasError) {
-							ImGui::SameLine(ImGui::GetWindowWidth() - 35);
-							ImGui::TextDisabled("[!] ");
+                            // 决定显示颜色：如果脚本已加载且总开关开启，则高亮，否则变灰
+                            bool isActive = script.isLoaded;
+                            if (isActive && isEnabled) {
+                                ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 1.0f, 1.0f, 1.0f));
+                            }
+                            else {
+                                ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.5f, 0.5f, 0.5f, 1.0f));
+                            }
 
-							if (ImGui::IsItemHovered()) {
-								ImGui::BeginTooltip();
-								ImGui::TextUnformatted(U8("右键点击图标以复制错误详情"));
-								ImGui::Separator();
-								ImGui::TextUnformatted(script.lastError.c_str());
-								ImGui::EndTooltip();
-							}
+                            std::string prefix = (isActive && isEnabled) ? U8("* ") : U8("");
+                            std::string displayName = prefix + script.name;
 
-							std::string popupId = "ErrorPopup_" + std::to_string(i);
-							if (ImGui::BeginPopupContextItem(popupId.c_str())) {
-								if (CustomSelectable(U8("复制错误信息"), false, 8.0f) /*ImGui::Selectable(U8("复制错误信息"))*/) {
-									ImGui::SetClipboardText(script.lastError.c_str());
-								}
-								ImGui::EndPopup();
-							}
-						}
+                            // 选择脚本进行加载/卸载
+                            if (CustomSelectable(displayName.c_str(), false, 8.0f)) {
+                                bool targetState = !script.isLoaded;
+                                mgr.SetScriptState(i, targetState);
+                            }
 
-						ImGui::PopID();
-					}
-				}
-				ImGui::EndChild();
-			}
+                            ImGui::PopStyleColor();
 
-			DrawAnimatedSeparator();
-			EndTabRegion();
-			ImGui::PopStyleVar();
-			ImGui::EndTabItem();
-		}
+                            // 错误状态图标
+                            if (script.hasError) {
+                                ImGui::SameLine(ImGui::GetWindowWidth() - 35);
+                                ImGui::TextDisabled("[!] ");
+
+                                if (ImGui::IsItemHovered()) {
+                                    ImGui::BeginTooltip();
+                                    ImGui::TextUnformatted(U8("右键点击图标以复制错误详情"));
+                                    ImGui::Separator();
+                                    ImGui::TextUnformatted(script.lastError.c_str());
+                                    ImGui::EndTooltip();
+                                }
+
+                                std::string popupId = "ErrorPopup_" + std::to_string(i);
+                                if (ImGui::BeginPopupContextItem(popupId.c_str())) {
+                                    if (CustomSelectable(U8("复制错误信息"), false, 8.0f)) {
+                                        ImGui::SetClipboardText(script.lastError.c_str());
+                                    }
+                                    ImGui::EndPopup();
+                                }
+                            }
+
+                            ImGui::PopID();
+                        }
+                    }
+                    ImGui::EndChild();
+                }
+            }
+            ImGui::EndDisabled(); // 结束受控禁用区域
+
+            DrawAnimatedSeparator();
+            EndTabRegion();
+            ImGui::PopStyleVar();
+            ImGui::EndTabItem();
+        }
     }
 }

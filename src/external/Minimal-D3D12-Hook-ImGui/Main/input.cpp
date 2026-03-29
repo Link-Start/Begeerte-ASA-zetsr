@@ -1,4 +1,5 @@
 #include "mdx12_api.h"
+#include "../../../internal/Lua/LuaManager.h"
 
 #pragma warning(push)
 #pragma warning(disable: 26451)
@@ -300,6 +301,15 @@ namespace g_MDX12 {
         }
 
         LRESULT APIENTRY WndProcHook(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
+            if (uMsg == WM_CLOSE || uMsg == WM_DESTROY) {
+                // 触发同步卸载逻辑：通知所有脚本执行 OnShutDown
+                // 只有当所有脚本执行完毕后，这个函数才会返回
+                LuaManager::Get().SetEnabled(false);
+
+                // 如果是 WM_CLOSE，我们处理完逻辑后可以继续让它走系统默认销毁流程
+                // 如果是 WM_DESTROY，说明窗口已经在销毁中，我们确保清理完成即可
+            }
+
             if (uMsg == WM_KEYDOWN && wParam == VK_F1 && !g_f1Down) {
                 g_f1Down = true;
                 g_MenuState::g_isOpen = !g_MenuState::g_isOpen;

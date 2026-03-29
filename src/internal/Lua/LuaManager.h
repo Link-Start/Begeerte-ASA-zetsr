@@ -41,6 +41,9 @@ public:
         return *instance;
     }
 
+    void SetEnabled(bool enabled);
+    bool IsEnabled() const { return m_enabled; }
+
     void Initialize(const std::string& scriptDir);
     void Shutdown();
     void ReloadAll();
@@ -51,6 +54,7 @@ public:
     lua_State* GetState() { return m_lua ? m_lua->lua_state() : nullptr; }
     const std::string& GetScriptDir() const { return m_scriptDir; }
     
+    void Lua_OnShutDown(LuaScript& script);
     void Lua_OnConsoleMessage(std::string Message);
     void Lua_OnDisconnect(std::string ServerIP, int32_t ServerPort);
     void Lua_OnWorldTick();
@@ -64,6 +68,24 @@ public:
     void FetchWorkshopScripts();
 
 private:
+    static bool CheckNoLuaFlag() {
+        int argc;
+        LPWSTR* argv = CommandLineToArgvW(GetCommandLineW(), &argc);
+        if (!argv) return false;
+
+        bool found = false;
+        for (int i = 0; i < argc; i++) {
+            // _wcsicmp 返回 0 表示字符串相等（忽略大小写）
+            if (_wcsicmp(argv[i], L"-nolua") == 0 || _wcsicmp(argv[i], L"nolua") == 0) {
+                found = true;
+                break;
+            }
+        }
+        LocalFree(argv);
+        return found; // 找到返回 true
+    }
+
+    bool m_enabled = !CheckNoLuaFlag();
     bool m_needsReload = false;
     std::mutex m_luaMutex;
     std::atomic<bool> m_pendingReset{ false };

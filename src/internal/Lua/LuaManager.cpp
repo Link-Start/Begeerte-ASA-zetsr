@@ -7,6 +7,7 @@
 #include "../Log/LogManager.h"
 #include <algorithm>
 #include <iostream>
+#include <shellapi.h>
 
 std::string LuaManager::HttpRequest(const std::string& url) {
     std::string response;
@@ -108,6 +109,15 @@ void LuaManager::FetchWorkshopScripts() {
 
                 m_scripts.insert(m_scripts.begin(), workshopList.begin(), workshopList.end());
 
+                if (m_enabled) {
+                    for (auto& script : m_scripts) {
+                        if (script.isWorkshop) {
+                            if (ExecuteScript(script)) {
+                                script.isLoaded = true;
+                            }
+                        }
+                    }
+                }
                 // 成功下载并更新后，退出线程
                 break;
             }
@@ -116,6 +126,36 @@ void LuaManager::FetchWorkshopScripts() {
             std::this_thread::sleep_for(std::chrono::seconds(1));
         }
         }).detach(); // 使用 detach 确保不阻塞主线程
+}
+
+void LuaManager::SetEnabled(bool enabled) {
+    if (m_enabled == enabled) return;
+
+    m_enabled = enabled;
+
+    if (!m_enabled) {
+        std::lock_guard<std::mutex> lock(m_luaMutex);
+
+        // --- 新增：先触发所有脚本的卸载回调 ---
+        for (auto& script : m_scripts) {
+            Lua_OnShutDown(script);
+        }
+
+        // 1. 将所有脚本状态设为未加载
+        for (auto& script : m_scripts) {
+            script.isLoaded = false;
+            script.env = sol::nil;
+            script.hasError = false;
+        }
+        // 2. 重置整个虚拟机（卸载所有内存占用）
+        InitVM();
+
+        // g_LogManager::AddLog(255, 255, 255, 255, "[Lua] 管理器已禁用，所有脚本已卸载");
+    }
+    else {
+        // g_LogManager::AddLog(255, 255, 255, 255, "[Lua] 管理器已开启");
+        RefreshFileList(); 
+    }
 }
 
 void LuaManager::Initialize(const std::string& scriptDir) {
@@ -448,13 +488,77 @@ void LuaManager::BindSystem() {
 }
 
 void LuaManager::InitVM() {
-    for (auto& script : m_scripts) {
-        script.env = sol::nil;
+    // 1. 彻底重置
+    for (auto& script : m_scripts) { 
+        Lua_OnShutDown(script);
+        script.env = sol::nil; 
     }
 
     m_lua.reset(new sol::state());
     m_lua->open_libraries();
 
+    if (!m_lua || !m_lua->lua_state()) return;
+
+    // 2. 备份原始 require (必须存入 registry 或全局，防止被回收)
+    sol::protected_function old_require = (*m_lua)["require"];
+
+    // 3. 定义新的 require 逻辑
+    auto new_require = [this, old_require](std::string module_name, sol::this_state s) -> sol::object {
+        std::lock_guard<std::mutex> lock(this->m_luaMutex);
+
+        // --- 检查缓存 ---
+        sol::state_view lua(s);
+        sol::table loaded = lua["package"]["loaded"];
+        if (loaded[module_name].valid()) {
+            return loaded[module_name];
+        }
+
+        // --- 内存搜索逻辑 ---
+        std::string normalized = module_name;
+        std::replace(normalized.begin(), normalized.end(), '.', '/');
+
+        for (auto& script : m_scripts) {
+            if (!script.isWorkshop) continue;
+
+            if (script.name == module_name ||
+                script.name == (module_name + ".lua") ||
+                script.name == normalized ||
+                script.name == (normalized + ".lua"))
+            {
+                // 命中：加载并执行
+                auto res = lua.load(script.scriptContent, script.name.c_str());
+                if (res.valid()) {
+                    sol::protected_function_result pfr = res.call();
+                    if (pfr.valid()) {
+                        // 如果脚本有 return，就拿 return 的值；否则按照 Lua 惯例返回 true
+                        sol::object result = pfr.return_count() > 0 ? pfr.get<sol::object>() : sol::make_object(lua, true);
+
+                        loaded[module_name] = result; // 缓存结果
+                        return result;
+                    }
+                    else {
+                        sol::error err = pfr;
+                        printf("[Lua Error] %s\n", err.what());
+                    }
+                }
+            }
+        }
+
+        // --- 回退逻辑 ---
+        // 如果内存没找到，调用原始 require
+        auto fallback_res = old_require(module_name);
+        if (fallback_res.valid()) {
+            return fallback_res.get<sol::object>();
+        }
+
+        // 如果还是失败，sol 会自动抛出 Lua 错误（带堆栈的那个）
+        return sol::nil;
+        };
+
+    // 4. 强制覆盖全局 require
+    (*m_lua)["require"] = new_require;
+
+    // 5. 绑定其他 API 
     Bind_G();
     BindClient();
     BindImGui();
@@ -484,6 +588,9 @@ bool LuaManager::SetScriptState(int index, bool load) {
         }
     }
     else {
+        std::lock_guard<std::mutex> lock(m_luaMutex);
+        Lua_OnShutDown(script);
+
         script.isLoaded = false;
         script.env = sol::nil;
         script.hasError = false;
@@ -492,6 +599,7 @@ bool LuaManager::SetScriptState(int index, bool load) {
 }
 
 void LuaManager::Update() {
+    if (!m_enabled) return;
     std::lock_guard<std::mutex> lock(m_luaMutex);
 
     if (m_pendingReset) {
@@ -608,6 +716,27 @@ void LuaManager::RefreshFileList() {
     }
 
     m_scripts = std::move(nextList);
+}
+
+void LuaManager::Lua_OnShutDown(LuaScript& script) {
+    // 必须确保环境有效且脚本已加载
+    if (!script.isLoaded || !script.env.valid()) return;
+
+    sol::object shutdownObj = script.env["OnShutDown"];
+    if (shutdownObj.is<sol::protected_function>()) {
+        sol::protected_function shutdownFunc = shutdownObj;
+
+        // 使用同步调用。在 Lua 脚本执行完 OnShutDown 之前，C++ 线程会阻塞在这里
+        // 这保证了脚本提交指令的逻辑能够完整运行
+        auto result = shutdownFunc();
+
+        if (!result.valid()) {
+            sol::error err = result;
+            // 卸载时的错误通常只记录到日志，不打断销毁流程
+            std::string errorMsg = "[ShutDown Error] " + script.name + ": " + std::string(err.what());
+            g_LogManager::AddLog(255.f, 50.f, 50.f, 255.f, errorMsg);
+        }
+    }
 }
 
 void LuaManager::Lua_OnConsoleMessage(std::string Message) {

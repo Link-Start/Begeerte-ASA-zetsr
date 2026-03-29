@@ -16,7 +16,7 @@ namespace g_DrawImGui {
 			ImGui::TextColored(ThemeColors::ACCENT, U8("建筑列表"));
 			DrawAnimatedSeparator();
 
-			ImGui::Checkbox(U8("应用筛选到全局视觉"), &g_Config::bEnableStructureFilter);
+			DrawCustomCheckbox(U8("应用筛选到全局视觉"), &g_Config::bEnableStructureFilter);
 			ImGui::SameLine();
 
 			ImGui::PushItemWidth(-1.0f);
