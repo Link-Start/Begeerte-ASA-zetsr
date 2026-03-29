@@ -24,6 +24,7 @@ struct LuaScript {
     bool isLoaded = false;
     bool hasError = false;
     bool isWorkshop = false;
+    bool isLibrary = false;
 
     std::string scriptContent;
     std::string lastError;

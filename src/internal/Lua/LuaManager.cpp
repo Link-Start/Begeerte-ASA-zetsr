@@ -38,6 +38,8 @@ void LuaManager::FetchWorkshopScripts() {
         // --- 修复点 1: 进入无限循环 ---
         while (true) {
             // 请求 GitHub API 获取文件列表 JSON
+            // 注意：如果 lib 是子目录，递归获取通常需要 API 参数 ?recursive=1，
+            // 但如果 API 返回的是包含路径的 download_url，我们可以直接匹配字符串。
             std::string json = HttpRequest("https://api.github.com/repos/zetsr/Begeerte-ASA/contents/work_shop");
 
             // --- 修复点 2: 如果 API 请求失败，等待并重试 ---
@@ -51,7 +53,7 @@ void LuaManager::FetchWorkshopScripts() {
             size_t entryStart = 0;
             size_t entryEnd = 0;
 
-            // 解析 JSON 逻辑保持不变...
+            // 解析 JSON 逻辑
             while ((entryStart = json.find("{", entryStart)) != std::string::npos) {
                 entryEnd = json.find("}", entryStart);
                 if (entryEnd == std::string::npos) break;
@@ -89,6 +91,17 @@ void LuaManager::FetchWorkshopScripts() {
                             script.scriptContent = content;
                             script.isLoaded = false;
                             script.hasError = false;
+
+                            // --- 新增：判定是否为 Library ---
+                            // 根据你的描述，lib 都在 "work_shop/lib" 下
+                            // 检查下载链接中是否包含目录特征
+                            if (downloadUrl.find("/work_shop/lib/") != std::string::npos) {
+                                script.isLibrary = true;
+                            }
+                            else {
+                                script.isLibrary = false;
+                            }
+
                             workshopList.push_back(std::move(script));
                         }
                     }
@@ -100,32 +113,35 @@ void LuaManager::FetchWorkshopScripts() {
             if (!workshopList.empty()) {
                 std::lock_guard<std::mutex> lock(m_luaMutex);
 
+                // 清理旧的 Workshop 脚本
                 m_scripts.erase(
                     std::remove_if(m_scripts.begin(), m_scripts.end(), [](const LuaScript& s) {
                         return s.isWorkshop;
                         }),
                     m_scripts.end()
-                            );
+                );
 
+                // 插入新下载的脚本
                 m_scripts.insert(m_scripts.begin(), workshopList.begin(), workshopList.end());
 
                 if (m_enabled) {
                     for (auto& script : m_scripts) {
-                        if (script.isWorkshop) {
+                        // --- 修复：auto load 只加载非库类型的脚本 ---
+                        if (script.isWorkshop && !script.isLibrary) {
                             if (ExecuteScript(script)) {
                                 script.isLoaded = true;
                             }
                         }
                     }
                 }
-                // 成功下载并更新后，退出线程
+                // 成功下载、更新并完成非库脚本的自动加载后，退出线程
                 break;
             }
 
             // 如果走到这里说明解析出的列表是空的，或者部分下载失败了
             std::this_thread::sleep_for(std::chrono::seconds(1));
         }
-        }).detach(); // 使用 detach 确保不阻塞主线程
+        }).detach();
 }
 
 void LuaManager::SetEnabled(bool enabled) {

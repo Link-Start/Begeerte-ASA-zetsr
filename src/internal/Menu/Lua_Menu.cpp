@@ -59,6 +59,7 @@ namespace g_DrawImGui {
                     else {
                         for (int i = 0; i < (int)scripts.size(); i++) {
                             auto& script = scripts[i];
+                            if (script.isLibrary) continue;
                             ImGui::PushID(i);
 
                             // 决定显示颜色：如果脚本已加载且总开关开启，则高亮，否则变灰
