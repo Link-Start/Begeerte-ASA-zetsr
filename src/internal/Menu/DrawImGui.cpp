@@ -51,7 +51,9 @@ namespace g_DrawImGui {
 		}
 		g_PrevMenuState = isNowOpen;
 
-		float deltaTime = ImGui::GetIO().DeltaTime;
+		ImGuiIO& io = ImGui::GetIO();
+		ImVec2 screenSize = io.DisplaySize;
+		float deltaTime = io.DeltaTime;
 
 		if (g_MDX12::g_MenuState::g_isOpen) {
 			g_MenuAlpha += deltaTime * FADE_SPEED;
@@ -66,7 +68,22 @@ namespace g_DrawImGui {
 			LuaManager::Get().Lua_OnPaintMenu(g_MenuAlpha);
 
 			ImGui::GetStyle().WindowMinSize = ImVec2(920.0f, 720.0f);
-			ImGui::SetNextWindowSize(ImVec2(920, 720), ImGuiCond_FirstUseEver);
+			// 处理重置逻辑
+			if (g_Config::bMenuNeedReset) {
+				ImGui::SetNextWindowPos(ImVec2(100, 100), ImGuiCond_Always);
+				ImGui::SetNextWindowSize(ImVec2(920, 720), ImGuiCond_Always);
+				g_Config::bMenuNeedReset = false;
+			}
+			else {
+				// 正常状态：限制最大尺寸不超过屏幕
+				ImGui::SetNextWindowSizeConstraints(ImVec2(920, 720), screenSize);
+
+				// 如果你希望第一次打开是 920x720，可以用 FirstUseEver
+				// 但不要放在 if 块外面，否则会干扰上面的 Always 逻辑
+				ImGui::SetNextWindowSize(ImVec2(920, 720), ImGuiCond_FirstUseEver);
+			}
+
+			// ImGui::SetNextWindowSize(ImVec2(920, 720), ImGuiCond_FirstUseEver);
 			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, g_MenuAlpha);
 
 			ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(22.0f, 22.0f));
@@ -78,7 +95,10 @@ namespace g_DrawImGui {
 			ImGui::PushStyleColor(ImGuiCol_Border, ImVec4(110.0f * g_Util::inv255, 231.0f * g_Util::inv255, 183.0f * g_Util::inv255, 0.08f));
 
 			ImGuiWindowFlags wFlags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar;
-			ImGui::GetIO().ConfigWindowsResizeFromEdges = false;
+			io.ConfigWindowsResizeFromEdges = false;
+			if (g_Config::bMenuLockResize) {
+				wFlags |= ImGuiWindowFlags_NoResize; // 如果勾选，禁止缩放
+			}
 
 			if (ImGui::Begin("Begeerte", nullptr, wFlags)) {
 

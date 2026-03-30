@@ -15,6 +15,18 @@ namespace g_DrawImGui {
 			ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
 			BeginTabRegion("MiscRegion");
 
+			ImGui::TextColored(ThemeColors::ACCENT, U8("菜单设置"));
+			DrawAnimatedSeparator();
+
+			DrawCustomCheckbox(U8("锁定布局"), &g_Config::bMenuLockResize);
+			ImGui::SameLine();
+
+			if (ImGui::Button(U8("重置布局"))) {
+				g_Config::bMenuNeedReset = true;
+			}
+
+			DrawAnimatedSeparator();
+
 			ImGui::TextColored(ThemeColors::ACCENT, U8("其他功能"));
 			DrawAnimatedSeparator();
 

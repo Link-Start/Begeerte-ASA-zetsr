@@ -2,6 +2,10 @@
 #include "../../external/SDK/SDK_Headers.hpp"
 
 namespace g_Config {
+    // 菜单设置
+    inline bool bMenuNeedReset = false;
+    inline bool bMenuLockResize = false;
+
     // 其他功能
     inline bool bAutoFeed = false;
     inline bool bUnlockExplorerNotes = false;
