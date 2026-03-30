@@ -112,6 +112,11 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
         CONFIG_BOOL(g_Config::bEnableStructureFilter);
         file << "\n";
 
+        // 物品列表
+        file << "[ItemList]\n";
+        CONFIG_STRING(g_Config::itemSearchBuf, 256);
+        file << "\n";
+
         // 自瞄
         file << "[Aimbot]\n";
         CONFIG_BOOL(g_Config::bAimbotEnabled);
@@ -271,6 +276,9 @@ bool ConfigManager::LoadConfig(const std::string& filename) {
         LOAD_STRING(g_Config::structureSearchBuf, 256);
         LOAD_BOOL(g_Config::bEnableStructureFilter);
         
+        // 物品列表
+        LOAD_STRING(g_Config::itemSearchBuf, 256);
+
         // 自瞄
         LOAD_BOOL(g_Config::bAimbotEnabled);
         LOAD_FLOAT(g_Config::AimbotFOV);

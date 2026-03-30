@@ -1,10 +1,15 @@
 #pragma once
+#include "../../external/SDK/SDK_Headers.hpp"
 
 namespace g_Config {
     // 其他功能
     inline bool bAutoFeed = false;
     inline bool bUnlockExplorerNotes = false;
     inline bool bSuicide = false;
+    inline bool bDropItem = false;
+    inline SDK::FItemNetID dropItemID;
+    inline bool bUseItem = false;
+    inline SDK::FItemNetID useItemID;
 
     // 生物列表
     inline char entitySearchBuf[256] = { 0 };
@@ -13,6 +18,9 @@ namespace g_Config {
     // 建筑列表
     inline char structureSearchBuf[256] = "";
     inline bool bEnableStructureFilter = false;
+
+    // 物品列表
+    inline char itemSearchBuf[256] = "";
 
     // 自瞄
     inline bool bAimbotEnabled = false;

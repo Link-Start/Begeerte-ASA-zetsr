@@ -100,4 +100,12 @@ namespace g_Hack {
             g_Util::ProcessDinoFeed(PC, TargetDino);
         }
     }
+
+    void ServerRequestInventoryUseItem(SDK::AShooterPlayerController* PC, SDK::UPrimalInventoryComponent* InventoryComp, SDK::FItemNetID& ItemID) {
+        PC->ServerRequestInventoryUseItem(InventoryComp, ItemID);
+    }
+
+    void ServerRequestRemoteDropAllItems(SDK::AShooterPlayerController* PC, SDK::UPrimalInventoryComponent* InventoryComp, SDK::FString& CurrentCustomFolderFilter, SDK::FString& CurrentNameFilter) {
+        PC->ServerRequestRemoteDropAllItems(InventoryComp, CurrentCustomFolderFilter, CurrentNameFilter);
+    }
 }

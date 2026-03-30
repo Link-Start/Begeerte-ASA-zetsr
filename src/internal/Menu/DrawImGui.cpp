@@ -17,6 +17,7 @@
 #include "Visuals_Menu.h"
 #include "EntityList_Menu.h"
 #include "StructureList_Menu.h"
+#include "ItemList_Menu.h"
 #include "Misc_Menu.h"
 #include "Configs_Menu.h"
 #include "Lua_Menu.h"
@@ -64,8 +65,8 @@ namespace g_DrawImGui {
 		if (g_MenuAlpha > 0.001f) {
 			LuaManager::Get().Lua_OnPaintMenu(g_MenuAlpha);
 
-			ImGui::GetStyle().WindowMinSize = ImVec2(720.0f, 720.0f);
-			ImGui::SetNextWindowSize(ImVec2(720, 720), ImGuiCond_FirstUseEver);
+			ImGui::GetStyle().WindowMinSize = ImVec2(920.0f, 720.0f);
+			ImGui::SetNextWindowSize(ImVec2(920, 720), ImGuiCond_FirstUseEver);
 			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, g_MenuAlpha);
 
 			ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(22.0f, 22.0f));
@@ -109,6 +110,7 @@ namespace g_DrawImGui {
 					Visuals_Menu();
 					EntityList_Menu();
 					StructureList_Menu();
+					ItemList_Menu();
 					Misc_Menu();
 					Configs_Menu();
 					Lua_Menu();

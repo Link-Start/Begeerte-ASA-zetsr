@@ -129,6 +129,7 @@
     <ClInclude Include="internal\Menu\Configs_Menu.h" />
     <ClInclude Include="internal\Menu\DrawImGui.h" />
     <ClInclude Include="internal\Menu\EntityList_Menu.h" />
+    <ClInclude Include="internal\Menu\ItemList_Menu.h" />
     <ClInclude Include="internal\Menu\Lua_Menu.h" />
     <ClInclude Include="internal\Menu\Misc_Menu.h" />
     <ClInclude Include="internal\Menu\StructureList_Menu.h" />
@@ -171,6 +172,7 @@
     <ClCompile Include="internal\Menu\Configs_Menu.cpp" />
     <ClCompile Include="internal\Menu\DrawImGui.cpp" />
     <ClCompile Include="internal\Menu\EntityList_Menu.cpp" />
+    <ClCompile Include="internal\Menu\ItemList_Menu.cpp" />
     <ClCompile Include="internal\Menu\Lua_Menu.cpp" />
     <ClCompile Include="internal\Menu\Misc_Menu.cpp" />
     <ClCompile Include="internal\Menu\StructureList_Menu.cpp" />

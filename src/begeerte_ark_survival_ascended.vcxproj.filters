@@ -453,6 +453,9 @@
     <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\Main\hook.h">
       <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
     </ClInclude>
+    <ClInclude Include="internal\Menu\ItemList_Menu.h">
+      <Filter>internal\Menu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Object Include="external\LuaJIT-2.1\src\lj_vm.obj">
@@ -567,6 +570,9 @@
     </ClCompile>
     <ClCompile Include="internal\UEngine\UGameViewportClient\UConsole\OutputTextLine.cpp">
       <Filter>internal\UEngine\UGameViewportClient\UConsole</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Menu\ItemList_Menu.cpp">
+      <Filter>internal\Menu</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
