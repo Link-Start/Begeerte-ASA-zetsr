@@ -1,5 +1,5 @@
 #pragma once
-#define NOMINMAX  
+#define NOMINMAX
 #include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 #include "../Config/Configs.h"
 #include "../Util/Util.h"
@@ -21,6 +21,10 @@ namespace g_UWorld {
 
 		if (g_Config::bAutoFeed) {
 			g_Hack::AutoFeed(world);
+		}
+
+        if (g_Config::bSuperFlyer) {
+			g_Hack::SuperFlyer(world);
 		}
 
         SDK::AShooterPlayerController* PC = (SDK::AShooterPlayerController*)g_Util::GetLocalPC();
