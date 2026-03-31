@@ -19,7 +19,7 @@
 #include "../ImGui/imgui_internal.h"
 #include "../ImGui/imgui_impl_win32.h"
 #include "../ImGui/imgui_impl_dx12.h"
-#include "../MinHook/include/MinHook.h"
+// #include "../MinHook/include/MinHook.h"
 
 #include "../../../external/SDK/SDK_Headers.hpp"
 #pragma warning(pop)
@@ -166,6 +166,7 @@ namespace g_MDX12 {
     void SetupUWorldTick(SDK::UWorld* rcx);
     void SetupHandleDisconnect(SDK::UNetConnection* rcx);
     void SetupOutputTextLine(SDK::UConsole* rcx, SDK::FString* Message);
+    void SetupPostRender(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas);
 
     // Main thread initialization
     DWORD WINAPI MainThread(LPVOID);
@@ -175,12 +176,14 @@ namespace g_MDX12 {
     typedef void(*SetupUWorldTickCallback)(SDK::UWorld* rcx);
     typedef void(*SetupHandleDisconnectCallback)(SDK::UNetConnection* rcx);
     typedef void(*SetupOutputTextLineCallback)(SDK::UConsole* rcx, SDK::FString* Message);
-    
+    typedef void(*SetupPostRenderCallback)(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas);
+
     namespace g_Callbacks {
         extern SetupImGuiCallback g_setupImGuiCallback;
         extern SetupUWorldTickCallback g_setupUWorldTickCallback;
         extern SetupHandleDisconnectCallback g_setupHandleDisconnectCallback;
         extern SetupOutputTextLineCallback g_setupOutputTextLineCallback;
+        extern SetupPostRenderCallback g_setupPostRenderCallback;
     }
 
     // Public API
@@ -189,6 +192,7 @@ namespace g_MDX12 {
     void SetSetupUWorldTickCallback(SetupUWorldTickCallback callback);
     void SetSetupHandleDisconnectCallback(SetupHandleDisconnectCallback callback);
     void SetSetupOutputTextLineCallback(SetupOutputTextLineCallback callback);
+    void SetSetupPostRenderCallback(SetupPostRenderCallback callback);
 }
 
 // Export for DLL
@@ -197,3 +201,4 @@ extern "C" __declspec(dllexport) void SetSetupImGuiCallback(g_MDX12::SetupImGuiC
 extern "C" __declspec(dllexport) void SetSetupUWorldTickCallback(g_MDX12::SetupUWorldTickCallback callback);
 extern "C" __declspec(dllexport) void SetSetupHandleDisconnectCallback(g_MDX12::SetupHandleDisconnectCallback callback);
 extern "C" __declspec(dllexport) void SetSetupOutputTextLineCallback(g_MDX12::SetupOutputTextLineCallback callback);
+extern "C" __declspec(dllexport) void SetSetupPostRenderCallback(g_MDX12::SetupPostRenderCallback callback);

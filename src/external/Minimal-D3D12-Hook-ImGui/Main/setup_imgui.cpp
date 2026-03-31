@@ -1,6 +1,16 @@
 #include "mdx12_api.h"
 
 namespace g_MDX12 {
+    void SetSetupPostRenderCallback(SetupPostRenderCallback callback) {
+        g_Callbacks::g_setupPostRenderCallback = callback;
+    }
+
+    void SetupPostRender(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas) {
+        if (g_Callbacks::g_setupPostRenderCallback) {
+            g_Callbacks::g_setupPostRenderCallback(rcx, canvas);
+        }
+    }
+
     void SetSetupOutputTextLineCallback(SetupOutputTextLineCallback callback) {
         g_Callbacks::g_setupOutputTextLineCallback = callback;
     }

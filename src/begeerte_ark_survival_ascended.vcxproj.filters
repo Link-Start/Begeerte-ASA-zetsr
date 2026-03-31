@@ -91,6 +91,12 @@
     <Filter Include="internal\UEngine\UGameViewportClient\UConsole">
       <UniqueIdentifier>{9e202d8a-cc65-465a-a795-839e664f6a7e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src">
+      <UniqueIdentifier>{0d9b14bb-3370-491b-9ea4-375b22529ee5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde">
+      <UniqueIdentifier>{2af19aed-f6bf-4ae0-9eee-b53180ea5ec3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\LuaJIT-2.1\src\lj_vm.h">
@@ -450,11 +456,35 @@
     <ClInclude Include="internal\UEngine\UGameViewportClient\UConsole\OutputTextLine.h">
       <Filter>internal\UEngine\UGameViewportClient\UConsole</Filter>
     </ClInclude>
-    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\Main\hook.h">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
-    </ClInclude>
     <ClInclude Include="internal\Menu\ItemList_Menu.h">
       <Filter>internal\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\UEngine\UGameViewportClient\PostRender.h">
+      <Filter>internal\UEngine\UGameViewportClient</Filter>
+    </ClInclude>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\buffer.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\MinHook\src</Filter>
+    </ClInclude>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\trampoline.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\MinHook\src</Filter>
+    </ClInclude>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde\hde32.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde\hde64.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde\pstdint.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde\table32.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde\table64.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\Main\hooks.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -503,9 +533,6 @@
       <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
     </ClCompile>
     <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\Main\setup_imgui.cpp">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\Main\hook.cpp">
       <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
     </ClCompile>
     <ClCompile Include="external\SDK\SDK_Impl.cpp">
@@ -573,6 +600,27 @@
     </ClCompile>
     <ClCompile Include="internal\Menu\ItemList_Menu.cpp">
       <Filter>internal\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\UEngine\UGameViewportClient\PostRender.cpp">
+      <Filter>internal\UEngine\UGameViewportClient</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\buffer.c">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\MinHook\src</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\hook.c">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\MinHook\src</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\trampoline.c">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\MinHook\src</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde\hde32.c">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde\hde64.c">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\Main\hooks.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

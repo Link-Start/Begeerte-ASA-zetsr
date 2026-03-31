@@ -9,13 +9,7 @@
 #include "internal/UWorld/Tick.h"
 #include "internal/UWorld/NetDriver/ServerConnection/HandleDisconnect.h"
 #include "internal/UEngine/UGameViewportClient/UConsole/OutputTextLine.h"
-
-extern "C" {
-#include "external/Minimal-D3D12-Hook-ImGui/MinHook/src/buffer.c"
-#include "external/Minimal-D3D12-Hook-ImGui/MinHook/src/hook.c"
-#include "external/Minimal-D3D12-Hook-ImGui/MinHook/src/trampoline.c"
-#include "external/Minimal-D3D12-Hook-ImGui/MinHook/src/hde/hde64.c"
-}
+#include "internal/UEngine/UGameViewportClient/PostRender.h"
 
 void init(LPVOID lpParam) {
     g_MDX12::Initialize(lpParam);
@@ -23,6 +17,7 @@ void init(LPVOID lpParam) {
     g_MDX12::SetSetupUWorldTickCallback(g_UWorld::Tick);
     g_MDX12::SetSetupHandleDisconnectCallback(g_UWorld::NetDriver::ServerConnection::HandleDisconnect);
     g_MDX12::SetSetupOutputTextLineCallback(g_UEngine::UGameViewportClient::UConsole::OutputTextLine);
+    g_MDX12::SetSetupPostRenderCallback(g_UEngine::UGameViewportClient::PostRender);
 
     ConfigManager::Get().Initialize("cfg");
     LuaManager::Get().Initialize("lua");
