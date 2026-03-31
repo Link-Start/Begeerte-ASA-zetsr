@@ -1,5 +1,5 @@
 #pragma once
-#define NOMINMAX  
+#define NOMINMAX
 #include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 #include "../Config/Configs.h"
 #include "../Util/Util.h"
@@ -98,6 +98,24 @@ namespace g_Hack {
         // 只有找到恐龙时才执行喂食逻辑
         if (TargetDino) {
             g_Util::ProcessDinoFeed(PC, TargetDino);
+        }
+    }
+
+    void SuperFlyer(SDK::UWorld* World) {
+        if (!World || !World->OwningGameInstance || World->OwningGameInstance->LocalPlayers.Num() == 0) return;
+
+        SDK::ULocalPlayer* LP = World->OwningGameInstance->LocalPlayers[0];
+        if (!LP || !LP->PlayerController) return;
+
+        SDK::AShooterPlayerController* PC = static_cast<SDK::AShooterPlayerController*>(LP->PlayerController);
+        SDK::APrimalDinoCharacter* TargetDino = nullptr;
+
+        if (PC->Pawn && PC->Pawn->IsA(SDK::APrimalDinoCharacter::StaticClass())) {
+            TargetDino = static_cast<SDK::APrimalDinoCharacter*>(PC->Pawn);
+
+            // 允许恐龙左右飞，倒飞
+            TargetDino->bFlyerDinoAllowBackwardsFlight = true;
+            TargetDino->bFlyerDinoAllowStrafing= true;
         }
     }
 

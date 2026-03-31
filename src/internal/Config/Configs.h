@@ -7,6 +7,7 @@ namespace g_Config {
     inline bool bMenuLockResize = false;
 
     // 其他功能
+    inline bool bSuperFlyer = false;
     inline bool bAutoFeed = false;
     inline bool bUnlockExplorerNotes = false;
     inline bool bSuicide = false;

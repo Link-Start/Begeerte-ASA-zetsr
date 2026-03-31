@@ -1,5 +1,5 @@
 #pragma once
-#define NOMINMAX  
+#define NOMINMAX
 #include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 #include "../../external/Minimal-D3D12-Hook-ImGui/Main/hooks.h"
 #include "../Config/Configs.h"
@@ -48,6 +48,7 @@ namespace g_DrawImGui {
 
 			DrawCustomCheckbox(U8("一键满级"), &g_Config::bUnlockExplorerNotes);
 			DrawCustomCheckbox(U8("自动喂肉"), &g_Config::bAutoFeed);
+			DrawCustomCheckbox(U8("飞行龙加强"), &g_Config::bSuperFlyer);
 
 			DrawAnimatedSeparator();
 
