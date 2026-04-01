@@ -67,8 +67,18 @@ namespace g_LogManager {
             );
 
             ImVec2 pos = ImVec2(START_X, current_y);
+            ImU32 shadow_col = IM_COL32(0, 0, 0, static_cast<int>(log.current_a));
+            ImVec2 shadow_offset = ImVec2(1.0f, 1.0f);
 
-            // 调用指定的 AddText 签名
+            // 阴影
+            draw_list->AddText(
+                ImVec2(pos.x + shadow_offset.x, pos.y + shadow_offset.y),
+                shadow_col,
+                log.text.c_str(),
+                log.text.c_str() + log.text.size()
+            );
+
+            // 正文
             draw_list->AddText(
                 pos,
                 col,

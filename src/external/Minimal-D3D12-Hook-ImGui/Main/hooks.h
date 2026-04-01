@@ -7,5 +7,6 @@
 #pragma warning(pop)
 
 namespace g_Hook {
+    void StartAllHooks();
     void StopAllHooks();
 }

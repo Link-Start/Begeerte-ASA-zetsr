@@ -14,22 +14,12 @@ namespace g_Hack {
 
     void DumpServerInfo() {
         SDK::UWorld* World = SDK::UWorld::GetWorld();
-        if (!World || !World->OwningGameInstance || !World->NetDriver) {
-            g_LogManager::AddLog(255, 200, 255, 255, "当前不在服务器内");
+        if (!World || !World->NetDriver || !World->NetDriver->ServerConnection) {
+            g_LogManager::AddLog(255, 50, 55, 255, "当前不在服务器内");
             return;
         }
 
-        SDK::UNetDriver* NetDriver = World->NetDriver;
-        if (!NetDriver || !NetDriver->ServerConnection) {
-            g_LogManager::AddLog(255, 200, 255, 255, "当前不在服务器内");
-            return;
-        }
-
-        SDK::UNetConnection* ServerConnection = NetDriver->ServerConnection;
-        if (!ServerConnection) {
-            g_LogManager::AddLog(255, 200, 255, 255, "当前不在服务器内");
-            return;
-        }
+        SDK::UNetConnection* ServerConnection = World->NetDriver->ServerConnection;
 
         g_LogManager::AddLog(255, 200, 255, 255, std::format("[{}] [{}]", ServerConnection->GetFirstIP(), ServerConnection->GetPort()));
     }

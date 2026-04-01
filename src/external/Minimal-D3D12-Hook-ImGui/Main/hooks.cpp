@@ -83,91 +83,73 @@ namespace g_Hook {
     */
 
     void initUWorldTick() {
-        SDK::UWorld* pWorld = nullptr;
-        while (!pWorld) {
-            pWorld = SDK::UWorld::GetWorld();
-            if (pWorld && pWorld->OwningGameInstance) break;
-            Sleep(1);
-        }
+        std::string pattern = g_CheatData::Signature::UWorld::Tick;
+        AOB::Result ok = AOB::Scan(pattern);
 
-        if (pWorld) {
-            std::string pattern = g_CheatData::Signature::UWorld::Tick;
-            AOB::Result ok = AOB::Scan(pattern);
+        if (ok && ok.size() > 0) {
+            void* targetAddr = ok[0];
 
-            if (ok && ok.size() > 0) {
-                void* targetAddr = ok[0];
-
-                if (MH_CreateHook(targetAddr, &hkUWorldTick, reinterpret_cast<LPVOID*>(&oWorldTick)) == MH_OK) {
-                    MH_EnableHook(targetAddr);
-                }
+            if (MH_CreateHook(targetAddr, &hkUWorldTick, reinterpret_cast<LPVOID*>(&oWorldTick)) == MH_OK) {
+                MH_EnableHook(targetAddr);
             }
         }
     }
 
     void initHandleDisconnect() {
-        SDK::UWorld* pWorld = nullptr;
-        while (!pWorld) {
-            pWorld = SDK::UWorld::GetWorld();
-            if (pWorld && pWorld->OwningGameInstance) break;
-            Sleep(1);
-        }
+        std::string pattern = g_CheatData::Signature::UWorld::NetDriver::ServerConnection::HandleDisconnect;
+        AOB::Result ok = AOB::Scan(pattern);
 
-        if (pWorld) {
-            std::string pattern = g_CheatData::Signature::UWorld::NetDriver::ServerConnection::HandleDisconnect;
-            AOB::Result ok = AOB::Scan(pattern);
+        if (ok && ok.size() > 0) {
+            void* targetAddr = ok[0];
 
-            if (ok && ok.size() > 0) {
-                void* targetAddr = ok[0];
-
-                if (MH_CreateHook(targetAddr, &hkHandleDisconnect, reinterpret_cast<LPVOID*>(&oHandleDisconnect)) == MH_OK) {
-                    MH_EnableHook(targetAddr);
-                }
+            if (MH_CreateHook(targetAddr, &hkHandleDisconnect, reinterpret_cast<LPVOID*>(&oHandleDisconnect)) == MH_OK) {
+                MH_EnableHook(targetAddr);
             }
         }
     }
 
     void initOutputTextLine() {
-        SDK::UWorld* pWorld = nullptr;
-        while (!pWorld) {
-            pWorld = SDK::UWorld::GetWorld();
-            if (pWorld && pWorld->OwningGameInstance) break;
-            Sleep(1);
-        }
+        std::string pattern = g_CheatData::Signature::UEngine::UGameViewportClient::UConsole::OutputTextLine;
+        AOB::Result ok = AOB::Scan(pattern);
 
-        if (pWorld) {
-            std::string pattern = g_CheatData::Signature::UEngine::UGameViewportClient::UConsole::OutputTextLine;
-            AOB::Result ok = AOB::Scan(pattern);
+        if (ok && ok.size() > 0) {
+            void* targetAddr = ok[0];
 
-            if (ok && ok.size() > 0) {
-                void* targetAddr = ok[0];
-
-                if (MH_CreateHook(targetAddr, &hkOutputTextLine, reinterpret_cast<LPVOID*>(&oOutputTextLine)) == MH_OK) {
-                    MH_EnableHook(targetAddr);
-                }
+            if (MH_CreateHook(targetAddr, &hkOutputTextLine, reinterpret_cast<LPVOID*>(&oOutputTextLine)) == MH_OK) {
+                MH_EnableHook(targetAddr);
             }
         }
     }
 
     void initPostRender() {
-        SDK::UWorld* pWorld = nullptr;
-        while (!pWorld) {
-            pWorld = SDK::UWorld::GetWorld();
-            if (pWorld && pWorld->OwningGameInstance) break;
-            Sleep(1);
-        }
+        std::string pattern = g_CheatData::Signature::UEngine::UGameViewportClient::PostRender;
+        AOB::Result ok = AOB::Scan(pattern);
 
-        if (pWorld) {
-            std::string pattern = g_CheatData::Signature::UEngine::UGameViewportClient::PostRender;
-            AOB::Result ok = AOB::Scan(pattern);
+        if (ok && ok.size() > 0) {
+            void* targetAddr = ok[0];
 
-            if (ok && ok.size() > 0) {
-                void* targetAddr = ok[0];
-
-                if (MH_CreateHook(targetAddr, &hkPostRender, reinterpret_cast<LPVOID*>(&oPostRender)) == MH_OK) {
-                    MH_EnableHook(targetAddr);
-                }
+            if (MH_CreateHook(targetAddr, &hkPostRender, reinterpret_cast<LPVOID*>(&oPostRender)) == MH_OK) {
+                MH_EnableHook(targetAddr);
             }
         }
+    }
+}
+
+// 应该不需要每个都单独检查一次
+void g_Hook::StartAllHooks() {
+    SDK::UWorld* pWorld = nullptr;
+    while (!pWorld) {
+        pWorld = SDK::UWorld::GetWorld();
+        if (pWorld && pWorld->OwningGameInstance) break;
+        Sleep(1);
+    }
+
+    if (pWorld) {
+        // 理论上来说如果用户在UWorld非常不稳定的时候注入有极低概率发生检查后使用，但是这应该不是问题，因为如果环境不稳定，d3d12 hook会先崩溃
+        g_Hook::initUWorldTick();
+        g_Hook::initHandleDisconnect();
+        g_Hook::initOutputTextLine();
+        g_Hook::initPostRender();
     }
 }
 
@@ -215,9 +197,11 @@ namespace g_MDX12 {
             return S_OK;
         }
 
-        std::lock_guard<std::mutex> lock(g_InitState::g_InitMutex);
+        // 不需要持续使用锁
+        // std::lock_guard<std::mutex> lock(g_InitState::g_InitMutex);
 
         if (!g_InitState::g_Initialized) {
+            std::lock_guard<std::mutex> lock(g_InitState::g_InitMutex);
             ID3D12Device* deviceFromSwap = nullptr;
 
             if (FAILED(pSwapChain->GetDevice(IID_PPV_ARGS(&deviceFromSwap)))) {
@@ -416,6 +400,10 @@ namespace g_MDX12 {
             }
         }
 
+        // 2026/4/1
+        // 当时以为Windows的光标会和imgui的打架所以加的这个功能
+        // 实际上是一个愚蠢的操作
+        /*
         if (g_MenuState::g_isOpen) {
             static int frameCounter = 0;
             frameCounter++;
@@ -428,6 +416,7 @@ namespace g_MDX12 {
                 SetCursorPos(centerX, centerY);
             }
         }
+         */
 
         SetupImGui(pSwapChain, SyncInterval, Flags);
         ImGui::Render();
@@ -461,7 +450,12 @@ namespace g_MDX12 {
         DXGI_FORMAT NewFormat,
         UINT SwapChainFlags)
     {
-        std::lock_guard<std::mutex> lock(g_InitState::g_InitMutex);
+        // 不需要持续使用锁
+        // std::lock_guard<std::mutex> lock(g_InitState::g_InitMutex);
+
+        if (!g_InitState::g_Initialized) {
+            std::lock_guard<std::mutex> lock(g_InitState::g_InitMutex);
+        }
 
         if (g_InitState::g_Initialized) {
             CleanupRenderResources_NoInput();
@@ -484,10 +478,11 @@ namespace g_MDX12 {
             return 0;
         }
 
-        g_Hook::initUWorldTick();
-        g_Hook::initHandleDisconnect();
-        g_Hook::initOutputTextLine();
-        g_Hook::initPostRender();
+        g_Hook::StartAllHooks();
+        // g_Hook::initUWorldTick();
+        // g_Hook::initHandleDisconnect();
+        // g_Hook::initOutputTextLine();
+        // g_Hook::initPostRender();
 
         // 此时 d3d12.dll 与 dxgi.dll 已被目标进程加载，可以安全操作
         while (true) {
