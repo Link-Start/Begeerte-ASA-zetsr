@@ -99,6 +99,7 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
 
         // 其他功能
         CONFIG_BOOL(g_Config::bAutoFeed);
+        CONFIG_BOOL(g_Config::bSuperFlyer);
 
         // 生物列表
         file << "[EntityList]\n";
@@ -267,6 +268,7 @@ bool ConfigManager::LoadConfig(const std::string& filename) {
         file.close();
         // 其他功能
         LOAD_BOOL(g_Config::bAutoFeed);
+        LOAD_BOOL(g_Config::bSuperFlyer);
 
         // 生物列表
         LOAD_STRING(g_Config::entitySearchBuf, 256);
