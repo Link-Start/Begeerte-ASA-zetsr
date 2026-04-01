@@ -6,6 +6,21 @@
 
 ---
 
+大概的开发流程：
+
+ - 在 `src\dllmain.cpp` 初始化所有钩子
+ - 在 `src\external\Minimal-D3D12-Hook-ImGui\Main` 处理各种钩子
+ - 在 `src\internal\CheatData\CheatData.hpp` 添加特征码
+ - 在 `src\internal\Config\Configs.h` 添加配置变量
+ - 在 `src\internal\Config\ConfigManager.cpp` 为配置变量添加保存/加载
+ - 在 `src\internal\ESP\DrawESP.cpp` 处理ESP绘制
+ - 在 `src\internal\Hack\Hack.cpp` 编写各种游戏功能的函数
+ - 在 `src\internal\Tick\Tick.cpp` 运行各种游戏功能的函数
+ - 在 `src\internal\Menu\DrawImGui.cpp` 添加主菜单功能
+ - 在 `src\internal\Menu\XXX_Menu.cpp` 处理菜单各项TAB的功能
+
+---
+
 # 🛠️ 功能
 
 ## 📡 ESP
