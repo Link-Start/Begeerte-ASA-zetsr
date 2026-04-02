@@ -342,30 +342,6 @@
     <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\Font\Alibaba-PuHuiTi-Medium.h">
       <Filter>external\Minimal-D3D12-Hook-ImGui\Font</Filter>
     </ClInclude>
-    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imconfig.h">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui.h">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_impl_dx12.h">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_impl_win32.h">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_internal.h">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imstb_rectpack.h">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imstb_textedit.h">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imstb_truetype.h">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClInclude>
     <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\Main\mdx12_api.h">
       <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
     </ClInclude>
@@ -486,6 +462,30 @@
     <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\Main\hooks.h">
       <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
     </ClInclude>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imconfig.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_impl_dx12.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_impl_win32.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_internal.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imstb_rectpack.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imstb_textedit.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imstb_truetype.h">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Object Include="external\LuaJIT-2.1\src\lj_vm.obj">
@@ -498,27 +498,6 @@
     </ClCompile>
     <ClCompile Include="external\LuaJIT-2.1\src\luajit.c">
       <Filter>external\LuaJIT-2.1\src</Filter>
-    </ClCompile>
-    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui.cpp">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_demo.cpp">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_draw.cpp">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_impl_dx12.cpp">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_impl_win32.cpp">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_tables.cpp">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_widgets.cpp">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\Main\input.cpp">
       <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
@@ -621,6 +600,27 @@
     </ClCompile>
     <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\Main\hooks.cpp">
       <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_demo.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_draw.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_impl_dx12.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_impl_win32.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_tables.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_widgets.cpp">
+      <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
