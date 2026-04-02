@@ -97,35 +97,6 @@ public:
 };
 DUMPER7_ASSERTS_INNERuntimeCPU;
 
-// Class NNE.NNERuntimeNPU
-// 0x0000 (0x0000 - 0x0000)
-class INNERuntimeNPU final
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NNERuntimeNPU")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NNERuntimeNPU")
-	}
-	static class INNERuntimeNPU* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<INNERuntimeNPU>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
-	}
-};
-DUMPER7_ASSERTS_INNERuntimeNPU;
-
 // Class NNE.NNERuntimeGPU
 // 0x0000 (0x0000 - 0x0000)
 class INNERuntimeGPU final
@@ -154,6 +125,35 @@ public:
 	}
 };
 DUMPER7_ASSERTS_INNERuntimeGPU;
+
+// Class NNE.NNERuntimeNPU
+// 0x0000 (0x0000 - 0x0000)
+class INNERuntimeNPU final
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NNERuntimeNPU")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NNERuntimeNPU")
+	}
+	static class INNERuntimeNPU* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<INNERuntimeNPU>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
+	}
+};
+DUMPER7_ASSERTS_INNERuntimeNPU;
 
 // Class NNE.NNERuntimeRDG
 // 0x0000 (0x0000 - 0x0000)

@@ -23,5 +23,15 @@ public:
 };
 DUMPER7_ASSERTS_UI_PaginationLeftRight_C_ExecuteUbergraph_UI_PaginationLeftRight;
 
+// Function UI_PaginationLeftRight.UI_PaginationLeftRight_C.GetRootCFWidget
+// 0x0010 (0x0010 - 0x0000)
+struct UI_PaginationLeftRight_C_GetRootCFWidget final
+{
+public:
+	class UPanelWidget*                           RootPanelWidget;                                   // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class UPanelWidget*                           CallFunc_GetRootCFWidget_RootPanelWidget;          // 0x0008(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_UI_PaginationLeftRight_C_GetRootCFWidget;
+
 }
 

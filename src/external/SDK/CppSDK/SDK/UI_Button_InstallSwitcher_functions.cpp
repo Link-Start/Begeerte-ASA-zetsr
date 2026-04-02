@@ -17,6 +17,27 @@
 namespace SDK
 {
 
+// Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.GetRootCFWidget
+// (Public, HasOutParams, BlueprintCallable, BlueprintEvent, BlueprintPure)
+// Parameters:
+// class UPanelWidget**                    RootPanelWidget                                        (Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+
+void UUI_Button_InstallSwitcher_C::GetRootCFWidget(class UPanelWidget** RootPanelWidget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_Button_InstallSwitcher_C", "GetRootCFWidget");
+
+	Params::UI_Button_InstallSwitcher_C_GetRootCFWidget Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (RootPanelWidget != nullptr)
+		*RootPanelWidget = Parms.RootPanelWidget;
+}
+
+
 // Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.UpdateButtonSwitcherStatus
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -40,9 +61,9 @@ void UUI_Button_InstallSwitcher_C::UpdateButtonSwitcherStatus(const struct FInst
 // Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.UpdateButtonCollor
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// ENUM_Install                            ButtonStatus                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// ENUM_CFCore_Install                     ButtonStatus                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UUI_Button_InstallSwitcher_C::UpdateButtonCollor(ENUM_Install ButtonStatus)
+void UUI_Button_InstallSwitcher_C::UpdateButtonCollor(ENUM_CFCore_Install ButtonStatus)
 {
 	static class UFunction* Func = nullptr;
 

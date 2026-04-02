@@ -951,5 +951,18 @@ public:
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_UpdateMod;
 
+// Function cfcore.CFCoreSubsystem.UtilsCompressionZipPaths
+// 0x0050 (0x0050 - 0x0000)
+struct CFCoreSubsystem_UtilsCompressionZipPaths final
+{
+public:
+	TArray<class FString>                         InPathsToZip;                                      // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+	class FString                                 InOutputZipFile;                                   // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FCompressionProgress& progress)> OnProgress;                         // 0x0020(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void()>                             OnSuccess;                                         // 0x0030(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(ECompressionError CompressionError)> OnError;                                     // 0x0040(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_CFCoreSubsystem_UtilsCompressionZipPaths;
+
 }
 

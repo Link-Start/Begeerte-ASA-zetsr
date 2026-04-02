@@ -69,17 +69,6 @@ public:
 };
 DUMPER7_ASSERTS_FClothCollisionPrim_Convex;
 
-// ScriptStruct ClothingSystemRuntimeInterface.ClothVertBoneData
-// 0x004C (0x004C - 0x0000)
-struct FClothVertBoneData final
-{
-public:
-	int32                                         NumInfluences;                                     // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint16                                        BoneIndices[0xC];                                  // 0x0004(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         BoneWeights[0xC];                                  // 0x001C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FClothVertBoneData;
-
 // ScriptStruct ClothingSystemRuntimeInterface.ClothCollisionPrim_Box
 // 0x0060 (0x0060 - 0x0000)
 struct FClothCollisionPrim_Box final
@@ -93,6 +82,17 @@ public:
 	uint8                                         Pad_5C[0x4];                                       // 0x005C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FClothCollisionPrim_Box;
+
+// ScriptStruct ClothingSystemRuntimeInterface.ClothVertBoneData
+// 0x004C (0x004C - 0x0000)
+struct FClothVertBoneData final
+{
+public:
+	int32                                         NumInfluences;                                     // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint16                                        BoneIndices[0xC];                                  // 0x0004(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         BoneWeights[0xC];                                  // 0x001C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FClothVertBoneData;
 
 // ScriptStruct ClothingSystemRuntimeInterface.ClothCollisionData
 // 0x0040 (0x0040 - 0x0000)

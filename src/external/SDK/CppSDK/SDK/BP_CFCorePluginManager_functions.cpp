@@ -826,20 +826,6 @@ void ABP_CFCorePluginManager_C::OnFailGetMyPremiumMods(const struct FCFCoreError
 }
 
 
-// Function BP_CFCorePluginManager.BP_CFCorePluginManager_C.OnFinishedInitialization
-// (BlueprintCallable, BlueprintEvent)
-
-void ABP_CFCorePluginManager_C::OnFinishedInitialization()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CFCorePluginManager_C", "OnFinishedInitialization");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
 // Function BP_CFCorePluginManager.BP_CFCorePluginManager_C.OnJoin
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:

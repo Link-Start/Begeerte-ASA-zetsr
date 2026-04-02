@@ -83,7 +83,7 @@ public:
 	TSet<class FString>                           ignoredDynamicModFiles;                            // 0x0118(0x0050)(Edit, Config, NativeAccessSpecifierPublic)
 	struct FCFCoreSettingsUnmanagedMods           unmanagedMods;                                     // 0x0168(0x0002)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
 	struct FCFCoreSettingsSubscriptions           subscriptions;                                     // 0x016A(0x0002)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_16C[0x4];                                      // 0x016C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FCFCoreSettingsDownloads               downloads;                                         // 0x016C(0x0004)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -182,6 +182,7 @@ public:
 	void Unitialize(const TDelegate<void()>& OnUninitialized, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
 	void UpdateInstalledModsProperties(const TArray<struct FInstalledModProperties>& InInstalledModsProperties, TDelegate<void()> OnSuccess, TDelegate<void(const struct FCFCoreError& Error)> OnError);
 	void UpdateMod(int64 mod_id, const struct FUpdateModRequest& update_mod_request, const class FString& avatar_image_filename, TDelegate<void(const struct FCFCoreMod& mod)> on_success, TDelegate<void(const struct FCFCoreError& Error)> on_error);
+	void UtilsCompressionZipPaths(const TArray<class FString>& InPathsToZip, const class FString& InOutputZipFile, const TDelegate<void(const struct FCompressionProgress& progress)>& OnProgress, const TDelegate<void()>& OnSuccess, const TDelegate<void(ECompressionError CompressionError)>& OnError);
 
 public:
 	static class UClass* StaticClass()

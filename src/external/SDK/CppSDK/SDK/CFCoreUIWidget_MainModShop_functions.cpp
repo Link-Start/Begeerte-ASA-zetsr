@@ -136,9 +136,9 @@ void UCFCoreUIWidget_MainModShop_C::GamepadRequestChangeTab(bool Forward)
 // Function CFCoreUIWidget_MainModShop.CFCoreUIWidget_MainModShop_C.GetDiscoveryRef
 // (Public, HasOutParams, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
-// class UUI_Discovery_C**                 DiscoveryRef                                           (Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+// class UUI_CFCore_Discovery_C**          DiscoveryRef                                           (Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 
-void UCFCoreUIWidget_MainModShop_C::GetDiscoveryRef(class UUI_Discovery_C** DiscoveryRef)
+void UCFCoreUIWidget_MainModShop_C::GetDiscoveryRef(class UUI_CFCore_Discovery_C** DiscoveryRef)
 {
 	static class UFunction* Func = nullptr;
 

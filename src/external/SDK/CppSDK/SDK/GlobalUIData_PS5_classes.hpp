@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass GlobalUIData_PS5.GlobalUIData_PS5_C
-// 0x0000 (0x0DC0 - 0x0DC0)
+// 0x0000 (0x0E20 - 0x0E20)
 class UGlobalUIData_PS5_C final : public UGlobalUIData_BP_C
 {
 public:

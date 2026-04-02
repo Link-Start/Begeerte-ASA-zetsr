@@ -2449,5 +2449,38 @@ void UCFCoreSubsystem::UpdateMod(int64 mod_id, const struct FUpdateModRequest& u
 	Func->FunctionFlags = Flgs;
 }
 
+
+// Function cfcore.CFCoreSubsystem.UtilsCompressionZipPaths
+// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const TArray<class FString>&            InPathsToZip                                           (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+// const class FString&                    InOutputZipFile                                        (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const TDelegate<void(const struct FCompressionProgress& progress)>&OnProgress                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const TDelegate<void()>&                OnSuccess                                              (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const TDelegate<void(ECompressionError CompressionError)>&OnError                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCFCoreSubsystem::UtilsCompressionZipPaths(const TArray<class FString>& InPathsToZip, const class FString& InOutputZipFile, const TDelegate<void(const struct FCompressionProgress& progress)>& OnProgress, const TDelegate<void()>& OnSuccess, const TDelegate<void(ECompressionError CompressionError)>& OnError)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreSubsystem", "UtilsCompressionZipPaths");
+
+	Params::CFCoreSubsystem_UtilsCompressionZipPaths Parms{};
+
+	Parms.InPathsToZip = std::move(InPathsToZip);
+	Parms.InOutputZipFile = std::move(InOutputZipFile);
+	Parms.OnProgress = OnProgress;
+	Parms.OnSuccess = OnSuccess;
+	Parms.OnError = OnError;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
 }
 

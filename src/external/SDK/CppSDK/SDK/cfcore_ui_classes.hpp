@@ -174,7 +174,7 @@ public:
 	TMulticastInlineDelegate<void(class UTexture2DDynamic* Texture, const class FString& URL)> OnFail; // 0x0048(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 
 public:
-	void SetImageToMap(class UTexture2DDynamic* Image, const class FString& ImageUrl);
+	void SetImageToMap(class UTexture2DDynamic* Image, const class FString& ImageUrl) const;
 
 public:
 	static class UClass* StaticClass()
@@ -362,62 +362,59 @@ public:
 	bool                                          bRatingsInitialized;                               // 0x00E0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_E1[0x7];                                       // 0x00E1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	TMulticastInlineDelegate<void(int64 modId, const class FText& PriceText, const class FText& DescriptionText, int64 NumericPrice, const class FString& productId)> GetPriceOfProductDelegate; // 0x00E8(0x0010)(BlueprintVisible, ZeroConstructor, InstancedReference, BlueprintAssignable, BlueprintCallable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_F8[0x158];                                     // 0x00F8(0x0158)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_F8[0x150];                                     // 0x00F8(0x0150)(Fixing Size After Last Property [ Dumper-7 ])
+	class UCFCoreSubsystem*                       APISubsystem;                                      // 0x0248(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	TArray<class UObject*>                        Models;                                            // 0x0250(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_260[0x20];                                     // 0x0260(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	static struct FInstallProgressMod MakeFInstallProgressMod(const struct FCFCoreMod& mod);
-	static struct FInstallProgressMod MakeFInstallProgressModFromID(int64 ID);
+	static void OnUpdateModRating();
 	static void SetMod(const struct FCFCoreMod& mod, const struct FInstalledMod& InInstalledMod, struct FInstalledMod* OutInstalledMod);
 
 	void ApiGetModsById(const TArray<int64>& modIds);
 	void AttemptAddCachedImage(const class FString& String, class UTexture2DDynamic* Image);
 	void CancelModInstallation(const struct FCFCoreMod& mod);
 	void GetInstalledMods();
-	bool GetModById(struct FInstallProgressMod* OutMod, const int64 ID);
 	void GetMyMods();
 	void GetPriceOfProduct(int64 modId, const class FString& productId);
 	bool InitializeModView(class UObject* View, const struct FCFCoreMod& mod);
 	void InitializeUIController();
 	void InstallMod(const struct FCFCoreMod& mod);
 	bool IsAnyModInstalling();
-	void OnCancelModInstallation(const struct FCFCoreError& Error);
 	void OnCancelModInstallationSuccess();
 	void OnFinishedInstalling(const struct FInstalledMod& InstalledMod);
-	void OnFinishedUpdating(const struct FInstalledMod& updatedMod);
+	void OnFinishedUpdating(const struct FInstalledMod& UpdatedMod);
 	void OnGetInstalledMods(const TArray<struct FInstalledMod>& installedMods);
-	void OnGetInstalledModsError(const struct FCFCoreError& Error);
 	void OnGetModsByIds(const TArray<struct FCFCoreMod>& mods);
-	void OnGetMyRatingsError(const struct FCFCoreError& Error);
 	void OnInstallProgress(const struct FLibraryProgress& progress);
-	void OnModInstallError(const struct FCFCoreError& Error, const struct FCFCoreMod& InstallingMod);
-	void OnModUninstallError(const struct FCFCoreError& Error);
+	void OnModInstallError(const struct FCFCoreError& Error);
 	void OnMyMods(const TArray<struct FCFCoreMod>& mods);
-	void OnMyModsError(const struct FCFCoreError& Error);
 	void OnRatingsReceived(const struct FMyRatings& ratings);
 	void OnSearchMods(const TArray<struct FCFCoreMod>& mods, const struct FCFCoreApiResponsePagination& pagination);
-	void OnSearchModsError(const struct FCFCoreError& Error);
 	void OnUninstall(const struct FInstalledMod& InstalledMod);
-	void OnUpdateModRating();
-	void OnUpdateModRatingError(const struct FCFCoreError& Error);
-	void PurchaseMod(int64 modId);
-	void PurchaseMods(const TArray<int64>& ModsId);
 	void RegisterErrorDelegate(const TDelegate<void(const struct FCFCoreError& Error)>& errorDelegate);
 	bool RegisterModelClass(const TSubclassOf<class UObject> modelClass);
 	void RegisterPurchaseModDelegate(const TDelegate<void(const int64& modId)>& PurchaseModDelegate);
 	void RegisterPurchaseModsDelegate(const TDelegate<void(const TArray<int64>& ModsId)>& PurchaseModsDelegate);
 	void ReleaseUIController();
 	void SearchMods(const struct FCFCoreSearchModsFilter& Filter, const struct FCFCoreApiRequestPagination& pagination);
-	bool SubscribeViewToEvent(class UObject* View, const EGameModsEvent& evt, bool initializeView);
-	bool SubscribeViewToEvents(class UObject* View, const TArray<EGameModsEvent>& evts, bool initializeView);
+	bool SubscribeViewToEvents(class UObject* View, const TArray<EGameModsEvent>& evts, bool bInitializeView);
+	struct FInstallProgressMod TransformModToInstallProgressMod(const struct FCFCoreMod& InMod);
 	void UninstallMod(const struct FCFCoreMod& mod);
-	bool UnregisterModelClass(const TSubclassOf<class UObject> modelClass);
 	bool UnsubscribeViewFromEvent(class UObject* View, const EGameModsEvent& evt);
 	void UnsubscribeViewFromEvents(class UObject* View, const TArray<EGameModsEvent>& evts);
 	void UpdateAllModRatings(const TDelegate<void()>& ReceivedModsRatingsInit);
 	void UpdateMod(const struct FCFCoreMod& mod);
 	void UpdateModRating(int64 modId, ECFCoreRatingVoteDirection Vote);
+
+	void OnCancelModInstallation(const struct FCFCoreError& Error) const;
+	void OnGetInstalledModsError(const struct FCFCoreError& Error) const;
+	void OnGetMyRatingsError(const struct FCFCoreError& Error) const;
+	void OnModUninstallError(const struct FCFCoreError& Error) const;
+	void OnMyModsError(const struct FCFCoreError& Error) const;
+	void OnSearchModsError(const struct FCFCoreError& Error) const;
+	void OnUpdateModRatingError(const struct FCFCoreError& Error) const;
+	bool UnregisterModelClass(const TSubclassOf<class UObject> modelClass) const;
 
 public:
 	static class UClass* StaticClass()

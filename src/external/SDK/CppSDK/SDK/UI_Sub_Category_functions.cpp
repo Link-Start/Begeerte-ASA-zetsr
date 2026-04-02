@@ -85,6 +85,27 @@ void UUI_Sub_Category_C::ExecuteUbergraph_UI_Sub_Category(int32 EntryPoint)
 }
 
 
+// Function UI_Sub-Category.UI_Sub-Category_C.GetRootCFWidget
+// (Public, HasOutParams, BlueprintCallable, BlueprintEvent, BlueprintPure)
+// Parameters:
+// class UPanelWidget**                    RootPanelWidget                                        (Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+
+void UUI_Sub_Category_C::GetRootCFWidget(class UPanelWidget** RootPanelWidget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_Sub-Category_C", "GetRootCFWidget");
+
+	Params::UI_Sub_Category_C_GetRootCFWidget Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (RootPanelWidget != nullptr)
+		*RootPanelWidget = Parms.RootPanelWidget;
+}
+
+
 // Function UI_Sub-Category.UI_Sub-Category_C.OnFail_B7C25CB3474DE2A4D0BC4DAA4F40DDC8
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:

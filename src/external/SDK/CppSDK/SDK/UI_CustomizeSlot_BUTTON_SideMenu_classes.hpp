@@ -10,7 +10,7 @@
 
 #include "Basic.hpp"
 
-#include "UI_CustomizeColorSlot_classes.hpp"
+#include "UI_CFCore_CustomizeColorSlot_classes.hpp"
 
 
 namespace SDK
@@ -18,7 +18,7 @@ namespace SDK
 
 // WidgetBlueprintGeneratedClass UI_CustomizeSlot_BUTTON_SideMenu.UI_CustomizeSlot_BUTTON_SideMenu_C
 // 0x0000 (0x03B8 - 0x03B8)
-class UUI_CustomizeSlot_BUTTON_SideMenu_C final : public UUI_CustomizeColorSlot_C
+class UUI_CustomizeSlot_BUTTON_SideMenu_C final : public UUI_CFCore_CustomizeColorSlot_C
 {
 public:
 	void GetColor(struct FLinearColor* Color);

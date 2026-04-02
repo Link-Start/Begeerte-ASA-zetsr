@@ -46,30 +46,23 @@ struct alignas(0x01) FEditorDataStorageColumn
 #pragma pack(pop)
 DUMPER7_ASSERTS_FEditorDataStorageColumn;
 
-// ScriptStruct TypedElementFramework.TypedElementAlertActionColumn
-// 0x0040 (0x0040 - 0x0000)
-struct alignas(0x10) FTypedElementAlertActionColumn final : public FEditorDataStorageColumn
+// ScriptStruct TypedElementFramework.Test_PingPongPostPhys
+// 0x0008 (0x0008 - 0x0000)
+struct FTest_PingPongPostPhys final : public FEditorDataStorageColumn
 {
 public:
-	uint8                                         Pad_0[0x40];                                       // 0x0000(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint64                                        Value;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FTypedElementAlertActionColumn;
+DUMPER7_ASSERTS_FTest_PingPongPostPhys;
 
-// ScriptStruct TypedElementFramework.EditorDataStorageTag
-// 0x0001 (0x0001 - 0x0000)
-struct FEditorDataStorageTag
+// ScriptStruct TypedElementFramework.TypedElementI64IntValueCacheColumn
+// 0x0008 (0x0008 - 0x0000)
+struct FTypedElementI64IntValueCacheColumn final : public FEditorDataStorageColumn
 {
 public:
-	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	int64                                         Value;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FEditorDataStorageTag;
-
-// ScriptStruct TypedElementFramework.TypedElementPropertyBagPlaceholderTag
-// 0x0000 (0x0001 - 0x0001)
-struct FTypedElementPropertyBagPlaceholderTag final : public FEditorDataStorageTag
-{
-};
-DUMPER7_ASSERTS_FTypedElementPropertyBagPlaceholderTag;
+DUMPER7_ASSERTS_FTypedElementI64IntValueCacheColumn;
 
 // ScriptStruct TypedElementFramework.ScriptTypedElementHandle
 // 0x0008 (0x0008 - 0x0000)
@@ -100,6 +93,24 @@ public:
 	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FTypedElementChildAlertColumn;
+
+// ScriptStruct TypedElementFramework.TypedElementAlertActionColumn
+// 0x0040 (0x0040 - 0x0000)
+struct alignas(0x10) FTypedElementAlertActionColumn final : public FEditorDataStorageColumn
+{
+public:
+	uint8                                         Pad_0[0x40];                                       // 0x0000(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FTypedElementAlertActionColumn;
+
+// ScriptStruct TypedElementFramework.EditorDataStorageTag
+// 0x0001 (0x0001 - 0x0000)
+struct FEditorDataStorageTag
+{
+public:
+	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FEditorDataStorageTag;
 
 // ScriptStruct TypedElementFramework.TypedElementUObjectColumn
 // 0x0008 (0x0008 - 0x0000)
@@ -152,6 +163,13 @@ public:
 };
 DUMPER7_ASSERTS_FTypedElementWorldColumn;
 
+// ScriptStruct TypedElementFramework.TypedElementPropertyBagPlaceholderTag
+// 0x0000 (0x0001 - 0x0001)
+struct FTypedElementPropertyBagPlaceholderTag final : public FEditorDataStorageTag
+{
+};
+DUMPER7_ASSERTS_FTypedElementPropertyBagPlaceholderTag;
+
 // ScriptStruct TypedElementFramework.TypedElementLoosePropertyTag
 // 0x0000 (0x0001 - 0x0001)
 struct FTypedElementLoosePropertyTag final : public FEditorDataStorageTag
@@ -185,15 +203,6 @@ public:
 	uint64                                        Value;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FTest_PingPongDurPhys;
-
-// ScriptStruct TypedElementFramework.Test_PingPongPostPhys
-// 0x0008 (0x0008 - 0x0000)
-struct FTest_PingPongPostPhys final : public FEditorDataStorageColumn
-{
-public:
-	uint64                                        Value;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FTest_PingPongPostPhys;
 
 // ScriptStruct TypedElementFramework.TypedElementWidgetConstructor
 // 0x0028 (0x0028 - 0x0000)
@@ -721,15 +730,6 @@ public:
 	uint64                                        Value;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FTypedElementU64IntValueCacheColumn;
-
-// ScriptStruct TypedElementFramework.TypedElementI64IntValueCacheColumn
-// 0x0008 (0x0008 - 0x0000)
-struct FTypedElementI64IntValueCacheColumn final : public FEditorDataStorageColumn
-{
-public:
-	int64                                         Value;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FTypedElementI64IntValueCacheColumn;
 
 // ScriptStruct TypedElementFramework.TypedElementFloatValueCacheColumn
 // 0x0004 (0x0004 - 0x0000)

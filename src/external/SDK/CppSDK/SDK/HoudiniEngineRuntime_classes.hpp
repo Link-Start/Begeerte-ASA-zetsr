@@ -10,13 +10,13 @@
 
 #include "Basic.hpp"
 
-#include "HoudiniEngineRuntime_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "PhysicsCore_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
 #include "DeveloperSettings_classes.hpp"
+#include "HoudiniEngineRuntime_structs.hpp"
 
 
 namespace SDK

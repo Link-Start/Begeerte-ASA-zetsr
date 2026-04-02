@@ -37,6 +37,24 @@ public:
 };
 DUMPER7_ASSERTS_FLocalizableMessage;
 
+// ScriptStruct LocalizableMessage.LocalizableMessageParameterMessage
+// 0x0030 (0x0030 - 0x0000)
+struct FLocalizableMessageParameterMessage final
+{
+public:
+	struct FLocalizableMessage                    Value;                                             // 0x0000(0x0030)(NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FLocalizableMessageParameterMessage;
+
+// ScriptStruct LocalizableMessage.LocalizableMessageParameterString
+// 0x0010 (0x0010 - 0x0000)
+struct FLocalizableMessageParameterString final
+{
+public:
+	class FString                                 Value;                                             // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FLocalizableMessageParameterString;
+
 // ScriptStruct LocalizableMessage.LocalizableMessageParameterInt
 // 0x0008 (0x0008 - 0x0000)
 struct FLocalizableMessageParameterInt final
@@ -54,24 +72,6 @@ public:
 	double                                        Value;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FLocalizableMessageParameterFloat;
-
-// ScriptStruct LocalizableMessage.LocalizableMessageParameterString
-// 0x0010 (0x0010 - 0x0000)
-struct FLocalizableMessageParameterString final
-{
-public:
-	class FString                                 Value;                                             // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FLocalizableMessageParameterString;
-
-// ScriptStruct LocalizableMessage.LocalizableMessageParameterMessage
-// 0x0030 (0x0030 - 0x0000)
-struct FLocalizableMessageParameterMessage final
-{
-public:
-	struct FLocalizableMessage                    Value;                                             // 0x0000(0x0030)(NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FLocalizableMessageParameterMessage;
 
 }
 

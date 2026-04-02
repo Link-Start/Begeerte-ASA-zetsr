@@ -11,11 +11,21 @@
 #include "Basic.hpp"
 
 #include "cfcore_ui_structs.hpp"
-#include "ENUM_Install_structs.hpp"
+#include "ENUM_CFCore_Install_structs.hpp"
 
 
 namespace SDK::Params
 {
+
+// Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.GetRootCFWidget
+// 0x0010 (0x0010 - 0x0000)
+struct UI_Button_InstallSwitcher_C_GetRootCFWidget final
+{
+public:
+	class UPanelWidget*                           RootPanelWidget;                                   // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_UI_Button_InstallSwitcher_C_GetRootCFWidget;
 
 // Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.UpdateButtonSwitcherStatus
 // 0x0610 (0x0610 - 0x0000)
@@ -34,7 +44,7 @@ DUMPER7_ASSERTS_UI_Button_InstallSwitcher_C_UpdateButtonSwitcherStatus;
 struct UI_Button_InstallSwitcher_C_UpdateButtonCollor final
 {
 public:
-	ENUM_Install                                  ButtonStatus;                                      // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	ENUM_CFCore_Install                           ButtonStatus;                                      // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_UI_Button_InstallSwitcher_C_UpdateButtonCollor;
 

@@ -41,6 +41,33 @@ public:
 };
 DUMPER7_ASSERTS_UGeometryScriptDebug;
 
+// Class GeometryScriptingCore.GeometryScriptLibrary_MeshBooleanFunctions
+// 0x0000 (0x0028 - 0x0028)
+class UGeometryScriptLibrary_MeshBooleanFunctions final : public UBlueprintFunctionLibrary
+{
+public:
+	static class UDynamicMesh* ApplyMeshBoolean(class UDynamicMesh* TargetMesh, const struct FTransform& TargetTransform, class UDynamicMesh* ToolMesh, const struct FTransform& ToolTransform, EGeometryScriptBooleanOperation Operation, const struct FGeometryScriptMeshBooleanOptions& Options, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* ApplyMeshMirror(class UDynamicMesh* TargetMesh, const struct FTransform& MirrorFrame, const struct FGeometryScriptMeshMirrorOptions& Options, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* ApplyMeshPlaneCut(class UDynamicMesh* TargetMesh, const struct FTransform& CutFrame, const struct FGeometryScriptMeshPlaneCutOptions& Options, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* ApplyMeshPlaneSlice(class UDynamicMesh* TargetMesh, const struct FTransform& CutFrame, const struct FGeometryScriptMeshPlaneSliceOptions& Options, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* ApplyMeshSelfUnion(class UDynamicMesh* TargetMesh, const struct FGeometryScriptMeshSelfUnionOptions& Options, class UGeometryScriptDebug* Debug);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GeometryScriptLibrary_MeshBooleanFunctions")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GeometryScriptLibrary_MeshBooleanFunctions")
+	}
+	static class UGeometryScriptLibrary_MeshBooleanFunctions* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGeometryScriptLibrary_MeshBooleanFunctions>();
+	}
+};
+DUMPER7_ASSERTS_UGeometryScriptLibrary_MeshBooleanFunctions;
+
 // Class GeometryScriptingCore.GeometryScriptLibrary_CollisionFunctions
 // 0x0000 (0x0028 - 0x0028)
 class UGeometryScriptLibrary_CollisionFunctions final : public UBlueprintFunctionLibrary
@@ -85,31 +112,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UGeometryScriptLibrary_CollisionFunctions;
-
-// Class GeometryScriptingCore.GeometryScriptLibrary_ContainmentFunctions
-// 0x0000 (0x0028 - 0x0028)
-class UGeometryScriptLibrary_ContainmentFunctions final : public UBlueprintFunctionLibrary
-{
-public:
-	static class UDynamicMesh* ComputeMeshConvexDecomposition(class UDynamicMesh* TargetMesh, class UDynamicMesh*& CopyToMesh, class UDynamicMesh** CopyToMeshOut, const struct FGeometryScriptConvexDecompositionOptions& Options, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* ComputeMeshConvexHull(class UDynamicMesh* TargetMesh, class UDynamicMesh*& CopyToMesh, class UDynamicMesh** CopyToMeshOut, const struct FGeometryScriptMeshSelection& Selection, const struct FGeometryScriptConvexHullOptions& Options, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* ComputeMeshSweptHull(class UDynamicMesh* TargetMesh, class UDynamicMesh*& CopyToMesh, class UDynamicMesh** CopyToMeshOut, const struct FTransform& ProjectionFrame, const struct FGeometryScriptSweptHullOptions& Options, class UGeometryScriptDebug* Debug);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GeometryScriptLibrary_ContainmentFunctions")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GeometryScriptLibrary_ContainmentFunctions")
-	}
-	static class UGeometryScriptLibrary_ContainmentFunctions* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGeometryScriptLibrary_ContainmentFunctions>();
-	}
-};
-DUMPER7_ASSERTS_UGeometryScriptLibrary_ContainmentFunctions;
 
 // Class GeometryScriptingCore.GeometryScriptLibrary_ListUtilityFunctions
 // 0x0000 (0x0028 - 0x0028)
@@ -179,6 +181,31 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UGeometryScriptLibrary_ListUtilityFunctions;
+
+// Class GeometryScriptingCore.GeometryScriptLibrary_ContainmentFunctions
+// 0x0000 (0x0028 - 0x0028)
+class UGeometryScriptLibrary_ContainmentFunctions final : public UBlueprintFunctionLibrary
+{
+public:
+	static class UDynamicMesh* ComputeMeshConvexDecomposition(class UDynamicMesh* TargetMesh, class UDynamicMesh*& CopyToMesh, class UDynamicMesh** CopyToMeshOut, const struct FGeometryScriptConvexDecompositionOptions& Options, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* ComputeMeshConvexHull(class UDynamicMesh* TargetMesh, class UDynamicMesh*& CopyToMesh, class UDynamicMesh** CopyToMeshOut, const struct FGeometryScriptMeshSelection& Selection, const struct FGeometryScriptConvexHullOptions& Options, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* ComputeMeshSweptHull(class UDynamicMesh* TargetMesh, class UDynamicMesh*& CopyToMesh, class UDynamicMesh** CopyToMeshOut, const struct FTransform& ProjectionFrame, const struct FGeometryScriptSweptHullOptions& Options, class UGeometryScriptDebug* Debug);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GeometryScriptLibrary_ContainmentFunctions")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GeometryScriptLibrary_ContainmentFunctions")
+	}
+	static class UGeometryScriptLibrary_ContainmentFunctions* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGeometryScriptLibrary_ContainmentFunctions>();
+	}
+};
+DUMPER7_ASSERTS_UGeometryScriptLibrary_ContainmentFunctions;
 
 // Class GeometryScriptingCore.GeometryScriptLibrary_StaticMeshFunctions
 // 0x0000 (0x0028 - 0x0028)
@@ -339,33 +366,6 @@ public:
 };
 DUMPER7_ASSERTS_UGeometryScriptLibrary_MeshBoneWeightFunctions;
 
-// Class GeometryScriptingCore.GeometryScriptLibrary_MeshBooleanFunctions
-// 0x0000 (0x0028 - 0x0028)
-class UGeometryScriptLibrary_MeshBooleanFunctions final : public UBlueprintFunctionLibrary
-{
-public:
-	static class UDynamicMesh* ApplyMeshBoolean(class UDynamicMesh* TargetMesh, const struct FTransform& TargetTransform, class UDynamicMesh* ToolMesh, const struct FTransform& ToolTransform, EGeometryScriptBooleanOperation Operation, const struct FGeometryScriptMeshBooleanOptions& Options, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* ApplyMeshMirror(class UDynamicMesh* TargetMesh, const struct FTransform& MirrorFrame, const struct FGeometryScriptMeshMirrorOptions& Options, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* ApplyMeshPlaneCut(class UDynamicMesh* TargetMesh, const struct FTransform& CutFrame, const struct FGeometryScriptMeshPlaneCutOptions& Options, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* ApplyMeshPlaneSlice(class UDynamicMesh* TargetMesh, const struct FTransform& CutFrame, const struct FGeometryScriptMeshPlaneSliceOptions& Options, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* ApplyMeshSelfUnion(class UDynamicMesh* TargetMesh, const struct FGeometryScriptMeshSelfUnionOptions& Options, class UGeometryScriptDebug* Debug);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GeometryScriptLibrary_MeshBooleanFunctions")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GeometryScriptLibrary_MeshBooleanFunctions")
-	}
-	static class UGeometryScriptLibrary_MeshBooleanFunctions* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGeometryScriptLibrary_MeshBooleanFunctions>();
-	}
-};
-DUMPER7_ASSERTS_UGeometryScriptLibrary_MeshBooleanFunctions;
-
 // Class GeometryScriptingCore.GeometryScriptLibrary_MeshComparisonFunctions
 // 0x0000 (0x0028 - 0x0028)
 class UGeometryScriptLibrary_MeshComparisonFunctions final : public UBlueprintFunctionLibrary
@@ -449,31 +449,6 @@ public:
 };
 DUMPER7_ASSERTS_UGeometryScriptLibrary_MeshDeformFunctions;
 
-// Class GeometryScriptingCore.GeometryScriptLibrary_MeshSubdivideFunctions
-// 0x0000 (0x0028 - 0x0028)
-class UGeometryScriptLibrary_MeshSubdivideFunctions final : public UBlueprintFunctionLibrary
-{
-public:
-	static class UDynamicMesh* ApplyPNTessellation(class UDynamicMesh* TargetMesh, const struct FGeometryScriptPNTessellateOptions& Options, int32 TessellationLevel, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* ApplySelectiveTessellation(class UDynamicMesh* TargetMesh, const struct FGeometryScriptMeshSelection& Selection, const struct FGeometryScriptSelectiveTessellateOptions& Options, int32 TessellationLevel, ESelectiveTessellatePatternType PatternType, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* ApplyUniformTessellation(class UDynamicMesh* TargetMesh, int32 TessellationLevel, class UGeometryScriptDebug* Debug);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GeometryScriptLibrary_MeshSubdivideFunctions")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GeometryScriptLibrary_MeshSubdivideFunctions")
-	}
-	static class UGeometryScriptLibrary_MeshSubdivideFunctions* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGeometryScriptLibrary_MeshSubdivideFunctions>();
-	}
-};
-DUMPER7_ASSERTS_UGeometryScriptLibrary_MeshSubdivideFunctions;
-
 // Class GeometryScriptingCore.GeometryScriptLibrary_MeshGeodesicFunctions
 // 0x0000 (0x0028 - 0x0028)
 class UGeometryScriptLibrary_MeshGeodesicFunctions final : public UBlueprintFunctionLibrary
@@ -537,38 +512,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UGeometryScriptLibrary_MeshMaterialFunctions;
-
-// Class GeometryScriptingCore.GeometryScriptLibrary_MeshRepairFunctions
-// 0x0000 (0x0028 - 0x0028)
-class UGeometryScriptLibrary_MeshRepairFunctions final : public UBlueprintFunctionLibrary
-{
-public:
-	static class UDynamicMesh* CompactMesh(class UDynamicMesh* TargetMesh, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* FillAllMeshHoles(class UDynamicMesh* TargetMesh, const struct FGeometryScriptFillHolesOptions& FillOptions, int32* NumFilledHoles, int32* NumFailedHoleFills, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* RemoveHiddenTriangles(class UDynamicMesh* TargetMesh, const struct FGeometryScriptRemoveHiddenTrianglesOptions& Options, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* RemoveSmallComponents(class UDynamicMesh* TargetMesh, const struct FGeometryScriptRemoveSmallComponentOptions& Options, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* RemoveUnusedVertices(class UDynamicMesh* TargetMesh, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* RepairMeshDegenerateGeometry(class UDynamicMesh* TargetMesh, const struct FGeometryScriptDegenerateTriangleOptions& Options, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* ResolveMeshTJunctions(class UDynamicMesh* TargetMesh, const struct FGeometryScriptResolveTJunctionOptions& ResolveOptions, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* SnapMeshOpenBoundaries(class UDynamicMesh* TargetMesh, const struct FGeometryScriptSnapBoundariesOptions& SnapOptions, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* SplitMeshBowties(class UDynamicMesh* TargetMesh, bool bMeshBowties, bool bAttributeBowties, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* WeldMeshEdges(class UDynamicMesh* TargetMesh, const struct FGeometryScriptWeldEdgesOptions& WeldOptions, class UGeometryScriptDebug* Debug);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GeometryScriptLibrary_MeshRepairFunctions")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GeometryScriptLibrary_MeshRepairFunctions")
-	}
-	static class UGeometryScriptLibrary_MeshRepairFunctions* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGeometryScriptLibrary_MeshRepairFunctions>();
-	}
-};
-DUMPER7_ASSERTS_UGeometryScriptLibrary_MeshRepairFunctions;
 
 // Class GeometryScriptingCore.GeometryScriptLibrary_MeshModelingFunctions
 // 0x0000 (0x0028 - 0x0028)
@@ -702,33 +645,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UGeometryScriptLibrary_MeshPoolFunctions;
-
-// Class GeometryScriptingCore.GeometryScriptLibrary_MeshSimplifyFunctions
-// 0x0000 (0x0028 - 0x0028)
-class UGeometryScriptLibrary_MeshSimplifyFunctions final : public UBlueprintFunctionLibrary
-{
-public:
-	static class UDynamicMesh* ApplySimplifyToPlanar(class UDynamicMesh* TargetMesh, const struct FGeometryScriptPlanarSimplifyOptions& Options, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* ApplySimplifyToPolygroupTopology(class UDynamicMesh* TargetMesh, const struct FGeometryScriptPolygroupSimplifyOptions& Options, const struct FGeometryScriptGroupLayer& GroupLayer, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* ApplySimplifyToTolerance(class UDynamicMesh* TargetMesh, float Tolerance, const struct FGeometryScriptSimplifyMeshOptions& Options, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* ApplySimplifyToTriangleCount(class UDynamicMesh* TargetMesh, int32 TriangleCount, const struct FGeometryScriptSimplifyMeshOptions& Options, class UGeometryScriptDebug* Debug);
-	static class UDynamicMesh* ApplySimplifyToVertexCount(class UDynamicMesh* TargetMesh, int32 vertexcount, const struct FGeometryScriptSimplifyMeshOptions& Options, class UGeometryScriptDebug* Debug);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GeometryScriptLibrary_MeshSimplifyFunctions")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GeometryScriptLibrary_MeshSimplifyFunctions")
-	}
-	static class UGeometryScriptLibrary_MeshSimplifyFunctions* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGeometryScriptLibrary_MeshSimplifyFunctions>();
-	}
-};
-DUMPER7_ASSERTS_UGeometryScriptLibrary_MeshSimplifyFunctions;
 
 // Class GeometryScriptingCore.GeometryScriptLibrary_MeshPrimitiveFunctions
 // 0x0000 (0x0028 - 0x0028)
@@ -882,6 +798,38 @@ public:
 };
 DUMPER7_ASSERTS_UGeometryScriptLibrary_RemeshingFunctions;
 
+// Class GeometryScriptingCore.GeometryScriptLibrary_MeshRepairFunctions
+// 0x0000 (0x0028 - 0x0028)
+class UGeometryScriptLibrary_MeshRepairFunctions final : public UBlueprintFunctionLibrary
+{
+public:
+	static class UDynamicMesh* CompactMesh(class UDynamicMesh* TargetMesh, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* FillAllMeshHoles(class UDynamicMesh* TargetMesh, const struct FGeometryScriptFillHolesOptions& FillOptions, int32* NumFilledHoles, int32* NumFailedHoleFills, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* RemoveHiddenTriangles(class UDynamicMesh* TargetMesh, const struct FGeometryScriptRemoveHiddenTrianglesOptions& Options, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* RemoveSmallComponents(class UDynamicMesh* TargetMesh, const struct FGeometryScriptRemoveSmallComponentOptions& Options, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* RemoveUnusedVertices(class UDynamicMesh* TargetMesh, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* RepairMeshDegenerateGeometry(class UDynamicMesh* TargetMesh, const struct FGeometryScriptDegenerateTriangleOptions& Options, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* ResolveMeshTJunctions(class UDynamicMesh* TargetMesh, const struct FGeometryScriptResolveTJunctionOptions& ResolveOptions, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* SnapMeshOpenBoundaries(class UDynamicMesh* TargetMesh, const struct FGeometryScriptSnapBoundariesOptions& SnapOptions, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* SplitMeshBowties(class UDynamicMesh* TargetMesh, bool bMeshBowties, bool bAttributeBowties, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* WeldMeshEdges(class UDynamicMesh* TargetMesh, const struct FGeometryScriptWeldEdgesOptions& WeldOptions, class UGeometryScriptDebug* Debug);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GeometryScriptLibrary_MeshRepairFunctions")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GeometryScriptLibrary_MeshRepairFunctions")
+	}
+	static class UGeometryScriptLibrary_MeshRepairFunctions* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGeometryScriptLibrary_MeshRepairFunctions>();
+	}
+};
+DUMPER7_ASSERTS_UGeometryScriptLibrary_MeshRepairFunctions;
+
 // Class GeometryScriptingCore.GeometryScriptLibrary_MeshSamplingFunctions
 // 0x0000 (0x0028 - 0x0028)
 class UGeometryScriptLibrary_MeshSamplingFunctions final : public UBlueprintFunctionLibrary
@@ -979,6 +927,33 @@ public:
 };
 DUMPER7_ASSERTS_UGeometryScriptLibrary_MeshSelectionQueryFunctions;
 
+// Class GeometryScriptingCore.GeometryScriptLibrary_MeshSimplifyFunctions
+// 0x0000 (0x0028 - 0x0028)
+class UGeometryScriptLibrary_MeshSimplifyFunctions final : public UBlueprintFunctionLibrary
+{
+public:
+	static class UDynamicMesh* ApplySimplifyToPlanar(class UDynamicMesh* TargetMesh, const struct FGeometryScriptPlanarSimplifyOptions& Options, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* ApplySimplifyToPolygroupTopology(class UDynamicMesh* TargetMesh, const struct FGeometryScriptPolygroupSimplifyOptions& Options, const struct FGeometryScriptGroupLayer& GroupLayer, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* ApplySimplifyToTolerance(class UDynamicMesh* TargetMesh, float Tolerance, const struct FGeometryScriptSimplifyMeshOptions& Options, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* ApplySimplifyToTriangleCount(class UDynamicMesh* TargetMesh, int32 TriangleCount, const struct FGeometryScriptSimplifyMeshOptions& Options, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* ApplySimplifyToVertexCount(class UDynamicMesh* TargetMesh, int32 vertexcount, const struct FGeometryScriptSimplifyMeshOptions& Options, class UGeometryScriptDebug* Debug);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GeometryScriptLibrary_MeshSimplifyFunctions")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GeometryScriptLibrary_MeshSimplifyFunctions")
+	}
+	static class UGeometryScriptLibrary_MeshSimplifyFunctions* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGeometryScriptLibrary_MeshSimplifyFunctions>();
+	}
+};
+DUMPER7_ASSERTS_UGeometryScriptLibrary_MeshSimplifyFunctions;
+
 // Class GeometryScriptingCore.GeometryScriptLibrary_MeshSpatial
 // 0x0000 (0x0028 - 0x0028)
 class UGeometryScriptLibrary_MeshSpatial final : public UBlueprintFunctionLibrary
@@ -1008,6 +983,31 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UGeometryScriptLibrary_MeshSpatial;
+
+// Class GeometryScriptingCore.GeometryScriptLibrary_MeshSubdivideFunctions
+// 0x0000 (0x0028 - 0x0028)
+class UGeometryScriptLibrary_MeshSubdivideFunctions final : public UBlueprintFunctionLibrary
+{
+public:
+	static class UDynamicMesh* ApplyPNTessellation(class UDynamicMesh* TargetMesh, const struct FGeometryScriptPNTessellateOptions& Options, int32 TessellationLevel, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* ApplySelectiveTessellation(class UDynamicMesh* TargetMesh, const struct FGeometryScriptMeshSelection& Selection, const struct FGeometryScriptSelectiveTessellateOptions& Options, int32 TessellationLevel, ESelectiveTessellatePatternType PatternType, class UGeometryScriptDebug* Debug);
+	static class UDynamicMesh* ApplyUniformTessellation(class UDynamicMesh* TargetMesh, int32 TessellationLevel, class UGeometryScriptDebug* Debug);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GeometryScriptLibrary_MeshSubdivideFunctions")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GeometryScriptLibrary_MeshSubdivideFunctions")
+	}
+	static class UGeometryScriptLibrary_MeshSubdivideFunctions* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGeometryScriptLibrary_MeshSubdivideFunctions>();
+	}
+};
+DUMPER7_ASSERTS_UGeometryScriptLibrary_MeshSubdivideFunctions;
 
 // Class GeometryScriptingCore.GeometryScriptLibrary_MeshTransformFunctions
 // 0x0000 (0x0028 - 0x0028)

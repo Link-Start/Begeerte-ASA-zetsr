@@ -177,26 +177,6 @@ public:
 };
 DUMPER7_ASSERTS_CFCoreUIInstallProgressModHelperFunctionsLibrary_UpdateInstallProgressModsLoadOrder;
 
-// Function cfcore_ui.CFCoreUISubsystem.MakeFInstallProgressMod
-// 0x0808 (0x0808 - 0x0000)
-struct CFCoreUISubsystem_MakeFInstallProgressMod final
-{
-public:
-	struct FCFCoreMod                             mod;                                               // 0x0000(0x0200)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FInstallProgressMod                    ReturnValue;                                       // 0x0200(0x0608)(Parm, OutParm, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreUISubsystem_MakeFInstallProgressMod;
-
-// Function cfcore_ui.CFCoreUISubsystem.MakeFInstallProgressModFromID
-// 0x0610 (0x0610 - 0x0000)
-struct CFCoreUISubsystem_MakeFInstallProgressModFromID final
-{
-public:
-	int64                                         ID;                                                // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FInstallProgressMod                    ReturnValue;                                       // 0x0008(0x0608)(Parm, OutParm, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreUISubsystem_MakeFInstallProgressModFromID;
-
 // Function cfcore_ui.CFCoreUISubsystem.SetMod
 // 0x0C60 (0x0C60 - 0x0000)
 struct CFCoreUISubsystem_SetMod final
@@ -235,18 +215,6 @@ public:
 	struct FCFCoreMod                             mod;                                               // 0x0000(0x0200)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_CancelModInstallation;
-
-// Function cfcore_ui.CFCoreUISubsystem.GetModById
-// 0x0618 (0x0618 - 0x0000)
-struct CFCoreUISubsystem_GetModById final
-{
-public:
-	struct FInstallProgressMod                    OutMod;                                            // 0x0000(0x0608)(Parm, OutParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	int64                                         ID;                                                // 0x0608(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0610(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_611[0x7];                                      // 0x0611(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_CFCoreUISubsystem_GetModById;
 
 // Function cfcore_ui.CFCoreUISubsystem.GetPriceOfProduct
 // 0x0018 (0x0018 - 0x0000)
@@ -288,15 +256,6 @@ public:
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_IsAnyModInstalling;
 
-// Function cfcore_ui.CFCoreUISubsystem.OnCancelModInstallation
-// 0x0038 (0x0038 - 0x0000)
-struct CFCoreUISubsystem_OnCancelModInstallation final
-{
-public:
-	struct FCFCoreError                           Error;                                             // 0x0000(0x0038)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreUISubsystem_OnCancelModInstallation;
-
 // Function cfcore_ui.CFCoreUISubsystem.OnFinishedInstalling
 // 0x0530 (0x0530 - 0x0000)
 struct CFCoreUISubsystem_OnFinishedInstalling final
@@ -311,7 +270,7 @@ DUMPER7_ASSERTS_CFCoreUISubsystem_OnFinishedInstalling;
 struct CFCoreUISubsystem_OnFinishedUpdating final
 {
 public:
-	struct FInstalledMod                          updatedMod;                                        // 0x0000(0x0530)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FInstalledMod                          UpdatedMod;                                        // 0x0000(0x0530)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_OnFinishedUpdating;
 
@@ -324,15 +283,6 @@ public:
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_OnGetInstalledMods;
 
-// Function cfcore_ui.CFCoreUISubsystem.OnGetInstalledModsError
-// 0x0038 (0x0038 - 0x0000)
-struct CFCoreUISubsystem_OnGetInstalledModsError final
-{
-public:
-	struct FCFCoreError                           Error;                                             // 0x0000(0x0038)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreUISubsystem_OnGetInstalledModsError;
-
 // Function cfcore_ui.CFCoreUISubsystem.OnGetModsByIds
 // 0x0010 (0x0010 - 0x0000)
 struct CFCoreUISubsystem_OnGetModsByIds final
@@ -341,15 +291,6 @@ public:
 	TArray<struct FCFCoreMod>                     mods;                                              // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_OnGetModsByIds;
-
-// Function cfcore_ui.CFCoreUISubsystem.OnGetMyRatingsError
-// 0x0038 (0x0038 - 0x0000)
-struct CFCoreUISubsystem_OnGetMyRatingsError final
-{
-public:
-	struct FCFCoreError                           Error;                                             // 0x0000(0x0038)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreUISubsystem_OnGetMyRatingsError;
 
 // Function cfcore_ui.CFCoreUISubsystem.OnInstallProgress
 // 0x0040 (0x0040 - 0x0000)
@@ -361,23 +302,13 @@ public:
 DUMPER7_ASSERTS_CFCoreUISubsystem_OnInstallProgress;
 
 // Function cfcore_ui.CFCoreUISubsystem.OnModInstallError
-// 0x0238 (0x0238 - 0x0000)
+// 0x0038 (0x0038 - 0x0000)
 struct CFCoreUISubsystem_OnModInstallError final
 {
 public:
 	struct FCFCoreError                           Error;                                             // 0x0000(0x0038)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FCFCoreMod                             InstallingMod;                                     // 0x0038(0x0200)(Parm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_OnModInstallError;
-
-// Function cfcore_ui.CFCoreUISubsystem.OnModUninstallError
-// 0x0038 (0x0038 - 0x0000)
-struct CFCoreUISubsystem_OnModUninstallError final
-{
-public:
-	struct FCFCoreError                           Error;                                             // 0x0000(0x0038)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreUISubsystem_OnModUninstallError;
 
 // Function cfcore_ui.CFCoreUISubsystem.OnMyMods
 // 0x0010 (0x0010 - 0x0000)
@@ -387,15 +318,6 @@ public:
 	TArray<struct FCFCoreMod>                     mods;                                              // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_OnMyMods;
-
-// Function cfcore_ui.CFCoreUISubsystem.OnMyModsError
-// 0x0038 (0x0038 - 0x0000)
-struct CFCoreUISubsystem_OnMyModsError final
-{
-public:
-	struct FCFCoreError                           Error;                                             // 0x0000(0x0038)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreUISubsystem_OnMyModsError;
 
 // Function cfcore_ui.CFCoreUISubsystem.OnRatingsReceived
 // 0x0020 (0x0020 - 0x0000)
@@ -416,15 +338,6 @@ public:
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_OnSearchMods;
 
-// Function cfcore_ui.CFCoreUISubsystem.OnSearchModsError
-// 0x0038 (0x0038 - 0x0000)
-struct CFCoreUISubsystem_OnSearchModsError final
-{
-public:
-	struct FCFCoreError                           Error;                                             // 0x0000(0x0038)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreUISubsystem_OnSearchModsError;
-
 // Function cfcore_ui.CFCoreUISubsystem.OnUninstall
 // 0x0530 (0x0530 - 0x0000)
 struct CFCoreUISubsystem_OnUninstall final
@@ -433,33 +346,6 @@ public:
 	struct FInstalledMod                          InstalledMod;                                      // 0x0000(0x0530)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_OnUninstall;
-
-// Function cfcore_ui.CFCoreUISubsystem.OnUpdateModRatingError
-// 0x0038 (0x0038 - 0x0000)
-struct CFCoreUISubsystem_OnUpdateModRatingError final
-{
-public:
-	struct FCFCoreError                           Error;                                             // 0x0000(0x0038)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreUISubsystem_OnUpdateModRatingError;
-
-// Function cfcore_ui.CFCoreUISubsystem.PurchaseMod
-// 0x0008 (0x0008 - 0x0000)
-struct CFCoreUISubsystem_PurchaseMod final
-{
-public:
-	int64                                         modId;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreUISubsystem_PurchaseMod;
-
-// Function cfcore_ui.CFCoreUISubsystem.PurchaseMods
-// 0x0010 (0x0010 - 0x0000)
-struct CFCoreUISubsystem_PurchaseMods final
-{
-public:
-	TArray<int64>                                 ModsId;                                            // 0x0000(0x0010)(Parm, ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreUISubsystem_PurchaseMods;
 
 // Function cfcore_ui.CFCoreUISubsystem.RegisterErrorDelegate
 // 0x0010 (0x0010 - 0x0000)
@@ -509,19 +395,6 @@ public:
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_SearchMods;
 
-// Function cfcore_ui.CFCoreUISubsystem.SubscribeViewToEvent
-// 0x0010 (0x0010 - 0x0000)
-struct CFCoreUISubsystem_SubscribeViewToEvent final
-{
-public:
-	class UObject*                                View;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EGameModsEvent                                evt;                                               // 0x0008(0x0001)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          initializeView;                                    // 0x0009(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x000A(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_B[0x5];                                        // 0x000B(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_CFCoreUISubsystem_SubscribeViewToEvent;
-
 // Function cfcore_ui.CFCoreUISubsystem.SubscribeViewToEvents
 // 0x0020 (0x0020 - 0x0000)
 struct CFCoreUISubsystem_SubscribeViewToEvents final
@@ -529,11 +402,21 @@ struct CFCoreUISubsystem_SubscribeViewToEvents final
 public:
 	class UObject*                                View;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<EGameModsEvent>                        evts;                                              // 0x0008(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	bool                                          initializeView;                                    // 0x0018(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bInitializeView;                                   // 0x0018(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0019(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1A[0x6];                                       // 0x001A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_SubscribeViewToEvents;
+
+// Function cfcore_ui.CFCoreUISubsystem.TransformModToInstallProgressMod
+// 0x0808 (0x0808 - 0x0000)
+struct CFCoreUISubsystem_TransformModToInstallProgressMod final
+{
+public:
+	struct FCFCoreMod                             InMod;                                             // 0x0000(0x0200)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FInstallProgressMod                    ReturnValue;                                       // 0x0200(0x0608)(Parm, OutParm, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_CFCoreUISubsystem_TransformModToInstallProgressMod;
 
 // Function cfcore_ui.CFCoreUISubsystem.UninstallMod
 // 0x0200 (0x0200 - 0x0000)
@@ -543,17 +426,6 @@ public:
 	struct FCFCoreMod                             mod;                                               // 0x0000(0x0200)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_UninstallMod;
-
-// Function cfcore_ui.CFCoreUISubsystem.UnregisterModelClass
-// 0x0010 (0x0010 - 0x0000)
-struct CFCoreUISubsystem_UnregisterModelClass final
-{
-public:
-	TSubclassOf<class UObject>                    modelClass;                                        // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_CFCoreUISubsystem_UnregisterModelClass;
 
 // Function cfcore_ui.CFCoreUISubsystem.UnsubscribeViewFromEvent
 // 0x0010 (0x0010 - 0x0000)
@@ -605,6 +477,80 @@ public:
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_CFCoreUISubsystem_UpdateModRating;
+
+// Function cfcore_ui.CFCoreUISubsystem.OnCancelModInstallation
+// 0x0038 (0x0038 - 0x0000)
+struct CFCoreUISubsystem_OnCancelModInstallation final
+{
+public:
+	struct FCFCoreError                           Error;                                             // 0x0000(0x0038)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_CFCoreUISubsystem_OnCancelModInstallation;
+
+// Function cfcore_ui.CFCoreUISubsystem.OnGetInstalledModsError
+// 0x0038 (0x0038 - 0x0000)
+struct CFCoreUISubsystem_OnGetInstalledModsError final
+{
+public:
+	struct FCFCoreError                           Error;                                             // 0x0000(0x0038)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_CFCoreUISubsystem_OnGetInstalledModsError;
+
+// Function cfcore_ui.CFCoreUISubsystem.OnGetMyRatingsError
+// 0x0038 (0x0038 - 0x0000)
+struct CFCoreUISubsystem_OnGetMyRatingsError final
+{
+public:
+	struct FCFCoreError                           Error;                                             // 0x0000(0x0038)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_CFCoreUISubsystem_OnGetMyRatingsError;
+
+// Function cfcore_ui.CFCoreUISubsystem.OnModUninstallError
+// 0x0038 (0x0038 - 0x0000)
+struct CFCoreUISubsystem_OnModUninstallError final
+{
+public:
+	struct FCFCoreError                           Error;                                             // 0x0000(0x0038)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_CFCoreUISubsystem_OnModUninstallError;
+
+// Function cfcore_ui.CFCoreUISubsystem.OnMyModsError
+// 0x0038 (0x0038 - 0x0000)
+struct CFCoreUISubsystem_OnMyModsError final
+{
+public:
+	struct FCFCoreError                           Error;                                             // 0x0000(0x0038)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_CFCoreUISubsystem_OnMyModsError;
+
+// Function cfcore_ui.CFCoreUISubsystem.OnSearchModsError
+// 0x0038 (0x0038 - 0x0000)
+struct CFCoreUISubsystem_OnSearchModsError final
+{
+public:
+	struct FCFCoreError                           Error;                                             // 0x0000(0x0038)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_CFCoreUISubsystem_OnSearchModsError;
+
+// Function cfcore_ui.CFCoreUISubsystem.OnUpdateModRatingError
+// 0x0038 (0x0038 - 0x0000)
+struct CFCoreUISubsystem_OnUpdateModRatingError final
+{
+public:
+	struct FCFCoreError                           Error;                                             // 0x0000(0x0038)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_CFCoreUISubsystem_OnUpdateModRatingError;
+
+// Function cfcore_ui.CFCoreUISubsystem.UnregisterModelClass
+// 0x0010 (0x0010 - 0x0000)
+struct CFCoreUISubsystem_UnregisterModelClass final
+{
+public:
+	TSubclassOf<class UObject>                    modelClass;                                        // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_CFCoreUISubsystem_UnregisterModelClass;
 
 // Function cfcore_ui.CFCoreVirtualCursorFunctionLibrary.DisableVirtualCursor
 // 0x0008 (0x0008 - 0x0000)

@@ -10,37 +10,38 @@
 
 #include "Basic.hpp"
 
+#include "UMG_structs.hpp"
+#include "STRUCT_CustomComboBoxOption_structs.hpp"
 #include "STRUCT_SubOptions_structs.hpp"
 #include "CoreUObject_structs.hpp"
-#include "CFCoreUIWidget_classes.hpp"
 #include "Engine_structs.hpp"
-#include "STRUCT_CustomComboBoxOption_structs.hpp"
 #include "SlateCore_structs.hpp"
-#include "UMG_structs.hpp"
+#include "CFCoreWidget_classes.hpp"
 
 
 namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass UI_CustomComboBoxOption.UI_CustomComboBoxOption_C
-// 0x0C08 (0x1440 - 0x0838)
-class UUI_CustomComboBoxOption_C : public UCFCoreUIWidget_C
+// 0x0C10 (0x1440 - 0x0830)
+class UUI_CustomComboBoxOption_C : public UCFCoreWidget_C
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame_UI_CustomComboBoxOption_C;          // 0x0838(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	class UButton*                                Button_Option;                                     // 0x0840(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UBorder*                                ImageBorder;                                       // 0x0848(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 IMG_Border;                                        // 0x0850(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 IMG_ChevronRight;                                  // 0x0858(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	struct FPointerToUberGraphFrame               UberGraphFrame_UI_CustomComboBoxOption_C;          // 0x0830(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	class UButton*                                Button_Option;                                     // 0x0838(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UBorder*                                ImageBorder;                                       // 0x0840(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 IMG_Border;                                        // 0x0848(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 IMG_ChevronRight;                                  // 0x0850(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UOverlay*                               Overlay_2;                                         // 0x0858(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class UBorder*                                SizeBorder;                                        // 0x0860(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class USpacer*                                Spacer_1;                                          // 0x0868(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class USpacer*                                Spacer_2;                                          // 0x0870(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class USpacer*                                Spacer_Text;                                       // 0x0878(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class UTextBlock*                             TEXT_Option;                                       // 0x0880(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UUI_CustomComboBox_C*                   UI_CustomComboBoxWidget;                           // 0x0888(0x0008)(Edit, BlueprintVisible, ZeroConstructor, InstancedReference, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
+	class UUI_CFCore_CustomComboBox_C*            UI_CustomComboBoxWidget;                           // 0x0888(0x0008)(Edit, BlueprintVisible, ZeroConstructor, InstancedReference, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
 	struct FSTRUCT_CustomComboBoxOption           CategoryInfo;                                      // 0x0890(0x0038)(Edit, BlueprintVisible, ExposeOnSpawn, HasGetValueTypeHash)
 	class FString                                 Text;                                              // 0x08C8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
-	class UUI_CustomComboBox_C*                   Owner;                                             // 0x08D8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, InstancedReference, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
+	class UUI_CFCore_CustomComboBox_C*            Owner;                                             // 0x08D8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, InstancedReference, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
 	struct FVector2D                              Size;                                              // 0x08E0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
 	double                                        TextSpacing;                                       // 0x08F0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
 	struct FVector2D                              ImageSize;                                         // 0x08F8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
@@ -83,6 +84,7 @@ public:
 	void ExecuteUbergraph_UI_CustomComboBoxOption(int32 EntryPoint);
 	void FocusOff();
 	void FocusON();
+	void GetRootCFWidget(class UPanelWidget** RootPanelWidget);
 	void OnAddedToFocusPath(const struct FFocusEvent& InFocusEvent);
 	void OnFail_2F79E7094E3FA19CAF12DEBE91370E8A(class UTexture2DDynamic* Texture);
 	class UWidget* OnNavRight(EUINavigation Navigation_0);

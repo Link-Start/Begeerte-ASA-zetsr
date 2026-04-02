@@ -368,6 +368,25 @@ enum class EConcertSyncActivityFlags : uint8
 	EConcertSyncActivityFlags_MAX            = 2,
 };
 
+// ScriptStruct ConcertSyncCore.ConcertReplicationRemappingData_Actor
+// 0x0030 (0x0030 - 0x0000)
+struct FConcertReplicationRemappingData_Actor final
+{
+public:
+	class FString                                 Label;                                             // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FSoftClassPath                         Class;                                             // 0x0010(0x0020)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertReplicationRemappingData_Actor;
+
+// ScriptStruct ConcertSyncCore.ConcertReplicationRemappingData
+// 0x0050 (0x0050 - 0x0000)
+struct FConcertReplicationRemappingData final
+{
+public:
+	TMap<struct FSoftObjectPath, struct FConcertReplicationRemappingData_Actor> ActorData;           // 0x0000(0x0050)(NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertReplicationRemappingData;
+
 // ScriptStruct ConcertSyncCore.ConcertSequencerCloseEvent
 // 0x0018 (0x0018 - 0x0000)
 struct FConcertSequencerCloseEvent final
@@ -391,112 +410,6 @@ public:
 	TOptional<int64>                              ActivityId;                                        // 0x0008(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertReplication_RestoreContent_Request;
-
-// ScriptStruct ConcertSyncCore.ConcertReplicationRemappingData_Actor
-// 0x0030 (0x0030 - 0x0000)
-struct FConcertReplicationRemappingData_Actor final
-{
-public:
-	class FString                                 Label;                                             // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FSoftClassPath                         Class;                                             // 0x0010(0x0020)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertReplicationRemappingData_Actor;
-
-// ScriptStruct ConcertSyncCore.ConcertReplicationRemappingData
-// 0x0050 (0x0050 - 0x0000)
-struct FConcertReplicationRemappingData final
-{
-public:
-	TMap<struct FSoftObjectPath, struct FConcertReplicationRemappingData_Actor> ActorData;           // 0x0000(0x0050)(NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertReplicationRemappingData;
-
-// ScriptStruct ConcertSyncCore.ConcertSerializedObjectData
-// 0x0058 (0x0058 - 0x0000)
-struct FConcertSerializedObjectData final
-{
-public:
-	bool                                          bAllowCreate;                                      // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bResetExisting;                                    // 0x0001(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsPendingKill;                                    // 0x0002(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3[0x1];                                        // 0x0003(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   NewPackageName;                                    // 0x0004(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   NewName;                                           // 0x000C(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   NewOuterPathName;                                  // 0x0014(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   NewExternalPackageName;                            // 0x001C(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSoftObjectPath                        SourceObject;                                      // 0x0028(0x0020)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<uint8>                                 SerializedData;                                    // 0x0048(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertSerializedObjectData;
-
-// ScriptStruct ConcertSyncCore.ConcertPackageInfo
-// 0x0048 (0x0048 - 0x0000)
-struct FConcertPackageInfo final
-{
-public:
-	class FName                                   PackageName;                                       // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   NewPackageName;                                    // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 AssetClass;                                        // 0x0010(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 PackageFileExtension;                              // 0x0020(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EConcertPackageUpdateType                     PackageUpdateType;                                 // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	int64                                         TransactionEventIdAtSave;                          // 0x0038(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bPreSave;                                          // 0x0040(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAutoSave;                                         // 0x0041(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bCanSkipHotReload;                                 // 0x0042(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_43[0x5];                                       // 0x0043(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FConcertPackageInfo;
-
-// ScriptStruct ConcertSyncCore.ConcertPackage
-// 0x0068 (0x0068 - 0x0000)
-struct FConcertPackage final
-{
-public:
-	struct FConcertPackageInfo                    Info;                                              // 0x0000(0x0048)(NativeAccessSpecifierPublic)
-	struct FConcertByteArray                      PackageData;                                       // 0x0048(0x0010)(NativeAccessSpecifierPublic)
-	class FString                                 fileId;                                            // 0x0058(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertPackage;
-
-// ScriptStruct ConcertSyncCore.ConcertSyncPackageEvent
-// 0x0070 (0x0070 - 0x0000)
-struct FConcertSyncPackageEvent final
-{
-public:
-	int64                                         PackageRevision;                                   // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FConcertPackage                        Package;                                           // 0x0008(0x0068)(NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertSyncPackageEvent;
-
-// ScriptStruct ConcertSyncCore.ConcertSyncActivity
-// 0x0058 (0x0058 - 0x0000)
-struct FConcertSyncActivity
-{
-public:
-	int64                                         ActivityId;                                        // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIgnored;                                          // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EConcertSyncActivityFlags                     Flags;                                             // 0x0009(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_A[0x2];                                        // 0x000A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGuid                                  EndpointId;                                        // 0x000C(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FDateTime                              EventTime;                                         // 0x0020(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EConcertSyncActivityEventType                 EventType;                                         // 0x0028(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	int64                                         EventId;                                           // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FConcertSessionSerializedPayload       EventSummary;                                      // 0x0038(0x0020)(NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertSyncActivity;
-
-// ScriptStruct ConcertSyncCore.ConcertSyncPackageActivity
-// 0x0070 (0x00C8 - 0x0058)
-struct FConcertSyncPackageActivity final : public FConcertSyncActivity
-{
-public:
-	struct FConcertSyncPackageEvent               EventData;                                         // 0x0058(0x0070)(NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertSyncPackageActivity;
 
 // ScriptStruct ConcertSyncCore.ConcertObjectInStreamID
 // 0x0030 (0x0030 - 0x0000)
@@ -536,96 +449,6 @@ public:
 };
 DUMPER7_ASSERTS_FConcertAuthorityConflictArray;
 
-// ScriptStruct ConcertSyncCore.ConcertObjectId
-// 0x002C (0x002C - 0x0000)
-struct FConcertObjectId final
-{
-public:
-	class FName                                   ObjectClassPathName;                               // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ObjectPackageName;                                 // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ObjectName;                                        // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ObjectOuterPathName;                               // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ObjectExternalPackageName;                         // 0x0020(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint32                                        ObjectPersistentFlags;                             // 0x0028(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertObjectId;
-
-// ScriptStruct ConcertSyncCore.ConcertSerializedPropertyData
-// 0x0018 (0x0018 - 0x0000)
-struct FConcertSerializedPropertyData final
-{
-public:
-	class FName                                   PropertyName;                                      // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<uint8>                                 SerializedData;                                    // 0x0008(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertSerializedPropertyData;
-
-// ScriptStruct ConcertSyncCore.ConcertExportedObject
-// 0x00B0 (0x00B0 - 0x0000)
-struct FConcertExportedObject final
-{
-public:
-	struct FConcertObjectId                       ObjectID;                                          // 0x0000(0x002C)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         ObjectPathDepth;                                   // 0x002C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bHasLevelInstanceObject;                           // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FConcertSerializedObjectData           ObjectData;                                        // 0x0038(0x0058)(NativeAccessSpecifierPublic)
-	TArray<struct FConcertSerializedPropertyData> PropertyDatas;                                     // 0x0090(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<uint8>                                 SerializedAnnotationData;                          // 0x00A0(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertExportedObject;
-
-// ScriptStruct ConcertSyncCore.ConcertTransactionEventBase
-// 0x0088 (0x0088 - 0x0000)
-struct FConcertTransactionEventBase
-{
-public:
-	struct FGuid                                  transactionId;                                     // 0x0000(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGuid                                  OperationId;                                       // 0x0010(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGuid                                  TransactionEndpointId;                             // 0x0020(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         TransactionUpdateIndex;                            // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_31[0x3];                                       // 0x0031(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         VersionIndex;                                      // 0x0034(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<class FName>                           ModifiedPackages;                                  // 0x0038(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-	struct FConcertObjectId                       PrimaryObjectId;                                   // 0x0048(0x002C)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_74[0x4];                                       // 0x0074(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FConcertExportedObject>         ExportedObjects;                                   // 0x0078(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertTransactionEventBase;
-
-// ScriptStruct ConcertSyncCore.ConcertTransactionFinalizedEvent
-// 0x0020 (0x00A8 - 0x0088)
-struct FConcertTransactionFinalizedEvent final : public FConcertTransactionEventBase
-{
-public:
-	struct FConcertLocalIdentifierState           LocalIdentifierState;                              // 0x0088(0x0010)(NativeAccessSpecifierPublic)
-	class FText                                   Title;                                             // 0x0098(0x0010)(NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertTransactionFinalizedEvent;
-
-// ScriptStruct ConcertSyncCore.ConcertSyncActivitySummary
-// 0x0008 (0x0008 - 0x0000)
-struct alignas(0x08) FConcertSyncActivitySummary
-{
-public:
-	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FConcertSyncActivitySummary;
-
-// ScriptStruct ConcertSyncCore.ConcertSyncPackageActivitySummary
-// 0x0018 (0x0020 - 0x0008)
-struct FConcertSyncPackageActivitySummary final : public FConcertSyncActivitySummary
-{
-public:
-	class FName                                   PackageName;                                       // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   NewPackageName;                                    // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EConcertPackageUpdateType                     PackageUpdateType;                                 // 0x0018(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAutoSave;                                         // 0x0019(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bPreSave;                                          // 0x001A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1B[0x5];                                       // 0x001B(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FConcertSyncPackageActivitySummary;
-
 // ScriptStruct ConcertSyncCore.ConcertStreamArray
 // 0x0010 (0x0010 - 0x0000)
 struct FConcertStreamArray final
@@ -644,36 +467,6 @@ public:
 	TMap<struct FSoftObjectPath, struct FConcertStreamArray> ReleaseAuthority;                       // 0x0050(0x0050)(NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertReplication_ChangeAuthority_Request;
-
-// ScriptStruct ConcertSyncCore.PackageClassFilter
-// 0x0030 (0x0030 - 0x0000)
-struct FPackageClassFilter final
-{
-public:
-	struct FSoftClassPath                         AssetClass;                                        // 0x0000(0x0020)(Edit, ZeroConstructor, Config, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<class FString>                         ContentPaths;                                      // 0x0020(0x0010)(Edit, ZeroConstructor, Config, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FPackageClassFilter;
-
-// ScriptStruct ConcertSyncCore.ConcertSyncLockEvent
-// 0x0018 (0x0018 - 0x0000)
-struct FConcertSyncLockEvent final
-{
-public:
-	EConcertSyncLockEventType                     LockEventType;                                     // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FName>                           ResourceNames;                                     // 0x0008(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertSyncLockEvent;
-
-// ScriptStruct ConcertSyncCore.ConcertSyncLockActivity
-// 0x0018 (0x0070 - 0x0058)
-struct FConcertSyncLockActivity final : public FConcertSyncActivity
-{
-public:
-	struct FConcertSyncLockEvent                  EventData;                                         // 0x0058(0x0018)(NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertSyncLockActivity;
 
 // ScriptStruct ConcertSyncCore.ConcertReplication_ChangeSyncControl
 // 0x0050 (0x0050 - 0x0000)
@@ -822,24 +615,6 @@ public:
 };
 DUMPER7_ASSERTS_FConcertReplication_ClientChangeData;
 
-// ScriptStruct ConcertSyncCore.ConcertSyncEndpointData
-// 0x00B8 (0x00B8 - 0x0000)
-struct FConcertSyncEndpointData final
-{
-public:
-	struct FConcertClientInfo                     ClientInfo;                                        // 0x0000(0x00B8)(NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertSyncEndpointData;
-
-// ScriptStruct ConcertSyncCore.ConcertTransactionRejectedEvent
-// 0x0010 (0x0010 - 0x0000)
-struct FConcertTransactionRejectedEvent final
-{
-public:
-	struct FGuid                                  transactionId;                                     // 0x0000(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertTransactionRejectedEvent;
-
 // ScriptStruct ConcertSyncCore.ConcertReplication_ChangeClientEvent
 // 0x0248 (0x0248 - 0x0000)
 struct FConcertReplication_ChangeClientEvent final
@@ -953,16 +728,6 @@ public:
 };
 DUMPER7_ASSERTS_FConcertDataStore_Text;
 
-// ScriptStruct ConcertSyncCore.ConcertSequencerOpenEvent
-// 0x0020 (0x0020 - 0x0000)
-struct FConcertSequencerOpenEvent final
-{
-public:
-	class FString                                 SequenceObjectPath;                                // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FConcertByteArray                      TakeData;                                          // 0x0010(0x0010)(NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertSequencerOpenEvent;
-
 // ScriptStruct ConcertSyncCore.ConcertDataStore_StoreValue
 // 0x0030 (0x0030 - 0x0000)
 struct FConcertDataStore_StoreValue final
@@ -984,15 +749,6 @@ public:
 	struct FConcertDataStore_StoreValue           Value;                                             // 0x0008(0x0030)(Edit, EditConst, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertDataStore_KeyValuePair;
-
-// ScriptStruct ConcertSyncCore.ConcertClientPresenceInVREvent
-// 0x0008 (0x0008 - 0x0000)
-struct FConcertClientPresenceInVREvent final
-{
-public:
-	class FName                                   VRDevice;                                          // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertClientPresenceInVREvent;
 
 // ScriptStruct ConcertSyncCore.ConcertDataStore_ReplicateEvent
 // 0x0010 (0x0010 - 0x0000)
@@ -1034,40 +790,6 @@ public:
 };
 DUMPER7_ASSERTS_FConcertDataStore_CompareExchangeRequest;
 
-// ScriptStruct ConcertSyncCore.ConcertLaserData
-// 0x0030 (0x0030 - 0x0000)
-struct FConcertLaserData final
-{
-public:
-	struct FVector                                LaserStart;                                        // 0x0000(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                LaserEnd;                                          // 0x0018(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertLaserData;
-
-// ScriptStruct ConcertSyncCore.ConcertClientPresenceEventBase
-// 0x0004 (0x0004 - 0x0000)
-struct FConcertClientPresenceEventBase
-{
-public:
-	uint32                                        TransactionUpdateIndex;                            // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertClientPresenceEventBase;
-
-// ScriptStruct ConcertSyncCore.ConcertClientVRPresenceUpdateEvent
-// 0x00DC (0x00E0 - 0x0004)
-struct FConcertClientVRPresenceUpdateEvent final : public FConcertClientPresenceEventBase
-{
-public:
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                LeftMotionControllerPosition;                      // 0x0008(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FQuat                                  LeftMotionControllerOrientation;                   // 0x0020(0x0020)(IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                RightMotionControllerPosition;                     // 0x0040(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_58[0x8];                                       // 0x0058(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FQuat                                  RightMotionControllerOrientation;                  // 0x0060(0x0020)(IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FConcertLaserData                      Lasers[0x2];                                       // 0x0080(0x0030)(NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertClientVRPresenceUpdateEvent;
-
 // ScriptStruct ConcertSyncCore.ConcertDataStore_Response
 // 0x0038 (0x0038 - 0x0000)
 struct FConcertDataStore_Response final
@@ -1079,6 +801,15 @@ public:
 };
 DUMPER7_ASSERTS_FConcertDataStore_Response;
 
+// ScriptStruct ConcertSyncCore.ConcertClientPresenceEventBase
+// 0x0004 (0x0004 - 0x0000)
+struct FConcertClientPresenceEventBase
+{
+public:
+	uint32                                        TransactionUpdateIndex;                            // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertClientPresenceEventBase;
+
 // ScriptStruct ConcertSyncCore.ConcertClientPresenceVisibilityUpdateEvent
 // 0x0014 (0x0014 - 0x0000)
 struct FConcertClientPresenceVisibilityUpdateEvent final
@@ -1089,6 +820,15 @@ public:
 	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FConcertClientPresenceVisibilityUpdateEvent;
+
+// ScriptStruct ConcertSyncCore.ConcertClientPresenceInVREvent
+// 0x0008 (0x0008 - 0x0000)
+struct FConcertClientPresenceInVREvent final
+{
+public:
+	class FName                                   VRDevice;                                          // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertClientPresenceInVREvent;
 
 // ScriptStruct ConcertSyncCore.ConcertClientPresenceDataUpdateEvent
 // 0x005C (0x0060 - 0x0004)
@@ -1118,6 +858,31 @@ public:
 };
 DUMPER7_ASSERTS_FConcertClientDesktopPresenceUpdateEvent;
 
+// ScriptStruct ConcertSyncCore.ConcertLaserData
+// 0x0030 (0x0030 - 0x0000)
+struct FConcertLaserData final
+{
+public:
+	struct FVector                                LaserStart;                                        // 0x0000(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                LaserEnd;                                          // 0x0018(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertLaserData;
+
+// ScriptStruct ConcertSyncCore.ConcertClientVRPresenceUpdateEvent
+// 0x00DC (0x00E0 - 0x0004)
+struct FConcertClientVRPresenceUpdateEvent final : public FConcertClientPresenceEventBase
+{
+public:
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                LeftMotionControllerPosition;                      // 0x0008(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FQuat                                  LeftMotionControllerOrientation;                   // 0x0020(0x0020)(IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                RightMotionControllerPosition;                     // 0x0040(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_58[0x8];                                       // 0x0058(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FQuat                                  RightMotionControllerOrientation;                  // 0x0060(0x0020)(IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FConcertLaserData                      Lasers[0x2];                                       // 0x0080(0x0030)(NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertClientVRPresenceUpdateEvent;
+
 // ScriptStruct ConcertSyncCore.ConcertSequencerState
 // 0x0050 (0x0050 - 0x0000)
 struct FConcertSequencerState final
@@ -1134,6 +899,16 @@ public:
 	struct FConcertByteArray                      TakeData;                                          // 0x0040(0x0010)(NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertSequencerState;
+
+// ScriptStruct ConcertSyncCore.ConcertSequencerOpenEvent
+// 0x0020 (0x0020 - 0x0000)
+struct FConcertSequencerOpenEvent final
+{
+public:
+	class FString                                 SequenceObjectPath;                                // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FConcertByteArray                      TakeData;                                          // 0x0010(0x0010)(NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertSequencerOpenEvent;
 
 // ScriptStruct ConcertSyncCore.ConcertSequencerStateEvent
 // 0x0050 (0x0050 - 0x0000)
@@ -1203,12 +978,147 @@ public:
 };
 DUMPER7_ASSERTS_FTransactionClassFilter;
 
+// ScriptStruct ConcertSyncCore.PackageClassFilter
+// 0x0030 (0x0030 - 0x0000)
+struct FPackageClassFilter final
+{
+public:
+	struct FSoftClassPath                         AssetClass;                                        // 0x0000(0x0020)(Edit, ZeroConstructor, Config, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<class FString>                         ContentPaths;                                      // 0x0020(0x0010)(Edit, ZeroConstructor, Config, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FPackageClassFilter;
+
+// ScriptStruct ConcertSyncCore.ConcertObjectId
+// 0x002C (0x002C - 0x0000)
+struct FConcertObjectId final
+{
+public:
+	class FName                                   ObjectClassPathName;                               // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   ObjectPackageName;                                 // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   ObjectName;                                        // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   ObjectOuterPathName;                               // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   ObjectExternalPackageName;                         // 0x0020(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint32                                        ObjectPersistentFlags;                             // 0x0028(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertObjectId;
+
+// ScriptStruct ConcertSyncCore.ConcertSerializedObjectData
+// 0x0058 (0x0058 - 0x0000)
+struct FConcertSerializedObjectData final
+{
+public:
+	bool                                          bAllowCreate;                                      // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bResetExisting;                                    // 0x0001(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsPendingKill;                                    // 0x0002(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3[0x1];                                        // 0x0003(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   NewPackageName;                                    // 0x0004(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   NewName;                                           // 0x000C(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   NewOuterPathName;                                  // 0x0014(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   NewExternalPackageName;                            // 0x001C(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FSoftObjectPath                        SourceObject;                                      // 0x0028(0x0020)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<uint8>                                 SerializedData;                                    // 0x0048(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertSerializedObjectData;
+
+// ScriptStruct ConcertSyncCore.ConcertSerializedPropertyData
+// 0x0018 (0x0018 - 0x0000)
+struct FConcertSerializedPropertyData final
+{
+public:
+	class FName                                   PropertyName;                                      // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<uint8>                                 SerializedData;                                    // 0x0008(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertSerializedPropertyData;
+
+// ScriptStruct ConcertSyncCore.ConcertExportedObject
+// 0x00B0 (0x00B0 - 0x0000)
+struct FConcertExportedObject final
+{
+public:
+	struct FConcertObjectId                       ObjectID;                                          // 0x0000(0x002C)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         ObjectPathDepth;                                   // 0x002C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bHasLevelInstanceObject;                           // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FConcertSerializedObjectData           ObjectData;                                        // 0x0038(0x0058)(NativeAccessSpecifierPublic)
+	TArray<struct FConcertSerializedPropertyData> PropertyDatas;                                     // 0x0090(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<uint8>                                 SerializedAnnotationData;                          // 0x00A0(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertExportedObject;
+
+// ScriptStruct ConcertSyncCore.ConcertTransactionEventBase
+// 0x0088 (0x0088 - 0x0000)
+struct FConcertTransactionEventBase
+{
+public:
+	struct FGuid                                  transactionId;                                     // 0x0000(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGuid                                  OperationId;                                       // 0x0010(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGuid                                  TransactionEndpointId;                             // 0x0020(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         TransactionUpdateIndex;                            // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_31[0x3];                                       // 0x0031(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         VersionIndex;                                      // 0x0034(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<class FName>                           ModifiedPackages;                                  // 0x0038(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	struct FConcertObjectId                       PrimaryObjectId;                                   // 0x0048(0x002C)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_74[0x4];                                       // 0x0074(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FConcertExportedObject>         ExportedObjects;                                   // 0x0078(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertTransactionEventBase;
+
+// ScriptStruct ConcertSyncCore.ConcertTransactionFinalizedEvent
+// 0x0020 (0x00A8 - 0x0088)
+struct FConcertTransactionFinalizedEvent final : public FConcertTransactionEventBase
+{
+public:
+	struct FConcertLocalIdentifierState           LocalIdentifierState;                              // 0x0088(0x0010)(NativeAccessSpecifierPublic)
+	class FText                                   Title;                                             // 0x0098(0x0010)(NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertTransactionFinalizedEvent;
+
 // ScriptStruct ConcertSyncCore.ConcertTransactionSnapshotEvent
 // 0x0000 (0x0088 - 0x0088)
 struct FConcertTransactionSnapshotEvent final : public FConcertTransactionEventBase
 {
 };
 DUMPER7_ASSERTS_FConcertTransactionSnapshotEvent;
+
+// ScriptStruct ConcertSyncCore.ConcertTransactionRejectedEvent
+// 0x0010 (0x0010 - 0x0000)
+struct FConcertTransactionRejectedEvent final
+{
+public:
+	struct FGuid                                  transactionId;                                     // 0x0000(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertTransactionRejectedEvent;
+
+// ScriptStruct ConcertSyncCore.ConcertPackageInfo
+// 0x0048 (0x0048 - 0x0000)
+struct FConcertPackageInfo final
+{
+public:
+	class FName                                   PackageName;                                       // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   NewPackageName;                                    // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 AssetClass;                                        // 0x0010(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 PackageFileExtension;                              // 0x0020(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EConcertPackageUpdateType                     PackageUpdateType;                                 // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	int64                                         TransactionEventIdAtSave;                          // 0x0038(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bPreSave;                                          // 0x0040(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAutoSave;                                         // 0x0041(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bCanSkipHotReload;                                 // 0x0042(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_43[0x5];                                       // 0x0043(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FConcertPackageInfo;
+
+// ScriptStruct ConcertSyncCore.ConcertPackage
+// 0x0068 (0x0068 - 0x0000)
+struct FConcertPackage final
+{
+public:
+	struct FConcertPackageInfo                    Info;                                              // 0x0000(0x0048)(NativeAccessSpecifierPublic)
+	struct FConcertByteArray                      PackageData;                                       // 0x0048(0x0010)(NativeAccessSpecifierPublic)
+	class FString                                 fileId;                                            // 0x0058(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertPackage;
 
 // ScriptStruct ConcertSyncCore.ConcertWorkspaceSyncEventBase
 // 0x0004 (0x0004 - 0x0000)
@@ -1218,6 +1128,15 @@ public:
 	int32                                         NumRemainingSyncEvents;                            // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertWorkspaceSyncEventBase;
+
+// ScriptStruct ConcertSyncCore.ConcertSyncEndpointData
+// 0x00B8 (0x00B8 - 0x0000)
+struct FConcertSyncEndpointData final
+{
+public:
+	struct FConcertClientInfo                     ClientInfo;                                        // 0x0000(0x00B8)(NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertSyncEndpointData;
 
 // ScriptStruct ConcertSyncCore.ConcertSyncEndpointIdAndData
 // 0x00C8 (0x00C8 - 0x0000)
@@ -1626,6 +1545,25 @@ public:
 };
 DUMPER7_ASSERTS_FConcertSyncReplicationEvent;
 
+// ScriptStruct ConcertSyncCore.ConcertSyncActivity
+// 0x0058 (0x0058 - 0x0000)
+struct FConcertSyncActivity
+{
+public:
+	int64                                         ActivityId;                                        // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIgnored;                                          // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EConcertSyncActivityFlags                     Flags;                                             // 0x0009(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A[0x2];                                        // 0x000A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGuid                                  EndpointId;                                        // 0x000C(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FDateTime                              EventTime;                                         // 0x0020(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EConcertSyncActivityEventType                 EventType;                                         // 0x0028(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	int64                                         EventId;                                           // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FConcertSessionSerializedPayload       EventSummary;                                      // 0x0038(0x0020)(NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertSyncActivity;
+
 // ScriptStruct ConcertSyncCore.ConcertSyncReplicationActivity
 // 0x0028 (0x0080 - 0x0058)
 struct FConcertSyncReplicationActivity final : public FConcertSyncActivity
@@ -1634,6 +1572,15 @@ public:
 	struct FConcertSyncReplicationEvent           EventData;                                         // 0x0058(0x0028)(NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertSyncReplicationActivity;
+
+// ScriptStruct ConcertSyncCore.ConcertSyncActivitySummary
+// 0x0008 (0x0008 - 0x0000)
+struct alignas(0x08) FConcertSyncActivitySummary
+{
+public:
+	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FConcertSyncActivitySummary;
 
 // ScriptStruct ConcertSyncCore.ConcertSyncReplicationActivitySummary
 // 0x0028 (0x0030 - 0x0008)
@@ -1667,6 +1614,17 @@ public:
 };
 DUMPER7_ASSERTS_FConcertSyncConnectionEvent;
 
+// ScriptStruct ConcertSyncCore.ConcertSyncLockEvent
+// 0x0018 (0x0018 - 0x0000)
+struct FConcertSyncLockEvent final
+{
+public:
+	EConcertSyncLockEventType                     LockEventType;                                     // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class FName>                           ResourceNames;                                     // 0x0008(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertSyncLockEvent;
+
 // ScriptStruct ConcertSyncCore.ConcertSyncTransactionEvent
 // 0x00A8 (0x00A8 - 0x0000)
 struct FConcertSyncTransactionEvent final
@@ -1675,6 +1633,16 @@ public:
 	struct FConcertTransactionFinalizedEvent      Transaction;                                       // 0x0000(0x00A8)(NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertSyncTransactionEvent;
+
+// ScriptStruct ConcertSyncCore.ConcertSyncPackageEvent
+// 0x0070 (0x0070 - 0x0000)
+struct FConcertSyncPackageEvent final
+{
+public:
+	int64                                         PackageRevision;                                   // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FConcertPackage                        Package;                                           // 0x0008(0x0068)(NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertSyncPackageEvent;
 
 // ScriptStruct ConcertSyncCore.ConcertSyncPackageEventMetaData
 // 0x0050 (0x0050 - 0x0000)
@@ -1696,6 +1664,15 @@ public:
 };
 DUMPER7_ASSERTS_FConcertSyncConnectionActivity;
 
+// ScriptStruct ConcertSyncCore.ConcertSyncLockActivity
+// 0x0018 (0x0070 - 0x0058)
+struct FConcertSyncLockActivity final : public FConcertSyncActivity
+{
+public:
+	struct FConcertSyncLockEvent                  EventData;                                         // 0x0058(0x0018)(NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertSyncLockActivity;
+
 // ScriptStruct ConcertSyncCore.ConcertSyncTransactionActivity
 // 0x00A8 (0x0100 - 0x0058)
 struct FConcertSyncTransactionActivity final : public FConcertSyncActivity
@@ -1704,6 +1681,15 @@ public:
 	struct FConcertSyncTransactionEvent           EventData;                                         // 0x0058(0x00A8)(NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertSyncTransactionActivity;
+
+// ScriptStruct ConcertSyncCore.ConcertSyncPackageActivity
+// 0x0070 (0x00C8 - 0x0058)
+struct FConcertSyncPackageActivity final : public FConcertSyncActivity
+{
+public:
+	struct FConcertSyncPackageEvent               EventData;                                         // 0x0058(0x0070)(NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertSyncPackageActivity;
 
 // ScriptStruct ConcertSyncCore.ConcertSyncConnectionActivitySummary
 // 0x0008 (0x0010 - 0x0008)
@@ -1743,6 +1729,20 @@ public:
 	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FConcertSyncTransactionActivitySummary;
+
+// ScriptStruct ConcertSyncCore.ConcertSyncPackageActivitySummary
+// 0x0018 (0x0020 - 0x0008)
+struct FConcertSyncPackageActivitySummary final : public FConcertSyncActivitySummary
+{
+public:
+	class FName                                   PackageName;                                       // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   NewPackageName;                                    // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EConcertPackageUpdateType                     PackageUpdateType;                                 // 0x0018(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAutoSave;                                         // 0x0019(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bPreSave;                                          // 0x001A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1B[0x5];                                       // 0x001B(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FConcertSyncPackageActivitySummary;
 
 }
 

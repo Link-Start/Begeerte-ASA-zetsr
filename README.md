@@ -6,7 +6,7 @@
 
 ---
 
-大概的开发流程：
+## 大概的开发流程：
 
  - 在 `src\dllmain.cpp` 初始化所有钩子
  - 在 `src\external\Minimal-D3D12-Hook-ImGui\Main` 处理各种钩子
@@ -18,6 +18,46 @@
  - 在 `src\internal\Tick\Tick.cpp` 运行各种游戏功能的函数
  - 在 `src\internal\Menu\DrawImGui.cpp` 添加主菜单功能
  - 在 `src\internal\Menu\XXX_Menu.cpp` 处理菜单各项TAB的功能
+
+## 如果游戏更新
+
+ - 转到 `src\external\SDK\CppSDK\SDK\Engine_classes.hpp`
+ - 转到 `class UNetConnection : public UPlayer` 
+ - 将 `uint8 Pad_AD[0xBB]` 注释掉
+ - 在 `uint8 InternalAck : 1` 和 `uint8 Pad_AD[0xBB]` 之间的位置添加
+```cpp
+uint8                                          Pad_AD_To_C0[0x13];                                // 0x00AD(0x0013)(填充到 0xC0)
+class FString                                  RemoteIPList;                                      // 0x00C0(0x0010)(我们发现的 IP 列表)
+int32                                          RemotePort;
+uint8                                          Pad_D4_To_168[0x94];                               // 0x00D4(0x0094)(填充到 PlayerID)
+```
+ 
+ - 在函数部分添加
+```cpp
+std::string GetFirstIP() {
+	if (!this || !this->RemoteIPList.IsValid()) {
+		return "Unknown";
+	}
+
+std::string fullList = this->RemoteIPList.ToString();
+    if (fullList.empty()) return "Unknown";
+
+	size_t commaPos = fullList.find(',');
+	if (commaPos != std::string::npos) {
+		return fullList.substr(0, commaPos);
+	}
+
+	return fullList;
+}
+
+int32_t GetPort() {
+	return (this) ? RemotePort : 0;
+}
+```
+> **注意**
+>
+> 如果 `UNetConnection` 布局发生变化则需要重新寻找 `RemoteIPList` 和 `RemotePort` 的偏移，因为它们无法被Dumper-7自动反射。
+> 如果需要更新偏移，通常只需要遍历 `UNetConnection` 获取所有有效偏移，然后筛选值符合条件的偏移即可。
 
 ---
 

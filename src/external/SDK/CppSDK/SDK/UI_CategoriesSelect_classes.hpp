@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
+#include "UI_CFCore_CustomComboBox_classes.hpp"
 #include "Engine_structs.hpp"
-#include "UI_CustomComboBox_classes.hpp"
 
 
 namespace SDK
@@ -19,7 +19,7 @@ namespace SDK
 
 // WidgetBlueprintGeneratedClass UI_CategoriesSelect.UI_CategoriesSelect_C
 // 0x0050 (0x1500 - 0x14B0)
-class UUI_CategoriesSelect_C final : public UUI_CustomComboBox_C
+class UUI_CategoriesSelect_C final : public UUI_CFCore_CustomComboBox_C
 {
 public:
 	uint8                                         Pad_14A1[0x7];                                     // 0x14A1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
@@ -28,7 +28,7 @@ public:
 	int64                                         CurrentClassCategoryID;                            // 0x14C0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	TArray<class FString>                         Temp;                                              // 0x14C8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
 	int64                                         SelectedCategoryID;                                // 0x14D8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class UUI_ParentBrowser_C*                    UI_ParentPage;                                     // 0x14E0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class UUI_CFCore_ParentBrowser_C*             UI_ParentPage;                                     // 0x14E0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
 	TMulticastInlineDelegate<void()>              OnOptionChangedIGuess;                             // 0x14E8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 
 public:

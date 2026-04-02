@@ -11,19 +11,20 @@
 #include "Basic.hpp"
 
 #include "STRUCT_SubOptions_structs.hpp"
-#include "CFCoreUIWidget_classes.hpp"
 #include "Engine_structs.hpp"
+#include "CFCoreWidget_classes.hpp"
 
 
 namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass UI_Sub-Category.UI_Sub-Category_C
-// 0x0058 (0x0890 - 0x0838)
-class UUI_Sub_Category_C final : public UCFCoreUIWidget_C
+// 0x0060 (0x0890 - 0x0830)
+class UUI_Sub_Category_C final : public UCFCoreWidget_C
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame_UI_Sub_Category_C;                  // 0x0838(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	struct FPointerToUberGraphFrame               UberGraphFrame_UI_Sub_Category_C;                  // 0x0830(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	class UBorder*                                Border_48;                                         // 0x0838(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class UButton*                                Button_Category;                                   // 0x0840(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class UImage*                                 IMG_Fire;                                          // 0x0848(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class UTextBlock*                             TEXT_Category;                                     // 0x0850(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
@@ -35,6 +36,7 @@ public:
 	void Construct();
 	void Event_Set_Button_Style(const struct FButtonStyle& InStyle);
 	void ExecuteUbergraph_UI_Sub_Category(int32 EntryPoint);
+	void GetRootCFWidget(class UPanelWidget** RootPanelWidget);
 	void OnFail_B7C25CB3474DE2A4D0BC4DAA4F40DDC8(class UTexture2DDynamic* Texture);
 	void OnSuccess_B7C25CB3474DE2A4D0BC4DAA4F40DDC8(class UTexture2DDynamic* Texture);
 

@@ -11,9 +11,9 @@
 #include "Basic.hpp"
 
 #include "SlateCore_structs.hpp"
+#include "UMG_structs.hpp"
 #include "STRUCT_SubOptions_structs.hpp"
 #include "Engine_structs.hpp"
-#include "UMG_structs.hpp"
 #include "CoreUObject_structs.hpp"
 
 
@@ -176,6 +176,16 @@ public:
 };
 DUMPER7_ASSERTS_UI_CustomComboBoxOption_C_ExecuteUbergraph_UI_CustomComboBoxOption;
 
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.GetRootCFWidget
+// 0x0010 (0x0010 - 0x0000)
+struct UI_CustomComboBoxOption_C_GetRootCFWidget final
+{
+public:
+	class UPanelWidget*                           RootPanelWidget;                                   // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_UI_CustomComboBoxOption_C_GetRootCFWidget;
+
 // Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.OnAddedToFocusPath
 // 0x0008 (0x0008 - 0x0000)
 struct UI_CustomComboBoxOption_C_OnAddedToFocusPath final
@@ -217,7 +227,7 @@ struct UI_CustomComboBoxOption_C_OnOptionSelected final
 public:
 	class FString                                 Option;                                            // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
 	int64                                         ID;                                                // 0x0010(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	TScriptInterface<class IBPI_CustomComboBoxInterface_C> K2Node_DynamicCast_AsBPI_Custom_Combo_Box_Interface; // 0x0018(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	TScriptInterface<class IBPI_CFCore_CustomComboBox_C> K2Node_DynamicCast_AsBPI_CFCore_Custom_Combo_Box; // 0x0018(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          K2Node_DynamicCast_bSuccess;                       // 0x0028(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_UI_CustomComboBoxOption_C_OnOptionSelected;

@@ -24,49 +24,6 @@
 namespace SDK
 {
 
-// Class GameplayAbilities.GameplayEffectComponent
-// 0x0000 (0x0028 - 0x0028)
-class UGameplayEffectComponent : public UObject
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GameplayEffectComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GameplayEffectComponent")
-	}
-	static class UGameplayEffectComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGameplayEffectComponent>();
-	}
-};
-DUMPER7_ASSERTS_UGameplayEffectComponent;
-
-// Class GameplayAbilities.TargetTagsGameplayEffectComponent
-// 0x0060 (0x0088 - 0x0028)
-class UTargetTagsGameplayEffectComponent final : public UGameplayEffectComponent
-{
-public:
-	struct FInheritedTagContainer                 InheritableGrantedTagsContainer;                   // 0x0028(0x0060)(Edit, BlueprintReadOnly, DisableEditOnInstance, NativeAccessSpecifierPrivate)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("TargetTagsGameplayEffectComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"TargetTagsGameplayEffectComponent")
-	}
-	static class UTargetTagsGameplayEffectComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UTargetTagsGameplayEffectComponent>();
-	}
-};
-DUMPER7_ASSERTS_UTargetTagsGameplayEffectComponent;
-
 // Class GameplayAbilities.AbilitySystemDebugHUD
 // 0x0000 (0x0580 - 0x0580)
 class AAbilitySystemDebugHUD final : public AHUD
@@ -86,6 +43,31 @@ public:
 	}
 };
 DUMPER7_ASSERTS_AAbilitySystemDebugHUD;
+
+// Class GameplayAbilities.AbilityTask
+// 0x0018 (0x0080 - 0x0068)
+class UAbilityTask : public UGameplayTask
+{
+public:
+	class UGameplayAbility*                       Ability;                                           // 0x0068(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TWeakObjectPtr<class UAbilitySystemComponent> AbilitySystemComponent;                            // 0x0070(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_78[0x8];                                       // 0x0078(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("AbilityTask")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"AbilityTask")
+	}
+	static class UAbilityTask* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UAbilityTask>();
+	}
+};
+DUMPER7_ASSERTS_UAbilityTask;
 
 // Class GameplayAbilities.GameplayEffect
 // 0x0A48 (0x0A70 - 0x0028)
@@ -154,6 +136,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UGameplayEffect;
+
+// Class GameplayAbilities.GameplayEffectComponent
+// 0x0000 (0x0028 - 0x0028)
+class UGameplayEffectComponent : public UObject
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GameplayEffectComponent")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GameplayEffectComponent")
+	}
+	static class UGameplayEffectComponent* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGameplayEffectComponent>();
+	}
+};
+DUMPER7_ASSERTS_UGameplayEffectComponent;
 
 // Class GameplayAbilities.AbilitiesGameplayEffectComponent
 // 0x0010 (0x0038 - 0x0028)
@@ -259,31 +261,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UAbilitySystemCheatManagerExtension;
-
-// Class GameplayAbilities.AbilityTask
-// 0x0018 (0x0080 - 0x0068)
-class UAbilityTask : public UGameplayTask
-{
-public:
-	class UGameplayAbility*                       Ability;                                           // 0x0068(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TWeakObjectPtr<class UAbilitySystemComponent> AbilitySystemComponent;                            // 0x0070(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_78[0x8];                                       // 0x0078(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("AbilityTask")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"AbilityTask")
-	}
-	static class UAbilityTask* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UAbilityTask>();
-	}
-};
-DUMPER7_ASSERTS_UAbilityTask;
 
 // Class GameplayAbilities.AbilityTask_PlayAnimAndWait
 // 0x00B0 (0x0130 - 0x0080)
@@ -716,6 +693,29 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UTargetTagRequirementsGameplayEffectComponent;
+
+// Class GameplayAbilities.TargetTagsGameplayEffectComponent
+// 0x0060 (0x0088 - 0x0028)
+class UTargetTagsGameplayEffectComponent final : public UGameplayEffectComponent
+{
+public:
+	struct FInheritedTagContainer                 InheritableGrantedTagsContainer;                   // 0x0028(0x0060)(Edit, BlueprintReadOnly, DisableEditOnInstance, NativeAccessSpecifierPrivate)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("TargetTagsGameplayEffectComponent")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"TargetTagsGameplayEffectComponent")
+	}
+	static class UTargetTagsGameplayEffectComponent* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UTargetTagsGameplayEffectComponent>();
+	}
+};
+DUMPER7_ASSERTS_UTargetTagsGameplayEffectComponent;
 
 // Class GameplayAbilities.AbilityAsync_WaitAttributeChanged
 // 0x0058 (0x0090 - 0x0038)

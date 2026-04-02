@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // BlueprintGeneratedClass GlobalUIData_XSX.GlobalUIData_XSX_C
-// 0x0000 (0x0DC0 - 0x0DC0)
+// 0x0000 (0x0E20 - 0x0E20)
 class UGlobalUIData_XSX_C final : public UGlobalUIData_BP_C
 {
 public:

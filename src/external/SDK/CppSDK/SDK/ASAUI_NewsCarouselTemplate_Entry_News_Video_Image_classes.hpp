@@ -19,7 +19,7 @@ namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass ASAUI_NewsCarouselTemplate_Entry_News_Video_Image.ASAUI_NewsCarouselTemplate_Entry_News_Video_Image_C
-// 0x00C8 (0x0478 - 0x03B0)
+// 0x00D0 (0x0480 - 0x03B0)
 class UASAUI_NewsCarouselTemplate_Entry_News_Video_Image_C final : public UUI_MenuCarouselEntryWidget
 {
 public:
@@ -53,6 +53,7 @@ public:
 	bool                                          IsGamepadActive;                                   // 0x0465(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_466[0x2];                                      // 0x0466(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
 	class FString                                 SecondaryUrl;                                      // 0x0468(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
+	float                                         TargetVolumeScale;                                 // 0x0478(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	bool AllowAutoscrollNavFrom();

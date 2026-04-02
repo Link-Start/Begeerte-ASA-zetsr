@@ -51,6 +51,27 @@ void UUI_Option_ModPageCategory_C::ExecuteUbergraph_UI_Option_ModPageCategory(in
 }
 
 
+// Function UI_Option_ModPageCategory.UI_Option_ModPageCategory_C.GetRootCFWidget
+// (Public, HasOutParams, BlueprintCallable, BlueprintEvent, BlueprintPure)
+// Parameters:
+// class UPanelWidget**                    RootPanelWidget                                        (Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+
+void UUI_Option_ModPageCategory_C::GetRootCFWidget(class UPanelWidget** RootPanelWidget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_Option_ModPageCategory_C", "GetRootCFWidget");
+
+	Params::UI_Option_ModPageCategory_C_GetRootCFWidget Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (RootPanelWidget != nullptr)
+		*RootPanelWidget = Parms.RootPanelWidget;
+}
+
+
 // Function UI_Option_ModPageCategory.UI_Option_ModPageCategory_C.OnFail_20B338B847EF646EF76186BFC4DF1AD5
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:

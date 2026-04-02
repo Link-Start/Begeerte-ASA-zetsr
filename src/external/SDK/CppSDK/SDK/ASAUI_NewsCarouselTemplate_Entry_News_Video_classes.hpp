@@ -19,7 +19,7 @@ namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C
-// 0x00F0 (0x04A0 - 0x03B0)
+// 0x00F8 (0x04A8 - 0x03B0)
 class UASAUI_NewsCarouselTemplate_Entry_News_Video_C final : public UUI_MenuCarouselEntryWidget
 {
 public:
@@ -57,6 +57,7 @@ public:
 	bool                                          bIsInFocus;                                        // 0x048C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_48D[0x3];                                      // 0x048D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	class FString                                 SecondaryUrl;                                      // 0x0490(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
+	float                                         TargetVolumeScale;                                 // 0x04A0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	bool AllowAutoscrollNavFrom();

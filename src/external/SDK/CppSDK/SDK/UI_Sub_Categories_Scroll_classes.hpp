@@ -11,35 +11,34 @@
 #include "Basic.hpp"
 
 #include "STRUCT_SubOptions_structs.hpp"
-#include "CFCoreUIWidget_classes.hpp"
 #include "Engine_structs.hpp"
 #include "SlateCore_structs.hpp"
+#include "CFCoreWidget_classes.hpp"
 
 
 namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass UI_Sub-Categories_Scroll.UI_Sub-Categories_Scroll_C
-// 0x0768 (0x0FA0 - 0x0838)
-class UUI_Sub_Categories_Scroll_C final : public UCFCoreUIWidget_C
+// 0x0760 (0x0F90 - 0x0830)
+class UUI_Sub_Categories_Scroll_C final : public UCFCoreWidget_C
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame_UI_Sub_Categories_Scroll_C;         // 0x0838(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	class UButton*                                Category_Button;                                   // 0x0840(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UScrollBox*                             ScrollBar_Categories;                              // 0x0848(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UUI_CustomComboBox_C*                   CustomComboBoxWidget_Ref;                          // 0x0850(0x0008)(Edit, BlueprintVisible, ZeroConstructor, InstancedReference, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
-	class UUI_CustomComboBoxOption_C*             CustomComboBoxOptionWidget_Ref;                    // 0x0858(0x0008)(Edit, BlueprintVisible, ZeroConstructor, InstancedReference, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
-	TArray<class FString>                         SubCategoriesDEP;                                  // 0x0860(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	bool                                          IsCategoryHovered;                                 // 0x0870(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          IsHoveredWidget;                                   // 0x0871(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_872[0x6];                                      // 0x0872(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(const class FString& SubCategory, int64 SubCategoryID)> OnSubcategorySelect; // 0x0878(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	TMulticastInlineDelegate<void()>              PreRemoval;                                        // 0x0888(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	uint8                                         Pad_898[0x8];                                      // 0x0898(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FButtonStyle                           ButtonUnselectedStyle;                             // 0x08A0(0x0370)(Edit, BlueprintVisible, ExposeOnSpawn)
-	struct FButtonStyle                           ButtonSelectedStyle;                               // 0x0C10(0x0370)(Edit, BlueprintVisible, ExposeOnSpawn)
-	TArray<struct FSTRUCT_SubOptions>             SubOptions;                                        // 0x0F80(0x0010)(Edit, BlueprintVisible, ExposeOnSpawn)
-	bool                                          IsScrollHovered;                                   // 0x0F90(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FPointerToUberGraphFrame               UberGraphFrame_UI_Sub_Categories_Scroll_C;         // 0x0830(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	class UButton*                                Category_Button;                                   // 0x0838(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UScrollBox*                             ScrollBar_Categories;                              // 0x0840(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UUI_CFCore_CustomComboBox_C*            CustomComboBoxWidget_Ref;                          // 0x0848(0x0008)(Edit, BlueprintVisible, ZeroConstructor, InstancedReference, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
+	class UUI_CustomComboBoxOption_C*             CustomComboBoxOptionWidget_Ref;                    // 0x0850(0x0008)(Edit, BlueprintVisible, ZeroConstructor, InstancedReference, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
+	TArray<class FString>                         SubCategoriesDEP;                                  // 0x0858(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	bool                                          IsCategoryHovered;                                 // 0x0868(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          IsHoveredWidget;                                   // 0x0869(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_86A[0x6];                                      // 0x086A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(const class FString& SubCategory, int64 SubCategoryID)> OnSubcategorySelect; // 0x0870(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	TMulticastInlineDelegate<void()>              PreRemoval;                                        // 0x0880(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	struct FButtonStyle                           ButtonUnselectedStyle;                             // 0x0890(0x0370)(Edit, BlueprintVisible, ExposeOnSpawn)
+	struct FButtonStyle                           ButtonSelectedStyle;                               // 0x0C00(0x0370)(Edit, BlueprintVisible, ExposeOnSpawn)
+	TArray<struct FSTRUCT_SubOptions>             SubOptions;                                        // 0x0F70(0x0010)(Edit, BlueprintVisible, ExposeOnSpawn)
+	bool                                          IsScrollHovered;                                   // 0x0F80(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void BndEvt__Sub_Categories_Scroll_Btn_Category_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature();

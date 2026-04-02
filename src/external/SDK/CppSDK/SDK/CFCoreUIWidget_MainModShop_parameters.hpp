@@ -80,7 +80,7 @@ DUMPER7_ASSERTS_CFCoreUIWidget_MainModShop_C_GamepadRequestChangeTab;
 struct CFCoreUIWidget_MainModShop_C_GetDiscoveryRef final
 {
 public:
-	class UUI_Discovery_C*                        DiscoveryRef;                                      // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class UUI_CFCore_Discovery_C*                 DiscoveryRef;                                      // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CFCoreUIWidget_MainModShop_C_GetDiscoveryRef;
 
@@ -129,7 +129,7 @@ public:
 	int64                                         modId;                                             // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          CallFunc_Less_Int64Int64_ReturnValue;              // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UUI_ModPage_C*                          CallFunc_CreateModPageFromID_ReturnValue;          // 0x0010(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class UUI_CFCore_ModPage_C*                   CallFunc_CreateModPageFromID_ReturnValue;          // 0x0010(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 	TDelegate<void()>                             K2Node_CreateDelegate_OutputDelegate;              // 0x0018(0x0010)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	struct FTimerHandle                           CallFunc_K2_SetTimerDelegate_ReturnValue;          // 0x0028(0x0008)(NoDestructor, HasGetValueTypeHash)
 };
@@ -140,7 +140,7 @@ DUMPER7_ASSERTS_CFCoreUIWidget_MainModShop_C_RequestModPage;
 struct CFCoreUIWidget_MainModShop_C_WaitDeeplinkToSpotlight final
 {
 public:
-	class UUI_Discovery_C*                        CallFunc_GetDiscoveryRef_DiscoveryRef;             // 0x0000(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class UUI_CFCore_Discovery_C*                 CallFunc_GetDiscoveryRef_DiscoveryRef;             // 0x0000(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          CallFunc_K2_IsValidTimerHandle_ReturnValue;        // 0x0009(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };

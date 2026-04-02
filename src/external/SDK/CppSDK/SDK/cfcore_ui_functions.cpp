@@ -218,12 +218,12 @@ int64 UCFCoreMathHelperFunctionLibrary::Int64_SubOne(int64 Value)
 
 
 // Function cfcore_ui.CFCoreRichTextBlockImageDecorator.SetImageToMap
-// (Final, Native, Private)
+// (Final, Native, Private, Const)
 // Parameters:
 // class UTexture2DDynamic*                Image                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    ImageUrl                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCFCoreRichTextBlockImageDecorator::SetImageToMap(class UTexture2DDynamic* Image, const class FString& ImageUrl)
+void UCFCoreRichTextBlockImageDecorator::SetImageToMap(class UTexture2DDynamic* Image, const class FString& ImageUrl) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -472,59 +472,22 @@ void UCFCoreUIInstallProgressModHelperFunctionsLibrary::UpdateInstallProgressMod
 }
 
 
-// Function cfcore_ui.CFCoreUISubsystem.MakeFInstallProgressMod
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const struct FCFCoreMod&                mod                                                    (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// struct FInstallProgressMod              ReturnValue                                            (Parm, OutParm, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+// Function cfcore_ui.CFCoreUISubsystem.OnUpdateModRating
+// (Final, Native, Static, Private)
 
-struct FInstallProgressMod UCFCoreUISubsystem::MakeFInstallProgressMod(const struct FCFCoreMod& mod)
+void UCFCoreUISubsystem::OnUpdateModRating()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("CFCoreUISubsystem", "MakeFInstallProgressMod");
-
-	Params::CFCoreUISubsystem_MakeFInstallProgressMod Parms{};
-
-	Parms.mod = std::move(mod);
+		Func = StaticClass()->GetFunction("CFCoreUISubsystem", "OnUpdateModRating");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
+	GetDefaultObj()->ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function cfcore_ui.CFCoreUISubsystem.MakeFInstallProgressModFromID
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// int64                                   ID                                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FInstallProgressMod              ReturnValue                                            (Parm, OutParm, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-struct FInstallProgressMod UCFCoreUISubsystem::MakeFInstallProgressModFromID(int64 ID)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("CFCoreUISubsystem", "MakeFInstallProgressModFromID");
-
-	Params::CFCoreUISubsystem_MakeFInstallProgressModFromID Parms{};
-
-	Parms.ID = ID;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
@@ -652,38 +615,6 @@ void UCFCoreUISubsystem::GetInstalledMods()
 	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function cfcore_ui.CFCoreUISubsystem.GetModById
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// struct FInstallProgressMod*             OutMod                                                 (Parm, OutParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-// const int64                             ID                                                     (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UCFCoreUISubsystem::GetModById(struct FInstallProgressMod* OutMod, const int64 ID)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CFCoreUISubsystem", "GetModById");
-
-	Params::CFCoreUISubsystem_GetModById Parms{};
-
-	Parms.ID = ID;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (OutMod != nullptr)
-		*OutMod = std::move(Parms.OutMod);
-
-	return Parms.ReturnValue;
 }
 
 
@@ -832,31 +763,6 @@ bool UCFCoreUISubsystem::IsAnyModInstalling()
 }
 
 
-// Function cfcore_ui.CFCoreUISubsystem.OnCancelModInstallation
-// (Final, Native, Private, HasOutParams)
-// Parameters:
-// const struct FCFCoreError&              Error                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void UCFCoreUISubsystem::OnCancelModInstallation(const struct FCFCoreError& Error)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CFCoreUISubsystem", "OnCancelModInstallation");
-
-	Params::CFCoreUISubsystem_OnCancelModInstallation Parms{};
-
-	Parms.Error = std::move(Error);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function cfcore_ui.CFCoreUISubsystem.OnCancelModInstallationSuccess
 // (Final, Native, Private)
 
@@ -904,9 +810,9 @@ void UCFCoreUISubsystem::OnFinishedInstalling(const struct FInstalledMod& Instal
 // Function cfcore_ui.CFCoreUISubsystem.OnFinishedUpdating
 // (Final, Native, Private, HasOutParams)
 // Parameters:
-// const struct FInstalledMod&             updatedMod                                             (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// const struct FInstalledMod&             UpdatedMod                                             (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
-void UCFCoreUISubsystem::OnFinishedUpdating(const struct FInstalledMod& updatedMod)
+void UCFCoreUISubsystem::OnFinishedUpdating(const struct FInstalledMod& UpdatedMod)
 {
 	static class UFunction* Func = nullptr;
 
@@ -915,7 +821,7 @@ void UCFCoreUISubsystem::OnFinishedUpdating(const struct FInstalledMod& updatedM
 
 	Params::CFCoreUISubsystem_OnFinishedUpdating Parms{};
 
-	Parms.updatedMod = std::move(updatedMod);
+	Parms.UpdatedMod = std::move(UpdatedMod);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -951,31 +857,6 @@ void UCFCoreUISubsystem::OnGetInstalledMods(const TArray<struct FInstalledMod>& 
 }
 
 
-// Function cfcore_ui.CFCoreUISubsystem.OnGetInstalledModsError
-// (Final, Native, Private, HasOutParams)
-// Parameters:
-// const struct FCFCoreError&              Error                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void UCFCoreUISubsystem::OnGetInstalledModsError(const struct FCFCoreError& Error)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CFCoreUISubsystem", "OnGetInstalledModsError");
-
-	Params::CFCoreUISubsystem_OnGetInstalledModsError Parms{};
-
-	Parms.Error = std::move(Error);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function cfcore_ui.CFCoreUISubsystem.OnGetModsByIds
 // (Final, Native, Private, HasOutParams)
 // Parameters:
@@ -991,31 +872,6 @@ void UCFCoreUISubsystem::OnGetModsByIds(const TArray<struct FCFCoreMod>& mods)
 	Params::CFCoreUISubsystem_OnGetModsByIds Parms{};
 
 	Parms.mods = std::move(mods);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function cfcore_ui.CFCoreUISubsystem.OnGetMyRatingsError
-// (Final, Native, Private, HasOutParams)
-// Parameters:
-// const struct FCFCoreError&              Error                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void UCFCoreUISubsystem::OnGetMyRatingsError(const struct FCFCoreError& Error)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CFCoreUISubsystem", "OnGetMyRatingsError");
-
-	Params::CFCoreUISubsystem_OnGetMyRatingsError Parms{};
-
-	Parms.Error = std::move(Error);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1055,9 +911,8 @@ void UCFCoreUISubsystem::OnInstallProgress(const struct FLibraryProgress& progre
 // (Final, Native, Private, HasOutParams)
 // Parameters:
 // const struct FCFCoreError&              Error                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// const struct FCFCoreMod&                InstallingMod                                          (Parm, NativeAccessSpecifierPublic)
 
-void UCFCoreUISubsystem::OnModInstallError(const struct FCFCoreError& Error, const struct FCFCoreMod& InstallingMod)
+void UCFCoreUISubsystem::OnModInstallError(const struct FCFCoreError& Error)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1065,32 +920,6 @@ void UCFCoreUISubsystem::OnModInstallError(const struct FCFCoreError& Error, con
 		Func = Class->GetFunction("CFCoreUISubsystem", "OnModInstallError");
 
 	Params::CFCoreUISubsystem_OnModInstallError Parms{};
-
-	Parms.Error = std::move(Error);
-	Parms.InstallingMod = std::move(InstallingMod);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function cfcore_ui.CFCoreUISubsystem.OnModUninstallError
-// (Final, Native, Private, HasOutParams)
-// Parameters:
-// const struct FCFCoreError&              Error                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void UCFCoreUISubsystem::OnModUninstallError(const struct FCFCoreError& Error)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CFCoreUISubsystem", "OnModUninstallError");
-
-	Params::CFCoreUISubsystem_OnModUninstallError Parms{};
 
 	Parms.Error = std::move(Error);
 
@@ -1118,31 +947,6 @@ void UCFCoreUISubsystem::OnMyMods(const TArray<struct FCFCoreMod>& mods)
 	Params::CFCoreUISubsystem_OnMyMods Parms{};
 
 	Parms.mods = std::move(mods);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function cfcore_ui.CFCoreUISubsystem.OnMyModsError
-// (Final, Native, Private, HasOutParams)
-// Parameters:
-// const struct FCFCoreError&              Error                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void UCFCoreUISubsystem::OnMyModsError(const struct FCFCoreError& Error)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CFCoreUISubsystem", "OnMyModsError");
-
-	Params::CFCoreUISubsystem_OnMyModsError Parms{};
-
-	Parms.Error = std::move(Error);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1205,31 +1009,6 @@ void UCFCoreUISubsystem::OnSearchMods(const TArray<struct FCFCoreMod>& mods, con
 }
 
 
-// Function cfcore_ui.CFCoreUISubsystem.OnSearchModsError
-// (Final, Native, Private, HasOutParams)
-// Parameters:
-// const struct FCFCoreError&              Error                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void UCFCoreUISubsystem::OnSearchModsError(const struct FCFCoreError& Error)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CFCoreUISubsystem", "OnSearchModsError");
-
-	Params::CFCoreUISubsystem_OnSearchModsError Parms{};
-
-	Parms.Error = std::move(Error);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function cfcore_ui.CFCoreUISubsystem.OnUninstall
 // (Final, Native, Private, HasOutParams)
 // Parameters:
@@ -1245,100 +1024,6 @@ void UCFCoreUISubsystem::OnUninstall(const struct FInstalledMod& InstalledMod)
 	Params::CFCoreUISubsystem_OnUninstall Parms{};
 
 	Parms.InstalledMod = std::move(InstalledMod);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function cfcore_ui.CFCoreUISubsystem.OnUpdateModRating
-// (Final, Native, Private)
-
-void UCFCoreUISubsystem::OnUpdateModRating()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CFCoreUISubsystem", "OnUpdateModRating");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function cfcore_ui.CFCoreUISubsystem.OnUpdateModRatingError
-// (Final, Native, Private, HasOutParams)
-// Parameters:
-// const struct FCFCoreError&              Error                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void UCFCoreUISubsystem::OnUpdateModRatingError(const struct FCFCoreError& Error)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CFCoreUISubsystem", "OnUpdateModRatingError");
-
-	Params::CFCoreUISubsystem_OnUpdateModRatingError Parms{};
-
-	Parms.Error = std::move(Error);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function cfcore_ui.CFCoreUISubsystem.PurchaseMod
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// int64                                   modId                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCFCoreUISubsystem::PurchaseMod(int64 modId)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CFCoreUISubsystem", "PurchaseMod");
-
-	Params::CFCoreUISubsystem_PurchaseMod Parms{};
-
-	Parms.modId = modId;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function cfcore_ui.CFCoreUISubsystem.PurchaseMods
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const TArray<int64>&                    ModsId                                                 (Parm, ZeroConstructor, NativeAccessSpecifierPublic)
-
-void UCFCoreUISubsystem::PurchaseMods(const TArray<int64>& ModsId)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CFCoreUISubsystem", "PurchaseMods");
-
-	Params::CFCoreUISubsystem_PurchaseMods Parms{};
-
-	Parms.ModsId = std::move(ModsId);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1498,26 +1183,26 @@ void UCFCoreUISubsystem::SearchMods(const struct FCFCoreSearchModsFilter& Filter
 }
 
 
-// Function cfcore_ui.CFCoreUISubsystem.SubscribeViewToEvent
+// Function cfcore_ui.CFCoreUISubsystem.SubscribeViewToEvents
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // class UObject*                          View                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const EGameModsEvent&                   evt                                                    (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    initializeView                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const TArray<EGameModsEvent>&           evts                                                   (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+// bool                                    bInitializeView                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UCFCoreUISubsystem::SubscribeViewToEvent(class UObject* View, const EGameModsEvent& evt, bool initializeView)
+bool UCFCoreUISubsystem::SubscribeViewToEvents(class UObject* View, const TArray<EGameModsEvent>& evts, bool bInitializeView)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CFCoreUISubsystem", "SubscribeViewToEvent");
+		Func = Class->GetFunction("CFCoreUISubsystem", "SubscribeViewToEvents");
 
-	Params::CFCoreUISubsystem_SubscribeViewToEvent Parms{};
+	Params::CFCoreUISubsystem_SubscribeViewToEvents Parms{};
 
 	Parms.View = View;
-	Parms.evt = evt;
-	Parms.initializeView = initializeView;
+	Parms.evts = std::move(evts);
+	Parms.bInitializeView = bInitializeView;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1530,26 +1215,22 @@ bool UCFCoreUISubsystem::SubscribeViewToEvent(class UObject* View, const EGameMo
 }
 
 
-// Function cfcore_ui.CFCoreUISubsystem.SubscribeViewToEvents
+// Function cfcore_ui.CFCoreUISubsystem.TransformModToInstallProgressMod
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// class UObject*                          View                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const TArray<EGameModsEvent>&           evts                                                   (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-// bool                                    initializeView                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FCFCoreMod&                InMod                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// struct FInstallProgressMod              ReturnValue                                            (Parm, OutParm, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
-bool UCFCoreUISubsystem::SubscribeViewToEvents(class UObject* View, const TArray<EGameModsEvent>& evts, bool initializeView)
+struct FInstallProgressMod UCFCoreUISubsystem::TransformModToInstallProgressMod(const struct FCFCoreMod& InMod)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CFCoreUISubsystem", "SubscribeViewToEvents");
+		Func = Class->GetFunction("CFCoreUISubsystem", "TransformModToInstallProgressMod");
 
-	Params::CFCoreUISubsystem_SubscribeViewToEvents Parms{};
+	Params::CFCoreUISubsystem_TransformModToInstallProgressMod Parms{};
 
-	Parms.View = View;
-	Parms.evts = std::move(evts);
-	Parms.initializeView = initializeView;
+	Parms.InMod = std::move(InMod);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1584,34 +1265,6 @@ void UCFCoreUISubsystem::UninstallMod(const struct FCFCoreMod& mod)
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function cfcore_ui.CFCoreUISubsystem.UnregisterModelClass
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const TSubclassOf<class UObject>        modelClass                                             (ConstParm, Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UCFCoreUISubsystem::UnregisterModelClass(const TSubclassOf<class UObject> modelClass)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CFCoreUISubsystem", "UnregisterModelClass");
-
-	Params::CFCoreUISubsystem_UnregisterModelClass Parms{};
-
-	Parms.modelClass = modelClass;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
@@ -1746,6 +1399,209 @@ void UCFCoreUISubsystem::UpdateModRating(int64 modId, ECFCoreRatingVoteDirection
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// Function cfcore_ui.CFCoreUISubsystem.OnCancelModInstallation
+// (Final, Native, Private, HasOutParams, Const)
+// Parameters:
+// const struct FCFCoreError&              Error                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void UCFCoreUISubsystem::OnCancelModInstallation(const struct FCFCoreError& Error) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreUISubsystem", "OnCancelModInstallation");
+
+	Params::CFCoreUISubsystem_OnCancelModInstallation Parms{};
+
+	Parms.Error = std::move(Error);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function cfcore_ui.CFCoreUISubsystem.OnGetInstalledModsError
+// (Final, Native, Private, HasOutParams, Const)
+// Parameters:
+// const struct FCFCoreError&              Error                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void UCFCoreUISubsystem::OnGetInstalledModsError(const struct FCFCoreError& Error) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreUISubsystem", "OnGetInstalledModsError");
+
+	Params::CFCoreUISubsystem_OnGetInstalledModsError Parms{};
+
+	Parms.Error = std::move(Error);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function cfcore_ui.CFCoreUISubsystem.OnGetMyRatingsError
+// (Final, Native, Private, HasOutParams, Const)
+// Parameters:
+// const struct FCFCoreError&              Error                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void UCFCoreUISubsystem::OnGetMyRatingsError(const struct FCFCoreError& Error) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreUISubsystem", "OnGetMyRatingsError");
+
+	Params::CFCoreUISubsystem_OnGetMyRatingsError Parms{};
+
+	Parms.Error = std::move(Error);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function cfcore_ui.CFCoreUISubsystem.OnModUninstallError
+// (Final, Native, Private, HasOutParams, Const)
+// Parameters:
+// const struct FCFCoreError&              Error                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void UCFCoreUISubsystem::OnModUninstallError(const struct FCFCoreError& Error) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreUISubsystem", "OnModUninstallError");
+
+	Params::CFCoreUISubsystem_OnModUninstallError Parms{};
+
+	Parms.Error = std::move(Error);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function cfcore_ui.CFCoreUISubsystem.OnMyModsError
+// (Final, Native, Private, HasOutParams, Const)
+// Parameters:
+// const struct FCFCoreError&              Error                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void UCFCoreUISubsystem::OnMyModsError(const struct FCFCoreError& Error) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreUISubsystem", "OnMyModsError");
+
+	Params::CFCoreUISubsystem_OnMyModsError Parms{};
+
+	Parms.Error = std::move(Error);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function cfcore_ui.CFCoreUISubsystem.OnSearchModsError
+// (Final, Native, Private, HasOutParams, Const)
+// Parameters:
+// const struct FCFCoreError&              Error                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void UCFCoreUISubsystem::OnSearchModsError(const struct FCFCoreError& Error) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreUISubsystem", "OnSearchModsError");
+
+	Params::CFCoreUISubsystem_OnSearchModsError Parms{};
+
+	Parms.Error = std::move(Error);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function cfcore_ui.CFCoreUISubsystem.OnUpdateModRatingError
+// (Final, Native, Private, HasOutParams, Const)
+// Parameters:
+// const struct FCFCoreError&              Error                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void UCFCoreUISubsystem::OnUpdateModRatingError(const struct FCFCoreError& Error) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreUISubsystem", "OnUpdateModRatingError");
+
+	Params::CFCoreUISubsystem_OnUpdateModRatingError Parms{};
+
+	Parms.Error = std::move(Error);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function cfcore_ui.CFCoreUISubsystem.UnregisterModelClass
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// const TSubclassOf<class UObject>        modelClass                                             (ConstParm, Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UCFCoreUISubsystem::UnregisterModelClass(const TSubclassOf<class UObject> modelClass) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreUISubsystem", "UnregisterModelClass");
+
+	Params::CFCoreUISubsystem_UnregisterModelClass Parms{};
+
+	Parms.modelClass = modelClass;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
 }
 
 

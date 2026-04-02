@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
-#include "ComputeFramework_structs.hpp"
 #include "RigVM_structs.hpp"
+#include "ComputeFramework_structs.hpp"
+#include "CoreUObject_structs.hpp"
 #include "ControlRig_structs.hpp"
 
 
@@ -493,6 +493,24 @@ public:
 	TArray<struct FIntVector4>                    Value;                                             // 0x0018(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FRigVMTrait_SetDeformerInt4ArrayVariable;
+
+// ScriptStruct OptimusCore.OptimusFunctionReferenceNodeSet
+// 0x0050 (0x0050 - 0x0000)
+struct FOptimusFunctionReferenceNodeSet final
+{
+public:
+	TSet<TSoftObjectPtr<class UOptimusNode_FunctionReference>> Nodes;                                // 0x0000(0x0050)(UObjectWrapper, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FOptimusFunctionReferenceNodeSet;
+
+// ScriptStruct OptimusCore.OptimusFunctionReferenceData
+// 0x0050 (0x0050 - 0x0000)
+struct FOptimusFunctionReferenceData final
+{
+public:
+	TMap<struct FSoftObjectPath, struct FOptimusFunctionReferenceNodeSet> FunctionReferences;        // 0x0000(0x0050)(NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FOptimusFunctionReferenceData;
 
 // ScriptStruct OptimusCore.RigVMTrait_SetDeformerFloatVariable
 // 0x0008 (0x0020 - 0x0018)
@@ -1260,24 +1278,6 @@ public:
 	TArray<struct FOptimusFunctionNodeGraphHeader> Headers;                                          // 0x0000(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FOptimusFunctionNodeGraphHeaderArray;
-
-// ScriptStruct OptimusCore.OptimusFunctionReferenceNodeSet
-// 0x0050 (0x0050 - 0x0000)
-struct FOptimusFunctionReferenceNodeSet final
-{
-public:
-	TSet<TSoftObjectPtr<class UOptimusNode_FunctionReference>> Nodes;                                // 0x0000(0x0050)(UObjectWrapper, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FOptimusFunctionReferenceNodeSet;
-
-// ScriptStruct OptimusCore.OptimusFunctionReferenceData
-// 0x0050 (0x0050 - 0x0000)
-struct FOptimusFunctionReferenceData final
-{
-public:
-	TMap<struct FSoftObjectPath, struct FOptimusFunctionReferenceNodeSet> FunctionReferences;        // 0x0000(0x0050)(NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FOptimusFunctionReferenceData;
 
 // ScriptStruct OptimusCore.OptimusVariableMetaDataEntry
 // 0x0018 (0x0018 - 0x0000)

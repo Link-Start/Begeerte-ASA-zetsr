@@ -10,27 +10,29 @@
 
 #include "Basic.hpp"
 
-#include "CFCoreUIWidget_classes.hpp"
 #include "Engine_structs.hpp"
+#include "CFCoreWidget_classes.hpp"
 
 
 namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass UI_Option_ModPageCategory.UI_Option_ModPageCategory_C
-// 0x0030 (0x0868 - 0x0838)
-class UUI_Option_ModPageCategory_C final : public UCFCoreUIWidget_C
+// 0x0038 (0x0868 - 0x0830)
+class UUI_Option_ModPageCategory_C final : public UCFCoreWidget_C
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame_UI_Option_ModPageCategory_C;        // 0x0838(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	struct FPointerToUberGraphFrame               UberGraphFrame_UI_Option_ModPageCategory_C;        // 0x0830(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	class UHorizontalBox*                         HorizontalBox_31;                                  // 0x0838(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class UImage*                                 IMG_Icon;                                          // 0x0840(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class UTextBlock*                             TEXT_Block;                                        // 0x0848(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class FString                                 iconUrl;                                           // 0x0850(0x0010)(Edit, BlueprintVisible, ZeroConstructor, ExposeOnSpawn, HasGetValueTypeHash)
-	class UUI_StoreMenu_C*                        StoreMenu_Ref;                                     // 0x0860(0x0008)(Edit, BlueprintVisible, ZeroConstructor, InstancedReference, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
+	class UUI_CFCore_StoreMenu_C*                 StoreMenu_Ref;                                     // 0x0860(0x0008)(Edit, BlueprintVisible, ZeroConstructor, InstancedReference, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
 
 public:
 	void Construct();
 	void ExecuteUbergraph_UI_Option_ModPageCategory(int32 EntryPoint);
+	void GetRootCFWidget(class UPanelWidget** RootPanelWidget);
 	void OnFail_20B338B847EF646EF76186BFC4DF1AD5(class UTexture2DDynamic* Texture);
 	void OnSuccess_20B338B847EF646EF76186BFC4DF1AD5(class UTexture2DDynamic* Texture);
 	void UpdateThemeSettings();

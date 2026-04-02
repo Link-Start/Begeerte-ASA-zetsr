@@ -25,6 +25,30 @@ public:
 };
 DUMPER7_ASSERTS_FEngineServicePing;
 
+// ScriptStruct EngineMessages.TraceControlStatus
+// 0x0068 (0x0068 - 0x0000)
+struct FTraceControlStatus
+{
+public:
+	class FString                                 Endpoint;                                          // 0x0000(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGuid                                  SessionGuid;                                       // 0x0010(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGuid                                  TraceGuid;                                         // 0x0020(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint64                                        BytesSent;                                         // 0x0030(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint64                                        BytesTraced;                                       // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint64                                        MemoryUsed;                                        // 0x0040(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint32                                        CacheAllocated;                                    // 0x0048(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint32                                        CacheUsed;                                         // 0x004C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint32                                        CacheWaste;                                        // 0x0050(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAreStatNamedEventsEnabled;                        // 0x0054(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsPaused;                                         // 0x0055(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsTracing;                                        // 0x0056(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_57[0x1];                                       // 0x0057(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FDateTime                              StatusTimestamp;                                   // 0x0058(0x0008)(Edit, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         TraceSystemStatus;                                 // 0x0060(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_61[0x7];                                       // 0x0061(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FTraceControlStatus;
+
 // ScriptStruct EngineMessages.EngineServicePong
 // 0x0050 (0x0050 - 0x0000)
 struct FEngineServicePong final
@@ -72,6 +96,15 @@ public:
 };
 DUMPER7_ASSERTS_FEngineServiceExecuteCommand;
 
+// ScriptStruct EngineMessages.TraceControlChannelsPing
+// 0x0004 (0x0004 - 0x0000)
+struct FTraceControlChannelsPing final
+{
+public:
+	uint32                                        KnownChannelCount;                                 // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FTraceControlChannelsPing;
+
 // ScriptStruct EngineMessages.EngineServiceTerminate
 // 0x0010 (0x0010 - 0x0000)
 struct FEngineServiceTerminate final
@@ -80,16 +113,6 @@ public:
 	class FString                                 Username;                                          // 0x0000(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FEngineServiceTerminate;
-
-// ScriptStruct EngineMessages.EngineServiceNotification
-// 0x0018 (0x0018 - 0x0000)
-struct FEngineServiceNotification final
-{
-public:
-	class FString                                 Text;                                              // 0x0000(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        TimeSeconds;                                       // 0x0010(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FEngineServiceNotification;
 
 // ScriptStruct EngineMessages.TraceControlStatusPing
 // 0x0001 (0x0001 - 0x0000)
@@ -100,29 +123,15 @@ public:
 };
 DUMPER7_ASSERTS_FTraceControlStatusPing;
 
-// ScriptStruct EngineMessages.TraceControlStatus
-// 0x0068 (0x0068 - 0x0000)
-struct FTraceControlStatus
+// ScriptStruct EngineMessages.EngineServiceNotification
+// 0x0018 (0x0018 - 0x0000)
+struct FEngineServiceNotification final
 {
 public:
-	class FString                                 Endpoint;                                          // 0x0000(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGuid                                  SessionGuid;                                       // 0x0010(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGuid                                  TraceGuid;                                         // 0x0020(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint64                                        BytesSent;                                         // 0x0030(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint64                                        BytesTraced;                                       // 0x0038(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint64                                        MemoryUsed;                                        // 0x0040(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint32                                        CacheAllocated;                                    // 0x0048(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint32                                        CacheUsed;                                         // 0x004C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint32                                        CacheWaste;                                        // 0x0050(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAreStatNamedEventsEnabled;                        // 0x0054(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsPaused;                                         // 0x0055(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsTracing;                                        // 0x0056(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_57[0x1];                                       // 0x0057(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FDateTime                              StatusTimestamp;                                   // 0x0058(0x0008)(Edit, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         TraceSystemStatus;                                 // 0x0060(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_61[0x7];                                       // 0x0061(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class FString                                 Text;                                              // 0x0000(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        TimeSeconds;                                       // 0x0010(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FTraceControlStatus;
+DUMPER7_ASSERTS_FEngineServiceNotification;
 
 // ScriptStruct EngineMessages.TraceControlSettingsPing
 // 0x0001 (0x0001 - 0x0000)
@@ -157,15 +166,6 @@ public:
 	TArray<struct FTraceChannelPreset>            ChannelPresets;                                    // 0x0008(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FTraceControlSettings;
-
-// ScriptStruct EngineMessages.TraceControlChannelsPing
-// 0x0004 (0x0004 - 0x0000)
-struct FTraceControlChannelsPing final
-{
-public:
-	uint32                                        KnownChannelCount;                                 // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FTraceControlChannelsPing;
 
 // ScriptStruct EngineMessages.TraceControlChannelsDesc
 // 0x0040 (0x0040 - 0x0000)
