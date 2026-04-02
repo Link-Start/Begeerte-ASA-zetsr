@@ -1,6 +1,16 @@
 #include "mdx12_api.h"
 
 namespace g_MDX12 {
+    void SetSetupPhysicsRotationCallback(SetupPhysicsRotationCallback callback) {
+        g_Callbacks::g_setupPhysicsRotationCallback = callback;
+    }
+
+    void SetupPhysicsRotation(SDK::UMovementComponent* rcx, float DeltaTime) {
+        if (g_Callbacks::g_setupPhysicsRotationCallback) {
+            g_Callbacks::g_setupPhysicsRotationCallback(rcx, DeltaTime);
+        }
+    }
+
     void SetSetupPostRenderCallback(SetupPostRenderCallback callback) {
         g_Callbacks::g_setupPostRenderCallback = callback;
     }

@@ -18,7 +18,7 @@
 namespace g_UEngine {
     namespace UGameViewportClient {
         void PostRender(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas){
-
+            LuaManager::Get().Lua_OnPostRender();
         }
     }
 }

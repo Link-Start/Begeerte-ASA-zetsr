@@ -7,7 +7,8 @@
 #include "internal/Lua/LuaManager.h"
 #include "internal/Config/ConfigManager.h"
 #include "internal/UWorld/Tick.h"
-#include "internal/UWorld/NetDriver/ServerConnection/HandleDisconnect.h"
+#include "internal/UWorld//UMovementComponent/PhysicsRotation.h"
+#include "internal/UWorld/UNetDriver/UNetConnection/HandleDisconnect.h"
 #include "internal/UEngine/UGameViewportClient/UConsole/OutputTextLine.h"
 #include "internal/UEngine/UGameViewportClient/PostRender.h"
 
@@ -15,9 +16,10 @@ void init(LPVOID lpParam) {
     g_MDX12::Initialize(lpParam);
     g_MDX12::SetSetupImGuiCallback(g_DrawImGui::MyImGuiDraw);
     g_MDX12::SetSetupUWorldTickCallback(g_UWorld::Tick);
-    g_MDX12::SetSetupHandleDisconnectCallback(g_UWorld::NetDriver::ServerConnection::HandleDisconnect);
+    g_MDX12::SetSetupHandleDisconnectCallback(g_UWorld::UNetDriver::UNetConnection::HandleDisconnect);
     g_MDX12::SetSetupOutputTextLineCallback(g_UEngine::UGameViewportClient::UConsole::OutputTextLine);
     g_MDX12::SetSetupPostRenderCallback(g_UEngine::UGameViewportClient::PostRender);
+    g_MDX12::SetSetupPhysicsRotationCallback(g_UWorld::UMovementComponent::PhysicsRotation);
 
     ConfigManager::Get().Initialize("cfg");
     LuaManager::Get().Initialize("lua");

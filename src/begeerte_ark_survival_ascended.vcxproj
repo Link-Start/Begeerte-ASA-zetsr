@@ -146,8 +146,9 @@
     <ClInclude Include="internal\Util\infoCPU.h" />
     <ClInclude Include="internal\Util\infoGPU.h" />
     <ClInclude Include="internal\Util\Util.h" />
-    <ClInclude Include="internal\UWorld\NetDriver\ServerConnection\HandleDisconnect.h" />
     <ClInclude Include="internal\UWorld\Tick.h" />
+    <ClInclude Include="internal\UWorld\UMovementComponent\PhysicsRotation.h" />
+    <ClInclude Include="internal\UWorld\UNetDriver\UNetConnection\HandleDisconnect.h" />
   </ItemGroup>
   <ItemGroup>
     <Object Include="external\LuaJIT-2.1\src\lj_vm.obj" />
@@ -204,8 +205,9 @@
     <ClCompile Include="internal\UEngine\UGameViewportClient\UConsole\OutputTextLine.cpp" />
     <ClCompile Include="internal\Util\infoCPU.cpp" />
     <ClCompile Include="internal\Util\infoGPU.cpp" />
-    <ClCompile Include="internal\UWorld\NetDriver\ServerConnection\HandleDisconnect.cpp" />
     <ClCompile Include="internal\UWorld\Tick.cpp" />
+    <ClCompile Include="internal\UWorld\UMovementComponent\PhysicsRotation.cpp" />
+    <ClCompile Include="internal\UWorld\UNetDriver\UNetConnection\HandleDisconnect.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

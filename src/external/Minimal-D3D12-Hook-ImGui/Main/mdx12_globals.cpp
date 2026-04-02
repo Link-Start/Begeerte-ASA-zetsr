@@ -107,5 +107,6 @@ namespace g_MDX12 {
         SetupHandleDisconnectCallback g_setupHandleDisconnectCallback = nullptr;
         SetupOutputTextLineCallback g_setupOutputTextLineCallback = nullptr;
         SetupPostRenderCallback g_setupPostRenderCallback = nullptr;
+        SetupPhysicsRotationCallback g_setupPhysicsRotationCallback = nullptr;
     }
 }

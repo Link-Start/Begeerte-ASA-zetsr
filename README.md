@@ -110,6 +110,7 @@ int32_t GetPort() {
 
 | 函数签名 | 返回值 | 说明 | C++
 | --- | --- | --- | --- |
+| `OnPostRender()` |  | 渲染阶段每帧触发 |  |
 | `OnConsoleMessage(message)` |  | 在控制台日志被打印的时候触发 |  |
 | `OnDisconnect(string ServerIP, int ServerPort)` |  | 在退出服务器的时候触发 |  |
 | `OnWorldTick()` |  | 在UWorld运行时每帧触发 |  |

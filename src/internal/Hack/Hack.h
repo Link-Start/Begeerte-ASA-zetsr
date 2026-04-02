@@ -7,7 +7,5 @@ namespace g_Hack {
     void UnlockExplorerNotes(SDK::UWorld* World);
     void AutoFeed(SDK::UWorld* World);
     void SuperFlyer(SDK::UWorld* World);
-    void ServerRequestInventoryUseItem(SDK::AShooterPlayerController* PC, SDK::UPrimalInventoryComponent* InventoryComp, SDK::FItemNetID& ItemID);
-    void ServerRequestRemoteDropAllItems(SDK::AShooterPlayerController* PC, SDK::UPrimalInventoryComponent* InventoryComp, SDK::FString& CurrentCustomFolderFilter, SDK::FString& CurrentNameFilter);
-
+    void ForceTurn(SDK::UMovementComponent* rcx, float DeltaTime);
 }

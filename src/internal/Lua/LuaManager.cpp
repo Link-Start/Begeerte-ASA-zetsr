@@ -738,6 +738,29 @@ void LuaManager::Lua_OnShutDown(LuaScript& script) {
     }
 }
 
+void LuaManager::Lua_OnPostRender() {
+    std::lock_guard<std::mutex> lock(m_luaMutex);
+    if (!m_lua || !m_lua->lua_state()) return;
+
+    for (auto& script : m_scripts) {
+        if (!script.isLoaded || script.hasError || !script.env.valid()) continue;
+
+        sol::object PostRenderObj = script.env["OnPostRender"];
+        if (PostRenderObj.is<sol::protected_function>()) {
+            sol::protected_function PostRenderFunc = PostRenderObj;
+            auto result = PostRenderFunc();
+            if (!result.valid()) {
+                sol::error err = result;
+                script.hasError = true;
+                script.lastError = "Runtime Error: " + std::string(err.what());
+
+                std::string errorMsg = "[!] " + script.name + ": " + std::string(err.what());
+                g_LogManager::AddLog(255.f, 50.f, 50.f, 255.f, errorMsg);
+            }
+        }
+    }
+}
+
 void LuaManager::Lua_OnConsoleMessage(std::string Message) {
     std::lock_guard<std::mutex> lock(m_luaMutex);
     if (!m_lua || !m_lua->lua_state()) return;

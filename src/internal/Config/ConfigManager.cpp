@@ -101,7 +101,9 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
         CONFIG_BOOL(g_Config::bAutoFeed);
         CONFIG_BOOL(g_Config::bSuperFlyer);
         // 由于船只的角度会在开启此功能后在不经意间导致角度怪异，所以最好不要保存此配置
-        // CONFIG_BOOL(g_Config::bForceTurn);
+        // 2026/4/3 @zetsr
+        // 考虑到跟一键自杀那种类型的功能不一样，保存到配置应该没有问题
+        CONFIG_BOOL(g_Config::bForceTurn);
 
         // 生物列表
         file << "[EntityList]\n";
@@ -272,7 +274,9 @@ bool ConfigManager::LoadConfig(const std::string& filename) {
         LOAD_BOOL(g_Config::bAutoFeed);
         LOAD_BOOL(g_Config::bSuperFlyer);
         // 由于船只的角度会在开启此功能后在不经意间导致角度怪异，所以最好不要保存此配置
-        // LOAD_BOOL(g_Config::bForceTurn);
+        // 2026/4/3 @zetsr
+        // 考虑到跟一键自杀那种类型的功能不一样，保存到配置应该没有问题
+        LOAD_BOOL(g_Config::bForceTurn);
 
         // 生物列表
         LOAD_STRING(g_Config::entitySearchBuf, 256);

@@ -109,11 +109,28 @@ namespace g_Hack {
         }
     }
 
-    void ServerRequestInventoryUseItem(SDK::AShooterPlayerController* PC, SDK::UPrimalInventoryComponent* InventoryComp, SDK::FItemNetID& ItemID) {
-        PC->ServerRequestInventoryUseItem(InventoryComp, ItemID);
-    }
+    void ForceTurn(SDK::UMovementComponent* rcx, float DeltaTime) {
+        // 2026/4/3 @zetsr
+        // 在 PhysicsRotation.cpp 检查
+        // 此外 if (!XXX) return 在 XXX 初始化为 false 的情况下似乎会意外进入后续分支，必须用 if (!XXX){ return; } 等有时间的时候调查
+        // 
+        // if (!g_Config::bForceTurn) return;
 
-    void ServerRequestRemoteDropAllItems(SDK::AShooterPlayerController* PC, SDK::UPrimalInventoryComponent* InventoryComp, SDK::FString& CurrentCustomFolderFilter, SDK::FString& CurrentNameFilter) {
-        PC->ServerRequestRemoteDropAllItems(InventoryComp, CurrentCustomFolderFilter, CurrentNameFilter);
+        SDK::APlayerController* LocalPC = g_Util::GetLocalPC();
+
+        if (!LocalPC || !LocalPC->Pawn) return;
+
+        SDK::AShooterCharacter* character = (SDK::AShooterCharacter*)LocalPC->Character;
+
+        // 由于此函数是共用的，所以必须过滤掉除player与riding外的movement。最好的方法是每帧检查并hook虚函数
+        // 可以增加一个过滤，只为恐龙启用
+        if (!character || (uintptr_t)character->CharacterMovement != (uintptr_t)rcx || !LocalPC->PlayerCameraManager) {
+            return;
+        }
+
+        SDK::FRotator rot = LocalPC->PlayerCameraManager->GetCameraRotation();
+
+        // 开了之后会一直往前走
+        rcx->K2_MoveUpdatedComponent(SDK::FVector{ 0,0,0 }, rot, nullptr, false, false);
     }
 }

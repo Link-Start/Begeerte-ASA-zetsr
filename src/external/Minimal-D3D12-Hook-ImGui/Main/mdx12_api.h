@@ -167,6 +167,7 @@ namespace g_MDX12 {
     void SetupHandleDisconnect(SDK::UNetConnection* rcx);
     void SetupOutputTextLine(SDK::UConsole* rcx, SDK::FString* Message);
     void SetupPostRender(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas);
+    void SetupPhysicsRotation(SDK::UMovementComponent* rcx, float DeltaTime);
 
     // Main thread initialization
     DWORD WINAPI MainThread(LPVOID);
@@ -177,6 +178,7 @@ namespace g_MDX12 {
     typedef void(*SetupHandleDisconnectCallback)(SDK::UNetConnection* rcx);
     typedef void(*SetupOutputTextLineCallback)(SDK::UConsole* rcx, SDK::FString* Message);
     typedef void(*SetupPostRenderCallback)(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas);
+    typedef void(*SetupPhysicsRotationCallback)(SDK::UMovementComponent* rcx, float DeltaTime);
 
     namespace g_Callbacks {
         extern SetupImGuiCallback g_setupImGuiCallback;
@@ -184,6 +186,7 @@ namespace g_MDX12 {
         extern SetupHandleDisconnectCallback g_setupHandleDisconnectCallback;
         extern SetupOutputTextLineCallback g_setupOutputTextLineCallback;
         extern SetupPostRenderCallback g_setupPostRenderCallback;
+        extern SetupPhysicsRotationCallback g_setupPhysicsRotationCallback;
     }
 
     // Public API
@@ -193,6 +196,7 @@ namespace g_MDX12 {
     void SetSetupHandleDisconnectCallback(SetupHandleDisconnectCallback callback);
     void SetSetupOutputTextLineCallback(SetupOutputTextLineCallback callback);
     void SetSetupPostRenderCallback(SetupPostRenderCallback callback);
+    void SetSetupPhysicsRotationCallback(SetupPhysicsRotationCallback callback);
 }
 
 // Export for DLL
@@ -202,3 +206,4 @@ extern "C" __declspec(dllexport) void SetSetupUWorldTickCallback(g_MDX12::SetupU
 extern "C" __declspec(dllexport) void SetSetupHandleDisconnectCallback(g_MDX12::SetupHandleDisconnectCallback callback);
 extern "C" __declspec(dllexport) void SetSetupOutputTextLineCallback(g_MDX12::SetupOutputTextLineCallback callback);
 extern "C" __declspec(dllexport) void SetSetupPostRenderCallback(g_MDX12::SetupPostRenderCallback callback);
+extern "C" __declspec(dllexport) void SetSetupPhysicsRotationCallback(g_MDX12::SetupPhysicsRotationCallback callback);

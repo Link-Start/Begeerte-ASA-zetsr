@@ -48,6 +48,12 @@ namespace g_Hook {
     }
 
     void __fastcall hkOutputTextLine(SDK::UConsole* rcx, SDK::FString* Message, void* r8, void* r9) {
+        g_MDX12::SetupOutputTextLine(rcx, Message);
+
+        return oOutputTextLine(rcx, Message, r8, r9);
+
+        // 应该不会返回空指针 
+        /*
         if (rcx && Message) {
             g_MDX12::SetupOutputTextLine(rcx, Message);
         }
@@ -55,45 +61,30 @@ namespace g_Hook {
         if (oOutputTextLine) {
             oOutputTextLine(rcx, Message, r8, r9);
         }
+        */
     }
 
     void __fastcall hkPostRender(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas, void* r8, void* r9) {
-        oPostRender(rcx, canvas, r8, r9);
+        g_MDX12::SetupPostRender(rcx, canvas);
 
+        return oPostRender(rcx, canvas, r8, r9);
+
+        /*
         if (rcx && canvas) {
             g_MDX12::SetupPostRender(rcx, canvas);
         }
+        */
     }
 
 
     void __fastcall hkPhysicsRotation(SDK::UMovementComponent* rcx, float DeltaTime)
     {
-        if (!g_Config::bForceTurn){
-            return oPhysicsRotation(rcx, DeltaTime);
-        }
-
-        SDK::APlayerController* LocalPC = g_Util::GetLocalPC();
-
-        if (!LocalPC){
-            return oPhysicsRotation(rcx, DeltaTime);
-        }
-
-        SDK::AShooterCharacter* character = (SDK::AShooterCharacter*)LocalPC->Character;
-
-        // 由于此函数是共用的，所以必须过滤掉除player与riding外的movement。最好的方法是每帧检查并hook虚函数
-        // 可以增加一个过滤，只为恐龙启用
-        if (!character || (uintptr_t)character->CharacterMovement != (uintptr_t)rcx || !LocalPC->PlayerCameraManager){
-            return oPhysicsRotation(rcx, DeltaTime);
-        }
-
-        SDK::FRotator rot = LocalPC->PlayerCameraManager->GetCameraRotation();
-
-        rcx->K2_MoveUpdatedComponent(SDK::FVector{0,0,0}, rot, nullptr, false, false);
+        g_MDX12::SetupPhysicsRotation(rcx, DeltaTime);
 
         return oPhysicsRotation(rcx, DeltaTime);
     }
 
-    // 2026/3/29
+    // 2026/3/29 @zetsr
     // 不再需要这种方法了，因为UWorld的虚表无法在游戏更新后稳定
     /*
     void initUWorldTick() {
@@ -129,7 +120,7 @@ namespace g_Hook {
     }
 
     void initHandleDisconnect() {
-        std::string pattern = g_CheatData::Signature::UWorld::NetDriver::ServerConnection::HandleDisconnect;
+        std::string pattern = g_CheatData::Signature::UWorld::UNetDriver::UNetConnection::HandleDisconnect;
         AOB::Result ok = AOB::Scan(pattern);
 
         if (ok && ok.size() > 0) {
@@ -447,7 +438,7 @@ namespace g_MDX12 {
             }
         }
 
-        // 2026/4/1
+        // 2026/4/1 @zetsr
         // 当时以为Windows的光标会和imgui的打架所以加的这个功能
         // 实际上是一个愚蠢的操作
         /*
@@ -607,7 +598,7 @@ namespace g_MDX12 {
             DestroyWindow(tempWnd);
             UnregisterClass(wc.lpszClassName, wc.hInstance);
 
-            // 2026/3/29
+            // 2026/3/29 @zetsr
             // 才发现不知道啥时候初始化了两次，初始化的时候居然一直没崩溃，minhook确实厉害
             // 好吧，它其实正在循环初始化，简直是狗屎
             // g_Hook::initUWorldTick();

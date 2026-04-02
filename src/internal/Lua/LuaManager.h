@@ -56,6 +56,7 @@ public:
     const std::string& GetScriptDir() const { return m_scriptDir; }
     
     void Lua_OnShutDown(LuaScript& script);
+    void Lua_OnPostRender();
     void Lua_OnConsoleMessage(std::string Message);
     void Lua_OnDisconnect(std::string ServerIP, int32_t ServerPort);
     void Lua_OnWorldTick();

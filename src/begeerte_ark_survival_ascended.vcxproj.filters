@@ -76,12 +76,6 @@
     <Filter Include="internal\CheatData">
       <UniqueIdentifier>{7175f10b-9563-4423-9ef2-f994f0c5cccb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="internal\UWorld\NetDriver">
-      <UniqueIdentifier>{40730184-d41d-4cc1-a994-eea9fd934ab6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="internal\UWorld\NetDriver\ServerConnection">
-      <UniqueIdentifier>{259234b2-7d42-4c88-8c11-16741d8b57a3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="internal\UEngine">
       <UniqueIdentifier>{c6f53996-62a4-4791-8692-f777ecfe55e7}</UniqueIdentifier>
     </Filter>
@@ -96,6 +90,15 @@
     </Filter>
     <Filter Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde">
       <UniqueIdentifier>{2af19aed-f6bf-4ae0-9eee-b53180ea5ec3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\UWorld\UMovementComponent">
+      <UniqueIdentifier>{e1b1934f-dad1-4d9e-aad5-3cfb94e8c7f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\UWorld\UNetDriver">
+      <UniqueIdentifier>{40730184-d41d-4cc1-a994-eea9fd934ab6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\UWorld\UNetDriver\UNetConnection">
+      <UniqueIdentifier>{259234b2-7d42-4c88-8c11-16741d8b57a3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -426,9 +429,6 @@
     <ClInclude Include="internal\CheatData\CheatData.hpp">
       <Filter>internal\CheatData</Filter>
     </ClInclude>
-    <ClInclude Include="internal\UWorld\NetDriver\ServerConnection\HandleDisconnect.h">
-      <Filter>internal\UWorld\NetDriver\ServerConnection</Filter>
-    </ClInclude>
     <ClInclude Include="internal\UEngine\UGameViewportClient\UConsole\OutputTextLine.h">
       <Filter>internal\UEngine\UGameViewportClient\UConsole</Filter>
     </ClInclude>
@@ -485,6 +485,12 @@
     </ClInclude>
     <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imstb_truetype.h">
       <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\UWorld\UNetDriver\UNetConnection\HandleDisconnect.h">
+      <Filter>internal\UWorld\UNetDriver\UNetConnection</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\UWorld\UMovementComponent\PhysicsRotation.h">
+      <Filter>internal\UWorld\UMovementComponent</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -571,9 +577,6 @@
     <ClCompile Include="internal\Menu\Misc_Menu.cpp">
       <Filter>internal\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="internal\UWorld\NetDriver\ServerConnection\HandleDisconnect.cpp">
-      <Filter>internal\UWorld\NetDriver\ServerConnection</Filter>
-    </ClCompile>
     <ClCompile Include="internal\UEngine\UGameViewportClient\UConsole\OutputTextLine.cpp">
       <Filter>internal\UEngine\UGameViewportClient\UConsole</Filter>
     </ClCompile>
@@ -621,6 +624,12 @@
     </ClCompile>
     <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_widgets.cpp">
       <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\UWorld\UNetDriver\UNetConnection\HandleDisconnect.cpp">
+      <Filter>internal\UWorld\UNetDriver\UNetConnection</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\UWorld\UMovementComponent\PhysicsRotation.cpp">
+      <Filter>internal\UWorld\UMovementComponent</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
