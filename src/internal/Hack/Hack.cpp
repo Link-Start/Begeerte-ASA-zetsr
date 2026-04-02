@@ -131,6 +131,8 @@ namespace g_Hack {
         SDK::FRotator rot = LocalPC->PlayerCameraManager->GetCameraRotation();
 
         // 开了之后会一直往前走
+        // 2026/4/3 @zetsr
+        // 考虑到我们使用它的时候要么需要移动，要么可以手动对抗它造成的移动，也许可以直接把它改成一个 keybind，但是我们目前还没有 keybind :(
         rcx->K2_MoveUpdatedComponent(SDK::FVector{ 0,0,0 }, rot, nullptr, false, false);
     }
 }
