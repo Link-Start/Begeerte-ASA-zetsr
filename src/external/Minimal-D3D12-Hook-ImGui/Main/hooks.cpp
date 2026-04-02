@@ -81,6 +81,7 @@ namespace g_Hook {
         SDK::AShooterCharacter* character = (SDK::AShooterCharacter*)LocalPC->Character;
 
         // 由于此函数是共用的，所以必须过滤掉除player与riding外的movement。最好的方法是每帧检查并hook虚函数
+        // 可以增加一个过滤，只为恐龙启用
         if (!character || (uintptr_t)character->CharacterMovement != (uintptr_t)rcx || !LocalPC->PlayerCameraManager){
             return oPhysicsRotation(rcx, DeltaTime);
         }
