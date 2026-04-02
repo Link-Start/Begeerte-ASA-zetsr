@@ -75,7 +75,7 @@ bool ConfigManager::CreateConfig(const std::string& name) {
         if (fs::exists(configPath)) return false;
         std::ofstream file(configPath);
         if (!file.is_open()) return false;
-        
+
         file << "# Configuration File: " << name << "\n";
         file << "# Auto-generated\n\n";
         file.close();
@@ -100,6 +100,8 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
         // 其他功能
         CONFIG_BOOL(g_Config::bAutoFeed);
         CONFIG_BOOL(g_Config::bSuperFlyer);
+        // 由于船只的角度会在开启此功能后在不经意间导致角度怪异，所以最好不要保存此配置
+        // CONFIG_BOOL(g_Config::bForceTurn);
 
         // 生物列表
         file << "[EntityList]\n";
@@ -269,6 +271,8 @@ bool ConfigManager::LoadConfig(const std::string& filename) {
         // 其他功能
         LOAD_BOOL(g_Config::bAutoFeed);
         LOAD_BOOL(g_Config::bSuperFlyer);
+        // 由于船只的角度会在开启此功能后在不经意间导致角度怪异，所以最好不要保存此配置
+        // LOAD_BOOL(g_Config::bForceTurn);
 
         // 生物列表
         LOAD_STRING(g_Config::entitySearchBuf, 256);
@@ -277,7 +281,7 @@ bool ConfigManager::LoadConfig(const std::string& filename) {
         // 建筑列表
         LOAD_STRING(g_Config::structureSearchBuf, 256);
         LOAD_BOOL(g_Config::bEnableStructureFilter);
-        
+
         // 物品列表
         LOAD_STRING(g_Config::itemSearchBuf, 256);
 
@@ -285,13 +289,13 @@ bool ConfigManager::LoadConfig(const std::string& filename) {
         LOAD_BOOL(g_Config::bAimbotEnabled);
         LOAD_FLOAT(g_Config::AimbotFOV);
         LOAD_FLOAT(g_Config::AimbotSmooth);
-        
+
         // 扳机
         LOAD_BOOL(g_Config::bTriggerbotEnabled);
         LOAD_FLOAT(g_Config::TriggerDelay);
         LOAD_FLOAT(g_Config::TriggerRandomPercent);
         LOAD_FLOAT(g_Config::TriggerHitChance);
-        
+
         // 掉落物
         LOAD_BOOL(g_Config::bDrawDroppedItems);
         LOAD_FLOAT(g_Config::DroppedItemMaxDistance);
@@ -320,7 +324,7 @@ bool ConfigManager::LoadConfig(const std::string& filename) {
         // 宝箱
         LOAD_BOOL(g_Config::bDrawSupplyDrops);
         LOAD_FLOAT(g_Config::SupplyDropMaxDistance);
-        
+
         // 建筑
         LOAD_BOOL(g_Config::bDrawStructures);
         LOAD_BOOL(g_Config::bOnlyDrawStructuresEnemy);
@@ -368,7 +372,7 @@ bool ConfigManager::LoadConfig(const std::string& filename) {
         LOAD_COLOR(g_Config::RagdollColorTeam);
         LOAD_BOOL(g_Config::bDrawDistanceTeam);
         LOAD_COLOR(g_Config::DistanceColorTeam);
-        
+
         // OOF
         LOAD_BOOL(g_Config::bEnableOOF);
         LOAD_COLOR(g_Config::OOFColor);
@@ -409,7 +413,7 @@ void ConfigManager::WriteCharArray(std::ofstream& file, const std::string& key, 
 bool ConfigManager::ReadValue(const std::string& value, bool& out) {
     std::string lower = value;
     std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
-    
+
     if (lower == "true" || lower == "1") {
         out = true;
         return true;
@@ -433,7 +437,7 @@ bool ConfigManager::ReadValue(const std::string& value, float& out) {
 
 bool ConfigManager::ReadValue(const std::string& value, char* out, size_t maxLen) {
     if (value.length() >= maxLen) return false;
-    
+
     size_t outIdx = 0;
     for (size_t i = 0; i < value.length() && outIdx < maxLen - 1; ++i) {
         if (value[i] == '\\' && i + 1 < value.length()) {
@@ -466,11 +470,11 @@ bool ConfigManager::ReadColorArray(const std::string& value, float* color) {
         std::stringstream ss(value);
         std::string token;
         int idx = 0;
-        
+
         while (std::getline(ss, token, ',') && idx < 4) {
             color[idx++] = std::stof(Trim(token));
         }
-        
+
         return idx == 4;
     }
     catch (...) {

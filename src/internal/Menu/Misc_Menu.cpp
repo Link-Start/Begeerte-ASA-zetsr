@@ -49,6 +49,7 @@ namespace g_DrawImGui {
 			DrawCustomCheckbox(U8("一键满级"), &g_Config::bUnlockExplorerNotes);
 			DrawCustomCheckbox(U8("自动喂肉"), &g_Config::bAutoFeed);
 			DrawCustomCheckbox(U8("飞行龙加强"), &g_Config::bSuperFlyer);
+            DrawCustomCheckbox(U8("秒转头"), &g_Config::bForceTurn);
 
 			DrawAnimatedSeparator();
 

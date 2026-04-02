@@ -21,6 +21,8 @@ namespace g_CheatData {
 					std::string HandleDisconnect = "? ? ? ? ? ? ? 55 57 48 8D 68 A1 48 81 EC D8 00 00 00 48 89 58 E8 48 8D 55 E7 48 89 70 E0";
 				}
 			}
+
+            std::string PhysicsRotation = "48 89 5C 24 ? 48 89 7C 24 ? 55 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 44 0F 29 BC 24";
 		}
 
 		namespace UEngine {
