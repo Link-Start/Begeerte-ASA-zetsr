@@ -11,6 +11,8 @@
 
 #include "../MinHook/include/MinHook.h"
 
+#include "../../../internal/Util/Util.h"
+
 #pragma warning(push)
 #pragma warning(disable: 26451)
 #pragma warning(disable: 26812)
@@ -29,6 +31,9 @@ namespace g_Hook {
 
     typedef void(__fastcall* tPostRender)(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas, void* r8, void* r9);
     tPostRender oPostRender = nullptr;
+
+    typedef void(__fastcall* tPhysicsRotation)(SDK::UMovementComponent* rcx, float DeltaTime);
+    tPhysicsRotation oPhysicsRotation = nullptr;
 
     void* __fastcall hkUWorldTick(SDK::UWorld* rcx, void* rdx, void* r8, void* r9) {
         g_MDX12::SetupUWorldTick(rcx);
@@ -58,6 +63,34 @@ namespace g_Hook {
         if (rcx && canvas) {
             g_MDX12::SetupPostRender(rcx, canvas);
         }
+    }
+
+
+    void __fastcall hkPhysicsRotation(SDK::UMovementComponent* rcx, float DeltaTime)
+    {
+        if (!g_Config::bForceTurn){
+            return oPhysicsRotation(rcx, DeltaTime);
+        }
+
+        SDK::APlayerController* LocalPC = g_Util::GetLocalPC();
+
+        if (!LocalPC){
+            return oPhysicsRotation(rcx, DeltaTime);
+        }
+
+        SDK::AShooterCharacter* character = (SDK::AShooterCharacter*)LocalPC->Character;
+
+        // 由于此函数是共用的，所以必须过滤掉除player与riding外的movement。最好的方法是每帧检查并hook虚函数
+        // 可以增加一个过滤，只为恐龙启用
+        if (!character || (uintptr_t)character->CharacterMovement != (uintptr_t)rcx || !LocalPC->PlayerCameraManager){
+            return oPhysicsRotation(rcx, DeltaTime);
+        }
+
+        SDK::FRotator rot = LocalPC->PlayerCameraManager->GetCameraRotation();
+
+        rcx->K2_MoveUpdatedComponent(SDK::FVector{0,0,0}, rot, nullptr, false, false);
+
+        return oPhysicsRotation(rcx, DeltaTime);
     }
 
     // 2026/3/29
@@ -133,6 +166,19 @@ namespace g_Hook {
             }
         }
     }
+
+    void initPhysicsRotation() {
+        std::string pattern = g_CheatData::Signature::UWorld::PhysicsRotation;
+        AOB::Result ok = AOB::Scan(pattern);
+
+        if (ok && ok.size() > 0) {
+            void* targetAddr = ok[0];
+
+            if (MH_CreateHook(targetAddr, &hkPhysicsRotation, reinterpret_cast<LPVOID*>(&oPhysicsRotation)) == MH_OK) {
+                MH_EnableHook(targetAddr);
+            }
+        }
+    }
 }
 
 // 应该不需要每个都单独检查一次
@@ -150,6 +196,7 @@ void g_Hook::StartAllHooks() {
         g_Hook::initHandleDisconnect();
         g_Hook::initOutputTextLine();
         g_Hook::initPostRender();
+        g_Hook::initPhysicsRotation();
     }
 }
 

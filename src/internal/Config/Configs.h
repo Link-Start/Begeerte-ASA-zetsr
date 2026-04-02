@@ -8,6 +8,7 @@ namespace g_Config {
 
     // 其他功能
     inline bool bSuperFlyer = false;
+    inline bool bForceTurn = false;
     inline bool bAutoFeed = false;
     inline bool bUnlockExplorerNotes = false;
     inline bool bSuicide = false;
