@@ -39,8 +39,10 @@ namespace g_CheatData {
 
 				namespace UConsole {
 					// 2026/4/3 @zetsr
-					// 过期了
-					std::string OutputTextLine = "48 8B C4 ? ? 48 83 EC ? 48 89 58 ? 48 8B DA";
+					// 48 8B C4 ? ? 48 83 EC ? 48 89 58 ? 48 8B DA 2026/4/3 过期了
+					
+					// mov [rsp + offset], rbx push rbp push rsi push rdi push r12 push r13 push r14 push r15 mov rax, [rcx] sub rsp, offset movsxd rax, [rdx + offset] xor r14d, r14d mov rax, [rcx]
+					std::string OutputTextLine = "48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8B ? 48 83 EC ? 48 63 ? ? 45 33 F6 48 8B";
 				}
 			}
 		}
