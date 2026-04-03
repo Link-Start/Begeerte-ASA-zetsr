@@ -783,6 +783,20 @@ void UUI_CFCore_StoreMenu_C::OpenCurrentActivePage()
 }
 
 
+// Function UI_CFCore_StoreMenu.UI_CFCore_StoreMenu_C.OpenPendingModPage
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void UUI_CFCore_StoreMenu_C::OpenPendingModPage()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CFCore_StoreMenu_C", "OpenPendingModPage");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function UI_CFCore_StoreMenu.UI_CFCore_StoreMenu_C.PlayStartFadeInAnimation
 // (Public, BlueprintCallable, BlueprintEvent)
 

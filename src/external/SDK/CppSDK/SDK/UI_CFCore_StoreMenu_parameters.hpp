@@ -13,10 +13,10 @@
 #include "cfcore_structs.hpp"
 #include "SlateCore_structs.hpp"
 #include "cfcore_ui_structs.hpp"
-#include "InputCore_structs.hpp"
-#include "ENUM_CFCore_InputDevices_structs.hpp"
 #include "ENUM_CFCore_SideTabs_structs.hpp"
+#include "InputCore_structs.hpp"
 #include "Engine_structs.hpp"
+#include "ENUM_CFCore_InputDevices_structs.hpp"
 
 
 namespace SDK::Params
@@ -57,8 +57,10 @@ public:
 	struct FKey                                   theKey;                                            // 0x0000(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash)
 	bool                                          ReturnValue;                                       // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          CallFunc_EqualEqual_KeyKey_ReturnValue;            // 0x0019(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_EqualEqual_ByteByte_ReturnValue;          // 0x001A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_BooleanAND_ReturnValue;                   // 0x001B(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x001A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_BPGamepadReleased_ReturnValue;            // 0x001B(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_EqualEqual_ByteByte_ReturnValue;          // 0x001C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_BooleanAND_ReturnValue;                   // 0x001D(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_UI_CFCore_StoreMenu_C_BPGamepadReleased;
 
@@ -411,6 +413,20 @@ public:
 	bool                                          K2Node_SwitchEnum_CmpSuccess;                      // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_UI_CFCore_StoreMenu_C_OpenCurrentActivePage;
+
+// Function UI_CFCore_StoreMenu.UI_CFCore_StoreMenu_C.OpenPendingModPage
+// 0x0020 (0x0020 - 0x0000)
+struct UI_CFCore_StoreMenu_C_OpenPendingModPage final
+{
+public:
+	class UUI_CFCore_Discovery_C*                 CallFunc_GetDiscoveryRef_DiscoveryRef;             // 0x0000(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_Int64Int64_ReturnValue;              // 0x0009(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_A[0x6];                                        // 0x000A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	int64                                         CallFunc_Abs_Int64_ReturnValue;                    // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Greater_Int64Int64_ReturnValue;           // 0x0018(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_UI_CFCore_StoreMenu_C_OpenPendingModPage;
 
 // Function UI_CFCore_StoreMenu.UI_CFCore_StoreMenu_C.PlayStartFadeInAnimation
 // 0x0010 (0x0010 - 0x0000)

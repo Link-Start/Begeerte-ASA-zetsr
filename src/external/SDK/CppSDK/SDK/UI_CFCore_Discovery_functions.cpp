@@ -405,6 +405,40 @@ void UUI_CFCore_Discovery_C::OnPressViewAllOnMostDL()
 }
 
 
+// Function UI_CFCore_Discovery.UI_CFCore_Discovery_C.OpenSpotlight
+// (Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// int64                                   SpotlightID                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UUI_CFCore_Discovery_C::OpenSpotlight(int64 SpotlightID)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CFCore_Discovery_C", "OpenSpotlight");
+
+	Params::UI_CFCore_Discovery_C_OpenSpotlight Parms{};
+
+	Parms.SpotlightID = SpotlightID;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_CFCore_Discovery.UI_CFCore_Discovery_C.OpenSpotlightShowcasePage
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+
+void UUI_CFCore_Discovery_C::OpenSpotlightShowcasePage()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CFCore_Discovery_C", "OpenSpotlightShowcasePage");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function UI_CFCore_Discovery.UI_CFCore_Discovery_C.PreConstruct
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:

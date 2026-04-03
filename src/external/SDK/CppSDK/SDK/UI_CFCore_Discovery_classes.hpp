@@ -20,7 +20,7 @@ namespace SDK
 {
 
 // WidgetBlueprintGeneratedClass UI_CFCore_Discovery.UI_CFCore_Discovery_C
-// 0x0180 (0x09E0 - 0x0860)
+// 0x0190 (0x09F0 - 0x0860)
 class UUI_CFCore_Discovery_C final : public UUI_CFCore_BasePage_C
 {
 public:
@@ -66,6 +66,9 @@ public:
 	class UUI_CFCore_Discovery_Spotlight_C*       SpotlightPreview;                                  // 0x0998(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
 	TMulticastInlineDelegate<void()>              RequestExit;                                       // 0x09A0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	struct FModsHighlightsV3                      DiscoveryGenerationData;                           // 0x09B0(0x0030)(Edit, BlueprintVisible, DisableEditOnInstance)
+	int64                                         RequestedSpotlightPage;                            // 0x09E0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bRequestedOpenSpotlight;                           // 0x09E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bHasBuiltCarousel;                                 // 0x09E9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void BndEvt__UI_CFCore_Discovery_UI_Button_CFCore_Global_Back_K2Node_ComponentBoundEvent_2_OnReleased__DelegateSignature();
@@ -92,6 +95,8 @@ public:
 	void OnPressVieAllPurchased();
 	void OnPressViewAllLatest();
 	void OnPressViewAllOnMostDL();
+	void OpenSpotlight(int64 SpotlightID);
+	void OpenSpotlightShowcasePage();
 	void PreConstruct(bool IsDesignTime);
 	void ResetAllFilters();
 	void ReturnFromModPage();

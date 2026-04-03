@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
-#include "ENUM_CFCore_LoadingProgress_structs.hpp"
 #include "Engine_structs.hpp"
 #include "CFCoreWidget_classes.hpp"
+#include "ENUM_CFCore_LoadingProgress_structs.hpp"
 
 
 namespace SDK
