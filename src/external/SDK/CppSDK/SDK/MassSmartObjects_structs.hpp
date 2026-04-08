@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "SmartObjectsModule_structs.hpp"
 #include "GameplayTags_structs.hpp"
+#include "SmartObjectsModule_structs.hpp"
 #include "MassEntity_structs.hpp"
 #include "ZoneGraph_structs.hpp"
 #include "CoreUObject_structs.hpp"

@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
+#include "Engine_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "cfcore_structs.hpp"
-#include "Engine_structs.hpp"
 #include "UI_Button_CFCore_Global_Master_classes.hpp"
 
 

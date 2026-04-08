@@ -98,6 +98,16 @@ enum class EUsdListPosition : uint8
 	EUsdListPosition_MAX                     = 4,
 };
 
+// ScriptStruct UnrealUSDWrapper.Matrix2D
+// 0x0020 (0x0020 - 0x0000)
+struct FMatrix2D final
+{
+public:
+	struct FVector2D                              Row0;                                              // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              Row1;                                              // 0x0010(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FMatrix2D;
+
 // ScriptStruct UnrealUSDWrapper.Matrix3D
 // 0x0048 (0x0048 - 0x0000)
 struct FMatrix3D final
@@ -108,16 +118,6 @@ public:
 	struct FVector                                Row2;                                              // 0x0030(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FMatrix3D;
-
-// ScriptStruct UnrealUSDWrapper.Matrix2D
-// 0x0020 (0x0020 - 0x0000)
-struct FMatrix2D final
-{
-public:
-	struct FVector2D                              Row0;                                              // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              Row1;                                              // 0x0010(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FMatrix2D;
 
 }
 

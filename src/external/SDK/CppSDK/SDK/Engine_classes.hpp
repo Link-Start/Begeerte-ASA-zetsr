@@ -2065,6 +2065,8 @@ public:
 	uint8                                         Pad_480[0x8];                                      // 0x0480(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
+	static void RemoveDeferredActivationComponent(class UActorComponent* ActorComp);
+
 	void ActorPlaySound(class USoundBase* SoundAsset, bool bAttach, class FName BoneName, const struct FVector& LocOffset);
 	void ActorPlaySoundUnreliable(class USoundBase* SoundAsset, bool bAttach, class FName BoneName, const struct FVector& LocOffset);
 	class UActorComponent* AddComponent(class FName TemplateName, bool bManualAttachment, const struct FTransform& RelativeTransform, const class UObject* ComponentTemplateContext, bool bDeferredFinish);
@@ -11792,7 +11794,8 @@ public:
 	int32                                          RemotePort;
 	uint8                                          Pad_D4_To_168[0x94];                               // 0x00D4(0x0094)(填充到 PlayerID)
 	// --- 手术结束 ---
-	// uint8                                         Pad_AD[0xBB];                                      // 0x00AD(0x00BB)(Fixing Size After Last Property [ Dumper-7 ])
+
+	//uint8                                         Pad_AD[0xBB];                                      // 0x00AD(0x00BB)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FUniqueNetIdRepl                       PlayerID;                                          // 0x0168(0x0030)(HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_198[0x48];                                     // 0x0198(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
 	double                                        LastReceiveTime;                                   // 0x01E0(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)

@@ -10,12 +10,12 @@
 
 #include "Basic.hpp"
 
+#include "ENUM_CFCore_SideTabs_structs.hpp"
+#include "SlateCore_structs.hpp"
+#include "cfcore_ui_structs.hpp"
 #include "Engine_structs.hpp"
 #include "CFCoreUIWidget_MainModShop_classes.hpp"
-#include "cfcore_ui_structs.hpp"
-#include "SlateCore_structs.hpp"
 #include "ENUM_CFCore_InputDevices_structs.hpp"
-#include "ENUM_CFCore_SideTabs_structs.hpp"
 
 
 namespace SDK
@@ -53,12 +53,12 @@ public:
 	class UUI_CFCore_Overlay_C*                   UI_Overlay;                                        // 0x0958(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class UUI_CFCore_SeparatedInstalledMods_C*    UI_SeparatedInstalledMods;                         // 0x0960(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class UUI_CFCore_Button_SignIn_C*             UI_SignIn;                                         // 0x0968(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UWidgetSwitcher*                        WidgetSwitcher_PageSwitcher;                       // 0x0970(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UWidgetSwitcher*                        WidgetSwitcher_Title;                              // 0x0978(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	bool                                          IsSignedIn;                                        // 0x0980(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_981[0x7];                                      // 0x0981(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void()>              OnModPressed;                                      // 0x0988(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	uint8                                         Pad_998[0x8];                                      // 0x0998(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class UTextBlock*                             UserIdDisplay;                                     // 0x0970(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UWidgetSwitcher*                        WidgetSwitcher_PageSwitcher;                       // 0x0978(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UWidgetSwitcher*                        WidgetSwitcher_Title;                              // 0x0980(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	bool                                          IsSignedIn;                                        // 0x0988(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_989[0x7];                                      // 0x0989(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void()>              OnModPressed;                                      // 0x0990(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	struct FButtonStyle                           SelectedStyle;                                     // 0x09A0(0x0370)(Edit, BlueprintVisible, DisableEditOnInstance)
 	struct FButtonStyle                           NotSelectedStyle;                                  // 0x0D10(0x0370)(Edit, BlueprintVisible, DisableEditOnInstance)
 	TMulticastInlineDelegate<void()>              OnCFCoreInitialized;                               // 0x1080(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
@@ -152,6 +152,7 @@ public:
 	void SetDiscoveryActive();
 	void SetInitStoreFocus();
 	void SetNewTextInSearch(const class FText& InText);
+	void SetUserIdDisplayText();
 	void ShouldCustomizeTheme();
 	void SwitchControllerAction(const struct FKey& Key, EViewState State);
 	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);

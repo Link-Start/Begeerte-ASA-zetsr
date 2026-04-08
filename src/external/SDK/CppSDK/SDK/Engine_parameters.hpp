@@ -6171,6 +6171,15 @@ public:
 };
 DUMPER7_ASSERTS_HierarchicalInstancedStaticMeshComponent_HideInstanceWithoutRemoval;
 
+// Function Engine.Actor.RemoveDeferredActivationComponent
+// 0x0008 (0x0008 - 0x0000)
+struct Actor_RemoveDeferredActivationComponent final
+{
+public:
+	class UActorComponent*                        ActorComp;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Actor_RemoveDeferredActivationComponent;
+
 // Function Engine.Actor.ActorPlaySound
 // 0x0030 (0x0030 - 0x0000)
 struct Actor_ActorPlaySound final

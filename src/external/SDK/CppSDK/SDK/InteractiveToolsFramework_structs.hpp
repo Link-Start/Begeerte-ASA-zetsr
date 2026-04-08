@@ -282,6 +282,18 @@ enum class ESceneSnapQueryTargetType : uint8
 	ESceneSnapQueryTargetType_MAX            = 8,
 };
 
+// ScriptStruct InteractiveToolsFramework.GizmoElementColorAttribute
+// 0x0014 (0x0014 - 0x0000)
+struct FGizmoElementColorAttribute final
+{
+public:
+	struct FLinearColor                           Value;                                             // 0x0000(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bHasValue;                                         // 0x0010(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOverridesChildState;                              // 0x0011(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_12[0x2];                                       // 0x0012(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FGizmoElementColorAttribute;
+
 // ScriptStruct InteractiveToolsFramework.DeviceButtonState
 // 0x0020 (0x0020 - 0x0000)
 struct FDeviceButtonState final
@@ -313,16 +325,6 @@ public:
 };
 DUMPER7_ASSERTS_FInputRayHit;
 
-// ScriptStruct InteractiveToolsFramework.GizmoVec2ParameterChange
-// 0x0020 (0x0020 - 0x0000)
-struct FGizmoVec2ParameterChange final
-{
-public:
-	struct FVector2D                              InitialValue;                                      // 0x0000(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              CurrentValue;                                      // 0x0010(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FGizmoVec2ParameterChange;
-
 // ScriptStruct InteractiveToolsFramework.InputDeviceRay
 // 0x0048 (0x0048 - 0x0000)
 struct FInputDeviceRay final
@@ -335,28 +337,30 @@ public:
 };
 DUMPER7_ASSERTS_FInputDeviceRay;
 
-// ScriptStruct InteractiveToolsFramework.GizmoElementColorAttribute
-// 0x0014 (0x0014 - 0x0000)
-struct FGizmoElementColorAttribute final
+// ScriptStruct InteractiveToolsFramework.GizmoElementMaterialAttribute
+// 0x000C (0x000C - 0x0000)
+struct FGizmoElementMaterialAttribute final
 {
 public:
-	struct FLinearColor                           Value;                                             // 0x0000(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bHasValue;                                         // 0x0010(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOverridesChildState;                              // 0x0011(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_12[0x2];                                       // 0x0012(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TWeakObjectPtr<class UMaterialInterface>      Value;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOverridesChildState;                              // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FGizmoElementColorAttribute;
+DUMPER7_ASSERTS_FGizmoElementMaterialAttribute;
 
-// ScriptStruct InteractiveToolsFramework.GizmoElementLineRenderStateAttributes
-// 0x003C (0x003C - 0x0000)
-struct FGizmoElementLineRenderStateAttributes final
+// ScriptStruct InteractiveToolsFramework.GizmoElementMeshRenderStateAttributes
+// 0x0060 (0x0060 - 0x0000)
+struct FGizmoElementMeshRenderStateAttributes final
 {
 public:
-	struct FGizmoElementColorAttribute            LineColor;                                         // 0x0000(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
-	struct FGizmoElementColorAttribute            HoverLineColor;                                    // 0x0014(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
-	struct FGizmoElementColorAttribute            InteractLineColor;                                 // 0x0028(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FGizmoElementMaterialAttribute         Material;                                          // 0x0000(0x000C)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FGizmoElementMaterialAttribute         HoverMaterial;                                     // 0x000C(0x000C)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FGizmoElementMaterialAttribute         InteractMaterial;                                  // 0x0018(0x000C)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FGizmoElementColorAttribute            VertexColor;                                       // 0x0024(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FGizmoElementColorAttribute            HoverVertexColor;                                  // 0x0038(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FGizmoElementColorAttribute            InteractVertexColor;                               // 0x004C(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FGizmoElementLineRenderStateAttributes;
+DUMPER7_ASSERTS_FGizmoElementMeshRenderStateAttributes;
 
 // ScriptStruct InteractiveToolsFramework.KeyboardInputDeviceState
 // 0x0020 (0x0020 - 0x0000)
@@ -398,30 +402,26 @@ public:
 };
 DUMPER7_ASSERTS_FInputDeviceState;
 
-// ScriptStruct InteractiveToolsFramework.GizmoElementMaterialAttribute
-// 0x000C (0x000C - 0x0000)
-struct FGizmoElementMaterialAttribute final
+// ScriptStruct InteractiveToolsFramework.GizmoVec2ParameterChange
+// 0x0020 (0x0020 - 0x0000)
+struct FGizmoVec2ParameterChange final
 {
 public:
-	TWeakObjectPtr<class UMaterialInterface>      Value;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOverridesChildState;                              // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FVector2D                              InitialValue;                                      // 0x0000(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              CurrentValue;                                      // 0x0010(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FGizmoElementMaterialAttribute;
+DUMPER7_ASSERTS_FGizmoVec2ParameterChange;
 
-// ScriptStruct InteractiveToolsFramework.GizmoElementMeshRenderStateAttributes
-// 0x0060 (0x0060 - 0x0000)
-struct FGizmoElementMeshRenderStateAttributes final
+// ScriptStruct InteractiveToolsFramework.GizmoElementLineRenderStateAttributes
+// 0x003C (0x003C - 0x0000)
+struct FGizmoElementLineRenderStateAttributes final
 {
 public:
-	struct FGizmoElementMaterialAttribute         Material;                                          // 0x0000(0x000C)(NoDestructor, NativeAccessSpecifierPublic)
-	struct FGizmoElementMaterialAttribute         HoverMaterial;                                     // 0x000C(0x000C)(NoDestructor, NativeAccessSpecifierPublic)
-	struct FGizmoElementMaterialAttribute         InteractMaterial;                                  // 0x0018(0x000C)(NoDestructor, NativeAccessSpecifierPublic)
-	struct FGizmoElementColorAttribute            VertexColor;                                       // 0x0024(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
-	struct FGizmoElementColorAttribute            HoverVertexColor;                                  // 0x0038(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
-	struct FGizmoElementColorAttribute            InteractVertexColor;                               // 0x004C(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FGizmoElementColorAttribute            LineColor;                                         // 0x0000(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FGizmoElementColorAttribute            HoverLineColor;                                    // 0x0014(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FGizmoElementColorAttribute            InteractLineColor;                                 // 0x0028(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FGizmoElementMeshRenderStateAttributes;
+DUMPER7_ASSERTS_FGizmoElementLineRenderStateAttributes;
 
 // ScriptStruct InteractiveToolsFramework.GizmoFloatParameterChange
 // 0x0008 (0x0008 - 0x0000)

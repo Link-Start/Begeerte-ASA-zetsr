@@ -959,6 +959,20 @@ void UUI_CFCore_StoreMenu_C::SetNewTextInSearch(const class FText& InText)
 }
 
 
+// Function UI_CFCore_StoreMenu.UI_CFCore_StoreMenu_C.SetUserIdDisplayText
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+
+void UUI_CFCore_StoreMenu_C::SetUserIdDisplayText()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CFCore_StoreMenu_C", "SetUserIdDisplayText");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function UI_CFCore_StoreMenu.UI_CFCore_StoreMenu_C.ShouldCustomizeTheme
 // (Public, BlueprintCallable, BlueprintEvent)
 

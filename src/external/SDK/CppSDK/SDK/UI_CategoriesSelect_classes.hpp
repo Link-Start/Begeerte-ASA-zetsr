@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "UI_CFCore_CustomComboBox_classes.hpp"
 #include "Engine_structs.hpp"
+#include "UI_CFCore_CustomComboBox_classes.hpp"
 
 
 namespace SDK

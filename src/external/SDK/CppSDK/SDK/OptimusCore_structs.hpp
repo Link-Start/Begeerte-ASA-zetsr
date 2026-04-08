@@ -485,15 +485,6 @@ public:
 };
 DUMPER7_ASSERTS_FRigVMTrait_SetDeformerInt4Variable;
 
-// ScriptStruct OptimusCore.RigVMTrait_SetDeformerInt4ArrayVariable
-// 0x0010 (0x0028 - 0x0018)
-struct FRigVMTrait_SetDeformerInt4ArrayVariable final : public FRigVMTrait_OptimusVariableBase
-{
-public:
-	TArray<struct FIntVector4>                    Value;                                             // 0x0018(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FRigVMTrait_SetDeformerInt4ArrayVariable;
-
 // ScriptStruct OptimusCore.OptimusFunctionReferenceNodeSet
 // 0x0050 (0x0050 - 0x0000)
 struct FOptimusFunctionReferenceNodeSet final
@@ -503,14 +494,14 @@ public:
 };
 DUMPER7_ASSERTS_FOptimusFunctionReferenceNodeSet;
 
-// ScriptStruct OptimusCore.OptimusFunctionReferenceData
-// 0x0050 (0x0050 - 0x0000)
-struct FOptimusFunctionReferenceData final
+// ScriptStruct OptimusCore.RigVMTrait_SetDeformerInt4ArrayVariable
+// 0x0010 (0x0028 - 0x0018)
+struct FRigVMTrait_SetDeformerInt4ArrayVariable final : public FRigVMTrait_OptimusVariableBase
 {
 public:
-	TMap<struct FSoftObjectPath, struct FOptimusFunctionReferenceNodeSet> FunctionReferences;        // 0x0000(0x0050)(NativeAccessSpecifierPublic)
+	TArray<struct FIntVector4>                    Value;                                             // 0x0018(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FOptimusFunctionReferenceData;
+DUMPER7_ASSERTS_FRigVMTrait_SetDeformerInt4ArrayVariable;
 
 // ScriptStruct OptimusCore.RigVMTrait_SetDeformerFloatVariable
 // 0x0008 (0x0020 - 0x0018)
@@ -1278,6 +1269,15 @@ public:
 	TArray<struct FOptimusFunctionNodeGraphHeader> Headers;                                          // 0x0000(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FOptimusFunctionNodeGraphHeaderArray;
+
+// ScriptStruct OptimusCore.OptimusFunctionReferenceData
+// 0x0050 (0x0050 - 0x0000)
+struct FOptimusFunctionReferenceData final
+{
+public:
+	TMap<struct FSoftObjectPath, struct FOptimusFunctionReferenceNodeSet> FunctionReferences;        // 0x0000(0x0050)(NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FOptimusFunctionReferenceData;
 
 // ScriptStruct OptimusCore.OptimusVariableMetaDataEntry
 // 0x0018 (0x0018 - 0x0000)

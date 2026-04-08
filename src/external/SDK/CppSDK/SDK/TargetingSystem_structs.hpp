@@ -51,15 +51,6 @@ public:
 };
 DUMPER7_ASSERTS_FTargetingDefaultResultData;
 
-// ScriptStruct TargetingSystem.TargetingDefaultResultsSet
-// 0x0010 (0x0010 - 0x0000)
-struct FTargetingDefaultResultsSet final
-{
-public:
-	TArray<struct FTargetingDefaultResultData>    TargetResults;                                     // 0x0000(0x0010)(ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FTargetingDefaultResultsSet;
-
 // ScriptStruct TargetingSystem.TargetingRequestHandle
 // 0x0004 (0x0004 - 0x0000)
 struct alignas(0x04) FTargetingRequestHandle final
@@ -86,6 +77,15 @@ public:
 	TArray<class UTargetingTask*>                 Tasks;                                             // 0x0000(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 };
 DUMPER7_ASSERTS_FTargetingTaskSet;
+
+// ScriptStruct TargetingSystem.TargetingDefaultResultsSet
+// 0x0010 (0x0010 - 0x0000)
+struct FTargetingDefaultResultsSet final
+{
+public:
+	TArray<struct FTargetingDefaultResultData>    TargetResults;                                     // 0x0000(0x0010)(ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FTargetingDefaultResultsSet;
 
 // ScriptStruct TargetingSystem.TargetingSourceContext
 // 0x0038 (0x0038 - 0x0000)
