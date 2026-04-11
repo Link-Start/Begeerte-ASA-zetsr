@@ -211,6 +211,20 @@ void UReHostSession_ASA_C::BndEvt__ReHostSession_ASA_BackButton_K2Node_Component
 }
 
 
+// Function ReHostSession_ASA.ReHostSession_ASA_C.BndEvt__ReHostSession_ASA_ButtonDifficultyBack_K2Node_ComponentBoundEvent_26_OnButtonClickedEvent__DelegateSignature
+// (BlueprintEvent)
+
+void UReHostSession_ASA_C::BndEvt__ReHostSession_ASA_ButtonDifficultyBack_K2Node_ComponentBoundEvent_26_OnButtonClickedEvent__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ReHostSession_ASA_C", "BndEvt__ReHostSession_ASA_ButtonDifficultyBack_K2Node_ComponentBoundEvent_26_OnButtonClickedEvent__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function ReHostSession_ASA.ReHostSession_ASA_C.BndEvt__ReHostSession_ASA_ChooseDifficulty_K2Node_ComponentBoundEvent_27_OnButtonClickedEvent__DelegateSignature
 // (BlueprintEvent)
 
@@ -220,20 +234,6 @@ void UReHostSession_ASA_C::BndEvt__ReHostSession_ASA_ChooseDifficulty_K2Node_Com
 
 	if (Func == nullptr)
 		Func = Class->GetFunction("ReHostSession_ASA_C", "BndEvt__ReHostSession_ASA_ChooseDifficulty_K2Node_ComponentBoundEvent_27_OnButtonClickedEvent__DelegateSignature");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function ReHostSession_ASA.ReHostSession_ASA_C.BndEvt__ReHostSession_ASA_CloseHubButton_K2Node_ComponentBoundEvent_29_OnButtonClickedEvent__DelegateSignature
-// (BlueprintEvent)
-
-void UReHostSession_ASA_C::BndEvt__ReHostSession_ASA_CloseHubButton_K2Node_ComponentBoundEvent_29_OnButtonClickedEvent__DelegateSignature()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ReHostSession_ASA_C", "BndEvt__ReHostSession_ASA_CloseHubButton_K2Node_ComponentBoundEvent_29_OnButtonClickedEvent__DelegateSignature");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
@@ -506,6 +506,26 @@ bool UReHostSession_ASA_C::BPIsPresetDifficultyUIOpen()
 	UObject::ProcessEvent(Func, &Parms);
 
 	return Parms.ReturnValue;
+}
+
+
+// Function ReHostSession_ASA.ReHostSession_ASA_C.BPShowDfficultyPanel
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// const bool                              bShow                                                  (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UReHostSession_ASA_C::BPShowDfficultyPanel(const bool bShow)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ReHostSession_ASA_C", "BPShowDfficultyPanel");
+
+	Params::ReHostSession_ASA_C_BPShowDfficultyPanel Parms{};
+
+	Parms.bShow = bShow;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 

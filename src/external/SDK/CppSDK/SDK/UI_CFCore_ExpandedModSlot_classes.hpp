@@ -11,8 +11,8 @@
 #include "Basic.hpp"
 
 #include "cfcore_ui_structs.hpp"
-#include "CFCoreWidget_classes.hpp"
 #include "Engine_structs.hpp"
+#include "CFCoreWidget_classes.hpp"
 
 
 namespace SDK

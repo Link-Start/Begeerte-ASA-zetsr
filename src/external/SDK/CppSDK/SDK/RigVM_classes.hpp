@@ -214,7 +214,7 @@ DUMPER7_ASSERTS_URigVMMemoryStorageGeneratorClass;
 
 // Class RigVM.RigVMMemoryStorage
 // 0x0000 (0x0028 - 0x0028)
-class URigVMMemoryStorage : public UObject
+class URigVMMemoryStorage final : public UObject
 {
 public:
 	static class UClass* StaticClass()
