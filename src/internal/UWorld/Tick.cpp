@@ -7,9 +7,12 @@
 #include "../Lua/LuaManager.h"
 #include "../Hack/Hack.h"
 #include "../../external/SDK/SDK_Headers.hpp"
+#include "../Legit/Aimbot/Aimbot.h"
 
 namespace g_UWorld {
 	void Tick(SDK::UWorld* world) {
+        g_Aimbot::Tick();
+
 		if (g_Config::bSuicide) {
 			g_Hack::Suicide(world);
 			g_Config::bSuicide = false;

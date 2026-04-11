@@ -14,7 +14,7 @@ namespace g_DrawImGui {
 			ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
 			BeginTabRegion("EntityListRegion");
 
-			ImGui::TextColored(ThemeColors::ACCENT, U8("生物列表"));
+			ImGui::TextColored(ThemeColors::GetAccent(), U8("生物列表"));
 			DrawAnimatedSeparator();
 
 			DrawCustomCheckbox(U8("应用筛选到全局视觉"), &g_Config::bEnableFilter);
@@ -38,7 +38,7 @@ namespace g_DrawImGui {
 						ImGui::TextDisabled(U8("当前筛选 (%zu 项):"), validTokens.size());
 						ImGui::SameLine();
 						for (size_t i = 0; i < validTokens.size(); i++) {
-							ImGui::TextColored(ThemeColors::ACCENT, "%s", validTokens[i].c_str());
+							ImGui::TextColored(ThemeColors::GetAccent(), "%s", validTokens[i].c_str());
 							if (i + 1 < validTokens.size()) ImGui::SameLine();
 						}
 					}

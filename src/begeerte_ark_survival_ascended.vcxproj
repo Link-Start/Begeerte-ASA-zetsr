@@ -129,6 +129,7 @@
     <ClInclude Include="internal\ESP\DrawESP.h" />
     <ClInclude Include="internal\ESP\ESP.h" />
     <ClInclude Include="internal\Hack\Hack.h" />
+    <ClInclude Include="internal\Legit\Aimbot\Aimbot.h" />
     <ClInclude Include="internal\Log\LogManager.h" />
     <ClInclude Include="internal\Lua\LuaManager.h" />
     <ClInclude Include="internal\Menu\Aimbot_Menu.h" />
@@ -190,6 +191,7 @@
     <ClCompile Include="internal\ESP\DrawESP.cpp" />
     <ClCompile Include="internal\ESP\ESP.cpp" />
     <ClCompile Include="internal\Hack\Hack.cpp" />
+    <ClCompile Include="internal\Legit\Aimbot\Aimbot.cpp" />
     <ClCompile Include="internal\Log\LogManager.cpp" />
     <ClCompile Include="internal\Lua\LuaManager.cpp" />
     <ClCompile Include="internal\Menu\Aimbot_Menu.cpp" />

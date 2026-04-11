@@ -15,32 +15,34 @@ namespace g_DrawImGui {
 			ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
 			BeginTabRegion("MiscRegion");
 
-			ImGui::TextColored(ThemeColors::ACCENT, U8("菜单设置"));
+			ImGui::TextColored(ThemeColors::GetAccent(), U8("菜单设置"));
 			DrawAnimatedSeparator();
+
+			DrawCustomColorPicker("MenuCol", g_Config::MenuColor, U8("菜单颜色"));
 
 			DrawCustomCheckbox(U8("锁定布局"), &g_Config::bMenuLockResize);
 			ImGui::SameLine();
 
-			if (ImGui::Button(U8("重置布局"))) {
+			if (DrawCustomButton(U8("重置布局"))) {
 				g_Config::bMenuNeedReset = true;
 			}
 
 			DrawAnimatedSeparator();
 
-			ImGui::TextColored(ThemeColors::ACCENT, U8("其他功能"));
+			ImGui::TextColored(ThemeColors::GetAccent(), U8("其他功能"));
 			DrawAnimatedSeparator();
 
-			if (ImGui::Button(U8("自杀"))) {
+			if (DrawCustomButton(U8("自杀"))) {
 				g_Config::bSuicide = true;
 			}
 
 			ImGui::SameLine();
-			if (ImGui::Button(U8("卸载"))) {
+			if (DrawCustomButton(U8("卸载"))) {
 				g_Hook::StopAllHooks();
 			}
 
 			ImGui::SameLine();
-			if (ImGui::Button(U8("获取服务器信息"))) {
+			if (DrawCustomButton(U8("获取服务器信息"))) {
 				g_Hack::DumpServerInfo();
 			}
 

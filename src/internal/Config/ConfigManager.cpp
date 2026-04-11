@@ -97,7 +97,12 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
         file << "# Configuration File\n";
         file << "# Format: key=value\n\n";
 
+        // 菜单功能
+        file << "[Menu]\n";
+        CONFIG_COLOR(g_Config::MenuColor);
+
         // 其他功能
+        file << "[Misc]\n";
         CONFIG_BOOL(g_Config::bAutoFeed);
         CONFIG_BOOL(g_Config::bSuperFlyer);
         // 由于船只的角度会在开启此功能后在不经意间导致角度怪异，所以最好不要保存此配置
@@ -270,6 +275,10 @@ bool ConfigManager::LoadConfig(const std::string& filename) {
         }
 
         file.close();
+        
+        // 菜单功能
+        LOAD_COLOR(g_Config::MenuColor);
+
         // 其他功能
         LOAD_BOOL(g_Config::bAutoFeed);
         LOAD_BOOL(g_Config::bSuperFlyer);

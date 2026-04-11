@@ -13,7 +13,7 @@ namespace g_DrawImGui {
             ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
             BeginTabRegion("VisualsRegion");
 
-            ImGui::TextColored(ThemeColors::ACCENT, U8("全局设置"));
+            ImGui::TextColored(ThemeColors::GetAccent(), U8("全局设置"));
             DrawAnimatedSeparator();
             DrawColorPickerRow(U8("方框"), &g_Config::bDrawBox, "BoxCol1", g_Config::BoxColor);
             DrawColorPickerRow(U8("名称"), &g_Config::bDrawName, "NameCol1", g_Config::NameColor);
@@ -22,14 +22,17 @@ namespace g_DrawImGui {
             DrawColorPickerRow(U8("尸体"), &g_Config::bDrawRagdoll, "RagdollCol", g_Config::RagdollColor);
             DrawAnimatedSeparator();
 
-            ImGui::TextColored(ThemeColors::ACCENT, U8("额外信息"));
+            ImGui::TextColored(ThemeColors::GetAccent(), U8("额外信息"));
             DrawAnimatedSeparator();
             DrawColorPickerRow(U8("距离"), &g_Config::bDrawDistance, "DistCol1", g_Config::DistanceColor);
-            // DrawColorPickerRow(U8("显示瞄准点"), &g_Config::bDrawAimPoints, "AimPointsCol1", g_Config::AimPointsColor);
+            DrawColorPickerRow(U8("显示瞄准点"), &g_Config::bDrawAimPoints, "AimPointsCol1", g_Config::AimPointsColor);
+
+            // 2026/4/11 @zetsr
+            // 应该是之前移除aimbot的时候被注释掉了，我们可能并不需要分别做骨骼和瞄准点的cb，使用复选框或者单选框应该更好，以后可以加个glow类型的，不过骨骼确实很好看
             // DrawColorPickerRow(U8("显示瞄准骨骼"), &g_Config::bDrawAimSkeleton, "AimSkeletonCol1", g_Config::AimSkeletonColor);
             DrawAnimatedSeparator();
 
-            ImGui::TextColored(ThemeColors::ACCENT, U8("世界信息"));
+            ImGui::TextColored(ThemeColors::GetAccent(), U8("世界信息"));
             DrawAnimatedSeparator();
 
             DrawColorPickerRow(U8("掉落的物品"), &g_Config::bDrawDroppedItems, "DroppedItemNameCol", g_Config::DroppedItemNameColor);
@@ -103,7 +106,7 @@ namespace g_DrawImGui {
             ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
             BeginTabRegion("TeamRegion");
 
-            ImGui::TextColored(ThemeColors::ACCENT, U8("队友设置"));
+            ImGui::TextColored(ThemeColors::GetAccent(), U8("队友设置"));
             DrawAnimatedSeparator();
             DrawColorPickerRow(U8("方框##Team"), &g_Config::bDrawBoxTeam, "BoxColTeam", g_Config::BoxColorTeam);
             DrawColorPickerRow(U8("名称##Team"), &g_Config::bDrawNameTeam, "NameColTeam", g_Config::NameColorTeam);
@@ -112,7 +115,7 @@ namespace g_DrawImGui {
             DrawColorPickerRow(U8("尸体##Team"), &g_Config::bDrawRagdollTeam, "RagdollColTeam", g_Config::RagdollColorTeam);
             DrawAnimatedSeparator();
 
-            ImGui::TextColored(ThemeColors::ACCENT, U8("额外信息"));
+            ImGui::TextColored(ThemeColors::GetAccent(), U8("额外信息"));
             DrawAnimatedSeparator();
             DrawColorPickerRow(U8("距离##Team"), &g_Config::bDrawDistanceTeam, "DistColTeam", g_Config::DistanceColorTeam);
             DrawAnimatedSeparator();

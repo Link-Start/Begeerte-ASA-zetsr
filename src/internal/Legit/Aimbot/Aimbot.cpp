@@ -1,9 +1,9 @@
-#include "../Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
-#include "SDK_Headers.hpp"
+#include "../../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
+#include "../../../external/SDK/SDK_Headers.hpp"
 #include "Aimbot.h"
-#include "Configs.h"
-#include "ESP.h"
-#include "Util.h"
+#include "../../../internal/Config/Configs.h"
+#include "../../../internal/ESP/ESP.h"
+#include "../../../internal/Util/Util.h"
 #include <chrono>
 #include <float.h>
 
@@ -215,7 +215,7 @@ namespace g_Aimbot {
 		SDK::AShooterWeapon* MyWeapon = MyChar->CurrentWeapon;
 		if (!MyWeapon || MyWeapon->GetAmmoReloadState() != SDK::EWeaponAmmoReloadState::Ready || MyWeapon->GetCurrentAmmo() <= 0) {
 			if (bIsAutoFiring) {
-				g_Util::MimicMouseClick(false);
+				MyWeapon->StopFire();
 				bIsAutoFiring = false;
 			}
 			return;
@@ -245,17 +245,17 @@ namespace g_Aimbot {
 
 		if (g_Config::bTriggerbotEnabled && Best.bIsValid) {
 			if (Best.bIsLocked) {
-				g_Util::MimicMouseClick(true);
+				MyWeapon->StartFire(false);
 				bIsAutoFiring = true;
 				Best.bIsTriggering = true;
 			}
 			else if (bIsAutoFiring) {
-				g_Util::MimicMouseClick(false);
+				MyWeapon->StopFire();
 				bIsAutoFiring = false;
 			}
 		}
 		else if (bIsAutoFiring) {
-			g_Util::MimicMouseClick(false);
+			MyWeapon->StopFire();
 			bIsAutoFiring = false;
 		}
 

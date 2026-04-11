@@ -72,7 +72,7 @@ namespace g_DrawImGui {
                             ImGui::BeginTooltip();
                             SDK::UPrimalItem* p = data.LastItemPtr;
 
-                            ImGui::TextColored(ThemeColors::ACCENT, U8("物品: %s"), data.DisplayName.c_str());
+                            ImGui::TextColored(ThemeColors::GetAccent(), U8("物品: %s"), data.DisplayName.c_str());
                             ImGui::Text(U8("总数量: %d"), data.TotalQuantity);
 
                             // 描述信息

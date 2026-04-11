@@ -19,13 +19,34 @@
 
 namespace g_DrawImGui {
 	namespace ThemeColors {
-		const ImVec4 BG = ImVec4(7.0f * g_Util::inv255, 8.0f * g_Util::inv255, 10.0f * g_Util::inv255, 1.0f);
-		const ImVec4 MUTED = ImVec4(154.0f * g_Util::inv255, 163.0f * g_Util::inv255, 178.0f * g_Util::inv255, 1.0f);
-		const ImVec4 TEXT = ImVec4(215.0f * g_Util::inv255, 225.0f * g_Util::inv255, 234.0f * g_Util::inv255, 1.0f);
-		const ImVec4 ACCENT = ImVec4(110.0f * g_Util::inv255, 231.0f * g_Util::inv255, 183.0f * g_Util::inv255, 1.0f);
-		const ImVec4 ACCENT2 = ImVec4(79.0f * g_Util::inv255, 214.0f * g_Util::inv255, 166.0f * g_Util::inv255, 1.0f);
-		const ImVec4 GLASS_BORDER = ImVec4(1.0f, 1.0f, 1.0f, 0.04f);
-		const ImVec4 SHADOW = ImVec4(0.01f, 0.02f, 0.09f, 0.7f);
+		// 基础背景色 (7, 8, 10)
+		const ImVec4 BG = ImVec4(0.027f, 0.031f, 0.039f, 1.000f);
+		// 菜单栏背景
+		const ImVec4 MENUBAR_BG = ImVec4(0.020f, 0.020f, 0.030f, 0.850f);
+
+		// 次要文字/禁用色 (154, 163, 178)
+		const ImVec4 MUTED = ImVec4(0.604f, 0.639f, 0.698f, 1.000f);
+		// 主文字色 (215, 225, 234)
+		const ImVec4 TEXT = ImVec4(0.843f, 0.882f, 0.918f, 1.000f);
+
+		// 主题强调色 (110, 231, 183)
+		// const ImVec4 ACCENT = ImGui::ColorConvertU32ToFloat4(g_Util::GetU32Color(g_Config::MenuColor));
+		inline ImVec4 GetAccent() { return ImGui::ColorConvertU32ToFloat4(g_Util::GetU32Color(g_Config::MenuColor)); }
+
+		// 主题强调色2 (79, 214, 166)
+		const ImVec4 ACCENT2 = ImVec4(0.310f, 0.839f, 0.651f, 1.000f);
+
+		// 边框与阴影
+		const ImVec4 GLASS_BORDER = ImVec4(1.000f, 1.000f, 1.000f, 0.040f);
+		const ImVec4 SHADOW = ImVec4(0.010f, 0.020f, 0.090f, 0.700f);
+
+		// 交互辅助色
+		const ImVec4 WHITE_LOW = ImVec4(1.000f, 1.000f, 1.000f, 0.025f);
+		const ImVec4 WHITE_MID = ImVec4(1.000f, 1.000f, 1.000f, 0.065f);
+		const ImVec4 WHITE_HIGH = ImVec4(1.000f, 1.000f, 1.000f, 0.120f);
+
+		const ImVec4 BLACK_LOW = ImVec4(0.000f, 0.000f, 0.000f, 0.350f);
+		const ImVec4 BLACK_MID = ImVec4(0.000f, 0.000f, 0.000f, 0.850f);
 	}
 
 	inline void SetupCustomImGuiStyle()
@@ -66,38 +87,49 @@ namespace g_DrawImGui {
 		style.Colors[ImGuiCol_TextDisabled] = ImVec4(ThemeColors::MUTED.x, ThemeColors::MUTED.y, ThemeColors::MUTED.z, 0.5f);
 		style.Colors[ImGuiCol_WindowBg] = ImVec4(ThemeColors::BG.x, ThemeColors::BG.y, ThemeColors::BG.z, 0.96f);
 		style.Colors[ImGuiCol_ChildBg] = ImVec4(ThemeColors::BG.x, ThemeColors::BG.y, ThemeColors::BG.z, 0.85f);
-		style.Colors[ImGuiCol_PopupBg] = ImVec4(14.0f / 255.0f, 16.0f / 255.0f, 18.0f / 255.0f, 0.97f);
+		style.Colors[ImGuiCol_PopupBg] = ImVec4(ThemeColors::BG.x, ThemeColors::BG.y, ThemeColors::BG.z, 0.97f);
 		style.Colors[ImGuiCol_Border] = ThemeColors::GLASS_BORDER;
 		style.Colors[ImGuiCol_BorderShadow] = ThemeColors::SHADOW;
-		style.Colors[ImGuiCol_FrameBg] = ImVec4(1.0f, 1.0f, 1.0f, 0.025f);
-		style.Colors[ImGuiCol_FrameBgHovered] = ImVec4(1.0f, 1.0f, 1.0f, 0.065f);
+
+		style.Colors[ImGuiCol_FrameBg] = ImVec4(ThemeColors::WHITE_LOW);
+		style.Colors[ImGuiCol_FrameBgHovered] = ImVec4(ThemeColors::WHITE_MID);
 		style.Colors[ImGuiCol_FrameBgActive] = ImVec4(1.0f, 1.0f, 1.0f, 0.095f);
+
 		style.Colors[ImGuiCol_TitleBg] = ImVec4(ThemeColors::BG.x, ThemeColors::BG.y, ThemeColors::BG.z, 0.85f);
 		style.Colors[ImGuiCol_TitleBgActive] = ImVec4(ThemeColors::BG.x, ThemeColors::BG.y, ThemeColors::BG.z, 1.0f);
 		style.Colors[ImGuiCol_TitleBgCollapsed] = ImVec4(ThemeColors::BG.x, ThemeColors::BG.y, ThemeColors::BG.z, 0.5f);
-		style.Colors[ImGuiCol_MenuBarBg] = ImVec4(0.02f, 0.02f, 0.03f, 0.85f);
+
+		style.Colors[ImGuiCol_MenuBarBg] = ImVec4(ThemeColors::MENUBAR_BG);
+
 		style.Colors[ImGuiCol_ScrollbarBg] = ImVec4(1.0f, 1.0f, 1.0f, 0.025f);
-		style.Colors[ImGuiCol_ScrollbarGrab] = ImVec4(1.0f, 1.0f, 1.0f, 0.12f);
+		style.Colors[ImGuiCol_ScrollbarGrab] = ImVec4(ThemeColors::WHITE_HIGH);
 		style.Colors[ImGuiCol_ScrollbarGrabHovered] = ImVec4(1.0f, 1.0f, 1.0f, 0.18f);
 		style.Colors[ImGuiCol_ScrollbarGrabActive] = ImVec4(1.0f, 1.0f, 1.0f, 0.24f);
-		style.Colors[ImGuiCol_CheckMark] = ThemeColors::ACCENT;
-		style.Colors[ImGuiCol_SliderGrab] = ThemeColors::ACCENT;
-		style.Colors[ImGuiCol_SliderGrabActive] = ThemeColors::ACCENT2;
-		style.Colors[ImGuiCol_Button] = ImVec4(1.0f, 1.0f, 1.0f, 0.025f);
+
+		style.Colors[ImGuiCol_CheckMark] = ThemeColors::GetAccent();
+
+		style.Colors[ImGuiCol_SliderGrab] = ThemeColors::GetAccent();
+		style.Colors[ImGuiCol_SliderGrabActive] = ThemeColors::GetAccent(); // ThemeColors::ACCENT2
+
+		style.Colors[ImGuiCol_Button] = ImVec4(ThemeColors::WHITE_LOW);
 		style.Colors[ImGuiCol_ButtonHovered] = ImVec4(1.0f, 1.0f, 1.0f, 0.065f);
 		style.Colors[ImGuiCol_ButtonActive] = ImVec4(1.0f, 1.0f, 1.0f, 0.095f);
-		style.Colors[ImGuiCol_Header] = ImVec4(0.43f, 0.91f, 0.72f, 0.08f);
-		style.Colors[ImGuiCol_HeaderHovered] = ImVec4(0.43f, 0.91f, 0.72f, 0.14f);
-		style.Colors[ImGuiCol_HeaderActive] = ImVec4(0.43f, 0.91f, 0.72f, 0.22f);
+
+		style.Colors[ImGuiCol_Header] = ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, 0.08f);
+		style.Colors[ImGuiCol_HeaderHovered] = ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, 0.14f);
+		style.Colors[ImGuiCol_HeaderActive] = ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, 0.22f);
+
 		style.Colors[ImGuiCol_Separator] = ThemeColors::GLASS_BORDER;
 		style.Colors[ImGuiCol_SeparatorHovered] = ImVec4(1.0f, 1.0f, 1.0f, 0.12f);
 		style.Colors[ImGuiCol_SeparatorActive] = ImVec4(1.0f, 1.0f, 1.0f, 0.22f);
+
 		style.Colors[ImGuiCol_ResizeGrip] = ImVec4(1.0f, 1.0f, 1.0f, 0.025f);
-		style.Colors[ImGuiCol_ResizeGripHovered] = ImVec4(0.43f, 0.91f, 0.72f, 0.35f);
-		style.Colors[ImGuiCol_ResizeGripActive] = ImVec4(0.43f, 0.91f, 0.72f, 0.55f);
+		style.Colors[ImGuiCol_ResizeGripHovered] = ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, 0.35f);
+		style.Colors[ImGuiCol_ResizeGripActive] = ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, 0.55f);
+
 		style.Colors[ImGuiCol_Tab] = ImVec4(1.0f, 1.0f, 1.0f, 0.025f);
-		style.Colors[ImGuiCol_TabHovered] = ImVec4(0.43f, 0.91f, 0.72f, 0.08f);
-		style.Colors[ImGuiCol_TabActive] = ImVec4(0.43f, 0.91f, 0.72f, 0.15f);
+		style.Colors[ImGuiCol_TabHovered] = ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, 0.08f);
+		style.Colors[ImGuiCol_TabActive] = ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, 0.15f);
 		style.Colors[ImGuiCol_TabUnfocused] = ImVec4(1.0f, 1.0f, 1.0f, 0.025f);
 		style.Colors[ImGuiCol_TabUnfocusedActive] = ImVec4(1.0f, 1.0f, 1.0f, 0.04f);
 		style.Colors[ImGuiCol_TableHeaderBg] = ImVec4(1.0f, 1.0f, 1.0f, 0.018f);
@@ -105,12 +137,13 @@ namespace g_DrawImGui {
 		style.Colors[ImGuiCol_TableBorderLight] = ImVec4(1.0f, 1.0f, 1.0f, 0.025f);
 		style.Colors[ImGuiCol_TableRowBg] = ImVec4(1.0f, 1.0f, 1.0f, 0.008f);
 		style.Colors[ImGuiCol_TableRowBgAlt] = ImVec4(1.0f, 1.0f, 1.0f, 0.003f);
-		style.Colors[ImGuiCol_TextSelectedBg] = ImVec4(0.43f, 0.91f, 0.72f, 0.35f);
-		style.Colors[ImGuiCol_DragDropTarget] = ImVec4(0.43f, 0.91f, 0.72f, 0.55f);
-		style.Colors[ImGuiCol_NavHighlight] = ImVec4(0.43f, 0.91f, 0.72f, 0.85f);
+
+		style.Colors[ImGuiCol_TextSelectedBg] = ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, 0.35f);
+		style.Colors[ImGuiCol_DragDropTarget] = ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, 0.55f);
+		style.Colors[ImGuiCol_NavHighlight] = ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, 0.85f);
 		style.Colors[ImGuiCol_NavWindowingHighlight] = ImVec4(1.0f, 1.0f, 1.0f, 0.55f);
-		style.Colors[ImGuiCol_NavWindowingDimBg] = ImVec4(0.0f, 0.0f, 0.0f, 0.35f);
-		style.Colors[ImGuiCol_ModalWindowDimBg] = ImVec4(0.0f, 0.0f, 0.0f, 0.85f);
+		style.Colors[ImGuiCol_NavWindowingDimBg] = ImVec4(ThemeColors::BLACK_LOW);
+		style.Colors[ImGuiCol_ModalWindowDimBg] = ImVec4(ThemeColors::BLACK_MID);
 	}
 
 	extern float g_MenuAlpha;
@@ -261,7 +294,7 @@ namespace g_DrawImGui {
 			check_pos.x = item_min.x + g.Style.FramePadding.x;
 			check_pos.y = item_min.y + g.Style.FramePadding.y;
 
-			ImVec4 check_col = ThemeColors::ACCENT;
+			ImVec4 check_col = ThemeColors::GetAccent();
 			check_col.w *= (check_anim * g_MenuAlpha);
 
 			if (check_col.w > 0.001f) {
@@ -369,7 +402,7 @@ namespace g_DrawImGui {
 		draw->AddRectFilled(
 			ImVec2(track_min.x - 1.0f, track_min.y - 1.0f),
 			ImVec2(track_max.x + 1.0f, track_max.y + 1.0f),
-			IM_COL32(110, 231, 183, 10),
+			ImGui::GetColorU32(ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, 0.04f)),
 			track_rounding + 1.0f
 		);
 		draw->AddRectFilled(track_min, track_max, col_track_bg, track_rounding);
@@ -406,7 +439,7 @@ namespace g_DrawImGui {
 		if (active || hovered) {
 			float glow_intensity = active ? 0.4f : 0.2f;
 			draw->AddCircleFilled(handle_center, handle_radius + 6.0f,
-				IM_COL32(110, 231, 183, (int)(glow_intensity * 255)), 24);
+				ImGui::GetColorU32(ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, glow_intensity)), 24);
 		}
 
 		draw->AddCircleFilled(handle_center, handle_radius, active ? col_handle_active : col_handle, 24);
@@ -432,8 +465,8 @@ namespace g_DrawImGui {
 
 		ImVec2 val_bb_min = ImVec2(value_pos.x - 7.0f, value_pos.y - 4.0f);
 		ImVec2 val_bb_max = ImVec2(value_pos.x + value_text_size.x + 7.0f, value_pos.y + value_text_size.y + 4.0f);
-		draw->AddRectFilled(val_bb_min, val_bb_max, IM_COL32(0, 0, 0, 140), 7.0f);
-		draw->AddRect(val_bb_min, val_bb_max, IM_COL32(110, 231, 183, 60), 7.0f, 0, 1.0f);
+		draw->AddRectFilled(val_bb_min, val_bb_max, ImGui::GetColorU32(ThemeColors::BLACK_LOW), 7.0f);
+		draw->AddRect(val_bb_min, val_bb_max, ImGui::GetColorU32(ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, 0.23f)), 7.0f, 0, 1.0f);
 		draw->AddText(value_pos, col_text, valbuf);
 
 		return value_changed;
@@ -482,7 +515,7 @@ namespace g_DrawImGui {
 
 		if (selected || hovered) {
 			ImU32 col = ImGui::GetColorU32(selected ?
-				ImVec4(110 / 255.f, 231 / 255.f, 183 / 255.f, 0.25f) :
+				ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, 0.25f) :
 				ImVec4(1.0f, 1.0f, 1.0f, 0.05f));
 
 			window->DrawList->AddRectFilled(bb.Min, bb.Max, col, rounding);
@@ -493,10 +526,72 @@ namespace g_DrawImGui {
 		return pressed;
 	}
 
+	inline bool DrawCustomButton(const char* label, const ImVec2& size_arg = ImVec2(0, 0))
+	{
+		ImGuiWindow* window = ImGui::GetCurrentWindow();
+		if (window->SkipItems)
+			return false;
+
+		ImGuiContext& g = *GImGui;
+		const ImGuiStyle& style = g.Style;
+		const ImGuiID id = window->GetID(label);
+		const ImVec2 label_size = ImGui::CalcTextSize(label, NULL, true);
+
+		ImVec2 pos = window->DC.CursorPos;
+		ImVec2 size = ImGui::CalcItemSize(size_arg, label_size.x + style.FramePadding.x * 2.0f, label_size.y + style.FramePadding.y * 2.0f);
+
+		const ImRect bb(pos, ImVec2(pos.x + size.x, pos.y + size.y));
+		ImGui::ItemSize(size, style.FramePadding.y);
+		if (!ImGui::ItemAdd(bb, id))
+			return false;
+
+		bool hovered, held;
+		bool pressed = ImGui::ButtonBehavior(bb, id, &hovered, &held);
+
+		ImGuiStorage* storage = ImGui::GetStateStorage();
+		float anim = storage->GetFloat(id, 0.0f);
+
+		anim = ImLinearSweep(anim, (hovered || held) ? 1.0f : 0.0f, g.IO.DeltaTime * 6.0f);
+		storage->SetFloat(id, anim);
+
+		ImDrawList* draw_list = window->DrawList;
+
+		ImU32 col_bg = ImGui::GetColorU32(held ? ImGuiCol_ButtonActive : (hovered ? ImGuiCol_ButtonHovered : ImGuiCol_Button));
+		draw_list->AddRectFilled(bb.Min, bb.Max, col_bg, style.FrameRounding);
+
+		if (anim > 0.001f)
+		{
+			ImVec4 accent_bg = ThemeColors::GetAccent();
+			accent_bg.w *= (anim * 0.12f * g_MenuAlpha);
+			draw_list->AddRectFilled(bb.Min, bb.Max, ImGui::GetColorU32(accent_bg), style.FrameRounding);
+
+			ImVec4 border_col = ThemeColors::GetAccent();
+			border_col.w *= (anim * 0.4f * g_MenuAlpha);
+			draw_list->AddRect(bb.Min, bb.Max, ImGui::GetColorU32(border_col), style.FrameRounding, 0, 1.0f);
+		}
+		else
+		{
+			draw_list->AddRect(bb.Min, bb.Max, ImGui::GetColorU32(ThemeColors::GLASS_BORDER), style.FrameRounding, 0, 1.0f);
+		}
+
+		ImVec2 text_pos = ImVec2(
+			bb.Min.x + (size.x - label_size.x) * 0.5f,
+			bb.Min.y + (size.y - label_size.y) * 0.5f
+		);
+
+		if (held)
+			text_pos.y += 1.0f;
+
+		ImU32 text_col = ImGui::GetColorU32(((hovered || held) && anim > 0.5f) ? ThemeColors::GetAccent() : ThemeColors::TEXT);
+		draw_list->AddText(text_pos, text_col, label);
+
+		return pressed;
+	}
+
 	inline void BeginTabRegion(const char* id)
 	{
 		ImGui::PushStyleVar(ImGuiStyleVar_ChildRounding, 14.0f);
-		ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(7.0f / 255.0f, 8.0f / 255.0f, 10.0f / 255.0f, 0.88f));
+		ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(ThemeColors::BG.x, ThemeColors::BG.y, ThemeColors::BG.z, 0.88f));
 		ImGui::BeginChild(id, ImVec2(0, 0), true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
 	}
 
@@ -521,10 +616,10 @@ namespace g_DrawImGui {
 		draw->AddRectFilledMultiColor(
 			ImVec2(x1, y),
 			ImVec2(x2, y + 1.0f),
-			IM_COL32(110, 231, 183, 0),
-			IM_COL32(110, 231, 183, 80),
-			IM_COL32(110, 231, 183, 80),
-			IM_COL32(110, 231, 183, 0)
+			ImGui::GetColorU32(ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, 0.0f)),
+			ImGui::GetColorU32(ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, 0.31f)),
+			ImGui::GetColorU32(ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, 0.31f)),
+			ImGui::GetColorU32(ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, 0.0f))
 		);
 
 		ImGui::Dummy(ImVec2(0, 2.0f));

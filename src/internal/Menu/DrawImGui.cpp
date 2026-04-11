@@ -12,8 +12,7 @@
 #include "../ESP/DrawESP.h"
 #include "ConfigImGui.h"
 #include "DrawImGui.h"
-
-// #include "Aimbot.h"
+#include "Aimbot_Menu.h"
 #include "Visuals_Menu.h"
 #include "EntityList_Menu.h"
 #include "StructureList_Menu.h"
@@ -21,7 +20,6 @@
 #include "Misc_Menu.h"
 #include "Configs_Menu.h"
 #include "Lua_Menu.h"
-
 #include "../Log/LogManager.h"
 #include "../Config/ConfigManager.h"
 #include "../Lua/LuaManager.h"
@@ -40,6 +38,36 @@ namespace g_DrawImGui {
 	void MyImGuiDraw(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT Flags)
 	{
 		if (!style_initialized) { SetupCustomImGuiStyle(); style_initialized = true; }
+
+		ImU32 current_color_u32 = ImGui::ColorConvertFloat4ToU32(ImVec4(g_Config::MenuColor[0], g_Config::MenuColor[1], g_Config::MenuColor[2], g_Config::MenuColor[3]));
+		static ImU32 last_menu_color = 0;
+
+		if (current_color_u32 != last_menu_color) {
+			last_menu_color = current_color_u32;
+
+			ImGuiStyle& style = ImGui::GetStyle();
+			ImVec4 accent = ThemeColors::GetAccent();
+
+			// 更新全局样式表中的依赖颜色
+			style.Colors[ImGuiCol_CheckMark] = accent;
+			style.Colors[ImGuiCol_SliderGrab] = accent;
+			style.Colors[ImGuiCol_SliderGrabActive] = accent;
+
+			style.Colors[ImGuiCol_Header] = ImVec4(accent.x, accent.y, accent.z, 0.08f);
+			style.Colors[ImGuiCol_HeaderHovered] = ImVec4(accent.x, accent.y, accent.z, 0.14f);
+			style.Colors[ImGuiCol_HeaderActive] = ImVec4(accent.x, accent.y, accent.z, 0.22f);
+
+			style.Colors[ImGuiCol_ResizeGripHovered] = ImVec4(accent.x, accent.y, accent.z, 0.35f);
+			style.Colors[ImGuiCol_ResizeGripActive] = ImVec4(accent.x, accent.y, accent.z, 0.55f);
+
+			style.Colors[ImGuiCol_TabHovered] = ImVec4(accent.x, accent.y, accent.z, 0.08f);
+			style.Colors[ImGuiCol_TabActive] = ImVec4(accent.x, accent.y, accent.z, 0.15f);
+
+			style.Colors[ImGuiCol_TextSelectedBg] = ImVec4(accent.x, accent.y, accent.z, 0.35f);
+			style.Colors[ImGuiCol_DragDropTarget] = ImVec4(accent.x, accent.y, accent.z, 0.55f);
+			style.Colors[ImGuiCol_NavHighlight] = ImVec4(accent.x, accent.y, accent.z, 0.85f);
+		}
+
 		const float FADE_SPEED = 5.0f;
 		static bool g_PrevMenuState = false;
 		bool isNowOpen = g_MDX12::g_MenuState::g_isOpen;
@@ -107,26 +135,31 @@ namespace g_DrawImGui {
 				float title_width = ImGui::GetWindowWidth();
 				float time = ImGui::GetTime();
 
+				// 获取最新的 Accent 颜色用于绘制装饰线条
+				ImVec4 accentColor = ThemeColors::GetAccent();
+				ImU32 colAccentU32 = ImGui::GetColorU32(accentColor);
+				ImU32 colAccentTransparentU32 = ImGui::GetColorU32(ImVec4(accentColor.x, accentColor.y, accentColor.z, 0.0f));
+
 				draw_list->AddRectFilledMultiColor(
 					ImVec2(title_pos.x, title_pos.y),
 					ImVec2(title_pos.x + title_width, title_pos.y + 2.0f),
-					IM_COL32(79, 214, 166, 0),
-					IM_COL32(110, 231, 183, 180),
-					IM_COL32(110, 231, 183, 180),
-					IM_COL32(79, 214, 166, 0)
+					colAccentTransparentU32,
+					colAccentU32,
+					colAccentU32,
+					colAccentTransparentU32
 				);
 
 				ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(22.0f, 11.0f));
 				ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(10.0f, 0.0f));
 				ImGui::PushStyleColor(ImGuiCol_Tab, ImVec4(1.0f, 1.0f, 1.0f, 0.03f));
-				ImGui::PushStyleColor(ImGuiCol_TabHovered, ImVec4(0.43f, 0.91f, 0.72f, 0.1f));
-				ImGui::PushStyleColor(ImGuiCol_TabActive, ImVec4(0.43f, 0.91f, 0.72f, 0.18f));
+				ImGui::PushStyleColor(ImGuiCol_TabHovered, ImVec4(accentColor.x, accentColor.y, accentColor.z, 0.1f));
+				ImGui::PushStyleColor(ImGuiCol_TabActive, ImVec4(accentColor.x, accentColor.y, accentColor.z, 0.18f));
 				ImGui::PushStyleColor(ImGuiCol_TabUnfocused, ImVec4(1.0f, 1.0f, 1.0f, 0.03f));
 				ImGui::PushStyleColor(ImGuiCol_TabUnfocusedActive, ImVec4(1.0f, 1.0f, 1.0f, 0.05f));
 
 				if (ImGui::BeginTabBar("MainTabBar", ImGuiTabBarFlags_None)) {
 
-                    // Aimbot_Menu();
+					Aimbot_Menu();
 					Visuals_Menu();
 					EntityList_Menu();
 					StructureList_Menu();

@@ -20,29 +20,30 @@ local WatermarkRenderer = {
         currentWidth = 0,
         currentHeight = 0,
         targetHeight = 0,
-        isInitialized = false
+        isInitialized = false,
+        lastColor = {r = 0, g = 0, b = 0, a = 0}
     }
 }
 
 local COL_WHITE  = ImGui.Color(255, 255, 255, 200)
-local COL_ORANGE = ImGui.Color(255, 99, 71, 255)
+local COL_Accent = ImGui.Color(Client.GetMenuColor())
 local COL_SHADOW = nil
 local COL_BG     = nil
 local COL_TRANSPARENT = ImGui.Color(0, 0, 0, 0)
 
 local staticSegments = {
     { text = "Begeerte     ", color = COL_WHITE, _w = 0 },
-    { text = "0", color = COL_ORANGE, _w = 0 },         -- [2] FPS
+    { text = "0", color = COL_Accent, _w = 0 },         -- [2] FPS
     { text = " FPS    ", color = COL_WHITE, _w = 0 },
-    { text = "0", color = COL_ORANGE, _w = 0 },         -- [4] PING
+    { text = "0", color = COL_Accent, _w = 0 },         -- [4] PING
     { text = " PING    ", color = COL_WHITE, _w = 0 },
-    { text = "0%", color = COL_ORANGE, _w = 0 },        -- [6] CPU%
+    { text = "0%", color = COL_Accent, _w = 0 },        -- [6] CPU%
     { text = " CPU    ", color = COL_WHITE, _w = 0 },
-    { text = "0.0", color = COL_ORANGE, _w = 0 },       -- [8] GHZ
+    { text = "0.0", color = COL_Accent, _w = 0 },       -- [8] GHZ
     { text = " GHZ    ", color = COL_WHITE, _w = 0 },
-    { text = "0%", color = COL_ORANGE, _w = 0 },        -- [10] GPU%
+    { text = "0%", color = COL_Accent, _w = 0 },        -- [10] GPU%
     { text = " GPU    ", color = COL_WHITE, _w = 0 },
-    { text = "0", color = COL_ORANGE, _w = 0 },         -- [12] Actors
+    { text = "0", color = COL_Accent, _w = 0 },         -- [12] Actors
     { text = " Actors    ", color = COL_WHITE, _w = 0 },
     { text = "00:00:00", color = COL_WHITE, _w = 0 }    -- [14] Time
 }
@@ -106,6 +107,20 @@ function Main()
     state.lastUpdateTimer = state.lastUpdateTimer + dt
     
     if state.lastUpdateTimer >= state.updateRate then
+        local r, g, b, a = Client.GetMenuColor()
+        local lc = state.lastColor
+
+        if r ~= lc.r or g ~= lc.g or b ~= lc.b or a ~= lc.a then
+            COL_Accent = ImGui.Color(r, g, b, a)
+        
+            local accentIndices = {2, 4, 6, 8, 10, 12}
+            for _, idx in ipairs(accentIndices) do
+                staticSegments[idx].color = COL_Accent
+            end
+        
+            lc.r, lc.g, lc.b, lc.a = r, g, b, a
+        end
+
         staticSegments[14].text = os_date("%H:%M:%S")
         
         local fps = floor(ImGui.GetFPS())

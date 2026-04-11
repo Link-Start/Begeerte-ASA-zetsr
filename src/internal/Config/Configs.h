@@ -1,10 +1,12 @@
 #pragma once
+#define NOMINMAX  
 #include "../../external/SDK/SDK_Headers.hpp"
 
 namespace g_Config {
     // 菜单设置
     inline bool bMenuNeedReset = false;
     inline bool bMenuLockResize = false;
+    inline float MenuColor[4] = { 0.431f, 0.906f, 0.718f, 1.000f };
 
     // 其他功能
     inline bool bSuperFlyer = false;

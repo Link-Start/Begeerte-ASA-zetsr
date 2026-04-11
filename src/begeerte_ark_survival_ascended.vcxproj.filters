@@ -492,6 +492,9 @@
     <ClInclude Include="internal\UWorld\UMovementComponent\PhysicsRotation.h">
       <Filter>internal\UWorld\UMovementComponent</Filter>
     </ClInclude>
+    <ClInclude Include="internal\Legit\Aimbot\Aimbot.h">
+      <Filter>internal\Legit\Aimbot</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Object Include="external\LuaJIT-2.1\src\lj_vm.obj">
@@ -630,6 +633,9 @@
     </ClCompile>
     <ClCompile Include="internal\UWorld\UMovementComponent\PhysicsRotation.cpp">
       <Filter>internal\UWorld\UMovementComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Legit\Aimbot\Aimbot.cpp">
+      <Filter>internal\Legit\Aimbot</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

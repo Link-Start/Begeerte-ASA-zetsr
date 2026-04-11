@@ -5,9 +5,11 @@
 #include "../Util/infoGPU.h"
 #include "../Util/Util.h"
 #include "../Log/LogManager.h"
+#include "../Config/Configs.h"
 #include <algorithm>
 #include <iostream>
 #include <shellapi.h>
+#include <cmath>
 
 std::string LuaManager::HttpRequest(const std::string& url) {
     std::string response;
@@ -213,6 +215,15 @@ void LuaManager::BindClient() {
 
     client.set_function("AddLog", [](float r, float g, float b, float a, const std::string& text) {
         g_LogManager::AddLog(r, g, b, a, text);
+        });
+
+    client.set_function("GetMenuColor", []() {
+        return std::make_tuple(
+            static_cast<int>(std::floor(g_Config::MenuColor[0] * 255.0f)),
+            static_cast<int>(std::floor(g_Config::MenuColor[1] * 255.0f)),
+            static_cast<int>(std::floor(g_Config::MenuColor[2] * 255.0f)),
+            static_cast<int>(std::floor(g_Config::MenuColor[3] * 255.0f))
+        );
         });
 }
 

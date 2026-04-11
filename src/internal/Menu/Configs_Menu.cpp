@@ -17,14 +17,14 @@ namespace g_DrawImGui {
 			ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
 			BeginTabRegion("ConfigManagerRegion");
 
-			ImGui::TextColored(ThemeColors::ACCENT, U8("配置管理系统"));
+			ImGui::TextColored(ThemeColors::GetAccent(), U8("配置管理系统"));
 			DrawAnimatedSeparator();
 
-			if (ImGui::Button(U8("刷新列表"))) {
+			if (DrawCustomButton(U8("刷新列表"))) {
 				mgr.RefreshFileList();
 			}
 			ImGui::SameLine();
-			if (ImGui::Button(U8("打开目录"))) {
+			if (DrawCustomButton(U8("打开目录"))) {
 				std::string path = mgr.GetConfigDir();
 				ShellExecuteA(NULL, "open", path.c_str(), NULL, NULL, SW_SHOWDEFAULT);
 			}
@@ -35,7 +35,7 @@ namespace g_DrawImGui {
 			ImGui::SetNextItemWidth(150.0f);
 			ImGui::InputTextWithHint("##ConfigName", U8("输入参数名称..."), configNameBuf, sizeof(configNameBuf));
 			ImGui::SameLine();
-			if (ImGui::Button(U8("创建"))) {
+			if (DrawCustomButton(U8("创建"))) {
 				std::string configName(configNameBuf);
 				if (configName.empty()) {
 
@@ -81,7 +81,7 @@ namespace g_DrawImGui {
 
 			ImGui::BeginDisabled(selectedConfigIdx < 0 || selectedConfigIdx >= (int)configs.size());
 
-			if (ImGui::Button(U8("加载配置"), ImVec2(120, 0))) {
+			if (DrawCustomButton(U8("加载配置"), ImVec2(120, 0))) {
 				if (selectedConfigIdx >= 0 && selectedConfigIdx < (int)configs.size()) {
 					auto& selectedConfig = configs[selectedConfigIdx];
 					if (mgr.LoadConfig(selectedConfig.name)) {
@@ -95,7 +95,7 @@ namespace g_DrawImGui {
 
 			ImGui::SameLine();
 
-			if (ImGui::Button(U8("保存配置"), ImVec2(120, 0))) {
+			if (DrawCustomButton(U8("保存配置"), ImVec2(120, 0))) {
 				if (selectedConfigIdx >= 0 && selectedConfigIdx < (int)configs.size()) {
 					auto& selectedConfig = configs[selectedConfigIdx];
 					if (mgr.SaveConfig(selectedConfig.name)) {

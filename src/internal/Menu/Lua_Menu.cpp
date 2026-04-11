@@ -22,7 +22,7 @@ namespace g_DrawImGui {
 
             // --- 第一部分：全局总开关 ---
             bool isEnabled = mgr.IsEnabled();
-            ImGui::PushStyleColor(ImGuiCol_Text, ThemeColors::ACCENT);
+            ImGui::PushStyleColor(ImGuiCol_Text, ThemeColors::GetAccent());
             if (DrawCustomCheckbox(U8("启用 Lua 管理器"), &isEnabled)) {
                 // 当点击 Checkbox 时触发管理器状态切换
                 mgr.SetEnabled(isEnabled);
@@ -37,13 +37,13 @@ namespace g_DrawImGui {
             // --- 第二部分：受控区域 (如果 Enabled 为 false，则全部变灰且不可交互) ---
             ImGui::BeginDisabled(!isEnabled);
             {
-                ImGui::TextColored(ThemeColors::ACCENT, U8("脚本管理系统"));
+                ImGui::TextColored(ThemeColors::GetAccent(), U8("脚本管理系统"));
 
-                if (ImGui::Button(U8("刷新列表"))) {
+                if (DrawCustomButton(U8("刷新列表"))) {
                     mgr.RefreshFileList();
                 }
                 ImGui::SameLine();
-                if (ImGui::Button(U8("打开目录"))) {
+                if (DrawCustomButton(U8("打开目录"))) {
                     std::string path = mgr.GetScriptDir();
                     ShellExecuteA(NULL, "open", path.c_str(), NULL, NULL, SW_SHOWDEFAULT);
                 }
