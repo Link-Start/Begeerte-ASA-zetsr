@@ -2,7 +2,12 @@
 
 基于 [MinHook](https://github.com/TsudaKageyu/minhook) [Minimal-D3D12-Hook-ImGui](https://github.com/zetsr/Minimal-D3D12-Hook-ImGui) [ImGui](https://github.com/ocornut/imgui) [Dumper-7](https://github.com/Encryqed/Dumper-7) 开发的 C++ 内部作弊
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/485e987f-d15f-465b-97d3-ca8cb7eb27b1" />
+![202604~1](https://github.com/user-attachments/assets/b116dc5c-d715-489c-b526-92c944a5048c)
+<details>
+  <summary>早期版本（已过时）</summary>
+  <br>
+  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/485e987f-d15f-465b-97d3-ca8cb7eb27b1" />
+</details>
 
 ---
 
