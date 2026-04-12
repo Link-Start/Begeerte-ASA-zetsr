@@ -6,9 +6,11 @@
 #include "ItemList_Menu.h"
 #include "../Util/Util.h"
 #include "../../external/SDK/SDK_Headers.hpp"
+#include "../Language/LanguageManager.h"
 #include <map>
 #include <string>
 #include <vector>
+
 namespace g_DrawImGui {
 
     struct MergedItem {
@@ -19,11 +21,22 @@ namespace g_DrawImGui {
     };
 
     void ItemList_Menu() {
-        if (ImGui::BeginTabItem(U8("背包管理"))) {
+        const char* tabLabel = LanguageManager::ItemList_Menu::TabLabel;
+        const char* searchHint = LanguageManager::ItemList_Menu::SearchHint;
+        const char* ttItem = LanguageManager::ItemList_Menu::TooltipItem;
+        const char* ttTotal = LanguageManager::ItemList_Menu::TooltipTotal;
+        const char* ttDesc = LanguageManager::ItemList_Menu::TooltipDesc;
+        const char* ttCrafter = LanguageManager::ItemList_Menu::TooltipCrafter;
+        const char* ttTribe = LanguageManager::ItemList_Menu::TooltipTribe;
+        const char* actUseOne = LanguageManager::ItemList_Menu::ActionUseOne;
+        const char* actDrop = LanguageManager::ItemList_Menu::ActionDrop;
+        const char* noItems = LanguageManager::ItemList_Menu::NoItems;
+
+        if (ImGui::BeginTabItem(tabLabel)) {
             ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
             BeginTabRegion("ItemListRegion");
 
-            ImGui::InputTextWithHint("##ItemSearch", U8("输入物品名称搜索..."), g_Config::itemSearchBuf, IM_ARRAYSIZE(g_Config::itemSearchBuf));
+            ImGui::InputTextWithHint("##ItemSearch", searchHint, g_Config::itemSearchBuf, IM_ARRAYSIZE(g_Config::itemSearchBuf));
 
             DrawAnimatedSeparator();
 
@@ -72,8 +85,8 @@ namespace g_DrawImGui {
                             ImGui::BeginTooltip();
                             SDK::UPrimalItem* p = data.LastItemPtr;
 
-                            ImGui::TextColored(ThemeColors::GetAccent(), U8("物品: %s"), data.DisplayName.c_str());
-                            ImGui::Text(U8("总数量: %d"), data.TotalQuantity);
+                            ImGui::TextColored(ThemeColors::GetAccent(), ttItem, data.DisplayName.c_str());
+                            ImGui::Text(ttTotal, data.TotalQuantity);
 
                             // 描述信息
                             std::string desc = p->CustomItemDescription.ToString();
@@ -81,15 +94,15 @@ namespace g_DrawImGui {
                             if (!desc.empty() && desc != "None") {
                                 ImGui::Separator();
                                 ImGui::PushTextWrapPos(ImGui::GetFontSize() * 20.0f);
-                                ImGui::TextDisabled(U8("说明: %s"), desc.c_str());
+                                ImGui::TextDisabled(ttDesc, desc.c_str());
                                 ImGui::PopTextWrapPos();
                             }
 
                             // 制造者信息
                             if (!p->CrafterCharacterName.ToString().empty() && p->CrafterCharacterName.ToString() != "None") {
                                 ImGui::Separator();
-                                ImGui::Text(U8("制造人: %s"), p->CrafterCharacterName.ToString().c_str());
-                                ImGui::Text(U8("部落: %s"), p->CrafterTribeName.ToString().c_str());
+                                ImGui::Text(ttCrafter, p->CrafterCharacterName.ToString().c_str());
+                                ImGui::Text(ttTribe, p->CrafterTribeName.ToString().c_str());
                             }
                             ImGui::EndTooltip();
                         }
@@ -104,7 +117,7 @@ namespace g_DrawImGui {
                                 }
                             }
 
-                            if (ImGui::MenuItem(U8("丢弃该物品"))) {
+                            if (ImGui::MenuItem(actUseOne)) {
                                 // 不再直接调用 PC->ServerRequestRemoteDropAllItems
                                 g_Config::dropItemID = data.LastItemPtr->ItemID;
                                 g_Config::bDropItem = true;
@@ -114,7 +127,7 @@ namespace g_DrawImGui {
                     }
                 }
                 else {
-                    ImGui::TextDisabled(U8("背包中没有匹配的物品"));
+                    ImGui::TextDisabled(noItems);
                 }
                 ImGui::EndChild();
             }

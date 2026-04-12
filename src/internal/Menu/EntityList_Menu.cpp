@@ -6,22 +6,29 @@
 #include "EntityList_Menu.h"
 #include "../Util/Util.h"
 #include "../../external/SDK/SDK_Headers.hpp"
+#include "../Language/LanguageManager.h"
 
 namespace g_DrawImGui {
 
 	void EntityList_Menu() {
-		if (ImGui::BeginTabItem(U8("生物列表"))) {
+		const char* tabLabel = LanguageManager::EntityList_Menu::TabLabel;
+		const char* secTitle = LanguageManager::EntityList_Menu::SectionTitle;
+		const char* enableFilter = LanguageManager::EntityList_Menu::EnableFilter;
+		const char* searchHint = LanguageManager::EntityList_Menu::SearchHint;
+		const char* filterActive = LanguageManager::EntityList_Menu::FilterActive;
+
+		if (ImGui::BeginTabItem(tabLabel)) {
 			ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
 			BeginTabRegion("EntityListRegion");
 
-			ImGui::TextColored(ThemeColors::GetAccent(), U8("生物列表"));
+			ImGui::TextColored(ThemeColors::GetAccent(), secTitle);
 			DrawAnimatedSeparator();
 
-			DrawCustomCheckbox(U8("应用筛选到全局视觉"), &g_Config::bEnableFilter);
+			DrawCustomCheckbox(enableFilter, &g_Config::bEnableFilter);
 			ImGui::SameLine();
 
 			ImGui::PushItemWidth(-1.0f);
-			ImGui::InputTextWithHint("##EntitySearch", U8("输入生物名称进行过滤，多个用逗号分隔 (如: 南巨,霸王龙,迅猛龙)..."), g_Config::entitySearchBuf, IM_ARRAYSIZE(g_Config::entitySearchBuf));
+			ImGui::InputTextWithHint("##EntitySearch", searchHint, g_Config::entitySearchBuf, IM_ARRAYSIZE(g_Config::entitySearchBuf));
 			ImGui::PopItemWidth();
 
 			// 显示当前激活的筛选词列表
@@ -35,7 +42,7 @@ namespace g_DrawImGui {
 					}
 					if (!validTokens.empty()) {
 						ImGui::Spacing();
-						ImGui::TextDisabled(U8("当前筛选 (%zu 项):"), validTokens.size());
+						ImGui::TextDisabled(filterActive, validTokens.size());
 						ImGui::SameLine();
 						for (size_t i = 0; i < validTokens.size(); i++) {
 							ImGui::TextColored(ThemeColors::GetAccent(), "%s", validTokens[i].c_str());

@@ -8,50 +8,65 @@
 #include "../Util/Util.h"
 #include "../Hack/Hack.h"
 #include "../../external/SDK/SDK_Headers.hpp"
+#include "../Language/LanguageManager.h"
 
 namespace g_DrawImGui {
 	void Misc_Menu() {
-		if (ImGui::BeginTabItem(U8("其他功能"))) {
+		const char* tabLabel = LanguageManager::Misc_Menu::TabLabel;
+		const char* secMenu = LanguageManager::Misc_Menu::SectionMenu;
+		const char* menuColor = LanguageManager::Misc_Menu::MenuColor;
+		const char* lockLayout = LanguageManager::Misc_Menu::LockLayout;
+		const char* resetLayout = LanguageManager::Misc_Menu::ResetLayout;
+		const char* secMisc = LanguageManager::Misc_Menu::SectionMisc;
+		const char* btnSuicide = LanguageManager::Misc_Menu::Suicide;
+		const char* btnUnload = LanguageManager::Misc_Menu::Unload;
+		const char* btnDump = LanguageManager::Misc_Menu::DumpServerInfo;
+		const char* chkNotes = LanguageManager::Misc_Menu::UnlockExplorerNotes;
+		const char* chkFeed = LanguageManager::Misc_Menu::AutoFeed;
+		const char* chkFlyer = LanguageManager::Misc_Menu::SuperFlyer;
+		const char* chkTurn = LanguageManager::Misc_Menu::ForceTurn;
+
+		if (ImGui::BeginTabItem(tabLabel)) {
 			ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
 			BeginTabRegion("MiscRegion");
 
-			ImGui::TextColored(ThemeColors::GetAccent(), U8("菜单设置"));
+			ImGui::TextColored(ThemeColors::GetAccent(), secMenu);
 			DrawAnimatedSeparator();
 
-			DrawCustomColorPicker("MenuCol", g_Config::MenuColor, U8("菜单颜色"));
+			DrawCustomColorPicker("MenuCol", g_Config::MenuColor, menuColor);
 
-			DrawCustomCheckbox(U8("锁定布局"), &g_Config::bMenuLockResize);
+			DrawCustomCheckbox(lockLayout, &g_Config::bMenuLockResize);
 			ImGui::SameLine();
 
-			if (DrawCustomButton(U8("重置布局"))) {
+			if (DrawCustomButton(resetLayout)) {
 				g_Config::bMenuNeedReset = true;
 			}
 
 			DrawAnimatedSeparator();
 
-			ImGui::TextColored(ThemeColors::GetAccent(), U8("其他功能"));
+			ImGui::TextColored(ThemeColors::GetAccent(), secMisc);
 			DrawAnimatedSeparator();
 
-			if (DrawCustomButton(U8("自杀"))) {
+			if (DrawCustomButton(btnSuicide)) {
 				g_Config::bSuicide = true;
 			}
 
 			ImGui::SameLine();
-			if (DrawCustomButton(U8("卸载"))) {
+			if (DrawCustomButton(btnUnload)) {
 				g_Hook::StopAllHooks();
 			}
 
 			ImGui::SameLine();
-			if (DrawCustomButton(U8("获取服务器信息"))) {
+			if (DrawCustomButton(btnDump)) {
 				g_Hack::DumpServerInfo();
 			}
 
 			DrawAnimatedSeparator();
 
-			DrawCustomCheckbox(U8("一键满级"), &g_Config::bUnlockExplorerNotes);
-			DrawCustomCheckbox(U8("自动喂肉"), &g_Config::bAutoFeed);
-			DrawCustomCheckbox(U8("飞行龙加强"), &g_Config::bSuperFlyer);
-            DrawCustomCheckbox(U8("秒转头"), &g_Config::bForceTurn);
+			DrawCustomCheckbox(chkNotes, &g_Config::bUnlockExplorerNotes);
+			DrawCustomCheckbox(chkFeed, &g_Config::bAutoFeed);
+			DrawCustomCheckbox(chkFlyer, &g_Config::bSuperFlyer);
+            DrawCustomCheckbox(chkTurn, &g_Config::bForceTurn);
 
 			DrawAnimatedSeparator();
 

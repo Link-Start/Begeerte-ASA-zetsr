@@ -6,21 +6,28 @@
 #include "StructureList_Menu.h"
 #include "../Util/Util.h"
 #include "../../external/SDK/SDK_Headers.hpp"
+#include "../Language/LanguageManager.h"
 
 namespace g_DrawImGui {
 	void StructureList_Menu() {
-		if (ImGui::BeginTabItem(U8("建筑列表"))) {
+		const char* tabLabel = LanguageManager::StructureList_Menu::TabLabel;
+		const char* secTitle = LanguageManager::StructureList_Menu::SectionTitle;
+		const char* enableFilter = LanguageManager::StructureList_Menu::EnableFilter;
+		const char* searchHint = LanguageManager::StructureList_Menu::SearchHint;
+		const char* filterActive = LanguageManager::StructureList_Menu::FilterActive;
+
+		if (ImGui::BeginTabItem(tabLabel)) {
 			ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
 			BeginTabRegion("StructureListRegion");
 
-			ImGui::TextColored(ThemeColors::GetAccent(), U8("建筑列表"));
+			ImGui::TextColored(ThemeColors::GetAccent(), secTitle);
 			DrawAnimatedSeparator();
 
-			DrawCustomCheckbox(U8("应用筛选到全局视觉"), &g_Config::bEnableStructureFilter);
+			DrawCustomCheckbox(enableFilter, &g_Config::bEnableStructureFilter);
 			ImGui::SameLine();
 
 			ImGui::PushItemWidth(-1.0f);
-			ImGui::InputTextWithHint("##StructureSearch", U8("输入建筑名称进行过滤，多个用逗号分隔 (如: 大门,墙,地板)..."), g_Config::structureSearchBuf, IM_ARRAYSIZE(g_Config::structureSearchBuf));
+			ImGui::InputTextWithHint("##StructureSearch", searchHint, g_Config::structureSearchBuf, IM_ARRAYSIZE(g_Config::structureSearchBuf));
 			ImGui::PopItemWidth();
 
 			{
@@ -33,7 +40,7 @@ namespace g_DrawImGui {
 					}
 					if (!validTokens.empty()) {
 						ImGui::Spacing();
-						ImGui::TextDisabled(U8("当前筛选 (%zu 项):"), validTokens.size());
+						ImGui::TextDisabled(filterActive, validTokens.size());
 						ImGui::SameLine();
 						for (size_t i = 0; i < validTokens.size(); i++) {
 							ImGui::TextColored(ThemeColors::GetAccent(), "%s", validTokens[i].c_str());

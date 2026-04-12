@@ -18,9 +18,11 @@
 #include "StructureList_Menu.h"
 #include "ItemList_Menu.h"
 #include "Misc_Menu.h"
+#include "Language_Menu.h"
 #include "Configs_Menu.h"
 #include "Lua_Menu.h"
 #include "../Log/LogManager.h"
+#include "../Language/LanguageManager.h"
 #include "../Config/ConfigManager.h"
 #include "../Lua/LuaManager.h"
 #include "../Util/Util.h"
@@ -73,6 +75,7 @@ namespace g_DrawImGui {
 		bool isNowOpen = g_MDX12::g_MenuState::g_isOpen;
 
 		if (isNowOpen && !g_PrevMenuState) {
+			LanguageManager::Get().RefreshFileList();
 			LuaManager::Get().RefreshFileList();
 			ConfigManager::Get().RefreshFileList();
 			LuaManager::Get().Lua_OnMenuOpen();
@@ -95,23 +98,26 @@ namespace g_DrawImGui {
 		if (g_MenuAlpha > 0.001f) {
 			LuaManager::Get().Lua_OnPaintMenu(g_MenuAlpha);
 
-			ImGui::GetStyle().WindowMinSize = ImVec2(920.0f, 720.0f);
+			const float menu_size_w = 1000.f;
+			const float menu_size_h = 720.f;
+
+			ImGui::GetStyle().WindowMinSize = ImVec2(menu_size_w, menu_size_h);
 			// 处理重置逻辑
 			if (g_Config::bMenuNeedReset) {
 				ImGui::SetNextWindowPos(ImVec2(100, 100), ImGuiCond_Always);
-				ImGui::SetNextWindowSize(ImVec2(920, 720), ImGuiCond_Always);
+				ImGui::SetNextWindowSize(ImVec2(menu_size_w, menu_size_h), ImGuiCond_Always);
 				g_Config::bMenuNeedReset = false;
 			}
 			else {
 				// 正常状态：限制最大尺寸不超过屏幕
-				ImGui::SetNextWindowSizeConstraints(ImVec2(920, 720), screenSize);
+				ImGui::SetNextWindowSizeConstraints(ImVec2(menu_size_w, menu_size_h), screenSize);
 
-				// 如果你希望第一次打开是 920x720，可以用 FirstUseEver
+				// 如果你希望第一次打开是 menu_size_w x menu_size_h，可以用 FirstUseEver
 				// 但不要放在 if 块外面，否则会干扰上面的 Always 逻辑
-				ImGui::SetNextWindowSize(ImVec2(920, 720), ImGuiCond_FirstUseEver);
+				ImGui::SetNextWindowSize(ImVec2(menu_size_w, menu_size_h), ImGuiCond_FirstUseEver);
 			}
 
-			// ImGui::SetNextWindowSize(ImVec2(920, 720), ImGuiCond_FirstUseEver);
+			// ImGui::SetNextWindowSize(ImVec2(menu_size_w, menu_size_h), ImGuiCond_FirstUseEver);
 			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, g_MenuAlpha);
 
 			ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(22.0f, 22.0f));
@@ -165,6 +171,7 @@ namespace g_DrawImGui {
 					StructureList_Menu();
 					ItemList_Menu();
 					Misc_Menu();
+					Language_Menu();
 					Configs_Menu();
 					Lua_Menu();
 

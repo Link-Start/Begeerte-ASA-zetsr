@@ -7,13 +7,22 @@
 #include "Lua_Menu.h"
 #include "../Util/Util.h"
 #include "../../external/SDK/SDK_Headers.hpp"
+#include "../Language/LanguageManager.h"
 
 namespace g_DrawImGui {
     void Lua_Menu() {
         // 每一帧更新状态（处理重置逻辑）
         LuaManager::Get().Update();
 
-        if (ImGui::BeginTabItem(U8("脚本"))) {
+        const char* tabLabel = LanguageManager::Lua_Menu::TabLabel;
+        const char* enableMgr = LanguageManager::Lua_Menu::EnableManager;
+        const char* secTitle = LanguageManager::Lua_Menu::SectionTitle;
+        const char* btnRefresh = LanguageManager::Lua_Menu::RefreshFileList;
+        const char* btnOpenDir = LanguageManager::Lua_Menu::OpenDirectory;
+        const char* errorHint = LanguageManager::Lua_Menu::ErrorHint;
+        const char* copyError = LanguageManager::Lua_Menu::CopyError;
+
+        if (ImGui::BeginTabItem(tabLabel)) {
             auto& mgr = LuaManager::Get();
             auto& scripts = mgr.GetScripts();
 
@@ -23,7 +32,7 @@ namespace g_DrawImGui {
             // --- 第一部分：全局总开关 ---
             bool isEnabled = mgr.IsEnabled();
             ImGui::PushStyleColor(ImGuiCol_Text, ThemeColors::GetAccent());
-            if (DrawCustomCheckbox(U8("启用 Lua 管理器"), &isEnabled)) {
+            if (DrawCustomCheckbox(enableMgr, &isEnabled)) {
                 // 当点击 Checkbox 时触发管理器状态切换
                 mgr.SetEnabled(isEnabled);
             }
@@ -37,13 +46,13 @@ namespace g_DrawImGui {
             // --- 第二部分：受控区域 (如果 Enabled 为 false，则全部变灰且不可交互) ---
             ImGui::BeginDisabled(!isEnabled);
             {
-                ImGui::TextColored(ThemeColors::GetAccent(), U8("脚本管理系统"));
+                ImGui::TextColored(ThemeColors::GetAccent(), secTitle);
 
-                if (DrawCustomButton(U8("刷新列表"))) {
+                if (DrawCustomButton(btnRefresh)) {
                     mgr.RefreshFileList();
                 }
                 ImGui::SameLine();
-                if (DrawCustomButton(U8("打开目录"))) {
+                if (DrawCustomButton(btnOpenDir)) {
                     std::string path = mgr.GetScriptDir();
                     ShellExecuteA(NULL, "open", path.c_str(), NULL, NULL, SW_SHOWDEFAULT);
                 }
@@ -89,7 +98,7 @@ namespace g_DrawImGui {
 
                                 if (ImGui::IsItemHovered()) {
                                     ImGui::BeginTooltip();
-                                    ImGui::TextUnformatted(U8("右键点击图标以复制错误详情"));
+                                    ImGui::TextUnformatted(errorHint);
                                     ImGui::Separator();
                                     ImGui::TextUnformatted(script.lastError.c_str());
                                     ImGui::EndTooltip();
@@ -97,7 +106,7 @@ namespace g_DrawImGui {
 
                                 std::string popupId = "ErrorPopup_" + std::to_string(i);
                                 if (ImGui::BeginPopupContextItem(popupId.c_str())) {
-                                    if (CustomSelectable(U8("复制错误信息"), false, 8.0f)) {
+                                    if (CustomSelectable(copyError, false, 8.0f)) {
                                         ImGui::SetClipboardText(script.lastError.c_str());
                                     }
                                     ImGui::EndPopup();

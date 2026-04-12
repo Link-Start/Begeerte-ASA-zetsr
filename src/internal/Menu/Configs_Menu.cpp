@@ -7,24 +7,35 @@
 #include "Configs_Menu.h"
 #include "../Util/Util.h"
 #include "../../external/SDK/SDK_Headers.hpp"
+#include "../Language/LanguageManager.h"
 
 namespace g_DrawImGui {
     void Configs_Menu() {
-		if (ImGui::BeginTabItem(U8("配置"))) {
+		const char* tabLabel = LanguageManager::Configs_Menu::TabLabel;
+		const char* sectionTitle = LanguageManager::Configs_Menu::SectionTitle;
+		const char* btnRefresh = LanguageManager::Configs_Menu::RefreshFileList;
+		const char* btnOpenDir = LanguageManager::Configs_Menu::OpenDirectory;
+		const char* inputHint = LanguageManager::Configs_Menu::InputHint;
+		const char* btnCreate = LanguageManager::Configs_Menu::Create;
+		const char* noConfigs = LanguageManager::Configs_Menu::NoConfigs;
+		const char* btnLoad = LanguageManager::Configs_Menu::LoadConfig;
+		const char* btnSave = LanguageManager::Configs_Menu::SaveConfig;
+
+		if (ImGui::BeginTabItem(tabLabel)) {
 			auto& mgr = ConfigManager::Get();
 			auto& configs = mgr.GetConfigs();
 
 			ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
 			BeginTabRegion("ConfigManagerRegion");
 
-			ImGui::TextColored(ThemeColors::GetAccent(), U8("配置管理系统"));
+			ImGui::TextColored(ThemeColors::GetAccent(), sectionTitle);
 			DrawAnimatedSeparator();
 
-			if (DrawCustomButton(U8("刷新列表"))) {
+			if (DrawCustomButton(btnRefresh)) {
 				mgr.RefreshFileList();
 			}
 			ImGui::SameLine();
-			if (DrawCustomButton(U8("打开目录"))) {
+			if (DrawCustomButton(btnOpenDir)) {
 				std::string path = mgr.GetConfigDir();
 				ShellExecuteA(NULL, "open", path.c_str(), NULL, NULL, SW_SHOWDEFAULT);
 			}
@@ -33,9 +44,9 @@ namespace g_DrawImGui {
 
 			static char configNameBuf[65] = { 0 };
 			ImGui::SetNextItemWidth(150.0f);
-			ImGui::InputTextWithHint("##ConfigName", U8("输入参数名称..."), configNameBuf, sizeof(configNameBuf));
+			ImGui::InputTextWithHint("##ConfigName", inputHint, configNameBuf, sizeof(configNameBuf));
 			ImGui::SameLine();
-			if (DrawCustomButton(U8("创建"))) {
+			if (DrawCustomButton(btnCreate)) {
 				std::string configName(configNameBuf);
 				if (configName.empty()) {
 
@@ -59,7 +70,7 @@ namespace g_DrawImGui {
 			if (ImGui::BeginChild("##ConfigListChild", ImVec2(0, 300), true)) {
 				if (configs.empty()) {
 					ImGui::SetCursorPosY(ImGui::GetWindowHeight() / 2 - 10);
-					ImGui::TextDisabled(U8("暂无配置文件"));
+					ImGui::TextDisabled(noConfigs);
 				}
 				else {
 					for (int i = 0; i < (int)configs.size(); i++) {
@@ -81,7 +92,7 @@ namespace g_DrawImGui {
 
 			ImGui::BeginDisabled(selectedConfigIdx < 0 || selectedConfigIdx >= (int)configs.size());
 
-			if (DrawCustomButton(U8("加载配置"), ImVec2(120, 0))) {
+			if (DrawCustomButton(btnLoad, ImVec2(120, 0))) {
 				if (selectedConfigIdx >= 0 && selectedConfigIdx < (int)configs.size()) {
 					auto& selectedConfig = configs[selectedConfigIdx];
 					if (mgr.LoadConfig(selectedConfig.name)) {
@@ -95,7 +106,7 @@ namespace g_DrawImGui {
 
 			ImGui::SameLine();
 
-			if (DrawCustomButton(U8("保存配置"), ImVec2(120, 0))) {
+			if (DrawCustomButton(btnSave, ImVec2(120, 0))) {
 				if (selectedConfigIdx >= 0 && selectedConfigIdx < (int)configs.size()) {
 					auto& selectedConfig = configs[selectedConfigIdx];
 					if (mgr.SaveConfig(selectedConfig.name)) {

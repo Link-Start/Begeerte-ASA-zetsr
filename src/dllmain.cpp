@@ -4,6 +4,7 @@
 #include "internal/Config/Configs.h"
 #include "internal/ESP/DrawESP.h"
 #include "internal/Menu/DrawImGui.h"
+#include "internal/Language/LanguageManager.h"
 #include "internal/Lua/LuaManager.h"
 #include "internal/Config/ConfigManager.h"
 #include "internal/UWorld/Tick.h"
@@ -22,6 +23,8 @@ void init(LPVOID lpParam) {
     g_MDX12::SetSetupPhysicsRotationCallback(g_UWorld::UMovementComponent::PhysicsRotation);
 
     ConfigManager::Get().Initialize("cfg");
+    LanguageManager::Get().Initialize("language");
+    LanguageManager::Get().FetchWorkshopScripts();
     LuaManager::Get().Initialize("lua");
     LuaManager::Get().FetchWorkshopScripts();
 }

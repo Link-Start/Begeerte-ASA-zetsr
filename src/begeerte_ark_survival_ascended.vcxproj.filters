@@ -100,6 +100,9 @@
     <Filter Include="internal\UWorld\UNetDriver\UNetConnection">
       <UniqueIdentifier>{259234b2-7d42-4c88-8c11-16741d8b57a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="internal\Language">
+      <UniqueIdentifier>{9faee55d-6dbc-422c-9f6a-89af69678694}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\LuaJIT-2.1\src\lj_vm.h">
@@ -495,6 +498,12 @@
     <ClInclude Include="internal\Legit\Aimbot\Aimbot.h">
       <Filter>internal\Legit\Aimbot</Filter>
     </ClInclude>
+    <ClInclude Include="internal\Language\LanguageManager.h">
+      <Filter>internal\Language</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\Menu\Language_Menu.h">
+      <Filter>internal\Menu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Object Include="external\LuaJIT-2.1\src\lj_vm.obj">
@@ -636,6 +645,12 @@
     </ClCompile>
     <ClCompile Include="internal\Legit\Aimbot\Aimbot.cpp">
       <Filter>internal\Legit\Aimbot</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Menu\Language_Menu.cpp">
+      <Filter>internal\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\Language\LanguageManager.cpp">
+      <Filter>internal\Language</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

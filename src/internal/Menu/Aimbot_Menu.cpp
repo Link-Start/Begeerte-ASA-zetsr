@@ -6,24 +6,32 @@
 #include "Aimbot_Menu.h"
 #include "../Util/Util.h"
 #include "../../external/SDK/SDK_Headers.hpp"
+#include "../Language/LanguageManager.h"
 
 namespace g_DrawImGui {
-	void Aimbot_Menu() {
-		if (ImGui::BeginTabItem(U8("自瞄"))) {
-			ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
-			BeginTabRegion("AimBotRegion");
+    void Aimbot_Menu() {
+        const char* tabLabel = LanguageManager::Aimbot_Menu::TabLabel;
+        const char* secTitle = LanguageManager::Aimbot_Menu::SectionTitle;
+        const char* aimEnabled = LanguageManager::Aimbot_Menu::AimbotEnabled;
+        const char* aimFOV = LanguageManager::Aimbot_Menu::AimbotFOV;
+        const char* aimSmooth = LanguageManager::Aimbot_Menu::AimbotSmooth;
+        const char* trigEnabled = LanguageManager::Aimbot_Menu::TriggerbotEnabled;
 
-			ImGui::TextColored(ThemeColors::GetAccent(), U8("队友设置"));
-			DrawAnimatedSeparator();
-			DrawCustomCheckbox(U8("自动瞄准"), &g_Config::bAimbotEnabled);
-			DrawCustomSliderFloat(U8("瞄准范围"), &g_Config::AimbotFOV, 0.1f, 180.0f, "%.1f", 0.1f, U8("°"));
-			DrawCustomSliderFloat(U8("瞄准速度"), &g_Config::AimbotSmooth, 0.1f, 100.0f, "%.1f", 0.1f, "%");
-			DrawCustomCheckbox(U8("自动射击"), &g_Config::bTriggerbotEnabled);
-			DrawAnimatedSeparator();
+        if (ImGui::BeginTabItem(tabLabel)) {
+            ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
+            BeginTabRegion("AimBotRegion");
 
-			EndTabRegion();
-			ImGui::PopStyleVar();
-			ImGui::EndTabItem();
-		}
-	}
+            ImGui::TextColored(ThemeColors::GetAccent(), secTitle);
+            DrawAnimatedSeparator();
+            DrawCustomCheckbox(aimEnabled, &g_Config::bAimbotEnabled);
+            DrawCustomSliderFloat(aimFOV, &g_Config::AimbotFOV, 0.1f, 180.0f, "%.1f", 0.1f, U8("°"));
+            DrawCustomSliderFloat(aimSmooth, &g_Config::AimbotSmooth, 0.1f, 100.0f, "%.1f", 0.1f, "%");
+            DrawCustomCheckbox(trigEnabled, &g_Config::bTriggerbotEnabled);
+            DrawAnimatedSeparator();
+
+            EndTabRegion();
+            ImGui::PopStyleVar();
+            ImGui::EndTabItem();
+        }
+    }
 }
