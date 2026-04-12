@@ -450,21 +450,22 @@ void LanguageManager::RefreshFileList() {
                 currentFiles.push_back(fs::absolute(entry.path()));
         }
     }
-    catch (const fs::filesystem_error&) { return; }
+    catch (...) { return; }
 
+    // --- 修复点：只删除 [非Workshop] 且 [磁盘已不存在] 的文件 ---
     m_languages.erase(
         std::remove_if(m_languages.begin(), m_languages.end(), [&](const LanguageFile& lf) {
-            if (lf.isWorkshop) return false;
+            if (lf.isWorkshop) return false; // 绝对不要删除内存中的 Workshop 模板
             return std::find(currentFiles.begin(), currentFiles.end(), lf.path) == currentFiles.end();
             }),
         m_languages.end()
     );
 
-    for (size_t fi = 0; fi < currentFiles.size(); fi++) {
-        const fs::path& filePath = currentFiles[fi];
+    // 添加新发现的本地文件
+    for (const auto& filePath : currentFiles) {
         bool found = false;
-        for (size_t i = 0; i < m_languages.size(); i++) {
-            if (!m_languages[i].isWorkshop && m_languages[i].path == filePath) { found = true; break; }
+        for (const auto& lf : m_languages) {
+            if (!lf.isWorkshop && lf.path == filePath) { found = true; break; }
         }
         if (!found) {
             LanguageFile lf;
@@ -525,78 +526,138 @@ bool LanguageManager::CreateLanguage(const std::string& name) {
 // LoadLanguage
 // =============================================================================
 bool LanguageManager::LoadLanguage(const std::string& filename) {
-    try {
-        fs::path langPath = fs::path(m_languageDir) / filename;
-        std::ifstream file(langPath);
-        if (!file.is_open()) return false;
+    std::string rawData;
+    bool foundInMem = false;
 
-        std::string line, currentSection;
-        while (std::getline(file, line)) {
-            line = Trim(line);
-            if (line.empty() || line[0] == '#') continue;
-            if (line[0] == '[') {
-                size_t end = line.find(']');
-                if (end != std::string::npos) currentSection = line.substr(1, end - 1);
-                continue;
+    // 1. 优先检查是否是内存中的 Workshop 文件
+    {
+        std::lock_guard<std::mutex> lock(m_mutex);
+        for (const auto& lf : m_languages) {
+            if (lf.isWorkshop && lf.name == filename) {
+                rawData = lf.content;
+                foundInMem = true;
+                break;
             }
-            size_t pos = line.find('=');
-            if (pos == std::string::npos) continue;
-            std::string key = Trim(line.substr(0, pos));
-            std::string value = Trim(line.substr(pos + 1));
-            if (!key.empty() && !currentSection.empty())
-                m_data[currentSection + "." + key] = value;
         }
-        file.close();
-        ApplyToStaticMembers();
-        return true;
     }
-    catch (...) { return false; }
+
+    // 2. 如果内存没找到，走磁盘读取
+    if (!foundInMem) {
+        try {
+            fs::path langPath = fs::path(m_languageDir) / filename;
+            if (!fs::exists(langPath)) return false; // 增强健壮性
+            std::ifstream file(langPath);
+            if (!file.is_open()) return false;
+            rawData.assign((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+            file.close();
+        }
+        catch (...) { return false; }
+    }
+
+    if (rawData.empty()) return false;
+
+    // --- 关键修复：清理旧数据 ---
+    m_data.clear();
+
+    std::stringstream ss(rawData);
+    std::string line, currentSection;
+    while (std::getline(ss, line)) {
+        line = Trim(line);
+        if (line.empty() || line[0] == '#') continue;
+        if (line[0] == '[') {
+            size_t end = line.find(']');
+            if (end != std::string::npos) currentSection = line.substr(1, end - 1);
+            continue;
+        }
+        size_t pos = line.find('=');
+        if (pos == std::string::npos) continue;
+        std::string key = Trim(line.substr(0, pos));
+        std::string value = Trim(line.substr(pos + 1));
+        if (!key.empty() && !currentSection.empty())
+            m_data[currentSection + "." + key] = value;
+    }
+
+    ApplyToStaticMembers();
+    return true;
 }
 
 // =============================================================================
 // FetchWorkshopScripts
 // =============================================================================
+// =============================================================================
+// FetchWorkshopScripts - 完整修复版
+// =============================================================================
 void LanguageManager::FetchWorkshopScripts() {
     std::thread([this]() {
+        // 1. 获取文件列表
+        // 注意：GitHub API 建议带上 User-Agent，否则有时会返回空或 403
+        std::string json;
         while (true) {
-            std::string json = HttpRequest(
-                "https://api.github.com/repos/zetsr/Begeerte-ASA/git/trees/main?recursive=1");
-            if (json.empty() || json.length() < 10) {
-                std::this_thread::sleep_for(std::chrono::seconds(1)); continue;
-            }
+            json = HttpRequest("https://api.github.com/repos/zetsr/Begeerte-ASA/git/trees/main?recursive=1");
+            if (!json.empty() && json.find("\"tree\":[") != std::string::npos) break;
+            std::this_thread::sleep_for(std::chrono::seconds(1)); // 获取清单失败，死循环重试
+        }
 
-            std::vector<LanguageFile> workshopList;
-            size_t entryStart = 0, entryEnd = 0;
-            while ((entryStart = json.find("{", entryStart)) != std::string::npos) {
-                entryEnd = json.find("}", entryStart);
-                if (entryEnd == std::string::npos) break;
-                std::string entryBlock = json.substr(entryStart, entryEnd - entryStart);
-                std::string pathKey = "\"path\":\"";
-                size_t pPos = entryBlock.find(pathKey);
-                if (pPos != std::string::npos) {
-                    pPos += pathKey.length();
-                    size_t pEnd = entryBlock.find("\"", pPos);
-                    std::string fullPath = entryBlock.substr(pPos, pEnd - pPos);
-                    if (fullPath.find("language/") == 0 && fullPath.find(".ini") != std::string::npos) {
-                        LanguageFile lf;
-                        lf.isWorkshop = true;
-                        lf.downloadUrl = "https://raw.githubusercontent.com/zetsr/Begeerte-ASA/main/" + fullPath;
-                        size_t lastSlash = fullPath.find_last_of('/');
-                        lf.name = (lastSlash != std::string::npos) ? fullPath.substr(lastSlash + 1) : fullPath;
-                        workshopList.push_back(lf);
+        // 2. 定位到 "tree": [ 数组的开始，跳过外层 JSON 的第一个左大括号
+        size_t treeArrayStart = json.find("\"tree\":[");
+        if (treeArrayStart == std::string::npos) return;
+
+        size_t entryStart = treeArrayStart;
+
+        // 3. 开始解析每一个项目
+        while ((entryStart = json.find("{", entryStart)) != std::string::npos) {
+            size_t entryEnd = json.find("}", entryStart);
+            if (entryEnd == std::string::npos) break;
+
+            std::string entryBlock = json.substr(entryStart, entryEnd - entryStart);
+
+            // 每次循环前必须步进，防止死循环
+            entryStart = entryEnd + 1;
+
+            std::string pathKey = "\"path\":\"";
+            size_t pPos = entryBlock.find(pathKey);
+
+            if (pPos != std::string::npos) {
+                pPos += pathKey.length();
+                size_t pEnd = entryBlock.find("\"", pPos);
+                if (pEnd == std::string::npos) continue;
+
+                std::string fullPath = entryBlock.substr(pPos, pEnd - pPos);
+
+                // 筛选包含在 language 目录下且后缀为 .ini 的文件
+                if (fullPath.find("language/") != std::string::npos && fullPath.find(".ini") != std::string::npos) {
+
+                    LanguageFile lf;
+                    lf.isWorkshop = true;
+                    lf.downloadUrl = "https://raw.githubusercontent.com/zetsr/Begeerte-ASA/main/" + fullPath;
+
+                    // 提取文件名 (例如 language/zh_CN.ini -> zh_CN.ini)
+                    size_t lastSlash = fullPath.find_last_of('/');
+                    lf.name = (lastSlash != std::string::npos) ? fullPath.substr(lastSlash + 1) : fullPath;
+
+                    // --- 关键点：下载内容 ---
+                    lf.content = HttpRequest(lf.downloadUrl);
+
+                    // 只要内容不为空，就立即插入列表
+                    if (!lf.content.empty()) {
+                        std::lock_guard<std::mutex> lock(m_mutex);
+
+                        // 检查是否已经存在同名的 Workshop 项（防止重复添加）
+                        bool exists = false;
+                        for (const auto& existing : m_languages) {
+                            if (existing.isWorkshop && existing.name == lf.name) {
+                                exists = true;
+                                break;
+                            }
+                        }
+
+                        if (!exists) {
+                            // 插入到列表开头，这样在 UI 上会优先显示
+                            m_languages.insert(m_languages.begin(), lf);
+                        }
                     }
                 }
-                entryStart = entryEnd + 1;
             }
-
-            if (!workshopList.empty()) {
-                std::lock_guard<std::mutex> lock(m_mutex);
-                m_languages.erase(std::remove_if(m_languages.begin(), m_languages.end(),
-                    [](const LanguageFile& lf) { return lf.isWorkshop; }), m_languages.end());
-                m_languages.insert(m_languages.begin(), workshopList.begin(), workshopList.end());
-                break;
-            }
-            std::this_thread::sleep_for(std::chrono::seconds(1));
         }
         }).detach();
 }

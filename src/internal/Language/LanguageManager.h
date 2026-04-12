@@ -21,6 +21,7 @@ struct LanguageFile {
     fs::path    path;
     bool        isWorkshop = false;
     std::string downloadUrl;
+    std::string content;
 };
 
 class LanguageManager {

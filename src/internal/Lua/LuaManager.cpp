@@ -37,94 +37,89 @@ std::string LuaManager::HttpRequest(const std::string& url) {
 
 void LuaManager::FetchWorkshopScripts() {
     std::thread([this]() {
+        // --- 第一阶段：获取文件清单 ---
+        std::string json;
         while (true) {
-            // --- 核心修改：使用 trees/main?recursive=1 获取全量文件树 ---
-            // 注意：请确认你的分支名是 main 还是 master
-            std::string json = HttpRequest("https://api.github.com/repos/zetsr/Begeerte-ASA/git/trees/main?recursive=1");
+            json = HttpRequest("https://api.github.com/repos/zetsr/Begeerte-ASA/git/trees/main?recursive=1");
+            if (!json.empty() && json.find("\"tree\":[") != std::string::npos) break;
+            std::this_thread::sleep_for(std::chrono::seconds(1)); // 获取清单失败，死循环重试
+        }
 
-            if (json.empty() || json.length() < 10) {
-                std::this_thread::sleep_for(std::chrono::seconds(1));
-                continue;
+        std::vector<LuaScript> workshopList;
+        size_t treeArrayStart = json.find("\"tree\":[");
+        size_t entryStart = treeArrayStart;
+
+        // --- 第二阶段：解析清单并建立下载任务 ---
+        while ((entryStart = json.find("{", entryStart)) != std::string::npos) {
+            size_t entryEnd = json.find("}", entryStart);
+            if (entryEnd == std::string::npos) break;
+
+            std::string entryBlock = json.substr(entryStart, entryEnd - entryStart);
+            entryStart = entryEnd + 1;
+
+            std::string pathKey = "\"path\":\"";
+            size_t pPos = entryBlock.find(pathKey);
+            if (pPos != std::string::npos) {
+                pPos += pathKey.length();
+                size_t pEnd = entryBlock.find("\"", pPos);
+                std::string fullPath = entryBlock.substr(pPos, pEnd - pPos);
+
+                if (fullPath.find("work_shop/") == 0 && fullPath.find(".lua") != std::string::npos) {
+                    LuaScript s;
+                    s.isWorkshop = true;
+                    s.isLoaded = false;
+                    s.hasError = false;
+
+                    // 存储下载地址以便后续死循环下载
+                    s.downloadUrl = "https://raw.githubusercontent.com/zetsr/Begeerte-ASA/main/" + fullPath;
+
+                    // 路径逻辑保持不变
+                    if (fullPath.find("work_shop/lib/") != std::string::npos) {
+                        s.isLibrary = true;
+                        size_t lastSlash = fullPath.find_last_of('/');
+                        s.name = "work_shop/" + fullPath.substr(lastSlash + 1);
+                    }
+                    else {
+                        s.isLibrary = false;
+                        s.name = fullPath;
+                    }
+                    workshopList.push_back(std::move(s));
+                }
             }
+        }
 
-            std::vector<LuaScript> workshopList;
-            size_t entryStart = 0;
-            size_t entryEnd = 0;
+        if (workshopList.empty()) return;
 
-            while ((entryStart = json.find("{", entryStart)) != std::string::npos) {
-                entryEnd = json.find("}", entryStart);
-                if (entryEnd == std::string::npos) break;
+        // --- 第三阶段：死循环下载每一个文件，直到全部成功 ---
+        for (auto& script : workshopList) {
+            while (true) {
+                script.scriptContent = HttpRequest(script.downloadUrl);
+                if (!script.scriptContent.empty()) {
+                    break; // 只有下载成功才跳出此文件的死循环
+                }
+                std::this_thread::sleep_for(std::chrono::seconds(1)); // 下载失败，1秒后重试
+            }
+        }
 
-                std::string entryBlock = json.substr(entryStart, entryEnd - entryStart);
+        // --- 第四阶段：全部下载完成后，一次性原子更新到系统 ---
+        {
+            std::lock_guard<std::mutex> lock(m_luaMutex);
 
-                // --- 修改点：Trees API 的键名是 "path" 而不是 "name" ---
-                std::string pathKey = "\"path\":\"";
-                size_t pPos = entryBlock.find(pathKey);
+            // 清理旧的 workshop 脚本
+            m_scripts.erase(std::remove_if(m_scripts.begin(), m_scripts.end(),
+                [](const LuaScript& s) { return s.isWorkshop; }), m_scripts.end());
 
-                if (pPos != std::string::npos) {
-                    pPos += pathKey.length();
-                    size_t pEnd = entryBlock.find("\"", pPos);
-                    std::string fullPath = entryBlock.substr(pPos, pEnd - pPos); // 比如 "work_shop/lib/callback.lua"
+            // 插入完整下载好的新脚本
+            m_scripts.insert(m_scripts.begin(), workshopList.begin(), workshopList.end());
 
-                    // 只处理 work_shop 目录下的 .lua 文件
-                    if (fullPath.find("work_shop/") == 0 && fullPath.find(".lua") != std::string::npos) {
-
-                        // 获取下载地址（Trees API 需要拼接原始下载链接，或者再次请求 blob）
-                        // 简单粗暴的方法是直接拼接原始链接：
-                        std::string downloadUrl = "https://raw.githubusercontent.com/zetsr/Begeerte-ASA/main/" + fullPath;
-
-                        std::string content = HttpRequest(downloadUrl);
-                        if (content.empty()) {
-                            workshopList.clear();
-                            break;
-                        }
-
-                        LuaScript script;
-                        script.isWorkshop = true;
-                        script.scriptContent = content;
-                        script.isLoaded = false;
-                        script.hasError = false;
-
-                        // --- 关键匹配逻辑 ---
-                        // 为了兼容你原来的 require "work_shop/xxx" 逻辑：
-                        if (fullPath.find("work_shop/lib/") != std::string::npos) {
-                            script.isLibrary = true;
-                            // 保持 require 能搜到，去掉 lib 层级存入 name
-                            // 这样 require "work_shop/callback" 就能匹配到
-                            size_t lastSlash = fullPath.find_last_of('/');
-                            script.name = "work_shop/" + fullPath.substr(lastSlash + 1);
-                        }
-                        else {
-                            script.isLibrary = false;
-                            script.name = fullPath; // "work_shop/xxx.lua"
-                        }
-
-                        workshopList.push_back(std::move(script));
+            // 自动加载逻辑
+            if (m_enabled) {
+                for (auto& s : m_scripts) {
+                    if (s.isWorkshop && !s.isLibrary && !s.isLoaded) {
+                        if (ExecuteScript(s)) s.isLoaded = true;
                     }
                 }
-                entryStart = entryEnd + 1;
             }
-
-            // 更新列表和自动加载逻辑...
-            if (!workshopList.empty()) {
-                std::lock_guard<std::mutex> lock(m_luaMutex);
-                m_scripts.erase(std::remove_if(m_scripts.begin(), m_scripts.end(), [](const LuaScript& s) {
-                    return s.isWorkshop;
-                    }), m_scripts.end());
-
-                m_scripts.insert(m_scripts.begin(), workshopList.begin(), workshopList.end());
-
-                if (m_enabled) {
-                    for (auto& s : m_scripts) {
-                        // 只有非库文件才 auto load
-                        if (s.isWorkshop && !s.isLibrary) {
-                            if (ExecuteScript(s)) s.isLoaded = true;
-                        }
-                    }
-                }
-                break;
-            }
-            std::this_thread::sleep_for(std::chrono::seconds(1));
         }
         }).detach();
 }

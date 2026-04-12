@@ -16,7 +16,6 @@ namespace g_DrawImGui {
         const char* btnLoad = LanguageManager::Language_Menu::LoadLanguage;
         const char* inputHint = LanguageManager::Language_Menu::InputHint;
         const char* noLanguages = LanguageManager::Language_Menu::NoLanguages;
-        const char* workshopSection = LanguageManager::Language_Menu::WorkshopSection;
 
         if (ImGui::BeginTabItem(tabLabel)) {
             LanguageManager& mgr = LanguageManager::Get();
@@ -65,15 +64,10 @@ namespace g_DrawImGui {
                     for (int i = 0; i < (int)languages.size(); i++) {
                         if (languages[i].isWorkshop) { hasWorkshop = true; break; }
                     }
-                    if (hasWorkshop) {
-                        ImGui::TextColored(ThemeColors::GetAccent(), workshopSection);
-                        ImGui::Separator();
-                    }
+
                     for (int i = 0; i < (int)languages.size(); i++) {
                         LanguageFile& lf = languages[i];
                         ImGui::PushID(i);
-                        if (hasWorkshop && !lf.isWorkshop && i > 0 && languages[i - 1].isWorkshop)
-                            ImGui::Separator();
                         bool isSelected = (selectedLangIdx == i);
                         std::string displayName = lf.isWorkshop ? ("work_shop/" + lf.name) : lf.name;
                         if (CustomSelectable(displayName.c_str(), isSelected, 8.0f))
@@ -90,22 +84,7 @@ namespace g_DrawImGui {
             if (DrawCustomButton(btnLoad, ImVec2(120, 0))) {
                 if (selectedLangIdx >= 0 && selectedLangIdx < (int)languages.size()) {
                     LanguageFile& selected = languages[selectedLangIdx];
-                    if (selected.isWorkshop) {
-                        std::string content = mgr.HttpRequestPublic(selected.downloadUrl);
-                        if (!content.empty()) {
-                            fs::path tmp = fs::path(mgr.GetLanguageDir()) / selected.name;
-                            std::ofstream out(tmp);
-                            if (out.is_open()) {
-                                out << content;
-                                out.close();
-                                mgr.RefreshFileList();
-                                mgr.LoadLanguage(selected.name);
-                            }
-                        }
-                    }
-                    else {
-                        mgr.LoadLanguage(selected.name);
-                    }
+                    mgr.LoadLanguage(selected.name);
                 }
             }
             ImGui::EndDisabled();

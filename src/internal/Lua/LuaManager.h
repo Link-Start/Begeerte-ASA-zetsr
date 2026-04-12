@@ -26,6 +26,7 @@ struct LuaScript {
     bool isWorkshop = false;
     bool isLibrary = false;
 
+    std::string downloadUrl;
     std::string scriptContent;
     std::string lastError;
 
