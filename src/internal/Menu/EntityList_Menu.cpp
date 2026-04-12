@@ -85,12 +85,14 @@ namespace g_DrawImGui {
 							float dist = (LocalPC && LocalPC->Pawn && TargetActor) ? LocalPC->Pawn->GetDistanceTo(TargetActor) * 0.01f : 0.0f;
 							float curHP = TargetChar->GetHealth();
 							float maxHP = TargetChar->GetMaxHealth();
+							int hpPercent = (maxHP > 0) ? (int)((curHP / maxHP) * 100.0f) : 0;
 
-							ImGui::Text("[%dm] %s - %.0f/%.0f",
+							ImGui::Text("[%dm] %s (%d%s)",
 								(int)dist,
 								displayName.c_str(),
-								curHP,
-								maxHP);
+								hpPercent,
+								"%"
+							);
 						}
 					}
 				}

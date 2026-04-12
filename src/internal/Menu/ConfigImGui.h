@@ -364,6 +364,22 @@ namespace g_DrawImGui {
 		}
 
 		bool value_changed = false;
+
+		// 键盘方向键微调功能逻辑
+		// 条件：当前滑块拥有焦点（点过一次）且未按住鼠标左键（防止与拖拽冲突）
+		if (g.NavId == id && !g.IO.MouseDown[0]) {
+			float keyboard_delta = 0.0f;
+			if (ImGui::IsKeyPressed(ImGuiKey_LeftArrow, true)) keyboard_delta -= step;
+			if (ImGui::IsKeyPressed(ImGuiKey_RightArrow, true)) keyboard_delta += step;
+
+			if (keyboard_delta != 0.0f) {
+				*v += keyboard_delta;
+				if (*v < v_min) *v = v_min;
+				if (*v > v_max) *v = v_max;
+				value_changed = true;
+			}
+		}
+
 		if (active && g.IO.MouseDown[0]) {
 			float mx = g.IO.MousePos.x;
 			float handle_min_x = track_min.x;
@@ -436,13 +452,13 @@ namespace g_DrawImGui {
 		ImU32 col_shadow = ImGui::GetColorU32(ImGuiCol_BorderShadow);
 		draw->AddCircleFilled(ImVec2(handle_center.x + 1.0f, handle_center.y + 2.0f), handle_radius + 5.0f, col_shadow, 24);
 
-		if (active || hovered) {
-			float glow_intensity = active ? 0.4f : 0.2f;
+		if (active || hovered || g.NavId == id) {
+			float glow_intensity = active ? 0.4f : (g.NavId == id ? 0.3f : 0.2f);
 			draw->AddCircleFilled(handle_center, handle_radius + 6.0f,
 				ImGui::GetColorU32(ImVec4(ThemeColors::GetAccent().x, ThemeColors::GetAccent().y, ThemeColors::GetAccent().z, glow_intensity)), 24);
 		}
 
-		draw->AddCircleFilled(handle_center, handle_radius, active ? col_handle_active : col_handle, 24);
+		draw->AddCircleFilled(handle_center, handle_radius, (active || g.NavId == id) ? col_handle_active : col_handle, 24);
 		draw->AddCircle(handle_center, handle_radius * 0.7f, IM_COL32(255, 255, 255, 30), 24, 2.5f);
 
 		ImVec2 label_pos = ImVec2(pos.x, pos.y + (size.y - label_size.y) * 0.5f);

@@ -71,21 +71,21 @@ namespace g_DrawImGui {
 						if (g_Util::IsStructureMatchMulti(structureName, g_Config::structureSearchBuf)) {
 							float dist = (LocalPC && LocalPC->Pawn && TargetActor) ? LocalPC->Pawn->GetDistanceTo(TargetActor) * 0.01f : 0.0f;
 
-							std::string ownerStr = Structure->OwnerName.ToString();
-							if (ownerStr.empty() || ownerStr == "None") {
-								ownerStr = "*";
-							}
+							std::string owner = Structure->OwnerName.ToString();
+							std::string ownerStf = (owner.empty() || owner == "None") ? "" : " [" + owner + "]";
 
 							float curHP = Structure->Health;
 							float maxHP = Structure->MaxHealth;
 							int hpPercent = (maxHP > 0) ? (int)((curHP / maxHP) * 100.0f) : 0;
 
-							ImGui::Text("[%dm] %s - %s - %.0f/%.0f",
+							ImGui::Text("[%dm] %s%s (%d%s)",
 								(int)dist,
 								structureName.c_str(),
-								ownerStr.c_str(),
-								curHP,
-								maxHP);
+								ownerStf.c_str(),
+								hpPercent,
+								"%"
+
+							);
 						}
 					}
 				}
