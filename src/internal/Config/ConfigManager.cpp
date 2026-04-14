@@ -100,6 +100,7 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
         // 菜单功能
         file << "[Menu]\n";
         CONFIG_COLOR(g_Config::MenuColor);
+        file << "\n";
 
         // 其他功能
         file << "[Misc]\n";
@@ -109,6 +110,7 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
         // 2026/4/3 @zetsr
         // 考虑到跟一键自杀那种类型的功能不一样，保存到配置应该没有问题
         CONFIG_BOOL(g_Config::bForceTurn);
+        file << "\n";
 
         // 生物列表
         file << "[EntityList]\n";
