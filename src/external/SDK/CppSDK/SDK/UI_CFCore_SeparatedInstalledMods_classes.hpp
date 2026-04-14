@@ -13,8 +13,8 @@
 #include "cfcore_ui_structs.hpp"
 #include "Engine_structs.hpp"
 #include "UI_CFCore_BasePage_classes.hpp"
-#include "UMG_structs.hpp"
 #include "ENUM_CFCore_SideTabs_structs.hpp"
+#include "UMG_structs.hpp"
 
 
 namespace SDK
