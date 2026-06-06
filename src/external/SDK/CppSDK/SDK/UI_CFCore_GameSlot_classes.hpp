@@ -10,17 +10,17 @@
 
 #include "Basic.hpp"
 
+#include "ENUM_CFCore_SideTabs_structs.hpp"
 #include "Engine_structs.hpp"
 #include "cfcore_ui_structs.hpp"
 #include "CFCoreWidget_classes.hpp"
 #include "UMG_structs.hpp"
-#include "ENUM_CFCore_SideTabs_structs.hpp"
 
 
 SDK_NAMESPACE_START
 
 // WidgetBlueprintGeneratedClass UI_CFCore_GameSlot.UI_CFCore_GameSlot_C
-// 0x07A8 (0x1008 - 0x0860)
+// 0x07B0 (0x1010 - 0x0860)
 class UUI_CFCore_GameSlot_C final : public UCFCoreWidget_C
 {
 public:
@@ -67,20 +67,20 @@ public:
 	class UUI_CFCore_ModPage_C*                   AssociatedModPage;                                 // 0x09A8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
 	TMulticastInlineDelegate<void()>              OnDisableClicked;                                  // 0x09B0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	TArray<EGameModsEvent>                        evts;                                              // 0x09C0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	struct FInstallProgressMod                    ModInfo;                                           // 0x09D0(0x0608)(Edit, BlueprintVisible, ContainsInstancedReference, ExposeOnSpawn)
-	bool                                          ImageFinishedLoading;                              // 0x0FD8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_FD9[0x7];                                      // 0x0FD9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 ImageUrl;                                          // 0x0FE0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
-	class UUI_CFCore_ParentBrowser_C*             ParentPage;                                        // 0x0FF0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, InstancedReference, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
-	bool                                          IsStandalone;                                      // 0x0FF8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
-	bool                                          DebugScreenshotDownloading;                        // 0x0FF9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          IsEnableState;                                     // 0x0FFA(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          AllowContextMenuCreationOnRightClick;              // 0x0FFB(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
-	bool                                          DownloadImageIndividually;                         // 0x0FFC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
-	bool                                          SetForConsole;                                     // 0x0FFD(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          RecievedBasePriceInfo;                             // 0x0FFE(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          RecievedDiscountPriceInfo;                         // 0x0FFF(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FTimerHandle                           ConsolePriceQueryRetryHandle;                      // 0x1000(0x0008)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	struct FInstallProgressMod                    ModInfo;                                           // 0x09D0(0x0610)(Edit, BlueprintVisible, ContainsInstancedReference, ExposeOnSpawn)
+	bool                                          ImageFinishedLoading;                              // 0x0FE0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_FE1[0x7];                                      // 0x0FE1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 ImageUrl;                                          // 0x0FE8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
+	class UUI_CFCore_ParentBrowser_C*             ParentPage;                                        // 0x0FF8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, InstancedReference, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
+	bool                                          IsStandalone;                                      // 0x1000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
+	bool                                          DebugScreenshotDownloading;                        // 0x1001(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          IsEnableState;                                     // 0x1002(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          AllowContextMenuCreationOnRightClick;              // 0x1003(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
+	bool                                          DownloadImageIndividually;                         // 0x1004(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
+	bool                                          SetForConsole;                                     // 0x1005(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          RecievedBasePriceInfo;                             // 0x1006(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          RecievedDiscountPriceInfo;                         // 0x1007(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FTimerHandle                           ConsolePriceQueryRetryHandle;                      // 0x1008(0x0008)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 
 public:
 	bool OnEventBroadcasted(EGameModsEvent evt, const TArray<struct FInstallProgressMod>& ModsList, const struct FCFCoreApiResponsePagination& pagination);

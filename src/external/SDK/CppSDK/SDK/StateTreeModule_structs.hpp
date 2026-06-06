@@ -406,6 +406,28 @@ enum class EStateTreePropertyUsage : uint8
 	EStateTreePropertyUsage_MAX              = 5,
 };
 
+// ScriptStruct StateTreeModule.StateTreeAnyEnum
+// 0x0010 (0x0010 - 0x0000)
+struct FStateTreeAnyEnum final
+{
+public:
+	uint32                                        Value;                                             // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UEnum*                                  Enum;                                              // 0x0008(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FStateTreeAnyEnum;
+
+// ScriptStruct StateTreeModule.StateTreeBooleanOperationPropertyFunctionInstanceData
+// 0x0003 (0x0003 - 0x0000)
+struct FStateTreeBooleanOperationPropertyFunctionInstanceData final
+{
+public:
+	bool                                          bLeft;                                             // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bRight;                                            // 0x0001(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bResult;                                           // 0x0002(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FStateTreeBooleanOperationPropertyFunctionInstanceData;
+
 // ScriptStruct StateTreeModule.StateTreeIndex16
 // 0x0002 (0x0002 - 0x0000)
 struct FStateTreeIndex16 final
@@ -463,64 +485,6 @@ struct FStateTreePropertyFunctionCommonBase : public FStateTreePropertyFunctionB
 {
 };
 DUMPER7_ASSERTS_FStateTreePropertyFunctionCommonBase;
-
-// ScriptStruct StateTreeModule.StateTreeMultiplyFloatPropertyFunction
-// 0x0000 (0x0020 - 0x0020)
-struct FStateTreeMultiplyFloatPropertyFunction final : public FStateTreePropertyFunctionCommonBase
-{
-};
-DUMPER7_ASSERTS_FStateTreeMultiplyFloatPropertyFunction;
-
-// ScriptStruct StateTreeModule.StateTreeAnyEnum
-// 0x0010 (0x0010 - 0x0000)
-struct FStateTreeAnyEnum final
-{
-public:
-	uint32                                        Value;                                             // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UEnum*                                  Enum;                                              // 0x0008(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FStateTreeAnyEnum;
-
-// ScriptStruct StateTreeModule.StateTreeEnumInputConsiderationInstanceData
-// 0x0010 (0x0010 - 0x0000)
-struct FStateTreeEnumInputConsiderationInstanceData final
-{
-public:
-	struct FStateTreeAnyEnum                      Input;                                             // 0x0000(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FStateTreeEnumInputConsiderationInstanceData;
-
-// ScriptStruct StateTreeModule.StateTreeCompareIntConditionInstanceData
-// 0x0008 (0x0008 - 0x0000)
-struct FStateTreeCompareIntConditionInstanceData final
-{
-public:
-	int32                                         Left;                                              // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         Right;                                             // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FStateTreeCompareIntConditionInstanceData;
-
-// ScriptStruct StateTreeModule.StateTreeBooleanOperationPropertyFunctionInstanceData
-// 0x0003 (0x0003 - 0x0000)
-struct FStateTreeBooleanOperationPropertyFunctionInstanceData final
-{
-public:
-	bool                                          bLeft;                                             // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bRight;                                            // 0x0001(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bResult;                                           // 0x0002(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FStateTreeBooleanOperationPropertyFunctionInstanceData;
-
-// ScriptStruct StateTreeModule.StateTreeCompareEnumConditionInstanceData
-// 0x0020 (0x0020 - 0x0000)
-struct FStateTreeCompareEnumConditionInstanceData final
-{
-public:
-	struct FStateTreeAnyEnum                      Left;                                              // 0x0000(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	struct FStateTreeAnyEnum                      Right;                                             // 0x0010(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FStateTreeCompareEnumConditionInstanceData;
 
 // ScriptStruct StateTreeModule.StateTreeBooleanAndPropertyFunction
 // 0x0000 (0x0020 - 0x0020)
@@ -766,6 +730,13 @@ struct FStateTreeSubtractFloatPropertyFunction final : public FStateTreeProperty
 {
 };
 DUMPER7_ASSERTS_FStateTreeSubtractFloatPropertyFunction;
+
+// ScriptStruct StateTreeModule.StateTreeMultiplyFloatPropertyFunction
+// 0x0000 (0x0020 - 0x0020)
+struct FStateTreeMultiplyFloatPropertyFunction final : public FStateTreePropertyFunctionCommonBase
+{
+};
+DUMPER7_ASSERTS_FStateTreeMultiplyFloatPropertyFunction;
 
 // ScriptStruct StateTreeModule.StateTreeDivideFloatPropertyFunction
 // 0x0000 (0x0020 - 0x0020)
@@ -1035,6 +1006,16 @@ public:
 };
 DUMPER7_ASSERTS_FStateTreeBlueprintTaskWrapper;
 
+// ScriptStruct StateTreeModule.StateTreeCompareIntConditionInstanceData
+// 0x0008 (0x0008 - 0x0000)
+struct FStateTreeCompareIntConditionInstanceData final
+{
+public:
+	int32                                         Left;                                              // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Right;                                             // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FStateTreeCompareIntConditionInstanceData;
+
 // ScriptStruct StateTreeModule.StateTreeConditionCommonBase
 // 0x0000 (0x0028 - 0x0028)
 struct FStateTreeConditionCommonBase : public FStateTreeConditionBase
@@ -1093,6 +1074,16 @@ public:
 	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FStateTreeCompareBoolCondition;
+
+// ScriptStruct StateTreeModule.StateTreeCompareEnumConditionInstanceData
+// 0x0020 (0x0020 - 0x0000)
+struct FStateTreeCompareEnumConditionInstanceData final
+{
+public:
+	struct FStateTreeAnyEnum                      Left;                                              // 0x0000(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	struct FStateTreeAnyEnum                      Right;                                             // 0x0010(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FStateTreeCompareEnumConditionInstanceData;
 
 // ScriptStruct StateTreeModule.StateTreeCompareEnumCondition
 // 0x0008 (0x0030 - 0x0028)
@@ -1334,6 +1325,15 @@ public:
 	TArray<struct FStateTreeEnumValueScorePair>   Data;                                              // 0x0000(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FStateTreeEnumValueScorePairs;
+
+// ScriptStruct StateTreeModule.StateTreeEnumInputConsiderationInstanceData
+// 0x0010 (0x0010 - 0x0000)
+struct FStateTreeEnumInputConsiderationInstanceData final
+{
+public:
+	struct FStateTreeAnyEnum                      Input;                                             // 0x0000(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FStateTreeEnumInputConsiderationInstanceData;
 
 // ScriptStruct StateTreeModule.StateTreeEnumInputConsideration
 // 0x0010 (0x0038 - 0x0028)

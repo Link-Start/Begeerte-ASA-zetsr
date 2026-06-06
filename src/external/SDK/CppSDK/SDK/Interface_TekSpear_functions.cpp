@@ -219,6 +219,79 @@ void IInterface_TekSpear_C::Interface_TekSpear__Get_Animations(struct FStruct_We
 }
 
 
+// Function Interface_TekSpear.Interface_TekSpear_C.Interface_TekSpear_ Get Awaiting Server Response Animations
+// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// struct FStruct_WeapAnimWith3P_V3*       Attack_1                                               (Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+// struct FStruct_WeapAnimWith3P_V3*       Attack_2                                               (Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+// struct FStruct_WeapAnimWith3P_V3*       Attack_3                                               (Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+// struct FStruct_WeapAnimWith3P_V3*       bLock                                                  (Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+// struct FStruct_WeapAnimWith3P_V3*       Deflect                                                (Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+// struct FStruct_WeapAnimWith3P_V3*       AirStabCharge                                          (Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+// struct FStruct_WeapAnimWith3P_V3*       AirStabRelease                                         (Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+// struct FStruct_WeapAnimWith3P_V3*       pullback                                               (Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+// struct FStruct_WeapAnimWith3P_V3*       Toss                                                   (Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+// struct FStruct_WeapAnimWith3P_V3*       Dodge                                                  (Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+// struct FStruct_WeapAnimWith3P_V3*       GroundSlamDive                                         (Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+// struct FStruct_WeapAnimWith3P_V3*       GroundSlamLand                                         (Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+// struct FStruct_WeapAnimWith3P_V3*       Fallback_Stab                                          (Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+// struct FStruct_WeapAnimWith3P_V3*       TPToSpear                                              (Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+
+void IInterface_TekSpear_C::Interface_TekSpear__Get_Awaiting_Server_Response_Animations(struct FStruct_WeapAnimWith3P_V3* Attack_1, struct FStruct_WeapAnimWith3P_V3* Attack_2, struct FStruct_WeapAnimWith3P_V3* Attack_3, struct FStruct_WeapAnimWith3P_V3* bLock, struct FStruct_WeapAnimWith3P_V3* Deflect, struct FStruct_WeapAnimWith3P_V3* AirStabCharge, struct FStruct_WeapAnimWith3P_V3* AirStabRelease, struct FStruct_WeapAnimWith3P_V3* pullback, struct FStruct_WeapAnimWith3P_V3* Toss, struct FStruct_WeapAnimWith3P_V3* Dodge, struct FStruct_WeapAnimWith3P_V3* GroundSlamDive, struct FStruct_WeapAnimWith3P_V3* GroundSlamLand, struct FStruct_WeapAnimWith3P_V3* Fallback_Stab, struct FStruct_WeapAnimWith3P_V3* TPToSpear)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = AsUObject()->Class->GetFunction("Interface_TekSpear_C", "Interface_TekSpear_ Get Awaiting Server Response Animations");
+
+	Params::Interface_TekSpear_C_Interface_TekSpear__Get_Awaiting_Server_Response_Animations Parms{};
+
+	AsUObject()->ProcessEvent(Func, &Parms);
+
+	if (Attack_1 != nullptr)
+		*Attack_1 = std::move(Parms.Attack_1);
+
+	if (Attack_2 != nullptr)
+		*Attack_2 = std::move(Parms.Attack_2);
+
+	if (Attack_3 != nullptr)
+		*Attack_3 = std::move(Parms.Attack_3);
+
+	if (bLock != nullptr)
+		*bLock = std::move(Parms.bLock);
+
+	if (Deflect != nullptr)
+		*Deflect = std::move(Parms.Deflect);
+
+	if (AirStabCharge != nullptr)
+		*AirStabCharge = std::move(Parms.AirStabCharge);
+
+	if (AirStabRelease != nullptr)
+		*AirStabRelease = std::move(Parms.AirStabRelease);
+
+	if (pullback != nullptr)
+		*pullback = std::move(Parms.pullback);
+
+	if (Toss != nullptr)
+		*Toss = std::move(Parms.Toss);
+
+	if (Dodge != nullptr)
+		*Dodge = std::move(Parms.Dodge);
+
+	if (GroundSlamDive != nullptr)
+		*GroundSlamDive = std::move(Parms.GroundSlamDive);
+
+	if (GroundSlamLand != nullptr)
+		*GroundSlamLand = std::move(Parms.GroundSlamLand);
+
+	if (Fallback_Stab != nullptr)
+		*Fallback_Stab = std::move(Parms.Fallback_Stab);
+
+	if (TPToSpear != nullptr)
+		*TPToSpear = std::move(Parms.TPToSpear);
+}
+
+
 // Function Interface_TekSpear.Interface_TekSpear_C.Torp Mode
 // (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -463,6 +536,27 @@ void IInterface_TekSpear_C::Interface_TekSpear_CanSetWeaponStateTo(uint8 Desired
 }
 
 
+// Function Interface_TekSpear.Interface_TekSpear_C.Interface_TekSpear_GetAwaitingServerState
+// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// uint8*                                  Awaiting_State                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void IInterface_TekSpear_C::Interface_TekSpear_GetAwaitingServerState(uint8* Awaiting_State)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = AsUObject()->Class->GetFunction("Interface_TekSpear_C", "Interface_TekSpear_GetAwaitingServerState");
+
+	Params::Interface_TekSpear_C_Interface_TekSpear_GetAwaitingServerState Parms{};
+
+	AsUObject()->ProcessEvent(Func, &Parms);
+
+	if (Awaiting_State != nullptr)
+		*Awaiting_State = Parms.Awaiting_State;
+}
+
+
 // Function Interface_TekSpear.Interface_TekSpear_C.Interface_TekSpear_GetFakeExpandedScale
 // (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -481,6 +575,27 @@ void IInterface_TekSpear_C::Interface_TekSpear_GetFakeExpandedScale(double* Fake
 
 	if (FakeExpandedScale != nullptr)
 		*FakeExpandedScale = Parms.FakeExpandedScale;
+}
+
+
+// Function Interface_TekSpear.Interface_TekSpear_C.Interface_TekSpear_GetLastLocationBeforeTP
+// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// struct FVector*                         Last_PreTPLoc                                          (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void IInterface_TekSpear_C::Interface_TekSpear_GetLastLocationBeforeTP(struct FVector* Last_PreTPLoc)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = AsUObject()->Class->GetFunction("Interface_TekSpear_C", "Interface_TekSpear_GetLastLocationBeforeTP");
+
+	Params::Interface_TekSpear_C_Interface_TekSpear_GetLastLocationBeforeTP Parms{};
+
+	AsUObject()->ProcessEvent(Func, &Parms);
+
+	if (Last_PreTPLoc != nullptr)
+		*Last_PreTPLoc = std::move(Parms.Last_PreTPLoc);
 }
 
 

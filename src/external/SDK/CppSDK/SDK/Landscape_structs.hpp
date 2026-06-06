@@ -312,6 +312,17 @@ public:
 };
 DUMPER7_ASSERTS_FWeightmapLayerAllocationInfo;
 
+// ScriptStruct Landscape.LandscapeComponentMaterialOverride
+// 0x0010 (0x0010 - 0x0000)
+struct FLandscapeComponentMaterialOverride final
+{
+public:
+	struct FPerPlatformInt                        LODIndex;                                          // 0x0000(0x0004)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMaterialInterface*                     Material;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FLandscapeComponentMaterialOverride;
+
 // ScriptStruct Landscape.LandscapePerLODMaterialOverride
 // 0x0010 (0x0010 - 0x0000)
 struct FLandscapePerLODMaterialOverride final
@@ -360,17 +371,6 @@ public:
 	class UTexture2D*                             DirtyTexture;                                      // 0x0030(0x0008)(ZeroConstructor, NonTransactional, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 };
 DUMPER7_ASSERTS_FLandscapeEditToolRenderData;
-
-// ScriptStruct Landscape.LandscapeComponentMaterialOverride
-// 0x0010 (0x0010 - 0x0000)
-struct FLandscapeComponentMaterialOverride final
-{
-public:
-	struct FPerPlatformInt                        LODIndex;                                          // 0x0000(0x0004)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMaterialInterface*                     Material;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FLandscapeComponentMaterialOverride;
 
 // ScriptStruct Landscape.WeightmapData
 // 0x0030 (0x0030 - 0x0000)

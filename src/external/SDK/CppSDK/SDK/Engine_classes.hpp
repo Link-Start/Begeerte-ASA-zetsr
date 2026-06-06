@@ -14,20 +14,20 @@
 #include "PhysicsCore_structs.hpp"
 #include "PhysicsCore_classes.hpp"
 #include "Engine_structs.hpp"
-#include "AudioPlatformConfiguration_structs.hpp"
 #include "NetCore_structs.hpp"
 #include "NetCore_classes.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "InputCore_structs.hpp"
 #include "ClothingSystemRuntimeInterface_structs.hpp"
+#include "AudioPlatformConfiguration_structs.hpp"
 #include "DeveloperSettings_structs.hpp"
 #include "DeveloperSettings_classes.hpp"
-#include "AudioExtensions_structs.hpp"
-#include "AudioExtensions_classes.hpp"
 #include "Chaos_structs.hpp"
 #include "IrisStub_classes.hpp"
 #include "MeshDescription_classes.hpp"
+#include "AudioExtensions_structs.hpp"
+#include "AudioExtensions_classes.hpp"
 #include "SlateCore_structs.hpp"
 #include "PacketHandler_classes.hpp"
 
@@ -2043,7 +2043,7 @@ public:
 	void K2_SetActorRelativeTransform(const struct FTransform& NewRelativeTransform, bool bSweep, struct FHitResult* SweepHitResult, bool bTeleport);
 	bool K2_SetActorRotation(const struct FRotator& NewRotation, bool bTeleportPhysics);
 	bool K2_SetActorTransform(const struct FTransform& NewTransform, bool bSweep, struct FHitResult* SweepHitResult, bool bTeleport);
-	bool K2_TeleportTo(const struct FVector& DestLocation, const struct FRotator& DestRotation, bool bSimpleTeleport);
+	bool K2_TeleportTo(const struct FVector& DestLocation, const struct FRotator& DestRotation, bool bSimpleTeleport, float MeshInterpTimeSeconds);
 	bool LocalExecCommand(class FName CommandName, const struct FBPNetExecParams& ExecParams);
 	void MakeNoise(float Loudness, class APawn* NoiseInstigator, const struct FVector& NoiseLocation, float MaxRange, class FName Tag);
 	void MulticastDrawDebugArrow(const struct FVector& LineStart, const struct FVector& LineEnd, float ArrowSize, const struct FLinearColor& LineColor, float Duration, bool enableInShipping);
@@ -3029,7 +3029,7 @@ DUMPER7_ASSERTS_UAnimationAssetExtensions;
 class UInterpTrackInstVisibility final : public UInterpTrackInst
 {
 public:
-	EVisibilityTrackAction                        Action;                                            // 0x0028(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EVisibilityTrackAction                        action;                                            // 0x0028(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_29[0x3];                                       // 0x0029(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         LastUpdatePosition;                                // 0x002C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15330,7 +15330,7 @@ DUMPER7_ASSERTS_UMaterialExpressionInverseLinearInterpolate;
 class UInterpTrackInstToggle final : public UInterpTrackInst
 {
 public:
-	ETrackToggleAction                            Action;                                            // 0x0028(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	ETrackToggleAction                            action;                                            // 0x0028(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_29[0x3];                                       // 0x0029(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         LastUpdatePosition;                                // 0x002C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         bSavedActiveState : 1;                             // 0x0030(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -22332,7 +22332,7 @@ public:
 	void LocalTravel(const class FString& URL);
 	void OnServerStartedVisualLogger(bool bIsLogging);
 	void Pause();
-	void PlayDynamicForceFeedback(float Intensity, float Duration, bool bAffectsLeftLarge, bool bAffectsLeftSmall, bool bAffectsRightLarge, bool bAffectsRightSmall, EDynamicForceFeedbackAction Action, const struct FLatentActionInfo& LatentInfo);
+	void PlayDynamicForceFeedback(float Intensity, float Duration, bool bAffectsLeftLarge, bool bAffectsLeftSmall, bool bAffectsRightLarge, bool bAffectsRightSmall, EDynamicForceFeedbackAction action, const struct FLatentActionInfo& LatentInfo);
 	void PlayHapticEffect(class UHapticFeedbackEffect_Base* HapticEffect, EControllerHand Hand, float Scale, bool bLoop);
 	void ResetControllerDeadZones();
 	void ResetControllerLightColor();
@@ -27719,10 +27719,10 @@ public:
 	static EScreenOrientation GetAllowedDeviceOrientation();
 	static EScreenOrientation GetDeviceOrientation();
 	static void GetLaunchNotification(bool* NotificationLaunchedApp, class FString* ActivationEvent, int32* FireDate);
-	static int32 ScheduleLocalNotificationAtTime(const struct FDateTime& FireDateTime, bool LocalTime, const class FText& Title, const class FText& Body, const class FText& Action, const class FString& ActivationEvent);
+	static int32 ScheduleLocalNotificationAtTime(const struct FDateTime& FireDateTime, bool LocalTime, const class FText& Title, const class FText& Body, const class FText& action, const class FString& ActivationEvent);
 	static int32 ScheduleLocalNotificationBadgeAtTime(const struct FDateTime& FireDateTime, bool LocalTime, const class FString& ActivationEvent);
 	static void ScheduleLocalNotificationBadgeFromNow(int32 inSecondsFromNow, const class FString& ActivationEvent);
-	static int32 ScheduleLocalNotificationFromNow(int32 inSecondsFromNow, const class FText& Title, const class FText& Body, const class FText& Action, const class FString& ActivationEvent);
+	static int32 ScheduleLocalNotificationFromNow(int32 inSecondsFromNow, const class FText& Title, const class FText& Body, const class FText& action, const class FString& ActivationEvent);
 	static void SetAllowedDeviceOrientation(EScreenOrientation NewAllowedDeviceOrientation);
 
 public:

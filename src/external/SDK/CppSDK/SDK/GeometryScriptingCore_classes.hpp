@@ -17,6 +17,29 @@
 
 SDK_NAMESPACE_START
 
+// Class GeometryScriptingCore.GeometryScriptDebug
+// 0x0010 (0x0038 - 0x0028)
+class UGeometryScriptDebug final : public UObject
+{
+public:
+	TArray<struct FGeometryScriptDebugMessage>    messages;                                          // 0x0028(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GeometryScriptDebug")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GeometryScriptDebug")
+	}
+	static class UGeometryScriptDebug* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGeometryScriptDebug>();
+	}
+};
+DUMPER7_ASSERTS_UGeometryScriptDebug;
+
 // Class GeometryScriptingCore.GeometryScriptLibrary_CollisionFunctions
 // 0x0000 (0x0028 - 0x0028)
 class UGeometryScriptLibrary_CollisionFunctions final : public UBlueprintFunctionLibrary
@@ -61,29 +84,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UGeometryScriptLibrary_CollisionFunctions;
-
-// Class GeometryScriptingCore.GeometryScriptDebug
-// 0x0010 (0x0038 - 0x0028)
-class UGeometryScriptDebug final : public UObject
-{
-public:
-	TArray<struct FGeometryScriptDebugMessage>    messages;                                          // 0x0028(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GeometryScriptDebug")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GeometryScriptDebug")
-	}
-	static class UGeometryScriptDebug* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGeometryScriptDebug>();
-	}
-};
-DUMPER7_ASSERTS_UGeometryScriptDebug;
 
 // Class GeometryScriptingCore.GeometryScriptLibrary_ContainmentFunctions
 // 0x0000 (0x0028 - 0x0028)

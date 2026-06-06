@@ -377,7 +377,7 @@ public:
 DUMPER7_ASSERTS_UI_CFCore_Discovery_C_SortByIndexShelveArray;
 
 // Function UI_CFCore_Discovery.UI_CFCore_Discovery_C.UpdateCarouselFromMod
-// 0x0758 (0x0758 - 0x0000)
+// 0x0760 (0x0760 - 0x0000)
 struct UI_CFCore_Discovery_C_UpdateCarouselFromMod final
 {
 public:
@@ -404,27 +404,27 @@ public:
 	class UUI_CFCore_Tag_WhiteCategory_C*         CallFunc_Create_ReturnValue_1;                     // 0x0098(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 	struct FMargin                                K2Node_MakeStruct_Margin_2;                        // 0x00A0(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor)
 	class UUI_CFCore_Tag_PreviewPremium_C*        CallFunc_Create_ReturnValue_2;                     // 0x00B0(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	struct FInstallProgressMod                    K2Node_MakeStruct_InstallProgressMod;              // 0x00B8(0x0608)(ContainsInstancedReference)
-	bool                                          CallFunc_GetIsModPaidStatus_Premium;               // 0x06C0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_GetIsModPaidStatus_Is_Freemium;           // 0x06C1(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_GetIsModPaidStatus_Purchased;             // 0x06C2(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_6C3[0x5];                                      // 0x06C3(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        CallFunc_GetIsModPaidStatus_Tier_Price;            // 0x06C8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class FString                                 CallFunc_GetIsModPaidStatus_Currency_Symbol;       // 0x06D0(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	struct FPremiumDetailsPlatformData            CallFunc_GetIsModPaidStatus_Platform_Data;         // 0x06E0(0x0010)()
-	struct FPremiumDetailsDiscount                CallFunc_GetIsModPaidStatus_Discount_Data;         // 0x06F0(0x0020)()
-	ESlateVisibility                              Temp_byte_Variable_3;                              // 0x0710(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_711[0x7];                                      // 0x0711(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FText                                   CallFunc_MakeLiteralText_ReturnValue;              // 0x0718(0x0010)()
-	bool                                          CallFunc_EqualEqual_TextText_ReturnValue;          // 0x0728(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_729[0x7];                                      // 0x0729(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UPanelSlot*                             CallFunc_AddChild_ReturnValue;                     // 0x0730(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	ECFCoreCarouselItemLayout                     Temp_byte_Variable_4;                              // 0x0738(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_739[0x7];                                      // 0x0739(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UPanelSlot*                             CallFunc_AddChild_ReturnValue_1;                   // 0x0740(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	ESlateVisibility                              K2Node_Select_Default_1;                           // 0x0748(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_749[0x7];                                      // 0x0749(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UPanelSlot*                             CallFunc_AddChild_ReturnValue_2;                   // 0x0750(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	struct FInstallProgressMod                    K2Node_MakeStruct_InstallProgressMod;              // 0x00B8(0x0610)(ContainsInstancedReference)
+	bool                                          CallFunc_GetIsModPaidStatus_Premium;               // 0x06C8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_GetIsModPaidStatus_Is_Freemium;           // 0x06C9(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_GetIsModPaidStatus_Purchased;             // 0x06CA(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_6CB[0x5];                                      // 0x06CB(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        CallFunc_GetIsModPaidStatus_Tier_Price;            // 0x06D0(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FString                                 CallFunc_GetIsModPaidStatus_Currency_Symbol;       // 0x06D8(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	struct FPremiumDetailsPlatformData            CallFunc_GetIsModPaidStatus_Platform_Data;         // 0x06E8(0x0010)()
+	struct FPremiumDetailsDiscount                CallFunc_GetIsModPaidStatus_Discount_Data;         // 0x06F8(0x0020)()
+	ESlateVisibility                              Temp_byte_Variable_3;                              // 0x0718(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_719[0x7];                                      // 0x0719(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FText                                   CallFunc_MakeLiteralText_ReturnValue;              // 0x0720(0x0010)()
+	bool                                          CallFunc_EqualEqual_TextText_ReturnValue;          // 0x0730(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_731[0x7];                                      // 0x0731(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UPanelSlot*                             CallFunc_AddChild_ReturnValue;                     // 0x0738(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	ECFCoreCarouselItemLayout                     Temp_byte_Variable_4;                              // 0x0740(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_741[0x7];                                      // 0x0741(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UPanelSlot*                             CallFunc_AddChild_ReturnValue_1;                   // 0x0748(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	ESlateVisibility                              K2Node_Select_Default_1;                           // 0x0750(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_751[0x7];                                      // 0x0751(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UPanelSlot*                             CallFunc_AddChild_ReturnValue_2;                   // 0x0758(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_UI_CFCore_Discovery_C_UpdateCarouselFromMod;
 

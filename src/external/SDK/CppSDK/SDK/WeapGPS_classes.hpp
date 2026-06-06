@@ -16,11 +16,11 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass WeapGPS.WeapGPS_C
-// 0x0008 (0x1410 - 0x1408)
+// 0x0008 (0x1418 - 0x1410)
 class AWeapGPS_C : public APrimalWeaponGPS
 {
 public:
-	class UPointLightComponent*                   PointLight1;                                       // 0x1408(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UPointLightComponent*                   PointLight1;                                       // 0x1410(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
 
 public:
 	static class UClass* StaticClass()

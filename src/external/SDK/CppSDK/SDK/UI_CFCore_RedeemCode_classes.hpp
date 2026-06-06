@@ -21,7 +21,7 @@
 SDK_NAMESPACE_START
 
 // WidgetBlueprintGeneratedClass UI_CFCore_RedeemCode.UI_CFCore_RedeemCode_C
-// 0x0798 (0x0FF8 - 0x0860)
+// 0x07A0 (0x1000 - 0x0860)
 class UUI_CFCore_RedeemCode_C final : public UCFCoreWidget_C
 {
 public:
@@ -56,17 +56,17 @@ public:
 	class UUI_CFCore_Overlay_C*                   UI_Overlay;                                        // 0x0940(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class UUI_CFCore_Overlay_C*                   UI_Overlay_63;                                     // 0x0948(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 	class UVerticalBox*                           VerticalBox_142;                                   // 0x0950(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	struct FInstallProgressMod                    ModInfo;                                           // 0x0958(0x0608)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
-	class FString                                 ImageUrl;                                          // 0x0F60(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
-	bool                                          DebugScreenshotDownloading;                        // 0x0F70(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_F71[0x7];                                      // 0x0F71(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FEntitlementCampaign                   ModToClaim;                                        // 0x0F78(0x0048)(Edit, BlueprintVisible, DisableEditOnInstance)
-	class FString                                 InputText;                                         // 0x0FC0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
-	TMulticastInlineDelegate<void()>              Return;                                            // 0x0FD0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	bool                                          LockActions;                                       // 0x0FE0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_FE1[0x7];                                      // 0x0FE1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UUI_CFCore_ModPage_C*                   UI_ModPage;                                        // 0x0FE8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	class UUI_CFCore_StoreMenu_C*                 StoreMenu;                                         // 0x0FF0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, InstancedReference, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
+	struct FInstallProgressMod                    ModInfo;                                           // 0x0958(0x0610)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
+	class FString                                 ImageUrl;                                          // 0x0F68(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
+	bool                                          DebugScreenshotDownloading;                        // 0x0F78(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_F79[0x7];                                      // 0x0F79(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FEntitlementCampaign                   ModToClaim;                                        // 0x0F80(0x0048)(Edit, BlueprintVisible, DisableEditOnInstance)
+	class FString                                 InputText;                                         // 0x0FC8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
+	TMulticastInlineDelegate<void()>              Return;                                            // 0x0FD8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	bool                                          LockActions;                                       // 0x0FE8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_FE9[0x7];                                      // 0x0FE9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UUI_CFCore_ModPage_C*                   UI_ModPage;                                        // 0x0FF0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class UUI_CFCore_StoreMenu_C*                 StoreMenu;                                         // 0x0FF8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, InstancedReference, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
 
 public:
 	void AttemptClaim();

@@ -11,12 +11,12 @@
 #include "Basic.hpp"
 
 #include "InputCore_structs.hpp"
-#include "cfcore_ui_structs.hpp"
 #include "cfcore_structs.hpp"
-#include "ENUM_CFCore_SideTabs_structs.hpp"
-#include "ENUM_CFCore_InputDevices_structs.hpp"
+#include "cfcore_ui_structs.hpp"
 #include "Engine_structs.hpp"
+#include "ENUM_CFCore_SideTabs_structs.hpp"
 #include "SlateCore_structs.hpp"
+#include "ENUM_CFCore_InputDevices_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -242,7 +242,7 @@ public:
 DUMPER7_ASSERTS_UI_CFCore_StoreMenu_C_GamepadRequestChangeTab;
 
 // Function UI_CFCore_StoreMenu.UI_CFCore_StoreMenu_C.GetAllModsIDs
-// 0x0648 (0x0648 - 0x0000)
+// 0x0650 (0x0650 - 0x0000)
 struct UI_CFCore_StoreMenu_C_GetAllModsIDs final
 {
 public:
@@ -252,11 +252,11 @@ public:
 	int32                                         Temp_int_Loop_Counter_Variable;                    // 0x0024(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x0028(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FInstallProgressMod                    CallFunc_Array_Get_Item;                           // 0x0030(0x0608)(ContainsInstancedReference)
-	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0638(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x063C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_63D[0x3];                                      // 0x063D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         CallFunc_Array_Add_ReturnValue;                    // 0x0640(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FInstallProgressMod                    CallFunc_Array_Get_Item;                           // 0x0030(0x0610)(ContainsInstancedReference)
+	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0640(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0644(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_645[0x3];                                      // 0x0645(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CallFunc_Array_Add_ReturnValue;                    // 0x0648(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_UI_CFCore_StoreMenu_C_GetAllModsIDs;
 
@@ -343,25 +343,25 @@ public:
 DUMPER7_ASSERTS_UI_CFCore_StoreMenu_C_InitTheme;
 
 // Function UI_CFCore_StoreMenu.UI_CFCore_StoreMenu_C.NotificationHandle
-// 0x0C38 (0x0C38 - 0x0000)
+// 0x0C48 (0x0C48 - 0x0000)
 struct UI_CFCore_StoreMenu_C_NotificationHandle final
 {
 public:
 	EGameModsEvent                                Selection;                                         // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FInstallProgressMod                    mod;                                               // 0x0008(0x0608)(BlueprintVisible, BlueprintReadOnly, Parm, ContainsInstancedReference)
-	struct FInstallProgressMod                    ModToHandle;                                       // 0x0610(0x0608)(Edit, BlueprintVisible, ContainsInstancedReference)
-	class UUI_CFCore_NotificationManager_C*       CallFunc_GetNotifManager_Output;                   // 0x0C18(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0C20(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          K2Node_SwitchEnum_CmpSuccess;                      // 0x0C21(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_C22[0x6];                                      // 0x0C22(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class UUI_CFCore_NotificationManager_C*       CallFunc_GetNotifManager_Output_1;                 // 0x0C28(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_IsValid_ReturnValue_1;                    // 0x0C30(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FInstallProgressMod                    mod;                                               // 0x0008(0x0610)(BlueprintVisible, BlueprintReadOnly, Parm, ContainsInstancedReference)
+	struct FInstallProgressMod                    ModToHandle;                                       // 0x0618(0x0610)(Edit, BlueprintVisible, ContainsInstancedReference)
+	class UUI_CFCore_NotificationManager_C*       CallFunc_GetNotifManager_Output;                   // 0x0C28(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0C30(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          K2Node_SwitchEnum_CmpSuccess;                      // 0x0C31(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_C32[0x6];                                      // 0x0C32(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	class UUI_CFCore_NotificationManager_C*       CallFunc_GetNotifManager_Output_1;                 // 0x0C38(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValid_ReturnValue_1;                    // 0x0C40(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_UI_CFCore_StoreMenu_C_NotificationHandle;
 
 // Function UI_CFCore_StoreMenu.UI_CFCore_StoreMenu_C.OnEventBroadcasted
-// 0x0648 (0x0648 - 0x0000)
+// 0x0650 (0x0650 - 0x0000)
 struct UI_CFCore_StoreMenu_C_OnEventBroadcasted final
 {
 public:
@@ -374,10 +374,10 @@ public:
 	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x002C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	int32                                         Temp_int_Array_Index_Variable;                     // 0x0030(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	int32                                         Temp_int_Loop_Counter_Variable;                    // 0x0034(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FInstallProgressMod                    CallFunc_Array_Get_Item;                           // 0x0038(0x0608)(ContainsInstancedReference)
-	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0640(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_641[0x3];                                      // 0x0641(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x0644(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FInstallProgressMod                    CallFunc_Array_Get_Item;                           // 0x0038(0x0610)(ContainsInstancedReference)
+	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0648(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_649[0x3];                                      // 0x0649(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x064C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_UI_CFCore_StoreMenu_C_OnEventBroadcasted;
 

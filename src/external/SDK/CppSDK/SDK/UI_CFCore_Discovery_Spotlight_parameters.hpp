@@ -40,7 +40,7 @@ public:
 DUMPER7_ASSERTS_UI_CFCore_Discovery_Spotlight_C_ErrorNotFoundMods;
 
 // Function UI_CFCore_Discovery_Spotlight.UI_CFCore_Discovery_Spotlight_C.ExecuteUbergraph_UI_CFCore_Discovery_Spotlight
-// 0x0A80 (0x0A80 - 0x0000)
+// 0x0A90 (0x0A90 - 0x0000)
 struct UI_CFCore_Discovery_Spotlight_C_ExecuteUbergraph_UI_CFCore_Discovery_Spotlight final
 {
 public:
@@ -78,25 +78,25 @@ public:
 	int32                                         K2Node_Select_Default;                             // 0x0194(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	TArray<struct FCFCoreMod>                     K2Node_CustomEvent_mods;                           // 0x0198(0x0010)(ConstParm, ReferenceParm)
 	class UTexture2DDynamic*                      K2Node_CustomEvent_Texture_1;                      // 0x01A8(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	struct FCFCoreMod                             CallFunc_Array_Get_Item;                           // 0x01B0(0x0200)()
-	struct FInstallProgressMod                    CallFunc_TransformModToInstallProgressMod_ReturnValue; // 0x03B0(0x0608)(ContainsInstancedReference)
-	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x09B8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_9BC[0x4];                                      // 0x09BC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FCFCoreError                           K2Node_CustomEvent_error;                          // 0x09C0(0x0038)(ConstParm)
-	bool                                          CallFunc_BPGetGlobalUIData_bIsPsOrXbUi;            // 0x09F8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_9F9[0x7];                                      // 0x09F9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UPrimalGlobalUIData*                    CallFunc_BPGetGlobalUIData_ReturnValue;            // 0x0A00(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	TDelegate<void(class UTexture2DDynamic* Texture)> K2Node_CreateDelegate_OutputDelegate_3;        // 0x0A08(0x0010)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UTexture2D*                             CallFunc_GetIconForKeyName_ReturnValue;            // 0x0A18(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UTexture2D*                             CallFunc_GetIconForKeyName_ReturnValue_1;          // 0x0A20(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	int32                                         Temp_int_Loop_Counter_Variable;                    // 0x0A28(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0A2C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_A2D[0x3];                                      // 0x0A2D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x0A30(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FGeometry                              K2Node_Event_MyGeometry;                           // 0x0A34(0x0038)(IsPlainOldData, NoDestructor)
-	float                                         K2Node_Event_InDeltaTime;                          // 0x0A6C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class UShooterGameViewportClient*             CallFunc_GetViewportClient_ReturnValue;            // 0x0A70(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UPrimalUI*                              CallFunc_GetUISceneFromClass_ReturnValue;          // 0x0A78(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	struct FCFCoreMod                             CallFunc_Array_Get_Item;                           // 0x01B0(0x0208)()
+	struct FInstallProgressMod                    CallFunc_TransformModToInstallProgressMod_ReturnValue; // 0x03B8(0x0610)(ContainsInstancedReference)
+	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x09C8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_9CC[0x4];                                      // 0x09CC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FCFCoreError                           K2Node_CustomEvent_error;                          // 0x09D0(0x0038)(ConstParm)
+	bool                                          CallFunc_BPGetGlobalUIData_bIsPsOrXbUi;            // 0x0A08(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_A09[0x7];                                      // 0x0A09(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UPrimalGlobalUIData*                    CallFunc_BPGetGlobalUIData_ReturnValue;            // 0x0A10(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	TDelegate<void(class UTexture2DDynamic* Texture)> K2Node_CreateDelegate_OutputDelegate_3;        // 0x0A18(0x0010)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UTexture2D*                             CallFunc_GetIconForKeyName_ReturnValue;            // 0x0A28(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UTexture2D*                             CallFunc_GetIconForKeyName_ReturnValue_1;          // 0x0A30(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	int32                                         Temp_int_Loop_Counter_Variable;                    // 0x0A38(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0A3C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_A3D[0x3];                                      // 0x0A3D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x0A40(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FGeometry                              K2Node_Event_MyGeometry;                           // 0x0A44(0x0038)(IsPlainOldData, NoDestructor)
+	float                                         K2Node_Event_InDeltaTime;                          // 0x0A7C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class UShooterGameViewportClient*             CallFunc_GetViewportClient_ReturnValue;            // 0x0A80(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UPrimalUI*                              CallFunc_GetUISceneFromClass_ReturnValue;          // 0x0A88(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_UI_CFCore_Discovery_Spotlight_C_ExecuteUbergraph_UI_CFCore_Discovery_Spotlight;
 

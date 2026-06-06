@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass WeapCompass.WeapCompass_C
-// 0x0000 (0x1410 - 0x1410)
+// 0x0000 (0x1418 - 0x1418)
 class AWeapCompass_C final : public AWeapGPS_C
 {
 public:

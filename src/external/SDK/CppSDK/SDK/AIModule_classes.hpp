@@ -904,7 +904,7 @@ public:
 	uint8                                         Pad_F0[0x8];                                       // 0x00F0(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	static bool K2_PerformAction(class APawn* Pawn, class UPawnAction* Action, EAIRequestPriority Priority);
+	static bool K2_PerformAction(class APawn* Pawn, class UPawnAction* action, EAIRequestPriority Priority);
 
 	EPawnActionAbortState K2_AbortAction(class UPawnAction* ActionToAbort);
 	EPawnActionAbortState K2_ForceAbortAction(class UPawnAction* ActionToAbort);
@@ -2727,7 +2727,7 @@ DUMPER7_ASSERTS_UBTTask_PlaySound;
 class UBTTask_PushPawnAction final : public UBTTask_PawnActionBase
 {
 public:
-	class UPawnAction*                            Action;                                            // 0x0070(0x0008)(ExportObject, ZeroConstructor, InstancedReference, Deprecated, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UPawnAction*                            action;                                            // 0x0070(0x0008)(ExportObject, ZeroConstructor, InstancedReference, Deprecated, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()

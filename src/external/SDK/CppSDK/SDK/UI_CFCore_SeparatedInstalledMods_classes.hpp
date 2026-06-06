@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
+#include "ENUM_CFCore_SideTabs_structs.hpp"
 #include "Engine_structs.hpp"
 #include "cfcore_ui_structs.hpp"
-#include "ENUM_CFCore_SideTabs_structs.hpp"
 #include "UI_CFCore_BasePage_classes.hpp"
 #include "UMG_structs.hpp"
 
@@ -20,7 +20,7 @@
 SDK_NAMESPACE_START
 
 // WidgetBlueprintGeneratedClass UI_CFCore_SeparatedInstalledMods.UI_CFCore_SeparatedInstalledMods_C
-// 0x0D20 (0x15B0 - 0x0890)
+// 0x0D30 (0x15C0 - 0x0890)
 class UUI_CFCore_SeparatedInstalledMods_C final : public UUI_CFCore_BasePage_C
 {
 public:
@@ -53,8 +53,8 @@ public:
 	TArray<struct FInstallProgressMod>            TrueModInfo;                                       // 0x0970(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
 	TArray<struct FInstallProgressMod>            EnabledMods;                                       // 0x0980(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
 	TArray<struct FInstallProgressMod>            DisabledMods;                                      // 0x0990(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
-	struct FInstallProgressMod                    CurrentOption;                                     // 0x09A0(0x0608)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
-	struct FInstallProgressMod                    HoveredOption;                                     // 0x0FA8(0x0608)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
+	struct FInstallProgressMod                    CurrentOption;                                     // 0x09A0(0x0610)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
+	struct FInstallProgressMod                    HoveredOption;                                     // 0x0FB0(0x0610)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
 
 public:
 	void AssignFirstModFoundToPreview();

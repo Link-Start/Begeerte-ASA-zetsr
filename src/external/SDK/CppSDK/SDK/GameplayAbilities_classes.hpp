@@ -69,33 +69,6 @@ public:
 };
 DUMPER7_ASSERTS_UAbilityAsync;
 
-// Class GameplayAbilities.AbilityAsync_WaitGameplayTagCountChanged
-// 0x0020 (0x0058 - 0x0038)
-class UAbilityAsync_WaitGameplayTagCountChanged final : public UAbilityAsync
-{
-public:
-	uint8                                         Pad_38[0x10];                                      // 0x0038(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(int32 TagCount)> TagCountChanged;                                  // 0x0048(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-
-public:
-	static class UAbilityAsync_WaitGameplayTagCountChanged* WaitGameplayTagCountChangedOnActor(class AActor* TargetActor, const struct FGameplayTag& Tag);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("AbilityAsync_WaitGameplayTagCountChanged")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"AbilityAsync_WaitGameplayTagCountChanged")
-	}
-	static class UAbilityAsync_WaitGameplayTagCountChanged* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UAbilityAsync_WaitGameplayTagCountChanged>();
-	}
-};
-DUMPER7_ASSERTS_UAbilityAsync_WaitGameplayTagCountChanged;
-
 // Class GameplayAbilities.GameplayEffect
 // 0x0A48 (0x0A70 - 0x0028)
 class UGameplayEffect final : public UObject
@@ -206,6 +179,33 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UAbilitiesGameplayEffectComponent;
+
+// Class GameplayAbilities.AbilityAsync_WaitGameplayTagCountChanged
+// 0x0020 (0x0058 - 0x0038)
+class UAbilityAsync_WaitGameplayTagCountChanged final : public UAbilityAsync
+{
+public:
+	uint8                                         Pad_38[0x10];                                      // 0x0038(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(int32 TagCount)> TagCountChanged;                                  // 0x0048(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+
+public:
+	static class UAbilityAsync_WaitGameplayTagCountChanged* WaitGameplayTagCountChangedOnActor(class AActor* TargetActor, const struct FGameplayTag& Tag);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("AbilityAsync_WaitGameplayTagCountChanged")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"AbilityAsync_WaitGameplayTagCountChanged")
+	}
+	static class UAbilityAsync_WaitGameplayTagCountChanged* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UAbilityAsync_WaitGameplayTagCountChanged>();
+	}
+};
+DUMPER7_ASSERTS_UAbilityAsync_WaitGameplayTagCountChanged;
 
 // Class GameplayAbilities.AbilitySystemCheatManagerExtension
 // 0x0000 (0x0028 - 0x0028)

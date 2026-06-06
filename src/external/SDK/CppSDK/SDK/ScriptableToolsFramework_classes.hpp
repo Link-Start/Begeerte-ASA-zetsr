@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_classes.hpp"
 #include "ScriptableToolsFramework_structs.hpp"
+#include "CoreUObject_classes.hpp"
 #include "InteractiveToolsFramework_structs.hpp"
 #include "InteractiveToolsFramework_classes.hpp"
 #include "Engine_classes.hpp"

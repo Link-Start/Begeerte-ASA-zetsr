@@ -45,14 +45,14 @@ struct SDK_ALIGN(0x01) FEditorDataStorageColumn
 #pragma pack(pop)
 DUMPER7_ASSERTS_FEditorDataStorageColumn;
 
-// ScriptStruct TypedElementFramework.TypedElementLabelColumn
+// ScriptStruct TypedElementFramework.SCCUserInfo
 // 0x0010 (0x0010 - 0x0000)
-struct FTypedElementLabelColumn final : public FEditorDataStorageColumn
+struct FSCCUserInfo final
 {
 public:
-	class FString                                 Label;                                             // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Name;                                              // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FTypedElementLabelColumn;
+DUMPER7_ASSERTS_FSCCUserInfo;
 
 // ScriptStruct TypedElementFramework.ScriptTypedElementHandle
 // 0x0008 (0x0008 - 0x0000)
@@ -262,6 +262,15 @@ public:
 };
 DUMPER7_ASSERTS_FTypedElementIconOverrideColumn;
 
+// ScriptStruct TypedElementFramework.TypedElementLabelColumn
+// 0x0010 (0x0010 - 0x0000)
+struct FTypedElementLabelColumn final : public FEditorDataStorageColumn
+{
+public:
+	class FString                                 Label;                                             // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FTypedElementLabelColumn;
+
 // ScriptStruct TypedElementFramework.TypedElementLabelHashColumn
 // 0x0008 (0x0008 - 0x0000)
 struct FTypedElementLabelHashColumn final : public FEditorDataStorageColumn
@@ -450,15 +459,6 @@ public:
 	struct FSCCRevisionId                         RevisionId;                                        // 0x0000(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FSCCExternalRevisionIdColumn;
-
-// ScriptStruct TypedElementFramework.SCCUserInfo
-// 0x0010 (0x0010 - 0x0000)
-struct FSCCUserInfo final
-{
-public:
-	class FString                                 Name;                                              // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FSCCUserInfo;
 
 // ScriptStruct TypedElementFramework.SCCExternallyLockedColumn
 // 0x0010 (0x0010 - 0x0000)
