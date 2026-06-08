@@ -14,8 +14,7 @@
 #include "EnhancedInput_parameters.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Function EnhancedInput.EnhancedPlayerMappableKeyProfile.ResetMappingToDefault
 // (Final, Native, Public, BlueprintCallable)
@@ -838,10 +837,10 @@ bool UEnhancedInputUserSettings::IsMappingContextRegistered(const class UInputMa
 // Function EnhancedInput.EnhancedInputComponent.GetBoundActionValue
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// const class UInputAction*               Action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UInputAction*               action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FInputActionValue                ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FInputActionValue UEnhancedInputComponent::GetBoundActionValue(const class UInputAction* Action) const
+struct FInputActionValue UEnhancedInputComponent::GetBoundActionValue(const class UInputAction* action) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -850,7 +849,7 @@ struct FInputActionValue UEnhancedInputComponent::GetBoundActionValue(const clas
 
 	Params::EnhancedInputComponent_GetBoundActionValue Parms{};
 
-	Parms.Action = Action;
+	Parms.action = action;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1101,10 +1100,10 @@ void UEnhancedInputLibrary::FlushPlayerInput(class APlayerController* PlayerCont
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class AActor*                           Actor                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class UInputAction*               Action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UInputAction*               action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FInputActionValue                ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
 
-struct FInputActionValue UEnhancedInputLibrary::GetBoundActionValue(class AActor* Actor, const class UInputAction* Action)
+struct FInputActionValue UEnhancedInputLibrary::GetBoundActionValue(class AActor* Actor, const class UInputAction* action)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1114,7 +1113,7 @@ struct FInputActionValue UEnhancedInputLibrary::GetBoundActionValue(class AActor
 	Params::EnhancedInputLibrary_GetBoundActionValue Parms{};
 
 	Parms.Actor = Actor;
-	Parms.Action = Action;
+	Parms.action = action;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1485,12 +1484,12 @@ void IEnhancedInputSubsystemInterface::ClearAllMappings()
 // Function EnhancedInput.EnhancedInputSubsystemInterface.InjectInputForAction
 // (Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// const class UInputAction*               Action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UInputAction*               action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FInputActionValue&         RawValue                                               (Parm, NoDestructor, NativeAccessSpecifierPublic)
 // const TArray<class UInputModifier*>&    Modifiers                                              (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 // const TArray<class UInputTrigger*>&     Triggers                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 
-void IEnhancedInputSubsystemInterface::InjectInputForAction(const class UInputAction* Action, const struct FInputActionValue& RawValue, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers)
+void IEnhancedInputSubsystemInterface::InjectInputForAction(const class UInputAction* action, const struct FInputActionValue& RawValue, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1499,7 +1498,7 @@ void IEnhancedInputSubsystemInterface::InjectInputForAction(const class UInputAc
 
 	Params::EnhancedInputSubsystemInterface_InjectInputForAction Parms{};
 
-	Parms.Action = Action;
+	Parms.action = action;
 	Parms.RawValue = std::move(RawValue);
 	Parms.Modifiers = std::move(Modifiers);
 	Parms.Triggers = std::move(Triggers);
@@ -1547,12 +1546,12 @@ void IEnhancedInputSubsystemInterface::InjectInputForPlayerMapping(const class F
 // Function EnhancedInput.EnhancedInputSubsystemInterface.InjectInputVectorForAction
 // (Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
-// const class UInputAction*               Action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UInputAction*               action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector&                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const TArray<class UInputModifier*>&    Modifiers                                              (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 // const TArray<class UInputTrigger*>&     Triggers                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 
-void IEnhancedInputSubsystemInterface::InjectInputVectorForAction(const class UInputAction* Action, const struct FVector& Value, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers)
+void IEnhancedInputSubsystemInterface::InjectInputVectorForAction(const class UInputAction* action, const struct FVector& Value, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1561,7 +1560,7 @@ void IEnhancedInputSubsystemInterface::InjectInputVectorForAction(const class UI
 
 	Params::EnhancedInputSubsystemInterface_InjectInputVectorForAction Parms{};
 
-	Parms.Action = Action;
+	Parms.action = action;
 	Parms.Value = std::move(Value);
 	Parms.Modifiers = std::move(Modifiers);
 	Parms.Triggers = std::move(Triggers);
@@ -1660,13 +1659,13 @@ void IEnhancedInputSubsystemInterface::OnUserSettingsChanged(class UEnhancedInpu
 // (BlueprintCosmetic, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // const class UInputMappingContext*       InputContext                                           (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class UInputAction*               Action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UInputAction*               action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FKey&                      Key                                                    (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<struct FMappingQueryIssue>*      OutIssues                                              (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 // EMappingQueryIssue                      BlockingIssues                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EMappingQueryResult                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-EMappingQueryResult IEnhancedInputSubsystemInterface::QueryMapKeyInActiveContextSet(const class UInputMappingContext* InputContext, const class UInputAction* Action, const struct FKey& Key, TArray<struct FMappingQueryIssue>* OutIssues, EMappingQueryIssue BlockingIssues)
+EMappingQueryResult IEnhancedInputSubsystemInterface::QueryMapKeyInActiveContextSet(const class UInputMappingContext* InputContext, const class UInputAction* action, const struct FKey& Key, TArray<struct FMappingQueryIssue>* OutIssues, EMappingQueryIssue BlockingIssues)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1676,7 +1675,7 @@ EMappingQueryResult IEnhancedInputSubsystemInterface::QueryMapKeyInActiveContext
 	Params::EnhancedInputSubsystemInterface_QueryMapKeyInActiveContextSet Parms{};
 
 	Parms.InputContext = InputContext;
-	Parms.Action = Action;
+	Parms.action = action;
 	Parms.Key = std::move(Key);
 	Parms.BlockingIssues = BlockingIssues;
 
@@ -1699,13 +1698,13 @@ EMappingQueryResult IEnhancedInputSubsystemInterface::QueryMapKeyInActiveContext
 // Parameters:
 // const TArray<class UInputMappingContext*>&PrioritizedActiveContexts                              (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 // const class UInputMappingContext*       InputContext                                           (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class UInputAction*               Action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UInputAction*               action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FKey&                      Key                                                    (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<struct FMappingQueryIssue>*      OutIssues                                              (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 // EMappingQueryIssue                      BlockingIssues                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EMappingQueryResult                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-EMappingQueryResult IEnhancedInputSubsystemInterface::QueryMapKeyInContextSet(const TArray<class UInputMappingContext*>& PrioritizedActiveContexts, const class UInputMappingContext* InputContext, const class UInputAction* Action, const struct FKey& Key, TArray<struct FMappingQueryIssue>* OutIssues, EMappingQueryIssue BlockingIssues)
+EMappingQueryResult IEnhancedInputSubsystemInterface::QueryMapKeyInContextSet(const TArray<class UInputMappingContext*>& PrioritizedActiveContexts, const class UInputMappingContext* InputContext, const class UInputAction* action, const struct FKey& Key, TArray<struct FMappingQueryIssue>* OutIssues, EMappingQueryIssue BlockingIssues)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1716,7 +1715,7 @@ EMappingQueryResult IEnhancedInputSubsystemInterface::QueryMapKeyInContextSet(co
 
 	Parms.PrioritizedActiveContexts = std::move(PrioritizedActiveContexts);
 	Parms.InputContext = InputContext;
-	Parms.Action = Action;
+	Parms.action = action;
 	Parms.Key = std::move(Key);
 	Parms.BlockingIssues = BlockingIssues;
 
@@ -1791,12 +1790,12 @@ void IEnhancedInputSubsystemInterface::RequestRebuildControlMappings(const struc
 // Function EnhancedInput.EnhancedInputSubsystemInterface.StartContinuousInputInjectionForAction
 // (Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// const class UInputAction*               Action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UInputAction*               action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FInputActionValue&         RawValue                                               (Parm, NoDestructor, NativeAccessSpecifierPublic)
 // const TArray<class UInputModifier*>&    Modifiers                                              (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 // const TArray<class UInputTrigger*>&     Triggers                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 
-void IEnhancedInputSubsystemInterface::StartContinuousInputInjectionForAction(const class UInputAction* Action, const struct FInputActionValue& RawValue, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers)
+void IEnhancedInputSubsystemInterface::StartContinuousInputInjectionForAction(const class UInputAction* action, const struct FInputActionValue& RawValue, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1805,7 +1804,7 @@ void IEnhancedInputSubsystemInterface::StartContinuousInputInjectionForAction(co
 
 	Params::EnhancedInputSubsystemInterface_StartContinuousInputInjectionForAction Parms{};
 
-	Parms.Action = Action;
+	Parms.action = action;
 	Parms.RawValue = std::move(RawValue);
 	Parms.Modifiers = std::move(Modifiers);
 	Parms.Triggers = std::move(Triggers);
@@ -1853,9 +1852,9 @@ void IEnhancedInputSubsystemInterface::StartContinuousInputInjectionForPlayerMap
 // Function EnhancedInput.EnhancedInputSubsystemInterface.StopContinuousInputInjectionForAction
 // (Native, Public, BlueprintCallable)
 // Parameters:
-// const class UInputAction*               Action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UInputAction*               action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void IEnhancedInputSubsystemInterface::StopContinuousInputInjectionForAction(const class UInputAction* Action)
+void IEnhancedInputSubsystemInterface::StopContinuousInputInjectionForAction(const class UInputAction* action)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1864,7 +1863,7 @@ void IEnhancedInputSubsystemInterface::StopContinuousInputInjectionForAction(con
 
 	Params::EnhancedInputSubsystemInterface_StopContinuousInputInjectionForAction Parms{};
 
-	Parms.Action = Action;
+	Parms.action = action;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1903,10 +1902,10 @@ void IEnhancedInputSubsystemInterface::StopContinuousInputInjectionForPlayerMapp
 // Function EnhancedInput.EnhancedInputSubsystemInterface.UpdateValueOfContinuousInputInjectionForAction
 // (Native, Public, BlueprintCallable)
 // Parameters:
-// const class UInputAction*               Action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UInputAction*               action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FInputActionValue&         RawValue                                               (Parm, NoDestructor, NativeAccessSpecifierPublic)
 
-void IEnhancedInputSubsystemInterface::UpdateValueOfContinuousInputInjectionForAction(const class UInputAction* Action, const struct FInputActionValue& RawValue)
+void IEnhancedInputSubsystemInterface::UpdateValueOfContinuousInputInjectionForAction(const class UInputAction* action, const struct FInputActionValue& RawValue)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1915,7 +1914,7 @@ void IEnhancedInputSubsystemInterface::UpdateValueOfContinuousInputInjectionForA
 
 	Params::EnhancedInputSubsystemInterface_UpdateValueOfContinuousInputInjectionForAction Parms{};
 
-	Parms.Action = Action;
+	Parms.action = action;
 	Parms.RawValue = std::move(RawValue);
 
 	auto Flgs = Func->FunctionFlags;
@@ -2039,10 +2038,10 @@ bool IEnhancedInputSubsystemInterface::HasMappingContext(const class UInputMappi
 // Function EnhancedInput.EnhancedInputSubsystemInterface.QueryKeysMappedToAction
 // (BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// const class UInputAction*               Action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UInputAction*               action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<struct FKey>                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 
-TArray<struct FKey> IEnhancedInputSubsystemInterface::QueryKeysMappedToAction(const class UInputAction* Action) const
+TArray<struct FKey> IEnhancedInputSubsystemInterface::QueryKeysMappedToAction(const class UInputAction* action) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -2051,7 +2050,7 @@ TArray<struct FKey> IEnhancedInputSubsystemInterface::QueryKeysMappedToAction(co
 
 	Params::EnhancedInputSubsystemInterface_QueryKeysMappedToAction Parms{};
 
-	Parms.Action = Action;
+	Parms.action = action;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -2120,11 +2119,11 @@ bool UEnhancedInputWorldSubsystem::RemoveActorInputComponent(class AActor* Actor
 // Function EnhancedInput.InputMappingContext.MapKey
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// const class UInputAction*               Action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UInputAction*               action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FKey&                      ToKey                                                  (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FEnhancedActionKeyMapping        ReturnValue                                            (Parm, OutParm, ReturnParm, ContainsInstancedReference, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FEnhancedActionKeyMapping UInputMappingContext::MapKey(const class UInputAction* Action, const struct FKey& ToKey)
+struct FEnhancedActionKeyMapping UInputMappingContext::MapKey(const class UInputAction* action, const struct FKey& ToKey)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2133,7 +2132,7 @@ struct FEnhancedActionKeyMapping UInputMappingContext::MapKey(const class UInput
 
 	Params::InputMappingContext_MapKey Parms{};
 
-	Parms.Action = Action;
+	Parms.action = action;
 	Parms.ToKey = std::move(ToKey);
 
 	auto Flgs = Func->FunctionFlags;
@@ -2150,9 +2149,9 @@ struct FEnhancedActionKeyMapping UInputMappingContext::MapKey(const class UInput
 // Function EnhancedInput.InputMappingContext.UnmapAction
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// const class UInputAction*               Action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UInputAction*               action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UInputMappingContext::UnmapAction(const class UInputAction* Action)
+void UInputMappingContext::UnmapAction(const class UInputAction* action)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2161,7 +2160,7 @@ void UInputMappingContext::UnmapAction(const class UInputAction* Action)
 
 	Params::InputMappingContext_UnmapAction Parms{};
 
-	Parms.Action = Action;
+	Parms.action = action;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -2194,9 +2193,9 @@ void UInputMappingContext::UnmapAll()
 // Function EnhancedInput.InputMappingContext.UnmapAllKeysFromAction
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// const class UInputAction*               Action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UInputAction*               action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UInputMappingContext::UnmapAllKeysFromAction(const class UInputAction* Action)
+void UInputMappingContext::UnmapAllKeysFromAction(const class UInputAction* action)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2205,7 +2204,7 @@ void UInputMappingContext::UnmapAllKeysFromAction(const class UInputAction* Acti
 
 	Params::InputMappingContext_UnmapAllKeysFromAction Parms{};
 
-	Parms.Action = Action;
+	Parms.action = action;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -2219,10 +2218,10 @@ void UInputMappingContext::UnmapAllKeysFromAction(const class UInputAction* Acti
 // Function EnhancedInput.InputMappingContext.UnmapKey
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// const class UInputAction*               Action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UInputAction*               action                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FKey&                      Key                                                    (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UInputMappingContext::UnmapKey(const class UInputAction* Action, const struct FKey& Key)
+void UInputMappingContext::UnmapKey(const class UInputAction* action, const struct FKey& Key)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2231,7 +2230,7 @@ void UInputMappingContext::UnmapKey(const class UInputAction* Action, const stru
 
 	Params::InputMappingContext_UnmapKey Parms{};
 
-	Parms.Action = Action;
+	Parms.action = action;
 	Parms.Key = std::move(Key);
 
 	auto Flgs = Func->FunctionFlags;
@@ -2614,5 +2613,5 @@ const bool UPlayerMappableInputConfig::IsDeprecated() const
 	return Parms.ReturnValue;
 }
 
-}
 
+SDK_NAMESPACE_END

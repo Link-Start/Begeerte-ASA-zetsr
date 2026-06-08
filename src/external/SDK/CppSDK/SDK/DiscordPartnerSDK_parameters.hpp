@@ -13,8 +13,8 @@
 #include "DiscordPartnerSDK_structs.hpp"
 
 
-namespace SDK::Params
-{
+SDK_NAMESPACE_START
+SDK_PARAM_NAMESPACE_START
 
 // Function DiscordPartnerSDK.DiscordLocalPlayerSubsystem.Connect
 // 0x0010 (0x0010 - 0x0000)
@@ -2339,6 +2339,15 @@ public:
 };
 DUMPER7_ASSERTS_DiscordMessageHandle_MetaData;
 
+// Function DiscordPartnerSDK.DiscordMessageHandle.ModerationMetadata
+// 0x0050 (0x0050 - 0x0000)
+struct DiscordMessageHandle_ModerationMetadata final
+{
+public:
+	TMap<class FString, class FString>            ReturnValue;                                       // 0x0000(0x0050)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_DiscordMessageHandle_ModerationMetadata;
+
 // Function DiscordPartnerSDK.DiscordMessageHandle.RawContent
 // 0x0010 (0x0010 - 0x0000)
 struct DiscordMessageHandle_RawContent final
@@ -3213,6 +3222,15 @@ public:
 };
 DUMPER7_ASSERTS_DiscordClient_IsAuthenticated;
 
+// Function DiscordPartnerSDK.DiscordClient.IsDiscordAppInstalled
+// 0x0010 (0x0010 - 0x0000)
+struct DiscordClient_IsDiscordAppInstalled final
+{
+public:
+	TDelegate<void(bool installed)>               Callback;                                          // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_DiscordClient_IsDiscordAppInstalled;
+
 // Function DiscordPartnerSDK.DiscordClient.JoinLinkedLobbyGuild
 // 0x0028 (0x0028 - 0x0000)
 struct DiscordClient_JoinLinkedLobbyGuild final
@@ -4057,5 +4075,5 @@ public:
 };
 DUMPER7_ASSERTS_DiscordCallInfoHandle_GuildId;
 
-}
-
+SDK_PARAM_NAMESPACE_END
+SDK_NAMESPACE_END

@@ -42,7 +42,9 @@ namespace g_MDX12 {
     // extern ImFont* g_Alibaba_PuHuiTi_Bold;
     // extern ImFont* g_Alibaba_PuHuiTi_Heavy;
     // extern ImFont* g_Alibaba_PuHuiTi_Light;
-    extern ImFont* g_Alibaba_PuHuiTi_Medium;
+    // extern ImFont* g_Alibaba_PuHuiTi_Medium;
+    extern ImFont* g_HarmonyOS_Sans_SC_Regular;
+    extern int g_LoadedFontScaleIdx;
 
     // Hook function pointer types
     typedef HRESULT(STDMETHODCALLTYPE* PFN_Present)(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT Flags);
@@ -132,6 +134,11 @@ namespace g_MDX12 {
     // Menu state namespace
     namespace g_MenuState {
         extern bool g_isOpen;
+        extern UINT g_openKey;
+        extern bool g_isOutBodyActive;
+        extern UINT g_OutBodyKey;
+        extern UINT* g_pCurrentBindingKey;
+        extern bool g_bindingFinished;
         extern bool g_wasOpenLastFrame;
         extern POINT g_lastMousePos;
     }
@@ -158,6 +165,7 @@ namespace g_MDX12 {
     }
 
     // Rendering and cleanup functions
+    void UpdateImGuiFont();
     void InitProcessName();
     void CleanupRenderResources();
     void CleanupRenderResources_NoInput();
@@ -168,6 +176,8 @@ namespace g_MDX12 {
     void SetupOutputTextLine(SDK::UConsole* rcx, SDK::FString* Message);
     void SetupPostRender(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas);
     void SetupPhysicsRotation(SDK::UMovementComponent* rcx, float DeltaTime);
+    void SetupTakeDamage(SDK::AActor* _this, float DamageAmount, SDK::FDamageEvent* DamageEvent, SDK::AController* Instigator, SDK::AActor* DamageCauser);
+    void SetupPostDamage(SDK::AActor* _this, float DamageAmount, SDK::FDamageEvent* DamageEvent, SDK::AController* Instigator, SDK::AActor* DamageCauser);
 
     // Main thread initialization
     DWORD WINAPI MainThread(LPVOID);
@@ -179,6 +189,8 @@ namespace g_MDX12 {
     typedef void(*SetupOutputTextLineCallback)(SDK::UConsole* rcx, SDK::FString* Message);
     typedef void(*SetupPostRenderCallback)(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas);
     typedef void(*SetupPhysicsRotationCallback)(SDK::UMovementComponent* rcx, float DeltaTime);
+    typedef void(*SetupTakeDamageCallback)(SDK::AActor* _this, float DamageAmount, SDK::FDamageEvent* DamageEvent, SDK::AController* Instigator, SDK::AActor* DamageCauser);
+    typedef void(*SetupPostDamageCallback)(SDK::AActor* _this, float DamageAmount, SDK::FDamageEvent* DamageEvent, SDK::AController* Instigator, SDK::AActor* DamageCauser);
 
     namespace g_Callbacks {
         extern SetupImGuiCallback g_setupImGuiCallback;
@@ -187,6 +199,8 @@ namespace g_MDX12 {
         extern SetupOutputTextLineCallback g_setupOutputTextLineCallback;
         extern SetupPostRenderCallback g_setupPostRenderCallback;
         extern SetupPhysicsRotationCallback g_setupPhysicsRotationCallback;
+        extern SetupTakeDamageCallback g_setupTakeDamageCallback;
+        extern SetupPostDamageCallback g_setupPostDamageCallback;
     }
 
     // Public API
@@ -197,6 +211,8 @@ namespace g_MDX12 {
     void SetSetupOutputTextLineCallback(SetupOutputTextLineCallback callback);
     void SetSetupPostRenderCallback(SetupPostRenderCallback callback);
     void SetSetupPhysicsRotationCallback(SetupPhysicsRotationCallback callback);
+    void SetSetupTakeDamageCallback(SetupTakeDamageCallback callback);
+    void SetSetupPostDamageCallback(SetupPostDamageCallback callback);
 }
 
 // Export for DLL
@@ -207,3 +223,5 @@ extern "C" __declspec(dllexport) void SetSetupHandleDisconnectCallback(g_MDX12::
 extern "C" __declspec(dllexport) void SetSetupOutputTextLineCallback(g_MDX12::SetupOutputTextLineCallback callback);
 extern "C" __declspec(dllexport) void SetSetupPostRenderCallback(g_MDX12::SetupPostRenderCallback callback);
 extern "C" __declspec(dllexport) void SetSetupPhysicsRotationCallback(g_MDX12::SetupPhysicsRotationCallback callback);
+extern "C" __declspec(dllexport) void SetSetupTakeDamageCallback(g_MDX12::SetupTakeDamageCallback callback);
+extern "C" __declspec(dllexport) void SetSetupPostDamageCallback(g_MDX12::SetupPostDamageCallback callback);

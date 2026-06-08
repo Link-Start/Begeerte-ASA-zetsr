@@ -15,8 +15,7 @@
 #include "PrimalItemArmorGeneric_classes.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemArmor_Base_Tek.PrimalItemArmor_Base_Tek_C
 // 0x0060 (0x0BC0 - 0x0B60)
@@ -70,5 +69,4 @@ public:
 };
 DUMPER7_ASSERTS_UPrimalItemArmor_Base_Tek_C;
 
-}
-
+SDK_NAMESPACE_END

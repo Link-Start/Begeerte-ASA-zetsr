@@ -10,15 +10,39 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
+#include "PCGGeometryScriptInterop_structs.hpp"
 #include "PCG_structs.hpp"
 #include "PCG_classes.hpp"
 #include "GeometryScriptingCore_structs.hpp"
-#include "PCGGeometryScriptInterop_structs.hpp"
+#include "CoreUObject_structs.hpp"
 
 
-namespace SDK
+SDK_NAMESPACE_START
+
+// Class PCGGeometryScriptInterop.PCGGeometryBlueprintElement
+// 0x0000 (0x0068 - 0x0068)
+class UPCGGeometryBlueprintElement final : public UPCGBlueprintElement
 {
+public:
+	void ProcessDynamicMesh(class UDynamicMesh* InDynMesh, TArray<class FString>* OutTags);
+
+	class UPCGDynamicMeshData* CopyOrStealInputData(const struct FPCGTaggedData& InTaggedData) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGGeometryBlueprintElement")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGGeometryBlueprintElement")
+	}
+	static class UPCGGeometryBlueprintElement* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGGeometryBlueprintElement>();
+	}
+};
+DUMPER7_ASSERTS_UPCGGeometryBlueprintElement;
 
 // Class PCGGeometryScriptInterop.PCGDynamicMeshBaseSettings
 // 0x0000 (0x00B8 - 0x00B8)
@@ -39,30 +63,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGDynamicMeshBaseSettings;
-
-// Class PCGGeometryScriptInterop.PCGGetDynamicMeshDataSettings
-// 0x0010 (0x0170 - 0x0160)
-class UPCGGetDynamicMeshDataSettings final : public UPCGDataFromActorSettings
-{
-public:
-	struct FGeometryScriptCopyMeshFromComponentOptions Options;                                      // 0x0160(0x000C)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_16C[0x4];                                      // 0x016C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGGetDynamicMeshDataSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGGetDynamicMeshDataSettings")
-	}
-	static class UPCGGetDynamicMeshDataSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGGetDynamicMeshDataSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGGetDynamicMeshDataSettings;
 
 // Class PCGGeometryScriptInterop.PCGAppendMeshesFromPointsSettings
 // 0x0068 (0x0120 - 0x00B8)
@@ -96,6 +96,26 @@ public:
 };
 DUMPER7_ASSERTS_UPCGAppendMeshesFromPointsSettings;
 
+// Class PCGGeometryScriptInterop.PCGMergeDynamicMeshesSettings
+// 0x0000 (0x00B8 - 0x00B8)
+class UPCGMergeDynamicMeshesSettings final : public UPCGDynamicMeshBaseSettings
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGMergeDynamicMeshesSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGMergeDynamicMeshesSettings")
+	}
+	static class UPCGMergeDynamicMeshesSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGMergeDynamicMeshesSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGMergeDynamicMeshesSettings;
+
 // Class PCGGeometryScriptInterop.PCGBooleanOperationSettings
 // 0x0018 (0x00D0 - 0x00B8)
 class UPCGBooleanOperationSettings final : public UPCGDynamicMeshBaseSettings
@@ -123,26 +143,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGBooleanOperationSettings;
-
-// Class PCGGeometryScriptInterop.PCGCreateEmptyDynamicMeshSettings
-// 0x0000 (0x00B8 - 0x00B8)
-class UPCGCreateEmptyDynamicMeshSettings final : public UPCGDynamicMeshBaseSettings
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGCreateEmptyDynamicMeshSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGCreateEmptyDynamicMeshSettings")
-	}
-	static class UPCGCreateEmptyDynamicMeshSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGCreateEmptyDynamicMeshSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGCreateEmptyDynamicMeshSettings;
 
 // Class PCGGeometryScriptInterop.PCGDynamicMeshData
 // 0x0290 (0x0310 - 0x0080)
@@ -173,32 +173,25 @@ public:
 };
 DUMPER7_ASSERTS_UPCGDynamicMeshData;
 
-// Class PCGGeometryScriptInterop.PCGSaveDynamicMeshToAssetSettings
-// 0x00C0 (0x0178 - 0x00B8)
-class UPCGSaveDynamicMeshToAssetSettings final : public UPCGDynamicMeshBaseSettings
+// Class PCGGeometryScriptInterop.PCGCreateEmptyDynamicMeshSettings
+// 0x0000 (0x00B8 - 0x00B8)
+class UPCGCreateEmptyDynamicMeshSettings final : public UPCGDynamicMeshBaseSettings
 {
-public:
-	struct FPCGAssetExporterParameters            ExportParams;                                      // 0x00B8(0x0030)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	bool                                          bExportMaterialsFromDynamicMesh;                   // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_E9[0x7];                                       // 0x00E9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGeometryScriptCopyMeshToAssetOptions  CopyMeshToAssetOptions;                            // 0x00F0(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FGeometryScriptMeshWriteLOD            MeshWriteLOD;                                      // 0x0170(0x0008)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGSaveDynamicMeshToAssetSettings")
+		STATIC_CLASS_IMPL("PCGCreateEmptyDynamicMeshSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGSaveDynamicMeshToAssetSettings")
+		STATIC_NAME_IMPL(L"PCGCreateEmptyDynamicMeshSettings")
 	}
-	static class UPCGSaveDynamicMeshToAssetSettings* GetDefaultObj()
+	static class UPCGCreateEmptyDynamicMeshSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGSaveDynamicMeshToAssetSettings>();
+		return GetDefaultObjImpl<UPCGCreateEmptyDynamicMeshSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGSaveDynamicMeshToAssetSettings;
+DUMPER7_ASSERTS_UPCGCreateEmptyDynamicMeshSettings;
 
 // Class PCGGeometryScriptInterop.PCGDynamicMeshManagedComponent
 // 0x0010 (0x0070 - 0x0060)
@@ -224,31 +217,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGDynamicMeshManagedComponent;
 
-// Class PCGGeometryScriptInterop.PCGGeometryBlueprintElement
-// 0x0000 (0x0068 - 0x0068)
-class UPCGGeometryBlueprintElement final : public UPCGBlueprintElement
-{
-public:
-	void ProcessDynamicMesh(class UDynamicMesh* InDynMesh, TArray<class FString>* OutTags);
-
-	class UPCGDynamicMeshData* CopyOrStealInputData(const struct FPCGTaggedData& InTaggedData) const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGGeometryBlueprintElement")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGGeometryBlueprintElement")
-	}
-	static class UPCGGeometryBlueprintElement* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGGeometryBlueprintElement>();
-	}
-};
-DUMPER7_ASSERTS_UPCGGeometryBlueprintElement;
-
 // Class PCGGeometryScriptInterop.PCGDynamicMeshTransformSettings
 // 0x0068 (0x0120 - 0x00B8)
 class UPCGDynamicMeshTransformSettings final : public UPCGDynamicMeshBaseSettings
@@ -273,25 +241,29 @@ public:
 };
 DUMPER7_ASSERTS_UPCGDynamicMeshTransformSettings;
 
-// Class PCGGeometryScriptInterop.PCGMergeDynamicMeshesSettings
-// 0x0000 (0x00B8 - 0x00B8)
-class UPCGMergeDynamicMeshesSettings final : public UPCGDynamicMeshBaseSettings
+// Class PCGGeometryScriptInterop.PCGGetDynamicMeshDataSettings
+// 0x0010 (0x0170 - 0x0160)
+class UPCGGetDynamicMeshDataSettings final : public UPCGDataFromActorSettings
 {
+public:
+	struct FGeometryScriptCopyMeshFromComponentOptions Options;                                      // 0x0160(0x000C)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_16C[0x4];                                      // 0x016C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGMergeDynamicMeshesSettings")
+		STATIC_CLASS_IMPL("PCGGetDynamicMeshDataSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGMergeDynamicMeshesSettings")
+		STATIC_NAME_IMPL(L"PCGGetDynamicMeshDataSettings")
 	}
-	static class UPCGMergeDynamicMeshesSettings* GetDefaultObj()
+	static class UPCGGetDynamicMeshDataSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGMergeDynamicMeshesSettings>();
+		return GetDefaultObjImpl<UPCGGetDynamicMeshDataSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGMergeDynamicMeshesSettings;
+DUMPER7_ASSERTS_UPCGGetDynamicMeshDataSettings;
 
 // Class PCGGeometryScriptInterop.PCGMeshSamplerSettings
 // 0x00D8 (0x0190 - 0x00B8)
@@ -380,6 +352,33 @@ public:
 };
 DUMPER7_ASSERTS_UPCGPrimitiveCrossSectionSettings;
 
+// Class PCGGeometryScriptInterop.PCGSaveDynamicMeshToAssetSettings
+// 0x00C0 (0x0178 - 0x00B8)
+class UPCGSaveDynamicMeshToAssetSettings final : public UPCGDynamicMeshBaseSettings
+{
+public:
+	struct FPCGAssetExporterParameters            ExportParams;                                      // 0x00B8(0x0030)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	bool                                          bExportMaterialsFromDynamicMesh;                   // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E9[0x7];                                       // 0x00E9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGeometryScriptCopyMeshToAssetOptions  CopyMeshToAssetOptions;                            // 0x00F0(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FGeometryScriptMeshWriteLOD            MeshWriteLOD;                                      // 0x0170(0x0008)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGSaveDynamicMeshToAssetSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGSaveDynamicMeshToAssetSettings")
+	}
+	static class UPCGSaveDynamicMeshToAssetSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGSaveDynamicMeshToAssetSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGSaveDynamicMeshToAssetSettings;
+
 // Class PCGGeometryScriptInterop.PCGSpawnDynamicMeshSettings
 // 0x0038 (0x00F0 - 0x00B8)
 class UPCGSpawnDynamicMeshSettings final : public UPCGDynamicMeshBaseSettings
@@ -435,5 +434,4 @@ public:
 };
 DUMPER7_ASSERTS_UPCGStaticMeshToDynamicMeshSettings;
 
-}
-
+SDK_NAMESPACE_END

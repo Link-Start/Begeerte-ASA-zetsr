@@ -10,12 +10,11 @@
 
 #include "Basic.hpp"
 
-#include "OptimusSettings_structs.hpp"
 #include "DeveloperSettings_classes.hpp"
+#include "OptimusSettings_structs.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Class OptimusSettings.OptimusSettings
 // 0x0058 (0x0090 - 0x0038)
@@ -43,5 +42,4 @@ public:
 };
 DUMPER7_ASSERTS_UOptimusSettings;
 
-}
-
+SDK_NAMESPACE_END

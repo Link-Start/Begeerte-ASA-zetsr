@@ -11,6 +11,14 @@
 #include "../Language/LanguageManager.h"
 
 namespace g_DrawImGui {
+	std::vector<const char*> Menu_Scale = {
+	"75%",
+	"100%",
+	"125%",
+	"150%",
+	"200%"
+	};
+
 	void Misc_Menu() {
 		const char* tabLabel = LanguageManager::Misc_Menu::TabLabel;
 		const char* secMenu = LanguageManager::Misc_Menu::SectionMenu;
@@ -25,6 +33,10 @@ namespace g_DrawImGui {
 		const char* chkFeed = LanguageManager::Misc_Menu::AutoFeed;
 		const char* chkFlyer = LanguageManager::Misc_Menu::SuperFlyer;
 		const char* chkTurn = LanguageManager::Misc_Menu::ForceTurn;
+		const char* chkLogDamage = LanguageManager::Misc_Menu::LogDamage;
+		const char* armorRange = LanguageManager::Misc_Menu::ArmorRange;
+		const char* automaticChecked = LanguageManager::Misc_Menu::AutomaticChecked;
+		const char* outBodyChecked = LanguageManager::Misc_Menu::OutBodyChecked;
 
 		if (ImGui::BeginTabItem(tabLabel)) {
 			ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
@@ -38,23 +50,32 @@ namespace g_DrawImGui {
 			DrawCustomCheckbox(lockLayout, &g_Config::bMenuLockResize);
 			ImGui::SameLine();
 
+			DrawKeyBindButton("Menu Toggle Key", g_MDX12::g_MenuState::g_openKey);
+			ImGui::SameLine();
+
+			DrawCustomCombo(U8("##Menu_Scale"), &g_Config::MenuScaleIdx, Menu_Scale);
+			ImGui::SameLine();
+
 			if (DrawCustomButton(resetLayout)) {
 				g_Config::bMenuNeedReset = true;
 			}
+			ImGui::SameLine();
 
+			if (DrawCustomButton(btnUnload)) {
+				g_Hook::StopAllHooks();
+			}
 			DrawAnimatedSeparator();
 
 			ImGui::TextColored(ThemeColors::GetAccent(), secMisc);
 			DrawAnimatedSeparator();
 
-			if (DrawCustomButton(btnSuicide)) {
-				g_Config::bSuicide = true;
+			ImGui::BeginDisabled(!g_Hook::UWorldTickOK);
+			{
+				if (DrawCustomButton(btnSuicide)) {
+					g_Config::bSuicide = true;
+				}
 			}
-
-			ImGui::SameLine();
-			if (DrawCustomButton(btnUnload)) {
-				g_Hook::StopAllHooks();
-			}
+			ImGui::EndDisabled();
 
 			ImGui::SameLine();
 			if (DrawCustomButton(btnDump)) {
@@ -63,11 +84,42 @@ namespace g_DrawImGui {
 
 			DrawAnimatedSeparator();
 
-			DrawCustomCheckbox(chkNotes, &g_Config::bUnlockExplorerNotes);
-			DrawCustomCheckbox(chkFeed, &g_Config::bAutoFeed);
-			DrawCustomCheckbox(chkFlyer, &g_Config::bSuperFlyer);
-            DrawCustomCheckbox(chkTurn, &g_Config::bForceTurn);
+			ImGui::BeginDisabled(!g_Hook::UWorldTickOK);
+			{
+				DrawCustomCheckbox(chkNotes, &g_Config::bUnlockExplorerNotes);
+				DrawCustomCheckbox(chkFeed, &g_Config::bAutoFeed);
+				DrawCustomCheckbox(chkFlyer, &g_Config::bSuperFlyer);
+			}
+			ImGui::EndDisabled();
 
+			ImGui::BeginDisabled(!g_Hook::PhysicsRotationOK);
+			{
+				DrawCustomCheckbox(chkTurn, &g_Config::bForceTurn);
+			}
+			ImGui::EndDisabled();
+
+			ImGui::BeginDisabled(!g_Hook::TakeDamageOK);
+			{
+				DrawColorPickerRow(chkLogDamage, &g_Config::bLogDamage, "LogDamageCol", g_Config::LogDamageColor);
+			}
+			ImGui::EndDisabled();
+
+			DrawAnimatedSeparator();
+			ImGui::BeginDisabled(!g_Hook::UWorldTickOK);
+			{
+				DrawCustomCheckbox(automaticChecked, &g_Config::bAutomatic);
+				DrawCustomSliderFloat(armorRange, &g_Config::ArmorRange, 0.1f, 100.0f, "%.1f", 0.1f, U8(""));
+			}
+			ImGui::EndDisabled();
+			DrawAnimatedSeparator();
+
+			ImGui::BeginDisabled(!g_Hook::UWorldTickOK);
+			{
+				DrawCustomCheckbox(outBodyChecked, &g_Config::bOutBodyChecked);
+				ImGui::SameLine();
+				DrawKeyBindButton("OutBody Key", g_MDX12::g_MenuState::g_OutBodyKey);
+			}
+			ImGui::EndDisabled();
 			DrawAnimatedSeparator();
 
 			EndTabRegion();

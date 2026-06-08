@@ -15,8 +15,7 @@
 #include "AnimGraphRuntime_structs.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Enum AnimationWarpingRuntime.EFootPlacementLockType
 // NumValues: 0x0005
@@ -122,6 +121,16 @@ public:
 };
 DUMPER7_ASSERTS_FFootPlacementTraceSettings;
 
+// ScriptStruct AnimationWarpingRuntime.AnimNode_OffsetRootBone
+// 0x00F0 (0x0100 - 0x0010)
+struct alignas(0x10) FAnimNode_OffsetRootBone final : public FAnimNode_Base
+{
+public:
+	struct FPoseLink                              Source;                                            // 0x0010(0x0010)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_20[0xE0];                                      // 0x0020(0x00E0)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FAnimNode_OffsetRootBone;
+
 // ScriptStruct AnimationWarpingRuntime.FootPlacementRootDefinition
 // 0x0020 (0x0020 - 0x0000)
 struct FFootPlacementRootDefinition final
@@ -208,16 +217,6 @@ public:
 	uint8                                         Pad_1B0[0x310];                                    // 0x01B0(0x0310)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FAnimNode_FootPlacement;
-
-// ScriptStruct AnimationWarpingRuntime.AnimNode_OffsetRootBone
-// 0x00F0 (0x0100 - 0x0010)
-struct alignas(0x10) FAnimNode_OffsetRootBone final : public FAnimNode_Base
-{
-public:
-	struct FPoseLink                              Source;                                            // 0x0010(0x0010)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_20[0xE0];                                      // 0x0020(0x00E0)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FAnimNode_OffsetRootBone;
 
 // ScriptStruct AnimationWarpingRuntime.AnimNode_OrientationWarping
 // 0x0198 (0x0260 - 0x00C8)
@@ -383,5 +382,4 @@ public:
 };
 DUMPER7_ASSERTS_FAnimNode_StrideWarping;
 
-}
-
+SDK_NAMESPACE_END

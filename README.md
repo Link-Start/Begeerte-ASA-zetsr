@@ -19,6 +19,8 @@
  - 在 `src\internal\CheatData\CheatData.hpp` 添加特征码
  - 在 `src\internal\Config\Configs.h` 添加配置变量
  - 在 `src\internal\Config\ConfigManager.cpp` 为配置变量添加保存/加载
+ - 在 `src\internal\Language\LanguageManager.cpp` 为菜单功能添加本地化内容
+ - 在 `language\` 为所有多语言本地化内容添加键值
  - 在 `src\internal\ESP\DrawESP.cpp` 处理ESP绘制
  - 在 `src\internal\Hack\Hack.cpp` 编写各种游戏功能的函数
  - 在 `src\internal\Tick\Tick.cpp` 运行各种游戏功能的函数
@@ -65,9 +67,9 @@ int32_t GetPort() {
 > 如果 `UNetConnection` 布局发生变化则需要重新寻找 `RemoteIPList` 和 `RemotePort` 的偏移，因为它们无法被Dumper-7自动反射。
 > 如果需要更新偏移，通常只需要遍历 `UNetConnection` 获取所有有效偏移，然后筛选值符合条件的偏移即可。
 >
-> 目前的布局是 `0x1EC0 (0x1F10 - 0x0050)`
+> 目前的布局是 `0x1EC8 (0x1F18 - 0x0050)`
 >
->`最后更新于2026/4/3`
+>`最后更新于2026/5/2`
 
 ---
 

@@ -10,12 +10,11 @@
 
 #include "Basic.hpp"
 
-#include "LiveLinkInterface_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "LiveLinkInterface_structs.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Enum LiveLink.EBoneTransformResolution
 // NumValues: 0x0004
@@ -100,5 +99,4 @@ public:
 };
 DUMPER7_ASSERTS_FLiveLinkRoleProjectSetting;
 
-}
-
+SDK_NAMESPACE_END

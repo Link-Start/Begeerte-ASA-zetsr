@@ -13,11 +13,10 @@
 #include "WeapGPS_classes.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass WeapMap.WeapMap_C
-// 0x0000 (0x1410 - 0x1410)
+// 0x0000 (0x1418 - 0x1418)
 class AWeapMap_C final : public AWeapGPS_C
 {
 public:
@@ -36,5 +35,4 @@ public:
 };
 DUMPER7_ASSERTS_AWeapMap_C;
 
-}
-
+SDK_NAMESPACE_END

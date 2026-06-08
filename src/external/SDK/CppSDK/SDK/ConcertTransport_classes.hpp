@@ -10,12 +10,11 @@
 
 #include "Basic.hpp"
 
-#include "ConcertTransport_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "ConcertTransport_structs.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Class ConcertTransport.ConcertEndpointConfig
 // 0x0010 (0x0038 - 0x0028)
@@ -41,5 +40,4 @@ public:
 };
 DUMPER7_ASSERTS_UConcertEndpointConfig;
 
-}
-
+SDK_NAMESPACE_END

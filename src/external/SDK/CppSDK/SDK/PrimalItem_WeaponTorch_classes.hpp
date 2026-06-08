@@ -11,12 +11,11 @@
 #include "Basic.hpp"
 
 #include "Engine_structs.hpp"
-#include "CoreUObject_structs.hpp"
 #include "PrimalItemWeaponGenericAmmoless_classes.hpp"
+#include "CoreUObject_structs.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItem_WeaponTorch.PrimalItem_WeaponTorch_C
 // 0x0030 (0x0B90 - 0x0B60)
@@ -70,5 +69,4 @@ public:
 };
 DUMPER7_ASSERTS_UPrimalItem_WeaponTorch_C;
 
-}
-
+SDK_NAMESPACE_END

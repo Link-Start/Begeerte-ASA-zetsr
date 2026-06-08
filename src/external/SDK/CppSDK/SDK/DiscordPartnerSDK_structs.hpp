@@ -11,8 +11,7 @@
 #include "Basic.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Enum DiscordPartnerSDK.EDiscordCallError
 // NumValues: 0x0007
@@ -300,6 +299,15 @@ enum class EDiscordDisclosureTypes : uint8
 	EDiscordDisclosureTypes_MAX              = 4,
 };
 
+// Enum DiscordPartnerSDK.EDiscordLobbyMemberFlags
+// NumValues: 0x0003
+enum class EDiscordLobbyMemberFlags : uint8
+{
+	None                                     = 0,
+	CanLinkLobby                             = 1,
+	EDiscordLobbyMemberFlags_MAX             = 2,
+};
+
 // Enum DiscordPartnerSDK.EDiscordClientThread
 // NumValues: 0x0004
 enum class EDiscordClientThread : uint8
@@ -344,5 +352,4 @@ public:
 };
 DUMPER7_ASSERTS_FDiscordUniqueID;
 
-}
-
+SDK_NAMESPACE_END

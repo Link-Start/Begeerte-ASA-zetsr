@@ -14,8 +14,21 @@
 #include "UI_CFCore_NoModsInstalledFound_parameters.hpp"
 
 
-namespace SDK
+SDK_NAMESPACE_START
+
+// Function UI_CFCore_NoModsInstalledFound.UI_CFCore_NoModsInstalledFound_C.ApplyThemeSettingsToAll
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void UUI_CFCore_NoModsInstalledFound_C::ApplyThemeSettingsToAll()
 {
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CFCore_NoModsInstalledFound_C", "ApplyThemeSettingsToAll");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
 
 // Function UI_CFCore_NoModsInstalledFound.UI_CFCore_NoModsInstalledFound_C.GetRootCFWidget
 // (Public, HasOutParams, BlueprintCallable, BlueprintEvent, BlueprintPure)
@@ -38,18 +51,4 @@ void UUI_CFCore_NoModsInstalledFound_C::GetRootCFWidget(class UPanelWidget** Roo
 }
 
 
-// Function UI_CFCore_NoModsInstalledFound.UI_CFCore_NoModsInstalledFound_C.ApplyThemeSettingsToAll
-// (Public, BlueprintCallable, BlueprintEvent)
-
-void UUI_CFCore_NoModsInstalledFound_C::ApplyThemeSettingsToAll()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CFCore_NoModsInstalledFound_C", "ApplyThemeSettingsToAll");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-}
-
+SDK_NAMESPACE_END

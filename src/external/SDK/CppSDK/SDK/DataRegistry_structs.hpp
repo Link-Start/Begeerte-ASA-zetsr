@@ -14,8 +14,7 @@
 #include "Engine_structs.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Enum DataRegistry.EDataRegistryAcquireStatus
 // NumValues: 0x0008
@@ -88,14 +87,14 @@ public:
 };
 DUMPER7_ASSERTS_FDataRegistryLookup;
 
-// ScriptStruct DataRegistry.DataRegistrySourceItemId
-// 0x0040 (0x0040 - 0x0000)
-struct alignas(0x08) FDataRegistrySourceItemId final
+// ScriptStruct DataRegistry.DataRegistryIdFormat
+// 0x0008 (0x0008 - 0x0000)
+struct FDataRegistryIdFormat final
 {
 public:
-	uint8                                         Pad_0[0x40];                                       // 0x0000(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FGameplayTag                           BaseGameplayTag;                                   // 0x0000(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FDataRegistrySourceItemId;
+DUMPER7_ASSERTS_FDataRegistryIdFormat;
 
 // ScriptStruct DataRegistry.DataRegistryType
 // 0x0008 (0x0008 - 0x0000)
@@ -116,18 +115,6 @@ public:
 };
 DUMPER7_ASSERTS_FDataRegistryId;
 
-// ScriptStruct DataRegistry.SoftDataRegistryOrTable
-// 0x0038 (0x0038 - 0x0000)
-struct FSoftDataRegistryOrTable final
-{
-public:
-	bool                                          bUseDataRegistry;                                  // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TSoftObjectPtr<class UDataTable>              Table;                                             // 0x0008(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FDataRegistryType                      RegistryType;                                      // 0x0030(0x0008)(Edit, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FSoftDataRegistryOrTable;
-
 // ScriptStruct DataRegistry.DataRegistrySource_DataTableRules
 // 0x0008 (0x0008 - 0x0000)
 struct FDataRegistrySource_DataTableRules final
@@ -139,14 +126,26 @@ public:
 };
 DUMPER7_ASSERTS_FDataRegistrySource_DataTableRules;
 
-// ScriptStruct DataRegistry.DataRegistryIdFormat
-// 0x0008 (0x0008 - 0x0000)
-struct FDataRegistryIdFormat final
+// ScriptStruct DataRegistry.DataRegistrySourceItemId
+// 0x0040 (0x0040 - 0x0000)
+struct alignas(0x08) FDataRegistrySourceItemId final
 {
 public:
-	struct FGameplayTag                           BaseGameplayTag;                                   // 0x0000(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_0[0x40];                                       // 0x0000(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FDataRegistryIdFormat;
+DUMPER7_ASSERTS_FDataRegistrySourceItemId;
+
+// ScriptStruct DataRegistry.SoftDataRegistryOrTable
+// 0x0038 (0x0038 - 0x0000)
+struct FSoftDataRegistryOrTable final
+{
+public:
+	bool                                          bUseDataRegistry;                                  // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TSoftObjectPtr<class UDataTable>              Table;                                             // 0x0008(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FDataRegistryType                      RegistryType;                                      // 0x0030(0x0008)(Edit, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FSoftDataRegistryOrTable;
 
 // ScriptStruct DataRegistry.DataRegistryOrTableRow
 // 0x0028 (0x0028 - 0x0000)
@@ -160,5 +159,4 @@ public:
 };
 DUMPER7_ASSERTS_FDataRegistryOrTableRow;
 
-}
-
+SDK_NAMESPACE_END

@@ -14,8 +14,7 @@
 #include "SlateCore_structs.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Enum TypedElementFramework.FTypedElementAlertColumnType
 // NumValues: 0x0003
@@ -40,29 +39,20 @@ enum class ESCCModification : uint32
 // ScriptStruct TypedElementFramework.EditorDataStorageColumn
 // 0x0000 (0x0000 - 0x0000)
 #pragma pack(push, 0x1)
-struct alignas(0x01) FEditorDataStorageColumn
+struct SDK_ALIGN(0x01) FEditorDataStorageColumn
 {
 };
 #pragma pack(pop)
 DUMPER7_ASSERTS_FEditorDataStorageColumn;
 
-// ScriptStruct TypedElementFramework.Test_PingPongPostPhys
-// 0x0008 (0x0008 - 0x0000)
-struct FTest_PingPongPostPhys final : public FEditorDataStorageColumn
+// ScriptStruct TypedElementFramework.SCCUserInfo
+// 0x0010 (0x0010 - 0x0000)
+struct FSCCUserInfo final
 {
 public:
-	uint64                                        Value;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Name;                                              // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FTest_PingPongPostPhys;
-
-// ScriptStruct TypedElementFramework.TypedElementI64IntValueCacheColumn
-// 0x0008 (0x0008 - 0x0000)
-struct FTypedElementI64IntValueCacheColumn final : public FEditorDataStorageColumn
-{
-public:
-	int64                                         Value;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FTypedElementI64IntValueCacheColumn;
+DUMPER7_ASSERTS_FSCCUserInfo;
 
 // ScriptStruct TypedElementFramework.ScriptTypedElementHandle
 // 0x0008 (0x0008 - 0x0000)
@@ -203,6 +193,15 @@ public:
 	uint64                                        Value;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FTest_PingPongDurPhys;
+
+// ScriptStruct TypedElementFramework.Test_PingPongPostPhys
+// 0x0008 (0x0008 - 0x0000)
+struct FTest_PingPongPostPhys final : public FEditorDataStorageColumn
+{
+public:
+	uint64                                        Value;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FTest_PingPongPostPhys;
 
 // ScriptStruct TypedElementFramework.TypedElementWidgetConstructor
 // 0x0028 (0x0028 - 0x0000)
@@ -460,15 +459,6 @@ public:
 	struct FSCCRevisionId                         RevisionId;                                        // 0x0000(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FSCCExternalRevisionIdColumn;
-
-// ScriptStruct TypedElementFramework.SCCUserInfo
-// 0x0010 (0x0010 - 0x0000)
-struct FSCCUserInfo final
-{
-public:
-	class FString                                 Name;                                              // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FSCCUserInfo;
 
 // ScriptStruct TypedElementFramework.SCCExternallyLockedColumn
 // 0x0010 (0x0010 - 0x0000)
@@ -731,6 +721,15 @@ public:
 };
 DUMPER7_ASSERTS_FTypedElementU64IntValueCacheColumn;
 
+// ScriptStruct TypedElementFramework.TypedElementI64IntValueCacheColumn
+// 0x0008 (0x0008 - 0x0000)
+struct FTypedElementI64IntValueCacheColumn final : public FEditorDataStorageColumn
+{
+public:
+	int64                                         Value;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FTypedElementI64IntValueCacheColumn;
+
 // ScriptStruct TypedElementFramework.TypedElementFloatValueCacheColumn
 // 0x0004 (0x0004 - 0x0000)
 struct FTypedElementFloatValueCacheColumn final : public FEditorDataStorageColumn
@@ -758,5 +757,4 @@ public:
 };
 DUMPER7_ASSERTS_FTypedElementViewportOverlayColorColumn;
 
-}
-
+SDK_NAMESPACE_END

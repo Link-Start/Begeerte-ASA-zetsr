@@ -13,8 +13,7 @@
 #include "Engine_structs.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Enum ThreadExecutionBlueprintNode.EThreadTickTiming
 // NumValues: 0x0007
@@ -37,15 +36,6 @@ enum class EThreadAsyncExecTag : uint8
 	WithoutCompletion                        = 2,
 	EThreadAsyncExecTag_MAX                  = 3,
 };
-
-// ScriptStruct ThreadExecutionBlueprintNode.TickFunctionByGroup
-// 0x0008 (0x0038 - 0x0030)
-struct FTickFunctionByGroup final : public FTickFunction
-{
-public:
-	uint8                                         Pad_30[0x8];                                       // 0x0030(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FTickFunctionByGroup;
 
 // ScriptStruct ThreadExecutionBlueprintNode.ThreadTickExecBehavior
 // 0x0010 (0x0010 - 0x0000)
@@ -71,5 +61,13 @@ public:
 };
 DUMPER7_ASSERTS_FThreadExecTimingPair;
 
-}
+// ScriptStruct ThreadExecutionBlueprintNode.TickFunctionByGroup
+// 0x0008 (0x0038 - 0x0030)
+struct FTickFunctionByGroup final : public FTickFunction
+{
+public:
+	uint8                                         Pad_30[0x8];                                       // 0x0030(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FTickFunctionByGroup;
 
+SDK_NAMESPACE_END

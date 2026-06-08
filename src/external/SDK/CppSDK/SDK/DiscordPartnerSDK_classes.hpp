@@ -16,8 +16,7 @@
 #include "CoreUObject_classes.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Class DiscordPartnerSDK.DiscordLocalPlayerSubsystem
 // 0x0118 (0x0148 - 0x0030)
@@ -1063,6 +1062,7 @@ public:
 	struct FDiscordUniqueID ID();
 	class UDiscordLobbyHandle* Lobby();
 	TMap<class FString, class FString> MetaData();
+	TMap<class FString, class FString> ModerationMetadata();
 	class FString RawContent();
 	class UDiscordUserHandle* Recipient();
 	struct FDiscordUniqueID RecipientId();
@@ -1265,6 +1265,7 @@ public:
 	void InitWithBases(const class FString& ApiBase, const class FString& WebBase);
 	void InitWithOptions(class UDiscordClientCreateOptions* Options);
 	bool IsAuthenticated();
+	void IsDiscordAppInstalled(const TDelegate<void(bool installed)>& Callback);
 	void JoinLinkedLobbyGuild(const struct FDiscordUniqueID& LobbyId, const TDelegate<void()>& provisionalUserMergeRequiredCallback, const TDelegate<void(class UDiscordClientResult* Result, const class FString& inviteUrl)>& Callback);
 	void LeaveLobby(const struct FDiscordUniqueID& LobbyId, const TDelegate<void(class UDiscordClientResult* Result)>& Callback);
 	void LinkChannelToLobby(const struct FDiscordUniqueID& LobbyId, const struct FDiscordUniqueID& ChannelId, const TDelegate<void(class UDiscordClientResult* Result)>& Callback);
@@ -1395,5 +1396,4 @@ public:
 };
 DUMPER7_ASSERTS_UDiscordCallInfoHandle;
 
-}
-
+SDK_NAMESPACE_END

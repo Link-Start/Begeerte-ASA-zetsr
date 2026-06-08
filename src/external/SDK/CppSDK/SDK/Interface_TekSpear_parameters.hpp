@@ -10,12 +10,12 @@
 
 #include "Basic.hpp"
 
-#include "Struct_WeapAnimWith3P_V3_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "Struct_WeapAnimWith3P_V3_structs.hpp"
 
 
-namespace SDK::Params
-{
+SDK_NAMESPACE_START
+SDK_PARAM_NAMESPACE_START
 
 // Function Interface_TekSpear.Interface_TekSpear_C.Interface_ProjSpear_Tek get damage multiplier for attack
 // 0x0010 (0x0010 - 0x0000)
@@ -91,6 +91,28 @@ public:
 	struct FStruct_WeapAnimWith3P_V3              Fallback_Standard_Stab_like_in_water;              // 0x0198(0x0018)(Parm, OutParm, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_Interface_TekSpear_C_Interface_TekSpear__Get_Animations;
+
+// Function Interface_TekSpear.Interface_TekSpear_C.Interface_TekSpear_ Get Awaiting Server Response Animations
+// 0x0150 (0x0150 - 0x0000)
+struct Interface_TekSpear_C_Interface_TekSpear__Get_Awaiting_Server_Response_Animations final
+{
+public:
+	struct FStruct_WeapAnimWith3P_V3              Attack_1;                                          // 0x0000(0x0018)(Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+	struct FStruct_WeapAnimWith3P_V3              Attack_2;                                          // 0x0018(0x0018)(Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+	struct FStruct_WeapAnimWith3P_V3              Attack_3;                                          // 0x0030(0x0018)(Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+	struct FStruct_WeapAnimWith3P_V3              bLock;                                             // 0x0048(0x0018)(Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+	struct FStruct_WeapAnimWith3P_V3              Deflect;                                           // 0x0060(0x0018)(Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+	struct FStruct_WeapAnimWith3P_V3              AirStabCharge;                                     // 0x0078(0x0018)(Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+	struct FStruct_WeapAnimWith3P_V3              AirStabRelease;                                    // 0x0090(0x0018)(Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+	struct FStruct_WeapAnimWith3P_V3              pullback;                                          // 0x00A8(0x0018)(Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+	struct FStruct_WeapAnimWith3P_V3              Toss;                                              // 0x00C0(0x0018)(Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+	struct FStruct_WeapAnimWith3P_V3              Dodge;                                             // 0x00D8(0x0018)(Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+	struct FStruct_WeapAnimWith3P_V3              GroundSlamDive;                                    // 0x00F0(0x0018)(Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+	struct FStruct_WeapAnimWith3P_V3              GroundSlamLand;                                    // 0x0108(0x0018)(Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+	struct FStruct_WeapAnimWith3P_V3              Fallback_Stab;                                     // 0x0120(0x0018)(Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+	struct FStruct_WeapAnimWith3P_V3              TPToSpear;                                         // 0x0138(0x0018)(Parm, OutParm, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_Interface_TekSpear_C_Interface_TekSpear__Get_Awaiting_Server_Response_Animations;
 
 // Function Interface_TekSpear.Interface_TekSpear_C.Torp Mode
 // 0x0002 (0x0002 - 0x0000)
@@ -194,6 +216,15 @@ public:
 };
 DUMPER7_ASSERTS_Interface_TekSpear_C_Interface_TekSpear_CanSetWeaponStateTo;
 
+// Function Interface_TekSpear.Interface_TekSpear_C.Interface_TekSpear_GetAwaitingServerState
+// 0x0001 (0x0001 - 0x0000)
+struct Interface_TekSpear_C_Interface_TekSpear_GetAwaitingServerState final
+{
+public:
+	uint8                                         Awaiting_State;                                    // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_Interface_TekSpear_C_Interface_TekSpear_GetAwaitingServerState;
+
 // Function Interface_TekSpear.Interface_TekSpear_C.Interface_TekSpear_GetFakeExpandedScale
 // 0x0008 (0x0008 - 0x0000)
 struct Interface_TekSpear_C_Interface_TekSpear_GetFakeExpandedScale final
@@ -202,6 +233,15 @@ public:
 	double                                        FakeExpandedScale;                                 // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_Interface_TekSpear_C_Interface_TekSpear_GetFakeExpandedScale;
+
+// Function Interface_TekSpear.Interface_TekSpear_C.Interface_TekSpear_GetLastLocationBeforeTP
+// 0x0018 (0x0018 - 0x0000)
+struct Interface_TekSpear_C_Interface_TekSpear_GetLastLocationBeforeTP final
+{
+public:
+	struct FVector                                Last_PreTPLoc;                                     // 0x0000(0x0018)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_Interface_TekSpear_C_Interface_TekSpear_GetLastLocationBeforeTP;
 
 // Function Interface_TekSpear.Interface_TekSpear_C.Interface_TekSpear_GetLastLocationProjectileWasAt
 // 0x0018 (0x0018 - 0x0000)
@@ -288,5 +328,5 @@ public:
 };
 DUMPER7_ASSERTS_Interface_TekSpear_C_Interface_TekSpear_SetLastSelectedTeleportSpot;
 
-}
-
+SDK_PARAM_NAMESPACE_END
+SDK_NAMESPACE_END

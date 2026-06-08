@@ -10,14 +10,13 @@
 
 #include "Basic.hpp"
 
+#include "CoreUObject_classes.hpp"
 #include "GLTFExporter_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
-#include "CoreUObject_classes.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Class GLTFExporter.GLTFExportOptions
 // 0x0088 (0x00B0 - 0x0028)
@@ -301,5 +300,4 @@ public:
 };
 DUMPER7_ASSERTS_UGLTFMaterialExportOptions;
 
-}
-
+SDK_NAMESPACE_END

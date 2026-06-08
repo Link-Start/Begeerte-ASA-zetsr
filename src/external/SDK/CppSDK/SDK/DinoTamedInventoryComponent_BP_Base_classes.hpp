@@ -13,11 +13,10 @@
 #include "ShooterGame_classes.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass DinoTamedInventoryComponent_BP_Base.DinoTamedInventoryComponent_BP_Base_C
-// 0x0000 (0x0790 - 0x0790)
+// 0x0000 (0x07C0 - 0x07C0)
 class UDinoTamedInventoryComponent_BP_Base_C final : public UPrimalInventoryComponent
 {
 public:
@@ -36,5 +35,4 @@ public:
 };
 DUMPER7_ASSERTS_UDinoTamedInventoryComponent_BP_Base_C;
 
-}
-
+SDK_NAMESPACE_END

@@ -6,12 +6,16 @@
 // #include "../Font/Alibaba-PuHuiTi-Bold.h"
 // #include "../Font/Alibaba-PuHuiTi-Heavy.h"
 // #include "../Font/Alibaba-PuHuiTi-Light.h"
-#include "../Font/Alibaba-PuHuiTi-Medium.h"
+// #include "../Font/Alibaba-PuHuiTi-Medium.h"
 // #include "../Font/Alibaba-PuHuiTi-Regular.h"
+#include "../Font/HarmonyOS_Sans_SC_Regular.h"
 
 #include "../MinHook/include/MinHook.h"
 
 #include "../../../internal/Util/Util.h"
+#include "../../../internal/Log/LogManager.h"
+
+#include "../../../internal/Menu/ConfigImGui.h"
 
 #pragma warning(push)
 #pragma warning(disable: 26451)
@@ -34,6 +38,16 @@ namespace g_Hook {
 
     typedef void(__fastcall* tPhysicsRotation)(SDK::UMovementComponent* rcx, float DeltaTime);
     tPhysicsRotation oPhysicsRotation = nullptr;
+
+    typedef float(__fastcall* tTakeDamage)(
+        SDK::AActor* _this,             // RCX
+        float DamageAmount,             // XMM1
+        SDK::FDamageEvent* DamageEvent, // R8
+        SDK::AController* Instigator,   // R9
+        SDK::AActor* DamageCauser       // 栈上
+        );
+
+    tTakeDamage oTakeDamage = nullptr;
 
     void* __fastcall hkUWorldTick(SDK::UWorld* rcx, void* rdx, void* r8, void* r9) {
         g_MDX12::SetupUWorldTick(rcx);
@@ -76,12 +90,23 @@ namespace g_Hook {
         */
     }
 
-
     void __fastcall hkPhysicsRotation(SDK::UMovementComponent* rcx, float DeltaTime)
     {
         g_MDX12::SetupPhysicsRotation(rcx, DeltaTime);
 
         return oPhysicsRotation(rcx, DeltaTime);
+    }
+
+    float __fastcall hkTakeDamage(
+        SDK::AActor* _this,
+        float DamageAmount,
+        SDK::FDamageEvent* DamageEvent,
+        SDK::AController* Instigator,
+        SDK::AActor* DamageCauser)
+    {
+        g_MDX12::SetupTakeDamage(_this, DamageAmount, DamageEvent, Instigator, DamageCauser);
+
+        return oTakeDamage(_this, DamageAmount, DamageEvent, Instigator, DamageCauser);
     }
 
     // 2026/3/29 @zetsr
@@ -115,6 +140,7 @@ namespace g_Hook {
 
             if (MH_CreateHook(targetAddr, &hkUWorldTick, reinterpret_cast<LPVOID*>(&oWorldTick)) == MH_OK) {
                 MH_EnableHook(targetAddr);
+                UWorldTickOK = true;
             }
         }
     }
@@ -128,6 +154,7 @@ namespace g_Hook {
 
             if (MH_CreateHook(targetAddr, &hkHandleDisconnect, reinterpret_cast<LPVOID*>(&oHandleDisconnect)) == MH_OK) {
                 MH_EnableHook(targetAddr);
+				HandleDisconnectOK = true;
             }
         }
     }
@@ -141,6 +168,7 @@ namespace g_Hook {
 
             if (MH_CreateHook(targetAddr, &hkOutputTextLine, reinterpret_cast<LPVOID*>(&oOutputTextLine)) == MH_OK) {
                 MH_EnableHook(targetAddr);
+				OutputTextLineOK = true;
             }
         }
     }
@@ -154,6 +182,7 @@ namespace g_Hook {
 
             if (MH_CreateHook(targetAddr, &hkPostRender, reinterpret_cast<LPVOID*>(&oPostRender)) == MH_OK) {
                 MH_EnableHook(targetAddr);
+                PostRenderOK = true;
             }
         }
     }
@@ -167,6 +196,21 @@ namespace g_Hook {
 
             if (MH_CreateHook(targetAddr, &hkPhysicsRotation, reinterpret_cast<LPVOID*>(&oPhysicsRotation)) == MH_OK) {
                 MH_EnableHook(targetAddr);
+				PhysicsRotationOK = true;
+            }
+        }
+    }
+
+    void initTakeDamage() {
+        std::string pattern = g_CheatData::Signature::AActor::TakeDamage;
+        AOB::Result ok = AOB::Scan(pattern);
+
+        if (ok && ok.size() > 0) {
+            void* targetAddr = ok[0];
+
+            if (MH_CreateHook(targetAddr, &hkTakeDamage, reinterpret_cast<LPVOID*>(&oTakeDamage)) == MH_OK) {
+                MH_EnableHook(targetAddr);
+                TakeDamageOK = true;
             }
         }
     }
@@ -188,6 +232,7 @@ void g_Hook::StartAllHooks() {
         g_Hook::initOutputTextLine();
         g_Hook::initPostRender();
         g_Hook::initPhysicsRotation();
+        g_Hook::initTakeDamage();
     }
 }
 
@@ -207,6 +252,60 @@ void g_Hook::StopAllHooks() {
 }
 
 namespace g_MDX12 {
+    static DXGI_FORMAT g_LastRTVFormat = DXGI_FORMAT_R8G8B8A8_UNORM;
+
+    void UpdateImGuiFont() {
+        // 如果缩放比例没有发生改变，直接返回
+        if (g_LoadedFontScaleIdx == g_Config::MenuScaleIdx) return;
+
+        if (g_LoadedFontScaleIdx != -1) {
+            // 等待 GPU 把前一帧画完
+            if (g_D3D12Resources::g_fence) {
+                for (UINT i = 0; i < g_D3D12Resources::g_bufferCount; ++i) {
+                    UINT64 fenceVal = g_D3D12Resources::g_FrameContexts[i].FenceValue;
+                    if (fenceVal != 0 && g_D3D12Resources::g_fence->GetCompletedValue() < fenceVal) {
+                        g_D3D12Resources::g_fence->SetEventOnCompletion(fenceVal, g_D3D12Resources::g_fenceEvent);
+                        WaitForSingleObject(g_D3D12Resources::g_fenceEvent, g_InitState::g_waitTimeoutMs);
+                    }
+                }
+            }
+
+            ImGui_ImplDX12_Shutdown();
+            ImGui_ImplWin32_Shutdown();
+            ImGui::DestroyContext();
+            ImGui::CreateContext();
+            ImGui_ImplWin32_Init(g_ProcessWindow::g_mainWindow);
+            g_DrawImGui::SetupCustomImGuiStyle();
+        }
+
+        ImGuiIO& io = ImGui::GetIO();
+        const ImWchar* range = io.Fonts->GetGlyphRangesChineseFull();
+
+        // 75%, 100%, 125%, 150%, 200% 对应的字体大小
+        float fontSizes[] = { 14.0f, 18.0f, 22.0f, 26.0f, 34.0f };
+        int safeIdx = g_Config::MenuScaleIdx;
+
+        ImFontConfig font_cfg;
+        font_cfg.FontDataOwnedByAtlas = false;
+
+        g_HarmonyOS_Sans_SC_Regular = io.Fonts->AddFontFromMemoryTTF(
+            (void*)g_Fonts::HarmonyOS_Sans_SC_Regular,
+            sizeof(g_Fonts::HarmonyOS_Sans_SC_Regular),
+            fontSizes[safeIdx],
+            &font_cfg,
+            range
+        );
+
+        io.Fonts->Build(); // 建立字体数据结构
+
+        // 如果是运行时切换(非首次)，立即重建 DX12 对象
+        if (g_LoadedFontScaleIdx != -1) {
+            ImGui_ImplDX12_Init(g_D3D12Resources::g_pd3dDevice, g_D3D12Resources::g_bufferCount, g_LastRTVFormat, g_D3D12Resources::g_pd3dSrvDescHeap, g_D3D12Resources::g_pd3dSrvDescHeap->GetCPUDescriptorHandleForHeapStart(), g_D3D12Resources::g_pd3dSrvDescHeap->GetGPUDescriptorHandleForHeapStart());
+        }
+
+        g_LoadedFontScaleIdx = safeIdx; // 更新记录
+    }
+
     void STDMETHODCALLTYPE hkExecuteCommandLists(ID3D12CommandQueue* queue, UINT NumCommandLists, ID3D12CommandList* const* ppCommandLists) {
         if (!g_D3D12Resources::g_pd3dCommandQueue && g_InitState::g_AfterFirstPresent && queue) {
             D3D12_COMMAND_QUEUE_DESC desc = queue->GetDesc();
@@ -336,7 +435,10 @@ namespace g_MDX12 {
                 ImGui::CreateContext();
 
                 // 下面这行代码就是罪魁祸首，只有首次初始化才跑它
-                ImGui::StyleColorsDark();
+                // 不应该调用它
+                // ImGui::StyleColorsDark();
+
+                g_DrawImGui::SetupCustomImGuiStyle();
 
                 ImGui_ImplWin32_Init(g_ProcessWindow::g_mainWindow);
             }
@@ -357,20 +459,32 @@ namespace g_MDX12 {
 
             // Alibaba-PuHuiTi-Bold
             // g_MDX12::g_Alibaba_PuHuiTi_Bold = io.Fonts->AddFontFromMemoryTTF(g_Fonts::Alibaba_PuHuiTi_Bold, sizeof(g_Fonts::Alibaba_PuHuiTi_Bold), 18.0f, NULL, range);
+            
             // Alibaba-PuHuiTi-Heavy
             // g_MDX12::g_Alibaba_PuHuiTi_Heavy = io.Fonts->AddFontFromMemoryTTF(g_Fonts::Alibaba_PuHuiTi_Heavy, sizeof(g_Fonts::Alibaba_PuHuiTi_Heavy), 18.0f, NULL, range);
+            
             // Alibaba-PuHuiTi-Light
             // g_MDX12::g_Alibaba_PuHuiTi_Light = io.Fonts->AddFontFromMemoryTTF(g_Fonts::Alibaba_PuHuiTi_Light, sizeof(g_Fonts::Alibaba_PuHuiTi_Light), 18.0f, NULL, range);
+            
             // Alibaba-PuHuiTi-Medium
-            g_MDX12::g_Alibaba_PuHuiTi_Medium = io.Fonts->AddFontFromMemoryTTF(g_Fonts::Alibaba_PuHuiTi_Medium, sizeof(g_Fonts::Alibaba_PuHuiTi_Medium), 18.0f, NULL, range);
+            // g_MDX12::g_Alibaba_PuHuiTi_Medium = io.Fonts->AddFontFromMemoryTTF(g_Fonts::Alibaba_PuHuiTi_Medium, sizeof(g_Fonts::Alibaba_PuHuiTi_Medium), 18.0f, NULL, range);
+            
+            // HarmonyOS_Sans_SC_Regular
+            // g_MDX12::g_HarmonyOS_Sans_SC_Regular = io.Fonts->AddFontFromMemoryTTF(g_Fonts::HarmonyOS_Sans_SC_Regular, sizeof(g_Fonts::HarmonyOS_Sans_SC_Regular), 10.0f, NULL, range);
+
+            // 记录 RTV Format，以供后续运行时切换字体时重启 DX12 后端使用
+            g_LastRTVFormat = desc.BufferDesc.Format;
+
+            // DPI切换
+            UpdateImGuiFont();
 
             // DX12 后端必须重新初始化，因为 resize 可能会让之前的 backend 对象失效
             ImGui_ImplDX12_Init(g_D3D12Resources::g_pd3dDevice, g_D3D12Resources::g_bufferCount, desc.BufferDesc.Format, g_D3D12Resources::g_pd3dSrvDescHeap, g_D3D12Resources::g_pd3dSrvDescHeap->GetCPUDescriptorHandleForHeapStart(), g_D3D12Resources::g_pd3dSrvDescHeap->GetGPUDescriptorHandleForHeapStart());
 
-            unsigned char* pixels;
-            int width, height;
+            // unsigned char* pixels;
+            // int width, height;
 
-            io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);
+            // io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);
             rawinputhook::Init();
             cursorhook::Init();
 
@@ -405,6 +519,7 @@ namespace g_MDX12 {
         ID3D12DescriptorHeap* ppHeaps[] = { g_D3D12Resources::g_pd3dSrvDescHeap };
         g_D3D12Resources::g_pd3dCommandList->SetDescriptorHeaps(_countof(ppHeaps), ppHeaps);
 
+        UpdateImGuiFont();
         ImGui_ImplDX12_NewFrame();
         ImGui_ImplWin32_NewFrame();
         ImGui::NewFrame();

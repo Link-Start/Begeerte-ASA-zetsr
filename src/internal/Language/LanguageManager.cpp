@@ -39,11 +39,14 @@ const char* LanguageManager::Language_Menu::WorkshopSection = U8("Workshop ÓïÑÔ°
 
 // -- Aimbot_Menu --
 const char* LanguageManager::Aimbot_Menu::TabLabel = U8("×ÔÃé");
-const char* LanguageManager::Aimbot_Menu::SectionTitle = U8("¶ÓÓÑÉèÖÃ");
+const char* LanguageManager::Aimbot_Menu::SectionTitle = U8("×Ô¶¯Ãé×¼");
 const char* LanguageManager::Aimbot_Menu::AimbotEnabled = U8("×Ô¶¯Ãé×¼");
 const char* LanguageManager::Aimbot_Menu::AimbotFOV = U8("Ãé×¼·¶Î§");
 const char* LanguageManager::Aimbot_Menu::AimbotSmooth = U8("Ãé×¼ËÙ¶È");
+const char* LanguageManager::Aimbot_Menu::AimbotRCX = U8("Ë®Æ½ºó×øÁ¦²¹³¥");
+const char* LanguageManager::Aimbot_Menu::AimbotRCY = U8("´¹Ö±ºó×øÁ¦²¹³¥");
 const char* LanguageManager::Aimbot_Menu::TriggerbotEnabled = U8("×Ô¶¯Éä»÷");
+const char* LanguageManager::Aimbot_Menu::TriggerHitChance = U8("×îµÍÃüÖĞÂÊ");
 
 // -- EntityList_Menu --
 const char* LanguageManager::EntityList_Menu::TabLabel = U8("ÉúÎïÁĞ±í");
@@ -87,6 +90,10 @@ const char* LanguageManager::Misc_Menu::UnlockExplorerNotes = U8("Ò»¼üÂú¼¶");
 const char* LanguageManager::Misc_Menu::AutoFeed = U8("×Ô¶¯Î¹Èâ");
 const char* LanguageManager::Misc_Menu::SuperFlyer = U8("·ÉĞĞÁú¼ÓÇ¿");
 const char* LanguageManager::Misc_Menu::ForceTurn = U8("Ãë×ªÍ·");
+const char* LanguageManager::Misc_Menu::LogDamage = U8("ÉËº¦ÈÕÖ¾");
+const char* LanguageManager::Misc_Menu::ArmorRange = U8("»»¼×ãĞÖµ");
+const char* LanguageManager::Misc_Menu::AutomaticChecked = U8("×Ô¶¯»»¼×");
+const char* LanguageManager::Misc_Menu::OutBodyChecked = U8("Áé»ê³öÇÏ");
 
 // -- StructureList_Menu --
 const char* LanguageManager::StructureList_Menu::TabLabel = U8("½¨ÖşÁĞ±í");
@@ -103,6 +110,9 @@ const char* LanguageManager::Visuals_Menu::SectionExtra = U8("¶îÍâĞÅÏ¢");
 const char* LanguageManager::Visuals_Menu::SectionWorld = U8("ÊÀ½çĞÅÏ¢");
 const char* LanguageManager::Visuals_Menu::SectionTeam = U8("¶ÓÓÑÉèÖÃ");
 const char* LanguageManager::Visuals_Menu::SectionTeamExtra = U8("¶îÍâĞÅÏ¢");
+
+const char* LanguageManager::Visuals_Menu::ESPEnabled = U8("ÆôÓÃÍ¸ÊÓ");
+
 const char* LanguageManager::Visuals_Menu::Box = U8("·½¿ò");
 const char* LanguageManager::Visuals_Menu::Name = U8("Ãû³Æ");
 const char* LanguageManager::Visuals_Menu::HealthBar = U8("ÑªÁ¿");
@@ -111,38 +121,70 @@ const char* LanguageManager::Visuals_Menu::Ragdoll = U8("Ê¬Ìå");
 const char* LanguageManager::Visuals_Menu::Distance = U8("¾àÀë");
 const char* LanguageManager::Visuals_Menu::ShowAimPoints = U8("ÏÔÊ¾Ãé×¼µã");
 const char* LanguageManager::Visuals_Menu::DroppedItems = U8("µôÂäµÄÎïÆ·");
-const char* LanguageManager::Visuals_Menu::DroppedItemPiled = U8("¶ÑµşÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemCryopod = U8("µÍÎÂ²ÖÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemEgg = U8("µ°ÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemMeat = U8("ÈâÀàÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemSpoiledMeat = U8("¸¯ÈâÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemWood = U8("Ä¾Í·ÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemThatch = U8("Ã©²İÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemMetal = U8("½ğÊôÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemStone = U8("Ê¯Í·ÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemCrystal = U8("Ë®¾§ÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemGem = U8("±¦Ê¯ÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemPearl = U8("ÕäÖéÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemHide = U8("ÊŞÆ¤ÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemPelt = U8("Ã«Æ¤ÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemKeratin = U8("½ÇÖÊÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemChitin = U8("¼×¿ÇËØÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemCorruptedPolymer = U8("¸¯»¯ÁöÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemPolymer_Organic = U8("ÓĞ»ú¾ÛºÏÎïÑÕÉ«");
-const char* LanguageManager::Visuals_Menu::DroppedItemPolymer = U8("¾ÛºÏÎïÑÕÉ«");
+const char* LanguageManager::Visuals_Menu::DroppedItemPiled = U8("¶ÑµşÎïÆ·");
+const char* LanguageManager::Visuals_Menu::DroppedItemCryopod = U8("µÍÎÂ²Ö");
+const char* LanguageManager::Visuals_Menu::DroppedItemEgg = U8("µ°");
+const char* LanguageManager::Visuals_Menu::DroppedItemMeat = U8("ÈâÀà");
+const char* LanguageManager::Visuals_Menu::DroppedItemSpoiledMeat = U8("¸¯Èâ");
+const char* LanguageManager::Visuals_Menu::DroppedItemWood = U8("Ä¾Í·");
+const char* LanguageManager::Visuals_Menu::DroppedItemThatch = U8("Ã©²İ");
+const char* LanguageManager::Visuals_Menu::DroppedItemMetal = U8("½ğÊô");
+const char* LanguageManager::Visuals_Menu::DroppedItemStone = U8("Ê¯Í·");
+const char* LanguageManager::Visuals_Menu::DroppedItemCrystal = U8("Ë®¾§");
+const char* LanguageManager::Visuals_Menu::DroppedItemGem = U8("±¦Ê¯");
+const char* LanguageManager::Visuals_Menu::DroppedItemPearl = U8("ÕäÖé");
+const char* LanguageManager::Visuals_Menu::DroppedItemHide = U8("ÊŞÆ¤");
+const char* LanguageManager::Visuals_Menu::DroppedItemPelt = U8("Ã«Æ¤");
+const char* LanguageManager::Visuals_Menu::DroppedItemKeratin = U8("½ÇÖÊ");
+const char* LanguageManager::Visuals_Menu::DroppedItemChitin = U8("¼×¿ÇËØ");
+const char* LanguageManager::Visuals_Menu::DroppedItemCorruptedPolymer = U8("¸¯»¯Áö");
+const char* LanguageManager::Visuals_Menu::DroppedItemPolymer_Organic = U8("ÓĞ»ú¾ÛºÏÎï");
+const char* LanguageManager::Visuals_Menu::DroppedItemPolymer = U8("¾ÛºÏÎï");
 const char* LanguageManager::Visuals_Menu::DroppedItemMaxDistance = U8("ÎïÆ·ÏÔÊ¾¾àÀë");
+
 const char* LanguageManager::Visuals_Menu::ShowStructures = U8("ÏÔÊ¾½¨Öş");
 const char* LanguageManager::Visuals_Menu::OnlyEnemyStructures = U8("½öÏÔÊ¾µĞÈË½¨Öş");
 const char* LanguageManager::Visuals_Menu::StructureMaxDistance = U8("½¨ÖşÏÔÊ¾¾àÀë");
+
+const char* LanguageManager::Visuals_Menu::TeamShowStructures = U8("ÏÔÊ¾½¨Öş##Team");
+const char* LanguageManager::Visuals_Menu::TeamStructureMaxDistance = U8("½¨ÖşÏÔÊ¾¾àÀë##Team");
+
 const char* LanguageManager::Visuals_Menu::ShowWater = U8("ÏÔÊ¾Ë®Ô´");
 const char* LanguageManager::Visuals_Menu::WaterMaxCount = U8("ÏÔÊ¾×î½üË®Ô´ÊıÁ¿");
 const char* LanguageManager::Visuals_Menu::WaterCountUnit = U8("¸ö");
+
+const char* LanguageManager::Visuals_Menu::ESPTeamEnabled = U8("ÆôÓÃÍ¸ÊÓ##Team");
+
 const char* LanguageManager::Visuals_Menu::TeamBox = U8("·½¿ò##Team");
 const char* LanguageManager::Visuals_Menu::TeamName = U8("Ãû³Æ##Team");
 const char* LanguageManager::Visuals_Menu::TeamHealthBar = U8("ÑªÁ¿##Team");
 const char* LanguageManager::Visuals_Menu::TeamTorpor = U8("Ñ£ÔÎ##Team");
 const char* LanguageManager::Visuals_Menu::TeamRagdoll = U8("Ê¬Ìå##Team");
 const char* LanguageManager::Visuals_Menu::TeamDistance = U8("¾àÀë##Team");
+
+const char* LanguageManager::Visuals_Menu::TeamDinoBox = U8("·½¿ò##TeamDino");
+const char* LanguageManager::Visuals_Menu::TeamDinoName = U8("Ãû³Æ##TeamDino");
+const char* LanguageManager::Visuals_Menu::TeamDinoHealthBar = U8("ÑªÁ¿##TeamDino");
+const char* LanguageManager::Visuals_Menu::TeamDinoTorpor = U8("Ñ£ÔÎ##TeamDino");
+const char* LanguageManager::Visuals_Menu::TeamDinoRagdoll = U8("Ê¬Ìå##TeamDino");
+const char* LanguageManager::Visuals_Menu::TeamDinoDistance = U8("¾àÀë##TeamDino");
+
+const char* LanguageManager::Visuals_Menu::DinoBox = U8("·½¿ò##Dino");
+const char* LanguageManager::Visuals_Menu::DinoName = U8("Ãû³Æ##Dino");
+const char* LanguageManager::Visuals_Menu::DinoHealthBar = U8("ÑªÁ¿##Dino");
+const char* LanguageManager::Visuals_Menu::DinoTorpor = U8("Ñ£ÔÎ##Dino");
+const char* LanguageManager::Visuals_Menu::DinoRagdoll = U8("Ê¬Ìå##Dino");
+const char* LanguageManager::Visuals_Menu::DinoDistance = U8("¾àÀë##Dino");
+
+const char* LanguageManager::Visuals_Menu::TYPEPlayer = U8("Éú´æÕß");
+const char* LanguageManager::Visuals_Menu::TYPEDino = U8("ÉúÎï");
+const char* LanguageManager::Visuals_Menu::TYPEStructures = U8("½¨Öş");
+const char* LanguageManager::Visuals_Menu::TYPEDroppedItems = U8("ÎïÆ·");
+const char* LanguageManager::Visuals_Menu::TYPEWorld = U8("ÊÀ½ç");
+const char* LanguageManager::Visuals_Menu::DroppedItemsCombo = U8("Ñ¡ÔñÒªÏÔÊ¾µÄµôÂäÎï");
+
+const char* LanguageManager::ConfigImGui_Menu::Copy = U8("¸´ÖÆ");
+const char* LanguageManager::ConfigImGui_Menu::Paste = U8("Õ³Ìù");
 
 // =============================================================================
 // RegisterDefaults ¡ª¡ª Éú³ÉÄ£°å ini Ê¹ÓÃ£¬ÖµÎª UTF-8 ×Ö·û´®
@@ -172,11 +214,14 @@ void LanguageManager::RegisterDefaults(std::unordered_map<std::string, std::stri
 
     // Aimbot_Menu
     d["Aimbot_Menu.TabLabel"] = U8("×ÔÃé");
-    d["Aimbot_Menu.SectionTitle"] = U8("¶ÓÓÑÉèÖÃ");
+    d["Aimbot_Menu.SectionTitle"] = U8("×Ô¶¯Ãé×¼");
     d["Aimbot_Menu.AimbotEnabled"] = U8("×Ô¶¯Ãé×¼");
     d["Aimbot_Menu.AimbotFOV"] = U8("Ãé×¼·¶Î§");
     d["Aimbot_Menu.AimbotSmooth"] = U8("Ãé×¼ËÙ¶È");
+    d["Aimbot_Menu.AimbotRCX"] = U8("Ë®Æ½ºó×øÁ¦²¹³¥");
+    d["Aimbot_Menu.AimbotRCY"] = U8("´¹Ö±ºó×øÁ¦²¹³¥");
     d["Aimbot_Menu.TriggerbotEnabled"] = U8("×Ô¶¯Éä»÷");
+    d["Aimbot_Menu.TriggerHitChance"] = U8("×îµÍÃüÖĞÂÊ");
 
     // EntityList_Menu
     d["EntityList_Menu.TabLabel"] = U8("ÉúÎïÁĞ±í");
@@ -220,6 +265,10 @@ void LanguageManager::RegisterDefaults(std::unordered_map<std::string, std::stri
     d["Misc_Menu.AutoFeed"] = U8("×Ô¶¯Î¹Èâ");
     d["Misc_Menu.SuperFlyer"] = U8("·ÉĞĞÁú¼ÓÇ¿");
     d["Misc_Menu.ForceTurn"] = U8("Ãë×ªÍ·");
+    d["Misc_Menu.LogDamage"] = U8("ÉËº¦ÈÕÖ¾");
+    d["Misc_Menu.ArmorRange"] = U8("»»¼×ãĞÖµ");
+    d["Misc_Menu.AutomaticChecked"] = U8("×Ô¶¯»»¼×");
+    d["Misc_Menu.OutBodyChecked"] = U8("Áé»ê³öÇÏ");
 
     // StructureList_Menu
     d["StructureList_Menu.TabLabel"] = U8("½¨ÖşÁĞ±í");
@@ -236,6 +285,7 @@ void LanguageManager::RegisterDefaults(std::unordered_map<std::string, std::stri
     d["Visuals_Menu.SectionWorld"] = U8("ÊÀ½çĞÅÏ¢");
     d["Visuals_Menu.SectionTeam"] = U8("¶ÓÓÑÉèÖÃ");
     d["Visuals_Menu.SectionTeamExtra"] = U8("¶îÍâĞÅÏ¢");
+    d["Visuals_Menu.ESPEnabled"] = U8("ÆôÓÃÍ¸ÊÓ");
     d["Visuals_Menu.Box"] = U8("·½¿ò");
     d["Visuals_Menu.Name"] = U8("Ãû³Æ");
     d["Visuals_Menu.HealthBar"] = U8("ÑªÁ¿");
@@ -267,15 +317,44 @@ void LanguageManager::RegisterDefaults(std::unordered_map<std::string, std::stri
     d["Visuals_Menu.ShowStructures"] = U8("ÏÔÊ¾½¨Öş");
     d["Visuals_Menu.OnlyEnemyStructures"] = U8("½öÏÔÊ¾µĞÈË½¨Öş");
     d["Visuals_Menu.StructureMaxDistance"] = U8("½¨ÖşÏÔÊ¾¾àÀë");
+
+    d["Visuals_Menu.TeamShowStructures"] = U8("ÏÔÊ¾½¨Öş##Team");
+    d["Visuals_Menu.TeamStructureMaxDistance"] = U8("½¨ÖşÏÔÊ¾¾àÀë##Team");
+
     d["Visuals_Menu.ShowWater"] = U8("ÏÔÊ¾Ë®Ô´");
     d["Visuals_Menu.WaterMaxCount"] = U8("ÏÔÊ¾×î½üË®Ô´ÊıÁ¿");
     d["Visuals_Menu.WaterCountUnit"] = U8("¸ö");
+    d["Visuals_Menu.ESPTeamEnabled"] = U8("ÆôÓÃÍ¸ÊÓ##Team");
     d["Visuals_Menu.TeamBox"] = U8("·½¿ò##Team");
     d["Visuals_Menu.TeamName"] = U8("Ãû³Æ##Team");
     d["Visuals_Menu.TeamHealthBar"] = U8("ÑªÁ¿##Team");
     d["Visuals_Menu.TeamTorpor"] = U8("Ñ£ÔÎ##Team");
     d["Visuals_Menu.TeamRagdoll"] = U8("Ê¬Ìå##Team");
     d["Visuals_Menu.TeamDistance"] = U8("¾àÀë##Team");
+
+    d["Visuals_Menu.TeamDinoBox"] = U8("·½¿ò##TeamDino");
+    d["Visuals_Menu.TeamDinoName"] = U8("Ãû³Æ##TeamDino");
+    d["Visuals_Menu.TeamDinoHealthBar"] = U8("ÑªÁ¿##TeamDino");
+    d["Visuals_Menu.TeamDinoTorpor"] = U8("Ñ£ÔÎ##TeamDino");
+    d["Visuals_Menu.TeamDinoRagdoll"] = U8("Ê¬Ìå##TeamDino");
+    d["Visuals_Menu.TeamDinoDistance"] = U8("¾àÀë##TeamDino");
+
+    d["Visuals_Menu.DinoBox"] = U8("·½¿ò##Dino");
+    d["Visuals_Menu.DinoName"] = U8("Ãû³Æ##Dino");
+    d["Visuals_Menu.DinoHealthBar"] = U8("ÑªÁ¿##Dino");
+    d["Visuals_Menu.DinoTorpor"] = U8("Ñ£ÔÎ##Dino");
+    d["Visuals_Menu.DinoRagdoll"] = U8("Ê¬Ìå##Dino");
+    d["Visuals_Menu.DinoDistance"] = U8("¾àÀë##Dino");
+
+    d["Visuals_Menu.TYPEPlayer"] = U8("Éú´æÕß");
+    d["Visuals_Menu.TYPEDino"] = U8("ÉúÎï");
+    d["Visuals_Menu.TYPEStructures"] = U8("½¨Öş");
+    d["Visuals_Menu.TYPEDroppedItems"] = U8("ÎïÆ·");
+    d["Visuals_Menu.TYPEWorld"] = U8("ÊÀ½ç");
+    d["Visuals_Menu.DroppedItemsCombo"] = U8("Ñ¡ÔñÒªÏÔÊ¾µÄµôÂäÎï");
+
+    d["ConfigImGui_Menu.Copy"] = U8("¸´ÖÆ");
+    d["ConfigImGui_Menu.Paste"] = U8("Õ³Ìù");
 }
 
 // =============================================================================
@@ -318,7 +397,10 @@ void LanguageManager::ApplyToStaticMembers() {
     apply("Aimbot_Menu.AimbotEnabled", Aimbot_Menu::AimbotEnabled);
     apply("Aimbot_Menu.AimbotFOV", Aimbot_Menu::AimbotFOV);
     apply("Aimbot_Menu.AimbotSmooth", Aimbot_Menu::AimbotSmooth);
+    apply("Aimbot_Menu.AimbotRCX", Aimbot_Menu::AimbotRCX);
+    apply("Aimbot_Menu.AimbotRCY", Aimbot_Menu::AimbotRCY);
     apply("Aimbot_Menu.TriggerbotEnabled", Aimbot_Menu::TriggerbotEnabled);
+    apply("Aimbot_Menu.TriggerHitChance", Aimbot_Menu::TriggerHitChance);
 
     // EntityList_Menu
     apply("EntityList_Menu.TabLabel", EntityList_Menu::TabLabel);
@@ -362,6 +444,10 @@ void LanguageManager::ApplyToStaticMembers() {
     apply("Misc_Menu.AutoFeed", Misc_Menu::AutoFeed);
     apply("Misc_Menu.SuperFlyer", Misc_Menu::SuperFlyer);
     apply("Misc_Menu.ForceTurn", Misc_Menu::ForceTurn);
+    apply("Misc_Menu.LogDamage", Misc_Menu::LogDamage);
+    apply("Misc_Menu.ArmorRange", Misc_Menu::ArmorRange);
+    apply("Misc_Menu.AutomaticChecked", Misc_Menu::AutomaticChecked);
+    apply("Misc_Menu.OutBodyChecked", Misc_Menu::OutBodyChecked);
 
     // StructureList_Menu
     apply("StructureList_Menu.TabLabel", StructureList_Menu::TabLabel);
@@ -378,6 +464,8 @@ void LanguageManager::ApplyToStaticMembers() {
     apply("Visuals_Menu.SectionWorld", Visuals_Menu::SectionWorld);
     apply("Visuals_Menu.SectionTeam", Visuals_Menu::SectionTeam);
     apply("Visuals_Menu.SectionTeamExtra", Visuals_Menu::SectionTeamExtra);
+
+    apply("Visuals_Menu.ESPEnabled", Visuals_Menu::ESPEnabled);
     apply("Visuals_Menu.Box", Visuals_Menu::Box);
     apply("Visuals_Menu.Name", Visuals_Menu::Name);
     apply("Visuals_Menu.HealthBar", Visuals_Menu::HealthBar);
@@ -409,15 +497,45 @@ void LanguageManager::ApplyToStaticMembers() {
     apply("Visuals_Menu.ShowStructures", Visuals_Menu::ShowStructures);
     apply("Visuals_Menu.OnlyEnemyStructures", Visuals_Menu::OnlyEnemyStructures);
     apply("Visuals_Menu.StructureMaxDistance", Visuals_Menu::StructureMaxDistance);
+
+    apply("Visuals_Menu.TeamShowStructures", Visuals_Menu::TeamShowStructures);
+    apply("Visuals_Menu.TeamStructureMaxDistance", Visuals_Menu::TeamStructureMaxDistance);
+
     apply("Visuals_Menu.ShowWater", Visuals_Menu::ShowWater);
     apply("Visuals_Menu.WaterMaxCount", Visuals_Menu::WaterMaxCount);
     apply("Visuals_Menu.WaterCountUnit", Visuals_Menu::WaterCountUnit);
+
+    apply("Visuals_Menu.ESPTeamEnabled", Visuals_Menu::ESPTeamEnabled);
     apply("Visuals_Menu.TeamBox", Visuals_Menu::TeamBox);
     apply("Visuals_Menu.TeamName", Visuals_Menu::TeamName);
     apply("Visuals_Menu.TeamHealthBar", Visuals_Menu::TeamHealthBar);
     apply("Visuals_Menu.TeamTorpor", Visuals_Menu::TeamTorpor);
     apply("Visuals_Menu.TeamRagdoll", Visuals_Menu::TeamRagdoll);
     apply("Visuals_Menu.TeamDistance", Visuals_Menu::TeamDistance);
+
+    apply("Visuals_Menu.TeamDinoBox", Visuals_Menu::TeamDinoBox);
+    apply("Visuals_Menu.TeamDinoName", Visuals_Menu::TeamDinoName);
+    apply("Visuals_Menu.TeamDinoHealthBar", Visuals_Menu::TeamDinoHealthBar);
+    apply("Visuals_Menu.TeamDinoTorpor", Visuals_Menu::TeamDinoTorpor);
+    apply("Visuals_Menu.TeamDinoRagdoll", Visuals_Menu::TeamDinoRagdoll);
+    apply("Visuals_Menu.TeamDinoDistance", Visuals_Menu::TeamDinoDistance);
+
+    apply("Visuals_Menu.DinoBox", Visuals_Menu::DinoBox);
+    apply("Visuals_Menu.DinoName", Visuals_Menu::DinoName);
+    apply("Visuals_Menu.DinoHealthBar", Visuals_Menu::DinoHealthBar);
+    apply("Visuals_Menu.DinoTorpor", Visuals_Menu::DinoTorpor);
+    apply("Visuals_Menu.DinoRagdoll", Visuals_Menu::DinoRagdoll);
+    apply("Visuals_Menu.DinoDistance", Visuals_Menu::DinoDistance);
+
+    apply("Visuals_Menu.TYPEPlayer", Visuals_Menu::TYPEPlayer);
+    apply("Visuals_Menu.TYPEDino", Visuals_Menu::TYPEDino);
+    apply("Visuals_Menu.TYPEStructures", Visuals_Menu::TYPEStructures);
+    apply("Visuals_Menu.TYPEDroppedItems", Visuals_Menu::TYPEDroppedItems);
+    apply("Visuals_Menu.TYPEWorld", Visuals_Menu::TYPEWorld);
+    apply("Visuals_Menu.DroppedItemsCombo", Visuals_Menu::DroppedItemsCombo);
+
+    apply("ConfigImGui_Menu.Copy", ConfigImGui_Menu::Copy);
+    apply("ConfigImGui_Menu.Paste", ConfigImGui_Menu::Paste);
 }
 
 // =============================================================================

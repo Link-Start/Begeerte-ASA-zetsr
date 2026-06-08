@@ -14,8 +14,21 @@
 #include "UI_CFCore_Button_Player_PlayPause_parameters.hpp"
 
 
-namespace SDK
+SDK_NAMESPACE_START
+
+// Function UI_CFCore_Button_Player_PlayPause.UI_CFCore_Button_Player_PlayPause_C.BndEvt__UI_Button_ScreenshotNavigation_IMG_PrevImage_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature
+// (BlueprintEvent)
+
+void UUI_CFCore_Button_Player_PlayPause_C::BndEvt__UI_Button_ScreenshotNavigation_IMG_PrevImage_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature()
 {
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CFCore_Button_Player_PlayPause_C", "BndEvt__UI_Button_ScreenshotNavigation_IMG_PrevImage_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
 
 // Function UI_CFCore_Button_Player_PlayPause.UI_CFCore_Button_Player_PlayPause_C.ExecuteUbergraph_UI_CFCore_Button_Player_PlayPause
 // (Final, UbergraphFunction)
@@ -37,18 +50,4 @@ void UUI_CFCore_Button_Player_PlayPause_C::ExecuteUbergraph_UI_CFCore_Button_Pla
 }
 
 
-// Function UI_CFCore_Button_Player_PlayPause.UI_CFCore_Button_Player_PlayPause_C.BndEvt__UI_Button_ScreenshotNavigation_IMG_PrevImage_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature
-// (BlueprintEvent)
-
-void UUI_CFCore_Button_Player_PlayPause_C::BndEvt__UI_Button_ScreenshotNavigation_IMG_PrevImage_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CFCore_Button_Player_PlayPause_C", "BndEvt__UI_Button_ScreenshotNavigation_IMG_PrevImage_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-}
-
+SDK_NAMESPACE_END

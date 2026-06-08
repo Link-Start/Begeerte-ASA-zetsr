@@ -14,23 +14,22 @@
 #include "GameAnalytics_structs.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Class GameAnalytics.GameAnalytics
 // 0x0000 (0x0028 - 0x0028)
 class UGameAnalytics final : public UObject
 {
 public:
-	static void AddAdEvent(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement);
-	static void AddAdEventWithDuration(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, int64 Duration);
-	static void AddAdEventWithDurationAndFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, int64 Duration, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
-	static void AddAdEventWithDurationAndMergeFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, int64 Duration, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
-	static void AddAdEventWithFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
-	static void AddAdEventWithMergeFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
-	static void AddAdEventWithNoAdReason(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, EGAAdError noAdReason);
-	static void AddAdEventWithNoAdReasonAndFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, EGAAdError noAdReason, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
-	static void AddAdEventWithNoAdReasonAndMergeFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, EGAAdError noAdReason, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
+	static void AddAdEvent(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement);
+	static void AddAdEventWithDuration(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, int64 Duration);
+	static void AddAdEventWithDurationAndFields(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, int64 Duration, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
+	static void AddAdEventWithDurationAndMergeFields(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, int64 Duration, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
+	static void AddAdEventWithFields(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
+	static void AddAdEventWithMergeFields(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
+	static void AddAdEventWithNoAdReason(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, EGAAdError noAdReason);
+	static void AddAdEventWithNoAdReasonAndFields(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, EGAAdError noAdReason, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
+	static void AddAdEventWithNoAdReasonAndMergeFields(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, EGAAdError noAdReason, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
 	static void AddBusinessEvent(const class FString& Currency, int32 Amount, const class FString& ItemType, const class FString& ItemID, const class FString& CartType);
 	static void AddBusinessEventAndAutoFetchReceipt(const class FString& Currency, int32 Amount, const class FString& ItemType, const class FString& ItemID, const class FString& CartType);
 	static void AddBusinessEventAndAutoFetchReceiptWithFields(const class FString& Currency, int32 Amount, const class FString& ItemType, const class FString& ItemID, const class FString& CartType, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields);
@@ -105,5 +104,4 @@ public:
 };
 DUMPER7_ASSERTS_UGameAnalytics;
 
-}
-
+SDK_NAMESPACE_END

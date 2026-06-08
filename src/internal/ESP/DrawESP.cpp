@@ -1,5 +1,4 @@
 // DrawESP.cpp
-#include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 #include "../../external/SDK/SDK_Headers.hpp"
 #include "ESP.h"
 #include "../Config/Configs.h"
@@ -11,31 +10,56 @@
 #include <cmath>
 #include <memory>
 #include <cstdio>
+#include <chrono>
+
+namespace {
+    // 将 g_Util 中的 ImU32 等价格式转换为 FLinearColor
+    SDK::FLinearColor U32ToFLinearColor(uint32_t color) {
+        float r = (float)(color & 0xFF) / 255.0f;
+        float g = (float)((color >> 8) & 0xFF) / 255.0f;
+        float b = (float)((color >> 16) & 0xFF) / 255.0f;
+        float a = (float)((color >> 24) & 0xFF) / 255.0f;
+        return SDK::FLinearColor{ r, g, b, a };
+    }
+
+    SDK::FLinearColor GetHealthColorLinear(float percentage, float* colorMax, float* colorMin) {
+        percentage = std::clamp(percentage, 0.0f, 1.0f);
+
+        float r = colorMin[0] + (colorMax[0] - colorMin[0]) * percentage;
+        float g = colorMin[1] + (colorMax[1] - colorMin[1]) * percentage;
+        float b = colorMin[2] + (colorMax[2] - colorMin[2]) * percentage;
+        float a = colorMin[3] + (colorMax[3] - colorMin[3]) * percentage;
+
+        return SDK::FLinearColor{ r, g, b, a };
+    }
+}
 
 namespace g_DrawESP {
     static constexpr float FADE_IN_TIME = 0.10f;
     static constexpr float FADE_OUT_TIME = 0.20f;
 
     struct CachedFlag {
-        std::string text;
-        ImU32       color;
-        g_ESP::FlagPos pos;
+        std::string       text;
+        SDK::FLinearColor color;
+        g_ESP::FlagPos    pos;
     };
 
     struct CachedBar {
-        float               currentValue;
-        float               maxValue;
-        ImU32               color;
-        g_ESP::BarPos       pos;
+        float                 currentValue;
+        float                 maxValue;
+        SDK::FLinearColor     color;
+        g_ESP::BarPos         pos;
         g_ESP::BarOrientation orientation;
     };
 
     // -----------------------------------------------------------------------
-    // 实体类型枚举，缓存 IsA 结果，避免每帧重复调用虚函数链
+    // 实体类型枚举，加入 ShooterCharacter(玩家) 和 PrimalDinoCharacter(生物) 分离
     // -----------------------------------------------------------------------
     enum class ActorType : uint8_t {
         Unknown = 0,
-        PrimalCharacter,
+        ShooterCharacter,
+        PrimalDinoCharacter,
+        PrimalCharacter, // Fallback对于其它不可预知的基础生物/NPC
         PhysicsVolume,
         DroppedItem,
         PrimalStructure,
@@ -51,9 +75,9 @@ namespace g_DrawESP {
         std::vector<CachedFlag> flags;
         std::vector<CachedBar>  bars;
 
-        ImU32  boxColor = 0;
-        ImU32  nameColor = 0;
-        ImU32  distanceColor = 0;
+        SDK::FLinearColor boxColor{ 0,0,0,0 };
+        SDK::FLinearColor nameColor{ 0,0,0,0 };
+        SDK::FLinearColor distanceColor{ 0,0,0,0 };
         float  configBoxAlpha = 1.0f;
         float  targetAlpha = 0.0f;
         float  alpha = 0.0f;
@@ -82,13 +106,38 @@ namespace g_DrawESP {
         SDK::FVector    surfaceLoc;
     };
 
-    // 重用 vector，避免每帧分配/释放
     static std::vector<WaterCandidate> waterCandidates;
     static std::vector<uintptr_t>      s_toErase;
 
-    // 主函数
-    void DrawESP()
+    void DrawESP(SDK::UCanvas* Canvas)
     {
+        if (!Canvas) return;
+
+        switch (g_Config::ESPScaleIdx)
+        {
+        case 0:
+            g_Config::ESPScale = 0.75f;
+            break;
+        case 1:
+            g_Config::ESPScale = 1.00f;
+            break;
+        case 2:
+            g_Config::ESPScale = 1.25f;
+            break;
+        case 3:
+            g_Config::ESPScale = 1.5f;
+            break;
+        case 4:
+            g_Config::ESPScale = 2.0f;
+            break;
+        }
+
+        if (!g_Config::bESPEnabled) {
+            s_entries.clear();
+            waterCandidates.clear();
+            return;
+        }
+
         SDK::UWorld* World = SDK::UWorld::GetWorld();
         if (!World || !World->GameState || !World->PersistentLevel) return;
 
@@ -110,38 +159,35 @@ namespace g_DrawESP {
             return;
         }
 
-        // 只调用一次 GetIO()
-        ImGuiIO& io = ImGui::GetIO();
-        const float screenW = io.DisplaySize.x;
-        const float screenH = io.DisplaySize.y;
-        const float deltaTime = io.DeltaTime;
+        const float screenW = Canvas->SizeX;
+        const float screenH = Canvas->SizeY;
+
+        static auto s_lastTime = std::chrono::high_resolution_clock::now();
+        auto s_currentTime = std::chrono::high_resolution_clock::now();
+        const float deltaTime = std::chrono::duration<float>(s_currentTime - s_lastTime).count();
+        s_lastTime = s_currentTime;
 
         SDK::APrimalCharacter* LocalChar = static_cast<SDK::APrimalCharacter*>(LocalPC->Pawn);
 
         SDK::TArray<SDK::AActor*>& Actors = World->PersistentLevel->Actors;
-        const int actorCount = Actors.Num(); // 缓存，避免每次循环调用
+        const int actorCount = Actors.Num();
 
         waterCandidates.clear();
 
-        // 预先缓存搜索过滤字符串（避免每次循环从 char[] 构造 std::string）
         const char* rawEntityFilter = g_Config::entitySearchBuf;
         const bool  hasEntityFilter = g_Config::bEnableFilter && rawEntityFilter[0] != '\0';
         const char* rawStructFilter = g_Config::structureSearchBuf;
         const bool  hasStructureFilter = g_Config::bEnableStructureFilter && rawStructFilter[0] != '\0';
 
-        // 标记所有条目为非活跃
         for (auto& kv : s_entries)
             kv.second.aliveThisFrame = false;
 
-        // ================================================================
-        // 主 Actor 遍历
-        // ================================================================
         for (int i = 0; i < actorCount; i++) {
             SDK::AActor* TargetActor = Actors[i];
             if (!TargetActor || TargetActor == LocalPC->Pawn) continue;
 
             uintptr_t  key = reinterpret_cast<uintptr_t>(TargetActor);
-            ESPEntry& entry = s_entries[key]; // operator[] 首次访问时构造
+            ESPEntry& entry = s_entries[key];
 
             entry.actorKey = key;
             entry.lastSeenTime = 0.0f;
@@ -152,45 +198,69 @@ namespace g_DrawESP {
                 continue;
             }
 
-            // ---- 缓存 Actor 类型（首次判断后不再重复 IsA） ----
+            // ---- 细化实体类型的判定（玩家与恐龙生物剥离） ----
             if (entry.actorType == ActorType::Unknown) {
-                if (TargetActor->IsA(SDK::APrimalCharacter::StaticClass()))  entry.actorType = ActorType::PrimalCharacter;
-                else if (TargetActor->IsA(SDK::APhysicsVolume::StaticClass()))    entry.actorType = ActorType::PhysicsVolume;
-                else if (TargetActor->IsA(SDK::ADroppedItem::StaticClass()))      entry.actorType = ActorType::DroppedItem;
-                else if (TargetActor->IsA(SDK::APrimalStructure::StaticClass()))  entry.actorType = ActorType::PrimalStructure;
+                if (TargetActor->IsA(SDK::AShooterCharacter::StaticClass())) entry.actorType = ActorType::ShooterCharacter;
+                else if (TargetActor->IsA(SDK::APrimalDinoCharacter::StaticClass())) entry.actorType = ActorType::PrimalDinoCharacter;
+                else if (TargetActor->IsA(SDK::APrimalCharacter::StaticClass())) entry.actorType = ActorType::PrimalCharacter;
+                else if (TargetActor->IsA(SDK::APhysicsVolume::StaticClass())) entry.actorType = ActorType::PhysicsVolume;
+                else if (TargetActor->IsA(SDK::ADroppedItem::StaticClass())) entry.actorType = ActorType::DroppedItem;
+                else if (TargetActor->IsA(SDK::APrimalStructure::StaticClass())) entry.actorType = ActorType::PrimalStructure;
             }
 
-            // ---- 缓存世界位置（只调用一次） ----
             const SDK::FVector actorLoc = TargetActor->K2_GetActorLocation();
             entry.lastWorldLoc = actorLoc;
             entry.aliveThisFrame = true;
 
             // ============================================================
-            // Branch: PrimalCharacter
+            // Branch: PrimalCharacter (包含了 ShooterCharacter, PrimalDinoCharacter 以及其它派生)
             // ============================================================
-            if (entry.actorType == ActorType::PrimalCharacter) {
+            if (entry.actorType == ActorType::ShooterCharacter || entry.actorType == ActorType::PrimalDinoCharacter || entry.actorType == ActorType::PrimalCharacter) {
                 SDK::APrimalCharacter* TargetChar = static_cast<SDK::APrimalCharacter*>(TargetActor);
                 SDK::APlayerState* TargetPS = TargetChar->PlayerState;
 
-                // 计算距离一次，后续复用
                 const float dist = (LocalPC && LocalPC->Pawn && TargetActor) ? LocalPC->Pawn->GetDistanceTo(TargetActor) * 0.01f : 0.0f;
                 const bool isDead = TargetChar->IsDead();
 
+                // 将生物类型判定作为一个布尔值，用于区分全局ESP应用规则
+                const bool isDino = (entry.actorType == ActorType::PrimalDinoCharacter);
+
                 if (isDead) {
                     g_ESP::RelationType relation = g_ESP::GetRelation(TargetChar, LocalChar);
+
                     bool   bShowRagdoll = false;
                     float* RagdollCol = nullptr;
                     float* DistCol = nullptr;
 
-                    if (relation == g_ESP::RelationType::Team) {
-                        bShowRagdoll = g_Config::bDrawRagdollTeam;
-                        RagdollCol = g_Config::RagdollColorTeam;
-                        DistCol = g_Config::DistanceColorTeam;
+                    if (isDino) {
+                        if (relation == g_ESP::RelationType::Team) {
+                            bShowRagdoll = g_Config::bTeamDinoDrawRagdoll;
+                            RagdollCol = g_Config::TeamDinoRagdollColor;
+                            DistCol = g_Config::TeamDinoDistanceColor;
+                        }
+                        else {
+                            bShowRagdoll = g_Config::bDinoDrawRagdoll;
+                            RagdollCol = g_Config::DinoRagdollColor;
+                            DistCol = g_Config::DinoDistanceColor;
+                        }
                     }
                     else {
-                        bShowRagdoll = g_Config::bDrawRagdoll;
-                        RagdollCol = g_Config::RagdollColor;
-                        DistCol = g_Config::DistanceColor;
+                        // ShooterCharacter (Player) 逻辑保持
+                        if (relation == g_ESP::RelationType::Team) {
+                            if (!g_Config::bESPTeamEnabled) {
+                                entry.targetAlpha = 0.0f;
+                                entry.aliveThisFrame = false;
+                                continue;
+                            }
+                            bShowRagdoll = g_Config::bDrawRagdollTeam;
+                            RagdollCol = g_Config::RagdollColorTeam;
+                            DistCol = g_Config::RagdollColorTeam;
+                        }
+                        else {
+                            bShowRagdoll = g_Config::bDrawRagdoll;
+                            RagdollCol = g_Config::RagdollColor;
+                            DistCol = g_Config::RagdollColor;
+                        }
                     }
 
                     if (!bShowRagdoll) {
@@ -199,9 +269,9 @@ namespace g_DrawESP {
                         continue;
                     }
 
-                    g_ESP::BoxRect rect = g_ESP::DrawBox(TargetActor,
-                        RagdollCol[0] * 255.0f, RagdollCol[1] * 255.0f,
-                        RagdollCol[2] * 255.0f, RagdollCol[3] * 255.0f, 0.5f, true);
+                    g_ESP::BoxRect rect = g_ESP::DrawBox(Canvas, TargetActor,
+                        RagdollCol[0], RagdollCol[1],
+                        RagdollCol[2], RagdollCol[3], 0.5f, true);
 
                     if (!rect.valid) {
                         entry.targetAlpha = 0.0f;
@@ -209,24 +279,40 @@ namespace g_DrawESP {
                     }
 
                     entry.cachedRect = rect;
-                    entry.boxColor = g_Util::GetU32Color(RagdollCol);
-                    entry.distanceColor = g_Util::GetU32Color(DistCol);
+                    entry.boxColor = SDK::FLinearColor{ RagdollCol[0], RagdollCol[1], RagdollCol[2], RagdollCol[3] };
+                    entry.distanceColor = SDK::FLinearColor{ DistCol[0], DistCol[1], DistCol[2], DistCol[3] };
                     entry.configBoxAlpha = RagdollCol[3];
                     entry.targetAlpha = 1.0f;
                     entry.aliveThisFrame = true;
 
-                    if (relation == g_ESP::RelationType::Team) {
-                        entry.shouldDrawBox = g_Config::bDrawBoxTeam;
-                        entry.shouldDrawName = g_Config::bDrawNameTeam;
-                        entry.shouldDrawDistance = g_Config::bDrawDistanceTeam;
+                    if (isDino) {
+                        if (relation == g_ESP::RelationType::Team) {
+                            entry.shouldDrawBox = g_Config::bTeamDinoDrawBox;
+                            entry.shouldDrawName = g_Config::bTeamDinoDrawName;
+                            entry.shouldDrawDistance = g_Config::bTeamDinoDrawDistance;
+                        }
+                        else {
+                            entry.shouldDrawBox = g_Config::bDinoDrawBox;
+                            entry.shouldDrawName = g_Config::bDinoDrawName;
+                            entry.shouldDrawDistance = g_Config::bDinoDrawDistance;
+                        }
                     }
                     else {
-                        entry.shouldDrawBox = g_Config::bDrawBox;
-                        entry.shouldDrawName = g_Config::bDrawName;
-                        entry.shouldDrawDistance = g_Config::bDrawDistance;
+                        if (relation == g_ESP::RelationType::Team) {
+                            entry.shouldDrawBox = g_Config::bDrawBoxTeam;
+                            entry.shouldDrawName = g_Config::bDrawNameTeam;
+                            entry.shouldDrawDistance = g_Config::bDrawDistanceTeam;
+                        }
+                        else {
+                            entry.shouldDrawBox = g_Config::bDrawBox;
+                            entry.shouldDrawName = g_Config::bDrawName;
+                            entry.shouldDrawDistance = g_Config::bDrawDistance;
+                        }
                     }
-                    entry.shouldDrawHealthBar = false; // 尸体不需要血条
-                    entry.shouldDrawTorpor = false; // 尸体不需要眩晕条
+
+                    entry.shouldDrawHealthBar = false;
+                    entry.shouldDrawTorpor = false;
+                    entry.shouldDrawDistance = false;
                     entry.flags.clear();
                     entry.bars.clear();
 
@@ -238,7 +324,7 @@ namespace g_DrawESP {
                     }
                     if (entry.shouldDrawDistance) {
                         entry.flags.push_back({
-                            g_Util::IntToStr((int)dist) + "m",
+                            std::to_string((int)dist) + "m",
                             entry.distanceColor,
                             g_ESP::FlagPos::Right
                             });
@@ -246,7 +332,6 @@ namespace g_DrawESP {
                     continue;
                 }
 
-                // 活体角色搜索过滤
                 if (hasEntityFilter) {
                     std::string nameForESP = TargetPS
                         ? TargetPS->GetPlayerName().ToString()
@@ -267,38 +352,71 @@ namespace g_DrawESP {
                 float* DistanceColor = nullptr;
                 float* TorporColor = nullptr;
 
-                if (relation == g_ESP::RelationType::Team) {
-                    bDrawBox = g_Config::bDrawBoxTeam;
-                    BoxColor = g_Config::BoxColorTeam;
-                    bDrawHealthBar = g_Config::bDrawHealthBarTeam;
-                    bDrawName = g_Config::bDrawNameTeam;
-                    NameColor = g_Config::NameColorTeam;
-                    bDrawGrowth = g_Config::bDrawGrowthTeam;
-                    bDrawDistance = g_Config::bDrawDistanceTeam;
-                    DistanceColor = g_Config::DistanceColorTeam;
-                    bDrawTorpor = g_Config::bDrawTorporTeam;
-                    TorporColor = g_Config::TorporColorTeam;
+                if (isDino) {
+                    if (relation == g_ESP::RelationType::Team) {
+                        bDrawBox = g_Config::bTeamDinoDrawBox;
+                        BoxColor = g_Config::TeamDinoBoxColor;
+                        bDrawHealthBar = g_Config::bTeamDinoDrawHealthBar;
+                        bDrawName = g_Config::bTeamDinoDrawName;
+                        NameColor = g_Config::TeamDinoNameColor;
+                        bDrawDistance = g_Config::bTeamDinoDrawDistance;
+                        DistanceColor = g_Config::TeamDinoDistanceColor;
+                        bDrawTorpor = g_Config::bTeamDinoDrawTorpor;
+                        TorporColor = g_Config::TeamDinoTorporColor;
+                        bDrawGrowth = false; // 生物通常不应用玩家类型的Growth特征
+                    }
+                    else {
+                        bDrawBox = g_Config::bDinoDrawBox;
+                        BoxColor = g_Config::DinoBoxColor;
+                        bDrawHealthBar = g_Config::bDinoDrawHealthBar;
+                        bDrawName = g_Config::bDinoDrawName;
+                        NameColor = g_Config::DinoNameColor;
+                        bDrawDistance = g_Config::bDinoDrawDistance;
+                        DistanceColor = g_Config::DinoDistanceColor;
+                        bDrawTorpor = g_Config::bDinoDrawTorpor;
+                        TorporColor = g_Config::DinoTorporColor;
+                        bDrawGrowth = false;
+                    }
                 }
                 else {
-                    bDrawBox = g_Config::bDrawBox;
-                    BoxColor = g_Config::BoxColor;
-                    bDrawHealthBar = g_Config::bDrawHealthBar;
-                    bDrawName = g_Config::bDrawName;
-                    NameColor = g_Config::NameColor;
-                    bDrawGrowth = g_Config::bDrawGrowth;
-                    bDrawDistance = g_Config::bDrawDistance;
-                    DistanceColor = g_Config::DistanceColor;
-                    bDrawTorpor = g_Config::bDrawTorpor;
-                    TorporColor = g_Config::TorporColor;
+                    if (relation == g_ESP::RelationType::Team) {
+                        if (!g_Config::bESPTeamEnabled) {
+                            entry.targetAlpha = 0.0f;
+                            entry.aliveThisFrame = false;
+                            continue;
+                        }
+                        bDrawBox = g_Config::bDrawBoxTeam;
+                        BoxColor = g_Config::BoxColorTeam;
+                        bDrawHealthBar = g_Config::bDrawHealthBarTeam;
+                        bDrawName = g_Config::bDrawNameTeam;
+                        NameColor = g_Config::NameColorTeam;
+                        bDrawGrowth = g_Config::bDrawGrowthTeam;
+                        bDrawDistance = g_Config::bDrawDistanceTeam;
+                        DistanceColor = g_Config::DistanceColorTeam;
+                        bDrawTorpor = g_Config::bDrawTorporTeam;
+                        TorporColor = g_Config::TorporColorTeam;
+                    }
+                    else {
+                        bDrawBox = g_Config::bDrawBox;
+                        BoxColor = g_Config::BoxColor;
+                        bDrawHealthBar = g_Config::bDrawHealthBar;
+                        bDrawName = g_Config::bDrawName;
+                        NameColor = g_Config::NameColor;
+                        bDrawGrowth = g_Config::bDrawGrowth;
+                        bDrawDistance = g_Config::bDrawDistance;
+                        DistanceColor = g_Config::DistanceColor;
+                        bDrawTorpor = g_Config::bDrawTorpor;
+                        TorporColor = g_Config::TorporColor;
+                    }
                 }
 
-                g_ESP::BoxRect rect = g_ESP::DrawBox(TargetActor,
-                    BoxColor[0] * 255.0f, BoxColor[1] * 255.0f,
-                    BoxColor[2] * 255.0f, BoxColor[3] * 255.0f, 0.5f, true);
+                g_ESP::BoxRect rect = g_ESP::DrawBox(Canvas, TargetActor,
+                    BoxColor[0], BoxColor[1],
+                    BoxColor[2], BoxColor[3], 0.5f, true);
 
                 entry.cachedRect = rect;
-                entry.boxColor = g_Util::GetU32Color(BoxColor);
-                entry.nameColor = g_Util::GetU32Color(NameColor);
+                entry.boxColor = SDK::FLinearColor{ BoxColor[0], BoxColor[1], BoxColor[2], BoxColor[3] };
+                entry.nameColor = SDK::FLinearColor{ NameColor[0], NameColor[1], NameColor[2], NameColor[3] };
                 entry.configBoxAlpha = BoxColor[3];
                 entry.isItem = false;
                 entry.isOOF = false;
@@ -321,7 +439,6 @@ namespace g_DrawESP {
                 entry.shouldDrawDistance = bDrawDistance;
                 entry.shouldDrawTorpor = bDrawTorpor;
 
-                // 名字字符串（只在需要时构造）
                 if (bDrawName) {
                     const char* genderSuffix = TargetActor->IsFemale() ? "-F" : "-M";
                     entry.name = TargetPS
@@ -340,41 +457,34 @@ namespace g_DrawESP {
 
                 if (bDrawHealthBar) {
                     const float healthPct = (entry.cachedMaxHP > 0.0f) ? (entry.cachedHP / entry.cachedMaxHP) : 0.0f;
-                    const ImU32 hpCol = g_Util::GetHealthColor(healthPct);
-                    entry.flags.push_back({ g_Util::IntToStr((int)entry.cachedHP), hpCol, g_ESP::FlagPos::Left });
+                    float* colMax = (relation == g_ESP::RelationType::Team) ? g_Config::TeamHealthColor1 : g_Config::HealthBarColor1;
+                    float* colMin = (relation == g_ESP::RelationType::Team) ? g_Config::TeamHealthColor2 : g_Config::HealthBarColor2;
+
+                    const SDK::FLinearColor hpCol = GetHealthColorLinear(healthPct, colMax, colMin);
+
+                    entry.flags.push_back({ std::to_string((int)entry.cachedHP), hpCol, g_ESP::FlagPos::Left });
                     entry.bars.push_back({ entry.cachedHP, entry.cachedMaxHP, hpCol, g_ESP::BarPos::Left, g_ESP::BarOrientation::Vertical });
                 }
 
                 if (bDrawTorpor && entry.cachedMaxTorpor > 0.0f) {
-                    const ImU32 torporCol = g_Util::GetU32Color(TorporColor);
+                    const SDK::FLinearColor torporCol = SDK::FLinearColor{ TorporColor[0], TorporColor[1], TorporColor[2], TorporColor[3] };
                     entry.flags.push_back({
-                        g_Util::IntToStr((int)entry.cachedTorpor) + "/" + g_Util::IntToStr((int)entry.cachedMaxTorpor),
+                        std::to_string((int)entry.cachedTorpor) + "/" + std::to_string((int)entry.cachedMaxTorpor),
                         torporCol, g_ESP::FlagPos::Bottom
                         });
                     entry.bars.push_back({ entry.cachedTorpor, entry.cachedMaxTorpor, torporCol, g_ESP::BarPos::Bottom, g_ESP::BarOrientation::Horizontal });
                 }
 
                 if (bDrawDistance)
-                    entry.flags.push_back({ g_Util::IntToStr((int)dist) + "m", g_Util::GetU32Color(DistanceColor), g_ESP::FlagPos::Right });
+                    entry.flags.push_back({ std::to_string((int)dist) + "m", SDK::FLinearColor{DistanceColor[0], DistanceColor[1], DistanceColor[2], DistanceColor[3]}, g_ESP::FlagPos::Right });
 
-                // 屏幕空间可见性判断
                 SDK::FVector2D screenPos;
                 if (LocalPC->ProjectWorldLocationToScreen(actorLoc, &screenPos, false)) {
                     const bool onScreen = screenPos.X > 0 && screenPos.X < screenW
                         && screenPos.Y > 0 && screenPos.Y < screenH;
                     if (onScreen) {
-                        entry.targetAlpha = entry.configBoxAlpha;
+                        entry.targetAlpha = 1.0f;
                         entry.isOOF = false;
-                    }
-                    else if (g_Config::bEnableOOF) {
-                        entry.isOOF = true;
-                        entry.targetAlpha = entry.configBoxAlpha;
-                        // OOF 只保留名字与距离
-                        entry.flags.clear();
-                        if (bDrawName && !entry.name.empty())
-                            entry.flags.push_back({ entry.name, entry.nameColor, g_ESP::FlagPos::Right });
-                        if (bDrawDistance)
-                            entry.flags.push_back({ g_Util::IntToStr((int)dist) + "m", g_Util::GetU32Color(DistanceColor), g_ESP::FlagPos::Right});
                     }
                     else {
                         entry.targetAlpha = 0.0f;
@@ -429,13 +539,23 @@ namespace g_DrawESP {
                     continue;
                 }
 
+                // 进行新加入的物品类别过滤拦截
+                const std::string className = Item->Class ? Item->Class->GetName() : "";
+                const int quantity = Item->ItemQuantity;
+
+                if (!g_Util::IsDroppedItemAllowed(className, quantity)) {
+                    entry.targetAlpha = 0.0f;
+                    entry.aliveThisFrame = false;
+                    continue;
+                }
+
                 SDK::FVector2D screenPos;
                 bool bIsProjected = LocalPC && LocalPC->ProjectWorldLocationToScreen(actorLoc, &screenPos, false);
                 bool bOnScreen = bIsProjected && (screenPos.X > 0 && screenPos.X < screenW && screenPos.Y > 0 && screenPos.Y < screenH);
 
                 if (bIsProjected) {
-                    entry.cachedRect.topLeft = ImVec2(screenPos.X - 5, screenPos.Y - 5);
-                    entry.cachedRect.bottomRight = ImVec2(screenPos.X + 5, screenPos.Y + 5);
+                    entry.cachedRect.topLeft = SDK::FVector2D{ (float)(screenPos.X - 5), (float)(screenPos.Y - 5) };
+                    entry.cachedRect.bottomRight = SDK::FVector2D{ (float)(screenPos.X + 5), (float)(screenPos.Y + 5) };
                     entry.cachedRect.valid = true;
                 }
 
@@ -449,7 +569,6 @@ namespace g_DrawESP {
                     entry.isItem = true;
                 }
 
-                // 物品名（按优先级取第一个有效来源）
                 std::string itemName;
                 if (Item->CustomItemName.IsValid() && !Item->CustomItemName.ToString().empty()) {
                     itemName = Item->CustomItemName.ToString();
@@ -461,22 +580,19 @@ namespace g_DrawESP {
                     itemName = Item->Class ? Item->Class->GetName() : "Unknown Item";
                 }
 
-                const std::string className = Item->Class ? Item->Class->GetName() : "";
-                const int         quantity = Item->ItemQuantity;
-                const ImU32       finalCol = g_Util::ResolveDroppedItemColor(className, Item->ItemRating, quantity);
+                const SDK::FLinearColor finalCol = U32ToFLinearColor(g_Util::ResolveDroppedItemColor(className, Item->ItemRating, quantity));
 
                 entry.flags.clear();
                 entry.bars.clear();
 
                 std::string label = "[" + itemName + "";
-                if (quantity > 1) label += " x" + g_Util::IntToStr(quantity);
+                if (quantity > 1) label += " x" + std::to_string(quantity);
                 if (Item->bIsBlueprint) label = "[BP] " + label;
 
-                entry.flags.push_back({ std::move(label) + "] (" + g_Util::IntToStr((int)dist) + "m" + ")", finalCol, g_ESP::FlagPos::Right});
-                // entry.flags.push_back({ g_Util::IntToStr((int)dist) + "m", g_Util::GetU32Color(g_Config::DroppedItemDistanceColor), g_ESP::FlagPos::Right });
+                entry.flags.push_back({ std::move(label) + "] (" + std::to_string((int)dist) + "m" + ")", finalCol, g_ESP::FlagPos::Right });
 
                 entry.boxColor = finalCol;
-                entry.nameColor = g_Util::GetU32Color(g_Config::DroppedItemNameColor);
+                entry.nameColor = SDK::FLinearColor{ g_Config::DroppedItemNameColor[0], g_Config::DroppedItemNameColor[1], g_Config::DroppedItemNameColor[2], g_Config::DroppedItemNameColor[3] };
                 entry.shouldDrawBox = false;
                 entry.shouldDrawHealthBar = false;
                 entry.shouldDrawName = false;
@@ -487,7 +603,14 @@ namespace g_DrawESP {
             // ============================================================
             // Branch: PrimalStructure
             // ============================================================
-            else if (entry.actorType == ActorType::PrimalStructure && g_Config::bDrawStructures) {
+            else if (entry.actorType == ActorType::PrimalStructure) {
+                // 如果两项结构开关都没开，则直接跳过拦截
+                if (!g_Config::bDrawStructures && !g_Config::bTeamDrawStructures) {
+                    entry.targetAlpha = 0.0f;
+                    entry.aliveThisFrame = false;
+                    continue;
+                }
+
                 SDK::APrimalStructure* Structure = static_cast<SDK::APrimalStructure*>(TargetActor);
 
                 if (Structure->Health <= 0.0f) {
@@ -496,8 +619,14 @@ namespace g_DrawESP {
                     continue;
                 }
 
+                // 判断是否是队友建筑并独立进行对应的配置检测
                 bool isTeam = LocalChar && (LocalChar->TribeName.ToString() == Structure->OwnerName.ToString());
-                if (g_Config::bOnlyDrawStructuresEnemy && isTeam) {
+                if (isTeam && !g_Config::bTeamDrawStructures) {
+                    entry.targetAlpha = 0.0f;
+                    entry.aliveThisFrame = false;
+                    continue;
+                }
+                if (!isTeam && !g_Config::bDrawStructures) {
                     entry.targetAlpha = 0.0f;
                     entry.aliveThisFrame = false;
                     continue;
@@ -513,8 +642,10 @@ namespace g_DrawESP {
                     }
                 }
 
+                // 获取并使用不同的距离过滤
+                float maxDist = isTeam ? g_Config::TeamStructureMaxDistance : g_Config::StructureMaxDistance;
                 const float dist = (LocalPC && LocalPC->Pawn && TargetActor) ? LocalPC->Pawn->GetDistanceTo(TargetActor) * 0.01f : 0.0f;
-                if (dist > g_Config::StructureMaxDistance) {
+                if (dist > maxDist) {
                     entry.targetAlpha = 0.0f;
                     entry.aliveThisFrame = false;
                     continue;
@@ -524,8 +655,8 @@ namespace g_DrawESP {
                 bool bProjected = LocalPC && LocalPC->ProjectWorldLocationToScreen(actorLoc, &screenPos, false);
 
                 if (bProjected) {
-                    entry.cachedRect.topLeft = ImVec2(screenPos.X - 2, screenPos.Y - 2);
-                    entry.cachedRect.bottomRight = ImVec2(screenPos.X + 2, screenPos.Y + 2);
+                    entry.cachedRect.topLeft = SDK::FVector2D{ (float)(screenPos.X - 2), (float)(screenPos.Y - 2) };
+                    entry.cachedRect.bottomRight = SDK::FVector2D{ (float)(screenPos.X + 2), (float)(screenPos.Y + 2) };
                     entry.cachedRect.valid = true;
                 }
 
@@ -548,7 +679,11 @@ namespace g_DrawESP {
                 const float maxHP = Structure->MaxHealth;
                 const float healthPct = (maxHP > 0.0f) ? (curHP / maxHP) : 0.0f;
                 const int   hpPctInt = (int)(healthPct * 100.0f);
-                const ImU32 hpColor = g_Util::GetHealthColor(healthPct);
+
+                float* sColMax = isTeam ? g_Config::TeamStructureHealthColor1 : g_Config::StructureHealthColor1;
+                float* sColMin = isTeam ? g_Config::TeamStructureHealthColor2 : g_Config::StructureHealthColor2;
+
+                const SDK::FLinearColor hpColor = GetHealthColorLinear(healthPct, sColMax, sColMin);
 
                 std::string owner = Structure->OwnerName.ToString();
                 std::string ownerStf = (owner.empty() || owner == "None") ? "" : " [" + owner + "]";
@@ -557,21 +692,19 @@ namespace g_DrawESP {
                 entry.bars.clear();
 
                 entry.flags.push_back({
-                    "[" + sName + "]" + std::move(ownerStf) + " [" + g_Util::IntToStr(hpPctInt) + "%] (" + g_Util::IntToStr((int)dist) + "m" + ")",
+                    "[" + sName + "]" + std::move(ownerStf) + " [" + std::to_string(hpPctInt) + "%] (" + std::to_string((int)dist) + "m" + ")",
                     hpColor,
                     g_ESP::FlagPos::Right
-                });
+                    });
 
                 entry.shouldDrawTorpor = false;
             }
             else {
-                // actorType == Unknown 或对应功能未启用
                 entry.targetAlpha = 0.0f;
                 entry.aliveThisFrame = false;
             }
         } // end actor loop
 
-        // 非活跃条目 → targetAlpha = 0
         for (auto& kv : s_entries) {
             if (!kv.second.aliveThisFrame)
                 kv.second.targetAlpha = 0.0f;
@@ -590,7 +723,7 @@ namespace g_DrawESP {
                 uintptr_t key = reinterpret_cast<uintptr_t>(wc.actor);
                 if (s_entries.count(key)) {
                     s_entries[key].targetAlpha = 0.0f;
-                    s_entries[key].aliveThisFrame = false; // 暂时设为 false，只有前 N 名才设为 true
+                    s_entries[key].aliveThisFrame = false;
                 }
             }
 
@@ -598,11 +731,9 @@ namespace g_DrawESP {
                 ? (int)waterCandidates.size()
                 : g_Config::WaterMaxCount;
 
-            // 颜色预先计算，不在循环内重复调用
-            const ImU32 waterColor = g_Util::GetU32Color(g_Config::WaterNameColor);
-            const ImU32 waterDistColor = g_Util::GetU32Color(g_Config::WaterDistanceColor);
+            const SDK::FLinearColor waterColor = SDK::FLinearColor{ g_Config::WaterNameColor[0], g_Config::WaterNameColor[1], g_Config::WaterNameColor[2], g_Config::WaterNameColor[3] };
+            const SDK::FLinearColor waterDistColor = SDK::FLinearColor{ g_Config::WaterDistanceColor[0], g_Config::WaterDistanceColor[1], g_Config::WaterDistanceColor[2], g_Config::WaterDistanceColor[3] };
 
-            // 水源标签静态缓存，避免每帧宽字符转换
             static const std::string kWaterLabel = SDK::FString(L"[水源").ToString();
 
             for (int wi = 0; wi < showCount; wi++) {
@@ -612,8 +743,8 @@ namespace g_DrawESP {
 
                 SDK::FVector2D currentScreenPos;
                 if (LocalPC && LocalPC->ProjectWorldLocationToScreen(wc.surfaceLoc, &currentScreenPos, false)) {
-                    wEntry.cachedRect.topLeft = ImVec2(currentScreenPos.X - 2, currentScreenPos.Y - 2);
-                    wEntry.cachedRect.bottomRight = ImVec2(currentScreenPos.X + 2, currentScreenPos.Y + 2);
+                    wEntry.cachedRect.topLeft = SDK::FVector2D{ (float)(currentScreenPos.X - 2), (float)(currentScreenPos.Y - 2) };
+                    wEntry.cachedRect.bottomRight = SDK::FVector2D{ (float)(currentScreenPos.X + 2), (float)(currentScreenPos.Y + 2) };
                     wEntry.cachedRect.valid = true;
 
                     const bool onScreen = currentScreenPos.X > 0 && currentScreenPos.X < screenW
@@ -626,7 +757,7 @@ namespace g_DrawESP {
 
                         wEntry.flags.clear();
                         wEntry.bars.clear();
-                        wEntry.flags.push_back({ kWaterLabel + "] (" + g_Util::IntToStr((int)wc.dist) + "m" + ")", waterColor, g_ESP::FlagPos::Right });
+                        wEntry.flags.push_back({ kWaterLabel + "] (" + std::to_string((int)wc.dist) + "m" + ")", waterColor, g_ESP::FlagPos::Right });
 
                         wEntry.shouldDrawBox = false;
                         wEntry.shouldDrawHealthBar = false;
@@ -647,7 +778,7 @@ namespace g_DrawESP {
         }
 
         // ----------------------------------------------------------------
-        // 渲染 & 淡入淡出 & 清理（一次遍历完成三件事）
+        // 渲染 & 淡入淡出 & 清理
         // ----------------------------------------------------------------
         s_toErase.clear();
 
@@ -663,40 +794,22 @@ namespace g_DrawESP {
             }
 
             if (entry.alpha > 0.001f) {
-                const float alpha255 = entry.alpha * 255.0f;
-                ImDrawList* drawList = ImGui::GetBackgroundDrawList();
-
                 if (!entry.isItem && entry.shouldDrawBox && entry.cachedRect.valid) {
-                    ImVec4 boxF = ImGui::ColorConvertU32ToFloat4(entry.boxColor);
-                    float  drawA = entry.configBoxAlpha * entry.alpha;
-                    ImU32  bgShadow = ImGui::ColorConvertFloat4ToU32(ImVec4(0, 0, 0, drawA));
-                    ImU32  col = ImGui::ColorConvertFloat4ToU32(ImVec4(boxF.x, boxF.y, boxF.z, drawA));
-                    drawList->AddRect(
-                        ImVec2(entry.cachedRect.topLeft.x - 1, entry.cachedRect.topLeft.y - 1),
-                        ImVec2(entry.cachedRect.bottomRight.x + 1, entry.cachedRect.bottomRight.y + 1),
-                        bgShadow, 0.0f, 0, 1.5f);
-                    drawList->AddRect(entry.cachedRect.topLeft, entry.cachedRect.bottomRight, col, 0.0f, 0, 1.0f);
+                    float boxConfigAlpha = entry.configBoxAlpha;
+                    SDK::FLinearColor boxCol = entry.boxColor;
+
+                    g_ESP::DrawBox(Canvas, entry.cachedRect, boxCol, entry.alpha);
                 }
 
                 g_ESP::BarManager bm;
                 bm.Reset();
                 for (const auto& bar : entry.bars)
-                    bm.AddBar(entry.cachedRect, bar.currentValue, bar.maxValue, bar.color, bar.pos, bar.orientation, alpha255);
+                    bm.AddBar(Canvas, entry.cachedRect, bar.currentValue, bar.maxValue, bar.color, bar.pos, bar.orientation, entry.alpha);
 
                 g_ESP::FlagManager fm;
                 fm.Reset();
                 for (const auto& f : entry.flags)
-                    fm.AddFlag(entry.cachedRect, f.text, f.color, f.pos, entry.alpha, &bm);
-
-                /*
-                if (entry.isOOF) {
-                    std::vector<g_ESP::OOFFlag> oofFlags;
-                    oofFlags.reserve(entry.flags.size());
-                    for (const auto& ff : entry.flags)
-                        oofFlags.push_back({ ff.text, ff.color });
-                    g_ESP::DrawOutOfFOV(entry.lastWorldLoc, LocalPC, oofFlags, entry.alpha);
-                }
-                */
+                    fm.AddFlag(Canvas, entry.cachedRect, f.text, f.color, f.pos, entry.alpha, &bm);
             }
         }
 

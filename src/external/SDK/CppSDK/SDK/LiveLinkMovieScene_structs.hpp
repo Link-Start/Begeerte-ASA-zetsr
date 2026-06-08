@@ -10,13 +10,12 @@
 
 #include "Basic.hpp"
 
+#include "MovieSceneTracks_structs.hpp"
 #include "LiveLinkInterface_structs.hpp"
 #include "MovieScene_structs.hpp"
-#include "MovieSceneTracks_structs.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // ScriptStruct LiveLinkMovieScene.LiveLinkPropertyData
 // 0x0058 (0x0058 - 0x0000)
@@ -53,5 +52,4 @@ public:
 };
 DUMPER7_ASSERTS_FMovieSceneLiveLinkSectionTemplate;
 
-}
-
+SDK_NAMESPACE_END

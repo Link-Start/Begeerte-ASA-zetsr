@@ -13,12 +13,11 @@
 #include "Engine_classes.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "FieldSystemEngine_structs.hpp"
 #include "Chaos_structs.hpp"
+#include "FieldSystemEngine_structs.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Class FieldSystemEngine.FieldSystemActor
 // 0x0008 (0x0490 - 0x0488)
@@ -759,5 +758,4 @@ public:
 };
 DUMPER7_ASSERTS_UReturnResultsTerminal;
 
-}
-
+SDK_NAMESPACE_END

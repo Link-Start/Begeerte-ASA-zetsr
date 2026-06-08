@@ -7,9 +7,9 @@
 
 #include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 #include "../../external/SDK/SDK_Headers.hpp"
-#include "../ESP/ESP.h"
+// #include "../ESP/ESP.h"
 #include "../Config/Configs.h"
-#include "../ESP/DrawESP.h"
+// #include "../ESP/DrawESP.h"
 #include "ConfigImGui.h"
 #include "DrawImGui.h"
 #include "Aimbot_Menu.h"
@@ -98,23 +98,35 @@ namespace g_DrawImGui {
 		if (g_MenuAlpha > 0.001f) {
 			LuaManager::Get().Lua_OnPaintMenu(g_MenuAlpha);
 
-			const float menu_size_w = 960.f;
+			static int lastScaleIdx = g_Config::MenuScaleIdx;
+			const float menu_size_w = 1020.f;
 			const float menu_size_h = 720.f;
 
-			ImGui::GetStyle().WindowMinSize = ImVec2(menu_size_w, menu_size_h);
+			const float fontSizes[] = { 14.0f, 18.0f, 22.0f, 26.0f, 34.0f };
+			float menuScale = fontSizes[g_Config::MenuScaleIdx] / fontSizes[1];
+
+			ImGui::GetStyle().WindowMinSize = ImVec2(menu_size_w * menuScale, menu_size_h * menuScale);
 			// 处理重置逻辑
 			if (g_Config::bMenuNeedReset) {
-				ImGui::SetNextWindowPos(ImVec2(100, 100), ImGuiCond_Always);
-				ImGui::SetNextWindowSize(ImVec2(menu_size_w, menu_size_h), ImGuiCond_Always);
+				g_Config::MenuScaleIdx = 1; // 重置为默认缩放
+				ImGui::SetNextWindowPos(ImVec2(io.DisplaySize.x * 0.382, io.DisplaySize.y * 0.414), ImGuiCond_Always, ImVec2(0.5f, 0.5f));
+				ImGui::SetNextWindowSize(ImVec2(menu_size_w * menuScale, menu_size_h * menuScale), ImGuiCond_Always);
 				g_Config::bMenuNeedReset = false;
 			}
 			else {
 				// 正常状态：限制最大尺寸不超过屏幕
-				ImGui::SetNextWindowSizeConstraints(ImVec2(menu_size_w, menu_size_h), screenSize);
+				ImGui::SetNextWindowSizeConstraints(ImVec2(menu_size_w * menuScale, menu_size_h * menuScale), screenSize);
 
 				// 如果你希望第一次打开是 menu_size_w x menu_size_h，可以用 FirstUseEver
 				// 但不要放在 if 块外面，否则会干扰上面的 Always 逻辑
-				ImGui::SetNextWindowSize(ImVec2(menu_size_w, menu_size_h), ImGuiCond_FirstUseEver);
+				ImGui::SetNextWindowPos(ImVec2(io.DisplaySize.x * 0.382, io.DisplaySize.y * 0.414), ImGuiCond_FirstUseEver, ImVec2(0.5f, 0.5f));
+				ImGui::SetNextWindowSize(ImVec2(menu_size_w * menuScale, menu_size_h * menuScale), ImGuiCond_FirstUseEver);
+			}
+
+			if (g_Config::MenuScaleIdx != lastScaleIdx) {
+				ImGui::SetNextWindowPos(ImVec2(io.DisplaySize.x * 0.382, io.DisplaySize.y * 0.414), ImGuiCond_Always, ImVec2(0.5f, 0.5f));
+				ImGui::SetNextWindowSize(ImVec2(menu_size_w * menuScale, menu_size_h * menuScale), ImGuiCond_Always);
+				lastScaleIdx = g_Config::MenuScaleIdx;
 			}
 
 			// ImGui::SetNextWindowSize(ImVec2(menu_size_w, menu_size_h), ImGuiCond_FirstUseEver);
@@ -125,8 +137,10 @@ namespace g_DrawImGui {
 
 			ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
 
+			ImVec4 accentColor = ThemeColors::GetAccent();
+
 			ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(7.0f * g_Util::inv255, 8.0f * g_Util::inv255, 10.0f * g_Util::inv255, 0.97f));
-			ImGui::PushStyleColor(ImGuiCol_Border, ImVec4(110.0f * g_Util::inv255, 231.0f * g_Util::inv255, 183.0f * g_Util::inv255, 0.08f));
+			ImGui::PushStyleColor(ImGuiCol_Border, ImVec4(accentColor.x, accentColor.y, accentColor.z, 0.08f));
 
 			ImGuiWindowFlags wFlags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar;
 			io.ConfigWindowsResizeFromEdges = false;
@@ -142,7 +156,6 @@ namespace g_DrawImGui {
 				float time = ImGui::GetTime();
 
 				// 获取最新的 Accent 颜色用于绘制装饰线条
-				ImVec4 accentColor = ThemeColors::GetAccent();
 				ImU32 colAccentU32 = ImGui::GetColorU32(accentColor);
 				ImU32 colAccentTransparentU32 = ImGui::GetColorU32(ImVec4(accentColor.x, accentColor.y, accentColor.z, 0.0f));
 
@@ -189,7 +202,7 @@ namespace g_DrawImGui {
 		}
 
 		// g_Aimbot::Tick();
-		g_DrawESP::DrawESP();
+		// g_DrawESP::DrawESP();
 		g_LogManager::Run();
 		LuaManager::Get().Lua_OnPaint();
 	}

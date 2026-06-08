@@ -10,12 +10,11 @@
 
 #include "Basic.hpp"
 
-#include "WorldConditions_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "WorldConditions_structs.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Class WorldConditions.WorldConditionSchema
 // 0x0010 (0x0038 - 0x0028)
@@ -40,5 +39,4 @@ public:
 };
 DUMPER7_ASSERTS_UWorldConditionSchema;
 
-}
-
+SDK_NAMESPACE_END

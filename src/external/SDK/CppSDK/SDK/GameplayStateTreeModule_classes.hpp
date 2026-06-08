@@ -10,14 +10,13 @@
 
 #include "Basic.hpp"
 
+#include "GameplayTags_structs.hpp"
 #include "StateTreeModule_structs.hpp"
 #include "StateTreeModule_classes.hpp"
-#include "GameplayTags_structs.hpp"
 #include "AIModule_classes.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Class GameplayStateTreeModule.BTTask_RunDynamicStateTree
 // 0x0058 (0x00C8 - 0x0070)
@@ -176,5 +175,4 @@ public:
 };
 DUMPER7_ASSERTS_UStateTreeAIComponentSchema;
 
-}
-
+SDK_NAMESPACE_END

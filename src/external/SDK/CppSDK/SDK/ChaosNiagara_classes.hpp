@@ -10,14 +10,13 @@
 
 #include "Basic.hpp"
 
-#include "ChaosNiagara_structs.hpp"
-#include "CoreUObject_structs.hpp"
 #include "Niagara_structs.hpp"
 #include "Niagara_classes.hpp"
+#include "ChaosNiagara_structs.hpp"
+#include "CoreUObject_structs.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Class ChaosNiagara.NiagaraDataInterfaceChaosDestruction
 // 0x0310 (0x0348 - 0x0038)
@@ -153,5 +152,4 @@ public:
 };
 DUMPER7_ASSERTS_UNiagaraDataInterfacePhysicsField;
 
-}
-
+SDK_NAMESPACE_END

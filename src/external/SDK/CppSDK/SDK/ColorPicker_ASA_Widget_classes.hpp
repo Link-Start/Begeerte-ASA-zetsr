@@ -10,13 +10,12 @@
 
 #include "Basic.hpp"
 
-#include "ShooterGame_classes.hpp"
 #include "Engine_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "ShooterGame_classes.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // WidgetBlueprintGeneratedClass ColorPicker_ASA_Widget.ColorPicker_ASA_Widget_C
 // 0x0070 (0x03E8 - 0x0378)
@@ -38,20 +37,20 @@ public:
 	double                                        ReadRenderTargetPixelInterval;                     // 0x03E0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
-	void BndEvt__ColorPicker_ASA_Widget_Synth2DSlider_89_K2Node_ComponentBoundEvent_0_OnFloatValueChangedEventSynth2D__DelegateSignature(float Value);
-	void BndEvt__ColorPicker_ASA_Widget_Synth2DSlider_89_K2Node_ComponentBoundEvent_1_OnFloatValueChangedEventSynth2D__DelegateSignature(float Value);
-	void BndEvt__ColorPicker_ASA_Widget_Synth2DSlider_89_K2Node_ComponentBoundEvent_2_OnMouseCaptureEndEventSynth2D__DelegateSignature();
-	void BndEvt__ColorPicker_ASA_Widget_Synth2DSlider_89_K2Node_ComponentBoundEvent_3_OnControllerCaptureEndEventSynth2D__DelegateSignature();
-	void Construct();
-	void ExecuteUbergraph_ColorPicker_ASA_Widget(int32 EntryPoint);
-	class UWidget* GetOverrideHighligteableWidgetBP();
-	struct FEventReply OnMouseMove_0(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent);
-	void SetupColorRenderTarget();
-	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
-	void TimerCooldownColorCheck();
-	void UpdateColorPickerValue(const struct FVector2D& Value);
-	void UpdateColorSlider2D();
 	void UpdateSaturationBar(const struct FLinearColor& Value);
+	void UpdateColorSlider2D();
+	void UpdateColorPickerValue(const struct FVector2D& Value);
+	void TimerCooldownColorCheck();
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
+	void SetupColorRenderTarget();
+	struct FEventReply OnMouseMove_0(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent);
+	class UWidget* GetOverrideHighligteableWidgetBP();
+	void ExecuteUbergraph_ColorPicker_ASA_Widget(int32 EntryPoint);
+	void Construct();
+	void BndEvt__ColorPicker_ASA_Widget_Synth2DSlider_89_K2Node_ComponentBoundEvent_3_OnControllerCaptureEndEventSynth2D__DelegateSignature();
+	void BndEvt__ColorPicker_ASA_Widget_Synth2DSlider_89_K2Node_ComponentBoundEvent_2_OnMouseCaptureEndEventSynth2D__DelegateSignature();
+	void BndEvt__ColorPicker_ASA_Widget_Synth2DSlider_89_K2Node_ComponentBoundEvent_1_OnFloatValueChangedEventSynth2D__DelegateSignature(float Value);
+	void BndEvt__ColorPicker_ASA_Widget_Synth2DSlider_89_K2Node_ComponentBoundEvent_0_OnFloatValueChangedEventSynth2D__DelegateSignature(float Value);
 
 public:
 	static class UClass* StaticClass()
@@ -69,5 +68,4 @@ public:
 };
 DUMPER7_ASSERTS_UColorPicker_ASA_Widget_C;
 
-}
-
+SDK_NAMESPACE_END

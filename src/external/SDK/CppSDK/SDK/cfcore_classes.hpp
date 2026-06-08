@@ -11,12 +11,11 @@
 #include "Basic.hpp"
 
 #include "Engine_classes.hpp"
-#include "CoreUObject_classes.hpp"
 #include "cfcore_structs.hpp"
+#include "CoreUObject_classes.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Class cfcore.CFCoreBPLibrary
 // 0x0000 (0x0028 - 0x0028)
@@ -55,7 +54,7 @@ public:
 DUMPER7_ASSERTS_UCFCoreBPLibrary;
 
 // Class cfcore.CFCoreEditorSettings
-// 0x0148 (0x0170 - 0x0028)
+// 0x0150 (0x0178 - 0x0028)
 class UCFCoreEditorSettings final : public UObject
 {
 public:
@@ -82,8 +81,9 @@ public:
 	uint8                                         Pad_112[0x6];                                      // 0x0112(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
 	TSet<class FString>                           ignoredDynamicModFiles;                            // 0x0118(0x0050)(Edit, Config, NativeAccessSpecifierPublic)
 	struct FCFCoreSettingsUnmanagedMods           unmanagedMods;                                     // 0x0168(0x0002)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
-	struct FCFCoreSettingsSubscriptions           subscriptions;                                     // 0x016A(0x0002)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
-	struct FCFCoreSettingsDownloads               downloads;                                         // 0x016C(0x0004)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_16A[0x2];                                      // 0x016A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FCFCoreSettingsSubscriptions           subscriptions;                                     // 0x016C(0x0008)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
+	struct FCFCoreSettingsDownloads               downloads;                                         // 0x0174(0x0004)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -130,6 +130,7 @@ public:
 	void ApiGetMe(TDelegate<void(const struct FMe& Me)> on_results, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void ApiGetMod(int64 modId, TDelegate<void(const struct FCFCoreMod& mod)> on_mod, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void ApiGetModDescription(int64 modId, TDelegate<void(const class FString& Description)> on_mod_desc, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
+	void ApiGetModFileChangelog(int64 modId, int64 fileId, TDelegate<void(const class FString& changelog)> OnChangelog, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
 	void ApiGetMods(const TArray<int64>& modIds, TDelegate<void(const TArray<struct FCFCoreMod>& mods)> on_results, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void ApiGetModsHighlights(const struct FCFCoreGetModsHighlightsFilter& InFilter, TDelegate<void(const struct FModsHighlights& mods)> OnResults, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
 	void ApiGetModsHighlightsV2(const struct FCFCoreGetModsHighlightsFilter& InFilter, TDelegate<void(const struct FModsHighlightsV2& mods)> OnResults, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
@@ -159,12 +160,17 @@ public:
 	void CreateCookedModFile(int64 modId, int64 SourceFileId, const struct FCreateCookedModFileRequest& CreateCookedModFileRequest, const class FString& LocalFilenameToUpload, const TDelegate<void(int64 mod_file_request_id)>& OnCreateModFileRequestId, const TDelegate<void(const struct FFileTransferProgress& progress)>& OnProgress, const TDelegate<void(const struct FUploadedModFile& uploaded_file)>& OnSuccess, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
 	void CreateMod(const struct FCreateModRequest& create_mod_request, const class FString& avatar_image_filename, TDelegate<void(const struct FCFCoreMod& mod)> on_success, TDelegate<void(const struct FCFCoreError& Error)> on_error);
 	void CreateModFile(int64 modId, const struct FCreateModFileRequest& CreateModFileRequest, const class FString& LocalFilenameToUpload, const TDelegate<void(int64 mod_file_request_id)>& OnCreateModFileRequestId, const TDelegate<void(const struct FFileTransferProgress& progress)>& OnProgress, const TDelegate<void(const struct FUploadedModFile& uploaded_file)>& OnSuccess, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
+	void DisableAutoManagement();
+	void EnableAutoManagement(const TDelegate<void()>& on_success, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
+	void ExecuteSyncPlan(const TArray<struct FSubscriptionSyncPlanItem>& plan_items, const TDelegate<void(const TArray<struct FSubscriptionSyncResultItem>& result_items)>& on_success, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void GenerateAuthToken(const class FString& email, int32 security_code, TDelegate<void()> on_success, TDelegate<void(const struct FCFCoreError& Error)> on_error);
 	void GenerateAuthTokenByExternalProvider(ECFCoreExternalAuthProvider provider, const class FString& external_token, const struct FExternalAuthAdditionalInfo& additional_info, TDelegate<void()> on_success, TDelegate<void(const struct FCFCoreError& Error)> on_error);
 	void GetAuthTerms(TDelegate<void(const struct FTerms& Terms)> on_success, TDelegate<void(const struct FCFCoreError& Error)> on_error);
 	void GetInstalledMods(TDelegate<void(const TArray<struct FInstalledMod>& installed_mods)> on_installed_mods, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void GetModsDirInfo(TDelegate<void(const struct FModsDirInfo& ModsDirInfo)> OnModsDirInfo, TDelegate<void(const struct FCFCoreError& Error)> OnError);
 	void GetMyPremiumMods(const TDelegate<void(const TArray<int64>& modIds)>& OnSuccess, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
+	void GetMyPremiumModsV2(const TDelegate<void(const struct FOwnedPremiumMods& OwnedPremiumMods)>& OnSuccess, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
+	void GetSyncPlan(const TDelegate<void(const TArray<struct FSubscriptionSyncPlanItem>& plan_items)>& on_success, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void GetSystemInstalledMods(TDelegate<void(const TArray<struct FInstalledMod>& installed_mods)> on_installed_mods, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void Initialize(const struct FCFCoreSettings& Settings, const TDelegate<void()>& OnInitialized, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
 	void InstallMod(const struct FCFCoreMod& mod, const TDelegate<void(const struct FLibraryProgress& progress)>& on_progress, const TDelegate<void(const struct FInstalledMod& installed_mod)>& on_installed, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
@@ -174,14 +180,20 @@ public:
 	void OnSuccessGeneratePremium(const class FString& URL);
 	void OverridePublicKey(const class FString& InPublicKeyPem, const TDelegate<void()>& OnSuccess, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
 	void PerformModsValidation(const TArray<struct FInstalledMod>& installed_mods, TDelegate<void(const TArray<struct FInstalledMod>& invalid_installed_mods)> on_success, TDelegate<void(const struct FCFCoreError& Error)> on_error);
+	void PollModPurchase(const struct FPollPurchaseParams& InParams, const TDelegate<void(const TArray<int64>& OwnedModIds)>& OnPurchased, const TDelegate<void(const struct FCFCoreError& Error)>& OnError, const TDelegate<void()>& OnPurchasePollingTimeout, const TDelegate<void()>& OnPurchasePollingStopped);
 	void PremiumModsCheck(const TArray<int64>& InModIds, const TDelegate<void(const TArray<int64>& modIds)>& OnSuccess, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
 	void PremiumModsCheckDlc(const TArray<class FString>& InEntitlementIds, const TDelegate<void(const TArray<int64>& modIds)>& OnSuccess, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
 	void SendSecurityCode(const class FString& email, TDelegate<void()> on_success, TDelegate<void(const struct FCFCoreError& Error)> on_error);
+	void StopPurchasePolling();
+	void SubscribeMod(const struct FSubscribeRequest& Request, const TDelegate<void(const struct FCFCoreMod& mod)>& on_success, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void SynchronizeWithServer(TDelegate<void()> on_success, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
+	void SyncSubscriptions(const TDelegate<void(const TArray<struct FSubscriptionSyncResultItem>& result_items)>& on_success, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void UninstallMod(int64 mod_id, TDelegate<void(const struct FInstalledMod& uninstalled_mod)> on_uninstalled, TDelegate<void(const struct FCFCoreError& Error)> on_error);
 	void Unitialize(const TDelegate<void()>& OnUninitialized, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
+	void UnsubscribeMod(const struct FSubscribeRequest& Request, const TDelegate<void()>& on_success, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void UpdateInstalledModsProperties(const TArray<struct FInstalledModProperties>& InInstalledModsProperties, TDelegate<void()> OnSuccess, TDelegate<void(const struct FCFCoreError& Error)> OnError);
 	void UpdateMod(int64 mod_id, const struct FUpdateModRequest& update_mod_request, const class FString& avatar_image_filename, TDelegate<void(const struct FCFCoreMod& mod)> on_success, TDelegate<void(const struct FCFCoreError& Error)> on_error);
+	void UpdateSettings(const struct FCFCoreUpdatableSettings& InSettings, const TDelegate<void()>& OnSuccess, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
 	void UtilsCompressionZipPaths(const TArray<class FString>& InPathsToZip, const class FString& InOutputZipFile, const TDelegate<void(const struct FCompressionProgress& progress)>& OnProgress, const TDelegate<void()>& OnSuccess, const TDelegate<void(ECompressionError CompressionError)>& OnError);
 
 public:
@@ -200,5 +212,4 @@ public:
 };
 DUMPER7_ASSERTS_UCFCoreSubsystem;
 
-}
-
+SDK_NAMESPACE_END

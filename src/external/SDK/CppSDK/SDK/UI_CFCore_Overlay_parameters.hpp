@@ -10,33 +10,13 @@
 
 #include "Basic.hpp"
 
-#include "ENUM_CFCore_OverlayProfiles_structs.hpp"
 #include "UMG_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "ENUM_CFCore_OverlayProfiles_structs.hpp"
 
 
-namespace SDK::Params
-{
-
-// Function UI_CFCore_Overlay.UI_CFCore_Overlay_C.PreConstruct
-// 0x0001 (0x0001 - 0x0000)
-struct UI_CFCore_Overlay_C_PreConstruct final
-{
-public:
-	bool                                          IsDesignTime;                                      // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_UI_CFCore_Overlay_C_PreConstruct;
-
-// Function UI_CFCore_Overlay.UI_CFCore_Overlay_C.PlayHover
-// 0x0010 (0x0010 - 0x0000)
-struct UI_CFCore_Overlay_C_PlayHover final
-{
-public:
-	EUMGSequencePlayMode                          PlayMode;                                          // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        PlaybackSpeed;                                     // 0x0008(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_UI_CFCore_Overlay_C_PlayHover;
+SDK_NAMESPACE_START
+SDK_PARAM_NAMESPACE_START
 
 // Function UI_CFCore_Overlay.UI_CFCore_Overlay_C.ExecuteUbergraph_UI_CFCore_Overlay
 // 0x0040 (0x0040 - 0x0000)
@@ -61,5 +41,25 @@ public:
 };
 DUMPER7_ASSERTS_UI_CFCore_Overlay_C_ExecuteUbergraph_UI_CFCore_Overlay;
 
-}
+// Function UI_CFCore_Overlay.UI_CFCore_Overlay_C.PlayHover
+// 0x0010 (0x0010 - 0x0000)
+struct UI_CFCore_Overlay_C_PlayHover final
+{
+public:
+	EUMGSequencePlayMode                          PlayMode;                                          // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        PlaybackSpeed;                                     // 0x0008(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_UI_CFCore_Overlay_C_PlayHover;
 
+// Function UI_CFCore_Overlay.UI_CFCore_Overlay_C.PreConstruct
+// 0x0001 (0x0001 - 0x0000)
+struct UI_CFCore_Overlay_C_PreConstruct final
+{
+public:
+	bool                                          IsDesignTime;                                      // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_UI_CFCore_Overlay_C_PreConstruct;
+
+SDK_PARAM_NAMESPACE_END
+SDK_NAMESPACE_END

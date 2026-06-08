@@ -11,17 +11,16 @@
 #include "Basic.hpp"
 
 #include "GameplayTags_structs.hpp"
+#include "EnhancedInput_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "Engine_classes.hpp"
 #include "DeveloperSettings_structs.hpp"
 #include "DeveloperSettings_classes.hpp"
-#include "EnhancedInput_structs.hpp"
-#include "Engine_classes.hpp"
 #include "InputCore_structs.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Class EnhancedInput.EnhancedPlayerMappableKeyProfile
 // 0x0070 (0x0098 - 0x0028)
@@ -171,7 +170,7 @@ public:
 	uint8                                         Pad_148[0x38];                                     // 0x0148(0x0038)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	struct FInputActionValue GetBoundActionValue(const class UInputAction* Action) const;
+	struct FInputActionValue GetBoundActionValue(const class UInputAction* action) const;
 
 public:
 	static class UClass* StaticClass()
@@ -238,7 +237,7 @@ public:
 	static class FString Conv_InputActionValueToString(const struct FInputActionValue& ActionValue);
 	static class FString Conv_TriggerEventValueToString(const ETriggerEvent TriggerEvent);
 	static void FlushPlayerInput(class APlayerController* PlayerController);
-	static struct FInputActionValue GetBoundActionValue(class AActor* Actor, const class UInputAction* Action);
+	static struct FInputActionValue GetBoundActionValue(class AActor* Actor, const class UInputAction* action);
 	static struct FPlayerMappableKeySlot GetFirstPlayerMappableKeySlot();
 	static struct FPlayerMappableKeySlot GetFourthPlayerMappableKeySlot();
 	static class FName GetMappingName(const struct FEnhancedActionKeyMapping& ActionKeyMapping);
@@ -325,27 +324,27 @@ class IEnhancedInputSubsystemInterface final
 public:
 	void AddMappingContext(const class UInputMappingContext* MappingContext, int32 Priority, const struct FModifyContextOptions& Options);
 	void ClearAllMappings();
-	void InjectInputForAction(const class UInputAction* Action, const struct FInputActionValue& RawValue, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers);
+	void InjectInputForAction(const class UInputAction* action, const struct FInputActionValue& RawValue, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers);
 	void InjectInputForPlayerMapping(const class FName MappingName, const struct FInputActionValue& RawValue, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers);
-	void InjectInputVectorForAction(const class UInputAction* Action, const struct FVector& Value, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers);
+	void InjectInputVectorForAction(const class UInputAction* action, const struct FVector& Value, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers);
 	void InjectInputVectorForPlayerMapping(const class FName MappingName, const struct FVector& Value, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers);
 	void OnUserKeyProfileChanged(const class UEnhancedPlayerMappableKeyProfile* InNewProfile);
 	void OnUserSettingsChanged(class UEnhancedInputUserSettings* Settings);
-	EMappingQueryResult QueryMapKeyInActiveContextSet(const class UInputMappingContext* InputContext, const class UInputAction* Action, const struct FKey& Key, TArray<struct FMappingQueryIssue>* OutIssues, EMappingQueryIssue BlockingIssues);
-	EMappingQueryResult QueryMapKeyInContextSet(const TArray<class UInputMappingContext*>& PrioritizedActiveContexts, const class UInputMappingContext* InputContext, const class UInputAction* Action, const struct FKey& Key, TArray<struct FMappingQueryIssue>* OutIssues, EMappingQueryIssue BlockingIssues);
+	EMappingQueryResult QueryMapKeyInActiveContextSet(const class UInputMappingContext* InputContext, const class UInputAction* action, const struct FKey& Key, TArray<struct FMappingQueryIssue>* OutIssues, EMappingQueryIssue BlockingIssues);
+	EMappingQueryResult QueryMapKeyInContextSet(const TArray<class UInputMappingContext*>& PrioritizedActiveContexts, const class UInputMappingContext* InputContext, const class UInputAction* action, const struct FKey& Key, TArray<struct FMappingQueryIssue>* OutIssues, EMappingQueryIssue BlockingIssues);
 	void RemoveMappingContext(const class UInputMappingContext* MappingContext, const struct FModifyContextOptions& Options);
 	void RequestRebuildControlMappings(const struct FModifyContextOptions& Options, EInputMappingRebuildType RebuildType);
-	void StartContinuousInputInjectionForAction(const class UInputAction* Action, const struct FInputActionValue& RawValue, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers);
+	void StartContinuousInputInjectionForAction(const class UInputAction* action, const struct FInputActionValue& RawValue, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers);
 	void StartContinuousInputInjectionForPlayerMapping(const class FName MappingName, const struct FInputActionValue& RawValue, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers);
-	void StopContinuousInputInjectionForAction(const class UInputAction* Action);
+	void StopContinuousInputInjectionForAction(const class UInputAction* action);
 	void StopContinuousInputInjectionForPlayerMapping(const class FName MappingName);
-	void UpdateValueOfContinuousInputInjectionForAction(const class UInputAction* Action, const struct FInputActionValue& RawValue);
+	void UpdateValueOfContinuousInputInjectionForAction(const class UInputAction* action, const struct FInputActionValue& RawValue);
 	void UpdateValueOfContinuousInputInjectionForPlayerMapping(const class FName MappingName, const struct FInputActionValue& RawValue);
 
 	TArray<struct FEnhancedActionKeyMapping> GetAllPlayerMappableActionKeyMappings() const;
 	class UEnhancedInputUserSettings* GetUserSettings() const;
 	bool HasMappingContext(const class UInputMappingContext* MappingContext, int32* OutFoundPriority) const;
-	TArray<struct FKey> QueryKeysMappedToAction(const class UInputAction* Action) const;
+	TArray<struct FKey> QueryKeysMappedToAction(const class UInputAction* action) const;
 
 public:
 	static class UClass* StaticClass()
@@ -527,11 +526,11 @@ public:
 	class FText                                   ContextDescription;                                // 0x0040(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
 
 public:
-	struct FEnhancedActionKeyMapping MapKey(const class UInputAction* Action, const struct FKey& ToKey);
-	void UnmapAction(const class UInputAction* Action);
+	struct FEnhancedActionKeyMapping MapKey(const class UInputAction* action, const struct FKey& ToKey);
+	void UnmapAction(const class UInputAction* action);
 	void UnmapAll();
-	void UnmapAllKeysFromAction(const class UInputAction* Action);
-	void UnmapKey(const class UInputAction* Action, const struct FKey& Key);
+	void UnmapAllKeysFromAction(const class UInputAction* action);
+	void UnmapKey(const class UInputAction* action, const struct FKey& Key);
 
 public:
 	static class UClass* StaticClass()
@@ -1189,5 +1188,4 @@ public:
 };
 DUMPER7_ASSERTS_UPlayerMappableKeySettings;
 
-}
-
+SDK_NAMESPACE_END

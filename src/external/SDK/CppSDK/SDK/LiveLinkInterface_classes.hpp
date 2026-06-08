@@ -10,13 +10,12 @@
 
 #include "Basic.hpp"
 
+#include "LiveLinkInterface_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "LiveLinkInterface_structs.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Class LiveLinkInterface.LiveLinkController
 // 0x0000 (0x0028 - 0x0028)
@@ -444,5 +443,4 @@ public:
 };
 DUMPER7_ASSERTS_ULiveLinkLightRole;
 
-}
-
+SDK_NAMESPACE_END

@@ -10,6 +10,31 @@
 namespace g_Util {
     static const float inv255 = 1.0f / 255.0f; 
 
+    inline const char* GetKeyName(UINT vk) {
+        if (vk >= 'A' && vk <= 'Z') {
+            static char buf[2] = { 0 };
+            buf[0] = (char)vk;
+            return buf;
+        }
+        if (vk >= '0' && vk <= '9') {
+            static char buf[2] = { 0 };
+            buf[0] = (char)vk;
+            return buf;
+        }
+        switch (vk) {
+        case VK_F1: return "F1"; case VK_F2: return "F2"; case VK_F3: return "F3"; case VK_F4: return "F4";
+        case VK_F5: return "F5"; case VK_F6: return "F6"; case VK_F7: return "F7"; case VK_F8: return "F8";
+        case VK_F9: return "F9"; case VK_F10: return "F10"; case VK_F11: return "F11"; case VK_F12: return "F12";
+        case VK_INSERT: return "INSERT"; case VK_DELETE: return "DELETE"; case VK_HOME: return "HOME";
+        case VK_END: return "END"; case VK_PRIOR: return "PAGE UP"; case VK_NEXT: return "PAGE DOWN";
+        case VK_TAB: return "TAB"; case VK_LSHIFT: return "LSHIFT"; case VK_RSHIFT: return "RSHIFT";
+        case VK_LCONTROL: return "LCTRL"; case VK_RCONTROL: return "RCTRL"; case VK_LMENU: return "LALT";
+        case VK_RMENU: return "RALT"; case VK_CAPITAL: return "CAPSLOCK"; case VK_SPACE: return "SPACE";
+        case VK_RETURN: return "ENTER"; case VK_ESCAPE: return "ESCAPE";
+        default: return "UNKNOWN";
+        }
+    }
+
     inline std::string ToLower(std::string s) {
         std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c) {
             return std::tolower(c);
@@ -291,5 +316,71 @@ namespace g_Util {
         if (itemRating >= 1.25f) return g_Util::ToImColor(50, 205, 50, 255);
 
         return g_Util::GetU32Color(g_Config::DroppedItemNameColor);
+    }
+
+    inline bool IsDroppedItemAllowed(const std::string& className, int quantity)
+    {
+        const char* cn = className.c_str();
+
+        if (strstr(cn, "PrimalItem_WeaponEmptyCryopod"))
+            return g_Config::bDroppedItemCryopod;
+        if (strstr(cn, "Egg"))
+            return g_Config::bDroppedItemEgg;
+        if (quantity >= 1000)
+            return g_Config::bDroppedItemPiled;
+        if (strstr(cn, "PrimalItemResource_FungalWood") || strstr(cn, "PrimalItemResource_Wood"))
+            return g_Config::bDroppedItemWood;
+        if (strstr(cn, "PrimalItemResource_Thatch"))
+            return g_Config::bDroppedItemThatch;
+        if (strstr(cn, "PrimalItemResource_Hide"))
+            return g_Config::bDroppedItemHide;
+        if (strstr(cn, "PrimalItemResource_Pelt"))
+            return g_Config::bDroppedItemPelt;
+        if (strstr(cn, "PrimalItemResource_Keratin"))
+            return g_Config::bDroppedItemKeratin;
+        if (strstr(cn, "PrimalItemResource_Chitin"))
+            return g_Config::bDroppedItemChitin;
+        if (strstr(cn, "PrimalItemResource_CorruptedPolymer"))
+            return g_Config::bDroppedItemCorruptedPolymer;
+        if (strstr(cn, "PrimalItemResource_Polymer_Organic"))
+            return g_Config::bDroppedItemPolymer_Organic;
+        if (strstr(cn, "PrimalItemResource_Polymer"))
+            return g_Config::bDroppedItemPolymer;
+        if (strstr(cn, "PrimalItemResource_ScrapMetalIngot") ||
+            strstr(cn, "PrimalItemResource_MetalIngot") ||
+            strstr(cn, "PrimalItemResource_ScrapMetal") ||
+            strstr(cn, "PrimalItemResource_Metal"))
+            return g_Config::bDroppedItemMetal;
+        if (strstr(cn, "PrimalItemResource_Stone"))
+            return g_Config::bDroppedItemStone;
+        if (strstr(cn, "PrimalItemResource_Crystal"))
+            return g_Config::bDroppedItemCrystal;
+        if (strstr(cn, "PrimalItemResource_Gem_Fertile") ||
+            strstr(cn, "PrimalItemResource_Gem_BioLum") ||
+            strstr(cn, "PrimalItemResource_Gem_Element") ||
+            strstr(cn, "PrimalItemResource_BlueSap") ||
+            strstr(cn, "PrimalItemResource_RedSap"))
+            return g_Config::bDroppedItemGem;
+        if (strstr(cn, "PrimalItemResource_Silicon") ||
+            strstr(cn, "PrimalItemResource_BlackPearl"))
+            return g_Config::bDroppedItemPearl;
+        if (strstr(cn, "PrimalItemConsumable_SpoiledMeat"))
+            return g_Config::bDroppedItemSpoiledMeat;
+        if (strstr(cn, "PrimalItemConsumable_RawMeat") ||
+            strstr(cn, "PrimalItemConsumable_RawPrimeMeat") ||
+            strstr(cn, "PrimalItemConsumable_RawMutton") ||
+            strstr(cn, "PrimalItemConsumable_RawPrimeMeat_Fish") ||
+            strstr(cn, "PrimalItemConsumable_RawMeat_Fish") ||
+            strstr(cn, "PrimalItemConsumable_CookedMeat") ||
+            strstr(cn, "PrimalItemConsumable_CookedPrimeMeat") ||
+            strstr(cn, "PrimalItemConsumable_CookedLambChop") ||
+            strstr(cn, "PrimalItemConsumable_CookedPrimeMeat_Fish") ||
+            strstr(cn, "PrimalItemConsumable_CookedMeat_Fish") ||
+            strstr(cn, "PrimalItemConsumable_CookedMeat_Jerky") ||
+            strstr(cn, "PrimalItemConsumable_CookedPrimeMeat_Jerky"))
+            return g_Config::bDroppedItemMeat;
+
+        // 如果没有被上述特定分类命中，默认允许绘制（例如武器、装备等普通物品）
+        return true;
     }
 }

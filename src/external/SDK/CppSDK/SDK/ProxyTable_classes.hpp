@@ -12,13 +12,12 @@
 
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "Engine_classes.hpp"
 #include "Chooser_structs.hpp"
 #include "ProxyTable_structs.hpp"
-#include "Engine_classes.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Class ProxyTable.ChooserParameterProxyTable
 // 0x0000 (0x0000 - 0x0000)
@@ -127,5 +126,4 @@ public:
 };
 DUMPER7_ASSERTS_UProxyTableFunctionLibrary;
 
-}
-
+SDK_NAMESPACE_END

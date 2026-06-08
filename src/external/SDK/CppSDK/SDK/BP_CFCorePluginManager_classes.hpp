@@ -10,17 +10,16 @@
 
 #include "Basic.hpp"
 
+#include "cfcore_ui_structs.hpp"
 #include "cfcore_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
-#include "cfcore_ui_structs.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass BP_CFCorePluginManager.BP_CFCorePluginManager_C
-// 0x0938 (0x0DC0 - 0x0488)
+// 0x0948 (0x0DD0 - 0x0488)
 class ABP_CFCorePluginManager_C final : public AActor
 {
 public:
@@ -41,24 +40,24 @@ public:
 	class UMediaSoundComponent*                   SoundMediaComponent;                               // 0x04E0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
 	bool                                          IsSignedIn;                                        // 0x04E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_4E9[0x7];                                      // 0x04E9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FCFCoreSettings                        CFCoreSettings;                                    // 0x04F0(0x0148)(Edit, BlueprintVisible, DisableEditOnInstance)
-	struct FMe                                    SignInCredentials;                                 // 0x0638(0x0088)(Edit, BlueprintVisible, DisableEditOnInstance)
-	TArray<int64>                                 ModsRequestedToPurchase;                           // 0x06C0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	bool                                          Enable_Discovery;                                  // 0x06D0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
-	bool                                          EnableDebuggingInputs;                             // 0x06D1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
-	uint8                                         Pad_6D2[0x6];                                      // 0x06D2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class USave_CfCoreUI_C*                       Save_CfCoreUI;                                     // 0x06D8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	bool                                          Use_Double_Installed_List;                         // 0x06E0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
-	uint8                                         Pad_6E1[0x7];                                      // 0x06E1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FModsDirInfo                           DiscSpaceAvailable;                                // 0x06E8(0x0020)(Edit, BlueprintVisible, DisableEditOnInstance)
-	struct FInstallProgressMod                    ModDetails;                                        // 0x0708(0x0608)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
-	class UUI_CFCore_Prompt_Uninstall_C*          UI_UninstallNotifPrompt;                           // 0x0D10(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	class UUI_CFCore_Prompt_UninstallAll_C*       UninstallAllPopup;                                 // 0x0D18(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	TMulticastInlineDelegate<void()>              OnModsUninstalled;                                 // 0x0D20(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	bool                                          Enable_Class_Selection;                            // 0x0D30(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
-	uint8                                         Pad_D31[0x7];                                      // 0x0D31(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FCategory>                      ClassCategories;                                   // 0x0D38(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	struct FCategory                              CurrentClassCategory;                              // 0x0D48(0x0078)(Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FCFCoreSettings                        CFCoreSettings;                                    // 0x04F0(0x0150)(Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FMe                                    SignInCredentials;                                 // 0x0640(0x0088)(Edit, BlueprintVisible, DisableEditOnInstance)
+	TArray<int64>                                 ModsRequestedToPurchase;                           // 0x06C8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	bool                                          Enable_Discovery;                                  // 0x06D8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
+	bool                                          EnableDebuggingInputs;                             // 0x06D9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
+	uint8                                         Pad_6DA[0x6];                                      // 0x06DA(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	class USave_CfCoreUI_C*                       Save_CfCoreUI;                                     // 0x06E0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	bool                                          Use_Double_Installed_List;                         // 0x06E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
+	uint8                                         Pad_6E9[0x7];                                      // 0x06E9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FModsDirInfo                           DiscSpaceAvailable;                                // 0x06F0(0x0020)(Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FInstallProgressMod                    ModDetails;                                        // 0x0710(0x0610)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
+	class UUI_CFCore_Prompt_Uninstall_C*          UI_UninstallNotifPrompt;                           // 0x0D20(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class UUI_CFCore_Prompt_UninstallAll_C*       UninstallAllPopup;                                 // 0x0D28(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	TMulticastInlineDelegate<void()>              OnModsUninstalled;                                 // 0x0D30(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	bool                                          Enable_Class_Selection;                            // 0x0D40(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
+	uint8                                         Pad_D41[0x7];                                      // 0x0D41(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FCategory>                      ClassCategories;                                   // 0x0D48(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FCategory                              CurrentClassCategory;                              // 0x0D58(0x0078)(Edit, BlueprintVisible, DisableEditOnInstance)
 
 public:
 	void Accept_Terms();
@@ -146,5 +145,4 @@ public:
 };
 DUMPER7_ASSERTS_ABP_CFCorePluginManager_C;
 
-}
-
+SDK_NAMESPACE_END

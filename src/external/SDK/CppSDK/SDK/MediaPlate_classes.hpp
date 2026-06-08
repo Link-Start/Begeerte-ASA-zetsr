@@ -10,14 +10,13 @@
 
 #include "Basic.hpp"
 
-#include "MediaPlate_structs.hpp"
 #include "Engine_classes.hpp"
+#include "MediaPlate_structs.hpp"
 #include "MediaAssets_structs.hpp"
 #include "CoreUObject_structs.hpp"
 
 
-namespace SDK
-{
+SDK_NAMESPACE_START
 
 // Class MediaPlate.MediaPlate
 // 0x0010 (0x0498 - 0x0488)
@@ -42,29 +41,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_AMediaPlate;
-
-// Class MediaPlate.MediaPlateAssetUserData
-// 0x0010 (0x0038 - 0x0028)
-class UMediaPlateAssetUserData final : public UAssetUserData
-{
-public:
-	uint8                                         Pad_28[0x10];                                      // 0x0028(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MediaPlateAssetUserData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MediaPlateAssetUserData")
-	}
-	static class UMediaPlateAssetUserData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMediaPlateAssetUserData>();
-	}
-};
-DUMPER7_ASSERTS_UMediaPlateAssetUserData;
 
 // Class MediaPlate.MediaPlateComponent
 // 0x0158 (0x0218 - 0x00C0)
@@ -146,5 +122,27 @@ public:
 };
 DUMPER7_ASSERTS_UMediaPlateComponent;
 
-}
+// Class MediaPlate.MediaPlateAssetUserData
+// 0x0010 (0x0038 - 0x0028)
+class UMediaPlateAssetUserData final : public UAssetUserData
+{
+public:
+	uint8                                         Pad_28[0x10];                                      // 0x0028(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("MediaPlateAssetUserData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"MediaPlateAssetUserData")
+	}
+	static class UMediaPlateAssetUserData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMediaPlateAssetUserData>();
+	}
+};
+DUMPER7_ASSERTS_UMediaPlateAssetUserData;
+
+SDK_NAMESPACE_END
