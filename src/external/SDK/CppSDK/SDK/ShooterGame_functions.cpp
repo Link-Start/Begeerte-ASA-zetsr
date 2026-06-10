@@ -3791,7 +3791,7 @@ void APrimalStructure::ForceReplicateLinkedStructures()
 
 
 // Function ShooterGame.PrimalStructure.GetActualClass
-// (Final, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 // Parameters:
 // class UClass*                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -54257,6 +54257,44 @@ float AShooterGameMode::TimeSinceMissionDeactivated(TSubclassOf<class AMissionTy
 }
 
 
+// Function ShooterGame.ShooterGameMode.TogglePhysicsSimulationAllowed
+// (Final, Exec, Native, Public)
+
+void AShooterGameMode::TogglePhysicsSimulationAllowed()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ShooterGameMode", "TogglePhysicsSimulationAllowed");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function ShooterGame.ShooterGameMode.ToggleServerTickRateLogging
+// (Final, Exec, Native, Public)
+
+void AShooterGameMode::ToggleServerTickRateLogging()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ShooterGameMode", "ToggleServerTickRateLogging");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function ShooterGame.ShooterGameMode.TryGetBoolOption
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
@@ -54394,6 +54432,25 @@ bool AShooterGameMode::TryGetIntOptionIni(const class FString& Section, const cl
 		*Value = Parms.Value;
 
 	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.ShooterGameMode.UnlockServerFPS
+// (Final, Exec, Native, Public)
+
+void AShooterGameMode::UnlockServerFPS()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ShooterGameMode", "UnlockServerFPS");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
 }
 
 
