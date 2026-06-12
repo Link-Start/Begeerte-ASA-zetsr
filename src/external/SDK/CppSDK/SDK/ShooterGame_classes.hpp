@@ -9564,7 +9564,7 @@ public:
 DUMPER7_ASSERTS_UCustomButtonWidget;
 
 // Class ShooterGame.ShooterGameMode
-// 0x3D88 (0x4310 - 0x0588)
+// 0x3DB8 (0x4340 - 0x0588)
 class alignas(0x10) AShooterGameMode : public APrimalGameMode
 {
 public:
@@ -10091,20 +10091,21 @@ public:
 	uint8                                         Pad_4172[0x2];                                     // 0x4172(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
 	int32                                         MaxTamedDinos_SoftTameLimit;                       // 0x4174(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         MaxTamedDinos_SoftTameLimit_CountdownForDeletionDuration; // 0x4178(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         OverrideSecondsUntilBuriedTreasureAutoReveals;     // 0x417C(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4180[0x50];                                    // 0x4180(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
-	uint8                                         bDestroyCharacterOnLogoutInLobby : 1;              // 0x41D0(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bPreventJoiningDuringMatch : 1;                    // 0x41D0(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_41D1[0x1F];                                    // 0x41D1(0x001F)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(class AShooterPlayerController* ForPlayerController, int32 ExplorerNoteIndex, class FName ExplorerNoteName)> OnExplorerNoteUnlocked; // 0x41F0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	class UPrimalColorSet*                        DynamicColorSetInstance;                           // 0x4200(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class UPrimalColorSet>            DynamicColorSet;                                   // 0x4208(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         DynamicColorSetChance;                             // 0x4210(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDontEnforceMilestoneTaskOrder;                    // 0x4214(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4215[0x3];                                     // 0x4215(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         ModValidationFailureWarnings;                      // 0x4218(0x0004)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDoAutomatedModValidationModeration;               // 0x421C(0x0001)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_421D[0xF3];                                    // 0x421D(0x00F3)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_417C[0x28];                                    // 0x417C(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         OverrideSecondsUntilBuriedTreasureAutoReveals;     // 0x41A4(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_41A8[0x50];                                    // 0x41A8(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         bDestroyCharacterOnLogoutInLobby : 1;              // 0x41F8(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bPreventJoiningDuringMatch : 1;                    // 0x41F8(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_41F9[0x1F];                                    // 0x41F9(0x001F)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(class AShooterPlayerController* ForPlayerController, int32 ExplorerNoteIndex, class FName ExplorerNoteName)> OnExplorerNoteUnlocked; // 0x4218(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	class UPrimalColorSet*                        DynamicColorSetInstance;                           // 0x4228(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UPrimalColorSet>            DynamicColorSet;                                   // 0x4230(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         DynamicColorSetChance;                             // 0x4238(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bDontEnforceMilestoneTaskOrder;                    // 0x423C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Config, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_423D[0x3];                                     // 0x423D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         ModValidationFailureWarnings;                      // 0x4240(0x0004)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bDoAutomatedModValidationModeration;               // 0x4244(0x0001)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4245[0xFB];                                    // 0x4245(0x00FB)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static bool AllowDamage(class UWorld* ForWorld, int32 TargetingTeam1, int32 TargetingTeam2, bool bIgnoreDamageIfAllied);
@@ -10279,7 +10280,7 @@ public:
 DUMPER7_ASSERTS_UPrimalCameraConfig_WeaponOverride;
 
 // Class ShooterGame.CustomGameMode
-// 0x0000 (0x4310 - 0x4310)
+// 0x0000 (0x4340 - 0x4340)
 class ACustomGameMode final : public AShooterGameMode
 {
 public:
