@@ -33,14 +33,27 @@ namespace g_Hack {
         if (!LP->PlayerController->IsA(SDK::AShooterPlayerController::StaticClass())) return;
         SDK::AShooterPlayerController* PC = static_cast<SDK::AShooterPlayerController*>(LP->PlayerController);
 
-        if (!PC) return;
+        if (!PC || !PC->Character) return;
 
-        if (PC->Character && PC->Character->IsA(SDK::AShooterCharacter::StaticClass())) {
-            SDK::AShooterCharacter* MyHuman = static_cast<SDK::AShooterCharacter*>(PC->Character);
+        SDK::AShooterCharacter* TargetHuman = nullptr;
 
-            if (MyHuman) {
-                MyHuman->BPSuicide();
+        // 情况 1：当前控制的是人类本身
+        if (PC->Character->IsA(SDK::AShooterCharacter::StaticClass()) && !PC->Character->IsA(SDK::APrimalDinoCharacter::StaticClass())) {
+            TargetHuman = static_cast<SDK::AShooterCharacter*>(PC->Character);
+        }
+        // 情况 2：当前控制的是恐龙，从 Rider 弱指针中提取人类
+        else if (PC->Character->IsA(SDK::APrimalDinoCharacter::StaticClass())) {
+            SDK::APrimalDinoCharacter* Dino = static_cast<SDK::APrimalDinoCharacter*>(PC->Character);
+
+            // 检查弱指针是否有效，并转换为强指针（裸指针）
+            if (Dino) {
+                TargetHuman = Dino->Rider.Get();
             }
+        }
+
+        // 统一执行自杀逻辑
+        if (TargetHuman) {
+            TargetHuman->BPSuicide();
         }
     }
 
