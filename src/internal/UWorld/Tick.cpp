@@ -49,7 +49,7 @@ namespace g_UWorld {
             // 执行使用逻辑
             if (g_Config::bUseItem) {
                 // 执行操作
-                PC->ServerRequestInventoryUseItem(Inv, g_Config::useItemID);
+                PC->ServerRequestInventoryUseItem(Inv, g_Config::useItemID, g_Config::useItemSlotID);
 
                 // 重置状态
                 g_Config::bUseItem = false;

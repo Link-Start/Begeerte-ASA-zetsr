@@ -207,4 +207,172 @@ void UAC_FaceCustomization_C::ExecuteUbergraph_AC_FaceCustomization(int32 EntryP
 }
 
 
+// Function AC_FaceCustomization.AC_FaceCustomization_C.GetFaceEars
+// (Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure, Const)
+// Parameters:
+// TArray<double>*                         Value                                                  (Parm, OutParm)
+
+void UAC_FaceCustomization_C::GetFaceEars(TArray<double>* Value) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("AC_FaceCustomization_C", "GetFaceEars");
+
+	Params::AC_FaceCustomization_C_GetFaceEars Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (Value != nullptr)
+		*Value = std::move(Parms.Value);
+}
+
+
+// Function AC_FaceCustomization.AC_FaceCustomization_C.GetFaceJaw
+// (Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure, Const)
+// Parameters:
+// TArray<double>*                         Value                                                  (Parm, OutParm)
+
+void UAC_FaceCustomization_C::GetFaceJaw(TArray<double>* Value) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("AC_FaceCustomization_C", "GetFaceJaw");
+
+	Params::AC_FaceCustomization_C_GetFaceJaw Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (Value != nullptr)
+		*Value = std::move(Parms.Value);
+}
+
+
+// Function AC_FaceCustomization.AC_FaceCustomization_C.GetFaceMouth
+// (Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure, Const)
+// Parameters:
+// TArray<double>*                         Value                                                  (Parm, OutParm)
+
+void UAC_FaceCustomization_C::GetFaceMouth(TArray<double>* Value) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("AC_FaceCustomization_C", "GetFaceMouth");
+
+	Params::AC_FaceCustomization_C_GetFaceMouth Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (Value != nullptr)
+		*Value = std::move(Parms.Value);
+}
+
+
+// Function AC_FaceCustomization.AC_FaceCustomization_C.GetFaceNose
+// (Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure, Const)
+// Parameters:
+// TArray<double>*                         Value                                                  (Parm, OutParm)
+
+void UAC_FaceCustomization_C::GetFaceNose(TArray<double>* Value) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("AC_FaceCustomization_C", "GetFaceNose");
+
+	Params::AC_FaceCustomization_C_GetFaceNose Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (Value != nullptr)
+		*Value = std::move(Parms.Value);
+}
+
+
+// Function AC_FaceCustomization.AC_FaceCustomization_C.GetFaceEyes
+// (Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure, Const)
+// Parameters:
+// TArray<double>*                         Value                                                  (Parm, OutParm)
+
+void UAC_FaceCustomization_C::GetFaceEyes(TArray<double>* Value) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("AC_FaceCustomization_C", "GetFaceEyes");
+
+	Params::AC_FaceCustomization_C_GetFaceEyes Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (Value != nullptr)
+		*Value = std::move(Parms.Value);
+}
+
+
+// Function AC_FaceCustomization.AC_FaceCustomization_C.GetFaceBrows
+// (Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure, Const)
+// Parameters:
+// TArray<double>*                         Value                                                  (Parm, OutParm)
+
+void UAC_FaceCustomization_C::GetFaceBrows(TArray<double>* Value) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("AC_FaceCustomization_C", "GetFaceBrows");
+
+	Params::AC_FaceCustomization_C_GetFaceBrows Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (Value != nullptr)
+		*Value = std::move(Parms.Value);
+}
+
+
+// Function AC_FaceCustomization.AC_FaceCustomization_C.GetFaceScalp
+// (Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure, Const)
+// Parameters:
+// TArray<double>*                         Value                                                  (Parm, OutParm)
+
+void UAC_FaceCustomization_C::GetFaceScalp(TArray<double>* Value) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("AC_FaceCustomization_C", "GetFaceScalp");
+
+	Params::AC_FaceCustomization_C_GetFaceScalp Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (Value != nullptr)
+		*Value = std::move(Parms.Value);
+}
+
+
+// Function AC_FaceCustomization.AC_FaceCustomization_C.GetFaceA
+// (Public, HasOutParams, BlueprintCallable, BlueprintEvent, BlueprintPure, Const)
+// Parameters:
+// EHuman_Male_Faces_Enum*                 Value                                                  (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UAC_FaceCustomization_C::GetFaceA(EHuman_Male_Faces_Enum* Value) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("AC_FaceCustomization_C", "GetFaceA");
+
+	Params::AC_FaceCustomization_C_GetFaceA Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (Value != nullptr)
+		*Value = Parms.Value;
+}
+
+
 SDK_NAMESPACE_END

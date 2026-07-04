@@ -17,13 +17,13 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass camelsaurus_Character_Base_BP.camelsaurus_Character_Base_BP_C
-// 0x0010 (0x2AA0 - 0x2A90)
+// 0x0010 (0x2B00 - 0x2AF0)
 class Acamelsaurus_Character_Base_BP_C final : public ADino_Character_BP_C
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame_camelsaurus_Character_Base_BP_C;    // 0x2A88(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	double                                        WaterAmount;                                       // 0x2A90(0x0008)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, SaveGame, IsPlainOldData, RepNotify, NoDestructor, PersistentInstance, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        MaxWaterAmount;                                    // 0x2A98(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FPointerToUberGraphFrame               UberGraphFrame_camelsaurus_Character_Base_BP_C;    // 0x2AE8(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	double                                        WaterAmount;                                       // 0x2AF0(0x0008)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, SaveGame, IsPlainOldData, RepNotify, NoDestructor, PersistentInstance, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        MaxWaterAmount;                                    // 0x2AF8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void AddWater(double Amount, double* NewWaterAmount);

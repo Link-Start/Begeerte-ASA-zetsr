@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItem_PlantSpeciesZ_Grenade.PrimalItem_PlantSpeciesZ_Grenade_C
-// 0x0000 (0x0B60 - 0x0B60)
+// 0x0000 (0x0B90 - 0x0B90)
 class UPrimalItem_PlantSpeciesZ_Grenade_C final : public UPrimalItemWeaponGenericAmmolessConsumeSelf_Spoils_C
 {
 public:

@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemConsumable_HumanPoop.PrimalItemConsumable_HumanPoop_C
-// 0x0000 (0x0B60 - 0x0B60)
+// 0x0000 (0x0B90 - 0x0B90)
 class UPrimalItemConsumable_HumanPoop_C final : public UPrimalItemConsumablePoop_C
 {
 public:

@@ -140,12 +140,12 @@ public:
 DUMPER7_ASSERTS_UComputeGraph;
 
 // Class ComputeFramework.ComputeGraphComponent
-// 0x0020 (0x00E0 - 0x00C0)
+// 0x0020 (0x00F0 - 0x00D0)
 class UComputeGraphComponent final : public UActorComponent
 {
 public:
-	class UComputeGraph*                          ComputeGraph;                                      // 0x00C0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	struct FComputeGraphInstance                  ComputeGraphInstance;                              // 0x00C8(0x0018)(NativeAccessSpecifierPrivate)
+	class UComputeGraph*                          ComputeGraph;                                      // 0x00D0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	struct FComputeGraphInstance                  ComputeGraphInstance;                              // 0x00D8(0x0018)(NativeAccessSpecifierPrivate)
 
 public:
 	void CreateDataProviders(int32 InBindingIndex, class UObject* InBindingObject);

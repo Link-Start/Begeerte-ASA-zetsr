@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemConsumablePoop.PrimalItemConsumablePoop_C
-// 0x0000 (0x0B60 - 0x0B60)
+// 0x0000 (0x0B90 - 0x0B90)
 class UPrimalItemConsumablePoop_C : public UPrimalItemConsumable_Fertilizer_Base_C
 {
 public:

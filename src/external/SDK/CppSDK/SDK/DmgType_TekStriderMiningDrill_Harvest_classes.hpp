@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass DmgType_TekStriderMiningDrill_Harvest.DmgType_TekStriderMiningDrill_Harvest_C
-// 0x0000 (0x0178 - 0x0178)
+// 0x0000 (0x0180 - 0x0180)
 class UDmgType_TekStriderMiningDrill_Harvest_C final : public UDmgType_MiningDrill_Harvest_C
 {
 public:

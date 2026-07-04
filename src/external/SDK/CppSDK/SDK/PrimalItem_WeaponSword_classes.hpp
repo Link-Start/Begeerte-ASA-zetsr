@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItem_WeaponSword.PrimalItem_WeaponSword_C
-// 0x0000 (0x0B60 - 0x0B60)
+// 0x0000 (0x0B90 - 0x0B90)
 class UPrimalItem_WeaponSword_C final : public UPrimalItem_WeaponBaseClub_C
 {
 public:

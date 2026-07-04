@@ -44,6 +44,40 @@ void UReMainMenuUI_ASA_C::BndEvt__MainMenuUI_WebLink_K2Node_ComponentBoundEvent_
 }
 
 
+// Function ReMainMenuUI_ASA.ReMainMenuUI_ASA_C.BndEvt__ReMainMenuUI_ASA_ASAUI_MainMenu_DLC_Selector_K2Node_ComponentBoundEvent_11_OnBackSelected__DelegateSignature
+// (BlueprintEvent)
+
+void UReMainMenuUI_ASA_C::BndEvt__ReMainMenuUI_ASA_ASAUI_MainMenu_DLC_Selector_K2Node_ComponentBoundEvent_11_OnBackSelected__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ReMainMenuUI_ASA_C", "BndEvt__ReMainMenuUI_ASA_ASAUI_MainMenu_DLC_Selector_K2Node_ComponentBoundEvent_11_OnBackSelected__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function ReMainMenuUI_ASA.ReMainMenuUI_ASA_C.BndEvt__ReMainMenuUI_ASA_ASAUI_MainMenu_GameModeSelect_K2Node_ComponentBoundEvent_12_OnDLCStore__DelegateSignature
+// (BlueprintEvent)
+// Parameters:
+// const class FString&                    DLC                                                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+
+void UReMainMenuUI_ASA_C::BndEvt__ReMainMenuUI_ASA_ASAUI_MainMenu_GameModeSelect_K2Node_ComponentBoundEvent_12_OnDLCStore__DelegateSignature(const class FString& DLC)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ReMainMenuUI_ASA_C", "BndEvt__ReMainMenuUI_ASA_ASAUI_MainMenu_GameModeSelect_K2Node_ComponentBoundEvent_12_OnDLCStore__DelegateSignature");
+
+	Params::ReMainMenuUI_ASA_C_BndEvt__ReMainMenuUI_ASA_ASAUI_MainMenu_GameModeSelect_K2Node_ComponentBoundEvent_12_OnDLCStore__DelegateSignature Parms{};
+
+	Parms.DLC = std::move(DLC);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function ReMainMenuUI_ASA.ReMainMenuUI_ASA_C.BndEvt__ReMainMenuUI_ASA_ASAUI_MainMenu_GameModeSelect_K2Node_ComponentBoundEvent_2_OnBackSelected__DelegateSignature
 // (BlueprintEvent)
 
@@ -100,34 +134,6 @@ void UReMainMenuUI_ASA_C::BndEvt__ReMainMenuUI_ASA_ASAUI_MainMenu_GameModeSelect
 }
 
 
-// Function ReMainMenuUI_ASA.ReMainMenuUI_ASA_C.BndEvt__ReMainMenuUI_ASA_ASAUI_MainMenu_GameModeSelect_K2Node_ComponentBoundEvent_8_OnNewDlcStoreClicked__DelegateSignature
-// (BlueprintEvent)
-
-void UReMainMenuUI_ASA_C::BndEvt__ReMainMenuUI_ASA_ASAUI_MainMenu_GameModeSelect_K2Node_ComponentBoundEvent_8_OnNewDlcStoreClicked__DelegateSignature()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ReMainMenuUI_ASA_C", "BndEvt__ReMainMenuUI_ASA_ASAUI_MainMenu_GameModeSelect_K2Node_ComponentBoundEvent_8_OnNewDlcStoreClicked__DelegateSignature");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function ReMainMenuUI_ASA.ReMainMenuUI_ASA_C.BndEvt__ReMainMenuUI_ASA_ASAUI_MainMenu_GameModeSelect_K2Node_ComponentBoundEvent_9_OnLostColonyDLCStore__DelegateSignature
-// (BlueprintEvent)
-
-void UReMainMenuUI_ASA_C::BndEvt__ReMainMenuUI_ASA_ASAUI_MainMenu_GameModeSelect_K2Node_ComponentBoundEvent_9_OnLostColonyDLCStore__DelegateSignature()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ReMainMenuUI_ASA_C", "BndEvt__ReMainMenuUI_ASA_ASAUI_MainMenu_GameModeSelect_K2Node_ComponentBoundEvent_9_OnLostColonyDLCStore__DelegateSignature");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
 // Function ReMainMenuUI_ASA.ReMainMenuUI_ASA_C.BndEvt__ReMainMenuUI_ASA_ASAUI_MainMenu_LandingScreen_K2Node_ComponentBoundEvent_1_OnStartButtonClicked__DelegateSignature
 // (BlueprintEvent)
 
@@ -165,6 +171,20 @@ void UReMainMenuUI_ASA_C::BndEvt__ReMainMenuUI_ASA_SettingsButton_K2Node_Compone
 
 	if (Func == nullptr)
 		Func = Class->GetFunction("ReMainMenuUI_ASA_C", "BndEvt__ReMainMenuUI_ASA_SettingsButton_K2Node_ComponentBoundEvent_5_OnButtonClicked__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function ReMainMenuUI_ASA.ReMainMenuUI_ASA_C.BndEvt__ReMainMenuUI_ASA_W_ButtonDLC_K2Node_ComponentBoundEvent_10_OnClicked__DelegateSignature
+// (BlueprintEvent)
+
+void UReMainMenuUI_ASA_C::BndEvt__ReMainMenuUI_ASA_W_ButtonDLC_K2Node_ComponentBoundEvent_10_OnClicked__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ReMainMenuUI_ASA_C", "BndEvt__ReMainMenuUI_ASA_W_ButtonDLC_K2Node_ComponentBoundEvent_10_OnClicked__DelegateSignature");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
@@ -503,6 +523,34 @@ void UReMainMenuUI_ASA_C::OnSettingsClicked_Event()
 
 	if (Func == nullptr)
 		Func = Class->GetFunction("ReMainMenuUI_ASA_C", "OnSettingsClicked_Event");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function ReMainMenuUI_ASA.ReMainMenuUI_ASA_C.OpenGameModeSelector
+// (BlueprintCallable, BlueprintEvent)
+
+void UReMainMenuUI_ASA_C::OpenGameModeSelector()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ReMainMenuUI_ASA_C", "OpenGameModeSelector");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function ReMainMenuUI_ASA.ReMainMenuUI_ASA_C.OpenMainMenuLanding
+// (BlueprintCallable, BlueprintEvent)
+
+void UReMainMenuUI_ASA_C::OpenMainMenuLanding()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ReMainMenuUI_ASA_C", "OpenMainMenuLanding");
 
 	UObject::ProcessEvent(Func, nullptr);
 }

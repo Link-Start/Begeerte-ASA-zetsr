@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass DmgType_GeneScanner_Base.DmgType_GeneScanner_Base_C
-// 0x0000 (0x0178 - 0x0178)
+// 0x0000 (0x0180 - 0x0180)
 class UDmgType_GeneScanner_Base_C final : public UDmgType_Melee_Torpidity_Low_MetalWeapon_C
 {
 public:

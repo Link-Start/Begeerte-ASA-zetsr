@@ -10,41 +10,49 @@
 
 #include "Basic.hpp"
 
-#include "MassSpawner_structs.hpp"
-#include "MassSpawner_classes.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "MassActors_structs.hpp"
 #include "MassEntity_classes.hpp"
 #include "MassCommon_structs.hpp"
+#include "MassSpawner_structs.hpp"
+#include "MassSpawner_classes.hpp"
 #include "Engine_classes.hpp"
-#include "MassActors_structs.hpp"
 
 
 SDK_NAMESPACE_START
 
-// Class MassActors.MassAgentSyncTrait
-// 0x0008 (0x0030 - 0x0028)
-class UMassAgentSyncTrait : public UMassEntityTraitBase
+// Class MassActors.MassAgentComponent
+// 0x0100 (0x01D0 - 0x00D0)
+class UMassAgentComponent final : public UActorComponent
 {
 public:
-	EMassTranslationDirection                     SyncDirection;                                     // 0x0028(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_D0[0xA0];                                      // 0x00D0(0x00A0)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FMassEntityConfig                      EntityConfig;                                      // 0x0170(0x0030)(Edit, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_1A0[0x2C];                                     // 0x01A0(0x002C)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FMassNetworkID                         NetID;                                             // 0x01CC(0x0004)(Net, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+
+public:
+	void Disable();
+	void Enable();
+	void KillEntity(const bool bDestroyActor);
+	void OnRep_NetID();
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("MassAgentSyncTrait")
+		STATIC_CLASS_IMPL("MassAgentComponent")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"MassAgentSyncTrait")
+		STATIC_NAME_IMPL(L"MassAgentComponent")
 	}
-	static class UMassAgentSyncTrait* GetDefaultObj()
+	static class UMassAgentComponent* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UMassAgentSyncTrait>();
+		return GetDefaultObjImpl<UMassAgentComponent>();
 	}
 };
-DUMPER7_ASSERTS_UMassAgentSyncTrait;
+DUMPER7_ASSERTS_UMassAgentComponent;
 
 // Class MassActors.MassActorPoolableInterface
 // 0x0000 (0x0000 - 0x0000)
@@ -79,36 +87,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_IMassActorPoolableInterface;
-
-// Class MassActors.MassAgentSubsystem
-// 0x0148 (0x0180 - 0x0038)
-class UMassAgentSubsystem final : public UMassSubsystemBase
-{
-public:
-	uint8                                         Pad_38[0x10];                                      // 0x0038(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMassSpawnerSubsystem*                  SpawnerSystem;                                     // 0x0048(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UMassSimulationSubsystem*               SimulationSystem;                                  // 0x0050(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	TMap<struct FMassEntityTemplateID, struct FMassAgentInitializationQueue> PendingAgentEntities;   // 0x0058(0x0050)(ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	TMap<struct FMassEntityTemplateID, struct FMassAgentInitializationQueue> PendingPuppets;         // 0x00A8(0x0050)(ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	class UMassReplicationSubsystem*              ReplicationSubsystem;                              // 0x00F8(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	TMap<struct FMassNetworkID, class UMassAgentComponent*> ReplicatedAgentComponents;               // 0x0100(0x0050)(ExportObject, ContainsInstancedReference, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_150[0x30];                                     // 0x0150(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MassAgentSubsystem")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MassAgentSubsystem")
-	}
-	static class UMassAgentSubsystem* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMassAgentSubsystem>();
-	}
-};
-DUMPER7_ASSERTS_UMassAgentSubsystem;
 
 // Class MassActors.MassActorSpawnerSubsystem
 // 0x00B8 (0x00F0 - 0x0038)
@@ -159,37 +137,59 @@ public:
 };
 DUMPER7_ASSERTS_UMassActorSubsystem;
 
-// Class MassActors.MassAgentComponent
-// 0x0100 (0x01C0 - 0x00C0)
-class UMassAgentComponent final : public UActorComponent
+// Class MassActors.MassAgentSubsystem
+// 0x0148 (0x0180 - 0x0038)
+class UMassAgentSubsystem final : public UMassSubsystemBase
 {
 public:
-	uint8                                         Pad_C0[0xA0];                                      // 0x00C0(0x00A0)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FMassEntityConfig                      EntityConfig;                                      // 0x0160(0x0030)(Edit, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_190[0x2C];                                     // 0x0190(0x002C)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FMassNetworkID                         NetID;                                             // 0x01BC(0x0004)(Net, RepNotify, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-
-public:
-	void Disable();
-	void Enable();
-	void KillEntity(const bool bDestroyActor);
-	void OnRep_NetID();
+	uint8                                         Pad_38[0x10];                                      // 0x0038(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMassSpawnerSubsystem*                  SpawnerSystem;                                     // 0x0048(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UMassSimulationSubsystem*               SimulationSystem;                                  // 0x0050(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	TMap<struct FMassEntityTemplateID, struct FMassAgentInitializationQueue> PendingAgentEntities;   // 0x0058(0x0050)(ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	TMap<struct FMassEntityTemplateID, struct FMassAgentInitializationQueue> PendingPuppets;         // 0x00A8(0x0050)(ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	class UMassReplicationSubsystem*              ReplicationSubsystem;                              // 0x00F8(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	TMap<struct FMassNetworkID, class UMassAgentComponent*> ReplicatedAgentComponents;               // 0x0100(0x0050)(ExportObject, ContainsInstancedReference, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	uint8                                         Pad_150[0x30];                                     // 0x0150(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("MassAgentComponent")
+		STATIC_CLASS_IMPL("MassAgentSubsystem")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"MassAgentComponent")
+		STATIC_NAME_IMPL(L"MassAgentSubsystem")
 	}
-	static class UMassAgentComponent* GetDefaultObj()
+	static class UMassAgentSubsystem* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UMassAgentComponent>();
+		return GetDefaultObjImpl<UMassAgentSubsystem>();
 	}
 };
-DUMPER7_ASSERTS_UMassAgentComponent;
+DUMPER7_ASSERTS_UMassAgentSubsystem;
+
+// Class MassActors.MassAgentSyncTrait
+// 0x0008 (0x0030 - 0x0028)
+class UMassAgentSyncTrait : public UMassEntityTraitBase
+{
+public:
+	EMassTranslationDirection                     SyncDirection;                                     // 0x0028(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("MassAgentSyncTrait")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"MassAgentSyncTrait")
+	}
+	static class UMassAgentSyncTrait* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMassAgentSyncTrait>();
+	}
+};
+DUMPER7_ASSERTS_UMassAgentSyncTrait;
 
 // Class MassActors.MassAgentCapsuleCollisionSyncTrait
 // 0x0008 (0x0038 - 0x0030)

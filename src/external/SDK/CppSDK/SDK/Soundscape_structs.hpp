@@ -105,6 +105,25 @@ public:
 };
 DUMPER7_ASSERTS_FSoundscapeColorModulationSettings;
 
+// ScriptStruct Soundscape.SoundscapeColorPointVectorArray
+// 0x0018 (0x0018 - 0x0000)
+struct FSoundscapeColorPointVectorArray final
+{
+public:
+	struct FGameplayTag                           ColorPoint;                                        // 0x0000(0x0008)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<struct FVector>                        Locations;                                         // 0x0008(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FSoundscapeColorPointVectorArray;
+
+// ScriptStruct Soundscape.SoundscapeColorPointCollection
+// 0x0010 (0x0010 - 0x0000)
+struct FSoundscapeColorPointCollection final
+{
+public:
+	TArray<struct FSoundscapeColorPointVectorArray> ColorPointCollection;                            // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FSoundscapeColorPointCollection;
+
 // ScriptStruct Soundscape.SoundscapeColorPlaybackSettings
 // 0x000C (0x000C - 0x0000)
 struct FSoundscapeColorPlaybackSettings final
@@ -137,16 +156,6 @@ public:
 };
 DUMPER7_ASSERTS_FSoundscapeColorPoint;
 
-// ScriptStruct Soundscape.SoundscapeColorPointVectorArray
-// 0x0018 (0x0018 - 0x0000)
-struct FSoundscapeColorPointVectorArray final
-{
-public:
-	struct FGameplayTag                           ColorPoint;                                        // 0x0000(0x0008)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<struct FVector>                        Locations;                                         // 0x0008(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FSoundscapeColorPointVectorArray;
-
 // ScriptStruct Soundscape.SoundscapePaletteColor
 // 0x0018 (0x0018 - 0x0000)
 struct FSoundscapePaletteColor final
@@ -177,14 +186,5 @@ public:
 	TSet<class USoundscapePalette*>               SoundscapePaletteCollection;                       // 0x0000(0x0050)(Edit, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 };
 DUMPER7_ASSERTS_FSoundscapePaletteCollectionLoaded;
-
-// ScriptStruct Soundscape.SoundscapeColorPointCollection
-// 0x0010 (0x0010 - 0x0000)
-struct FSoundscapeColorPointCollection final
-{
-public:
-	TArray<struct FSoundscapeColorPointVectorArray> ColorPointCollection;                            // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FSoundscapeColorPointCollection;
 
 SDK_NAMESPACE_END

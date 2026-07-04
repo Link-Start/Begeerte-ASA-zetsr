@@ -17,7 +17,7 @@
 SDK_NAMESPACE_START
 
 // RigVMBlueprintGeneratedClass Human_Rider_CtrlRig.Human_Rider_CtrlRig_C
-// 0x04B0 (0x0F80 - 0x0AD0)
+// 0x04C0 (0x0F90 - 0x0AD0)
 class UHuman_Rider_CtrlRig_C final : public UControlRig
 {
 public:
@@ -56,6 +56,9 @@ public:
 	struct FVector                                DinoLocation;                                      // 0x0F48(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	struct FVector                                SpringInterp_Result_0;                             // 0x0F60(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	double                                        LegLengthPercentage;                               // 0x0F78(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        LegLengthHipZOffset;                               // 0x0F80(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bUseHandIKBones;                                   // 0x0F88(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bIsRidingOnShip;                                   // 0x0F89(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	static class UClass* StaticClass()

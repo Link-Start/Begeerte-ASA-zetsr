@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemArmor_ClothPants.PrimalItemArmor_ClothPants_C
-// 0x0000 (0x0B90 - 0x0B90)
+// 0x0000 (0x0BC0 - 0x0BC0)
 class UPrimalItemArmor_ClothPants_C final : public UPrimalItemArmor_BasePants_C
 {
 public:

@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemConsumable_Meat_Base.PrimalItemConsumable_Meat_Base_C
-// 0x0000 (0x0B60 - 0x0B60)
+// 0x0000 (0x0B90 - 0x0B90)
 class UPrimalItemConsumable_Meat_Base_C final : public UPrimalItemConsumableEatable_C
 {
 public:

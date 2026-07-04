@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemArmor_WoodShield.PrimalItemArmor_WoodShield_C
-// 0x0000 (0x0B70 - 0x0B70)
+// 0x0000 (0x0BA0 - 0x0BA0)
 class UPrimalItemArmor_WoodShield_C final : public UPrimalItemArmor_Shield_C
 {
 public:

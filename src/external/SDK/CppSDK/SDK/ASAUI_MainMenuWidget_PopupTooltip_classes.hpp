@@ -26,9 +26,9 @@ public:
 	class UTextBlock*                             Tooltip_Text;                                      // 0x0410(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 
 public:
-	void ExecuteUbergraph_ASAUI_MainMenuWidget_PopupTooltip(int32 EntryPoint);
-	void Hide();
 	void show();
+	void Hide();
+	void ExecuteUbergraph_ASAUI_MainMenuWidget_PopupTooltip(int32 EntryPoint);
 
 public:
 	static class UClass* StaticClass()

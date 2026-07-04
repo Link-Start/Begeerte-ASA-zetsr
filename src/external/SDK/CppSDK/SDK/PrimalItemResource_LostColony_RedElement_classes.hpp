@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemResource_LostColony_RedElement.PrimalItemResource_LostColony_RedElement_C
-// 0x0000 (0x0B80 - 0x0B80)
+// 0x0000 (0x0BB0 - 0x0BB0)
 class UPrimalItemResource_LostColony_RedElement_C final : public UPrimalItemResource_Element_C
 {
 public:

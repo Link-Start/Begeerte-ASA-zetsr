@@ -18,7 +18,7 @@ SDK_NAMESPACE_START
 
 // WidgetBlueprintGeneratedClass DataListButtonVariable_Bool_Widget_ASA.DataListButtonVariable_Bool_Widget_ASA_C
 // 0x0028 (0x0500 - 0x04D8)
-class UDataListButtonVariable_Bool_Widget_ASA_C final : public UDataListButtonVariable_Widget_ASA_C
+class UDataListButtonVariable_Bool_Widget_ASA_C : public UDataListButtonVariable_Widget_ASA_C
 {
 public:
 	struct FPointerToUberGraphFrame               UberGraphFrame_DataListButtonVariable_Bool_Widget_ASA_C; // 0x04D8(0x0008)(ZeroConstructor, Transient, DuplicateTransient)

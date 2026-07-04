@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemArtifact_05.PrimalItemArtifact_05_C
-// 0x0000 (0x0B60 - 0x0B60)
+// 0x0000 (0x0B90 - 0x0B90)
 class UPrimalItemArtifact_05_C final : public UPrimalItemArtifactGeneric_C
 {
 public:

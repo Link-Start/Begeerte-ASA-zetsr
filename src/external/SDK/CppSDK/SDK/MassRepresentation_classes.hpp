@@ -10,10 +10,10 @@
 
 #include "Basic.hpp"
 
-#include "MassRepresentation_structs.hpp"
 #include "MassEntity_classes.hpp"
-#include "CoreUObject_classes.hpp"
 #include "MassSpawner_classes.hpp"
+#include "MassRepresentation_structs.hpp"
+#include "CoreUObject_classes.hpp"
 #include "Engine_classes.hpp"
 
 
@@ -352,12 +352,12 @@ public:
 DUMPER7_ASSERTS_UMassUpdateISMProcessor;
 
 // Class MassRepresentation.MassVisualizationComponent
-// 0x0160 (0x0220 - 0x00C0)
+// 0x0160 (0x0230 - 0x00D0)
 class UMassVisualizationComponent final : public UActorComponent
 {
 public:
-	TArray<struct FMassInstancedStaticMeshInfo>   InstancedStaticMeshInfos;                          // 0x00C0(0x0010)(ZeroConstructor, Transient, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_D0[0x150];                                     // 0x00D0(0x0150)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TArray<struct FMassInstancedStaticMeshInfo>   InstancedStaticMeshInfos;                          // 0x00D0(0x0010)(ZeroConstructor, Transient, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_E0[0x150];                                     // 0x00E0(0x0150)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

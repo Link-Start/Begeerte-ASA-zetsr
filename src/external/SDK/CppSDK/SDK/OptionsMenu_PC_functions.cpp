@@ -672,6 +672,20 @@ void UOptionsMenu_PC_C::BndEvt__OptionsMenu_PC_Reflections_K2Node_ComponentBound
 }
 
 
+// Function OptionsMenu_PC.OptionsMenu_PC_C.BndEvt__OptionsMenu_PC_Submenu_Header_K2Node_ComponentBoundEvent_59_OnSelectionChanged_5__DelegateSignature
+// (BlueprintEvent)
+
+void UOptionsMenu_PC_C::BndEvt__OptionsMenu_PC_Submenu_Header_K2Node_ComponentBoundEvent_59_OnSelectionChanged_5__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OptionsMenu_PC_C", "BndEvt__OptionsMenu_PC_Submenu_Header_K2Node_ComponentBoundEvent_59_OnSelectionChanged_5__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function OptionsMenu_PC.OptionsMenu_PC_C.BndEvt__OptionsMenu_PC_VSyncModeCombo_K2Node_ComponentBoundEvent_57_OnSelectionChangedEvent__DelegateSignature
 // (BlueprintEvent)
 // Parameters:
@@ -1612,6 +1626,28 @@ void UOptionsMenu_PC_C::ResetOptionsMenuValueChanged()
 		Func = Class->GetFunction("OptionsMenu_PC_C", "ResetOptionsMenuValueChanged");
 
 	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function OptionsMenu_PC.OptionsMenu_PC_C.SetCosmeticEntryDetails
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// class UDataListValueGeneric*            EntryWidget                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+// const class FString&                    DetailText                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+
+void UOptionsMenu_PC_C::SetCosmeticEntryDetails(class UDataListValueGeneric* EntryWidget, const class FString& DetailText)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OptionsMenu_PC_C", "SetCosmeticEntryDetails");
+
+	Params::OptionsMenu_PC_C_SetCosmeticEntryDetails Parms{};
+
+	Parms.EntryWidget = EntryWidget;
+	Parms.DetailText = std::move(DetailText);
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 

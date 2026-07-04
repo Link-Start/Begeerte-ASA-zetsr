@@ -10,11 +10,11 @@
 
 #include "Basic.hpp"
 
-#include "PBIK_structs.hpp"
+#include "IKRig_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "IKRig_structs.hpp"
 #include "Engine_classes.hpp"
+#include "PBIK_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -186,11 +186,11 @@ public:
 DUMPER7_ASSERTS_URootMotionGeneratorOp;
 
 // Class IKRig.IKRigComponent
-// 0x0018 (0x00D8 - 0x00C0)
+// 0x0018 (0x00E8 - 0x00D0)
 class UIKRigComponent final : public UActorComponent
 {
 public:
-	uint8                                         Pad_C0[0x18];                                      // 0x00C0(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_D0[0x18];                                      // 0x00D0(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void ClearAllGoals();

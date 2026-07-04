@@ -488,6 +488,13 @@ struct FAnimNode_SequenceEvaluator final : public FAnimNode_SequenceEvaluatorBas
 };
 DUMPER7_ASSERTS_FAnimNode_SequenceEvaluator;
 
+// ScriptStruct AnimGraphRuntime.LinkedAnimGraphReference
+// 0x0000 (0x0010 - 0x0010)
+struct FLinkedAnimGraphReference final : public FAnimNodeReference
+{
+};
+DUMPER7_ASSERTS_FLinkedAnimGraphReference;
+
 // ScriptStruct AnimGraphRuntime.AnimNode_BlendSpaceGraph
 // 0x0000 (0x0068 - 0x0068)
 struct FAnimNode_BlendSpaceGraph final : public FAnimNode_BlendSpaceGraphBase
@@ -969,6 +976,16 @@ public:
 };
 DUMPER7_ASSERTS_FAnimNode_PoseHandler;
 
+// ScriptStruct AnimGraphRuntime.ReferenceBoneFrame
+// 0x0030 (0x0030 - 0x0000)
+struct FReferenceBoneFrame final
+{
+public:
+	struct FBoneReference                         bone;                                              // 0x0000(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	struct FAxis                                  Axis;                                              // 0x0010(0x0020)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FReferenceBoneFrame;
+
 // ScriptStruct AnimGraphRuntime.AnimNode_PoseBlendNode
 // 0x0038 (0x00D8 - 0x00A0)
 struct FAnimNode_PoseBlendNode final : public FAnimNode_PoseHandler
@@ -1023,6 +1040,17 @@ public:
 };
 DUMPER7_ASSERTS_FPoseDriverTarget;
 
+// ScriptStruct AnimGraphRuntime.WarpingVectorValue
+// 0x0020 (0x0020 - 0x0000)
+struct FWarpingVectorValue final
+{
+public:
+	EWarpingVectorMode                            Mode;                                              // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                Value;                                             // 0x0008(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FWarpingVectorValue;
+
 // ScriptStruct AnimGraphRuntime.RBFParams
 // 0x0038 (0x0038 - 0x0000)
 struct FRBFParams final
@@ -1065,6 +1093,16 @@ public:
 	uint8                                         Pad_178[0x30];                                     // 0x0178(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FAnimNode_PoseDriver;
+
+// ScriptStruct AnimGraphRuntime.RotationLimit
+// 0x0030 (0x0030 - 0x0000)
+struct FRotationLimit final
+{
+public:
+	struct FVector                                LimitMin;                                          // 0x0000(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                LimitMax;                                          // 0x0018(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FRotationLimit;
 
 // ScriptStruct AnimGraphRuntime.AnimNode_PoseSnapshot
 // 0x0080 (0x0090 - 0x0010)
@@ -1658,16 +1696,6 @@ public:
 };
 DUMPER7_ASSERTS_FAnimNode_SpringBone;
 
-// ScriptStruct AnimGraphRuntime.RotationLimit
-// 0x0030 (0x0030 - 0x0000)
-struct FRotationLimit final
-{
-public:
-	struct FVector                                LimitMin;                                          // 0x0000(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                LimitMax;                                          // 0x0018(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FRotationLimit;
-
 // ScriptStruct AnimGraphRuntime.AnimNode_Trail
 // 0x01D8 (0x02A0 - 0x00C8)
 struct alignas(0x10) FAnimNode_Trail final : public FAnimNode_SkeletalControlBase
@@ -1699,16 +1727,6 @@ public:
 	uint8                                         Pad_26C[0x34];                                     // 0x026C(0x0034)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FAnimNode_Trail;
-
-// ScriptStruct AnimGraphRuntime.ReferenceBoneFrame
-// 0x0030 (0x0030 - 0x0000)
-struct FReferenceBoneFrame final
-{
-public:
-	struct FBoneReference                         bone;                                              // 0x0000(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	struct FAxis                                  Axis;                                              // 0x0010(0x0020)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FReferenceBoneFrame;
 
 // ScriptStruct AnimGraphRuntime.AnimNode_TwistCorrectiveNode
 // 0x00A0 (0x0168 - 0x00C8)
@@ -1766,30 +1784,12 @@ public:
 };
 DUMPER7_ASSERTS_FIKFootPelvisPullDownSolver;
 
-// ScriptStruct AnimGraphRuntime.WarpingVectorValue
-// 0x0020 (0x0020 - 0x0000)
-struct FWarpingVectorValue final
-{
-public:
-	EWarpingVectorMode                            Mode;                                              // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                Value;                                             // 0x0008(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FWarpingVectorValue;
-
 // ScriptStruct AnimGraphRuntime.LayeredBoneBlendReference
 // 0x0000 (0x0010 - 0x0010)
 struct FLayeredBoneBlendReference final : public FAnimNodeReference
 {
 };
 DUMPER7_ASSERTS_FLayeredBoneBlendReference;
-
-// ScriptStruct AnimGraphRuntime.LinkedAnimGraphReference
-// 0x0000 (0x0010 - 0x0010)
-struct FLinkedAnimGraphReference final : public FAnimNodeReference
-{
-};
-DUMPER7_ASSERTS_FLinkedAnimGraphReference;
 
 // ScriptStruct AnimGraphRuntime.MirrorAnimNodeReference
 // 0x0000 (0x0010 - 0x0010)

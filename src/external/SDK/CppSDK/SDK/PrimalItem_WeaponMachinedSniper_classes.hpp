@@ -16,12 +16,12 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItem_WeaponMachinedSniper.PrimalItem_WeaponMachinedSniper_C
-// 0x0010 (0x0B70 - 0x0B60)
+// 0x0010 (0x0BA0 - 0x0B90)
 class UPrimalItem_WeaponMachinedSniper_C final : public UPrimalItemWeaponGenericGun_C
 {
 public:
-	uint8                                         Pad_B53[0x5];                                      // 0x0B53(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<TSoftClassPtr<class UClass>>           DinosNotAllowEquip;                                // 0x0B58(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	uint8                                         Pad_B84[0x4];                                      // 0x0B84(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<TSoftClassPtr<class UClass>>           DinosNotAllowEquip;                                // 0x0B88(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
 
 public:
 	bool BPPreventWeaponEquip();

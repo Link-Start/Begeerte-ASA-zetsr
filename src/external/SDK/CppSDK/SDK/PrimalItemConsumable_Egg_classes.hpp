@@ -17,14 +17,14 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemConsumable_Egg.PrimalItemConsumable_Egg_C
-// 0x0030 (0x0B90 - 0x0B60)
+// 0x0030 (0x0BC0 - 0x0B90)
 class UPrimalItemConsumable_Egg_C : public UPrimalItemConsumableEatable_C
 {
 public:
-	uint8                                         Pad_B53[0x5];                                      // 0x0B53(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                IncubatorDisplay3DScale;                           // 0x0B58(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FVector                                IncubatorLocationOffset;                           // 0x0B70(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bIsHatching;                                       // 0x0B88(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_B84[0x4];                                      // 0x0B84(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                IncubatorDisplay3DScale;                           // 0x0B88(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FVector                                IncubatorLocationOffset;                           // 0x0BA0(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bIsHatching;                                       // 0x0BB8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	bool BPAllowRemoteAddToInventory(class UPrimalInventoryComponent* invComp, class AShooterPlayerController* ByPC, bool bRequestedByPlayer);

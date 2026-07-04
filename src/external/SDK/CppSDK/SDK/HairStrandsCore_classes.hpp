@@ -10,12 +10,12 @@
 
 #include "Basic.hpp"
 
+#include "Niagara_classes.hpp"
 #include "HairStrandsCore_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "Engine_classes.hpp"
 #include "MovieScene_classes.hpp"
-#include "Niagara_classes.hpp"
 
 
 SDK_NAMESPACE_START
@@ -88,30 +88,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_AGroomActor;
-
-// Class HairStrandsCore.NiagaraDataInterfaceVelocityGrid
-// 0x0010 (0x0048 - 0x0038)
-class UNiagaraDataInterfaceVelocityGrid : public UNiagaraDataInterfaceRWBase
-{
-public:
-	struct FIntVector                             GridSize;                                          // 0x0038(0x000C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_44[0x4];                                       // 0x0044(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NiagaraDataInterfaceVelocityGrid")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NiagaraDataInterfaceVelocityGrid")
-	}
-	static class UNiagaraDataInterfaceVelocityGrid* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNiagaraDataInterfaceVelocityGrid>();
-	}
-};
-DUMPER7_ASSERTS_UNiagaraDataInterfaceVelocityGrid;
 
 // Class HairStrandsCore.GroomAsset
 // 0x0100 (0x0128 - 0x0028)
@@ -363,37 +339,37 @@ public:
 DUMPER7_ASSERTS_UGroomCache;
 
 // Class HairStrandsCore.GroomComponent
-// 0x0230 (0x0870 - 0x0640)
+// 0x0220 (0x0880 - 0x0660)
 class UGroomComponent final : public UMeshComponent
 {
 public:
-	uint8                                         Pad_640[0x10];                                     // 0x0640(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGroomAsset*                            GroomAsset;                                        // 0x0650(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UGroomCache*                            GroomCache;                                        // 0x0658(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TArray<class UNiagaraComponent*>              NiagaraComponents;                                 // 0x0660(0x0010)(ExportObject, ZeroConstructor, Transient, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class USkeletalMesh*                          SourceSkeletalMesh;                                // 0x0670(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UGroomBindingAsset*                     BindingAsset;                                      // 0x0678(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPhysicsAsset*                          PhysicsAsset;                                      // 0x0680(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_688[0x10];                                     // 0x0688(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FHairSimulationSettings                SimulationSettings;                                // 0x0698(0x0090)(Edit, BlueprintVisible, Interp, NativeAccessSpecifierPublic)
-	class UMeshDeformer*                          MeshDeformer;                                      // 0x0728(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UMeshDeformerInstance*                  MeshDeformerInstance;                              // 0x0730(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UMeshDeformerInstanceSettings*          MeshDeformerInstanceSettings;                      // 0x0738(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UMaterialInterface*                     Strands_DebugMaterial;                             // 0x0740(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UMaterialInterface*                     Strands_DefaultMaterial;                           // 0x0748(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UMaterialInterface*                     Cards_DefaultMaterial;                             // 0x0750(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UMaterialInterface*                     Meshes_DefaultMaterial;                            // 0x0758(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UNiagaraSystem*                         AngularSpringsSystem;                              // 0x0760(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UNiagaraSystem*                         CosseratRodsSystem;                                // 0x0768(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class FString                                 AttachmentName;                                    // 0x0770(0x0010)(Edit, BlueprintVisible, ZeroConstructor, Interp, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_780[0x90];                                     // 0x0780(0x0090)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FHairGroupDesc>                 GroomGroupsDesc;                                   // 0x0810(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	bool                                          bUseCards;                                         // 0x0820(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bRunning;                                          // 0x0821(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bLooping;                                          // 0x0822(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bManualTick;                                       // 0x0823(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         ElapsedTime;                                       // 0x0824(0x0004)(Edit, ZeroConstructor, Transient, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_828[0x48];                                     // 0x0828(0x0048)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_658[0x10];                                     // 0x0658(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGroomAsset*                            GroomAsset;                                        // 0x0668(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UGroomCache*                            GroomCache;                                        // 0x0670(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TArray<class UNiagaraComponent*>              NiagaraComponents;                                 // 0x0678(0x0010)(ExportObject, ZeroConstructor, Transient, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class USkeletalMesh*                          SourceSkeletalMesh;                                // 0x0688(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UGroomBindingAsset*                     BindingAsset;                                      // 0x0690(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPhysicsAsset*                          PhysicsAsset;                                      // 0x0698(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	uint8                                         Pad_6A0[0x10];                                     // 0x06A0(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FHairSimulationSettings                SimulationSettings;                                // 0x06B0(0x0090)(Edit, BlueprintVisible, Interp, NativeAccessSpecifierPublic)
+	class UMeshDeformer*                          MeshDeformer;                                      // 0x0740(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UMeshDeformerInstance*                  MeshDeformerInstance;                              // 0x0748(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UMeshDeformerInstanceSettings*          MeshDeformerInstanceSettings;                      // 0x0750(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UMaterialInterface*                     Strands_DebugMaterial;                             // 0x0758(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UMaterialInterface*                     Strands_DefaultMaterial;                           // 0x0760(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UMaterialInterface*                     Cards_DefaultMaterial;                             // 0x0768(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UMaterialInterface*                     Meshes_DefaultMaterial;                            // 0x0770(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UNiagaraSystem*                         AngularSpringsSystem;                              // 0x0778(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UNiagaraSystem*                         CosseratRodsSystem;                                // 0x0780(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class FString                                 AttachmentName;                                    // 0x0788(0x0010)(Edit, BlueprintVisible, ZeroConstructor, Interp, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_798[0x88];                                     // 0x0798(0x0088)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FHairGroupDesc>                 GroomGroupsDesc;                                   // 0x0820(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	bool                                          bUseCards;                                         // 0x0830(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bRunning;                                          // 0x0831(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bLooping;                                          // 0x0832(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bManualTick;                                       // 0x0833(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         ElapsedTime;                                       // 0x0834(0x0004)(Edit, ZeroConstructor, Transient, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_838[0x48];                                     // 0x0838(0x0048)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void AddCollisionComponent(class USkeletalMeshComponent* SkeletalMeshComponent);
@@ -664,6 +640,30 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UNiagaraDataInterfaceHairStrands;
+
+// Class HairStrandsCore.NiagaraDataInterfaceVelocityGrid
+// 0x0010 (0x0048 - 0x0038)
+class UNiagaraDataInterfaceVelocityGrid : public UNiagaraDataInterfaceRWBase
+{
+public:
+	struct FIntVector                             GridSize;                                          // 0x0038(0x000C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_44[0x4];                                       // 0x0044(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("NiagaraDataInterfaceVelocityGrid")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"NiagaraDataInterfaceVelocityGrid")
+	}
+	static class UNiagaraDataInterfaceVelocityGrid* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UNiagaraDataInterfaceVelocityGrid>();
+	}
+};
+DUMPER7_ASSERTS_UNiagaraDataInterfaceVelocityGrid;
 
 // Class HairStrandsCore.NiagaraDataInterfacePressureGrid
 // 0x0000 (0x0048 - 0x0048)

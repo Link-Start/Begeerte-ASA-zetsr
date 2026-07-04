@@ -17,22 +17,22 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass Weap_Torch_Base.Weap_Torch_Base_C
-// 0x0048 (0x1168 - 0x1120)
+// 0x0048 (0x1178 - 0x1130)
 class AWeap_Torch_Base_C final : public AShooterWeapon_Melee
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x1120(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	class UClass*                                 BeltTorchBuff;                                     // 0x1128(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	bool                                          bAllowPutOnBelt;                                   // 0x1130(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bIsEquipped;                                       // 0x1131(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bBeingDestroyed;                                   // 0x1132(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_1133[0x5];                                     // 0x1133(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        NiagaraTime;                                       // 0x1138(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        TimeToExtinguish;                                  // 0x1140(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        TimeToRampUp;                                      // 0x1148(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class UCurveFloat*                            RampUpCurve;                                       // 0x1150(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	class UCurveFloat*                            ExtinguishCurve;                                   // 0x1158(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	bool                                          bShouldTickFire;                                   // 0x1160(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x1130(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	class UClass*                                 BeltTorchBuff;                                     // 0x1138(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	bool                                          bAllowPutOnBelt;                                   // 0x1140(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bIsEquipped;                                       // 0x1141(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bBeingDestroyed;                                   // 0x1142(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_1143[0x5];                                     // 0x1143(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        NiagaraTime;                                       // 0x1148(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        TimeToExtinguish;                                  // 0x1150(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        TimeToRampUp;                                      // 0x1158(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class UCurveFloat*                            RampUpCurve;                                       // 0x1160(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	class UCurveFloat*                            ExtinguishCurve;                                   // 0x1168(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	bool                                          bShouldTickFire;                                   // 0x1170(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void BPAppliedPrimalItemToWeapon();

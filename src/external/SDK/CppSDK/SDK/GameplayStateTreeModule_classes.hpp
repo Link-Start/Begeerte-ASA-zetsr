@@ -72,18 +72,18 @@ public:
 DUMPER7_ASSERTS_UBTTask_RunStateTree;
 
 // Class GameplayStateTreeModule.StateTreeComponent
-// 0x0078 (0x0190 - 0x0118)
+// 0x0078 (0x01A0 - 0x0128)
 class UStateTreeComponent : public UBrainComponent
 {
 public:
-	uint8                                         Pad_118[0x10];                                     // 0x0118(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(EStateTreeRunStatus StateTreeRunStatus)> OnStateTreeRunStatusChanged; // 0x0128(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	struct FStateTreeReference                    StateTreeRef;                                      // 0x0138(0x0028)(Edit, Protected, NativeAccessSpecifierProtected)
-	struct FStateTreeReferenceOverrides           LinkedStateTreeOverrides;                          // 0x0160(0x0010)(Edit, Protected, NativeAccessSpecifierProtected)
-	bool                                          bStartLogicAutomatically;                          // 0x0170(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_171[0x7];                                      // 0x0171(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FStateTreeInstanceData                 InstanceData;                                      // 0x0178(0x0010)(Transient, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_188[0x8];                                      // 0x0188(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_128[0x10];                                     // 0x0128(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(EStateTreeRunStatus StateTreeRunStatus)> OnStateTreeRunStatusChanged; // 0x0138(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	struct FStateTreeReference                    StateTreeRef;                                      // 0x0148(0x0028)(Edit, Protected, NativeAccessSpecifierProtected)
+	struct FStateTreeReferenceOverrides           LinkedStateTreeOverrides;                          // 0x0170(0x0010)(Edit, Protected, NativeAccessSpecifierProtected)
+	bool                                          bStartLogicAutomatically;                          // 0x0180(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_181[0x7];                                      // 0x0181(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FStateTreeInstanceData                 InstanceData;                                      // 0x0188(0x0010)(Transient, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_198[0x8];                                      // 0x0198(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void SendStateTreeEvent(const struct FStateTreeEvent& Event);
@@ -108,7 +108,7 @@ public:
 DUMPER7_ASSERTS_UStateTreeComponent;
 
 // Class GameplayStateTreeModule.StateTreeAIComponent
-// 0x0000 (0x0190 - 0x0190)
+// 0x0000 (0x01A0 - 0x01A0)
 class UStateTreeAIComponent final : public UStateTreeComponent
 {
 public:

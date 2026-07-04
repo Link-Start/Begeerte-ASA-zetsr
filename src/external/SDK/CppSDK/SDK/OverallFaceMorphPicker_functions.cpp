@@ -90,26 +90,6 @@ class UWidget* UOverallFaceMorphPicker_C::GetOverrideHighligteableWidgetBP()
 }
 
 
-// Function OverallFaceMorphPicker.OverallFaceMorphPicker_C.FacePickerDefaultValue
-// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-struct FVector2D UOverallFaceMorphPicker_C::FacePickerDefaultValue()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("OverallFaceMorphPicker_C", "FacePickerDefaultValue");
-
-	Params::OverallFaceMorphPicker_C_FacePickerDefaultValue Parms{};
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	return Parms.ReturnValue;
-}
-
-
 // Function OverallFaceMorphPicker.OverallFaceMorphPicker_C.ExecuteUbergraph_OverallFaceMorphPicker
 // (Final, UbergraphFunction)
 // Parameters:
@@ -195,6 +175,26 @@ void UOverallFaceMorphPicker_C::BndEvt__ColorPicker_ASA_Widget_Synth2DSlider_89_
 	Parms.Value = Value;
 
 	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function OverallFaceMorphPicker.OverallFaceMorphPicker_C.CalcFacePickerDefaultValue
+// (Public, HasOutParams, BlueprintCallable, BlueprintEvent, BlueprintPure, Const)
+// Parameters:
+// struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+struct FVector2D UOverallFaceMorphPicker_C::CalcFacePickerDefaultValue() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("OverallFaceMorphPicker_C", "CalcFacePickerDefaultValue");
+
+	Params::OverallFaceMorphPicker_C_CalcFacePickerDefaultValue Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	return Parms.ReturnValue;
 }
 
 

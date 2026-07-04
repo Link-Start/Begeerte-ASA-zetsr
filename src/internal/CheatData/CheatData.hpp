@@ -69,8 +69,10 @@ namespace g_CheatData {
 			namespace UGameViewportClient {
 				// https://github.com/vsylva/ark-asa-internal
 				// VTable = 122，不知道这个虚表会不会过期，可能还是需要做特征码
-				// mov rax, [rcx] jmp [rax + offset] ... mov [rsp + offset], rbp mov [rsp + offset], rdi push r12 push r14
-				std::string PostRender = "48 8B 01 48 FF A0 ? ? ? ? ? ? ? ? ? ? 48 89 6C 24 ? 48 89 7C 24 ? 41 54 41 56";
+				
+				// 8B C2 35 DE C5 F3 59 44 8B C0 69 C0 B1 79 37 9E 41 C1 E8 0D 44 33 C0 41 69 C0 6B CA EB 85
+				// mov eax, edx | xor eax, imm32 | mov r8d, eax | imul eax, eax, imm32 | shr r8d, imm8 | xor r8d, eax | imul r8d, r8d, imm32
+				std::string PostRender = "8B C2 35 ?? ?? ?? ?? 44";
 
 				namespace UConsole {
 					// 2026/4/3 @zetsr

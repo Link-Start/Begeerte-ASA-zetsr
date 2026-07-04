@@ -108,30 +108,29 @@ public:
 DUMPER7_ASSERTS_IMeshVertexCommandChangeTarget;
 
 // Class GeometryFramework.BaseDynamicMeshComponent
-// 0x0070 (0x06B0 - 0x0640)
+// 0x0060 (0x06C0 - 0x0660)
 class UBaseDynamicMeshComponent : public UMeshComponent
 {
 public:
-	uint8                                         Pad_640[0x20];                                     // 0x0640(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bExplicitShowWireframe;                            // 0x0660(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_661[0x3];                                      // 0x0661(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FLinearColor                           WireframeColor;                                    // 0x0664(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EDynamicMeshComponentColorOverrideMode        ColorMode;                                         // 0x0674(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_675[0x3];                                      // 0x0675(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FColor                                 ConstantColor;                                     // 0x0678(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EDynamicMeshVertexColorTransformMode          ColorSpaceMode;                                    // 0x067C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEnableFlatShading;                                // 0x067D(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEnableViewModeOverrides;                          // 0x067E(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_67F[0x1];                                      // 0x067F(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMaterialInterface*                     OverrideRenderMaterial;                            // 0x0680(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UMaterialInterface*                     SecondaryRenderMaterial;                           // 0x0688(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_690[0x1];                                      // 0x0690(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bEnableRayTracing;                                 // 0x0691(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EDynamicMeshDrawPath                          DrawPath;                                          // 0x0692(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	EDynamicMeshComponentDistanceFieldMode        DistanceFieldMode;                                 // 0x0693(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_694[0x4];                                      // 0x0694(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UMaterialInterface*>             BaseMaterials;                                     // 0x0698(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_6A8[0x8];                                      // 0x06A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_658[0x20];                                     // 0x0658(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bExplicitShowWireframe;                            // 0x0678(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_679[0x3];                                      // 0x0679(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FLinearColor                           WireframeColor;                                    // 0x067C(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EDynamicMeshComponentColorOverrideMode        ColorMode;                                         // 0x068C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_68D[0x3];                                      // 0x068D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FColor                                 ConstantColor;                                     // 0x0690(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EDynamicMeshVertexColorTransformMode          ColorSpaceMode;                                    // 0x0694(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnableFlatShading;                                // 0x0695(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnableViewModeOverrides;                          // 0x0696(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_697[0x1];                                      // 0x0697(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMaterialInterface*                     OverrideRenderMaterial;                            // 0x0698(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UMaterialInterface*                     SecondaryRenderMaterial;                           // 0x06A0(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	uint8                                         Pad_6A8[0x1];                                      // 0x06A8(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bEnableRayTracing;                                 // 0x06A9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EDynamicMeshDrawPath                          DrawPath;                                          // 0x06AA(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	EDynamicMeshComponentDistanceFieldMode        DistanceFieldMode;                                 // 0x06AB(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_6AC[0x4];                                      // 0x06AC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class UMaterialInterface*>             BaseMaterials;                                     // 0x06B0(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 
 public:
 	void ClearOverrideRenderMaterial();
@@ -183,26 +182,27 @@ public:
 DUMPER7_ASSERTS_UBaseDynamicMeshComponent;
 
 // Class GeometryFramework.DynamicMeshComponent
-// 0x0320 (0x09D0 - 0x06B0)
+// 0x0330 (0x09F0 - 0x06C0)
 class UDynamicMeshComponent final : public UBaseDynamicMeshComponent
 {
 public:
-	class UDynamicMesh*                           MeshObject;                                        // 0x06B0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_6B8[0x41];                                     // 0x06B8(0x0041)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bAllowsGeometrySelection;                          // 0x06F9(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_6FA[0xF6];                                     // 0x06FA(0x00F6)(Fixing Size After Last Property [ Dumper-7 ])
-	EDynamicMeshComponentTangentsMode             TangentsType;                                      // 0x07F0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_7F1[0xFF];                                     // 0x07F1(0x00FF)(Fixing Size After Last Property [ Dumper-7 ])
-	ECollisionTraceFlag                           CollisionType;                                     // 0x08F0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUseAsyncCooking;                                  // 0x08F1(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEnableComplexCollision;                           // 0x08F2(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDeferCollisionUpdates;                            // 0x08F3(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_8F4[0x4];                                      // 0x08F4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UBodySetup*                             MeshBodySetup;                                     // 0x08F8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_900[0x38];                                     // 0x0900(0x0038)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FKAggregateGeom                        AggGeom;                                           // 0x0938(0x0080)(Edit, Protected, NativeAccessSpecifierProtected)
-	TArray<class UBodySetup*>                     AsyncBodySetupQueue;                               // 0x09B8(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_9C8[0x8];                                      // 0x09C8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_6C0[0x8];                                      // 0x06C0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class UDynamicMesh*                           MeshObject;                                        // 0x06C8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	uint8                                         Pad_6D0[0x41];                                     // 0x06D0(0x0041)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bAllowsGeometrySelection;                          // 0x0711(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_712[0xFE];                                     // 0x0712(0x00FE)(Fixing Size After Last Property [ Dumper-7 ])
+	EDynamicMeshComponentTangentsMode             TangentsType;                                      // 0x0810(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_811[0xFF];                                     // 0x0811(0x00FF)(Fixing Size After Last Property [ Dumper-7 ])
+	ECollisionTraceFlag                           CollisionType;                                     // 0x0910(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUseAsyncCooking;                                  // 0x0911(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnableComplexCollision;                           // 0x0912(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bDeferCollisionUpdates;                            // 0x0913(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_914[0x4];                                      // 0x0914(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UBodySetup*                             MeshBodySetup;                                     // 0x0918(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	uint8                                         Pad_920[0x38];                                     // 0x0920(0x0038)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FKAggregateGeom                        AggGeom;                                           // 0x0958(0x0080)(Edit, Protected, NativeAccessSpecifierProtected)
+	TArray<class UBodySetup*>                     AsyncBodySetupQueue;                               // 0x09D8(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	uint8                                         Pad_9E8[0x8];                                      // 0x09E8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void ConfigureMaterialSet(const TArray<class UMaterialInterface*>& NewMaterialSet, bool bDeleteExtraSlots);

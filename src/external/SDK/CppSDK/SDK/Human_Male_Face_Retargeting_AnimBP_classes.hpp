@@ -18,18 +18,20 @@
 SDK_NAMESPACE_START
 
 // AnimBlueprintGeneratedClass Human_Male_Face_Retargeting_AnimBP.Human_Male_Face_Retargeting_AnimBP_C
-// 0x05D0 (0x0990 - 0x03C0)
+// 0x05D0 (0x09A0 - 0x03D0)
 class UHuman_Male_Face_Retargeting_AnimBP_C final : public UAnimInstance
 {
 public:
-	uint8                                         Pad_3B8[0x8];                                      // 0x03B8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FAnimSubsystemInstance                 AnimBlueprintExtension_PropertyAccess;             // 0x03C0(0x0008)()
-	struct FAnimSubsystemInstance                 AnimBlueprintExtension_Base;                       // 0x03C8(0x0008)()
-	struct FAnimNode_Root                         AnimGraphNode_Root;                                // 0x03D0(0x0020)()
-	struct FAnimNode_LinkedInputPose              AnimGraphNode_LinkedInputPose;                     // 0x03F0(0x00B8)()
-	struct FAnimNode_ControlRig                   AnimGraphNode_ControlRig;                          // 0x04A8(0x04E0)(ContainsInstancedReference)
-	bool                                          __CustomProperty_WearingSkin_AA424E18457A97B4BD6D54BD0626DF9B; // 0x0988(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          WearingSkin;                                       // 0x0989(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_3C8[0x8];                                      // 0x03C8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FAnimSubsystemInstance                 AnimBlueprintExtension_PropertyAccess;             // 0x03D0(0x0008)()
+	struct FAnimSubsystemInstance                 AnimBlueprintExtension_Base;                       // 0x03D8(0x0008)()
+	struct FAnimNode_Root                         AnimGraphNode_Root;                                // 0x03E0(0x0020)()
+	struct FAnimNode_LinkedInputPose              AnimGraphNode_LinkedInputPose;                     // 0x0400(0x00B8)()
+	struct FAnimNode_ControlRig                   AnimGraphNode_ControlRig;                          // 0x04B8(0x04E0)(ContainsInstancedReference)
+	bool                                          __CustomProperty_LegacyWearingSkin_DEPRECATED_AA424E18457A97B4BD6D54BD0626DF9B; // 0x0998(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          __CustomProperty_WearingSkin_AA424E18457A97B4BD6D54BD0626DF9B; // 0x0999(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          WearingSkin;                                       // 0x099A(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          LegacyWearingSkin_DEPRECATED;                      // 0x099B(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void AnimGraph(const struct FPoseLink& InPose, struct FPoseLink* AnimGraph_0);

@@ -39,11 +39,11 @@ public:
 DUMPER7_ASSERTS_ADataflowActor;
 
 // Class DataflowEnginePlugin.DataflowComponent
-// 0x0140 (0x0750 - 0x0610)
+// 0x0150 (0x0770 - 0x0620)
 class UDataflowComponent final : public UPrimitiveComponent
 {
 public:
-	uint8                                         Pad_608[0x148];                                    // 0x0608(0x0148)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_620[0x150];                                    // 0x0620(0x0150)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

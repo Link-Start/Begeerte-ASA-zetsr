@@ -20,6 +20,9 @@ SDK_NAMESPACE_START
 class AWeapMiningDrill_Impacts_C final : public AMeleeFist_Impacts_C
 {
 public:
+	bool BPGetImpactEffectColor(class UFXSystemComponent* Effect, class APrimalCharacter* InstigatorCharacter, class AActor* ImpactedActor, struct FLinearColor* OutColor);
+
+public:
 	static class UClass* StaticClass()
 	{
 		BP_STATIC_CLASS_IMPL("WeapMiningDrill_Impacts_C")

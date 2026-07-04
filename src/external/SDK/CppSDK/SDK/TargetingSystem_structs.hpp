@@ -39,43 +39,6 @@ enum class ETargetingTraceType : uint8
 	ETargetingTraceType_MAX                  = 4,
 };
 
-// ScriptStruct TargetingSystem.TargetingRequestHandle
-// 0x0004 (0x0004 - 0x0000)
-struct alignas(0x04) FTargetingRequestHandle final
-{
-public:
-	uint8                                         Pad_0[0x4];                                        // 0x0000(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FTargetingRequestHandle;
-
-// ScriptStruct TargetingSystem.TargetingRequestData
-// 0x0030 (0x0030 - 0x0000)
-struct alignas(0x08) FTargetingRequestData final
-{
-public:
-	uint8                                         Pad_0[0x20];                                       // 0x0000(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	TDelegate<void(const struct FTargetingRequestHandle& TargetingRequestHandle)> TargetingRequestDynamicDelegate; // 0x0020(0x0010)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FTargetingRequestData;
-
-// ScriptStruct TargetingSystem.CollisionQueryTaskData
-// 0x0010 (0x0010 - 0x0000)
-struct FCollisionQueryTaskData final
-{
-public:
-	TArray<class AActor*>                         IgnoredActors;                                     // 0x0000(0x0010)(BlueprintVisible, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FCollisionQueryTaskData;
-
-// ScriptStruct TargetingSystem.TargetingTaskSet
-// 0x0010 (0x0010 - 0x0000)
-struct FTargetingTaskSet final
-{
-public:
-	TArray<class UTargetingTask*>                 Tasks;                                             // 0x0000(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FTargetingTaskSet;
-
 // ScriptStruct TargetingSystem.TargetingDefaultResultData
 // 0x0110 (0x0110 - 0x0000)
 struct FTargetingDefaultResultData final
@@ -96,6 +59,33 @@ public:
 };
 DUMPER7_ASSERTS_FTargetingDefaultResultsSet;
 
+// ScriptStruct TargetingSystem.TargetingRequestHandle
+// 0x0004 (0x0004 - 0x0000)
+struct alignas(0x04) FTargetingRequestHandle final
+{
+public:
+	uint8                                         Pad_0[0x4];                                        // 0x0000(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FTargetingRequestHandle;
+
+// ScriptStruct TargetingSystem.CollisionQueryTaskData
+// 0x0010 (0x0010 - 0x0000)
+struct FCollisionQueryTaskData final
+{
+public:
+	TArray<class AActor*>                         IgnoredActors;                                     // 0x0000(0x0010)(BlueprintVisible, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FCollisionQueryTaskData;
+
+// ScriptStruct TargetingSystem.TargetingTaskSet
+// 0x0010 (0x0010 - 0x0000)
+struct FTargetingTaskSet final
+{
+public:
+	TArray<class UTargetingTask*>                 Tasks;                                             // 0x0000(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FTargetingTaskSet;
+
 // ScriptStruct TargetingSystem.TargetingSourceContext
 // 0x0038 (0x0038 - 0x0000)
 struct FTargetingSourceContext final
@@ -108,6 +98,16 @@ public:
 	class UObject*                                SourceObject;                                      // 0x0030(0x0008)(BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 };
 DUMPER7_ASSERTS_FTargetingSourceContext;
+
+// ScriptStruct TargetingSystem.TargetingRequestData
+// 0x0030 (0x0030 - 0x0000)
+struct alignas(0x08) FTargetingRequestData final
+{
+public:
+	uint8                                         Pad_0[0x20];                                       // 0x0000(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	TDelegate<void(const struct FTargetingRequestHandle& TargetingRequestHandle)> TargetingRequestDynamicDelegate; // 0x0020(0x0010)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FTargetingRequestData;
 
 // ScriptStruct TargetingSystem.TargetingAsyncTaskData
 // 0x0008 (0x0008 - 0x0000)

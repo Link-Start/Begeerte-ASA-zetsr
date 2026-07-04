@@ -17,16 +17,15 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemResource_Element.PrimalItemResource_Element_C
-// 0x0020 (0x0B80 - 0x0B60)
+// 0x0020 (0x0BB0 - 0x0B90)
 class UPrimalItemResource_Element_C : public UPrimalItemResourceGeneric_C
 {
 public:
-	uint8                                         Pad_B53[0x1];                                      // 0x0B53(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   ShapeshifterSmallsCustomTag;                       // 0x0B54(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_B5C[0x4];                                      // 0x0B5C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class APrimalCharacter*                       PreviousShapeshifterClientValue;                   // 0x0B60(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	class APrimalCharacter*                       ServerShapeshifterToFeed;                          // 0x0B68(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	class FName                                   ShapeshifterBiglyCustomTag;                        // 0x0B70(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FName                                   ShapeshifterSmallsCustomTag;                       // 0x0B84(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_B8C[0x4];                                      // 0x0B8C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class APrimalCharacter*                       PreviousShapeshifterClientValue;                   // 0x0B90(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	class APrimalCharacter*                       ServerShapeshifterToFeed;                          // 0x0B98(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	class FName                                   ShapeshifterBiglyCustomTag;                        // 0x0BA0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	bool BPCanUse(bool bIgnoreCooldown);

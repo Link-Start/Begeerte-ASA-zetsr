@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass WoodHardHarvestComponent.WoodHardHarvestComponent_C
-// 0x0000 (0x0230 - 0x0230)
+// 0x0000 (0x0238 - 0x0238)
 class UWoodHardHarvestComponent_C final : public UAttackHarvestComponent_Base_C
 {
 public:

@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemWeaponGeneric.PrimalItemWeaponGeneric_C
-// 0x0000 (0x0B60 - 0x0B60)
+// 0x0000 (0x0B90 - 0x0B90)
 #pragma pack(push, 0x1)
 class SDK_ALIGN(0x10) UPrimalItemWeaponGeneric_C : public UPrimalItem_Base_C
 {

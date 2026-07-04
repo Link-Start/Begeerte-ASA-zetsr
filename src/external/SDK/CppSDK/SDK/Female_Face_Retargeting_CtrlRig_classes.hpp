@@ -23,6 +23,7 @@ class UFemale_Face_Retargeting_CtrlRig_C final : public UControlRig
 public:
 	ERigVMTransformSpace                          Space;                                             // 0x0AD0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          WearingSkin;                                       // 0x0AD1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          LegacyWearingSkin_DEPRECATED;                      // 0x0AD2(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	static class UClass* StaticClass()

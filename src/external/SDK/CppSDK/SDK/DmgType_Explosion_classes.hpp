@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass DmgType_Explosion.DmgType_Explosion_C
-// 0x0000 (0x0178 - 0x0178)
+// 0x0000 (0x0180 - 0x0180)
 class UDmgType_Explosion_C : public UShooterDamageTypeBP_Base_C
 {
 public:

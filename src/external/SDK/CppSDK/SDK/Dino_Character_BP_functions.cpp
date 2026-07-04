@@ -141,9 +141,10 @@ void ADino_Character_BP_C::FearTheManticore(bool ShouldFear)
 // Parameters:
 // class APlayerController*                ForPC                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // int32                                   UseIndex                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// class FName                             UseName                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-bool ADino_Character_BP_C::BPTryMultiUse(class APlayerController* ForPC, int32 UseIndex)
+bool ADino_Character_BP_C::BPTryMultiUse(class APlayerController* ForPC, int32 UseIndex, class FName UseName)
 {
 	static class UFunction* Func = nullptr;
 
@@ -154,6 +155,7 @@ bool ADino_Character_BP_C::BPTryMultiUse(class APlayerController* ForPC, int32 U
 
 	Parms.ForPC = ForPC;
 	Parms.UseIndex = UseIndex;
+	Parms.UseName = UseName;
 
 	UObject::ProcessEvent(Func, &Parms);
 

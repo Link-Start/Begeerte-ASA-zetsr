@@ -90,6 +90,7 @@ namespace g_DrawImGui {
                             // 只要鼠标悬停在当前行，且【左键正被按住】
                             if (ImGui::IsMouseDown(ImGuiMouseButton_Left)) {
                                 g_Config::useItemID = data.LastItemPtr->ItemID;
+                                g_Config::useItemSlotID = data.LastItemPtr->SlotIndex;
                                 g_Config::bUseItem = true;
                                 s_lastActionTime = currentTime; // 更新时间锚点
                             }

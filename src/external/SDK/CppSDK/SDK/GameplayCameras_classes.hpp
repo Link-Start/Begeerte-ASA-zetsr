@@ -12,10 +12,10 @@
 
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "Engine_structs.hpp"
-#include "Engine_classes.hpp"
 #include "GameplayCameras_structs.hpp"
 #include "GameplayTags_structs.hpp"
+#include "Engine_structs.hpp"
+#include "Engine_classes.hpp"
 #include "StateTreeModule_structs.hpp"
 #include "StateTreeModule_classes.hpp"
 #include "DeveloperSettings_classes.hpp"
@@ -1349,12 +1349,12 @@ public:
 DUMPER7_ASSERTS_UCameraRigParameterInterop;
 
 // Class GameplayCameras.ControllerGameplayCameraEvaluationComponent
-// 0x0028 (0x00E8 - 0x00C0)
+// 0x0028 (0x00F8 - 0x00D0)
 class UControllerGameplayCameraEvaluationComponent final : public UActorComponent
 {
 public:
-	uint8                                         Pad_C0[0x20];                                      // 0x00C0(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGameplayCameraSystemHost*              CameraSystemHost;                                  // 0x00E0(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	uint8                                         Pad_D0[0x20];                                      // 0x00D0(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGameplayCameraSystemHost*              CameraSystemHost;                                  // 0x00F0(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()
@@ -1399,15 +1399,15 @@ public:
 DUMPER7_ASSERTS_AGameplayCameraActor;
 
 // Class GameplayCameras.GameplayCameraComponent
-// 0x0030 (0x02A0 - 0x0270)
+// 0x0030 (0x02B0 - 0x0280)
 class UGameplayCameraComponent final : public USceneComponent
 {
 public:
-	class UCameraAsset*                           Camera;                                            // 0x0268(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	EAutoReceiveInput                             AutoActivateForPlayer;                             // 0x0270(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_271[0x1F];                                     // 0x0271(0x001F)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGameplayCameraSystemHost*              CameraSystemHost;                                  // 0x0290(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_298[0x8];                                      // 0x0298(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UCameraAsset*                           Camera;                                            // 0x0278(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	EAutoReceiveInput                             AutoActivateForPlayer;                             // 0x0280(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_281[0x1F];                                     // 0x0281(0x001F)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGameplayCameraSystemHost*              CameraSystemHost;                                  // 0x02A0(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	uint8                                         Pad_2A8[0x8];                                      // 0x02A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void ActivateCameraForPlayerController(class APlayerController* PlayerController);
@@ -1464,15 +1464,15 @@ public:
 DUMPER7_ASSERTS_AGameplayCameraSystemActor;
 
 // Class GameplayCameras.GameplayCameraSystemComponent
-// 0x0010 (0x0280 - 0x0270)
+// 0x0010 (0x0290 - 0x0280)
 class UGameplayCameraSystemComponent final : public USceneComponent
 {
 public:
-	EAutoReceiveInput                             AutoActivateForPlayer;                             // 0x0268(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bSetPlayerControllerRotation;                      // 0x0269(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_26A[0x6];                                      // 0x026A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGameplayCameraSystemHost*              CameraSystemHost;                                  // 0x0270(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	TWeakObjectPtr<class APlayerController>       WeakPlayerController;                              // 0x0278(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	EAutoReceiveInput                             AutoActivateForPlayer;                             // 0x0278(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bSetPlayerControllerRotation;                      // 0x0279(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_27A[0x6];                                      // 0x027A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGameplayCameraSystemHost*              CameraSystemHost;                                  // 0x0280(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	TWeakObjectPtr<class APlayerController>       WeakPlayerController;                              // 0x0288(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 
 public:
 	void ActivateCameraSystemForPlayerController(class APlayerController* PlayerController);
@@ -1498,18 +1498,18 @@ public:
 DUMPER7_ASSERTS_UGameplayCameraSystemComponent;
 
 // Class GameplayCameras.GameplayControlRotationComponent
-// 0x0040 (0x0100 - 0x00C0)
+// 0x0040 (0x0110 - 0x00D0)
 class UGameplayControlRotationComponent final : public UActorComponent
 {
 public:
-	TArray<class UInputAction*>                   AxisActions;                                       // 0x00C0(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	float                                         AxisActionAngularSpeedThreshold;                   // 0x00D0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         AxisActionMagnitudeThreshold;                      // 0x00D4(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EAutoReceiveInput                             AutoActivateForPlayer;                             // 0x00D8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_D9[0x7];                                       // 0x00D9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class APlayerController*                      PlayerController;                                  // 0x00E0(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	class UGameplayCameraSystemHost*              CameraSystemHost;                                  // 0x00E8(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	uint8                                         Pad_F0[0x10];                                      // 0x00F0(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TArray<class UInputAction*>                   AxisActions;                                       // 0x00D0(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	float                                         AxisActionAngularSpeedThreshold;                   // 0x00E0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         AxisActionMagnitudeThreshold;                      // 0x00E4(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EAutoReceiveInput                             AutoActivateForPlayer;                             // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E9[0x7];                                       // 0x00E9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class APlayerController*                      PlayerController;                                  // 0x00F0(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class UGameplayCameraSystemHost*              CameraSystemHost;                                  // 0x00F8(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	uint8                                         Pad_100[0x10];                                     // 0x0100(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void ActivateControlRotationManagementForPlayerController(class APlayerController* PlayerController_0);

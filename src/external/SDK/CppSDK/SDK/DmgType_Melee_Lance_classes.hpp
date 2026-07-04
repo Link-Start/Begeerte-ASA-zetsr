@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass DmgType_Melee_Lance.DmgType_Melee_Lance_C
-// 0x0000 (0x0178 - 0x0178)
+// 0x0000 (0x0180 - 0x0180)
 class UDmgType_Melee_Lance_C final : public UDmgType_Melee_Torpidity_Low_C
 {
 public:

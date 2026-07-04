@@ -11,23 +11,22 @@
 #include "Basic.hpp"
 
 #include "Engine_classes.hpp"
-#include "ZoneGraphAnnotations_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "ZoneGraphAnnotations_structs.hpp"
 #include "ZoneGraph_structs.hpp"
 
 
 SDK_NAMESPACE_START
 
 // Class ZoneGraphAnnotations.ZoneGraphAnnotationComponent
-// 0x0020 (0x0680 - 0x0660)
-#pragma pack(push, 0x1)
-class SDK_ALIGN(0x10) UZoneGraphAnnotationComponent : public UDebugDrawComponent
+// 0x0020 (0x0690 - 0x0670)
+class UZoneGraphAnnotationComponent : public UDebugDrawComponent
 {
 public:
-	uint8                                         Pad_658[0x18];                                     // 0x0658(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bEnableDebugDrawing;                               // 0x0670(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_671[0x7];                                      // 0x0671(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_670[0x18];                                     // 0x0670(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bEnableDebugDrawing;                               // 0x0688(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_689[0x7];                                      // 0x0689(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -43,7 +42,6 @@ public:
 		return GetDefaultObjImpl<UZoneGraphAnnotationComponent>();
 	}
 };
-#pragma pack(pop)
 DUMPER7_ASSERTS_UZoneGraphAnnotationComponent;
 
 // Class ZoneGraphAnnotations.ZoneGraphAnnotationSubsystem
@@ -97,12 +95,11 @@ public:
 DUMPER7_ASSERTS_UZoneGraphAnnotationTest;
 
 // Class ZoneGraphAnnotations.ZoneGraphAnnotationTestingComponent
-// 0x0010 (0x0670 - 0x0660)
+// 0x0010 (0x0680 - 0x0670)
 class UZoneGraphAnnotationTestingComponent final : public UDebugDrawComponent
 {
 public:
-	TArray<class UZoneGraphAnnotationTest*>       Tests;                                             // 0x0658(0x0010)(Edit, ExportObject, ZeroConstructor, ContainsInstancedReference, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_668[0x8];                                      // 0x0668(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TArray<class UZoneGraphAnnotationTest*>       Tests;                                             // 0x0670(0x0010)(Edit, ExportObject, ZeroConstructor, ContainsInstancedReference, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()
@@ -147,18 +144,19 @@ public:
 DUMPER7_ASSERTS_AZoneGraphAnnotationTestingActor;
 
 // Class ZoneGraphAnnotations.ZoneGraphDisturbanceAnnotation
-// 0x0060 (0x06E0 - 0x0680)
+// 0x0070 (0x0700 - 0x0690)
 class UZoneGraphDisturbanceAnnotation final : public UZoneGraphAnnotationComponent
 {
 public:
-	struct FZoneGraphTag                          DangerAnnotationTag;                               // 0x0678(0x0001)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FZoneGraphTag                          ObstacleAnnotationTag;                             // 0x0679(0x0001)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_67A[0x2];                                      // 0x067A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FZoneGraphTagFilter                    AffectedLaneTags;                                  // 0x067C(0x000C)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	struct FZoneGraphTagFilter                    EscapeLaneTags;                                    // 0x0688(0x000C)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	float                                         IdealSpanLength;                                   // 0x0694(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_698[0x40];                                     // 0x0698(0x0040)(Fixing Size After Last Property [ Dumper-7 ])
-	class UZoneGraphSubsystem*                    ZoneGraphSubsystem;                                // 0x06D8(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	struct FZoneGraphTag                          DangerAnnotationTag;                               // 0x0690(0x0001)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FZoneGraphTag                          ObstacleAnnotationTag;                             // 0x0691(0x0001)(Edit, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_692[0x2];                                      // 0x0692(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FZoneGraphTagFilter                    AffectedLaneTags;                                  // 0x0694(0x000C)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	struct FZoneGraphTagFilter                    EscapeLaneTags;                                    // 0x06A0(0x000C)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	float                                         IdealSpanLength;                                   // 0x06AC(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_6B0[0x40];                                     // 0x06B0(0x0040)(Fixing Size After Last Property [ Dumper-7 ])
+	class UZoneGraphSubsystem*                    ZoneGraphSubsystem;                                // 0x06F0(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	uint8                                         Pad_6F8[0x8];                                      // 0x06F8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

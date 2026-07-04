@@ -16,12 +16,12 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemConsumable_Honey.PrimalItemConsumable_Honey_C
-// 0x0000 (0x0B60 - 0x0B60)
+// 0x0000 (0x0B90 - 0x0B90)
 class UPrimalItemConsumable_Honey_C final : public UPrimalItemConsumableEatable_C
 {
 public:
-	uint8                                         Pad_B53[0x5];                                      // 0x0B53(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	class UClass*                                 WasThrownBuffToAdd;                                // 0x0B58(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_B84[0x4];                                      // 0x0B84(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UClass*                                 WasThrownBuffToAdd;                                // 0x0B88(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void BPNotifyDropped(class APrimalCharacter* FromCharacter, bool bWasThrown);

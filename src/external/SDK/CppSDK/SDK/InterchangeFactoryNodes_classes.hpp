@@ -11,10 +11,10 @@
 #include "Basic.hpp"
 
 #include "InterchangeCore_classes.hpp"
-#include "CinematicCamera_structs.hpp"
-#include "Engine_structs.hpp"
 #include "InterchangeNodes_structs.hpp"
 #include "InterchangeFactoryNodes_structs.hpp"
+#include "CinematicCamera_structs.hpp"
+#include "Engine_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -53,6 +53,34 @@ public:
 };
 DUMPER7_ASSERTS_UInterchangeActorFactoryNode;
 
+// Class InterchangeFactoryNodes.InterchangeLevelInstanceActorFactoryNode
+// 0x0020 (0x01F0 - 0x01D0)
+class UInterchangeLevelInstanceActorFactoryNode final : public UInterchangeActorFactoryNode
+{
+public:
+	uint8                                         Pad_1D0[0x20];                                     // 0x01D0(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	bool SetCustomLevelReference(const class FString& AttributeValue);
+
+	bool GetCustomLevelReference(class FString* AttributeValue) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InterchangeLevelInstanceActorFactoryNode")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InterchangeLevelInstanceActorFactoryNode")
+	}
+	static class UInterchangeLevelInstanceActorFactoryNode* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInterchangeLevelInstanceActorFactoryNode>();
+	}
+};
+DUMPER7_ASSERTS_UInterchangeLevelInstanceActorFactoryNode;
+
 // Class InterchangeFactoryNodes.InterchangePhysicalCameraFactoryNode
 // 0x0040 (0x0210 - 0x01D0)
 class UInterchangePhysicalCameraFactoryNode final : public UInterchangeActorFactoryNode
@@ -86,6 +114,40 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UInterchangePhysicalCameraFactoryNode;
+
+// Class InterchangeFactoryNodes.InterchangeBaseLightFactoryNode
+// 0x0040 (0x0210 - 0x01D0)
+class UInterchangeBaseLightFactoryNode : public UInterchangeActorFactoryNode
+{
+public:
+	uint8                                         Pad_1D0[0x40];                                     // 0x01D0(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	bool SetCustomIntensity(float AttributeValue, bool bAddApplyDelegate);
+	bool SetCustomLightColor(const struct FColor& AttributeValue, bool bAddApplyDelegate);
+	bool SetCustomTemperature(float AttributeValue, bool bAddApplyDelegate);
+	bool SetCustomUseTemperature(bool AttributeValue, bool bAddApplyDelegate);
+
+	bool GetCustomIntensity(float* AttributeValue) const;
+	bool GetCustomLightColor(struct FColor* AttributeValue) const;
+	bool GetCustomTemperature(float* AttributeValue) const;
+	bool GetCustomUseTemperature(bool* AttributeValue) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InterchangeBaseLightFactoryNode")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InterchangeBaseLightFactoryNode")
+	}
+	static class UInterchangeBaseLightFactoryNode* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInterchangeBaseLightFactoryNode>();
+	}
+};
+DUMPER7_ASSERTS_UInterchangeBaseLightFactoryNode;
 
 // Class InterchangeFactoryNodes.InterchangeStandardCameraFactoryNode
 // 0x0060 (0x0230 - 0x01D0)
@@ -125,6 +187,34 @@ public:
 };
 DUMPER7_ASSERTS_UInterchangeStandardCameraFactoryNode;
 
+// Class InterchangeFactoryNodes.InterchangeBaseMaterialFactoryNode
+// 0x0010 (0x0160 - 0x0150)
+class UInterchangeBaseMaterialFactoryNode : public UInterchangeFactoryBaseNode
+{
+public:
+	uint8                                         Pad_150[0x10];                                     // 0x0150(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	bool SetCustomIsMaterialImportEnabled(const bool& AttributeValue);
+
+	bool GetCustomIsMaterialImportEnabled(bool* AttributeValue) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InterchangeBaseMaterialFactoryNode")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InterchangeBaseMaterialFactoryNode")
+	}
+	static class UInterchangeBaseMaterialFactoryNode* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInterchangeBaseMaterialFactoryNode>();
+	}
+};
+DUMPER7_ASSERTS_UInterchangeBaseMaterialFactoryNode;
+
 // Class InterchangeFactoryNodes.InterchangeDecalActorFactoryNode
 // 0x0030 (0x0200 - 0x01D0)
 class UInterchangeDecalActorFactoryNode final : public UInterchangeActorFactoryNode
@@ -157,34 +247,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UInterchangeDecalActorFactoryNode;
-
-// Class InterchangeFactoryNodes.InterchangeBaseMaterialFactoryNode
-// 0x0010 (0x0160 - 0x0150)
-class UInterchangeBaseMaterialFactoryNode : public UInterchangeFactoryBaseNode
-{
-public:
-	uint8                                         Pad_150[0x10];                                     // 0x0150(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	bool SetCustomIsMaterialImportEnabled(const bool& AttributeValue);
-
-	bool GetCustomIsMaterialImportEnabled(bool* AttributeValue) const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InterchangeBaseMaterialFactoryNode")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InterchangeBaseMaterialFactoryNode")
-	}
-	static class UInterchangeBaseMaterialFactoryNode* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInterchangeBaseMaterialFactoryNode>();
-	}
-};
-DUMPER7_ASSERTS_UInterchangeBaseMaterialFactoryNode;
 
 // Class InterchangeFactoryNodes.InterchangeDecalMaterialFactoryNode
 // 0x0020 (0x0180 - 0x0160)
@@ -255,34 +317,6 @@ public:
 };
 DUMPER7_ASSERTS_UInterchangeLevelFactoryNode;
 
-// Class InterchangeFactoryNodes.InterchangeLevelInstanceActorFactoryNode
-// 0x0020 (0x01F0 - 0x01D0)
-class UInterchangeLevelInstanceActorFactoryNode final : public UInterchangeActorFactoryNode
-{
-public:
-	uint8                                         Pad_1D0[0x20];                                     // 0x01D0(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	bool SetCustomLevelReference(const class FString& AttributeValue);
-
-	bool GetCustomLevelReference(class FString* AttributeValue) const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InterchangeLevelInstanceActorFactoryNode")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InterchangeLevelInstanceActorFactoryNode")
-	}
-	static class UInterchangeLevelInstanceActorFactoryNode* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInterchangeLevelInstanceActorFactoryNode>();
-	}
-};
-DUMPER7_ASSERTS_UInterchangeLevelInstanceActorFactoryNode;
-
 // Class InterchangeFactoryNodes.InterchangeLevelSequenceFactoryNode
 // 0x0030 (0x0180 - 0x0150)
 class UInterchangeLevelSequenceFactoryNode final : public UInterchangeFactoryBaseNode
@@ -316,40 +350,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UInterchangeLevelSequenceFactoryNode;
-
-// Class InterchangeFactoryNodes.InterchangeBaseLightFactoryNode
-// 0x0040 (0x0210 - 0x01D0)
-class UInterchangeBaseLightFactoryNode : public UInterchangeActorFactoryNode
-{
-public:
-	uint8                                         Pad_1D0[0x40];                                     // 0x01D0(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	bool SetCustomIntensity(float AttributeValue, bool bAddApplyDelegate);
-	bool SetCustomLightColor(const struct FColor& AttributeValue, bool bAddApplyDelegate);
-	bool SetCustomTemperature(float AttributeValue, bool bAddApplyDelegate);
-	bool SetCustomUseTemperature(bool AttributeValue, bool bAddApplyDelegate);
-
-	bool GetCustomIntensity(float* AttributeValue) const;
-	bool GetCustomLightColor(struct FColor* AttributeValue) const;
-	bool GetCustomTemperature(float* AttributeValue) const;
-	bool GetCustomUseTemperature(bool* AttributeValue) const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InterchangeBaseLightFactoryNode")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InterchangeBaseLightFactoryNode")
-	}
-	static class UInterchangeBaseLightFactoryNode* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInterchangeBaseLightFactoryNode>();
-	}
-};
-DUMPER7_ASSERTS_UInterchangeBaseLightFactoryNode;
 
 // Class InterchangeFactoryNodes.InterchangeDirectionalLightFactoryNode
 // 0x0000 (0x0210 - 0x0210)

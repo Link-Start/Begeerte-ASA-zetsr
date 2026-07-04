@@ -10,11 +10,11 @@
 
 #include "Basic.hpp"
 
+#include "DatasmithContent_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
-#include "DatasmithContent_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -41,6 +41,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UDatasmithObjectTemplate;
+
+// Class DatasmithContent.DatasmithSceneImportData
+// 0x0000 (0x0028 - 0x0028)
+class UDatasmithSceneImportData : public UAssetImportData
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("DatasmithSceneImportData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"DatasmithSceneImportData")
+	}
+	static class UDatasmithSceneImportData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UDatasmithSceneImportData>();
+	}
+};
+DUMPER7_ASSERTS_UDatasmithSceneImportData;
 
 // Class DatasmithContent.DatasmithActorTemplate
 // 0x00A0 (0x00D0 - 0x0030)
@@ -171,6 +191,34 @@ public:
 };
 DUMPER7_ASSERTS_UDatasmithAreaLightActorTemplate;
 
+// Class DatasmithContent.DatasmithGLTFSceneImportData
+// 0x0048 (0x0070 - 0x0028)
+class UDatasmithGLTFSceneImportData final : public UDatasmithSceneImportData
+{
+public:
+	class FString                                 Generator;                                         // 0x0028(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Version;                                           // 0x0038(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 Author;                                            // 0x0040(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 License;                                           // 0x0050(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Source;                                            // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("DatasmithGLTFSceneImportData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"DatasmithGLTFSceneImportData")
+	}
+	static class UDatasmithGLTFSceneImportData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UDatasmithGLTFSceneImportData>();
+	}
+};
+DUMPER7_ASSERTS_UDatasmithGLTFSceneImportData;
+
 // Class DatasmithContent.DatasmithAssetImportData
 // 0x0000 (0x0028 - 0x0028)
 class UDatasmithAssetImportData : public UAssetImportData
@@ -231,26 +279,6 @@ public:
 };
 DUMPER7_ASSERTS_UDatasmithStaticMeshCADImportData;
 
-// Class DatasmithContent.DatasmithSceneImportData
-// 0x0000 (0x0028 - 0x0028)
-class UDatasmithSceneImportData : public UAssetImportData
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("DatasmithSceneImportData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"DatasmithSceneImportData")
-	}
-	static class UDatasmithSceneImportData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UDatasmithSceneImportData>();
-	}
-};
-DUMPER7_ASSERTS_UDatasmithSceneImportData;
-
 // Class DatasmithContent.DatasmithTranslatedSceneImportData
 // 0x0000 (0x0028 - 0x0028)
 class UDatasmithTranslatedSceneImportData final : public UDatasmithSceneImportData
@@ -310,34 +338,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UDatasmithMDLSceneImportData;
-
-// Class DatasmithContent.DatasmithGLTFSceneImportData
-// 0x0048 (0x0070 - 0x0028)
-class UDatasmithGLTFSceneImportData final : public UDatasmithSceneImportData
-{
-public:
-	class FString                                 Generator;                                         // 0x0028(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Version;                                           // 0x0038(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 Author;                                            // 0x0040(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 License;                                           // 0x0050(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Source;                                            // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("DatasmithGLTFSceneImportData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"DatasmithGLTFSceneImportData")
-	}
-	static class UDatasmithGLTFSceneImportData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UDatasmithGLTFSceneImportData>();
-	}
-};
-DUMPER7_ASSERTS_UDatasmithGLTFSceneImportData;
 
 // Class DatasmithContent.DatasmithStaticMeshGLTFImportData
 // 0x0010 (0x0038 - 0x0028)

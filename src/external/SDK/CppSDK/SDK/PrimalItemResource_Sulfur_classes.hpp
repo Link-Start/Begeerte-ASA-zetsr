@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemResource_Sulfur.PrimalItemResource_Sulfur_C
-// 0x0000 (0x0B60 - 0x0B60)
+// 0x0000 (0x0B90 - 0x0B90)
 class UPrimalItemResource_Sulfur_C final : public UPrimalItemResourceGeneric_C
 {
 public:

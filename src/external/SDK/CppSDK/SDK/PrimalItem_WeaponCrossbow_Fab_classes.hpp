@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItem_WeaponCrossbow_Fab.PrimalItem_WeaponCrossbow_Fab_C
-// 0x0000 (0x0B60 - 0x0B60)
+// 0x0000 (0x0B90 - 0x0B90)
 class UPrimalItem_WeaponCrossbow_Fab_C final : public UPrimalItemWeaponGenericGun_C
 {
 public:

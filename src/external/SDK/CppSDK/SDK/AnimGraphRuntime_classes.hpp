@@ -159,7 +159,7 @@ public:
 DUMPER7_ASSERTS_UAnimationStateMachineLibrary;
 
 // Class AnimGraphRuntime.AnimSequencerInstance
-// 0x0000 (0x03C0 - 0x03C0)
+// 0x0000 (0x03D0 - 0x03D0)
 class UAnimSequencerInstance final : public UAnimInstance
 {
 public:

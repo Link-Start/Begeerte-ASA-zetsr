@@ -14,7 +14,7 @@
 SDK_NAMESPACE_START
 
 // UserDefinedEnum Human_Male_Faces_Enum.Human_Male_Faces_Enum
-// NumValues: 0x0020
+// NumValues: 0x0021
 enum class EHuman_Male_Faces_Enum : uint8
 {
 	NewEnumerator7                           = 0,
@@ -48,7 +48,8 @@ enum class EHuman_Male_Faces_Enum : uint8
 	NewEnumerator32                          = 28,
 	NewEnumerator33                          = 29,
 	NewEnumerator34                          = 30,
-	Human_Male_Faces_MAX                     = 31,
+	NewEnumerator35                          = 31,
+	Human_Male_Faces_MAX                     = 32,
 };
 
 SDK_NAMESPACE_END

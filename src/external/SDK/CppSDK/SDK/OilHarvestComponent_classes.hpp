@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass OilHarvestComponent.OilHarvestComponent_C
-// 0x0000 (0x0230 - 0x0230)
+// 0x0000 (0x0238 - 0x0238)
 class UOilHarvestComponent_C final : public UStoneHarvestComponent_RequiresMetal_C
 {
 public:

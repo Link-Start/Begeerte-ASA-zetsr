@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItem_WeaponMachinedShotgun_Cursed.PrimalItem_WeaponMachinedShotgun_Cursed_C
-// 0x0000 (0x0B60 - 0x0B60)
+// 0x0000 (0x0B90 - 0x0B90)
 class UPrimalItem_WeaponMachinedShotgun_Cursed_C final : public UPrimalItemWeaponGeneric_C
 {
 public:

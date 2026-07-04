@@ -10,13 +10,13 @@
 
 #include "Basic.hpp"
 
-#include "SmartObjectsModule_classes.hpp"
 #include "MassSignals_classes.hpp"
+#include "SmartObjectsModule_classes.hpp"
 #include "MassEntity_classes.hpp"
 #include "ZoneGraph_structs.hpp"
-#include "ZoneGraphAnnotations_classes.hpp"
 #include "GameplayTags_structs.hpp"
 #include "MassSpawner_classes.hpp"
+#include "ZoneGraphAnnotations_classes.hpp"
 #include "MassSmartObjects_structs.hpp"
 
 
@@ -314,17 +314,16 @@ public:
 DUMPER7_ASSERTS_UMassSmartObjectUserTrait;
 
 // Class MassSmartObjects.SmartObjectZoneAnnotations
-// 0x0030 (0x06B0 - 0x0680)
+// 0x0030 (0x06C0 - 0x0690)
 class USmartObjectZoneAnnotations final : public UZoneGraphAnnotationComponent
 {
 public:
-	struct FZoneGraphTagFilter                    AffectedLaneTags;                                  // 0x0678(0x000C)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_684[0x4];                                      // 0x0684(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FSmartObjectAnnotationData>     SmartObjectAnnotationDataArray;                    // 0x0688(0x0010)(Edit, ZeroConstructor, EditConst, Protected, NativeAccessSpecifierProtected)
-	struct FZoneGraphTag                          BehaviorTag;                                       // 0x0698(0x0001)(Edit, EditConst, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_699[0x7];                                      // 0x0699(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class USmartObjectSubsystem*                  SmartObjectSubsystem;                              // 0x06A0(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_6A8[0x8];                                      // 0x06A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FZoneGraphTagFilter                    AffectedLaneTags;                                  // 0x0690(0x000C)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_69C[0x4];                                      // 0x069C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FSmartObjectAnnotationData>     SmartObjectAnnotationDataArray;                    // 0x06A0(0x0010)(Edit, ZeroConstructor, EditConst, Protected, NativeAccessSpecifierProtected)
+	struct FZoneGraphTag                          BehaviorTag;                                       // 0x06B0(0x0001)(Edit, EditConst, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_6B1[0x7];                                      // 0x06B1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class USmartObjectSubsystem*                  SmartObjectSubsystem;                              // 0x06B8(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()

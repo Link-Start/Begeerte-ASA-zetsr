@@ -113,7 +113,7 @@ public:
 DUMPER7_ASSERTS_UMassDebuggerSubsystem;
 
 // Class MassGameplayDebug.MassDebugVisualizationComponent
-// 0x0000 (0x00C0 - 0x00C0)
+// 0x0000 (0x00D0 - 0x00D0)
 class UMassDebugVisualizationComponent final : public UActorComponent
 {
 public:

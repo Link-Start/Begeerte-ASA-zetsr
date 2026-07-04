@@ -72,6 +72,20 @@ void UASAUI_MainMenu_GameModeSelect_C::BndEvt__ASAUI_MainMenu_GameModeSelect_Car
 }
 
 
+// Function ASAUI_MainMenu_GameModeSelect.ASAUI_MainMenu_GameModeSelect_C.BndEvt__ASAUI_MainMenu_GameModeSelect_Card_Dragontopia_K2Node_ComponentBoundEvent_3_OnCardClicked__DelegateSignature
+// (BlueprintEvent)
+
+void UASAUI_MainMenu_GameModeSelect_C::BndEvt__ASAUI_MainMenu_GameModeSelect_Card_Dragontopia_K2Node_ComponentBoundEvent_3_OnCardClicked__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ASAUI_MainMenu_GameModeSelect_C", "BndEvt__ASAUI_MainMenu_GameModeSelect_Card_Dragontopia_K2Node_ComponentBoundEvent_3_OnCardClicked__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function ASAUI_MainMenu_GameModeSelect.ASAUI_MainMenu_GameModeSelect_C.BndEvt__ASAUI_MainMenu_GameModeSelect_Card_LC_K2Node_ComponentBoundEvent_1_OnCardClicked__DelegateSignature
 // (BlueprintEvent)
 
@@ -95,6 +109,20 @@ void UASAUI_MainMenu_GameModeSelect_C::BndEvt__ASAUI_MainMenu_GameModeSelect_Car
 
 	if (Func == nullptr)
 		Func = Class->GetFunction("ASAUI_MainMenu_GameModeSelect_C", "BndEvt__ASAUI_MainMenu_GameModeSelect_Card_NewDlc_K2Node_ComponentBoundEvent_0_OnCardClicked__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function ASAUI_MainMenu_GameModeSelect.ASAUI_MainMenu_GameModeSelect_C.BndEvt__ASAUI_MainMenu_GameModeSelect_Card_Tof_K2Node_ComponentBoundEvent_2_OnCardClicked__DelegateSignature
+// (BlueprintEvent)
+
+void UASAUI_MainMenu_GameModeSelect_C::BndEvt__ASAUI_MainMenu_GameModeSelect_Card_Tof_K2Node_ComponentBoundEvent_2_OnCardClicked__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ASAUI_MainMenu_GameModeSelect_C", "BndEvt__ASAUI_MainMenu_GameModeSelect_Card_Tof_K2Node_ComponentBoundEvent_2_OnCardClicked__DelegateSignature");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
@@ -131,6 +159,30 @@ void UASAUI_MainMenu_GameModeSelect_C::ExecuteUbergraph_ASAUI_MainMenu_GameModeS
 	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ASAUI_MainMenu_GameModeSelect.ASAUI_MainMenu_GameModeSelect_C.GetCardDLC
+// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// const class FString&                    String                                                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+// class UOverlay**                        OverlayLC_0                                            (Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+
+void UASAUI_MainMenu_GameModeSelect_C::GetCardDLC(const class FString& String, class UOverlay** OverlayLC_0)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ASAUI_MainMenu_GameModeSelect_C", "GetCardDLC");
+
+	Params::ASAUI_MainMenu_GameModeSelect_C_GetCardDLC Parms{};
+
+	Parms.String = std::move(String);
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (OverlayLC_0 != nullptr)
+		*OverlayLC_0 = Parms.OverlayLC_0;
 }
 
 
@@ -242,6 +294,20 @@ void UASAUI_MainMenu_GameModeSelect_C::Tick(const struct FGeometry& MyGeometry, 
 	Parms.InDeltaTime = InDeltaTime;
 
 	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ASAUI_MainMenu_GameModeSelect.ASAUI_MainMenu_GameModeSelect_C.UpdateDLC
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+
+void UASAUI_MainMenu_GameModeSelect_C::UpdateDLC()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ASAUI_MainMenu_GameModeSelect_C", "UpdateDLC");
+
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 

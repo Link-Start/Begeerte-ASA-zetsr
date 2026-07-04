@@ -10,14 +10,14 @@
 
 #include "Basic.hpp"
 
-#include "Engine_classes.hpp"
 #include "SmartObjectsModule_structs.hpp"
-#include "WorldConditions_structs.hpp"
-#include "WorldConditions_classes.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "AIModule_classes.hpp"
 #include "DeveloperSettings_classes.hpp"
+#include "WorldConditions_structs.hpp"
+#include "WorldConditions_classes.hpp"
+#include "Engine_classes.hpp"
 #include "GameplayTags_structs.hpp"
 
 
@@ -227,18 +227,18 @@ public:
 DUMPER7_ASSERTS_ASmartObjectCollection;
 
 // Class SmartObjectsModule.SmartObjectComponent
-// 0x0070 (0x02E0 - 0x0270)
+// 0x0070 (0x02F0 - 0x0280)
 class USmartObjectComponent final : public USceneComponent
 {
 public:
-	TMulticastInlineDelegate<void(const struct FSmartObjectEventData& EventData, const class AActor* Interactor)> OnSmartObjectEvent; // 0x0268(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_278[0x18];                                     // 0x0278(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSmartObjectDefinitionReference        DefinitionRef;                                     // 0x0290(0x0028)(Edit, Net, Protected, NativeAccessSpecifierProtected)
-	struct FSmartObjectHandle                     RegisteredHandle;                                  // 0x02B8(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, Net, Transient, EditConst, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_2C0[0x10];                                     // 0x02C0(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bCanBePartOfCollection;                            // 0x02D0(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_2D1[0x7];                                      // 0x02D1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class USmartObjectDefinition*                 CachedDefinitionAssetVariation;                    // 0x02D8(0x0008)(BlueprintVisible, ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	TMulticastInlineDelegate<void(const struct FSmartObjectEventData& EventData, const class AActor* Interactor)> OnSmartObjectEvent; // 0x0278(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_288[0x18];                                     // 0x0288(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FSmartObjectDefinitionReference        DefinitionRef;                                     // 0x02A0(0x0028)(Edit, Net, Protected, NativeAccessSpecifierProtected)
+	struct FSmartObjectHandle                     RegisteredHandle;                                  // 0x02C8(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, Net, Transient, EditConst, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_2D0[0x10];                                     // 0x02D0(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bCanBePartOfCollection;                            // 0x02E0(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_2E1[0x7];                                      // 0x02E1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class USmartObjectDefinition*                 CachedDefinitionAssetVariation;                    // 0x02E8(0x0008)(BlueprintVisible, ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
 
 public:
 	void ReceiveOnEvent(const struct FSmartObjectEventData& EventData, const class AActor* Interactor);
@@ -268,7 +268,7 @@ public:
 DUMPER7_ASSERTS_USmartObjectComponent;
 
 // Class SmartObjectsModule.SmartObjectContainerRenderingComponent
-// 0x0000 (0x0610 - 0x0610)
+// 0x0000 (0x0620 - 0x0620)
 class USmartObjectContainerRenderingComponent final : public UPrimitiveComponent
 {
 public:
@@ -288,7 +288,7 @@ public:
 DUMPER7_ASSERTS_USmartObjectContainerRenderingComponent;
 
 // Class SmartObjectsModule.SmartObjectDebugRenderingComponent
-// 0x0000 (0x0660 - 0x0660)
+// 0x0000 (0x0670 - 0x0670)
 class USmartObjectDebugRenderingComponent : public UDebugDrawComponent
 {
 public:
@@ -468,7 +468,7 @@ public:
 DUMPER7_ASSERTS_ASmartObjectPersistentCollection;
 
 // Class SmartObjectsModule.SmartObjectRenderingComponent
-// 0x0000 (0x0610 - 0x0610)
+// 0x0000 (0x0620 - 0x0620)
 class USmartObjectRenderingComponent final : public UPrimitiveComponent
 {
 public:
@@ -547,7 +547,7 @@ public:
 DUMPER7_ASSERTS_USmartObjectSubsystem;
 
 // Class SmartObjectsModule.SmartObjectSubsystemRenderingComponent
-// 0x0000 (0x0660 - 0x0660)
+// 0x0000 (0x0670 - 0x0670)
 class USmartObjectSubsystemRenderingComponent final : public USmartObjectDebugRenderingComponent
 {
 public:
@@ -637,7 +637,7 @@ public:
 DUMPER7_ASSERTS_USmartObjectSimpleQueryTest;
 
 // Class SmartObjectsModule.SmartObjectTestRenderingComponent
-// 0x0000 (0x0660 - 0x0660)
+// 0x0000 (0x0670 - 0x0670)
 class USmartObjectTestRenderingComponent final : public USmartObjectDebugRenderingComponent
 {
 public:
@@ -714,11 +714,11 @@ public:
 DUMPER7_ASSERTS_USmartObjectSlotValidationFilter;
 
 // Class SmartObjectsModule.SmartObjectUserComponent
-// 0x0008 (0x00C8 - 0x00C0)
+// 0x0008 (0x00D8 - 0x00D0)
 class USmartObjectUserComponent final : public UActorComponent
 {
 public:
-	TSubclassOf<class USmartObjectSlotValidationFilter> ValidationFilter;                            // 0x00C0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	TSubclassOf<class USmartObjectSlotValidationFilter> ValidationFilter;                            // 0x00D0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 
 public:
 	static class UClass* StaticClass()

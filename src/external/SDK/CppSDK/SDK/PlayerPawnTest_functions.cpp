@@ -620,6 +620,27 @@ void APlayerPawnTest_C::ExecuteUbergraph_PlayerPawnTest(int32 EntryPoint)
 }
 
 
+// Function PlayerPawnTest.PlayerPawnTest_C.GetFaceCustomization
+// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// class UAC_FaceCustomization_C**         FaceCustomization                                      (Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+
+void APlayerPawnTest_C::GetFaceCustomization(class UAC_FaceCustomization_C** FaceCustomization)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PlayerPawnTest_C", "GetFaceCustomization");
+
+	Params::PlayerPawnTest_C_GetFaceCustomization Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (FaceCustomization != nullptr)
+		*FaceCustomization = Parms.FaceCustomization;
+}
+
+
 // Function PlayerPawnTest.PlayerPawnTest_C.GetFXBloodColor
 // (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -776,6 +797,40 @@ void APlayerPawnTest_C::OnBossfightTeleport(class FName DataName)
 	Params::PlayerPawnTest_C_OnBossfightTeleport Parms{};
 
 	Parms.DataName = DataName;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function PlayerPawnTest.PlayerPawnTest_C.OnJumped
+// (Event, Public, BlueprintEvent)
+
+void APlayerPawnTest_C::OnJumped()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PlayerPawnTest_C", "OnJumped");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function PlayerPawnTest.PlayerPawnTest_C.OnLanded
+// (Event, Public, HasOutParams, BlueprintEvent)
+// Parameters:
+// const struct FHitResult&                Hit                                                    (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference)
+
+void APlayerPawnTest_C::OnLanded(const struct FHitResult& Hit)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PlayerPawnTest_C", "OnLanded");
+
+	Params::PlayerPawnTest_C_OnLanded Parms{};
+
+	Parms.Hit = std::move(Hit);
 
 	UObject::ProcessEvent(Func, &Parms);
 }
@@ -999,7 +1054,7 @@ void APlayerPawnTest_C::UserConstructionScript()
 
 
 // Function PlayerPawnTest.PlayerPawnTest_C.PlayVOLine
-// (Public, BlueprintCallable, BlueprintEvent, Const)
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
 // Enum_VoiceCollectionLine                Voiceline                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // double                                  VolumeMultiplier                                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)

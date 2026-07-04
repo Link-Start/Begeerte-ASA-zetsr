@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass DmgType_Melee_HighTorpidity_StoneWeapon_Club.DmgType_Melee_HighTorpidity_StoneWeapon_Club_C
-// 0x0000 (0x0178 - 0x0178)
+// 0x0000 (0x0180 - 0x0180)
 class UDmgType_Melee_HighTorpidity_StoneWeapon_Club_C final : public UDmgType_Melee_HighTorpidity_StoneWeapon_C
 {
 public:

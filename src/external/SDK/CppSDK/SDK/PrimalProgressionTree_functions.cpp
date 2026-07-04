@@ -207,9 +207,10 @@ bool UPrimalProgressionTreeGraph::ArePrerequisitesMet(class FName NodeID, const 
 // Parameters:
 // class FName                             NodeID                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class APlayerController*                ForPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UObject*                          ForSkillProviderObject                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UPrimalProgressionTreeGraph::ArePrerequisitesMetForController(class FName NodeID, class APlayerController* ForPC) const
+bool UPrimalProgressionTreeGraph::ArePrerequisitesMetForController(class FName NodeID, class APlayerController* ForPC, class UObject* ForSkillProviderObject) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -220,6 +221,7 @@ bool UPrimalProgressionTreeGraph::ArePrerequisitesMetForController(class FName N
 
 	Parms.NodeID = NodeID;
 	Parms.ForPC = ForPC;
+	Parms.ForSkillProviderObject = ForSkillProviderObject;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

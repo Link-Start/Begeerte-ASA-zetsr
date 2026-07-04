@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemArmor_ProcoptodonSaddle.PrimalItemArmor_ProcoptodonSaddle_C
-// 0x0000 (0x0B80 - 0x0B80)
+// 0x0000 (0x0BB0 - 0x0BB0)
 class UPrimalItemArmor_ProcoptodonSaddle_C final : public UPrimalItemArmor_SaddleGeneric_C
 {
 public:

@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemResource_ChitinOrKeratin.PrimalItemResource_ChitinOrKeratin_C
-// 0x0000 (0x0B60 - 0x0B60)
+// 0x0000 (0x0B90 - 0x0B90)
 class UPrimalItemResource_ChitinOrKeratin_C : public UPrimalItemResourceGeneric_C
 {
 public:

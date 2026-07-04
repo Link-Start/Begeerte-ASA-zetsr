@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass GlobalUIData_XSX.GlobalUIData_XSX_C
-// 0x0000 (0x0E20 - 0x0E20)
+// 0x0000 (0x0E58 - 0x0E58)
 class UGlobalUIData_XSX_C final : public UGlobalUIData_BP_C
 {
 public:

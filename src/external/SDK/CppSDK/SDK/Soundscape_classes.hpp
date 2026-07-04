@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
+#include "Soundscape_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
-#include "Soundscape_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "GameplayTags_structs.hpp"
@@ -141,11 +141,11 @@ public:
 DUMPER7_ASSERTS_UActiveSoundscapeColor;
 
 // Class Soundscape.SoundscapeColorPointComponent
-// 0x0008 (0x00C8 - 0x00C0)
+// 0x0008 (0x00D8 - 0x00D0)
 class USoundscapeColorPointComponent final : public UActorComponent
 {
 public:
-	struct FGameplayTag                           ColorPoint;                                        // 0x00C0(0x0008)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGameplayTag                           ColorPoint;                                        // 0x00D0(0x0008)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()

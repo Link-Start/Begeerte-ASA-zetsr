@@ -10,39 +10,14 @@
 
 #include "Basic.hpp"
 
-#include "PCGGeometryScriptInterop_structs.hpp"
 #include "PCG_structs.hpp"
 #include "PCG_classes.hpp"
-#include "GeometryScriptingCore_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "PCGGeometryScriptInterop_structs.hpp"
+#include "GeometryScriptingCore_structs.hpp"
 
 
 SDK_NAMESPACE_START
-
-// Class PCGGeometryScriptInterop.PCGGeometryBlueprintElement
-// 0x0000 (0x0068 - 0x0068)
-class UPCGGeometryBlueprintElement final : public UPCGBlueprintElement
-{
-public:
-	void ProcessDynamicMesh(class UDynamicMesh* InDynMesh, TArray<class FString>* OutTags);
-
-	class UPCGDynamicMeshData* CopyOrStealInputData(const struct FPCGTaggedData& InTaggedData) const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGGeometryBlueprintElement")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGGeometryBlueprintElement")
-	}
-	static class UPCGGeometryBlueprintElement* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGGeometryBlueprintElement>();
-	}
-};
-DUMPER7_ASSERTS_UPCGGeometryBlueprintElement;
 
 // Class PCGGeometryScriptInterop.PCGDynamicMeshBaseSettings
 // 0x0000 (0x00B8 - 0x00B8)
@@ -96,26 +71,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGAppendMeshesFromPointsSettings;
 
-// Class PCGGeometryScriptInterop.PCGMergeDynamicMeshesSettings
-// 0x0000 (0x00B8 - 0x00B8)
-class UPCGMergeDynamicMeshesSettings final : public UPCGDynamicMeshBaseSettings
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGMergeDynamicMeshesSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGMergeDynamicMeshesSettings")
-	}
-	static class UPCGMergeDynamicMeshesSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGMergeDynamicMeshesSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGMergeDynamicMeshesSettings;
-
 // Class PCGGeometryScriptInterop.PCGBooleanOperationSettings
 // 0x0018 (0x00D0 - 0x00B8)
 class UPCGBooleanOperationSettings final : public UPCGDynamicMeshBaseSettings
@@ -143,6 +98,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGBooleanOperationSettings;
+
+// Class PCGGeometryScriptInterop.PCGCreateEmptyDynamicMeshSettings
+// 0x0000 (0x00B8 - 0x00B8)
+class UPCGCreateEmptyDynamicMeshSettings final : public UPCGDynamicMeshBaseSettings
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGCreateEmptyDynamicMeshSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGCreateEmptyDynamicMeshSettings")
+	}
+	static class UPCGCreateEmptyDynamicMeshSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGCreateEmptyDynamicMeshSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGCreateEmptyDynamicMeshSettings;
 
 // Class PCGGeometryScriptInterop.PCGDynamicMeshData
 // 0x0290 (0x0310 - 0x0080)
@@ -172,26 +147,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGDynamicMeshData;
-
-// Class PCGGeometryScriptInterop.PCGCreateEmptyDynamicMeshSettings
-// 0x0000 (0x00B8 - 0x00B8)
-class UPCGCreateEmptyDynamicMeshSettings final : public UPCGDynamicMeshBaseSettings
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGCreateEmptyDynamicMeshSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGCreateEmptyDynamicMeshSettings")
-	}
-	static class UPCGCreateEmptyDynamicMeshSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGCreateEmptyDynamicMeshSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGCreateEmptyDynamicMeshSettings;
 
 // Class PCGGeometryScriptInterop.PCGDynamicMeshManagedComponent
 // 0x0010 (0x0070 - 0x0060)
@@ -241,6 +196,31 @@ public:
 };
 DUMPER7_ASSERTS_UPCGDynamicMeshTransformSettings;
 
+// Class PCGGeometryScriptInterop.PCGGeometryBlueprintElement
+// 0x0000 (0x0068 - 0x0068)
+class UPCGGeometryBlueprintElement final : public UPCGBlueprintElement
+{
+public:
+	void ProcessDynamicMesh(class UDynamicMesh* InDynMesh, TArray<class FString>* OutTags);
+
+	class UPCGDynamicMeshData* CopyOrStealInputData(const struct FPCGTaggedData& InTaggedData) const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGGeometryBlueprintElement")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGGeometryBlueprintElement")
+	}
+	static class UPCGGeometryBlueprintElement* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGGeometryBlueprintElement>();
+	}
+};
+DUMPER7_ASSERTS_UPCGGeometryBlueprintElement;
+
 // Class PCGGeometryScriptInterop.PCGGetDynamicMeshDataSettings
 // 0x0010 (0x0170 - 0x0160)
 class UPCGGetDynamicMeshDataSettings final : public UPCGDataFromActorSettings
@@ -264,6 +244,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGGetDynamicMeshDataSettings;
+
+// Class PCGGeometryScriptInterop.PCGMergeDynamicMeshesSettings
+// 0x0000 (0x00B8 - 0x00B8)
+class UPCGMergeDynamicMeshesSettings final : public UPCGDynamicMeshBaseSettings
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGMergeDynamicMeshesSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGMergeDynamicMeshesSettings")
+	}
+	static class UPCGMergeDynamicMeshesSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGMergeDynamicMeshesSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGMergeDynamicMeshesSettings;
 
 // Class PCGGeometryScriptInterop.PCGMeshSamplerSettings
 // 0x00D8 (0x0190 - 0x00B8)

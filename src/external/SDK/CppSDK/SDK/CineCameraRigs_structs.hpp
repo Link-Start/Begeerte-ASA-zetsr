@@ -26,6 +26,15 @@ enum class ECineCameraRigRailDriveMode : uint8
 	ECineCameraRigRailDriveMode_MAX          = 3,
 };
 
+// ScriptStruct CineCameraRigs.CineSplineInstanceData
+// 0x0008 (0x01A0 - 0x0198)
+struct FCineSplineInstanceData final : public FSplineInstanceData
+{
+public:
+	class UCineSplineMetadata*                    CineSplineMetadata;                                // 0x0198(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FCineSplineInstanceData;
+
 // ScriptStruct CineCameraRigs.CineSplinePointData
 // 0x0040 (0x0040 - 0x0000)
 struct FCineSplinePointData final
@@ -39,15 +48,6 @@ public:
 	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FCineSplinePointData;
-
-// ScriptStruct CineCameraRigs.CineSplineInstanceData
-// 0x0008 (0x01A0 - 0x0198)
-struct FCineSplineInstanceData final : public FSplineInstanceData
-{
-public:
-	class UCineSplineMetadata*                    CineSplineMetadata;                                // 0x0198(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FCineSplineInstanceData;
 
 // ScriptStruct CineCameraRigs.CineSplineCurveDefaults
 // 0x0030 (0x0030 - 0x0000)

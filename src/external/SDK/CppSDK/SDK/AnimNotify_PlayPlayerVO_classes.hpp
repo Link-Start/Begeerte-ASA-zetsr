@@ -11,6 +11,7 @@
 #include "Basic.hpp"
 
 #include "Enum_VoiceCollectionLine_structs.hpp"
+#include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
 
 

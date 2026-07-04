@@ -186,11 +186,11 @@ public:
 DUMPER7_ASSERTS_AGameplayDebuggerPlayerManager;
 
 // Class GameplayDebugger.GameplayDebuggerRenderingComponent
-// 0x0060 (0x06C0 - 0x0660)
+// 0x0060 (0x06D0 - 0x0670)
 class UGameplayDebuggerRenderingComponent final : public UDebugDrawComponent
 {
 public:
-	uint8                                         Pad_658[0x68];                                     // 0x0658(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_670[0x60];                                     // 0x0670(0x0060)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

@@ -16,69 +16,6 @@
 
 SDK_NAMESPACE_START
 
-// Function MassActors.MassActorPoolableInterface.CanBePooled
-// (Native, Event, Public, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool IMassActorPoolableInterface::CanBePooled()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = AsUObject()->Class->GetFunction("MassActorPoolableInterface", "CanBePooled");
-
-	Params::MassActorPoolableInterface_CanBePooled Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	AsUObject()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function MassActors.MassActorPoolableInterface.PrepareForGame
-// (Native, Event, Public, BlueprintCallable, BlueprintEvent)
-
-void IMassActorPoolableInterface::PrepareForGame()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = AsUObject()->Class->GetFunction("MassActorPoolableInterface", "PrepareForGame");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	AsUObject()->ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function MassActors.MassActorPoolableInterface.PrepareForPooling
-// (Native, Event, Public, BlueprintCallable, BlueprintEvent)
-
-void IMassActorPoolableInterface::PrepareForPooling()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = AsUObject()->Class->GetFunction("MassActorPoolableInterface", "PrepareForPooling");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	AsUObject()->ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function MassActors.MassAgentComponent.Disable
 // (Final, Native, Public, BlueprintCallable)
 
@@ -156,6 +93,69 @@ void UMassAgentComponent::OnRep_NetID()
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function MassActors.MassActorPoolableInterface.CanBePooled
+// (Native, Event, Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool IMassActorPoolableInterface::CanBePooled()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = AsUObject()->Class->GetFunction("MassActorPoolableInterface", "CanBePooled");
+
+	Params::MassActorPoolableInterface_CanBePooled Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	AsUObject()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function MassActors.MassActorPoolableInterface.PrepareForGame
+// (Native, Event, Public, BlueprintCallable, BlueprintEvent)
+
+void IMassActorPoolableInterface::PrepareForGame()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = AsUObject()->Class->GetFunction("MassActorPoolableInterface", "PrepareForGame");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	AsUObject()->ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function MassActors.MassActorPoolableInterface.PrepareForPooling
+// (Native, Event, Public, BlueprintCallable, BlueprintEvent)
+
+void IMassActorPoolableInterface::PrepareForPooling()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = AsUObject()->Class->GetFunction("MassActorPoolableInterface", "PrepareForPooling");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	AsUObject()->ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }

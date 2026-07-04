@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass DmgType_Melee_Dino_Herbivore_Medium.DmgType_Melee_Dino_Herbivore_Medium_C
-// 0x0000 (0x0178 - 0x0178)
+// 0x0000 (0x0180 - 0x0180)
 class UDmgType_Melee_Dino_Herbivore_Medium_C : public UDmgType_Melee_Dino_Herbivore_C
 {
 public:

@@ -19,7 +19,7 @@
 SDK_NAMESPACE_START
 
 // Class PrimalProgressionTree.PrimalProgressionTreeAsset
-// 0x0048 (0x0078 - 0x0030)
+// 0x0058 (0x0088 - 0x0030)
 class UPrimalProgressionTreeAsset final : public UPrimaryDataAsset
 {
 public:
@@ -27,6 +27,10 @@ public:
 	class UPrimalProgressionTreeGraph*            ProgressionGraph;                                  // 0x0038(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TSoftObjectPtr<class UDataTable>              InputDataTable;                                    // 0x0040(0x0028)(Edit, BlueprintVisible, BlueprintReadOnly, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<class FText>                           AdditionalStrings;                                 // 0x0068(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	uint8                                         bUsesDedicatedSkillPointPool : 1;                  // 0x0078(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_79[0x3];                                       // 0x0079(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   SkillTreeTag;                                      // 0x007C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_84[0x4];                                       // 0x0084(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void InitializeGraph();
@@ -63,7 +67,7 @@ public:
 	bool ValidateGraph(TArray<class FString>* ValidationErrors);
 
 	bool ArePrerequisitesMet(class FName NodeID, const TSet<class FName>& UnlockedNodes) const;
-	bool ArePrerequisitesMetForController(class FName NodeID, class APlayerController* ForPC) const;
+	bool ArePrerequisitesMetForController(class FName NodeID, class APlayerController* ForPC, class UObject* ForSkillProviderObject) const;
 	TArray<class FName> GetAllAncestors(class FName NodeID) const;
 	TArray<class FName> GetAllDescendants(class FName NodeID) const;
 	TArray<struct FPrimalProgressionPath> GetAllPathsBetweenNodes(class FName StartNodeID, class FName EndNodeID, int32 MaxPathLength) const;

@@ -29,9 +29,10 @@ SDK_NAMESPACE_START
 // const struct FLinearColor&              CustomProgressColor                                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // int32                                   Style                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // const class FString&                    CustomRichText                                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+// double                                  CustomRichTextScale                                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // struct FHUDElement*                     OutHUDElement                                          (Parm, OutParm)
 
-void UGlobalUIData_BP_C::BPGetHUDElements_Module_FuelOrAmmo(int32 SlotIndex, int32 StateIndex, double progress, const class FString& MainText, const class FString& ExtendedInfoText, class UTexture2D* Icon, const struct FLinearColor& CustomBGColor, const struct FLinearColor& CustomProgressColor, int32 Style, const class FString& CustomRichText, struct FHUDElement* OutHUDElement)
+void UGlobalUIData_BP_C::BPGetHUDElements_Module_FuelOrAmmo(int32 SlotIndex, int32 StateIndex, double progress, const class FString& MainText, const class FString& ExtendedInfoText, class UTexture2D* Icon, const struct FLinearColor& CustomBGColor, const struct FLinearColor& CustomProgressColor, int32 Style, const class FString& CustomRichText, double CustomRichTextScale, struct FHUDElement* OutHUDElement)
 {
 	static class UFunction* Func = nullptr;
 
@@ -50,6 +51,7 @@ void UGlobalUIData_BP_C::BPGetHUDElements_Module_FuelOrAmmo(int32 SlotIndex, int
 	Parms.CustomProgressColor = std::move(CustomProgressColor);
 	Parms.Style = Style;
 	Parms.CustomRichText = std::move(CustomRichText);
+	Parms.CustomRichTextScale = CustomRichTextScale;
 
 	UObject::ProcessEvent(Func, &Parms);
 
@@ -98,9 +100,10 @@ void UGlobalUIData_BP_C::BPGetHUDElements_Module_FuelOrAmmo_ExtraBar(int32 SlotO
 // int32                                   Style                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // const class FString&                    CustomRichText                                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
 // bool                                    UseInElementTextColor                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// double                                  CustomRichTextScale                                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // struct FHUDElement*                     OutHUDElement                                          (Parm, OutParm)
 
-void UGlobalUIData_BP_C::BPGetHUDElements_Module_FuelOrAmmo_Frame(const struct FHUDElement& InHUDElement, const struct FLinearColor& CustomColor, int32 Style, const class FString& CustomRichText, bool UseInElementTextColor, struct FHUDElement* OutHUDElement)
+void UGlobalUIData_BP_C::BPGetHUDElements_Module_FuelOrAmmo_Frame(const struct FHUDElement& InHUDElement, const struct FLinearColor& CustomColor, int32 Style, const class FString& CustomRichText, bool UseInElementTextColor, double CustomRichTextScale, struct FHUDElement* OutHUDElement)
 {
 	static class UFunction* Func = nullptr;
 
@@ -114,6 +117,7 @@ void UGlobalUIData_BP_C::BPGetHUDElements_Module_FuelOrAmmo_Frame(const struct F
 	Parms.Style = Style;
 	Parms.CustomRichText = std::move(CustomRichText);
 	Parms.UseInElementTextColor = UseInElementTextColor;
+	Parms.CustomRichTextScale = CustomRichTextScale;
 
 	UObject::ProcessEvent(Func, &Parms);
 

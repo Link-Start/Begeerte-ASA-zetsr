@@ -16,12 +16,12 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemArmorGeneric.PrimalItemArmorGeneric_C
-// 0x0000 (0x0B60 - 0x0B60)
+// 0x0000 (0x0B90 - 0x0B90)
 class UPrimalItemArmorGeneric_C : public UPrimalItem_Base_C
 {
 public:
-	uint8                                         Pad_B53[0x5];                                      // 0x0B53(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	class UPDA_FoleyCollection_C*                 FoleyCollection;                                   // 0x0B58(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_B84[0x4];                                      // 0x0B84(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UPDA_FoleyCollection_C*                 FoleyCollection;                                   // 0x0B88(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 
 public:
 	static class UClass* StaticClass()

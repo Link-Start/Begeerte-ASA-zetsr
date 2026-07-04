@@ -11,8 +11,8 @@
 #include "Basic.hpp"
 
 #include "AnimationCore_structs.hpp"
-#include "Engine_classes.hpp"
 #include "CineCameraRigs_structs.hpp"
+#include "Engine_classes.hpp"
 #include "CinematicCamera_classes.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
@@ -177,14 +177,14 @@ public:
 DUMPER7_ASSERTS_UCineCameraRigRailSettings;
 
 // Class CineCameraRigs.CineSplineComponent
-// 0x0060 (0x0720 - 0x06C0)
+// 0x0060 (0x0730 - 0x06D0)
 class UCineSplineComponent final : public USplineComponent
 {
 public:
-	struct FCineSplineCurveDefaults               CameraSplineDefaults;                              // 0x06C0(0x0030)(Edit, DisableEditOnInstance, NoDestructor, NativeAccessSpecifierPublic)
-	class UCineSplineMetadata*                    CineSplineMetadata;                                // 0x06F0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_6F8[0x18];                                     // 0x06F8(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void()>              OnSplineEdited_BP;                                 // 0x0710(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	struct FCineSplineCurveDefaults               CameraSplineDefaults;                              // 0x06D0(0x0030)(Edit, DisableEditOnInstance, NoDestructor, NativeAccessSpecifierPublic)
+	class UCineSplineMetadata*                    CineSplineMetadata;                                // 0x0700(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	uint8                                         Pad_708[0x18];                                     // 0x0708(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void()>              OnSplineEdited_BP;                                 // 0x0720(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 
 public:
 	void AddSplineDataAtPosition(const float InPosition, const struct FCineSplinePointData& InPointData);

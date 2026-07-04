@@ -17,15 +17,15 @@
 SDK_NAMESPACE_START
 
 // AnimBlueprintGeneratedClass HM_TPV_Empty_PoseLayer_AnimBP.HM_TPV_Empty_PoseLayer_AnimBP_C
-// 0x00F0 (0x04B0 - 0x03C0)
+// 0x00F0 (0x04C0 - 0x03D0)
 class UHM_TPV_Empty_PoseLayer_AnimBP_C final : public UAnimInstance
 {
 public:
-	uint8                                         Pad_3B8[0x8];                                      // 0x03B8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FAnimSubsystemInstance                 AnimBlueprintExtension_PropertyAccess;             // 0x03C0(0x0008)()
-	struct FAnimSubsystemInstance                 AnimBlueprintExtension_Base;                       // 0x03C8(0x0008)()
-	struct FAnimNode_Root                         AnimGraphNode_Root;                                // 0x03D0(0x0020)()
-	struct FAnimNode_LinkedInputPose              AnimGraphNode_LinkedInputPose;                     // 0x03F0(0x00B8)()
+	uint8                                         Pad_3C8[0x8];                                      // 0x03C8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FAnimSubsystemInstance                 AnimBlueprintExtension_PropertyAccess;             // 0x03D0(0x0008)()
+	struct FAnimSubsystemInstance                 AnimBlueprintExtension_Base;                       // 0x03D8(0x0008)()
+	struct FAnimNode_Root                         AnimGraphNode_Root;                                // 0x03E0(0x0020)()
+	struct FAnimNode_LinkedInputPose              AnimGraphNode_LinkedInputPose;                     // 0x0400(0x00B8)()
 
 public:
 	void AnimGraph(const struct FPoseLink& InPose, struct FPoseLink* AnimGraph_0);

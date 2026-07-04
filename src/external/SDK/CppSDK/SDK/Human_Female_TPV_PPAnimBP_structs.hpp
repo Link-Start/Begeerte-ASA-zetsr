@@ -29,8 +29,8 @@ public:
 	struct FAnimSubsystem_Base                    AnimBlueprintExtension_Base;                       // 0x00B8(0x0018)()
 	struct FAnimNodeExposedValueHandler_PropertyAccess AnimGraphNode_Root;                           // 0x00D0(0x0030)()
 	struct FAnimNodeExposedValueHandler_PropertyAccess AnimGraphNode_LinkedInputPose;                // 0x0100(0x0030)()
-	struct FAnimNodeExposedValueHandler_PropertyAccess AnimGraphNode_ControlRig_2;                   // 0x0130(0x0030)()
-	struct FAnimNodeExposedValueHandler_PropertyAccess AnimGraphNode_ControlRig_1;                   // 0x0160(0x0030)()
+	struct FAnimNodeExposedValueHandler_PropertyAccess AnimGraphNode_ControlRig_1;                   // 0x0130(0x0030)()
+	struct FAnimNodeExposedValueHandler_PropertyAccess AnimGraphNode_ControlRig;                     // 0x0160(0x0030)()
 	struct FAnimNodeExposedValueHandler_PropertyAccess AnimGraphNode_SaveCachedPose_1;               // 0x0190(0x0030)()
 	struct FAnimNodeExposedValueHandler_PropertyAccess AnimGraphNode_UseCachedPose_3;                // 0x01C0(0x0030)()
 	struct FAnimNodeExposedValueHandler_PropertyAccess AnimGraphNode_UseCachedPose_2;                // 0x01F0(0x0030)()
@@ -39,7 +39,7 @@ public:
 	struct FAnimNodeExposedValueHandler_PropertyAccess AnimGraphNode_UseCachedPose_1;                // 0x0280(0x0030)()
 	struct FAnimNodeExposedValueHandler_PropertyAccess AnimGraphNode_TwoWayBlend;                    // 0x02B0(0x0030)()
 	struct FAnimNodeExposedValueHandler_PropertyAccess AnimGraphNode_UseCachedPose;                  // 0x02E0(0x0030)()
-	struct FAnimNodeExposedValueHandler_PropertyAccess AnimGraphNode_ControlRig;                     // 0x0310(0x0030)()
+	struct FAnimNodeExposedValueHandler_PropertyAccess AnimGraphNode_LinkedAnimGraph_1;              // 0x0310(0x0030)()
 	struct FAnimNodeExposedValueHandler_PropertyAccess AnimGraphNode_LinkedAnimGraph;                // 0x0340(0x0030)()
 };
 DUMPER7_ASSERTS_Human_Female_TPV_PPAnimBP__FAnimBlueprintGeneratedConstantData;

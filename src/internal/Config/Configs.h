@@ -19,6 +19,7 @@ namespace g_Config {
     inline SDK::FItemNetID dropItemID;
     inline bool bUseItem = false;
     inline SDK::FItemNetID useItemID;
+    inline SDK::int32 useItemSlotID;
 
     inline bool bLogDamage = true;
     inline float LogDamageColor[4] = { 1.0f, 1.0f, 1.0f, 0.80f };

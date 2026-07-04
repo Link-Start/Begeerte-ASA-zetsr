@@ -16,11 +16,11 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass DmgType_Melee_Torpidity_Low_StoneWeapon_Fire.DmgType_Melee_Torpidity_Low_StoneWeapon_Fire_C
-// 0x0008 (0x0180 - 0x0178)
+// 0x0008 (0x0188 - 0x0180)
 class UDmgType_Melee_Torpidity_Low_StoneWeapon_Fire_C final : public UDmgType_Melee_Torpidity_Low_StoneWeapon_C
 {
 public:
-	double                                        MaxEnflameWeight;                                  // 0x0178(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        MaxEnflameWeight;                                  // 0x0180(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	TSubclassOf<class APrimalBuff> OverrideBuffToGiveVictimCharacter(class APrimalCharacter* Victim, float IncomingDamage, const struct FDamageEvent& TheDamageEvent, class AController* EventInstigator, class AActor* DamageCauser) const;

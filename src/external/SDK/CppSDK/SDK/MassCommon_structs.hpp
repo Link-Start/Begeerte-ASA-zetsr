@@ -11,8 +11,8 @@
 #include "Basic.hpp"
 
 #include "CoreUObject_structs.hpp"
-#include "AIModule_structs.hpp"
 #include "MassEntity_structs.hpp"
+#include "AIModule_structs.hpp"
 
 
 SDK_NAMESPACE_START

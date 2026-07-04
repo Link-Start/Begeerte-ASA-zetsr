@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemConsumable_Narcotic.PrimalItemConsumable_Narcotic_C
-// 0x0000 (0x0B60 - 0x0B60)
+// 0x0000 (0x0B90 - 0x0B90)
 class UPrimalItemConsumable_Narcotic_C final : public UPrimalItemConsumableEatable_C
 {
 public:
