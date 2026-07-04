@@ -11,7 +11,8 @@ namespace g_CheatData {
 
 	namespace Signature {
 		namespace AActor {
-			std::string TakeDamage = "C2 00 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? 48 8B 01 41 B0 01 33 D2 48 FF A0 ?? ?? ?? ??";
+			// push rbp | push rbx | push rsi | push rdi | push r12 | push r13 | push r14 | push r15 | lea rbp, [rsp+offset] | sub rsp, alloc | movaps [rsp+offset], xmm11
+			std::string TakeDamage = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ?? ?? ?? ?? 48 81 EC ?? ?? ?? ?? 44 0F 29 9C";
 		}
 
 		namespace UWorld {
