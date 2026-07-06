@@ -13,8 +13,8 @@
 #include "ENUM_CFCore_SideTabs_structs.hpp"
 #include "Engine_structs.hpp"
 #include "SlateCore_structs.hpp"
-#include "cfcore_ui_structs.hpp"
 #include "CFCoreUIWidget_MainModShop_classes.hpp"
+#include "cfcore_ui_structs.hpp"
 #include "ENUM_CFCore_InputDevices_structs.hpp"
 
 
