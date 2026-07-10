@@ -17,7 +17,7 @@
 SDK_NAMESPACE_START
 
 // WidgetBlueprintGeneratedClass ASAUI_MainMenu_GameModeSelect.ASAUI_MainMenu_GameModeSelect_C
-// 0x0100 (0x0478 - 0x0378)
+// 0x0140 (0x04B8 - 0x0378)
 class UASAUI_MainMenu_GameModeSelect_C final : public UPrimalUserWidget
 {
 public:
@@ -43,8 +43,12 @@ public:
 	class FText                                   FalseTextSaveGame;                                 // 0x0430(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
 	class FText                                   TrueTextSaveGame;                                  // 0x0440(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
 	class UCustomButtonWidget*                    LastClickedCardButton;                             // 0x0450(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	TArray<class FString>                         DLCToShow;                                         // 0x0458(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	TArray<class FString>                         DLCToShow;                                         // 0x0458(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance, TObjectPtr)
 	TMulticastInlineDelegate<void(const class FString& DLC)> OnDLCStore;                             // 0x0468(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	class FString                                 DragontopiaDLCName;                                // 0x0478(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash, TObjectPtr)
+	class FString                                 TidesOfFortuneDLCName;                             // 0x0488(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash, TObjectPtr)
+	class FString                                 LostColonyDLCName;                                 // 0x0498(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash, TObjectPtr)
+	class FString                                 BobsTallTalesDLCName;                              // 0x04A8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash, TObjectPtr)
 
 public:
 	void BndEvt__ASAUI_MainMenu_GameModeSelect_BackButton_K2Node_ComponentBoundEvent_8_OnButtonClicked__DelegateSignature();

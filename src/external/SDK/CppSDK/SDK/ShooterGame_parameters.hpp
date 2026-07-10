@@ -445,16 +445,6 @@ public:
 };
 DUMPER7_ASSERTS_PrimalStructure_IsPointObstructedByWorldGeometry;
 
-// Function ShooterGame.PrimalStructure.PackColorToFloat
-// 0x0014 (0x0014 - 0x0000)
-struct PrimalStructure_PackColorToFloat final
-{
-public:
-	struct FLinearColor                           InColor;                                           // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ReturnValue;                                       // 0x0010(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_PrimalStructure_PackColorToFloat;
-
 // Function ShooterGame.PrimalStructure.SetZiplineStructurePointers
 // 0x0010 (0x0010 - 0x0000)
 struct PrimalStructure_SetZiplineStructurePointers final
@@ -496,16 +486,6 @@ public:
 	class APrimalStructure*                       pZiplineAnchor1;                                   // 0x0010(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PrimalStructure_SpawnZiplineActorsForInstigator;
-
-// Function ShooterGame.PrimalStructure.UnpackColorFromFloat
-// 0x0014 (0x0014 - 0x0000)
-struct PrimalStructure_UnpackColorFromFloat final
-{
-public:
-	float                                         InFloat;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FLinearColor                           ReturnValue;                                       // 0x0004(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_PrimalStructure_UnpackColorFromFloat;
 
 // Function ShooterGame.PrimalStructure.AllowShowUserGeneratedText
 // 0x0001 (0x0001 - 0x0000)
@@ -7018,6 +6998,18 @@ public:
 };
 DUMPER7_ASSERTS_ShooterProjectile_BPProjectileBounced;
 
+// Function ShooterGame.ShooterProjectile.BPProjectileDealtDirectDamage
+// 0x0118 (0x0118 - 0x0000)
+struct ShooterProjectile_BPProjectileDealtDirectDamage final
+{
+public:
+	class AActor*                                 DamagedActor;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         DamageDealt;                                       // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FHitResult                             Hit;                                               // 0x0010(0x0108)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ShooterProjectile_BPProjectileDealtDirectDamage;
+
 // Function ShooterGame.ShooterProjectile.BPSpawnedFragments
 // 0x0010 (0x0010 - 0x0000)
 struct ShooterProjectile_BPSpawnedFragments final
@@ -7129,6 +7121,21 @@ public:
 	TArray<class AActor*>                         NewMoveIgnoreActors;                               // 0x0048(0x0010)(ConstParm, Parm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_ShooterProjectile_NetResetTransformAndVelocity;
+
+// Function ShooterGame.ShooterProjectile.OnBeginOverlapDamage
+// 0x0128 (0x0128 - 0x0000)
+struct ShooterProjectile_OnBeginOverlapDamage final
+{
+public:
+	class UPrimitiveComponent*                    OverlappedComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 OtherActor;                                        // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    OtherComp;                                         // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bFromSweep;                                        // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FHitResult                             SweepResult;                                       // 0x0020(0x0108)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ShooterProjectile_OnBeginOverlapDamage;
 
 // Function ShooterGame.ShooterProjectile.OnExplode
 // 0x0108 (0x0108 - 0x0000)
@@ -22756,7 +22763,7 @@ DUMPER7_ASSERTS_PrimalShipAIController_DriveAutopilotTowardGoal;
 struct PrimalShipAIController_FindTargetShip final
 {
 public:
-	class APrimalShip*                            ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PrimalShipAIController_FindTargetShip;
 
@@ -22784,7 +22791,7 @@ DUMPER7_ASSERTS_PrimalShipAIController_GetWanderDestination;
 struct PrimalShipAIController_PickFireTarget final
 {
 public:
-	class APrimalShip*                            ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PrimalShipAIController_PickFireTarget;
 
@@ -22806,14 +22813,15 @@ public:
 };
 DUMPER7_ASSERTS_PrimalShipAIController_GetControlledShip;
 
-// Function ShooterGame.ShipAnimInstance.CalculateAnchorDistance
-// 0x0004 (0x0004 - 0x0000)
-struct ShipAnimInstance_CalculateAnchorDistance final
+// Function ShooterGame.ShipAnimInstance.UpdateAnchorDistance
+// 0x0008 (0x0008 - 0x0000)
+struct ShipAnimInstance_UpdateAnchorDistance final
 {
 public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         DeltaSeconds;                                      // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         NewAnchorDistance;                                 // 0x0004(0x0004)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_ShipAnimInstance_CalculateAnchorDistance;
+DUMPER7_ASSERTS_ShipAnimInstance_UpdateAnchorDistance;
 
 // Function ShooterGame.PrimalProjectileArrow.PickedUp
 // 0x0008 (0x0008 - 0x0000)
@@ -23658,6 +23666,18 @@ public:
 	uint8                                         Pad_A[0x6];                                        // 0x000A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_PrimalShipCannonControlComponent_GetClaimedSideForCharacter;
+
+// Function ShooterGame.PrimalShipCannonControlComponent.HasCharLineOfSightToCannonOnSide
+// 0x0010 (0x0010 - 0x0000)
+struct PrimalShipCannonControlComponent_HasCharLineOfSightToCannonOnSide final
+{
+public:
+	const class APrimalCharacter*                 Char;                                              // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EShipFiringSide                               Side;                                              // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0009(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A[0x6];                                        // 0x000A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_PrimalShipCannonControlComponent_HasCharLineOfSightToCannonOnSide;
 
 // Function ShooterGame.PrimalShipCannonControlComponent.IsGunportMoving
 // 0x0001 (0x0001 - 0x0000)
@@ -25014,6 +25034,21 @@ public:
 };
 DUMPER7_ASSERTS_ColorizationFunctionLibrary_ApplyColorPaletteToSM;
 
+// Function ShooterGame.ColorizationFunctionLibrary.FindClosestLabColorIndex
+// 0x0030 (0x0030 - 0x0000)
+struct ColorizationFunctionLibrary_FindClosestLabColorIndex final
+{
+public:
+	struct FLabColor                              Target;                                            // 0x0000(0x000C)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FLabColor>                      Palette;                                           // 0x0010(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+	float                                         WeightL;                                           // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         WeightC;                                           // 0x0024(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         WeightH;                                           // 0x0028(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         ReturnValue;                                       // 0x002C(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ColorizationFunctionLibrary_FindClosestLabColorIndex;
+
 // Function ShooterGame.ColorizationFunctionLibrary.GetColorizationPresetLinkedSMs
 // 0x0030 (0x0030 - 0x0000)
 struct ColorizationFunctionLibrary_GetColorizationPresetLinkedSMs final
@@ -25036,6 +25071,50 @@ public:
 };
 DUMPER7_ASSERTS_ColorizationFunctionLibrary_GetSMsWithColorizationUserData;
 
+// Function ShooterGame.ColorizationFunctionLibrary.LabColorDistance
+// 0x0028 (0x0028 - 0x0000)
+struct ColorizationFunctionLibrary_LabColorDistance final
+{
+public:
+	struct FLabColor                              A;                                                 // 0x0000(0x000C)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	struct FLabColor                              B;                                                 // 0x000C(0x000C)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	float                                         WeightL;                                           // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         WeightC;                                           // 0x001C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         WeightH;                                           // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0024(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ColorizationFunctionLibrary_LabColorDistance;
+
+// Function ShooterGame.ColorizationFunctionLibrary.LabColorToLinear
+// 0x001C (0x001C - 0x0000)
+struct ColorizationFunctionLibrary_LabColorToLinear final
+{
+public:
+	struct FLabColor                              Color;                                             // 0x0000(0x000C)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	struct FLinearColor                           ReturnValue;                                       // 0x000C(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ColorizationFunctionLibrary_LabColorToLinear;
+
+// Function ShooterGame.ColorizationFunctionLibrary.LinearColorToLab
+// 0x001C (0x001C - 0x0000)
+struct ColorizationFunctionLibrary_LinearColorToLab final
+{
+public:
+	struct FLinearColor                           Color;                                             // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FLabColor                              ReturnValue;                                       // 0x0010(0x000C)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ColorizationFunctionLibrary_LinearColorToLab;
+
+// Function ShooterGame.ColorizationFunctionLibrary.PackColorToFloat
+// 0x0014 (0x0014 - 0x0000)
+struct ColorizationFunctionLibrary_PackColorToFloat final
+{
+public:
+	struct FLinearColor                           InColor;                                           // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0010(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ColorizationFunctionLibrary_PackColorToFloat;
+
 // Function ShooterGame.ColorizationFunctionLibrary.RemoveColorizationPresetAndUnlinkSMs
 // 0x0020 (0x0020 - 0x0000)
 struct ColorizationFunctionLibrary_RemoveColorizationPresetAndUnlinkSMs final
@@ -25046,6 +25125,16 @@ public:
 	struct FGuid                                  InPresetID;                                        // 0x0010(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_ColorizationFunctionLibrary_RemoveColorizationPresetAndUnlinkSMs;
+
+// Function ShooterGame.ColorizationFunctionLibrary.UnpackColorFromFloat
+// 0x0014 (0x0014 - 0x0000)
+struct ColorizationFunctionLibrary_UnpackColorFromFloat final
+{
+public:
+	float                                         InFloat;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FLinearColor                           ReturnValue;                                       // 0x0004(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ColorizationFunctionLibrary_UnpackColorFromFloat;
 
 // Function ShooterGame.ColorizationFunctionLibrary.UpdateAllColorizationPresetsLinkedSMs
 // 0x0008 (0x0008 - 0x0000)
@@ -36365,6 +36454,17 @@ public:
 };
 DUMPER7_ASSERTS_DracoFlightMovementComponent_TryStartManeuver;
 
+// Function ShooterGame.DracoFlightMovementComponent.TryStartScriptedGetMe
+// 0x0010 (0x0010 - 0x0000)
+struct DracoFlightMovementComponent_TryStartScriptedGetMe final
+{
+public:
+	class AShooterCharacter*                      TargetCharacter;                                   // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_DracoFlightMovementComponent_TryStartScriptedGetMe;
+
 // Function ShooterGame.DracoFlightMovementComponent.TryStartScriptedManeuver
 // 0x0002 (0x0002 - 0x0000)
 struct DracoFlightMovementComponent_TryStartScriptedManeuver final
@@ -36730,6 +36830,15 @@ public:
 	bool                                          ReturnValue;                                       // 0x0001(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_DracoFlightMovementComponent_IsManeuverSkillUnlocked;
+
+// Function ShooterGame.DracoFlightMovementComponent.IsScriptedGetMeActive
+// 0x0001 (0x0001 - 0x0000)
+struct DracoFlightMovementComponent_IsScriptedGetMeActive final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_DracoFlightMovementComponent_IsScriptedGetMeActive;
 
 // Function ShooterGame.DracoFlightMovementComponent.IsSprintMode
 // 0x0001 (0x0001 - 0x0000)
@@ -58614,6 +58723,15 @@ public:
 	int32                                         HairstyleIndex;                                    // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_ShooterCheatManager_SetHeadHairstyle;
+
+// Function ShooterGame.ShooterCheatManager.SetHexagons
+// 0x0004 (0x0004 - 0x0000)
+struct ShooterCheatManager_SetHexagons final
+{
+public:
+	float                                         HowMuch;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ShooterCheatManager_SetHexagons;
 
 // Function ShooterGame.ShooterCheatManager.SetImprintedPlayer
 // 0x0020 (0x0020 - 0x0000)
@@ -87201,6 +87319,15 @@ public:
 	struct FFoliageInteractionSettings            Settings;                                          // 0x0040(0x0028)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_VolumetricDispatcher_AddFoliageInteraction;
+
+// Function ShooterGame.VolumetricDispatcher.CustomBlueprintTick
+// 0x0004 (0x0004 - 0x0000)
+struct VolumetricDispatcher_CustomBlueprintTick final
+{
+public:
+	float                                         DeltaSeconds;                                      // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_VolumetricDispatcher_CustomBlueprintTick;
 
 // Function ShooterGame.VolumetricDispatcher.FluidSpash
 // 0x0048 (0x0048 - 0x0000)

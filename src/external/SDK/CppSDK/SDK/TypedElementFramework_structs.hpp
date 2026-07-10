@@ -45,30 +45,30 @@ struct SDK_ALIGN(0x01) FEditorDataStorageColumn
 #pragma pack(pop)
 DUMPER7_ASSERTS_FEditorDataStorageColumn;
 
-// ScriptStruct TypedElementFramework.TypedElementAlertActionColumn
-// 0x0040 (0x0040 - 0x0000)
-struct alignas(0x10) FTypedElementAlertActionColumn final : public FEditorDataStorageColumn
+// ScriptStruct TypedElementFramework.TypedElementChildAlertColumn
+// 0x0010 (0x0010 - 0x0000)
+struct alignas(0x08) FTypedElementChildAlertColumn final : public FEditorDataStorageColumn
 {
 public:
-	uint8                                         Pad_0[0x40];                                       // 0x0000(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FTypedElementAlertActionColumn;
+DUMPER7_ASSERTS_FTypedElementChildAlertColumn;
 
-// ScriptStruct TypedElementFramework.EditorDataStorageTag
-// 0x0001 (0x0001 - 0x0000)
-struct FEditorDataStorageTag
+// ScriptStruct TypedElementFramework.TypedElementWidgetConstructor
+// 0x0028 (0x0028 - 0x0000)
+struct alignas(0x08) FTypedElementWidgetConstructor
 {
 public:
-	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_0[0x28];                                       // 0x0000(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FEditorDataStorageTag;
+DUMPER7_ASSERTS_FTypedElementWidgetConstructor;
 
-// ScriptStruct TypedElementFramework.FolderTag
-// 0x0000 (0x0001 - 0x0001)
-struct FFolderTag final : public FEditorDataStorageTag
+// ScriptStruct TypedElementFramework.SimpleWidgetConstructor
+// 0x0000 (0x0028 - 0x0028)
+struct FSimpleWidgetConstructor final : public FTypedElementWidgetConstructor
 {
 };
-DUMPER7_ASSERTS_FFolderTag;
+DUMPER7_ASSERTS_FSimpleWidgetConstructor;
 
 // ScriptStruct TypedElementFramework.ScriptTypedElementHandle
 // 0x0008 (0x0008 - 0x0000)
@@ -91,14 +91,23 @@ public:
 };
 DUMPER7_ASSERTS_FTypedElementAlertColumn;
 
-// ScriptStruct TypedElementFramework.TypedElementChildAlertColumn
-// 0x0010 (0x0010 - 0x0000)
-struct alignas(0x08) FTypedElementChildAlertColumn final : public FEditorDataStorageColumn
+// ScriptStruct TypedElementFramework.TypedElementAlertActionColumn
+// 0x0040 (0x0040 - 0x0000)
+struct alignas(0x10) FTypedElementAlertActionColumn final : public FEditorDataStorageColumn
 {
 public:
-	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_0[0x40];                                       // 0x0000(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FTypedElementChildAlertColumn;
+DUMPER7_ASSERTS_FTypedElementAlertActionColumn;
+
+// ScriptStruct TypedElementFramework.EditorDataStorageTag
+// 0x0001 (0x0001 - 0x0000)
+struct FEditorDataStorageTag
+{
+public:
+	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FEditorDataStorageTag;
 
 // ScriptStruct TypedElementFramework.TypedElementUObjectColumn
 // 0x0008 (0x0008 - 0x0000)
@@ -201,21 +210,12 @@ public:
 };
 DUMPER7_ASSERTS_FTest_PingPongPostPhys;
 
-// ScriptStruct TypedElementFramework.TypedElementWidgetConstructor
-// 0x0028 (0x0028 - 0x0000)
-struct alignas(0x08) FTypedElementWidgetConstructor
-{
-public:
-	uint8                                         Pad_0[0x28];                                       // 0x0000(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FTypedElementWidgetConstructor;
-
-// ScriptStruct TypedElementFramework.SimpleWidgetConstructor
-// 0x0000 (0x0028 - 0x0028)
-struct FSimpleWidgetConstructor final : public FTypedElementWidgetConstructor
+// ScriptStruct TypedElementFramework.FolderTag
+// 0x0000 (0x0001 - 0x0001)
+struct FFolderTag final : public FEditorDataStorageTag
 {
 };
-DUMPER7_ASSERTS_FSimpleWidgetConstructor;
+DUMPER7_ASSERTS_FFolderTag;
 
 // ScriptStruct TypedElementFramework.TedsRowHandle
 // 0x0008 (0x0008 - 0x0000)

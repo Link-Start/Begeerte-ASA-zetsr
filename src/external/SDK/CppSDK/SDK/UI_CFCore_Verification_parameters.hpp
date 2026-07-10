@@ -11,9 +11,9 @@
 #include "Basic.hpp"
 
 #include "InputCore_structs.hpp"
+#include "ENUM_CFCore_InputDevices_structs.hpp"
 #include "UMG_structs.hpp"
 #include "SlateCore_structs.hpp"
-#include "ENUM_CFCore_InputDevices_structs.hpp"
 #include "cfcore_structs.hpp"
 
 

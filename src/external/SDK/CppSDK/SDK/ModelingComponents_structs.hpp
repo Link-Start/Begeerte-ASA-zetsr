@@ -247,6 +247,17 @@ public:
 };
 DUMPER7_ASSERTS_FRenderableTriangle;
 
+// ScriptStruct ModelingComponents.CreateActorResult
+// 0x0010 (0x0010 - 0x0000)
+struct FCreateActorResult final
+{
+public:
+	ECreateModelingObjectResult                   ResultCode;                                        // 0x0000(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class AActor*                                 NewActor;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FCreateActorResult;
+
 // ScriptStruct ModelingComponents.CreateMeshObjectParams
 // 0x0670 (0x0670 - 0x0000)
 struct FCreateMeshObjectParams final
@@ -355,17 +366,6 @@ public:
 	class UObject*                                TemplateAsset;                                     // 0x0088(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 };
 DUMPER7_ASSERTS_FCreateActorParams;
-
-// ScriptStruct ModelingComponents.CreateActorResult
-// 0x0010 (0x0010 - 0x0000)
-struct FCreateActorResult final
-{
-public:
-	ECreateModelingObjectResult                   ResultCode;                                        // 0x0000(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class AActor*                                 NewActor;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FCreateActorResult;
 
 // ScriptStruct ModelingComponents.MeshElementSelectionParams
 // 0x0048 (0x0048 - 0x0000)

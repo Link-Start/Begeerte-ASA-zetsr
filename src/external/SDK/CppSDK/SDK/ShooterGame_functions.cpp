@@ -1032,34 +1032,6 @@ bool APrimalStructure::IsPointObstructedByWorldGeometry(class UWorld* ForWorld, 
 }
 
 
-// Function ShooterGame.PrimalStructure.PackColorToFloat
-// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const struct FLinearColor&              InColor                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float APrimalStructure::PackColorToFloat(const struct FLinearColor& InColor)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("PrimalStructure", "PackColorToFloat");
-
-	Params::PrimalStructure_PackColorToFloat Parms{};
-
-	Parms.InColor = std::move(InColor);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function ShooterGame.PrimalStructure.SetZiplineStructurePointers
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
@@ -1169,34 +1141,6 @@ void APrimalStructure::SpawnZiplineActorsForInstigator(class AController* pInIns
 	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function ShooterGame.PrimalStructure.UnpackColorFromFloat
-// (Final, Native, Static, Public, HasDefaults, BlueprintCallable, BlueprintPure)
-// Parameters:
-// float                                   InFloat                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FLinearColor                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-struct FLinearColor APrimalStructure::UnpackColorFromFloat(float InFloat)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("PrimalStructure", "UnpackColorFromFloat");
-
-	Params::PrimalStructure_UnpackColorFromFloat Parms{};
-
-	Parms.InFloat = InFloat;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
@@ -18765,6 +18709,30 @@ void AShooterProjectile::BPProjectileBounced(const struct FHitResult& ImpactResu
 }
 
 
+// Function ShooterGame.ShooterProjectile.BPProjectileDealtDirectDamage
+// (Event, Public, HasOutParams, BlueprintEvent)
+// Parameters:
+// class AActor*                           DamagedActor                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   DamageDealt                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FHitResult&                Hit                                                    (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+void AShooterProjectile::BPProjectileDealtDirectDamage(class AActor* DamagedActor, float DamageDealt, const struct FHitResult& Hit)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ShooterProjectile", "BPProjectileDealtDirectDamage");
+
+	Params::ShooterProjectile_BPProjectileDealtDirectDamage Parms{};
+
+	Parms.DamagedActor = DamagedActor;
+	Parms.DamageDealt = DamageDealt;
+	Parms.Hit = std::move(Hit);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function ShooterGame.ShooterProjectile.BPSpawnedFragments
 // (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -19145,6 +19113,41 @@ void AShooterProjectile::NetUpdateTimer()
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function ShooterGame.ShooterProjectile.OnBeginOverlapDamage
+// (Final, Native, Public, HasOutParams)
+// Parameters:
+// class UPrimitiveComponent*              OverlappedComponent                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           OtherActor                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              OtherComp                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   OtherBodyIndex                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bFromSweep                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FHitResult&                SweepResult                                            (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+void AShooterProjectile::OnBeginOverlapDamage(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ShooterProjectile", "OnBeginOverlapDamage");
+
+	Params::ShooterProjectile_OnBeginOverlapDamage Parms{};
+
+	Parms.OverlappedComponent = OverlappedComponent;
+	Parms.OtherActor = OtherActor;
+	Parms.OtherComp = OtherComp;
+	Parms.OtherBodyIndex = OtherBodyIndex;
+	Parms.bFromSweep = bFromSweep;
+	Parms.SweepResult = std::move(SweepResult);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -63498,9 +63501,9 @@ void APrimalShipAIController::DriveAutopilotTowardGoal(const struct FVector& Goa
 // Function ShooterGame.PrimalShipAIController.FindTargetShip
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class APrimalShip*                      ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class APrimalShip* APrimalShipAIController::FindTargetShip()
+class AActor* APrimalShipAIController::FindTargetShip()
 {
 	static class UFunction* Func = nullptr;
 
@@ -63576,9 +63579,9 @@ struct FVector APrimalShipAIController::GetWanderDestination()
 // Function ShooterGame.PrimalShipAIController.PickFireTarget
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class APrimalShip*                      ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class APrimalShip* APrimalShipAIController::PickFireTarget()
+class AActor* APrimalShipAIController::PickFireTarget()
 {
 	static class UFunction* Func = nullptr;
 
@@ -63648,19 +63651,22 @@ class APrimalPlayerFollowingShip* APrimalShipAIController::GetControlledShip() c
 }
 
 
-// Function ShooterGame.ShipAnimInstance.CalculateAnchorDistance
-// (Native, Event, Protected, BlueprintEvent, Const)
+// Function ShooterGame.ShipAnimInstance.UpdateAnchorDistance
+// (Native, Event, Protected, HasOutParams, BlueprintEvent)
 // Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   DeltaSeconds                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float*                                  NewAnchorDistance                                      (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-float UShipAnimInstance::CalculateAnchorDistance() const
+void UShipAnimInstance::UpdateAnchorDistance(float DeltaSeconds, float* NewAnchorDistance)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ShipAnimInstance", "CalculateAnchorDistance");
+		Func = Class->GetFunction("ShipAnimInstance", "UpdateAnchorDistance");
 
-	Params::ShipAnimInstance_CalculateAnchorDistance Parms{};
+	Params::ShipAnimInstance_UpdateAnchorDistance Parms{};
+
+	Parms.DeltaSeconds = DeltaSeconds;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -63669,7 +63675,8 @@ float UShipAnimInstance::CalculateAnchorDistance() const
 
 	Func->FunctionFlags = Flgs;
 
-	return Parms.ReturnValue;
+	if (NewAnchorDistance != nullptr)
+		*NewAnchorDistance = Parms.NewAnchorDistance;
 }
 
 
@@ -66311,6 +66318,36 @@ bool UPrimalShipCannonControlComponent::GetClaimedSideForCharacter(const class A
 
 	if (OutSide != nullptr)
 		*OutSide = Parms.OutSide;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.PrimalShipCannonControlComponent.HasCharLineOfSightToCannonOnSide
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// const class APrimalCharacter*           Char                                                   (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EShipFiringSide                         Side                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UPrimalShipCannonControlComponent::HasCharLineOfSightToCannonOnSide(const class APrimalCharacter* Char, EShipFiringSide Side) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalShipCannonControlComponent", "HasCharLineOfSightToCannonOnSide");
+
+	Params::PrimalShipCannonControlComponent_HasCharLineOfSightToCannonOnSide Parms{};
+
+	Parms.Char = Char;
+	Parms.Side = Side;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
 }
@@ -70182,6 +70219,42 @@ void UColorizationFunctionLibrary::ApplyColorPaletteToSM(const struct FColorizat
 }
 
 
+// Function ShooterGame.ColorizationFunctionLibrary.FindClosestLabColorIndex
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// Parameters:
+// const struct FLabColor&                 Target                                                 (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+// const TArray<struct FLabColor>&         Palette                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+// float                                   WeightL                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   WeightC                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   WeightH                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+int32 UColorizationFunctionLibrary::FindClosestLabColorIndex(const struct FLabColor& Target, const TArray<struct FLabColor>& Palette, float WeightL, float WeightC, float WeightH)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("ColorizationFunctionLibrary", "FindClosestLabColorIndex");
+
+	Params::ColorizationFunctionLibrary_FindClosestLabColorIndex Parms{};
+
+	Parms.Target = std::move(Target);
+	Parms.Palette = std::move(Palette);
+	Parms.WeightL = WeightL;
+	Parms.WeightC = WeightC;
+	Parms.WeightH = WeightH;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function ShooterGame.ColorizationFunctionLibrary.GetColorizationPresetLinkedSMs
 // (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
@@ -70244,6 +70317,126 @@ void UColorizationFunctionLibrary::GetSMsWithColorizationUserData(const class UO
 }
 
 
+// Function ShooterGame.ColorizationFunctionLibrary.LabColorDistance
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// Parameters:
+// const struct FLabColor&                 A                                                      (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+// const struct FLabColor&                 B                                                      (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+// float                                   WeightL                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   WeightC                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   WeightH                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float UColorizationFunctionLibrary::LabColorDistance(const struct FLabColor& A, const struct FLabColor& B, float WeightL, float WeightC, float WeightH)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("ColorizationFunctionLibrary", "LabColorDistance");
+
+	Params::ColorizationFunctionLibrary_LabColorDistance Parms{};
+
+	Parms.A = std::move(A);
+	Parms.B = std::move(B);
+	Parms.WeightL = WeightL;
+	Parms.WeightC = WeightC;
+	Parms.WeightH = WeightH;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.ColorizationFunctionLibrary.LabColorToLinear
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// Parameters:
+// const struct FLabColor&                 Color                                                  (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+// struct FLinearColor                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+struct FLinearColor UColorizationFunctionLibrary::LabColorToLinear(const struct FLabColor& Color)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("ColorizationFunctionLibrary", "LabColorToLinear");
+
+	Params::ColorizationFunctionLibrary_LabColorToLinear Parms{};
+
+	Parms.Color = std::move(Color);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.ColorizationFunctionLibrary.LinearColorToLab
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// Parameters:
+// const struct FLinearColor&              Color                                                  (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FLabColor                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+
+struct FLabColor UColorizationFunctionLibrary::LinearColorToLab(const struct FLinearColor& Color)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("ColorizationFunctionLibrary", "LinearColorToLab");
+
+	Params::ColorizationFunctionLibrary_LinearColorToLab Parms{};
+
+	Parms.Color = std::move(Color);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.ColorizationFunctionLibrary.PackColorToFloat
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// Parameters:
+// const struct FLinearColor&              InColor                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float UColorizationFunctionLibrary::PackColorToFloat(const struct FLinearColor& InColor)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("ColorizationFunctionLibrary", "PackColorToFloat");
+
+	Params::ColorizationFunctionLibrary_PackColorToFloat Parms{};
+
+	Parms.InColor = std::move(InColor);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function ShooterGame.ColorizationFunctionLibrary.RemoveColorizationPresetAndUnlinkSMs
 // (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
 // Parameters:
@@ -70270,6 +70463,34 @@ void UColorizationFunctionLibrary::RemoveColorizationPresetAndUnlinkSMs(const cl
 	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// Function ShooterGame.ColorizationFunctionLibrary.UnpackColorFromFloat
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable, BlueprintPure)
+// Parameters:
+// float                                   InFloat                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FLinearColor                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+struct FLinearColor UColorizationFunctionLibrary::UnpackColorFromFloat(float InFloat)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("ColorizationFunctionLibrary", "UnpackColorFromFloat");
+
+	Params::ColorizationFunctionLibrary_UnpackColorFromFloat Parms{};
+
+	Parms.InFloat = InFloat;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
 }
 
 
@@ -101497,6 +101718,25 @@ bool UDracoFlightMovementComponent::CancelActiveManeuver()
 }
 
 
+// Function ShooterGame.DracoFlightMovementComponent.CancelScriptedGetMe
+// (Final, BlueprintAuthorityOnly, Native, Public, BlueprintCallable)
+
+void UDracoFlightMovementComponent::CancelScriptedGetMe()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("DracoFlightMovementComponent", "CancelScriptedGetMe");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function ShooterGame.DracoFlightMovementComponent.GetCustomMaxSpeedModifier
 // (Final, Native, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
@@ -102352,6 +102592,34 @@ bool UDracoFlightMovementComponent::TryStartManeuver(EDragonAirManeuver Maneuver
 	Params::DracoFlightMovementComponent_TryStartManeuver Parms{};
 
 	Parms.Maneuver = Maneuver;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.DracoFlightMovementComponent.TryStartScriptedGetMe
+// (Final, BlueprintAuthorityOnly, Native, Public, BlueprintCallable)
+// Parameters:
+// class AShooterCharacter*                TargetCharacter                                        (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UDracoFlightMovementComponent::TryStartScriptedGetMe(class AShooterCharacter* TargetCharacter)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("DracoFlightMovementComponent", "TryStartScriptedGetMe");
+
+	Params::DracoFlightMovementComponent_TryStartScriptedGetMe Parms{};
+
+	Parms.TargetCharacter = TargetCharacter;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -103356,6 +103624,31 @@ bool UDracoFlightMovementComponent::IsManeuverSkillUnlocked(EDragonAirManeuver M
 	Params::DracoFlightMovementComponent_IsManeuverSkillUnlocked Parms{};
 
 	Parms.Maneuver = Maneuver;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.DracoFlightMovementComponent.IsScriptedGetMeActive
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UDracoFlightMovementComponent::IsScriptedGetMeActive() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("DracoFlightMovementComponent", "IsScriptedGetMeActive");
+
+	Params::DracoFlightMovementComponent_IsScriptedGetMeActive Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -169106,6 +169399,31 @@ void UShooterCheatManager::SetHeadHairstyle(int32 HairstyleIndex)
 	Params::ShooterCheatManager_SetHeadHairstyle Parms{};
 
 	Parms.HairstyleIndex = HairstyleIndex;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function ShooterGame.ShooterCheatManager.SetHexagons
+// (Final, Exec, Native, Public)
+// Parameters:
+// float                                   HowMuch                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UShooterCheatManager::SetHexagons(float HowMuch)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ShooterCheatManager", "SetHexagons");
+
+	Params::ShooterCheatManager_SetHexagons Parms{};
+
+	Parms.HowMuch = HowMuch;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -251767,6 +252085,31 @@ void AVolumetricDispatcher::AddFoliageInteraction(class UObject* WorldContextObj
 	Func->FunctionFlags |= 0x400;
 
 	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function ShooterGame.VolumetricDispatcher.CustomBlueprintTick
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   DeltaSeconds                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AVolumetricDispatcher::CustomBlueprintTick(float DeltaSeconds)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("VolumetricDispatcher", "CustomBlueprintTick");
+
+	Params::VolumetricDispatcher_CustomBlueprintTick Parms{};
+
+	Parms.DeltaSeconds = DeltaSeconds;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }

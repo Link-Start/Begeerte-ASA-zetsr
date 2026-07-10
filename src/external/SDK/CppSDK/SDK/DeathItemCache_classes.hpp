@@ -16,11 +16,11 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass DeathItemCache.DeathItemCache_C
-// 0x0008 (0x12F0 - 0x12E8)
+// 0x0008 (0x1350 - 0x1348)
 class ADeathItemCache_C : public AStructureItemContainerBaseBP_C
 {
 public:
-	class UPrimalInventoryBP_DeathItemCache_C*    PrimalInventoryBP_DeathItemCache_C1;               // 0x12E8(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UPrimalInventoryBP_DeathItemCache_C*    PrimalInventoryBP_DeathItemCache_C1;               // 0x1348(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
 
 public:
 	static class UClass* StaticClass()

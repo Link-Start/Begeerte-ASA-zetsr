@@ -11,9 +11,9 @@
 #include "Basic.hpp"
 
 #include "Engine_classes.hpp"
+#include "ZoneGraphAnnotations_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "ZoneGraphAnnotations_structs.hpp"
 #include "ZoneGraph_structs.hpp"
 
 

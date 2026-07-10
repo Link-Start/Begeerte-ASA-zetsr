@@ -36,6 +36,15 @@ enum class ESoundscapeLOD : uint8
 	ESoundscapeLOD_MAX                       = 3,
 };
 
+// ScriptStruct Soundscape.SoundscapePaletteCollection
+// 0x0050 (0x0050 - 0x0000)
+struct FSoundscapePaletteCollection final
+{
+public:
+	TSet<struct FSoftObjectPath>                  SoundscapePaletteCollection;                       // 0x0000(0x0050)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FSoundscapePaletteCollection;
+
 // ScriptStruct Soundscape.SoundscapeColorSpawnSettings
 // 0x0088 (0x0088 - 0x0000)
 struct FSoundscapeColorSpawnSettings final
@@ -137,15 +146,6 @@ public:
 };
 DUMPER7_ASSERTS_FSoundscapeColorPlaybackSettings;
 
-// ScriptStruct Soundscape.SoundscapeColorVoiceParams
-// 0x0040 (0x0040 - 0x0000)
-struct alignas(0x08) FSoundscapeColorVoiceParams final
-{
-public:
-	uint8                                         Pad_0[0x40];                                       // 0x0000(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FSoundscapeColorVoiceParams;
-
 // ScriptStruct Soundscape.SoundscapeColorPoint
 // 0x0020 (0x0020 - 0x0000)
 struct FSoundscapeColorPoint final
@@ -155,6 +155,15 @@ public:
 	struct FVector                                Location;                                          // 0x0008(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FSoundscapeColorPoint;
+
+// ScriptStruct Soundscape.SoundscapeColorVoiceParams
+// 0x0040 (0x0040 - 0x0000)
+struct alignas(0x08) FSoundscapeColorVoiceParams final
+{
+public:
+	uint8                                         Pad_0[0x40];                                       // 0x0000(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FSoundscapeColorVoiceParams;
 
 // ScriptStruct Soundscape.SoundscapePaletteColor
 // 0x0018 (0x0018 - 0x0000)
@@ -168,15 +177,6 @@ public:
 	float                                         ColorFadeOut;                                      // 0x0014(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FSoundscapePaletteColor;
-
-// ScriptStruct Soundscape.SoundscapePaletteCollection
-// 0x0050 (0x0050 - 0x0000)
-struct FSoundscapePaletteCollection final
-{
-public:
-	TSet<struct FSoftObjectPath>                  SoundscapePaletteCollection;                       // 0x0000(0x0050)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FSoundscapePaletteCollection;
 
 // ScriptStruct Soundscape.SoundscapePaletteCollectionLoaded
 // 0x0050 (0x0050 - 0x0000)

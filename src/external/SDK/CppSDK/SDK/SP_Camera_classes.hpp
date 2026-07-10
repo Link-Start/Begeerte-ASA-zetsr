@@ -12,9 +12,9 @@
 
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
+#include "CinematicCamera_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "CinematicCamera_structs.hpp"
 #include "SP_Interpolators_structs.hpp"
 #include "SP_Camera_structs.hpp"
 
