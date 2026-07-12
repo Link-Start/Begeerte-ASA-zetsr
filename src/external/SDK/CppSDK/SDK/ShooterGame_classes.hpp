@@ -2613,8 +2613,9 @@ public:
 	uint8                                         bDontFragmentOnDamage : 1;                         // 0x0590(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Edit, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bPreventReflecting : 1;                            // 0x0590(0x0001)(BitIndex: 0x07, PropSize: 0x0001 (Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bUseBPIgnoreRadialDamageVictim : 1;                // 0x0591(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDoFinalTraceCheckToDirectDamageVictim : 1;        // 0x0591(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDoFinalTraceCheckFromInstigatorToDirectDamageVictim : 1; // 0x0591(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bUseBPRadialDamageMultiplier : 1;                  // 0x0591(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDoFinalTraceCheckToDirectDamageVictim : 1;        // 0x0591(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDoFinalTraceCheckFromInstigatorToDirectDamageVictim : 1; // 0x0591(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_592[0x2];                                      // 0x0592(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FLinearColor                           CustomColor;                                       // 0x0594(0x0010)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TWeakObjectPtr<class AActor>                  DamageCauser;                                      // 0x05A4(0x0008)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -2669,6 +2670,7 @@ public:
 	void BPInitVelocity(const struct FVector& ShootDirection);
 	void BPProjectileBounced(const struct FHitResult& ImpactResult, const struct FVector& ImpactVelocity);
 	void BPProjectileDealtDirectDamage(class AActor* DamagedActor, float DamageDealt, const struct FHitResult& Hit);
+	float BPRadialDamageMultiplier(class AActor* Victim);
 	void BPSpawnedFragments(const TArray<class AShooterProjectile*>& FragmentArray);
 	void BPUpdateExplosionEmitter(class AActor* SpawnedActor);
 	void ClearHomingTarget();
@@ -5796,7 +5798,7 @@ public:
 DUMPER7_ASSERTS_APrimalDinoCharacter;
 
 // Class ShooterGame.PrimalShip
-// 0x0BE0 (0x3620 - 0x2A40)
+// 0x0BD0 (0x3610 - 0x2A40)
 class APrimalShip : public APrimalDinoCharacter
 {
 public:
@@ -6146,8 +6148,8 @@ public:
 	class USoundCue*                              ShipRammingSound;                                  // 0x35C8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         CameraZoomLevelToIgnoreDeck;                       // 0x35D0(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bKillingThrottle;                                  // 0x35D4(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_35D5[0x3B];                                    // 0x35D5(0x003B)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FResourceRequirementData>       ReplicatedShipRepairRequirements;                  // 0x3610(0x0010)(BlueprintVisible, Net, ZeroConstructor, Transient, NativeAccessSpecifierPublic)
+	uint8                                         Pad_35D5[0x2B];                                    // 0x35D5(0x002B)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FResourceRequirementData>       ReplicatedShipRepairRequirements;                  // 0x3600(0x0010)(BlueprintVisible, Net, ZeroConstructor, Transient, NativeAccessSpecifierPublic)
 
 public:
 	void AddForceToBeApplied(const struct FVector& Location, const struct FVector& Force, class FName ForceName);
@@ -6211,7 +6213,7 @@ public:
 	TArray<class APawn*> GetShipBasedPawns(class USceneComponent* OnComponent, bool bOnlyActivePawns);
 	TArray<class APrimalCharacter*> GetShipSkillBuffTargets(ESkillBuffAplicationType ApplicationType, class AShooterPlayerController* InstigatingPC);
 	float GetShipSkillCooldownTimeRemaining(class FName SkillName);
-	TArray<class APrimalStructure*> GetShipStructures();
+	const TArray<class APrimalStructure*> GetShipStructures();
 	float GetSteeringForceMultiplier();
 	float GetTimeSinceLastUsedShipSkill(class FName SkillName);
 	float GetTimeToResetRudderAngle(float WithInput);
@@ -29648,12 +29650,12 @@ public:
 DUMPER7_ASSERTS_UPrimalPlayerData;
 
 // Class ShooterGame.PrimalPlayerFollowingShip
-// 0x0010 (0x3630 - 0x3620)
+// 0x0010 (0x3620 - 0x3610)
 class APrimalPlayerFollowingShip final : public APrimalShip
 {
 public:
-	TSubclassOf<class APirateFleetCoordinator>    FleetCoordinatorClass;                             // 0x3620(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3628[0x8];                                     // 0x3628(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TSubclassOf<class APirateFleetCoordinator>    FleetCoordinatorClass;                             // 0x3610(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3618[0x8];                                     // 0x3618(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void FireAtPlayer();

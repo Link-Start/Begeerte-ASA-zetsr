@@ -18733,6 +18733,29 @@ void AShooterProjectile::BPProjectileDealtDirectDamage(class AActor* DamagedActo
 }
 
 
+// Function ShooterGame.ShooterProjectile.BPRadialDamageMultiplier
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// class AActor*                           Victim                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float AShooterProjectile::BPRadialDamageMultiplier(class AActor* Victim)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ShooterProjectile", "BPRadialDamageMultiplier");
+
+	Params::ShooterProjectile_BPRadialDamageMultiplier Parms{};
+
+	Parms.Victim = Victim;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	return Parms.ReturnValue;
+}
+
+
 // Function ShooterGame.ShooterProjectile.BPSpawnedFragments
 // (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -53611,11 +53634,11 @@ float APrimalShip::GetShipSkillCooldownTimeRemaining(class FName SkillName)
 
 
 // Function ShooterGame.PrimalShip.GetShipStructures
-// (Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// TArray<class APrimalStructure*>         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+// const TArray<class APrimalStructure*>   ReturnValue                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
 
-TArray<class APrimalStructure*> APrimalShip::GetShipStructures()
+const TArray<class APrimalStructure*> APrimalShip::GetShipStructures()
 {
 	static class UFunction* Func = nullptr;
 

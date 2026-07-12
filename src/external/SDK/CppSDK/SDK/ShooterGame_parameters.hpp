@@ -7010,6 +7010,17 @@ public:
 };
 DUMPER7_ASSERTS_ShooterProjectile_BPProjectileDealtDirectDamage;
 
+// Function ShooterGame.ShooterProjectile.BPRadialDamageMultiplier
+// 0x0010 (0x0010 - 0x0000)
+struct ShooterProjectile_BPRadialDamageMultiplier final
+{
+public:
+	class AActor*                                 Victim;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_ShooterProjectile_BPRadialDamageMultiplier;
+
 // Function ShooterGame.ShooterProjectile.BPSpawnedFragments
 // 0x0010 (0x0010 - 0x0000)
 struct ShooterProjectile_BPSpawnedFragments final
@@ -19513,7 +19524,7 @@ DUMPER7_ASSERTS_PrimalShip_GetShipSkillCooldownTimeRemaining;
 struct PrimalShip_GetShipStructures final
 {
 public:
-	TArray<class APrimalStructure*>               ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+	TArray<class APrimalStructure*>               ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PrimalShip_GetShipStructures;
 
