@@ -185532,6 +185532,31 @@ int32 AShooterPlayerController::FindGetTrackedActorWaypointIndexID(int32 PlayerI
 }
 
 
+// Function ShooterGame.ShooterPlayerController.FindOrGetBountyBoardManager
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class AActor* AShooterPlayerController::FindOrGetBountyBoardManager()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ShooterPlayerController", "FindOrGetBountyBoardManager");
+
+	Params::ShooterPlayerController_FindOrGetBountyBoardManager Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function ShooterGame.ShooterPlayerController.FinishInputBlockingTimeout
 // (Final, Native, Public)
 
@@ -186304,6 +186329,66 @@ class FString AShooterPlayerController::GetPlayerCharacterName()
 		Func = Class->GetFunction("ShooterPlayerController", "GetPlayerCharacterName");
 
 	Params::ShooterPlayerController_GetPlayerCharacterName Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.ShooterPlayerController.GetPotentialBountiesForClass
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// TSubclassOf<class UObject>              ForClass                                               (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EPrimalMilestoneType                    ForMilestoneType                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TArray<class FName>                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+
+TArray<class FName> AShooterPlayerController::GetPotentialBountiesForClass(TSubclassOf<class UObject> ForClass, EPrimalMilestoneType ForMilestoneType)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ShooterPlayerController", "GetPotentialBountiesForClass");
+
+	Params::ShooterPlayerController_GetPotentialBountiesForClass Parms{};
+
+	Parms.ForClass = ForClass;
+	Parms.ForMilestoneType = ForMilestoneType;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.ShooterPlayerController.GetPotentialBountiesForClassAndTypes
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// TSubclassOf<class UObject>              ForClass                                               (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const TArray<EPrimalMilestoneType>&     ForMilestoneType                                       (Parm, ZeroConstructor, NativeAccessSpecifierPublic)
+// TArray<class FName>                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+
+TArray<class FName> AShooterPlayerController::GetPotentialBountiesForClassAndTypes(TSubclassOf<class UObject> ForClass, const TArray<EPrimalMilestoneType>& ForMilestoneType)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ShooterPlayerController", "GetPotentialBountiesForClassAndTypes");
+
+	Params::ShooterPlayerController_GetPotentialBountiesForClassAndTypes Parms{};
+
+	Parms.ForClass = ForClass;
+	Parms.ForMilestoneType = std::move(ForMilestoneType);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -198667,66 +198752,6 @@ void AShooterPlayerController::GetPlayerViewPointNoModifiers(struct FVector* out
 
 	if (out_Rotation != nullptr)
 		*out_Rotation = std::move(Parms.out_Rotation);
-}
-
-
-// Function ShooterGame.ShooterPlayerController.GetPotentialBountiesForClass
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// TSubclassOf<class UObject>              ForClass                                               (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EPrimalMilestoneType                    ForMilestoneType                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TArray<class FName>                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-
-TArray<class FName> AShooterPlayerController::GetPotentialBountiesForClass(TSubclassOf<class UObject> ForClass, EPrimalMilestoneType ForMilestoneType) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ShooterPlayerController", "GetPotentialBountiesForClass");
-
-	Params::ShooterPlayerController_GetPotentialBountiesForClass Parms{};
-
-	Parms.ForClass = ForClass;
-	Parms.ForMilestoneType = ForMilestoneType;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function ShooterGame.ShooterPlayerController.GetPotentialBountiesForClassAndTypes
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// TSubclassOf<class UObject>              ForClass                                               (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const TArray<EPrimalMilestoneType>&     ForMilestoneType                                       (Parm, ZeroConstructor, NativeAccessSpecifierPublic)
-// TArray<class FName>                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-
-TArray<class FName> AShooterPlayerController::GetPotentialBountiesForClassAndTypes(TSubclassOf<class UObject> ForClass, const TArray<EPrimalMilestoneType>& ForMilestoneType) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ShooterPlayerController", "GetPotentialBountiesForClassAndTypes");
-
-	Params::ShooterPlayerController_GetPotentialBountiesForClassAndTypes Parms{};
-
-	Parms.ForClass = ForClass;
-	Parms.ForMilestoneType = std::move(ForMilestoneType);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 

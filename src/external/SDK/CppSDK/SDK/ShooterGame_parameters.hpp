@@ -63829,6 +63829,15 @@ public:
 };
 DUMPER7_ASSERTS_ShooterPlayerController_FindGetTrackedActorWaypointIndexID;
 
+// Function ShooterGame.ShooterPlayerController.FindOrGetBountyBoardManager
+// 0x0008 (0x0008 - 0x0000)
+struct ShooterPlayerController_FindOrGetBountyBoardManager final
+{
+public:
+	class AActor*                                 ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ShooterPlayerController_FindOrGetBountyBoardManager;
+
 // Function ShooterGame.ShooterPlayerController.FormatTextWithKeyBindings
 // 0x0028 (0x0028 - 0x0000)
 struct ShooterPlayerController_FormatTextWithKeyBindings final
@@ -64072,6 +64081,29 @@ public:
 	class FString                                 ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_ShooterPlayerController_GetPlayerCharacterName;
+
+// Function ShooterGame.ShooterPlayerController.GetPotentialBountiesForClass
+// 0x0020 (0x0020 - 0x0000)
+struct ShooterPlayerController_GetPotentialBountiesForClass final
+{
+public:
+	TSubclassOf<class UObject>                    ForClass;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPrimalMilestoneType                          ForMilestoneType;                                  // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class FName>                           ReturnValue;                                       // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ShooterPlayerController_GetPotentialBountiesForClass;
+
+// Function ShooterGame.ShooterPlayerController.GetPotentialBountiesForClassAndTypes
+// 0x0028 (0x0028 - 0x0000)
+struct ShooterPlayerController_GetPotentialBountiesForClassAndTypes final
+{
+public:
+	TSubclassOf<class UObject>                    ForClass;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<EPrimalMilestoneType>                  ForMilestoneType;                                  // 0x0008(0x0010)(Parm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<class FName>                           ReturnValue;                                       // 0x0018(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ShooterPlayerController_GetPotentialBountiesForClassAndTypes;
 
 // Function ShooterGame.ShooterPlayerController.GetReceiverTradeItems
 // 0x0010 (0x0010 - 0x0000)
@@ -68003,29 +68035,6 @@ public:
 	uint8                                         Pad_32[0x6];                                       // 0x0032(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_ShooterPlayerController_GetPlayerViewPointNoModifiers;
-
-// Function ShooterGame.ShooterPlayerController.GetPotentialBountiesForClass
-// 0x0020 (0x0020 - 0x0000)
-struct ShooterPlayerController_GetPotentialBountiesForClass final
-{
-public:
-	TSubclassOf<class UObject>                    ForClass;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPrimalMilestoneType                          ForMilestoneType;                                  // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FName>                           ReturnValue;                                       // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ShooterPlayerController_GetPotentialBountiesForClass;
-
-// Function ShooterGame.ShooterPlayerController.GetPotentialBountiesForClassAndTypes
-// 0x0028 (0x0028 - 0x0000)
-struct ShooterPlayerController_GetPotentialBountiesForClassAndTypes final
-{
-public:
-	TSubclassOf<class UObject>                    ForClass;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<EPrimalMilestoneType>                  ForMilestoneType;                                  // 0x0008(0x0010)(Parm, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<class FName>                           ReturnValue;                                       // 0x0018(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ShooterPlayerController_GetPotentialBountiesForClassAndTypes;
 
 // Function ShooterGame.ShooterPlayerController.GetPotentialMilestonesForClass
 // 0x0020 (0x0020 - 0x0000)

@@ -31642,7 +31642,7 @@ public:
 DUMPER7_ASSERTS_UExplorerNoteLocations;
 
 // Class ShooterGame.ShooterPlayerController
-// 0x2D20 (0x3840 - 0x0B20)
+// 0x2CE0 (0x3800 - 0x0B20)
 class alignas(0x10) AShooterPlayerController final : public ABasePlayerController
 {
 public:
@@ -31918,16 +31918,16 @@ public:
 	TArray<struct FDebugActor>                    ShooterHUDDebugActors;                             // 0x3680(0x0010)(Net, ZeroConstructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_3690[0x20];                                    // 0x3690(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
 	TMulticastInlineDelegate<void()>              OnSkillsChanged;                                   // 0x36B0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_36C0[0x50];                                    // 0x36C0(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FMidasTouchData>                MidasTouchData;                                    // 0x3710(0x0010)(BlueprintVisible, ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	struct FVector                                LastPlayerTravelLocation;                          // 0x3720(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3738[0x60];                                    // 0x3738(0x0060)(Fixing Size After Last Property [ Dumper-7 ])
-	class UTexture2D*                             ToggleAutoRunIcon;                                 // 0x3798(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         bIsAutoRunEnabled;                                 // 0x37A0(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bArePlannedStructuresHidden;                       // 0x37A1(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_37A2[0x6];                                     // 0x37A2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPrimalSnowManager                     SnowManager;                                       // 0x37A8(0x0078)(Edit, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3820[0x20];                                    // 0x3820(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_36C0[0x8];                                     // 0x36C0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FMidasTouchData>                MidasTouchData;                                    // 0x36C8(0x0010)(BlueprintVisible, ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	struct FVector                                LastPlayerTravelLocation;                          // 0x36D8(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_36F0[0x60];                                    // 0x36F0(0x0060)(Fixing Size After Last Property [ Dumper-7 ])
+	class UTexture2D*                             ToggleAutoRunIcon;                                 // 0x3750(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	uint8                                         bIsAutoRunEnabled;                                 // 0x3758(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bArePlannedStructuresHidden;                       // 0x3759(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_375A[0x6];                                     // 0x375A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPrimalSnowManager                     SnowManager;                                       // 0x3760(0x0078)(Edit, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	uint8                                         Pad_37D8[0x28];                                    // 0x37D8(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static bool DoesPlayerOwnPing(const class AShooterPlayerController* PlayerPC, const int32 PingOwnerID);
@@ -32204,6 +32204,7 @@ public:
 	int32 FindGetTrackedActorFavoritedIndexID(int32 PlayerID, int32 PlayerCategory);
 	int32 FindGetTrackedActorWaypointIndex(int32 PlayerID, ETrackedActorCategory PlayerCategory);
 	int32 FindGetTrackedActorWaypointIndexID(int32 PlayerID, int32 PlayerCategory);
+	class AActor* FindOrGetBountyBoardManager();
 	void FinishInputBlockingTimeout();
 	void FlushLevelStreaming();
 	void FlushPrimalStats();
@@ -32235,6 +32236,8 @@ public:
 	class FString GetPersonalTameLimitString();
 	class UTexture2D* GetPingIconForComponent(const class UPrimitiveComponent* ForComponent);
 	class FString GetPlayerCharacterName();
+	TArray<class FName> GetPotentialBountiesForClass(TSubclassOf<class UObject> ForClass, EPrimalMilestoneType ForMilestoneType);
+	TArray<class FName> GetPotentialBountiesForClassAndTypes(TSubclassOf<class UObject> ForClass, const TArray<EPrimalMilestoneType>& ForMilestoneType);
 	TArray<class UPrimalItem*> GetReceiverTradeItems();
 	bool GetSkillModifier(class FName SkillName, class FName ModifierName, float* OutValue);
 	bool GetSkillUnlockedAndRank(class FName SkillName, int32* OutRank);
@@ -32721,8 +32724,6 @@ public:
 	class AShooterCharacter* GetPlayerCharacterEvenIfDead() const;
 	bool GetPlayerFinishedNamedEvent(class FName NamedEvent) const;
 	void GetPlayerViewPointNoModifiers(struct FVector* out_Location, struct FRotator* out_Rotation, bool ForAiming, bool bNoTPVAim) const;
-	TArray<class FName> GetPotentialBountiesForClass(TSubclassOf<class UObject> ForClass, EPrimalMilestoneType ForMilestoneType) const;
-	TArray<class FName> GetPotentialBountiesForClassAndTypes(TSubclassOf<class UObject> ForClass, const TArray<EPrimalMilestoneType>& ForMilestoneType) const;
 	TArray<class FName> GetPotentialMilestonesForClass(TSubclassOf<class UObject> ForClass, EPrimalMilestoneType ForMilestoneType) const;
 	TArray<class FName> GetPotentialMilestonesForClassAndTypes(TSubclassOf<class UObject> ForClass, const TArray<EPrimalMilestoneType>& ForMilestoneType) const;
 	TArray<class FName> GetPotentialMilestonesForClassWithData(TSubclassOf<class UObject> ForClass, EPrimalMilestoneType ForMilestoneType, TArray<struct FPrimalMilestone>* OutMilestones) const;
