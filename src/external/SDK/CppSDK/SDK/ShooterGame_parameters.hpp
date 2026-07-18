@@ -3996,6 +3996,17 @@ public:
 };
 DUMPER7_ASSERTS_PrimalItem_GetProjectileType;
 
+// Function ShooterGame.PrimalItem.MakeNonRichTextRequirementsString
+// 0x0030 (0x0030 - 0x0000)
+struct PrimalItem_MakeNonRichTextRequirementsString final
+{
+public:
+	TArray<class UPrimalInventoryComponent*>      compareInventoryComponents;                        // 0x0000(0x0010)(Parm, ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	TArray<struct FCraftingResourceRequirement>   InRequirements;                                    // 0x0010(0x0010)(Parm, ZeroConstructor, NativeAccessSpecifierPublic)
+	class FString                                 ReturnValue;                                       // 0x0020(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_PrimalItem_MakeNonRichTextRequirementsString;
+
 // Function ShooterGame.PrimalItem.MakeRepairingRequirementsString
 // 0x0028 (0x0028 - 0x0000)
 struct PrimalItem_MakeRepairingRequirementsString final
@@ -4006,6 +4017,18 @@ public:
 	class FString                                 ReturnValue;                                       // 0x0018(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PrimalItem_MakeRepairingRequirementsString;
+
+// Function ShooterGame.PrimalItem.MakeStringFromRequirementAndAvailableQuantity
+// 0x0030 (0x0030 - 0x0000)
+struct PrimalItem_MakeStringFromRequirementAndAvailableQuantity final
+{
+public:
+	struct FCraftingResourceRequirement           Requirement;                                       // 0x0000(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	int32                                         AvailableItemQuantity;                             // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 ReturnValue;                                       // 0x0020(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_PrimalItem_MakeStringFromRequirementAndAvailableQuantity;
 
 // Function ShooterGame.PrimalItem.MergeCustomItemDatas
 // 0x0030 (0x0030 - 0x0000)
@@ -16734,6 +16757,15 @@ public:
 };
 DUMPER7_ASSERTS_PrimalDinoCharacter_GetLandingLocation;
 
+// Function ShooterGame.PrimalDinoCharacter.GetMaxRepairHealth
+// 0x0004 (0x0004 - 0x0000)
+struct PrimalDinoCharacter_GetMaxRepairHealth final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_PrimalDinoCharacter_GetMaxRepairHealth;
+
 // Function ShooterGame.PrimalDinoCharacter.GetOverrideAttachedSaddleMesh
 // 0x0008 (0x0008 - 0x0000)
 struct PrimalDinoCharacter_GetOverrideAttachedSaddleMesh final
@@ -16811,6 +16843,18 @@ public:
 	struct FRotator                               ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PrimalDinoCharacter_GetPlayerSpawnRotation;
+
+// Function ShooterGame.PrimalDinoCharacter.GetRepairString
+// 0x0020 (0x0020 - 0x0000)
+struct PrimalDinoCharacter_GetRepairString final
+{
+public:
+	bool                                          bHasSufficientResources;                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class AShooterPlayerController*               ForPC;                                             // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 ReturnValue;                                       // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_PrimalDinoCharacter_GetRepairString;
 
 // Function ShooterGame.PrimalDinoCharacter.GetRootYawSpeed
 // 0x0008 (0x0008 - 0x0000)
@@ -17035,6 +17079,17 @@ public:
 };
 DUMPER7_ASSERTS_PrimalDinoCharacter_HasOfflineRider;
 
+// Function ShooterGame.PrimalDinoCharacter.HasResourcesForRepair
+// 0x0010 (0x0010 - 0x0000)
+struct PrimalDinoCharacter_HasResourcesForRepair final
+{
+public:
+	class AShooterPlayerController*               ForPC;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_PrimalDinoCharacter_HasResourcesForRepair;
+
 // Function ShooterGame.PrimalDinoCharacter.HasSelfBuried
 // 0x0001 (0x0001 - 0x0000)
 struct PrimalDinoCharacter_HasSelfBuried final
@@ -17199,6 +17254,17 @@ public:
 	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PrimalDinoCharacter_IsMatingEnabled;
+
+// Function ShooterGame.PrimalDinoCharacter.IsRepairable
+// 0x0010 (0x0010 - 0x0000)
+struct PrimalDinoCharacter_IsRepairable final
+{
+public:
+	class AShooterPlayerController*               ForPC;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_PrimalDinoCharacter_IsRepairable;
 
 // Function ShooterGame.PrimalDinoCharacter.IsSwimmingWithAttachedBox
 // 0x0001 (0x0001 - 0x0000)
@@ -18138,6 +18204,15 @@ public:
 };
 DUMPER7_ASSERTS_PrimalDinoCharacter_StartLanding;
 
+// Function ShooterGame.PrimalDinoCharacter.StartRepair
+// 0x0008 (0x0008 - 0x0000)
+struct PrimalDinoCharacter_StartRepair final
+{
+public:
+	class AShooterPlayerController*               ForPC;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_PrimalDinoCharacter_StartRepair;
+
 // Function ShooterGame.PrimalDinoCharacter.StartSurfaceCameraForPassenger
 // 0x0018 (0x0018 - 0x0000)
 struct PrimalDinoCharacter_StartSurfaceCameraForPassenger final
@@ -18202,6 +18277,16 @@ public:
 	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_PrimalDinoCharacter_TamedProcessOrder;
+
+// Function ShooterGame.PrimalDinoCharacter.TryAddRepairMultiUseEntry
+// 0x0018 (0x0018 - 0x0000)
+struct PrimalDinoCharacter_TryAddRepairMultiUseEntry final
+{
+public:
+	TArray<struct FMultiUseEntry>                 MultiUseEntries;                                   // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	class AShooterPlayerController*               ForPC;                                             // 0x0010(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_PrimalDinoCharacter_TryAddRepairMultiUseEntry;
 
 // Function ShooterGame.PrimalDinoCharacter.TryFindNewRandomLookAtTarget
 // 0x0008 (0x0008 - 0x0000)
@@ -19318,6 +19403,18 @@ public:
 };
 DUMPER7_ASSERTS_PrimalShip_ClientSetAttachedSeat;
 
+// Function ShooterGame.PrimalShip.ConsumeShipResources
+// 0x0020 (0x0020 - 0x0000)
+struct PrimalShip_ConsumeShipResources final
+{
+public:
+	TArray<struct FCraftingResourceRequirement>   Resources;                                         // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+	class AShooterPlayerController*               ForPC;                                             // 0x0010(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_PrimalShip_ConsumeShipResources;
+
 // Function ShooterGame.PrimalShip.DoImpactDamageToShipStructures
 // 0x0028 (0x0028 - 0x0000)
 struct PrimalShip_DoImpactDamageToShipStructures final
@@ -19448,6 +19545,16 @@ public:
 };
 DUMPER7_ASSERTS_PrimalShip_GetDefaultShipSkillCooldownDuration;
 
+// Function ShooterGame.PrimalShip.GetInventoriesForResources
+// 0x0020 (0x0020 - 0x0000)
+struct PrimalShip_GetInventoriesForResources final
+{
+public:
+	TArray<struct FCraftingResourceRequirement>   Resources;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<class UPrimalInventoryComponent*>      OutInventories;                                    // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_PrimalShip_GetInventoriesForResources;
+
 // Function ShooterGame.PrimalShip.GetLastShipSkillUsedTime
 // 0x0010 (0x0010 - 0x0000)
 struct PrimalShip_GetLastShipSkillUsedTime final
@@ -19476,6 +19583,18 @@ public:
 };
 DUMPER7_ASSERTS_PrimalShip_GetRaftPhysicsVolume;
 
+// Function ShooterGame.PrimalShip.GetReplicatedShipRepairRequirementData
+// 0x0020 (0x0020 - 0x0000)
+struct PrimalShip_GetReplicatedShipRepairRequirementData final
+{
+public:
+	TArray<struct FResourceRequirementData>       OutRequirementData;                                // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	class AShooterPlayerController*               ForPC;                                             // 0x0010(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUpdateRequirementDataIfServer;                    // 0x0018(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_PrimalShip_GetReplicatedShipRepairRequirementData;
+
 // Function ShooterGame.PrimalShip.GetRudderSteeringRate
 // 0x0004 (0x0004 - 0x0000)
 struct PrimalShip_GetRudderSteeringRate final
@@ -19496,6 +19615,27 @@ public:
 	TArray<class APawn*>                          ReturnValue;                                       // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PrimalShip_GetShipBasedPawns;
+
+// Function ShooterGame.PrimalShip.GetShipRepairRequirements
+// 0x0018 (0x0018 - 0x0000)
+struct PrimalShip_GetShipRepairRequirements final
+{
+public:
+	TArray<struct FCraftingResourceRequirement>   OutRequirements;                                   // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	float                                         OverrideRepairPercent;                             // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_PrimalShip_GetShipRepairRequirements;
+
+// Function ShooterGame.PrimalShip.GetShipRepairRequirementsString
+// 0x0018 (0x0018 - 0x0000)
+struct PrimalShip_GetShipRepairRequirementsString final
+{
+public:
+	class AShooterPlayerController*               ForPC;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 ReturnValue;                                       // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_PrimalShip_GetShipRepairRequirementsString;
 
 // Function ShooterGame.PrimalShip.GetShipSkillBuffTargets
 // 0x0020 (0x0020 - 0x0000)
@@ -19565,6 +19705,20 @@ public:
 	class AShooterPlayerController*               toPlayer;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PrimalShip_GiveHotbarSkills;
+
+// Function ShooterGame.PrimalShip.HasEnoughResourcesToRepair
+// 0x0018 (0x0018 - 0x0000)
+struct PrimalShip_HasEnoughResourcesToRepair final
+{
+public:
+	class AShooterPlayerController*               ForPC;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUpdateAndReplicateRequirementData;                // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         OverrideRepairPercent;                             // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_PrimalShip_HasEnoughResourcesToRepair;
 
 // Function ShooterGame.PrimalShip.HasOpenSails
 // 0x0001 (0x0001 - 0x0000)
@@ -19812,15 +19966,6 @@ public:
 };
 DUMPER7_ASSERTS_PrimalShip_RefreshColorizationHelper;
 
-// Function ShooterGame.PrimalShip.RefreshPassiveSkillBuffs
-// 0x0004 (0x0004 - 0x0000)
-struct PrimalShip_RefreshPassiveSkillBuffs final
-{
-public:
-	float                                         DeltaTime;                                         // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_PrimalShip_RefreshPassiveSkillBuffs;
-
 // Function ShooterGame.PrimalShip.RemoveForceToBeApplied
 // 0x0008 (0x0008 - 0x0000)
 struct PrimalShip_RemoveForceToBeApplied final
@@ -19927,6 +20072,15 @@ public:
 };
 DUMPER7_ASSERTS_PrimalShip_SetTurningSailsInput;
 
+// Function ShooterGame.PrimalShip.SlowServerTick
+// 0x0004 (0x0004 - 0x0000)
+struct PrimalShip_SlowServerTick final
+{
+public:
+	float                                         DeltaTime;                                         // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_PrimalShip_SlowServerTick;
+
 // Function ShooterGame.PrimalShip.SpawnCannonProjectile
 // 0x00B0 (0x00B0 - 0x0000)
 struct PrimalShip_SpawnCannonProjectile final
@@ -19944,6 +20098,15 @@ public:
 	uint8                                         Pad_A1[0xF];                                       // 0x00A1(0x000F)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_PrimalShip_SpawnCannonProjectile;
+
+// Function ShooterGame.PrimalShip.StartRepairing
+// 0x0008 (0x0008 - 0x0000)
+struct PrimalShip_StartRepairing final
+{
+public:
+	class AShooterPlayerController*               ForPC;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_PrimalShip_StartRepairing;
 
 // Function ShooterGame.PrimalShip.TickCriticalShipStructures
 // 0x0004 (0x0004 - 0x0000)
@@ -26829,8 +26992,9 @@ public:
 	class UWorld*                                 InWorld;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 EventName;                                         // 0x0008(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         IDtoOnlyAllowExecutionOncePerFrame;                // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x001C(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bOnlyTriggerOnFirstLevel;                          // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x001D(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1E[0x2];                                       // 0x001E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_ShooterGameMode_TriggerLevelCustomEvents;
 
@@ -81375,6 +81539,18 @@ public:
 };
 DUMPER7_ASSERTS_VictoryCore_GetLocaleSpecificSoundWaveAnimTexturePairArrays;
 
+// Function ShooterGame.VictoryCore.GetMaterialUsesCustomPrimitiveDataForColorization
+// 0x0010 (0x0010 - 0x0000)
+struct VictoryCore_GetMaterialUsesCustomPrimitiveDataForColorization final
+{
+public:
+	class UMaterialInstance*                      Mat;                                               // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Index_0;                                           // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x000C(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_D[0x3];                                        // 0x000D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_VictoryCore_GetMaterialUsesCustomPrimitiveDataForColorization;
+
 // Function ShooterGame.VictoryCore.GetMatineeLength
 // 0x0010 (0x0010 - 0x0000)
 struct VictoryCore_GetMatineeLength final
@@ -82216,8 +82392,9 @@ public:
 	bool                                          bSuccess;                                          // 0x0020(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_21[0x3];                                       // 0x0021(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         CheckForWaterVolumesInRadius;                      // 0x0024(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ReturnValue;                                       // 0x0028(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bIgnoreDynamicWaveHeight;                          // 0x0028(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_29[0x3];                                       // 0x0029(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         ReturnValue;                                       // 0x002C(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_VictoryCore_GetWaterSurfaceZAtLocation;
 
@@ -85162,6 +85339,17 @@ public:
 	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_VictoryCore_ReallySupportsShaderModel5;
+
+// Function ShooterGame.VictoryCore.RecordHexagonTransactionMetric
+// 0x0010 (0x0010 - 0x0000)
+struct VictoryCore_RecordHexagonTransactionMetric final
+{
+public:
+	class AActor*                                 ForActor;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         HexagonDelta;                                      // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_VictoryCore_RecordHexagonTransactionMetric;
 
 // Function ShooterGame.VictoryCore.RecordMeshingMetrics
 // 0x0010 (0x0010 - 0x0000)

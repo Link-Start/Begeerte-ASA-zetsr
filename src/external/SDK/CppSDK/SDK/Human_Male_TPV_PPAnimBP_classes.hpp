@@ -21,7 +21,8 @@ SDK_NAMESPACE_START
 
 // AnimBlueprintGeneratedClass Human_Male_TPV_PPAnimBP.Human_Male_TPV_PPAnimBP_C
 // 0x1120 (0x14F0 - 0x03D0)
-class UHuman_Male_TPV_PPAnimBP_C final : public UAnimInstance
+#pragma pack(push, 0x1)
+class SDK_ALIGN(0x10) UHuman_Male_TPV_PPAnimBP_C : public UAnimInstance
 {
 public:
 	uint8                                         Pad_3C8[0x8];                                      // 0x03C8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
@@ -131,6 +132,7 @@ public:
 		return GetDefaultObjImpl<UHuman_Male_TPV_PPAnimBP_C>();
 	}
 };
+#pragma pack(pop)
 DUMPER7_ASSERTS_UHuman_Male_TPV_PPAnimBP_C;
 
 SDK_NAMESPACE_END

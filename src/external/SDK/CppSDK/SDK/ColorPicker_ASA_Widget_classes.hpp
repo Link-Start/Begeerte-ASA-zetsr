@@ -19,7 +19,7 @@ SDK_NAMESPACE_START
 
 // WidgetBlueprintGeneratedClass ColorPicker_ASA_Widget.ColorPicker_ASA_Widget_C
 // 0x0070 (0x03E8 - 0x0378)
-class UColorPicker_ASA_Widget_C final : public UPrimalUserWidget
+class UColorPicker_ASA_Widget_C : public UPrimalUserWidget
 {
 public:
 	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0378(0x0008)(ZeroConstructor, Transient, DuplicateTransient)

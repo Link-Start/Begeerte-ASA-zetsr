@@ -10886,6 +10886,36 @@ TSubclassOf<class AShooterProjectile> UPrimalItem::GetProjectileType(TSubclassOf
 }
 
 
+// Function ShooterGame.PrimalItem.MakeNonRichTextRequirementsString
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// const TArray<class UPrimalInventoryComponent*>&compareInventoryComponents                             (Parm, ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+// const TArray<struct FCraftingResourceRequirement>&InRequirements                                         (Parm, ZeroConstructor, NativeAccessSpecifierPublic)
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class FString UPrimalItem::MakeNonRichTextRequirementsString(const TArray<class UPrimalInventoryComponent*>& compareInventoryComponents, const TArray<struct FCraftingResourceRequirement>& InRequirements)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("PrimalItem", "MakeNonRichTextRequirementsString");
+
+	Params::PrimalItem_MakeNonRichTextRequirementsString Parms{};
+
+	Parms.compareInventoryComponents = std::move(compareInventoryComponents);
+	Parms.InRequirements = std::move(InRequirements);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function ShooterGame.PrimalItem.MakeRepairingRequirementsString
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
@@ -10904,6 +10934,36 @@ class FString UPrimalItem::MakeRepairingRequirementsString(class UPrimalInventor
 
 	Parms.compareInventoryComp = compareInventoryComp;
 	Parms.InRepairingRequirements = std::move(InRepairingRequirements);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.PrimalItem.MakeStringFromRequirementAndAvailableQuantity
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const struct FCraftingResourceRequirement&Requirement                                            (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+// int32                                   AvailableItemQuantity                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class FString UPrimalItem::MakeStringFromRequirementAndAvailableQuantity(const struct FCraftingResourceRequirement& Requirement, int32 AvailableItemQuantity)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("PrimalItem", "MakeStringFromRequirementAndAvailableQuantity");
+
+	Params::PrimalItem_MakeStringFromRequirementAndAvailableQuantity Parms{};
+
+	Parms.Requirement = std::move(Requirement);
+	Parms.AvailableItemQuantity = AvailableItemQuantity;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -45506,6 +45566,31 @@ struct FVector APrimalDinoCharacter::GetLandingLocation()
 }
 
 
+// Function ShooterGame.PrimalDinoCharacter.GetMaxRepairHealth
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float APrimalDinoCharacter::GetMaxRepairHealth()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalDinoCharacter", "GetMaxRepairHealth");
+
+	Params::PrimalDinoCharacter_GetMaxRepairHealth Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function ShooterGame.PrimalDinoCharacter.GetOverrideAttachedSaddleMesh
 // (Native, Event, Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -45708,6 +45793,36 @@ struct FRotator APrimalDinoCharacter::GetPlayerSpawnRotation()
 		Func = Class->GetFunction("PrimalDinoCharacter", "GetPlayerSpawnRotation");
 
 	Params::PrimalDinoCharacter_GetPlayerSpawnRotation Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.PrimalDinoCharacter.GetRepairString
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    bHasSufficientResources                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AShooterPlayerController*         ForPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class FString APrimalDinoCharacter::GetRepairString(bool bHasSufficientResources, class AShooterPlayerController* ForPC)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalDinoCharacter", "GetRepairString");
+
+	Params::PrimalDinoCharacter_GetRepairString Parms{};
+
+	Parms.bHasSufficientResources = bHasSufficientResources;
+	Parms.ForPC = ForPC;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -46335,6 +46450,34 @@ bool APrimalDinoCharacter::HasOfflineRider()
 }
 
 
+// Function ShooterGame.PrimalDinoCharacter.HasResourcesForRepair
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// class AShooterPlayerController*         ForPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool APrimalDinoCharacter::HasResourcesForRepair(class AShooterPlayerController* ForPC)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalDinoCharacter", "HasResourcesForRepair");
+
+	Params::PrimalDinoCharacter_HasResourcesForRepair Parms{};
+
+	Parms.ForPC = ForPC;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function ShooterGame.PrimalDinoCharacter.HasSelfBuried
 // (Native, Event, Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -46779,6 +46922,34 @@ bool APrimalDinoCharacter::IsMatingEnabled()
 		Func = Class->GetFunction("PrimalDinoCharacter", "IsMatingEnabled");
 
 	Params::PrimalDinoCharacter_IsMatingEnabled Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.PrimalDinoCharacter.IsRepairable
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// class AShooterPlayerController*         ForPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool APrimalDinoCharacter::IsRepairable(class AShooterPlayerController* ForPC)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalDinoCharacter", "IsRepairable");
+
+	Params::PrimalDinoCharacter_IsRepairable Parms{};
+
+	Parms.ForPC = ForPC;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -49840,6 +50011,31 @@ void APrimalDinoCharacter::StartLanding(const struct FVector& OverrideLandingLoc
 }
 
 
+// Function ShooterGame.PrimalDinoCharacter.StartRepair
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// class AShooterPlayerController*         ForPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void APrimalDinoCharacter::StartRepair(class AShooterPlayerController* ForPC)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalDinoCharacter", "StartRepair");
+
+	Params::PrimalDinoCharacter_StartRepair Parms{};
+
+	Parms.ForPC = ForPC;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function ShooterGame.PrimalDinoCharacter.StartSurfaceCameraForPassenger
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -49927,6 +50123,25 @@ void APrimalDinoCharacter::StopActiveState(bool bShouldResetAttackIndex)
 }
 
 
+// Function ShooterGame.PrimalDinoCharacter.StopRepair
+// (Native, Public, BlueprintCallable)
+
+void APrimalDinoCharacter::StopRepair()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalDinoCharacter", "StopRepair");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function ShooterGame.PrimalDinoCharacter.TameDino
 // (Native, Public, BlueprintCallable)
 // Parameters:
@@ -49993,6 +50208,35 @@ bool APrimalDinoCharacter::TamedProcessOrder(class APrimalCharacter* FromCharact
 	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.PrimalDinoCharacter.TryAddRepairMultiUseEntry
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// TArray<struct FMultiUseEntry>&          MultiUseEntries                                        (Parm, OutParm, ZeroConstructor, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+// class AShooterPlayerController*         ForPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void APrimalDinoCharacter::TryAddRepairMultiUseEntry(TArray<struct FMultiUseEntry>& MultiUseEntries, class AShooterPlayerController* ForPC)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalDinoCharacter", "TryAddRepairMultiUseEntry");
+
+	Params::PrimalDinoCharacter_TryAddRepairMultiUseEntry Parms{};
+
+	Parms.MultiUseEntries = std::move(MultiUseEntries);
+	Parms.ForPC = ForPC;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	MultiUseEntries = std::move(Parms.MultiUseEntries);
 }
 
 
@@ -53015,6 +53259,36 @@ void APrimalShip::ClientSetAttachedSeat(class APrimalStructureSeating_DriverSeat
 }
 
 
+// Function ShooterGame.PrimalShip.ConsumeShipResources
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const TArray<struct FCraftingResourceRequirement>&Resources                                              (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+// class AShooterPlayerController*         ForPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool APrimalShip::ConsumeShipResources(const TArray<struct FCraftingResourceRequirement>& Resources, class AShooterPlayerController* ForPC)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalShip", "ConsumeShipResources");
+
+	Params::PrimalShip_ConsumeShipResources Parms{};
+
+	Parms.Resources = std::move(Resources);
+	Parms.ForPC = ForPC;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function ShooterGame.PrimalShip.DoImpactDamageToShipStructures
 // (Final, Native, Protected, HasDefaults, BlueprintCallable)
 // Parameters:
@@ -53442,6 +53716,35 @@ float APrimalShip::GetDefaultShipSkillCooldownDuration(class FName ForSkill, int
 }
 
 
+// Function ShooterGame.PrimalShip.GetInventoriesForResources
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const TArray<struct FCraftingResourceRequirement>&Resources                                              (Parm, ZeroConstructor, NativeAccessSpecifierPublic)
+// TArray<class UPrimalInventoryComponent*>*OutInventories                                         (Parm, OutParm, ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+void APrimalShip::GetInventoriesForResources(const TArray<struct FCraftingResourceRequirement>& Resources, TArray<class UPrimalInventoryComponent*>* OutInventories)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalShip", "GetInventoriesForResources");
+
+	Params::PrimalShip_GetInventoriesForResources Parms{};
+
+	Parms.Resources = std::move(Resources);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (OutInventories != nullptr)
+		*OutInventories = std::move(Parms.OutInventories);
+}
+
+
 // Function ShooterGame.PrimalShip.GetLastShipSkillUsedTime
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -53520,6 +53823,37 @@ class APhysicsVolume* APrimalShip::GetRaftPhysicsVolume()
 }
 
 
+// Function ShooterGame.PrimalShip.GetReplicatedShipRepairRequirementData
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// TArray<struct FResourceRequirementData>*OutRequirementData                                     (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+// class AShooterPlayerController*         ForPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bUpdateRequirementDataIfServer                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void APrimalShip::GetReplicatedShipRepairRequirementData(TArray<struct FResourceRequirementData>* OutRequirementData, class AShooterPlayerController* ForPC, bool bUpdateRequirementDataIfServer)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalShip", "GetReplicatedShipRepairRequirementData");
+
+	Params::PrimalShip_GetReplicatedShipRepairRequirementData Parms{};
+
+	Parms.ForPC = ForPC;
+	Parms.bUpdateRequirementDataIfServer = bUpdateRequirementDataIfServer;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (OutRequirementData != nullptr)
+		*OutRequirementData = std::move(Parms.OutRequirementData);
+}
+
+
 // Function ShooterGame.PrimalShip.GetRudderSteeringRate
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -53563,6 +53897,63 @@ TArray<class APawn*> APrimalShip::GetShipBasedPawns(class USceneComponent* OnCom
 
 	Parms.OnComponent = OnComponent;
 	Parms.bOnlyActivePawns = bOnlyActivePawns;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.PrimalShip.GetShipRepairRequirements
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// TArray<struct FCraftingResourceRequirement>*OutRequirements                                        (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+// float                                   OverrideRepairPercent                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void APrimalShip::GetShipRepairRequirements(TArray<struct FCraftingResourceRequirement>* OutRequirements, float OverrideRepairPercent)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalShip", "GetShipRepairRequirements");
+
+	Params::PrimalShip_GetShipRepairRequirements Parms{};
+
+	Parms.OverrideRepairPercent = OverrideRepairPercent;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (OutRequirements != nullptr)
+		*OutRequirements = std::move(Parms.OutRequirements);
+}
+
+
+// Function ShooterGame.PrimalShip.GetShipRepairRequirementsString
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class AShooterPlayerController*         ForPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class FString APrimalShip::GetShipRepairRequirementsString(class AShooterPlayerController* ForPC)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalShip", "GetShipRepairRequirementsString");
+
+	Params::PrimalShip_GetShipRepairRequirementsString Parms{};
+
+	Parms.ForPC = ForPC;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -53761,6 +54152,38 @@ void APrimalShip::GiveHotbarSkills(class AShooterPlayerController* toPlayer)
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+}
+
+
+// Function ShooterGame.PrimalShip.HasEnoughResourcesToRepair
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class AShooterPlayerController*         ForPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bUpdateAndReplicateRequirementData                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   OverrideRepairPercent                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool APrimalShip::HasEnoughResourcesToRepair(class AShooterPlayerController* ForPC, bool bUpdateAndReplicateRequirementData, float OverrideRepairPercent)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalShip", "HasEnoughResourcesToRepair");
+
+	Params::PrimalShip_HasEnoughResourcesToRepair Parms{};
+
+	Parms.ForPC = ForPC;
+	Parms.bUpdateAndReplicateRequirementData = bUpdateAndReplicateRequirementData;
+	Parms.OverrideRepairPercent = OverrideRepairPercent;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
 }
 
 
@@ -54717,31 +55140,6 @@ void APrimalShip::RefreshColorizationHelper(class UMeshComponent* TheMesh)
 }
 
 
-// Function ShooterGame.PrimalShip.RefreshPassiveSkillBuffs
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   DeltaTime                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void APrimalShip::RefreshPassiveSkillBuffs(float DeltaTime)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PrimalShip", "RefreshPassiveSkillBuffs");
-
-	Params::PrimalShip_RefreshPassiveSkillBuffs Parms{};
-
-	Parms.DeltaTime = DeltaTime;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function ShooterGame.PrimalShip.RemoveForceToBeApplied
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -55082,6 +55480,31 @@ void APrimalShip::ShipRow()
 }
 
 
+// Function ShooterGame.PrimalShip.SlowServerTick
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   DeltaTime                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void APrimalShip::SlowServerTick(float DeltaTime)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalShip", "SlowServerTick");
+
+	Params::PrimalShip_SlowServerTick Parms{};
+
+	Parms.DeltaTime = DeltaTime;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function ShooterGame.PrimalShip.SpawnCannonProjectile
 // (Native, Event, Public, HasOutParams, HasDefaults, BlueprintEvent)
 // Parameters:
@@ -55134,6 +55557,31 @@ void APrimalShip::StartAnchoring()
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function ShooterGame.PrimalShip.StartRepairing
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class AShooterPlayerController*         ForPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void APrimalShip::StartRepairing(class AShooterPlayerController* ForPC)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalShip", "StartRepairing");
+
+	Params::PrimalShip_StartRepairing Parms{};
+
+	Parms.ForPC = ForPC;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -55334,6 +55782,25 @@ void APrimalShip::UpdateRaftRelevant()
 
 	if (Func == nullptr)
 		Func = Class->GetFunction("PrimalShip", "UpdateRaftRelevant");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function ShooterGame.PrimalShip.UpdateReplicatedAvailableShipRepairResourceQuantities
+// (Final, Native, Public, BlueprintCallable)
+
+void APrimalShip::UpdateReplicatedAvailableShipRepairResourceQuantities()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalShip", "UpdateReplicatedAvailableShipRepairResourceQuantities");
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -75226,9 +75693,10 @@ bool AShooterGameMode::AllowDamage(class UWorld* ForWorld, int32 TargetingTeam1,
 // class UWorld*                           InWorld                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    EventName                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   IDtoOnlyAllowExecutionOncePerFrame                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bOnlyTriggerOnFirstLevel                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool AShooterGameMode::TriggerLevelCustomEvents(class UWorld* InWorld, const class FString& EventName, int32 IDtoOnlyAllowExecutionOncePerFrame)
+bool AShooterGameMode::TriggerLevelCustomEvents(class UWorld* InWorld, const class FString& EventName, int32 IDtoOnlyAllowExecutionOncePerFrame, bool bOnlyTriggerOnFirstLevel)
 {
 	static class UFunction* Func = nullptr;
 
@@ -75240,6 +75708,7 @@ bool AShooterGameMode::TriggerLevelCustomEvents(class UWorld* InWorld, const cla
 	Parms.InWorld = InWorld;
 	Parms.EventName = std::move(EventName);
 	Parms.IDtoOnlyAllowExecutionOncePerFrame = IDtoOnlyAllowExecutionOncePerFrame;
+	Parms.bOnlyTriggerOnFirstLevel = bOnlyTriggerOnFirstLevel;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -237019,6 +237488,36 @@ bool UVictoryCore::GetLocaleSpecificSoundWaveAnimTexturePairArrays(const TArray<
 }
 
 
+// Function ShooterGame.VictoryCore.GetMaterialUsesCustomPrimitiveDataForColorization
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UMaterialInstance*                Mat                                                    (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UVictoryCore::GetMaterialUsesCustomPrimitiveDataForColorization(class UMaterialInstance* Mat, int32 Index_0)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("VictoryCore", "GetMaterialUsesCustomPrimitiveDataForColorization");
+
+	Params::VictoryCore_GetMaterialUsesCustomPrimitiveDataForColorization Parms{};
+
+	Parms.Mat = Mat;
+	Parms.Index_0 = Index_0;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function ShooterGame.VictoryCore.GetMatineeLength
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
@@ -239213,9 +239712,10 @@ float UVictoryCore::GetVolumeOfCapsule(const float CapsuleRadius, const float Ca
 // const struct FVector&                   AtLocation                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool*                                   bSuccess                                               (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   CheckForWaterVolumesInRadius                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bIgnoreDynamicWaveHeight                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-float UVictoryCore::GetWaterSurfaceZAtLocation(class UWorld* TheWorld, const struct FVector& AtLocation, bool* bSuccess, float CheckForWaterVolumesInRadius)
+float UVictoryCore::GetWaterSurfaceZAtLocation(class UWorld* TheWorld, const struct FVector& AtLocation, bool* bSuccess, float CheckForWaterVolumesInRadius, bool bIgnoreDynamicWaveHeight)
 {
 	static class UFunction* Func = nullptr;
 
@@ -239227,6 +239727,7 @@ float UVictoryCore::GetWaterSurfaceZAtLocation(class UWorld* TheWorld, const str
 	Parms.TheWorld = TheWorld;
 	Parms.AtLocation = std::move(AtLocation);
 	Parms.CheckForWaterVolumesInRadius = CheckForWaterVolumesInRadius;
+	Parms.bIgnoreDynamicWaveHeight = bIgnoreDynamicWaveHeight;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -246676,6 +247177,33 @@ bool UVictoryCore::ReallySupportsShaderModel5()
 	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.VictoryCore.RecordHexagonTransactionMetric
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           ForActor                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   HexagonDelta                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UVictoryCore::RecordHexagonTransactionMetric(class AActor* ForActor, int32 HexagonDelta)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("VictoryCore", "RecordHexagonTransactionMetric");
+
+	Params::VictoryCore_RecordHexagonTransactionMetric Parms{};
+
+	Parms.ForActor = ForActor;
+	Parms.HexagonDelta = HexagonDelta;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
 }
 
 
