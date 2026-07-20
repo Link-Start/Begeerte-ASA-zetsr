@@ -5,11 +5,8 @@
 ### ☕ 赞助 / Buy me a coffee
 
 * 您可以通过赞助支持我们的开发，感谢大家的支持！
-* 
-  **USDT (TRC-20):** `THzBDDbBkDh3nXRkCEeG4p5r733tWeAdib`
 * If this project helps you, feel free to support my work!
-* 
-  **USDT (TRC-20):** `THzBDDbBkDh3nXRkCEeG4p5r733tWeAdib`
+* **USDT (TRC-20):** `THzBDDbBkDh3nXRkCEeG4p5r733tWeAdib`
 
 ![202604~1](https://github.com/user-attachments/assets/b116dc5c-d715-489c-b526-92c944a5048c)
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/6bc563df-c9e4-4421-939c-d8df3f24138f" />
