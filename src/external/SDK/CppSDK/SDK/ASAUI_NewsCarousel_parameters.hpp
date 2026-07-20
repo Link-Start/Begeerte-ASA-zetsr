@@ -16,15 +16,23 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function ASAUI_NewsCarousel.ASAUI_NewsCarousel_C.DoClickAction
-// 0x0020 (0x0020 - 0x0000)
-struct ASAUI_NewsCarousel_C_DoClickAction final
+// Function ASAUI_NewsCarousel.ASAUI_NewsCarousel_C.PreConstruct
+// 0x0001 (0x0001 - 0x0000)
+struct ASAUI_NewsCarousel_C_PreConstruct final
 {
 public:
-	class FString                                 ActionKey;                                         // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
-	class FString                                 ActionValue;                                       // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+	bool                                          IsDesignTime;                                      // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
-DUMPER7_ASSERTS_ASAUI_NewsCarousel_C_DoClickAction;
+DUMPER7_ASSERTS_ASAUI_NewsCarousel_C_PreConstruct;
+
+// Function ASAUI_NewsCarousel.ASAUI_NewsCarousel_C.GetColorAndOpacity
+// 0x0010 (0x0010 - 0x0000)
+struct ASAUI_NewsCarousel_C_GetColorAndOpacity final
+{
+public:
+	struct FLinearColor                           ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_ASAUI_NewsCarousel_C_GetColorAndOpacity;
 
 // Function ASAUI_NewsCarousel.ASAUI_NewsCarousel_C.ExecuteUbergraph_ASAUI_NewsCarousel
 // 0x0048 (0x0048 - 0x0000)
@@ -43,23 +51,15 @@ public:
 };
 DUMPER7_ASSERTS_ASAUI_NewsCarousel_C_ExecuteUbergraph_ASAUI_NewsCarousel;
 
-// Function ASAUI_NewsCarousel.ASAUI_NewsCarousel_C.GetColorAndOpacity
-// 0x0010 (0x0010 - 0x0000)
-struct ASAUI_NewsCarousel_C_GetColorAndOpacity final
+// Function ASAUI_NewsCarousel.ASAUI_NewsCarousel_C.DoClickAction
+// 0x0020 (0x0020 - 0x0000)
+struct ASAUI_NewsCarousel_C_DoClickAction final
 {
 public:
-	struct FLinearColor                           ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FString                                 ActionKey;                                         // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+	class FString                                 ActionValue;                                       // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
 };
-DUMPER7_ASSERTS_ASAUI_NewsCarousel_C_GetColorAndOpacity;
-
-// Function ASAUI_NewsCarousel.ASAUI_NewsCarousel_C.PreConstruct
-// 0x0001 (0x0001 - 0x0000)
-struct ASAUI_NewsCarousel_C_PreConstruct final
-{
-public:
-	bool                                          IsDesignTime;                                      // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_ASAUI_NewsCarousel_C_PreConstruct;
+DUMPER7_ASSERTS_ASAUI_NewsCarousel_C_DoClickAction;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END
