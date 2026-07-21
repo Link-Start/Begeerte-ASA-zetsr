@@ -43,10 +43,10 @@ public:
 	struct FLinearColor                           ForcedColor;                                       // 0x08DC(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
 
 public:
-	void Construct();
-	void ExecuteUbergraph_UI_CFCore_Overlay(int32 EntryPoint);
-	void PlayHover(EUMGSequencePlayMode PlayMode, double PlaybackSpeed);
 	void PreConstruct(bool IsDesignTime);
+	void PlayHover(EUMGSequencePlayMode PlayMode, double PlaybackSpeed);
+	void ExecuteUbergraph_UI_CFCore_Overlay(int32 EntryPoint);
+	void Construct();
 
 public:
 	static class UClass* StaticClass()
