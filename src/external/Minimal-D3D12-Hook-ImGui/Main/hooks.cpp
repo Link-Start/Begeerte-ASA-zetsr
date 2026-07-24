@@ -146,7 +146,7 @@ namespace g_Hook {
     }
 
     void initHandleDisconnect() {
-        std::string pattern = g_CheatData::Signature::UWorld::UNetDriver::UNetConnection::HandleDisconnect;
+        std::string pattern = g_CheatData::Signature::UNetConnection::HandleDisconnect;
         AOB::Result ok = AOB::Scan(pattern);
 
         if (ok && ok.size() > 0) {
@@ -160,7 +160,7 @@ namespace g_Hook {
     }
 
     void initOutputTextLine() {
-        std::string pattern = g_CheatData::Signature::UEngine::UGameViewportClient::UConsole::OutputTextLine;
+        std::string pattern = g_CheatData::Signature::UConsole::OutputTextLine;
         AOB::Result ok = AOB::Scan(pattern);
 
         if (ok && ok.size() > 0) {
@@ -174,7 +174,7 @@ namespace g_Hook {
     }
 
     void initPostRender() {
-        std::string pattern = g_CheatData::Signature::UEngine::UGameViewportClient::PostRender;
+        std::string pattern = g_CheatData::Signature::UGameViewportClient::PostRender;
         AOB::Result ok = AOB::Scan(pattern);
 
         if (ok && ok.size() > 0) {
@@ -188,7 +188,7 @@ namespace g_Hook {
     }
 
     void initPhysicsRotation() {
-        std::string pattern = g_CheatData::Signature::UWorld::PhysicsRotation;
+        std::string pattern = g_CheatData::Signature::UMovementComponent::PhysicsRotation;
         AOB::Result ok = AOB::Scan(pattern);
 
         if (ok && ok.size() > 0) {

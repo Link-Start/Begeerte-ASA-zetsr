@@ -76,35 +76,29 @@
     <Filter Include="internal\CheatData">
       <UniqueIdentifier>{7175f10b-9563-4423-9ef2-f994f0c5cccb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="internal\UEngine">
-      <UniqueIdentifier>{c6f53996-62a4-4791-8692-f777ecfe55e7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="internal\UEngine\UGameViewportClient">
-      <UniqueIdentifier>{9d33ca70-13ed-468c-b4dc-1dc0161d8d27}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="internal\UEngine\UGameViewportClient\UConsole">
-      <UniqueIdentifier>{9e202d8a-cc65-465a-a795-839e664f6a7e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src">
       <UniqueIdentifier>{0d9b14bb-3370-491b-9ea4-375b22529ee5}</UniqueIdentifier>
     </Filter>
     <Filter Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde">
       <UniqueIdentifier>{2af19aed-f6bf-4ae0-9eee-b53180ea5ec3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="internal\UWorld\UMovementComponent">
-      <UniqueIdentifier>{e1b1934f-dad1-4d9e-aad5-3cfb94e8c7f5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="internal\UWorld\UNetDriver">
-      <UniqueIdentifier>{40730184-d41d-4cc1-a994-eea9fd934ab6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="internal\UWorld\UNetDriver\UNetConnection">
-      <UniqueIdentifier>{259234b2-7d42-4c88-8c11-16741d8b57a3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="internal\Language">
       <UniqueIdentifier>{9faee55d-6dbc-422c-9f6a-89af69678694}</UniqueIdentifier>
     </Filter>
     <Filter Include="internal\AActor">
       <UniqueIdentifier>{496969ad-1600-4f8e-b252-26ff8ddabc61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\UMovementComponent">
+      <UniqueIdentifier>{d1c23aa5-1a04-421a-9250-e65610406771}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\UNetConnection">
+      <UniqueIdentifier>{ca41d739-e0d1-42c8-9f5c-ac811bdd3c11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\UConsole">
+      <UniqueIdentifier>{b21c28d6-54a1-494a-944d-b6c43a7e294a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="internal\UGameViewportClient">
+      <UniqueIdentifier>{825a56c8-2224-430c-acc6-a06369fe27a4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -435,14 +429,8 @@
     <ClInclude Include="internal\CheatData\CheatData.hpp">
       <Filter>internal\CheatData</Filter>
     </ClInclude>
-    <ClInclude Include="internal\UEngine\UGameViewportClient\UConsole\OutputTextLine.h">
-      <Filter>internal\UEngine\UGameViewportClient\UConsole</Filter>
-    </ClInclude>
     <ClInclude Include="internal\Menu\ItemList_Menu.h">
       <Filter>internal\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="internal\UEngine\UGameViewportClient\PostRender.h">
-      <Filter>internal\UEngine\UGameViewportClient</Filter>
     </ClInclude>
     <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\buffer.h">
       <Filter>external\Minimal-D3D12-Hook-ImGui\MinHook\src</Filter>
@@ -492,12 +480,6 @@
     <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imstb_truetype.h">
       <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="internal\UWorld\UNetDriver\UNetConnection\HandleDisconnect.h">
-      <Filter>internal\UWorld\UNetDriver\UNetConnection</Filter>
-    </ClInclude>
-    <ClInclude Include="internal\UWorld\UMovementComponent\PhysicsRotation.h">
-      <Filter>internal\UWorld\UMovementComponent</Filter>
-    </ClInclude>
     <ClInclude Include="internal\Legit\Aimbot\Aimbot.h">
       <Filter>internal\Legit\Aimbot</Filter>
     </ClInclude>
@@ -512,6 +494,18 @@
     </ClInclude>
     <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\Font\HarmonyOS_Sans_SC_Regular.h">
       <Filter>external\Minimal-D3D12-Hook-ImGui\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\UGameViewportClient\PostRender.h">
+      <Filter>internal\UGameViewportClient</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\UConsole\OutputTextLine.h">
+      <Filter>internal\UConsole</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\UNetConnection\HandleDisconnect.h">
+      <Filter>internal\UNetConnection</Filter>
+    </ClInclude>
+    <ClInclude Include="internal\UMovementComponent\PhysicsRotation.h">
+      <Filter>internal\UMovementComponent</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -598,14 +592,8 @@
     <ClCompile Include="internal\Menu\Misc_Menu.cpp">
       <Filter>internal\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="internal\UEngine\UGameViewportClient\UConsole\OutputTextLine.cpp">
-      <Filter>internal\UEngine\UGameViewportClient\UConsole</Filter>
-    </ClCompile>
     <ClCompile Include="internal\Menu\ItemList_Menu.cpp">
       <Filter>internal\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="internal\UEngine\UGameViewportClient\PostRender.cpp">
-      <Filter>internal\UEngine\UGameViewportClient</Filter>
     </ClCompile>
     <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\buffer.c">
       <Filter>external\Minimal-D3D12-Hook-ImGui\MinHook\src</Filter>
@@ -646,12 +634,6 @@
     <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_widgets.cpp">
       <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="internal\UWorld\UNetDriver\UNetConnection\HandleDisconnect.cpp">
-      <Filter>internal\UWorld\UNetDriver\UNetConnection</Filter>
-    </ClCompile>
-    <ClCompile Include="internal\UWorld\UMovementComponent\PhysicsRotation.cpp">
-      <Filter>internal\UWorld\UMovementComponent</Filter>
-    </ClCompile>
     <ClCompile Include="internal\Legit\Aimbot\Aimbot.cpp">
       <Filter>internal\Legit\Aimbot</Filter>
     </ClCompile>
@@ -663,6 +645,18 @@
     </ClCompile>
     <ClCompile Include="internal\AActor\TakeDamage.cpp">
       <Filter>internal\AActor</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\UGameViewportClient\PostRender.cpp">
+      <Filter>internal\UGameViewportClient</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\UConsole\OutputTextLine.cpp">
+      <Filter>internal\UConsole</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\UNetConnection\HandleDisconnect.cpp">
+      <Filter>internal\UNetConnection</Filter>
+    </ClCompile>
+    <ClCompile Include="internal\UMovementComponent\PhysicsRotation.cpp">
+      <Filter>internal\UMovementComponent</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
