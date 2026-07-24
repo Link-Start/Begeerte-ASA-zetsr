@@ -45,7 +45,7 @@ public:
 	bool                                          bTextUseGrouping;                                  // 0x0492(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_493[0x5];                                      // 0x0493(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<class UPrimalUserWidget*>              OptionsWidgets;                                    // 0x0498(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
-	TMulticastInlineDelegate<void(class FText Text, int32 int, class UObject* Object)> ReturnValueReference; // 0x04A8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	TMulticastInlineDelegate<void(class FText Text, int32 _int, class UObject* Object)> ReturnValueReference; // 0x04A8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	TMulticastInlineDelegate<void(const struct FVector2D& Vector2D)> ReturnColor;                    // 0x04B8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	TMulticastInlineDelegate<void(bool bExtended, class UDataListButtonVariable_Widget_ASA_C* This)> ReturnIsExtended; // 0x04C8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 

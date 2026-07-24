@@ -36,14 +36,14 @@ public:
 	class FText                                   serverName;                                        // 0x08D8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
 
 public:
-	void ReportServer();
-	class FString ModListToCombinedString(const TArray<int64>& Array);
-	void GetRootCFWidget(class UPanelWidget** RootPanelWidget);
-	void ExecuteUbergraph_BP_CFCore_ServerModsSubMenu(int32 EntryPoint);
-	void CustomEvent_4(const struct FCFCoreError& Error);
-	void CustomEvent_3(const class FString& temp_user_token);
-	void BndEvt__BP_ServerModsSubMenu_BUTTON_REPORT_K2Node_ComponentBoundEvent_1_OnButtonPressedEvent__DelegateSignature();
 	void BndEvt__BP_ServerModsSubMenu_BUTTON_FAV_K2Node_ComponentBoundEvent_0_OnButtonPressedEvent__DelegateSignature();
+	void BndEvt__BP_ServerModsSubMenu_BUTTON_REPORT_K2Node_ComponentBoundEvent_1_OnButtonPressedEvent__DelegateSignature();
+	void CustomEvent_3(const class FString& temp_user_token);
+	void CustomEvent_4(const struct FCFCoreError& Error);
+	void ExecuteUbergraph_BP_CFCore_ServerModsSubMenu(int32 EntryPoint);
+	void GetRootCFWidget(class UPanelWidget** RootPanelWidget);
+	class FString ModListToCombinedString(const TArray<int64>& Array);
+	void ReportServer();
 
 public:
 	static class UClass* StaticClass()

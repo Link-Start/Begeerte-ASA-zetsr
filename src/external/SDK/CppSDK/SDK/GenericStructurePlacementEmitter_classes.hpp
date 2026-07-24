@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass GenericStructurePlacementEmitter.GenericStructurePlacementEmitter_C
-// 0x0000 (0x05B0 - 0x05B0)
+// 0x0000 (0x05C0 - 0x05C0)
 class AGenericStructurePlacementEmitter_C final : public APrimalEmitterSpawnable
 {
 public:

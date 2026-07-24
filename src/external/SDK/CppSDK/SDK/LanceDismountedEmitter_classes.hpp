@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass LanceDismountedEmitter.LanceDismountedEmitter_C
-// 0x0000 (0x05B0 - 0x05B0)
+// 0x0000 (0x05C0 - 0x05C0)
 class ALanceDismountedEmitter_C final : public APrimalEmitterSpawnable
 {
 public:

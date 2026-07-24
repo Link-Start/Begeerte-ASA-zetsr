@@ -27,9 +27,9 @@ public:
 	class FText                                   Text;                                              // 0x0878(0x0010)(Edit, BlueprintVisible, ExposeOnSpawn)
 
 public:
-	void PreConstruct(bool IsDesignTime);
-	void GetRootCFWidget(class UPanelWidget** RootPanelWidget);
 	void ExecuteUbergraph_UI_CFCore_ToolTipWidget(int32 EntryPoint);
+	void GetRootCFWidget(class UPanelWidget** RootPanelWidget);
+	void PreConstruct(bool IsDesignTime);
 
 public:
 	static class UClass* StaticClass()

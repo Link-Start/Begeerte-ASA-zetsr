@@ -17302,9 +17302,10 @@ void UPrimalItem::Use(bool bOverridePlayerInput)
 // Parameters:
 // class UPrimalItem*                      DestinationItem                                        (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   AdditionalData                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AShooterPlayerController*         ForPC                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UPrimalItem::UseItemOntoItem(class UPrimalItem* DestinationItem, int32 AdditionalData)
+bool UPrimalItem::UseItemOntoItem(class UPrimalItem* DestinationItem, int32 AdditionalData, class AShooterPlayerController* ForPC)
 {
 	static class UFunction* Func = nullptr;
 
@@ -17315,6 +17316,7 @@ bool UPrimalItem::UseItemOntoItem(class UPrimalItem* DestinationItem, int32 Addi
 
 	Parms.DestinationItem = DestinationItem;
 	Parms.AdditionalData = AdditionalData;
+	Parms.ForPC = ForPC;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -239713,9 +239715,10 @@ float UVictoryCore::GetVolumeOfCapsule(const float CapsuleRadius, const float Ca
 // bool*                                   bSuccess                                               (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   CheckForWaterVolumesInRadius                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bIgnoreDynamicWaveHeight                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   CheckUpDownOffset                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-float UVictoryCore::GetWaterSurfaceZAtLocation(class UWorld* TheWorld, const struct FVector& AtLocation, bool* bSuccess, float CheckForWaterVolumesInRadius, bool bIgnoreDynamicWaveHeight)
+float UVictoryCore::GetWaterSurfaceZAtLocation(class UWorld* TheWorld, const struct FVector& AtLocation, bool* bSuccess, float CheckForWaterVolumesInRadius, bool bIgnoreDynamicWaveHeight, float CheckUpDownOffset)
 {
 	static class UFunction* Func = nullptr;
 
@@ -239728,6 +239731,7 @@ float UVictoryCore::GetWaterSurfaceZAtLocation(class UWorld* TheWorld, const str
 	Parms.AtLocation = std::move(AtLocation);
 	Parms.CheckForWaterVolumesInRadius = CheckForWaterVolumesInRadius;
 	Parms.bIgnoreDynamicWaveHeight = bIgnoreDynamicWaveHeight;
+	Parms.CheckUpDownOffset = CheckUpDownOffset;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
