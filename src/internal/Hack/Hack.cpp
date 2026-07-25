@@ -123,33 +123,41 @@ namespace g_Hack {
     }
 
     void ForceTurn(SDK::UMovementComponent* rcx, float DeltaTime) {
-        // 2026/4/3 @zetsr
-        // 在 PhysicsRotation.cpp 检查
-        // 此外 if (!XXX) return 在 XXX 初始化为 false 的情况下似乎会意外进入后续分支，必须用 if (!XXX){ return; } 等有时间的时候调查
-        // 
-        // if (!g_Config::bForceTurn) return;
-
         SDK::APlayerController* LocalPC = g_Util::GetLocalPC();
 
         if (!LocalPC || !LocalPC->Pawn) return;
 
-		// 只为玩家骑乘的恐龙启用
+        // 只为玩家骑乘的恐龙启用
         if (!LocalPC->Pawn->IsA(SDK::APrimalDinoCharacter::StaticClass())) return;
-
-        SDK::AShooterCharacter* character = (SDK::AShooterCharacter*)LocalPC->Character;
 
         // 由于此函数是共用的，所以必须过滤掉除player与riding外的movement。最好的方法是每帧检查并hook虚函数
         // 可以增加一个过滤，只为恐龙启用
+        SDK::AShooterCharacter* character = (SDK::AShooterCharacter*)LocalPC->Character;
         if (!character || (uintptr_t)character->CharacterMovement != (uintptr_t)rcx || !LocalPC->PlayerCameraManager) {
             return;
         }
 
+        // 转换为 UCharacterMovementComponent 以访问其属性
+        SDK::UCharacterMovementComponent* moveComp = (SDK::UCharacterMovementComponent*)rcx;
+        if (!moveComp) return;
+
+        // 禁用所有自动旋转机制
+        moveComp->bOrientRotationToMovement = false;
+        moveComp->bUseControllerDesiredRotation = false;
+
         SDK::FRotator rot = LocalPC->PlayerCameraManager->GetCameraRotation();
 
-        // 开了之后会一直往前走
-        // 2026/4/3 @zetsr
-        // 考虑到我们使用它的时候要么需要移动，要么可以手动对抗它造成的移动，也许可以直接把它改成一个 keybind，但是我们目前还没有 keybind :(
-        rcx->K2_MoveUpdatedComponent(SDK::FVector{ 0,0,0 }, rot, nullptr, false, false);
+        if (!moveComp->UpdatedComponent) return;
+
+        // 保存当前速度
+        SDK::FVector oldVelocity = moveComp->Velocity;
+
+        // 执行旋转（强制更新世界旋转和相对旋转）
+        moveComp->UpdatedComponent->K2_SetWorldRotation(rot, false, nullptr, false);
+        moveComp->UpdatedComponent->RelativeRotation = rot;
+
+        // 恢复速度（消除旋转引起的任何速度变化）
+        moveComp->Velocity = oldVelocity;
     }
 
     void DamageLog(SDK::AActor* _this, float DamageAmount, SDK::FDamageEvent* DamageEvent, SDK::AController* Instigator, SDK::AActor* DamageCauser) {
