@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass WeapMiningDrill_Impacts.WeapMiningDrill_Impacts_C
-// 0x0000 (0x08A8 - 0x08A8)
+// 0x0000 (0x08B0 - 0x08B0)
 class AWeapMiningDrill_Impacts_C final : public AMeleeFist_Impacts_C
 {
 public:

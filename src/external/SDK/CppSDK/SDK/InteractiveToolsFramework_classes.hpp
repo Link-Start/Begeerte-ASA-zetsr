@@ -298,12 +298,12 @@ public:
 DUMPER7_ASSERTS_IToolContextTransactionProvider;
 
 // Class InteractiveToolsFramework.InternalToolFrameworkActor
-// 0x0008 (0x0490 - 0x0488)
+// 0x0008 (0x0498 - 0x0490)
 class AInternalToolFrameworkActor : public AActor
 {
 public:
-	bool                                          bIsSelectableInEditor;                             // 0x0488(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_489[0x7];                                      // 0x0489(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bIsSelectableInEditor;                             // 0x0490(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_491[0x7];                                      // 0x0491(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -1790,7 +1790,7 @@ public:
 DUMPER7_ASSERTS_UBrushStampIndicator;
 
 // Class InteractiveToolsFramework.GizmoActor
-// 0x0000 (0x0490 - 0x0490)
+// 0x0000 (0x0498 - 0x0498)
 class AGizmoActor : public AInternalToolFrameworkActor
 {
 public:
@@ -1810,27 +1810,27 @@ public:
 DUMPER7_ASSERTS_AGizmoActor;
 
 // Class InteractiveToolsFramework.CombinedTransformGizmoActor
-// 0x0088 (0x0518 - 0x0490)
+// 0x0088 (0x0520 - 0x0498)
 class ACombinedTransformGizmoActor final : public AGizmoActor
 {
 public:
-	class UPrimitiveComponent*                    TranslateX;                                        // 0x0490(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    TranslateY;                                        // 0x0498(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    TranslateZ;                                        // 0x04A0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    TranslateYZ;                                       // 0x04A8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    TranslateXZ;                                       // 0x04B0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    TranslateXY;                                       // 0x04B8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    RotateX;                                           // 0x04C0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    RotateY;                                           // 0x04C8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    RotateZ;                                           // 0x04D0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    RotationSphere;                                    // 0x04D8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    UniformScale;                                      // 0x04E0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    AxisScaleX;                                        // 0x04E8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    AxisScaleY;                                        // 0x04F0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    AxisScaleZ;                                        // 0x04F8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    PlaneScaleYZ;                                      // 0x0500(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    PlaneScaleXZ;                                      // 0x0508(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    PlaneScaleXY;                                      // 0x0510(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    TranslateX;                                        // 0x0498(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    TranslateY;                                        // 0x04A0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    TranslateZ;                                        // 0x04A8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    TranslateYZ;                                       // 0x04B0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    TranslateXZ;                                       // 0x04B8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    TranslateXY;                                       // 0x04C0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    RotateX;                                           // 0x04C8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    RotateY;                                           // 0x04D0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    RotateZ;                                           // 0x04D8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    RotationSphere;                                    // 0x04E0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    UniformScale;                                      // 0x04E8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    AxisScaleX;                                        // 0x04F0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    AxisScaleY;                                        // 0x04F8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    AxisScaleZ;                                        // 0x0500(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    PlaneScaleYZ;                                      // 0x0508(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    PlaneScaleXZ;                                      // 0x0510(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    PlaneScaleXY;                                      // 0x0518(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()
@@ -2934,13 +2934,13 @@ public:
 DUMPER7_ASSERTS_UGizmoComponentHitTarget;
 
 // Class InteractiveToolsFramework.IntervalGizmoActor
-// 0x0018 (0x04A8 - 0x0490)
+// 0x0018 (0x04B0 - 0x0498)
 class AIntervalGizmoActor final : public AGizmoActor
 {
 public:
-	class UGizmoLineHandleComponent*              UpIntervalComponent;                               // 0x0490(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UGizmoLineHandleComponent*              DownIntervalComponent;                             // 0x0498(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UGizmoLineHandleComponent*              ForwardIntervalComponent;                          // 0x04A0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UGizmoLineHandleComponent*              UpIntervalComponent;                               // 0x0498(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UGizmoLineHandleComponent*              DownIntervalComponent;                             // 0x04A0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UGizmoLineHandleComponent*              ForwardIntervalComponent;                          // 0x04A8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()

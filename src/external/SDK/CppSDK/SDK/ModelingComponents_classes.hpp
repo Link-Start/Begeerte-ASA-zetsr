@@ -1216,7 +1216,7 @@ public:
 DUMPER7_ASSERTS_UPolyEditPreviewMesh;
 
 // Class ModelingComponents.PreviewGeometryActor
-// 0x0000 (0x0490 - 0x0490)
+// 0x0000 (0x0498 - 0x0498)
 class APreviewGeometryActor final : public AInternalToolFrameworkActor
 {
 public:
@@ -1796,7 +1796,7 @@ public:
 DUMPER7_ASSERTS_UModelingObjectsCreationAPI;
 
 // Class ModelingComponents.PreviewMeshActor
-// 0x0000 (0x0490 - 0x0490)
+// 0x0000 (0x0498 - 0x0498)
 class APreviewMeshActor final : public AInternalToolFrameworkActor
 {
 public:

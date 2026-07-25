@@ -16,12 +16,12 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass WeapFists.WeapFists_C
-// 0x0010 (0x1140 - 0x1130)
+// 0x0010 (0x1148 - 0x1138)
 class AWeapFists_C final : public AShooterWeapon_Melee
 {
 public:
-	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base1;                // 0x1130(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base;                 // 0x1138(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base1;                // 0x1138(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base;                 // 0x1140(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
 
 public:
 	class FName BPOverrideMeleeSwingSocket(class FName FromSocket);

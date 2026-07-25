@@ -1373,11 +1373,11 @@ public:
 DUMPER7_ASSERTS_UControllerGameplayCameraEvaluationComponent;
 
 // Class GameplayCameras.GameplayCameraActor
-// 0x0008 (0x0490 - 0x0488)
+// 0x0008 (0x0498 - 0x0490)
 class AGameplayCameraActor final : public AActor
 {
 public:
-	class UGameplayCameraComponent*               CameraComponent;                                   // 0x0488(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class UGameplayCameraComponent*               CameraComponent;                                   // 0x0490(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
 
 public:
 	class UGameplayCameraComponent* GetCameraComponent() const;
@@ -1435,11 +1435,11 @@ public:
 DUMPER7_ASSERTS_UGameplayCameraComponent;
 
 // Class GameplayCameras.GameplayCameraSystemActor
-// 0x0008 (0x0490 - 0x0488)
+// 0x0008 (0x0498 - 0x0490)
 class AGameplayCameraSystemActor final : public AActor
 {
 public:
-	class UGameplayCameraSystemComponent*         CameraSystemComponent;                             // 0x0488(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class UGameplayCameraSystemComponent*         CameraSystemComponent;                             // 0x0490(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
 
 public:
 	static void AutoManageActiveViewTarget(class APlayerController* PlayerController);

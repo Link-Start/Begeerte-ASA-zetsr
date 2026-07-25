@@ -12,7 +12,7 @@ namespace g_CheatData {
 	namespace Signature {
 		namespace AActor {
 			// push rbp | push rbx | push rsi | push rdi | push r12 | push r13 | push r14 | push r15 | lea rbp, [rsp+offset] | sub rsp, alloc | movaps [rsp+offset], xmm11
-			std::string TakeDamage = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ?? ?? ?? ?? 48 81 EC ?? ?? ?? ?? 44 0F 29 9C";
+			std::string TakeDamage = "40 55 53 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 44 0F 29 AC 24 ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 85 ? ? ? ? 49";
 		}
 
 		namespace UNetConnection {
@@ -25,7 +25,7 @@ namespace g_CheatData {
 			// 2026/5/20 @zetsr
 			// mov rax, rsp | push rbx | sub rsp, alloc | movaps [rax+offset], xmm6 | mov rbx, rcx | movaps [rax+offset], xmm7 | movaps
 			// 48 8B C4 53 48 81 EC 00 01 00 00 0F 29 70 E8 48 8B D9 0F 29 78 D8 0F 28
-			std::string PhysicsRotation = "48 8B C4 53 48 81 EC ?? ?? ?? ?? 0F 29 70 ?? 48 8B D9 0F 29 78 ?? 0F 28";
+			std::string PhysicsRotation = "48 8B C4 53 48 81 EC ? ? ? ? 0F 29 70 ? 48 8B D9 0F 29 78 ? 0F 28 F3";
 		}
 
 		namespace UWorld {
@@ -63,7 +63,7 @@ namespace g_CheatData {
 
 			// 2026/6/10 @zetsr
 			// push rbx | push rbp | push rsi | push rdi | push r12 | push r14 | push r15 | sub rsp, alloc | mov rax, [rip+offset] | xor rax, rsp | mov [rsp+offset], rax | mov r14, rcx
-			std::string Tick = "40 53 55 56 57 41 54 41 56 41 57 48 81 EC ?? ?? ?? ?? 48 8B 05 ?? ?? ?? ?? 48 33 C4 48 89 84 24 ?? ?? ?? ?? 4C 8B F1";
+			std::string Tick = "4C 8B DC 55 41 56 41 57 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 84 24 ? ? ? ? 49";
 		}
 
 		namespace UGameViewportClient {
@@ -100,7 +100,7 @@ namespace g_CheatData {
 
 			// 2026/6/10 @zetsr
 			// mov rax, rsp | push r12 | sub rsp, alloc | mov [rax+8], rbx | mov
-			std::string OutputTextLine = "48 8B C4 41 54 48 83 EC ?? 48 89 58 08 48";
+			std::string OutputTextLine = "48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8B EC 48 83 EC ? 48 63 72";
 		}
 	}
 }

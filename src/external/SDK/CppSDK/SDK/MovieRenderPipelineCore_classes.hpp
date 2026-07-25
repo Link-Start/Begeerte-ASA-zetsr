@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
+#include "MovieRenderPipelineCore_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "MovieRenderPipelineCore_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
 #include "UMG_classes.hpp"
@@ -2494,7 +2494,7 @@ public:
 DUMPER7_ASSERTS_UMovieJobVariableAssignmentContainer;
 
 // Class MovieRenderPipelineCore.MoviePipelineGameMode
-// 0x0000 (0x0520 - 0x0520)
+// 0x0000 (0x0528 - 0x0528)
 class AMoviePipelineGameMode final : public AGameModeBase
 {
 public:

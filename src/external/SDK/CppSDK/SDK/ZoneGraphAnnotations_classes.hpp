@@ -11,9 +11,9 @@
 #include "Basic.hpp"
 
 #include "Engine_classes.hpp"
-#include "ZoneGraphAnnotations_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "ZoneGraphAnnotations_structs.hpp"
 #include "ZoneGraph_structs.hpp"
 
 
@@ -118,11 +118,11 @@ public:
 DUMPER7_ASSERTS_UZoneGraphAnnotationTestingComponent;
 
 // Class ZoneGraphAnnotations.ZoneGraphAnnotationTestingActor
-// 0x0008 (0x0490 - 0x0488)
+// 0x0008 (0x0498 - 0x0490)
 class AZoneGraphAnnotationTestingActor final : public AActor
 {
 public:
-	class UZoneGraphAnnotationTestingComponent*   TestingComp;                                       // 0x0488(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UZoneGraphAnnotationTestingComponent*   TestingComp;                                       // 0x0490(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	void Trigger();

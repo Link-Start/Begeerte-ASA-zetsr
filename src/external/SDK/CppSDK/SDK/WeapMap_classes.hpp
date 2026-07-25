@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass WeapMap.WeapMap_C
-// 0x0000 (0x1428 - 0x1428)
+// 0x0000 (0x1430 - 0x1430)
 class AWeapMap_C final : public AWeapGPS_C
 {
 public:

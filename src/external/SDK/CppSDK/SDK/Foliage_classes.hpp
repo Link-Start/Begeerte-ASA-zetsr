@@ -336,12 +336,12 @@ public:
 DUMPER7_ASSERTS_UFoliageType_InstancedStaticMesh;
 
 // Class Foliage.InstancedFoliageActor
-// 0x0060 (0x04F8 - 0x0498)
+// 0x0060 (0x0500 - 0x04A0)
 class AInstancedFoliageActor final : public AISMPartitionActor
 {
 public:
-	uint8                                         Pad_498[0x50];                                     // 0x0498(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FString>                         BaseMeshLookup;                                    // 0x04E8(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4A0[0x50];                                     // 0x04A0(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class FString>                         BaseMeshLookup;                                    // 0x04F0(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 
 public:
 	static class AInstancedFoliageActor* BPGetInstancedFoliageActorForCurrentLevel(class UWorld* World);
@@ -390,25 +390,25 @@ public:
 DUMPER7_ASSERTS_UFoliageStatistics;
 
 // Class Foliage.InteractiveFoliageActor
-// 0x0090 (0x0528 - 0x0498)
+// 0x0090 (0x0530 - 0x04A0)
 class AInteractiveFoliageActor final : public AStaticMeshActor
 {
 public:
-	class UCapsuleComponent*                      CapsuleComponent;                                  // 0x0498(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	struct FVector                                TouchingActorEntryPosition;                        // 0x04A0(0x0018)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	struct FVector                                FoliageVelocity;                                   // 0x04B8(0x0018)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	struct FVector                                FoliageForce;                                      // 0x04D0(0x0018)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	struct FVector                                FoliagePosition;                                   // 0x04E8(0x0018)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         FoliageDamageImpulseScale;                         // 0x0500(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         FoliageTouchImpulseScale;                          // 0x0504(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         FoliageStiffness;                                  // 0x0508(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         FoliageStiffnessQuadratic;                         // 0x050C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         FoliageDamping;                                    // 0x0510(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MaxDamageImpulse;                                  // 0x0514(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MaxTouchImpulse;                                   // 0x0518(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MaxForce;                                          // 0x051C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Mass;                                              // 0x0520(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_524[0x4];                                      // 0x0524(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UCapsuleComponent*                      CapsuleComponent;                                  // 0x04A0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	struct FVector                                TouchingActorEntryPosition;                        // 0x04A8(0x0018)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FVector                                FoliageVelocity;                                   // 0x04C0(0x0018)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FVector                                FoliageForce;                                      // 0x04D8(0x0018)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FVector                                FoliagePosition;                                   // 0x04F0(0x0018)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         FoliageDamageImpulseScale;                         // 0x0508(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         FoliageTouchImpulseScale;                          // 0x050C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         FoliageStiffness;                                  // 0x0510(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         FoliageStiffnessQuadratic;                         // 0x0514(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         FoliageDamping;                                    // 0x0518(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MaxDamageImpulse;                                  // 0x051C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MaxTouchImpulse;                                   // 0x0520(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MaxForce;                                          // 0x0524(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Mass;                                              // 0x0528(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_52C[0x4];                                      // 0x052C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void CapsuleTouched(class UPrimitiveComponent* OverlappedComp, class AActor* Other, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const struct FHitResult& OverlapInfo);
@@ -430,12 +430,12 @@ public:
 DUMPER7_ASSERTS_AInteractiveFoliageActor;
 
 // Class Foliage.ProceduralFoliageBlockingVolume
-// 0x0098 (0x0570 - 0x04D8)
+// 0x0098 (0x0578 - 0x04E0)
 class AProceduralFoliageBlockingVolume final : public AVolume
 {
 public:
-	class AProceduralFoliageVolume*               ProceduralFoliageVolume;                           // 0x04D8(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	struct FFoliageDensityFalloff                 DensityFalloff;                                    // 0x04E0(0x0090)(Edit, NativeAccessSpecifierPublic)
+	class AProceduralFoliageVolume*               ProceduralFoliageVolume;                           // 0x04E0(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	struct FFoliageDensityFalloff                 DensityFalloff;                                    // 0x04E8(0x0090)(Edit, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -542,12 +542,12 @@ public:
 DUMPER7_ASSERTS_UProceduralFoliageTile;
 
 // Class Foliage.ProceduralFoliageVolume
-// 0x0010 (0x04E8 - 0x04D8)
+// 0x0010 (0x04F0 - 0x04E0)
 class AProceduralFoliageVolume final : public AVolume
 {
 public:
-	uint8                                         Pad_4D8[0x8];                                      // 0x04D8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UProceduralFoliageComponent*            ProceduralComponent;                               // 0x04E0(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	uint8                                         Pad_4E0[0x8];                                      // 0x04E0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class UProceduralFoliageComponent*            ProceduralComponent;                               // 0x04E8(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()

@@ -67,11 +67,11 @@ public:
 DUMPER7_ASSERTS_UGroomCacheImportData;
 
 // Class HairStrandsCore.GroomActor
-// 0x0008 (0x0490 - 0x0488)
+// 0x0008 (0x0498 - 0x0490)
 class AGroomActor final : public AActor
 {
 public:
-	class UGroomComponent*                        GroomComponent;                                    // 0x0488(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UGroomComponent*                        GroomComponent;                                    // 0x0490(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()

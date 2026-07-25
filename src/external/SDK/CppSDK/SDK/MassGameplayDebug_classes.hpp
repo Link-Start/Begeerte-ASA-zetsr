@@ -153,7 +153,7 @@ public:
 DUMPER7_ASSERTS_UMassDebugVisualizationTrait;
 
 // Class MassGameplayDebug.MassDebugVisualizer
-// 0x0000 (0x0488 - 0x0488)
+// 0x0000 (0x0490 - 0x0490)
 class AMassDebugVisualizer final : public AActor
 {
 public:

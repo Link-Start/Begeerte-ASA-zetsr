@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass RightClimbing_ImpactEffect_Leaves.RightClimbing_ImpactEffect_Leaves_C
-// 0x0000 (0x04D8 - 0x04D8)
+// 0x0000 (0x04E0 - 0x04E0)
 class ARightClimbing_ImpactEffect_Leaves_C final : public AClimbing_ImpactEffect_C
 {
 public:

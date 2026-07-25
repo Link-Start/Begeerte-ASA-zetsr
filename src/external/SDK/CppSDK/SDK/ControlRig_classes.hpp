@@ -584,26 +584,26 @@ public:
 DUMPER7_ASSERTS_UControlRigComponent;
 
 // Class ControlRig.ControlRigControlActor
-// 0x00B0 (0x0538 - 0x0488)
+// 0x00B0 (0x0540 - 0x0490)
 class AControlRigControlActor final : public AActor
 {
 public:
-	class AActor*                                 ActorToTrack;                                      // 0x0488(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TSubclassOf<class UControlRig>                ControlRigClass;                                   // 0x0490(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bRefreshOnTick;                                    // 0x0498(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsSelectable;                                     // 0x0499(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_49A[0x6];                                      // 0x049A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMaterialInterface*                     MaterialOverride;                                  // 0x04A0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class FString                                 ColorParameter;                                    // 0x04A8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, Interp, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bCastShadows;                                      // 0x04B8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4B9[0x7];                                      // 0x04B9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class USceneComponent*                        ActorRootComponent;                                // 0x04C0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	TSoftObjectPtr<class UControlRig>             ControlRig;                                        // 0x04C8(0x0028)(Transient, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	TArray<class FName>                           ControlNames;                                      // 0x04F0(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPrivate)
-	TArray<struct FTransform>                     ShapeTransforms;                                   // 0x0500(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPrivate)
-	TArray<class UStaticMeshComponent*>           Components;                                        // 0x0510(0x0010)(ExportObject, ZeroConstructor, Transient, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	TArray<class UMaterialInstanceDynamic*>       Materials;                                         // 0x0520(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	class FName                                   ColorParameterName;                                // 0x0530(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class AActor*                                 ActorToTrack;                                      // 0x0490(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TSubclassOf<class UControlRig>                ControlRigClass;                                   // 0x0498(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bRefreshOnTick;                                    // 0x04A0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsSelectable;                                     // 0x04A1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4A2[0x6];                                      // 0x04A2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMaterialInterface*                     MaterialOverride;                                  // 0x04A8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class FString                                 ColorParameter;                                    // 0x04B0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, Interp, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bCastShadows;                                      // 0x04C0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4C1[0x7];                                      // 0x04C1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class USceneComponent*                        ActorRootComponent;                                // 0x04C8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	TSoftObjectPtr<class UControlRig>             ControlRig;                                        // 0x04D0(0x0028)(Transient, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	TArray<class FName>                           ControlNames;                                      // 0x04F8(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPrivate)
+	TArray<struct FTransform>                     ShapeTransforms;                                   // 0x0508(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPrivate)
+	TArray<class UStaticMeshComponent*>           Components;                                        // 0x0518(0x0010)(ExportObject, ZeroConstructor, Transient, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	TArray<class UMaterialInstanceDynamic*>       Materials;                                         // 0x0528(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class FName                                   ColorParameterName;                                // 0x0538(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 
 public:
 	void Clear();
@@ -627,19 +627,19 @@ public:
 DUMPER7_ASSERTS_AControlRigControlActor;
 
 // Class ControlRig.ControlRigShapeActor
-// 0x00C8 (0x0550 - 0x0488)
+// 0x00C0 (0x0550 - 0x0490)
 class alignas(0x10) AControlRigShapeActor final : public AActor
 {
 public:
-	uint8                                         Pad_488[0x8];                                      // 0x0488(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class USceneComponent*                        ActorRootComponent;                                // 0x0490(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UStaticMeshComponent*                   StaticMeshComponent;                               // 0x0498(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint32                                        ControlRigIndex;                                   // 0x04A0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TWeakObjectPtr<class UControlRig>             ControlRig;                                        // 0x04A4(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ControlName;                                       // 0x04AC(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ShapeName;                                         // 0x04B4(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ColorParameterName;                                // 0x04BC(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4C4[0x7C];                                     // 0x04C4(0x007C)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_490[0x8];                                      // 0x0490(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class USceneComponent*                        ActorRootComponent;                                // 0x0498(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UStaticMeshComponent*                   StaticMeshComponent;                               // 0x04A0(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	uint32                                        ControlRigIndex;                                   // 0x04A8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TWeakObjectPtr<class UControlRig>             ControlRig;                                        // 0x04AC(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   ControlName;                                       // 0x04B4(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   ShapeName;                                         // 0x04BC(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   ColorParameterName;                                // 0x04C4(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4CC[0x74];                                     // 0x04CC(0x0074)(Fixing Size After Last Property [ Dumper-7 ])
 	uint8                                         bSelected : 1;                                     // 0x0540(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
 	uint8                                         bHovered : 1;                                      // 0x0540(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
 	uint8                                         Pad_541[0xF];                                      // 0x0541(0x000F)(Fixing Struct Size After Last Property [ Dumper-7 ])

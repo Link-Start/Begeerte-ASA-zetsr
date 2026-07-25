@@ -10,12 +10,12 @@
 
 #include "Basic.hpp"
 
+#include "SP_Interpolators_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
 #include "CinematicCamera_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "SP_Interpolators_structs.hpp"
 #include "SP_Camera_structs.hpp"
 
 
@@ -185,19 +185,19 @@ public:
 DUMPER7_ASSERTS_USPCam_ThirdPerson;
 
 // Class SP_Camera.SPPlayerCameraManager
-// 0x09C0 (0x3680 - 0x2CC0)
+// 0x09C0 (0x3690 - 0x2CD0)
 class ASPPlayerCameraManager final : public APlayerCameraManager
 {
 public:
-	float                                         BasePelvisRelativeZ;                               // 0x2CB8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   PelvisBoneName;                                    // 0x2CBC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2CC4[0xC];                                     // 0x2CC4(0x000C)(Fixing Size After Last Property [ Dumper-7 ])
-	class AActor*                                 AltViewTarget;                                     // 0x2CD0(0x0008)(ZeroConstructor, Transient, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2CD8[0x8];                                     // 0x2CD8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class AActor*                                 SavedMainViewTarget;                               // 0x2CE0(0x0008)(ZeroConstructor, Transient, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<struct FActiveSPCamera>                CameraBlendStack;                                  // 0x2CE8(0x0010)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	TArray<struct FSPCameraModeInstance>          CameraModeInstances;                               // 0x2CF8(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, Transient, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_2D08[0x978];                                   // 0x2D08(0x0978)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	float                                         BasePelvisRelativeZ;                               // 0x2CC8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   PelvisBoneName;                                    // 0x2CCC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2CD4[0xC];                                     // 0x2CD4(0x000C)(Fixing Size After Last Property [ Dumper-7 ])
+	class AActor*                                 AltViewTarget;                                     // 0x2CE0(0x0008)(ZeroConstructor, Transient, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2CE8[0x8];                                     // 0x2CE8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class AActor*                                 SavedMainViewTarget;                               // 0x2CF0(0x0008)(ZeroConstructor, Transient, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<struct FActiveSPCamera>                CameraBlendStack;                                  // 0x2CF8(0x0010)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	TArray<struct FSPCameraModeInstance>          CameraModeInstances;                               // 0x2D08(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, Transient, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_2D18[0x978];                                   // 0x2D18(0x0978)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void ClearAlternateCamera();

@@ -402,11 +402,11 @@ public:
 DUMPER7_ASSERTS_UMassVisualizationLODProcessor;
 
 // Class MassRepresentation.MassVisualizer
-// 0x0008 (0x0490 - 0x0488)
+// 0x0008 (0x0498 - 0x0490)
 class AMassVisualizer final : public AActor
 {
 public:
-	class UMassVisualizationComponent*            VisComponent;                                      // 0x0488(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UMassVisualizationComponent*            VisComponent;                                      // 0x0490(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()

@@ -376,12 +376,12 @@ public:
 DUMPER7_ASSERTS_UVehicleAnimationInstance;
 
 // Class ChaosVehicles.WheeledVehiclePawn
-// 0x0010 (0x0528 - 0x0518)
+// 0x0010 (0x0530 - 0x0520)
 class AWheeledVehiclePawn final : public APawn
 {
 public:
-	class USkeletalMeshComponent*                 Mesh;                                              // 0x0518(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	class UChaosVehicleMovementComponent*         VehicleMovementComponent;                          // 0x0520(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class USkeletalMeshComponent*                 Mesh;                                              // 0x0520(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class UChaosVehicleMovementComponent*         VehicleMovementComponent;                          // 0x0528(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()

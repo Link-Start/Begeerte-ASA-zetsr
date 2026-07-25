@@ -135,7 +135,7 @@ namespace g_Hook {
         std::string pattern = g_CheatData::Signature::UWorld::Tick;
         AOB::Result ok = AOB::Scan(pattern);
 
-        if (ok && ok.size() > 0) {
+        if (ok && ok.size() == 1) {
             void* targetAddr = ok[0];
 
             if (MH_CreateHook(targetAddr, &hkUWorldTick, reinterpret_cast<LPVOID*>(&oWorldTick)) == MH_OK) {
@@ -149,7 +149,7 @@ namespace g_Hook {
         std::string pattern = g_CheatData::Signature::UNetConnection::HandleDisconnect;
         AOB::Result ok = AOB::Scan(pattern);
 
-        if (ok && ok.size() > 0) {
+        if (ok && ok.size() == 1) {
             void* targetAddr = ok[0];
 
             if (MH_CreateHook(targetAddr, &hkHandleDisconnect, reinterpret_cast<LPVOID*>(&oHandleDisconnect)) == MH_OK) {
@@ -163,7 +163,7 @@ namespace g_Hook {
         std::string pattern = g_CheatData::Signature::UConsole::OutputTextLine;
         AOB::Result ok = AOB::Scan(pattern);
 
-        if (ok && ok.size() > 0) {
+        if (ok && ok.size() == 1) {
             void* targetAddr = ok[0];
 
             if (MH_CreateHook(targetAddr, &hkOutputTextLine, reinterpret_cast<LPVOID*>(&oOutputTextLine)) == MH_OK) {
@@ -177,7 +177,7 @@ namespace g_Hook {
         std::string pattern = g_CheatData::Signature::UGameViewportClient::PostRender;
         AOB::Result ok = AOB::Scan(pattern);
 
-        if (ok && ok.size() > 0) {
+        if (ok && ok.size() == 1) {
             void* targetAddr = ok[0];
 
             if (MH_CreateHook(targetAddr, &hkPostRender, reinterpret_cast<LPVOID*>(&oPostRender)) == MH_OK) {
@@ -191,7 +191,7 @@ namespace g_Hook {
         std::string pattern = g_CheatData::Signature::UMovementComponent::PhysicsRotation;
         AOB::Result ok = AOB::Scan(pattern);
 
-        if (ok && ok.size() > 0) {
+        if (ok && ok.size() == 1) {
             void* targetAddr = ok[0];
 
             if (MH_CreateHook(targetAddr, &hkPhysicsRotation, reinterpret_cast<LPVOID*>(&oPhysicsRotation)) == MH_OK) {
@@ -205,7 +205,7 @@ namespace g_Hook {
         std::string pattern = g_CheatData::Signature::AActor::TakeDamage;
         AOB::Result ok = AOB::Scan(pattern);
 
-        if (ok && ok.size() > 0) {
+        if (ok && ok.size() == 1) {
             void* targetAddr = ok[0];
 
             if (MH_CreateHook(targetAddr, &hkTakeDamage, reinterpret_cast<LPVOID*>(&oTakeDamage)) == MH_OK) {

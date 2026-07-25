@@ -11,20 +11,20 @@
 #include "Basic.hpp"
 
 #include "Engine_classes.hpp"
-#include "MediaAssets_structs.hpp"
-#include "CoreUObject_structs.hpp"
 #include "MediaPlate_structs.hpp"
+#include "CoreUObject_structs.hpp"
+#include "MediaAssets_structs.hpp"
 
 
 SDK_NAMESPACE_START
 
 // Class MediaPlate.MediaPlate
-// 0x0010 (0x0498 - 0x0488)
+// 0x0010 (0x04A0 - 0x0490)
 class AMediaPlate final : public AActor
 {
 public:
-	class UMediaPlateComponent*                   MediaPlateComponent;                               // 0x0488(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UStaticMeshComponent*                   StaticMeshComponent;                               // 0x0490(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UMediaPlateComponent*                   MediaPlateComponent;                               // 0x0490(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UStaticMeshComponent*                   StaticMeshComponent;                               // 0x0498(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()

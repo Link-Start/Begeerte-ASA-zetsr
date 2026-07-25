@@ -39,15 +39,6 @@ enum class ETargetingTraceType : uint8
 	ETargetingTraceType_MAX                  = 4,
 };
 
-// ScriptStruct TargetingSystem.CollisionQueryTaskData
-// 0x0010 (0x0010 - 0x0000)
-struct FCollisionQueryTaskData final
-{
-public:
-	TArray<class AActor*>                         IgnoredActors;                                     // 0x0000(0x0010)(BlueprintVisible, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FCollisionQueryTaskData;
-
 // ScriptStruct TargetingSystem.TargetingRequestHandle
 // 0x0004 (0x0004 - 0x0000)
 struct alignas(0x04) FTargetingRequestHandle final
@@ -56,6 +47,15 @@ public:
 	uint8                                         Pad_0[0x4];                                        // 0x0000(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FTargetingRequestHandle;
+
+// ScriptStruct TargetingSystem.CollisionQueryTaskData
+// 0x0010 (0x0010 - 0x0000)
+struct FCollisionQueryTaskData final
+{
+public:
+	TArray<class AActor*>                         IgnoredActors;                                     // 0x0000(0x0010)(BlueprintVisible, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FCollisionQueryTaskData;
 
 // ScriptStruct TargetingSystem.TargetingTaskSet
 // 0x0010 (0x0010 - 0x0000)

@@ -17,13 +17,13 @@
 SDK_NAMESPACE_START
 
 // WidgetBlueprintGeneratedClass UI_CFCore_NotificationManager.UI_CFCore_NotificationManager_C
-// 0x0018 (0x0878 - 0x0860)
+// 0x0018 (0x0888 - 0x0870)
 class UUI_CFCore_NotificationManager_C final : public UCFCoreWidget_C
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame_UI_CFCore_NotificationManager_C;    // 0x0860(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	class UOverlay*                               Overlay;                                           // 0x0868(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UUI_CFCore_Notification_C*              UI_NotificationVar;                                // 0x0870(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	struct FPointerToUberGraphFrame               UberGraphFrame_UI_CFCore_NotificationManager_C;    // 0x0870(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	class UOverlay*                               Overlay;                                           // 0x0878(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UUI_CFCore_Notification_C*              UI_NotificationVar;                                // 0x0880(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
 
 public:
 	class UUI_CFCore_Notification_C* CreateNotify();

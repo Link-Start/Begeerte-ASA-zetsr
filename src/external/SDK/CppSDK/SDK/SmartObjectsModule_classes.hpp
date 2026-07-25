@@ -123,11 +123,11 @@ public:
 DUMPER7_ASSERTS_UBlackboardKeyType_SOClaimHandle;
 
 // Class SmartObjectsModule.GenericSmartObject
-// 0x0008 (0x0490 - 0x0488)
+// 0x0008 (0x0498 - 0x0490)
 class AGenericSmartObject final : public AActor
 {
 public:
-	class USmartObjectComponent*                  SOComponent;                                       // 0x0488(0x0008)(Edit, ExportObject, ZeroConstructor, InstancedReference, NoClear, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class USmartObjectComponent*                  SOComponent;                                       // 0x0490(0x0008)(Edit, ExportObject, ZeroConstructor, InstancedReference, NoClear, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()
@@ -200,15 +200,15 @@ public:
 DUMPER7_ASSERTS_USmartObjectBlueprintFunctionLibrary;
 
 // Class SmartObjectsModule.SmartObjectCollection
-// 0x00B0 (0x0538 - 0x0488)
+// 0x00B0 (0x0540 - 0x0490)
 class ASmartObjectCollection final : public AActor
 {
 public:
-	struct FBox                                   Bounds;                                            // 0x0488(0x0038)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	TArray<struct FSmartObjectCollectionEntry>    CollectionEntries;                                 // 0x04C0(0x0010)(Edit, ZeroConstructor, EditConst, Protected, NativeAccessSpecifierProtected)
-	TMap<struct FSmartObjectHandle, struct FSoftObjectPath> RegisteredIdToObjectMap;                 // 0x04D0(0x0050)(Protected, NativeAccessSpecifierProtected)
-	TArray<class USmartObjectDefinition*>         Definitions;                                       // 0x0520(0x0010)(Edit, ZeroConstructor, EditConst, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_530[0x8];                                      // 0x0530(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FBox                                   Bounds;                                            // 0x0490(0x0038)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	TArray<struct FSmartObjectCollectionEntry>    CollectionEntries;                                 // 0x04C8(0x0010)(Edit, ZeroConstructor, EditConst, Protected, NativeAccessSpecifierProtected)
+	TMap<struct FSmartObjectHandle, struct FSoftObjectPath> RegisteredIdToObjectMap;                 // 0x04D8(0x0050)(Protected, NativeAccessSpecifierProtected)
+	TArray<class USmartObjectDefinition*>         Definitions;                                       // 0x0528(0x0010)(Edit, ZeroConstructor, EditConst, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	uint8                                         Pad_538[0x8];                                      // 0x0538(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -444,12 +444,12 @@ public:
 DUMPER7_ASSERTS_USmartObjectOctree;
 
 // Class SmartObjectsModule.SmartObjectPersistentCollection
-// 0x00B8 (0x0540 - 0x0488)
+// 0x00B8 (0x0548 - 0x0490)
 class ASmartObjectPersistentCollection final : public AActor
 {
 public:
-	struct FSmartObjectContainer                  SmartObjectContainer;                              // 0x0488(0x00B0)(Edit, EditConst, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_538[0x8];                                      // 0x0538(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FSmartObjectContainer                  SmartObjectContainer;                              // 0x0490(0x00B0)(Edit, EditConst, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_540[0x8];                                      // 0x0540(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -567,11 +567,11 @@ public:
 DUMPER7_ASSERTS_USmartObjectSubsystemRenderingComponent;
 
 // Class SmartObjectsModule.SmartObjectSubsystemRenderingActor
-// 0x0008 (0x0490 - 0x0488)
+// 0x0008 (0x0498 - 0x0490)
 class ASmartObjectSubsystemRenderingActor final : public AActor
 {
 public:
-	class USmartObjectSubsystemRenderingComponent* RenderingComponent;                               // 0x0488(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class USmartObjectSubsystemRenderingComponent* RenderingComponent;                               // 0x0490(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()
@@ -657,15 +657,15 @@ public:
 DUMPER7_ASSERTS_USmartObjectTestRenderingComponent;
 
 // Class SmartObjectsModule.SmartObjectTestingActor
-// 0x0028 (0x04B0 - 0x0488)
+// 0x0028 (0x04B8 - 0x0490)
 class ASmartObjectTestingActor final : public AActor
 {
 public:
-	TArray<class USmartObjectTest*>               Tests;                                             // 0x0488(0x0010)(Edit, ExportObject, ZeroConstructor, ContainsInstancedReference, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class USmartObjectTestRenderingComponent*     RenderingComponent;                                // 0x0498(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class USmartObjectSubsystem*                  SmartObjectSubsystem;                              // 0x04A0(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	bool                                          bRunTestsEachFrame;                                // 0x04A8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_4A9[0x7];                                      // 0x04A9(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TArray<class USmartObjectTest*>               Tests;                                             // 0x0490(0x0010)(Edit, ExportObject, ZeroConstructor, ContainsInstancedReference, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class USmartObjectTestRenderingComponent*     RenderingComponent;                                // 0x04A0(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class USmartObjectSubsystem*                  SmartObjectSubsystem;                              // 0x04A8(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	bool                                          bRunTestsEachFrame;                                // 0x04B0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_4B1[0x7];                                      // 0x04B1(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void ResetTests();

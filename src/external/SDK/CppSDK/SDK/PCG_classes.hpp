@@ -1844,41 +1844,42 @@ public:
 DUMPER7_ASSERTS_UPCGDummyGetPropertyTest;
 
 // Class PCG.PCGUnitTestDummyActor
-// 0x0228 (0x06B0 - 0x0488)
+// 0x0230 (0x06C0 - 0x0490)
 class APCGUnitTestDummyActor final : public AActor
 {
 public:
-	int32                                         IntProperty;                                       // 0x0488(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         FloatProperty;                                     // 0x048C(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int64                                         Int64Property;                                     // 0x0490(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        DoubleProperty;                                    // 0x0498(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          BoolProperty;                                      // 0x04A0(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4A1[0x3];                                      // 0x04A1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   NameProperty;                                      // 0x04A4(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4AC[0x4];                                      // 0x04AC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 StringProperty;                                    // 0x04B0(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGUnitTestDummyEnum                         EnumProperty;                                      // 0x04C0(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                VectorProperty;                                    // 0x04C8(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector4                               Vector4Property;                                   // 0x04E0(0x0020)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FTransform                             TransformProperty;                                 // 0x0500(0x0060)(BlueprintVisible, BlueprintReadOnly, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FRotator                               RotatorProperty;                                   // 0x0560(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_578[0x8];                                      // 0x0578(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FQuat                                  QuatProperty;                                      // 0x0580(0x0020)(BlueprintVisible, BlueprintReadOnly, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FSoftObjectPath                        SoftObjectPathProperty;                            // 0x05A0(0x0020)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FSoftClassPath                         SoftClassPathProperty;                             // 0x05C0(0x0020)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class AActor>                     ClassProperty;                                     // 0x05E0(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPCGDummyGetPropertyTest*               ObjectProperty;                                    // 0x05E8(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	struct FVector2D                              Vector2Property;                                   // 0x05F0(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FColor                                 ColorProperty;                                     // 0x0600(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FLinearColor                           LinearColorProperty;                               // 0x0604(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_614[0x4];                                      // 0x0614(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGTestMyColorStruct                  PCGColorProperty;                                  // 0x0618(0x0020)(BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
-	TArray<int32>                                 ArrayOfIntsProperty;                               // 0x0638(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FVector>                        ArrayOfVectorsProperty;                            // 0x0648(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FPCGTestMyColorStruct>          ArrayOfStructsProperty;                            // 0x0658(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<class UPCGDummyGetPropertyTest*>       ArrayOfObjectsProperty;                            // 0x0668(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	struct FPCGDummyGetPropertyStruct             DummyStruct;                                       // 0x0678(0x0028)(BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
-	TArray<int32>                                 SetOfIntsProperty;                                 // 0x06A0(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
+	int32                                         IntProperty;                                       // 0x0490(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         FloatProperty;                                     // 0x0494(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int64                                         Int64Property;                                     // 0x0498(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        DoubleProperty;                                    // 0x04A0(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          BoolProperty;                                      // 0x04A8(0x0001)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4A9[0x3];                                      // 0x04A9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   NameProperty;                                      // 0x04AC(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4B4[0x4];                                      // 0x04B4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 StringProperty;                                    // 0x04B8(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGUnitTestDummyEnum                         EnumProperty;                                      // 0x04C8(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                VectorProperty;                                    // 0x04D0(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4E8[0x8];                                      // 0x04E8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector4                               Vector4Property;                                   // 0x04F0(0x0020)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FTransform                             TransformProperty;                                 // 0x0510(0x0060)(BlueprintVisible, BlueprintReadOnly, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FRotator                               RotatorProperty;                                   // 0x0570(0x0018)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_588[0x8];                                      // 0x0588(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FQuat                                  QuatProperty;                                      // 0x0590(0x0020)(BlueprintVisible, BlueprintReadOnly, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FSoftObjectPath                        SoftObjectPathProperty;                            // 0x05B0(0x0020)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FSoftClassPath                         SoftClassPathProperty;                             // 0x05D0(0x0020)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class AActor>                     ClassProperty;                                     // 0x05F0(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPCGDummyGetPropertyTest*               ObjectProperty;                                    // 0x05F8(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	struct FVector2D                              Vector2Property;                                   // 0x0600(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FColor                                 ColorProperty;                                     // 0x0610(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FLinearColor                           LinearColorProperty;                               // 0x0614(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_624[0x4];                                      // 0x0624(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGTestMyColorStruct                  PCGColorProperty;                                  // 0x0628(0x0020)(BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
+	TArray<int32>                                 ArrayOfIntsProperty;                               // 0x0648(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FVector>                        ArrayOfVectorsProperty;                            // 0x0658(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FPCGTestMyColorStruct>          ArrayOfStructsProperty;                            // 0x0668(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<class UPCGDummyGetPropertyTest*>       ArrayOfObjectsProperty;                            // 0x0678(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	struct FPCGDummyGetPropertyStruct             DummyStruct;                                       // 0x0688(0x0028)(BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
+	TArray<int32>                                 SetOfIntsProperty;                                 // 0x06B0(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -2857,13 +2858,13 @@ public:
 DUMPER7_ASSERTS_UPCGQualitySelectSettings;
 
 // Class PCG.PCGWorldActor
-// 0x0010 (0x0498 - 0x0488)
+// 0x0010 (0x04A0 - 0x0490)
 class APCGWorldActor final : public AActor
 {
 public:
-	uint32                                        PartitionGridSize;                                 // 0x0488(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_48C[0x4];                                      // 0x048C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UPCGLandscapeCache*                     LandscapeCacheObject;                              // 0x0490(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	uint32                                        PartitionGridSize;                                 // 0x0490(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_494[0x4];                                      // 0x0494(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UPCGLandscapeCache*                     LandscapeCacheObject;                              // 0x0498(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()
@@ -7496,19 +7497,19 @@ public:
 DUMPER7_ASSERTS_UPCGGridLinkageSettings;
 
 // Class PCG.PCGPartitionActor
-// 0x0110 (0x0598 - 0x0488)
+// 0x0110 (0x05A0 - 0x0490)
 class APCGPartitionActor final : public APartitionActor
 {
 public:
-	struct FGuid                                  PCGGuid;                                           // 0x0488(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_498[0x50];                                     // 0x0498(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
-	TMap<class UPCGComponent*, TSoftObjectPtr<class UPCGComponent>> LocalToOriginal;                 // 0x04E8(0x0050)(ExportObject, NonTransactional, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate)
-	TMap<class UPCGComponent*, TSoftObjectPtr<class UPCGComponent>> LoadedPreviewComponents;         // 0x0538(0x0050)(ExportObject, Transient, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate)
-	uint32                                        PCGGridSize;                                       // 0x0588(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bUse2DGrid;                                        // 0x058C(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_58D[0x3];                                      // 0x058D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	uint32                                        RuntimeGridDescriptorHash;                         // 0x0590(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_594[0x4];                                      // 0x0594(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FGuid                                  PCGGuid;                                           // 0x0490(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4A0[0x50];                                     // 0x04A0(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
+	TMap<class UPCGComponent*, TSoftObjectPtr<class UPCGComponent>> LocalToOriginal;                 // 0x04F0(0x0050)(ExportObject, NonTransactional, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate)
+	TMap<class UPCGComponent*, TSoftObjectPtr<class UPCGComponent>> LoadedPreviewComponents;         // 0x0540(0x0050)(ExportObject, Transient, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate)
+	uint32                                        PCGGridSize;                                       // 0x0590(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bUse2DGrid;                                        // 0x0594(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_595[0x3];                                      // 0x0595(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	uint32                                        RuntimeGridDescriptorHash;                         // 0x0598(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_59C[0x4];                                      // 0x059C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	class UPCGComponent* GetLocalComponent(const class UPCGComponent* OriginalComponent) const;
@@ -8049,11 +8050,11 @@ public:
 DUMPER7_ASSERTS_UPCGSubgraphNode;
 
 // Class PCG.PCGVolume
-// 0x0008 (0x04E0 - 0x04D8)
+// 0x0008 (0x04E8 - 0x04E0)
 class APCGVolume final : public AVolume
 {
 public:
-	class UPCGComponent*                          PCGComponent;                                      // 0x04D8(0x0008)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPCGComponent*                          PCGComponent;                                      // 0x04E0(0x0008)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()

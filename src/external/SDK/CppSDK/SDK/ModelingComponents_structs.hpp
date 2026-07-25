@@ -235,6 +235,20 @@ public:
 };
 DUMPER7_ASSERTS_FRenderableTriangleVertex;
 
+// ScriptStruct ModelingComponents.CreateActorParams
+// 0x0090 (0x0090 - 0x0000)
+struct FCreateActorParams final
+{
+public:
+	class UWorld*                                 TargetWorld;                                       // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class FString                                 BaseName;                                          // 0x0008(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_18[0x8];                                       // 0x0018(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FTransform                             Transform;                                         // 0x0020(0x0060)(Edit, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 TemplateActor;                                     // 0x0080(0x0008)(ZeroConstructor, Deprecated, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UObject*                                TemplateAsset;                                     // 0x0088(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FCreateActorParams;
+
 // ScriptStruct ModelingComponents.RenderableTriangle
 // 0x00E0 (0x00E0 - 0x0000)
 struct FRenderableTriangle final
@@ -246,17 +260,6 @@ public:
 	struct FRenderableTriangleVertex              Vertex2;                                           // 0x0098(0x0048)(NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FRenderableTriangle;
-
-// ScriptStruct ModelingComponents.CreateActorResult
-// 0x0010 (0x0010 - 0x0000)
-struct FCreateActorResult final
-{
-public:
-	ECreateModelingObjectResult                   ResultCode;                                        // 0x0000(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class AActor*                                 NewActor;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FCreateActorResult;
 
 // ScriptStruct ModelingComponents.CreateMeshObjectParams
 // 0x0670 (0x0670 - 0x0000)
@@ -353,19 +356,16 @@ public:
 };
 DUMPER7_ASSERTS_FCreateMaterialObjectResult;
 
-// ScriptStruct ModelingComponents.CreateActorParams
-// 0x0090 (0x0090 - 0x0000)
-struct FCreateActorParams final
+// ScriptStruct ModelingComponents.CreateActorResult
+// 0x0010 (0x0010 - 0x0000)
+struct FCreateActorResult final
 {
 public:
-	class UWorld*                                 TargetWorld;                                       // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class FString                                 BaseName;                                          // 0x0008(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_18[0x8];                                       // 0x0018(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FTransform                             Transform;                                         // 0x0020(0x0060)(Edit, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 TemplateActor;                                     // 0x0080(0x0008)(ZeroConstructor, Deprecated, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UObject*                                TemplateAsset;                                     // 0x0088(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	ECreateModelingObjectResult                   ResultCode;                                        // 0x0000(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class AActor*                                 NewActor;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 };
-DUMPER7_ASSERTS_FCreateActorParams;
+DUMPER7_ASSERTS_FCreateActorResult;
 
 // ScriptStruct ModelingComponents.MeshElementSelectionParams
 // 0x0048 (0x0048 - 0x0000)

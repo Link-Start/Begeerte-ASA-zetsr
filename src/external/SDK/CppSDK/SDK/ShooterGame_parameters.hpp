@@ -43683,7 +43683,7 @@ DUMPER7_ASSERTS_PrimalStructureMarket_DoesMyRequestOrderExistForClass;
 struct PrimalStructureMarket_DoesMySellOrderExist final
 {
 public:
-	struct FItemNetID                             ItemID;                                            // 0x0000(0x0008)(Parm, OutParm, NoDestructor, NativeAccessSpecifierPublic)
+	struct FItemNetID                             ItemID;                                            // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 	TSoftClassPtr<class UClass>                   TheItemClass;                                      // 0x0008(0x0028)(Parm, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bOnlyCheckClassIfMultiOrder;                       // 0x0030(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0031(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)

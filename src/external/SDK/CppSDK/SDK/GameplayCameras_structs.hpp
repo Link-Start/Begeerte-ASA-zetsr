@@ -199,16 +199,6 @@ public:
 };
 DUMPER7_ASSERTS_FCameraFramingZone;
 
-// ScriptStruct GameplayCameras.CameraNodeEvaluatorAllocationInfo
-// 0x0004 (0x0004 - 0x0000)
-struct FCameraNodeEvaluatorAllocationInfo final
-{
-public:
-	int16                                         TotalSizeof;                                       // 0x0000(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int16                                         MaxAlignof;                                        // 0x0002(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FCameraNodeEvaluatorAllocationInfo;
-
 // ScriptStruct GameplayCameras.BooleanCameraParameter
 // 0x0010 (0x0010 - 0x0000)
 struct FBooleanCameraParameter final
@@ -513,6 +503,23 @@ public:
 };
 DUMPER7_ASSERTS_FCameraRigParameterOverrides;
 
+// ScriptStruct GameplayCameras.CameraNodeEvaluatorAllocationInfo
+// 0x0004 (0x0004 - 0x0000)
+struct FCameraNodeEvaluatorAllocationInfo final
+{
+public:
+	int16                                         TotalSizeof;                                       // 0x0000(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int16                                         MaxAlignof;                                        // 0x0002(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FCameraNodeEvaluatorAllocationInfo;
+
+// ScriptStruct GameplayCameras.GameplayCamerasStateTreeCondition
+// 0x0000 (0x0028 - 0x0028)
+struct FGameplayCamerasStateTreeCondition final : public FStateTreeConditionBase
+{
+};
+DUMPER7_ASSERTS_FGameplayCamerasStateTreeCondition;
+
 // ScriptStruct GameplayCameras.CameraRigAssetReference
 // 0x00E8 (0x00E8 - 0x0000)
 struct FCameraRigAssetReference final
@@ -532,21 +539,15 @@ public:
 };
 DUMPER7_ASSERTS_FGameplayCamerasActivateCameraRigTaskInstanceData;
 
-// ScriptStruct GameplayCameras.BlueprintCameraDirectorActivateParams
-// 0x0008 (0x0008 - 0x0000)
-struct FBlueprintCameraDirectorActivateParams final
+// ScriptStruct GameplayCameras.CameraDirectorStateTreeEvaluationData
+// 0x0020 (0x0020 - 0x0000)
+struct FCameraDirectorStateTreeEvaluationData final
 {
 public:
-	class UObject*                                EvaluationContextOwner;                            // 0x0000(0x0008)(BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TArray<class UCameraRigAsset*>                ActiveCameraRigs;                                  // 0x0000(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TArray<class UCameraRigProxyAsset*>           ActiveCameraRigProxies;                            // 0x0010(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 };
-DUMPER7_ASSERTS_FBlueprintCameraDirectorActivateParams;
-
-// ScriptStruct GameplayCameras.GameplayCamerasStateTreeTask
-// 0x0000 (0x0028 - 0x0028)
-struct FGameplayCamerasStateTreeTask : public FStateTreeTaskBase
-{
-};
-DUMPER7_ASSERTS_FGameplayCamerasStateTreeTask;
+DUMPER7_ASSERTS_FCameraDirectorStateTreeEvaluationData;
 
 // ScriptStruct GameplayCameras.CameraRigInputSlotParameters
 // 0x0002 (0x0002 - 0x0000)
@@ -800,6 +801,22 @@ public:
 };
 DUMPER7_ASSERTS_FCameraRigInterface;
 
+// ScriptStruct GameplayCameras.BlueprintCameraDirectorActivateParams
+// 0x0008 (0x0008 - 0x0000)
+struct FBlueprintCameraDirectorActivateParams final
+{
+public:
+	class UObject*                                EvaluationContextOwner;                            // 0x0000(0x0008)(BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FBlueprintCameraDirectorActivateParams;
+
+// ScriptStruct GameplayCameras.GameplayCamerasStateTreeTask
+// 0x0000 (0x0028 - 0x0028)
+struct FGameplayCamerasStateTreeTask : public FStateTreeTaskBase
+{
+};
+DUMPER7_ASSERTS_FGameplayCamerasStateTreeTask;
+
 // ScriptStruct GameplayCameras.BlueprintCameraDirectorDeactivateParams
 // 0x0008 (0x0008 - 0x0000)
 struct FBlueprintCameraDirectorDeactivateParams final
@@ -808,13 +825,6 @@ public:
 	class UObject*                                EvaluationContextOwner;                            // 0x0000(0x0008)(BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 };
 DUMPER7_ASSERTS_FBlueprintCameraDirectorDeactivateParams;
-
-// ScriptStruct GameplayCameras.GameplayCamerasStateTreeCondition
-// 0x0000 (0x0028 - 0x0028)
-struct FGameplayCamerasStateTreeCondition final : public FStateTreeConditionBase
-{
-};
-DUMPER7_ASSERTS_FGameplayCamerasStateTreeCondition;
 
 // ScriptStruct GameplayCameras.BlueprintCameraDirectorEvaluationParams
 // 0x0010 (0x0010 - 0x0000)
@@ -826,16 +836,6 @@ public:
 	class UObject*                                EvaluationContextOwner;                            // 0x0008(0x0008)(BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 };
 DUMPER7_ASSERTS_FBlueprintCameraDirectorEvaluationParams;
-
-// ScriptStruct GameplayCameras.CameraDirectorStateTreeEvaluationData
-// 0x0020 (0x0020 - 0x0000)
-struct FCameraDirectorStateTreeEvaluationData final
-{
-public:
-	TArray<class UCameraRigAsset*>                ActiveCameraRigs;                                  // 0x0000(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TArray<class UCameraRigProxyAsset*>           ActiveCameraRigProxies;                            // 0x0010(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FCameraDirectorStateTreeEvaluationData;
 
 // ScriptStruct GameplayCameras.GameplayCamerasActivateCameraRigTask
 // 0x0008 (0x0030 - 0x0028)

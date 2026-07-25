@@ -52,11 +52,11 @@ public:
 DUMPER7_ASSERTS_UGeometryCache;
 
 // Class GeometryCache.GeometryCacheActor
-// 0x0008 (0x0490 - 0x0488)
+// 0x0008 (0x0498 - 0x0490)
 class AGeometryCacheActor final : public AActor
 {
 public:
-	class UGeometryCacheComponent*                GeometryCacheComponent;                            // 0x0488(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class UGeometryCacheComponent*                GeometryCacheComponent;                            // 0x0490(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
 
 public:
 	class UGeometryCacheComponent* GetGeometryCacheComponent() const;

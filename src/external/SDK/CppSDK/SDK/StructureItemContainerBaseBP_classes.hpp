@@ -16,11 +16,11 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass StructureItemContainerBaseBP.StructureItemContainerBaseBP_C
-// 0x0008 (0x1348 - 0x1340)
+// 0x0008 (0x1350 - 0x1348)
 class AStructureItemContainerBaseBP_C : public APrimalStructureItemContainer
 {
 public:
-	class USphereComponent*                       StasisComponent;                                   // 0x1340(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class USphereComponent*                       StasisComponent;                                   // 0x1348(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void BPOnTransferAll(class UPrimalInventoryComponent* ToInventory);

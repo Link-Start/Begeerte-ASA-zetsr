@@ -18,18 +18,18 @@
 SDK_NAMESPACE_START
 
 // Class ZoneGraph.ZoneGraphData
-// 0x0130 (0x05B8 - 0x0488)
+// 0x0130 (0x05C0 - 0x0490)
 class AZoneGraphData final : public AActor
 {
 public:
-	uint8                                         Pad_488[0x1];                                      // 0x0488(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bEnableDrawing;                                    // 0x0489(0x0001)(Edit, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_48A[0x6];                                      // 0x048A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class UZoneGraphRenderingComponent*           RenderingComp;                                     // 0x0490(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, DuplicateTransient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	struct FZoneGraphStorage                      ZoneStorage;                                       // 0x0498(0x00F0)(Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_588[0x28];                                     // 0x0588(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
-	uint32                                        CombinedShapeHash;                                 // 0x05B0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_5B4[0x4];                                      // 0x05B4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_490[0x1];                                      // 0x0490(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bEnableDrawing;                                    // 0x0491(0x0001)(Edit, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_492[0x6];                                      // 0x0492(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	class UZoneGraphRenderingComponent*           RenderingComp;                                     // 0x0498(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, DuplicateTransient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	struct FZoneGraphStorage                      ZoneStorage;                                       // 0x04A0(0x00F0)(Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_590[0x28];                                     // 0x0590(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
+	uint32                                        CombinedShapeHash;                                 // 0x05B8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_5BC[0x4];                                      // 0x05BC(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -125,11 +125,11 @@ public:
 DUMPER7_ASSERTS_UZoneGraphSubsystem;
 
 // Class ZoneGraph.ZoneShape
-// 0x0008 (0x0490 - 0x0488)
+// 0x0008 (0x0498 - 0x0490)
 class AZoneShape final : public AActor
 {
 public:
-	class UZoneShapeComponent*                    ShapeComponent;                                    // 0x0488(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UZoneShapeComponent*                    ShapeComponent;                                    // 0x0490(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()

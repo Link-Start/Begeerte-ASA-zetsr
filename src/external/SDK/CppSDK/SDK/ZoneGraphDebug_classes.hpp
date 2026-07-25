@@ -88,11 +88,11 @@ public:
 DUMPER7_ASSERTS_UZoneGraphTestingComponent;
 
 // Class ZoneGraphDebug.ZoneGraphTestingActor
-// 0x0008 (0x0490 - 0x0488)
+// 0x0008 (0x0498 - 0x0490)
 class AZoneGraphTestingActor final : public AActor
 {
 public:
-	class UZoneGraphTestingComponent*             DebugComp;                                         // 0x0488(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UZoneGraphTestingComponent*             DebugComp;                                         // 0x0490(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	void DisableCustomTests();

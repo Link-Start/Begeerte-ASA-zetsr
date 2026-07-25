@@ -55,11 +55,11 @@ public:
 DUMPER7_ASSERTS_USparseVolumeTextureViewerComponent;
 
 // Class Renderer.SparseVolumeTextureViewer
-// 0x0008 (0x0490 - 0x0488)
+// 0x0008 (0x0498 - 0x0490)
 class ASparseVolumeTextureViewer final : public AInfo
 {
 public:
-	class USparseVolumeTextureViewerComponent*    SparseVolumeTextureViewerComponent;                // 0x0488(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class USparseVolumeTextureViewerComponent*    SparseVolumeTextureViewerComponent;                // 0x0490(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()

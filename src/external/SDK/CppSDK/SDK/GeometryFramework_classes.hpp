@@ -238,14 +238,14 @@ public:
 DUMPER7_ASSERTS_UDynamicMeshComponent;
 
 // Class GeometryFramework.DynamicMeshActor
-// 0x0018 (0x04A0 - 0x0488)
+// 0x0018 (0x04A8 - 0x0490)
 class ADynamicMeshActor final : public AActor
 {
 public:
-	class UDynamicMeshComponent*                  DynamicMeshComponent;                              // 0x0488(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	bool                                          bEnableComputeMeshPool;                            // 0x0490(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_491[0x7];                                      // 0x0491(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UDynamicMeshPool*                       DynamicMeshPool;                                   // 0x0498(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UDynamicMeshComponent*                  DynamicMeshComponent;                              // 0x0490(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	bool                                          bEnableComputeMeshPool;                            // 0x0498(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_499[0x7];                                      // 0x0499(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UDynamicMeshPool*                       DynamicMeshPool;                                   // 0x04A0(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	class UDynamicMesh* AllocateComputeMesh();

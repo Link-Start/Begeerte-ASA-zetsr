@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass RagdollKinematicActor_BP.RagdollKinematicActor_BP_C
-// 0x0000 (0x0498 - 0x0498)
+// 0x0000 (0x04A0 - 0x04A0)
 class ARagdollKinematicActor_BP_C final : public AStaticMeshActor
 {
 public:

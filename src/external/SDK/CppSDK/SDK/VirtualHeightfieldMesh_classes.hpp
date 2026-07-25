@@ -74,11 +74,11 @@ public:
 DUMPER7_ASSERTS_UMaterialExpressionHeightfieldMinMaxTexture;
 
 // Class VirtualHeightfieldMesh.VirtualHeightfieldMesh
-// 0x0008 (0x0490 - 0x0488)
+// 0x0008 (0x0498 - 0x0490)
 class AVirtualHeightfieldMesh final : public AActor
 {
 public:
-	class UVirtualHeightfieldMeshComponent*       VirtualHeightfieldMeshComponent;                   // 0x0488(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class UVirtualHeightfieldMeshComponent*       VirtualHeightfieldMeshComponent;                   // 0x0490(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()

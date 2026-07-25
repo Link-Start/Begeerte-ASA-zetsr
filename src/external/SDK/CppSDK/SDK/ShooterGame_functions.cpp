@@ -123083,12 +123083,12 @@ bool APrimalStructureMarket::DoesMyRequestOrderExistForClass(TSoftClassPtr<class
 // Function ShooterGame.PrimalStructureMarket.DoesMySellOrderExist
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// struct FItemNetID*                      ItemID                                                 (Parm, OutParm, NoDestructor, NativeAccessSpecifierPublic)
+// const struct FItemNetID&                ItemID                                                 (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 // TSoftClassPtr<class UClass>             TheItemClass                                           (Parm, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bOnlyCheckClassIfMultiOrder                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool APrimalStructureMarket::DoesMySellOrderExist(struct FItemNetID* ItemID, TSoftClassPtr<class UClass> TheItemClass, bool bOnlyCheckClassIfMultiOrder)
+bool APrimalStructureMarket::DoesMySellOrderExist(const struct FItemNetID& ItemID, TSoftClassPtr<class UClass> TheItemClass, bool bOnlyCheckClassIfMultiOrder)
 {
 	static class UFunction* Func = nullptr;
 
@@ -123097,6 +123097,7 @@ bool APrimalStructureMarket::DoesMySellOrderExist(struct FItemNetID* ItemID, TSo
 
 	Params::PrimalStructureMarket_DoesMySellOrderExist Parms{};
 
+	Parms.ItemID = std::move(ItemID);
 	Parms.TheItemClass = TheItemClass;
 	Parms.bOnlyCheckClassIfMultiOrder = bOnlyCheckClassIfMultiOrder;
 
@@ -123106,9 +123107,6 @@ bool APrimalStructureMarket::DoesMySellOrderExist(struct FItemNetID* ItemID, TSo
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-
-	if (ItemID != nullptr)
-		*ItemID = std::move(Parms.ItemID);
 
 	return Parms.ReturnValue;
 }
