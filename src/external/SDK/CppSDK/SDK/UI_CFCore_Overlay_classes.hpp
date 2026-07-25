@@ -12,8 +12,8 @@
 
 #include "Engine_structs.hpp"
 #include "UMG_structs.hpp"
-#include "CoreUObject_structs.hpp"
 #include "ENUM_CFCore_OverlayProfiles_structs.hpp"
+#include "CoreUObject_structs.hpp"
 #include "CFCoreWidget_classes.hpp"
 
 
@@ -43,10 +43,10 @@ public:
 	struct FLinearColor                           ForcedColor;                                       // 0x08EC(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
 
 public:
-	void PreConstruct(bool IsDesignTime);
-	void PlayHover(EUMGSequencePlayMode PlayMode, double PlaybackSpeed);
-	void ExecuteUbergraph_UI_CFCore_Overlay(int32 EntryPoint);
 	void Construct();
+	void ExecuteUbergraph_UI_CFCore_Overlay(int32 EntryPoint);
+	void PlayHover(EUMGSequencePlayMode PlayMode, double PlaybackSpeed);
+	void PreConstruct(bool IsDesignTime);
 
 public:
 	static class UClass* StaticClass()

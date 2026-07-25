@@ -11,8 +11,8 @@
 #include "Basic.hpp"
 
 #include "Engine_structs.hpp"
-#include "ENUM_CFCore_InputDevices_structs.hpp"
 #include "ShooterGame_classes.hpp"
+#include "ENUM_CFCore_InputDevices_structs.hpp"
 #include "UMG_structs.hpp"
 
 

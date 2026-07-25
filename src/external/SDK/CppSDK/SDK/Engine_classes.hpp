@@ -14712,7 +14712,7 @@ public:
 		return GetDefaultObjImpl<UWorldPartitionRuntimeCellData>();
 	}
 };
-// DUMPER7_ASSERTS_UWorldPartitionRuntimeCellData;
+DUMPER7_ASSERTS_UWorldPartitionRuntimeCellData;
 
 // Class Engine.SoundMix
 // 0x0068 (0x0090 - 0x0028)
