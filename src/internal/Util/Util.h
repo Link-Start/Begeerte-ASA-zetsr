@@ -383,4 +383,29 @@ namespace g_Util {
         // 如果没有被上述特定分类命中，默认允许绘制（例如武器、装备等普通物品）
         return true;
     }
+
+    inline void* FindUFunction(std::string FuncName) {
+        SDK::TUObjectArray* ObjectArray = SDK::UObject::GObjects.operator->();
+        void* targetNativeFuncAddress = nullptr;
+
+        if (ObjectArray) {
+            SDK::int32 TotalObjects = ObjectArray->Num();
+            for (SDK::int32 i = 0; i < TotalObjects; ++i) {
+                SDK::UObject* Obj = ObjectArray->GetByIndex(i);
+                if (!Obj) continue;
+
+                std::string FullName = Obj->GetFullName();
+                if (FullName.contains(FuncName)) {
+                    if (Obj->IsA(SDK::UFunction::StaticClass())) {
+                        SDK::UFunction* FuncObj = static_cast<SDK::UFunction*>(Obj);
+                        targetNativeFuncAddress = reinterpret_cast<void*>(FuncObj->ExecFunction);
+                        break;
+                    }
+                }
+            }
+        }
+
+
+        return targetNativeFuncAddress;
+    }
 }

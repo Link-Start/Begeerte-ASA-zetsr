@@ -37,6 +37,8 @@ namespace g_DrawImGui {
 		const char* armorRange = LanguageManager::Misc_Menu::ArmorRange;
 		const char* automaticChecked = LanguageManager::Misc_Menu::AutomaticChecked;
 		const char* outBodyChecked = LanguageManager::Misc_Menu::OutBodyChecked;
+		const char* FastReconnectedChecked = LanguageManager::Misc_Menu::FastReconnected;
+		const char* FastRespawnedChecked = LanguageManager::Misc_Menu::FastRespawned;
 
 		if (ImGui::BeginTabItem(tabLabel)) {
 			ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
@@ -101,6 +103,18 @@ namespace g_DrawImGui {
 			ImGui::BeginDisabled(!g_Hook::TakeDamageOK);
 			{
 				DrawColorPickerRow(chkLogDamage, &g_Config::bLogDamage, "LogDamageCol", g_Config::LogDamageColor);
+			}
+			ImGui::EndDisabled();
+
+			ImGui::BeginDisabled(!g_Hook::ClientNotifyReconnectedOK);
+			{
+				DrawCustomCheckbox(FastReconnectedChecked, &g_Config::bFastReconnected);
+			}
+			ImGui::EndDisabled();
+
+			ImGui::BeginDisabled(!g_Hook::ClientNotifyRespawnedOK);
+			{
+				DrawCustomCheckbox(FastRespawnedChecked, &g_Config::bFastRespawned);
 			}
 			ImGui::EndDisabled();
 

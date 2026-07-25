@@ -94,6 +94,8 @@ const char* LanguageManager::Misc_Menu::LogDamage = U8("伤害日志");
 const char* LanguageManager::Misc_Menu::ArmorRange = U8("换甲阈值");
 const char* LanguageManager::Misc_Menu::AutomaticChecked = U8("自动换甲");
 const char* LanguageManager::Misc_Menu::OutBodyChecked = U8("灵魂出窍");
+const char* LanguageManager::Misc_Menu::FastReconnected = U8("跳过进服动画");
+const char* LanguageManager::Misc_Menu::FastRespawned = U8("跳过重生动画");
 
 // -- StructureList_Menu --
 const char* LanguageManager::StructureList_Menu::TabLabel = U8("建筑列表");
@@ -269,6 +271,8 @@ void LanguageManager::RegisterDefaults(std::unordered_map<std::string, std::stri
     d["Misc_Menu.ArmorRange"] = U8("换甲阈值");
     d["Misc_Menu.AutomaticChecked"] = U8("自动换甲");
     d["Misc_Menu.OutBodyChecked"] = U8("灵魂出窍");
+    d["Misc_Menu.FastReconnected"] = U8("跳过进服动画");
+    d["Misc_Menu.FastRespawned"] = U8("跳过重生动画");
 
     // StructureList_Menu
     d["StructureList_Menu.TabLabel"] = U8("建筑列表");
@@ -448,6 +452,8 @@ void LanguageManager::ApplyToStaticMembers() {
     apply("Misc_Menu.ArmorRange", Misc_Menu::ArmorRange);
     apply("Misc_Menu.AutomaticChecked", Misc_Menu::AutomaticChecked);
     apply("Misc_Menu.OutBodyChecked", Misc_Menu::OutBodyChecked);
+    apply("Misc_Menu.FastReconnected", Misc_Menu::FastReconnected);
+    apply("Misc_Menu.FastRespawned", Misc_Menu::FastRespawned);
 
     // StructureList_Menu
     apply("StructureList_Menu.TabLabel", StructureList_Menu::TabLabel);

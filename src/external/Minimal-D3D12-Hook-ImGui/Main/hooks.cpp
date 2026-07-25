@@ -49,6 +49,12 @@ namespace g_Hook {
 
     tTakeDamage oTakeDamage = nullptr;
 
+    typedef void(__fastcall* tClientNotifyReconnected)(SDK::APrimalPlayerController* rcx, SDK::APawn* NewPawn);
+    tClientNotifyReconnected oClientNotifyReconnected = nullptr;
+
+    typedef void(__fastcall* tClientNotifyRespawned)(SDK::APrimalPlayerController* rcx, SDK::APawn* NewPawn, bool IsFirstSpawn);
+    tClientNotifyRespawned oClientNotifyRespawned = nullptr;
+
     void* __fastcall hkUWorldTick(SDK::UWorld* rcx, void* rdx, void* r8, void* r9) {
         g_MDX12::SetupUWorldTick(rcx);
 
@@ -107,6 +113,22 @@ namespace g_Hook {
         g_MDX12::SetupTakeDamage(_this, DamageAmount, DamageEvent, Instigator, DamageCauser);
 
         return oTakeDamage(_this, DamageAmount, DamageEvent, Instigator, DamageCauser);
+    }
+
+    void __fastcall hkClientNotifyReconnected(SDK::APrimalPlayerController* rcx, SDK::APawn* NewPawn) {
+        if (g_Config::bFastReconnected) {
+            return;
+        }
+   
+        return oClientNotifyReconnected(rcx, NewPawn);
+    }
+
+    void __fastcall hkClientNotifyRespawned(SDK::APrimalPlayerController* rcx, SDK::APawn* NewPawn, bool IsFirstSpawn) {
+        if (g_Config::bFastRespawned) {
+            return;
+        }
+
+        return oClientNotifyRespawned(rcx, NewPawn, IsFirstSpawn);
     }
 
     // 2026/3/29 @zetsr
@@ -214,6 +236,58 @@ namespace g_Hook {
             }
         }
     }
+
+    void initClientNotifyReconnected() {
+        std::string pattern = g_CheatData::Signature::APrimalPlayerController::ClientNotifyReconnected;
+        AOB::Result ok = AOB::Scan(pattern);
+
+        if (ok && ok.size() == 1) {
+            void* targetAddr = ok[0];
+
+            if (MH_CreateHook(targetAddr, &hkClientNotifyReconnected, reinterpret_cast<LPVOID*>(&oClientNotifyReconnected)) == MH_OK) {
+                MH_EnableHook(targetAddr);
+                ClientNotifyReconnectedOK = true;
+            }
+        }
+
+        // 另一种方法
+        /*
+        void* targetAddr = g_Util::FindUFunction("ClientNotifyReconnected");
+
+        if (targetAddr) {
+            if (MH_CreateHook(targetAddr, &hkClientNotifyReconnected, reinterpret_cast<LPVOID*>(&oClientNotifyReconnected)) == MH_OK) {
+                MH_EnableHook(targetAddr);
+                ClientNotifyReconnectedOK = true;
+            }
+        }
+        */
+    }
+
+    void initClientNotifyRespawned() {
+        std::string pattern = g_CheatData::Signature::APrimalPlayerController::ClientNotifyRespawned;
+        AOB::Result ok = AOB::Scan(pattern);
+
+        if (ok && ok.size() == 1) {
+            void* targetAddr = ok[0];
+
+            if (MH_CreateHook(targetAddr, &hkClientNotifyRespawned, reinterpret_cast<LPVOID*>(&oClientNotifyRespawned)) == MH_OK) {
+                MH_EnableHook(targetAddr);
+                ClientNotifyRespawnedOK = true;
+            }
+        }
+
+        // 另一种方法
+        /*
+        void* targetAddr = g_Util::FindUFunction("ClientNotifyRespawned");
+
+        if (targetAddr) {
+            if (MH_CreateHook(targetAddr, &hkClientNotifyRespawned, reinterpret_cast<LPVOID*>(&oClientNotifyRespawned)) == MH_OK) {
+                MH_EnableHook(targetAddr);
+                ClientNotifyRespawnedOK = true;
+            }
+        }
+        */
+    }
 }
 
 // 应该不需要每个都单独检查一次
@@ -233,6 +307,8 @@ void g_Hook::StartAllHooks() {
         g_Hook::initPostRender();
         g_Hook::initPhysicsRotation();
         g_Hook::initTakeDamage();
+        g_Hook::initClientNotifyReconnected();
+        g_Hook::initClientNotifyRespawned();
     }
 }
 

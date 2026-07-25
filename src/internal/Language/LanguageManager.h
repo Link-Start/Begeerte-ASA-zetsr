@@ -132,6 +132,8 @@ public:
         static const char* ArmorRange;
         static const char* AutomaticChecked;
         static const char* OutBodyChecked;
+        static const char* FastReconnected;
+        static const char* FastRespawned;
     };
 
     struct StructureList_Menu {
