@@ -72,7 +72,7 @@ namespace g_CheatData {
 
 			// 8B C2 35 DE C5 F3 59 44 8B C0 69 C0 B1 79 37 9E 41 C1 E8 0D 44 33 C0 41 69 C0 6B CA EB 85
 			// mov eax, edx | xor eax, imm32 | mov r8d, eax | imul eax, eax, imm32 | shr r8d, imm8 | xor r8d, eax | imul r8d, r8d, imm32
-			std::string PostRender = "8B C2 35 ?? ?? ?? ?? 44";
+			std::string PostRender = "8B C2 35 ? ? ? ? 44 69";
 		}
 
 		namespace UConsole {
