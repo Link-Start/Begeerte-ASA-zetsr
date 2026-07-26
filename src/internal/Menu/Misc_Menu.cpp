@@ -118,6 +118,14 @@ namespace g_DrawImGui {
 			}
 			ImGui::EndDisabled();
 
+			/*
+			ImGui::BeginDisabled(!g_Hook::ClientChatMessageOK);
+			{
+				DrawCustomCheckbox("bBlockedChat", &g_Config::bBlockedChat);
+			}
+			ImGui::EndDisabled();
+			 */
+
 			DrawAnimatedSeparator();
 			ImGui::BeginDisabled(!g_Hook::UWorldTickOK);
 			{

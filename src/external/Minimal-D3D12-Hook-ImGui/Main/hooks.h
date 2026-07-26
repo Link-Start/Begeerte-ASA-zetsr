@@ -19,4 +19,6 @@ namespace g_Hook {
 
 	inline bool ClientNotifyReconnectedOK = false;
 	inline bool ClientNotifyRespawnedOK = false;
+
+	inline bool ClientChatMessageOK = false;
 }

@@ -10,6 +10,10 @@ namespace g_CheatData {
 	}
 
 	namespace Signature {
+		namespace AShooterPlayerController {
+			std::string ClientChatMessage = "48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 55 48 8D 6C 24 ? 48 81 EC ? ? ? ? 80 65 ? ? 33 DB 0F";
+     	}
+
 		namespace APrimalPlayerController {
 			
 			// 他妈的特别特别特别长的特征码

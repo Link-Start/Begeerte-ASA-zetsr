@@ -55,6 +55,9 @@ namespace g_Hook {
     typedef void(__fastcall* tClientNotifyRespawned)(SDK::APrimalPlayerController* rcx, SDK::APawn* NewPawn, bool IsFirstSpawn);
     tClientNotifyRespawned oClientNotifyRespawned = nullptr;
 
+    typedef void(__fastcall* tClientChatMessage)(SDK::AShooterPlayerController* rcx, SDK::FPrimalChatMessage& Chat);
+    tClientChatMessage oClientChatMessage = nullptr;
+
     void* __fastcall hkUWorldTick(SDK::UWorld* rcx, void* rdx, void* r8, void* r9) {
         g_MDX12::SetupUWorldTick(rcx);
 
@@ -129,6 +132,17 @@ namespace g_Hook {
         }
 
         return oClientNotifyRespawned(rcx, NewPawn, IsFirstSpawn);
+    }
+
+    void __fastcall hkClientChatMessage(SDK::AShooterPlayerController* rcx, SDK::FPrimalChatMessage& Chat) {
+        // g_LogManager::AddLog(255, 255, 255, 255, "hkClientChatMessage");
+
+        if (g_Config::bBlockedChat) {
+            // g_LogManager::AddLog(255, 255, 255, 255, "bBlockedChat");
+            return; // 可以阻止客户端绘制聊天消息，无法阻止服务器RPC
+        }
+
+        oClientChatMessage(rcx, Chat);
     }
 
     // 2026/3/29 @zetsr
@@ -288,6 +302,20 @@ namespace g_Hook {
         }
         */
     }
+
+    void initClientChatMessage() {
+        std::string pattern = g_CheatData::Signature::AShooterPlayerController::ClientChatMessage;
+        AOB::Result ok = AOB::Scan(pattern);
+
+        if (ok && ok.size() == 1) {
+            void* targetAddr = ok[0];
+
+            if (MH_CreateHook(targetAddr, &hkClientChatMessage, reinterpret_cast<LPVOID*>(&oClientChatMessage)) == MH_OK) {
+                MH_EnableHook(targetAddr);
+                ClientChatMessageOK = true;
+            }
+        }
+    }
 }
 
 // 应该不需要每个都单独检查一次
@@ -309,6 +337,7 @@ void g_Hook::StartAllHooks() {
         g_Hook::initTakeDamage();
         g_Hook::initClientNotifyReconnected();
         g_Hook::initClientNotifyRespawned();
+        g_Hook::initClientChatMessage();
     }
 }
 
