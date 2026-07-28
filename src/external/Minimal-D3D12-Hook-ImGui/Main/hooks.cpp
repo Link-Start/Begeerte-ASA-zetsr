@@ -24,16 +24,16 @@
 #pragma warning(pop)
 
 namespace g_Hook {
-    typedef void* (__fastcall* tWorldFunction)(SDK::UWorld* rcx, void* rdx, void* r8, void* r9);
+    typedef void (__fastcall* tWorldFunction)(SDK::UWorld* rcx, void* rdx);
     tWorldFunction oWorldTick = nullptr;
 
-    typedef void* (__fastcall* tHandleDisconnectFunction)(SDK::UNetConnection* rcx, void* rdx, void* r8, void* r9);
+    typedef void (__fastcall* tHandleDisconnectFunction)(SDK::UNetConnection* rcx, void* rdx);
     tHandleDisconnectFunction oHandleDisconnect = nullptr;
 
     typedef void(__fastcall* tOutputTextLine)(SDK::UConsole* Console, SDK::FString* Message, void* r8, void* r9);
     tOutputTextLine oOutputTextLine = nullptr;
 
-    typedef void(__fastcall* tPostRender)(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas, void* r8, void* r9);
+    typedef void(__fastcall* tPostRender)(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas);
     tPostRender oPostRender = nullptr;
 
     typedef void(__fastcall* tPhysicsRotation)(SDK::UMovementComponent* rcx, float DeltaTime);
@@ -58,16 +58,16 @@ namespace g_Hook {
     typedef void(__fastcall* tClientChatMessage)(SDK::AShooterPlayerController* rcx, SDK::FPrimalChatMessage& Chat);
     tClientChatMessage oClientChatMessage = nullptr;
 
-    void* __fastcall hkUWorldTick(SDK::UWorld* rcx, void* rdx, void* r8, void* r9) {
+    void __fastcall hkUWorldTick(SDK::UWorld* rcx, void* rdx) {
         g_MDX12::SetupUWorldTick(rcx);
 
-        return oWorldTick(rcx, rdx, r8, r9);
+        return oWorldTick(rcx, rdx);
     }
 
-    void* __fastcall hkHandleDisconnect(SDK::UNetConnection* rcx, void* rdx, void* r8, void* r9) {
+    void __fastcall hkHandleDisconnect(SDK::UNetConnection* rcx, void* rdx) {
         g_MDX12::SetupHandleDisconnect(rcx);
 
-        return oHandleDisconnect(rcx, rdx, r8, r9);
+        return oHandleDisconnect(rcx, rdx);
     }
 
     void __fastcall hkOutputTextLine(SDK::UConsole* rcx, SDK::FString* Message, void* r8, void* r9) {
@@ -87,10 +87,10 @@ namespace g_Hook {
         */
     }
 
-    void __fastcall hkPostRender(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas, void* r8, void* r9) {
+    void __fastcall hkPostRender(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas) {
         g_MDX12::SetupPostRender(rcx, canvas);
 
-        return oPostRender(rcx, canvas, r8, r9);
+        return oPostRender(rcx, canvas);
 
         /*
         if (rcx && canvas) {
