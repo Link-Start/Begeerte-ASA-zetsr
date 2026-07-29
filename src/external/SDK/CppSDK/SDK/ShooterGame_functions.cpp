@@ -42121,6 +42121,26 @@ void APrimalDinoCharacter::BPPreServerUploadDino(class AShooterPlayerController*
 }
 
 
+// Function ShooterGame.PrimalDinoCharacter.BPPreventActiveMating
+// (Event, Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool APrimalDinoCharacter::BPPreventActiveMating()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalDinoCharacter", "BPPreventActiveMating");
+
+	Params::PrimalDinoCharacter_BPPreventActiveMating Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	return Parms.ReturnValue;
+}
+
+
 // Function ShooterGame.PrimalDinoCharacter.BPPreventClearMountCapsuleResizing
 // (Event, Public, BlueprintEvent)
 // Parameters:
@@ -45032,6 +45052,31 @@ bool APrimalDinoCharacter::GetCurrentAttackInfo(int32* AttackIndex, struct FDino
 
 	if (AttackInfo != nullptr)
 		*AttackInfo = std::move(Parms.AttackInfo);
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.PrimalDinoCharacter.GetCurrentMaxRepairHealthPercentage
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float APrimalDinoCharacter::GetCurrentMaxRepairHealthPercentage()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalDinoCharacter", "GetCurrentMaxRepairHealthPercentage");
+
+	Params::PrimalDinoCharacter_GetCurrentMaxRepairHealthPercentage Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
 }
@@ -250084,9 +250129,10 @@ bool UVictoryCore::StaticCheckForCommand(const class FString& CommandName)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector&                   WorldLocation                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   MapIndex                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FVector2D UVictoryCore::StaticGetMinimapLocation(class UObject* WorldContextObject, const struct FVector& WorldLocation)
+struct FVector2D UVictoryCore::StaticGetMinimapLocation(class UObject* WorldContextObject, const struct FVector& WorldLocation, int32 MapIndex)
 {
 	static class UFunction* Func = nullptr;
 
@@ -250097,6 +250143,7 @@ struct FVector2D UVictoryCore::StaticGetMinimapLocation(class UObject* WorldCont
 
 	Parms.WorldContextObject = WorldContextObject;
 	Parms.WorldLocation = std::move(WorldLocation);
+	Parms.MapIndex = MapIndex;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

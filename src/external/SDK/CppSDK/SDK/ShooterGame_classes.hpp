@@ -5384,6 +5384,7 @@ public:
 	bool BPOverrideTargetedDinoEntryColor(struct FLinearColor* DinoEntryColor);
 	void BPPrepareForLaunchFromShoulder(const struct FVector& viewLoc, const struct FVector& ViewDir);
 	void BPPreServerUploadDino(class AShooterPlayerController* UploadedBy);
+	bool BPPreventActiveMating();
 	bool BPPreventClearMountCapsuleResizing();
 	bool BPPreventDinoRespec(int32 RespecType);
 	bool BPPreventOrderAllowed(class APrimalCharacter* FromCharacter, EDinoTamedOrder OrderType, bool bForce, class AActor* enemyTarget, bool orderNotExecuted);
@@ -5498,6 +5499,7 @@ public:
 	TArray<class FName> GetColorSetNamesAsArray();
 	int32 GetCurrentAttackIndexForInput(EDinoInputAction Input);
 	bool GetCurrentAttackInfo(int32* AttackIndex, struct FDinoAttackInfo* AttackInfo);
+	float GetCurrentMaxRepairHealthPercentage();
 	class FName GetDesiredNavmeshGenerationRadiusName();
 	struct FLinearColor GetDinoColor(int32 ColorRegionIndex);
 	void GetDinoData(struct FARKDinoData* OutDinoData);
@@ -42432,7 +42434,7 @@ public:
 	static void StartCompanionEventForPlayer(class APrimalCharacter* Player, struct FCompanionEventData& EventData, class AActor* EventActor);
 	static void StaticApplyBabyBoneModifiersToMesh(class USkeletalMeshComponent* ToMeshComp, const struct FDinoBabySetup& DinoBabySetup, float BabyAge, bool bForceOnDedicated);
 	static bool StaticCheckForCommand(const class FString& CommandName);
-	static struct FVector2D StaticGetMinimapLocation(class UObject* WorldContextObject, const struct FVector& WorldLocation);
+	static struct FVector2D StaticGetMinimapLocation(class UObject* WorldContextObject, const struct FVector& WorldLocation, int32 MapIndex);
 	static float StaticGetTimeSince(class UObject* WorldContextObject, double Time);
 	static bool StaticIsLocationWithinMap(class UObject* WorldContextObject, const struct FVector& WorldLocation);
 	static void StaticPlaySoundAtLocation(const class UObject* WorldContextObject, class USoundBase* Sound, const struct FVector& Location, const struct FRotator& Rotation, float VolumeMultiplier, float PitchMultiplier, float StartTime, class USoundAttenuation* AttenuationSettings, class USoundConcurrency* ConcurrencySettings, const class AActor* OwningActor, const class UInitialActiveSoundParams* InitialParams, bool bAlwaysPlay);

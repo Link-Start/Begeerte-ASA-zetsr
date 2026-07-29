@@ -15514,6 +15514,15 @@ public:
 };
 DUMPER7_ASSERTS_PrimalDinoCharacter_BPPreServerUploadDino;
 
+// Function ShooterGame.PrimalDinoCharacter.BPPreventActiveMating
+// 0x0001 (0x0001 - 0x0000)
+struct PrimalDinoCharacter_BPPreventActiveMating final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_PrimalDinoCharacter_BPPreventActiveMating;
+
 // Function ShooterGame.PrimalDinoCharacter.BPPreventClearMountCapsuleResizing
 // 0x0001 (0x0001 - 0x0000)
 struct PrimalDinoCharacter_BPPreventClearMountCapsuleResizing final
@@ -16565,6 +16574,15 @@ public:
 	uint8                                         Pad_139[0x7];                                      // 0x0139(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_PrimalDinoCharacter_GetCurrentAttackInfo;
+
+// Function ShooterGame.PrimalDinoCharacter.GetCurrentMaxRepairHealthPercentage
+// 0x0004 (0x0004 - 0x0000)
+struct PrimalDinoCharacter_GetCurrentMaxRepairHealthPercentage final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_PrimalDinoCharacter_GetCurrentMaxRepairHealthPercentage;
 
 // Function ShooterGame.PrimalDinoCharacter.GetDesiredNavmeshGenerationRadiusName
 // 0x0008 (0x0008 - 0x0000)
@@ -86489,13 +86507,15 @@ public:
 DUMPER7_ASSERTS_VictoryCore_StaticCheckForCommand;
 
 // Function ShooterGame.VictoryCore.StaticGetMinimapLocation
-// 0x0030 (0x0030 - 0x0000)
+// 0x0038 (0x0038 - 0x0000)
 struct VictoryCore_StaticGetMinimapLocation final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                WorldLocation;                                     // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              ReturnValue;                                       // 0x0020(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         MapIndex;                                          // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector2D                              ReturnValue;                                       // 0x0028(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_VictoryCore_StaticGetMinimapLocation;
 
