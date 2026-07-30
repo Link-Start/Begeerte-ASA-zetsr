@@ -71,7 +71,7 @@ namespace g_ESP {
         void AddFlag(SDK::UCanvas* Canvas, BoxRect rect, const std::string& text, SDK::FLinearColor color, FlagPos pos, float alphaMult, const BarManager* barMgr);
     };
 
-    BoxRect DrawBox(SDK::UCanvas* Canvas, SDK::AActor* entity, float r, float g, float b, float a, float width_scale, bool bTestOnly);
+    BoxRect GetBox(SDK::UCanvas* Canvas, SDK::AActor* entity, float width_scale);
     void DrawBox(SDK::UCanvas* Canvas, const BoxRect& rect, SDK::FLinearColor color, float alpha);
 
     void DrawHealthBar(SDK::UCanvas* Canvas, BoxRect rect, float healthPercent, float maxHealth, float a);

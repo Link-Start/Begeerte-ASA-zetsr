@@ -18,8 +18,8 @@
 #include "InputCore_structs.hpp"
 #include "SlateCore_structs.hpp"
 #include "Engine_structs.hpp"
-#include "ENUM_CFCore_TimeFilters_structs.hpp"
 #include "ENUM_CFCore_InputDevices_structs.hpp"
+#include "ENUM_CFCore_TimeFilters_structs.hpp"
 
 
 SDK_NAMESPACE_START

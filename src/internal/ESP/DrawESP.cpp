@@ -269,9 +269,7 @@ namespace g_DrawESP {
                         continue;
                     }
 
-                    g_ESP::BoxRect rect = g_ESP::DrawBox(Canvas, TargetActor,
-                        RagdollCol[0], RagdollCol[1],
-                        RagdollCol[2], RagdollCol[3], 0.5f, true);
+                    g_ESP::BoxRect rect = g_ESP::GetBox(Canvas, TargetActor, 0.5f);
 
                     if (!rect.valid) {
                         entry.targetAlpha = 0.0f;
@@ -410,9 +408,7 @@ namespace g_DrawESP {
                     }
                 }
 
-                g_ESP::BoxRect rect = g_ESP::DrawBox(Canvas, TargetActor,
-                    BoxColor[0], BoxColor[1],
-                    BoxColor[2], BoxColor[3], 0.5f, true);
+                g_ESP::BoxRect rect = g_ESP::GetBox(Canvas, TargetActor, 0.5f);
 
                 entry.cachedRect = rect;
                 entry.boxColor = SDK::FLinearColor{ BoxColor[0], BoxColor[1], BoxColor[2], BoxColor[3] };

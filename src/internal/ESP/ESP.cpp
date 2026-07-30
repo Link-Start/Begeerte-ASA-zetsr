@@ -187,7 +187,7 @@ namespace g_ESP {
         Canvas->K2_DrawText(currentFont, fText, drawPos, scaleSize, color, 0.0f, shadowCol, SDK::FVector2D{ 1.0f, 1.0f }, false, false, true, shadowCol);
     }
 
-    BoxRect DrawBox(SDK::UCanvas* Canvas, SDK::AActor* entity, float r, float g, float b, float a, float width_scale, bool bTestOnly) {
+    BoxRect GetBox(SDK::UCanvas* Canvas, SDK::AActor* entity, float width_scale) {
         BoxRect rect;
         rect.valid = false;
         if (!entity || entity->bHidden) return rect;
@@ -209,19 +209,8 @@ namespace g_ESP {
             rect.topLeft = { (float)(screenTop.X - width * 0.5f), (float)screenTop.Y };
             rect.bottomRight = { (float)(screenTop.X + width * 0.5f), (float)screenBottom.Y };
             rect.valid = true;
-
-            if (!bTestOnly && a > 0.1f && Canvas) {
-                SDK::FVector2D boxSize = { (float)(rect.bottomRight.X - rect.topLeft.X), (float)(rect.bottomRight.Y - rect.topLeft.Y) };
-
-                // 阴影边框
-                SDK::FVector2D outPos = { (float)(rect.topLeft.X - 1.0f), (float)(rect.topLeft.Y - 1.0f) };
-                SDK::FVector2D outSize = { (float)(boxSize.X + 2.0f), (float)(boxSize.Y + 2.0f) };
-                Canvas->K2_DrawBox(outPos, outSize, 1.5f, SDK::FLinearColor{ 0.0f, 0.0f, 0.0f, a });
-
-                // 主边框
-                Canvas->K2_DrawBox(rect.topLeft, boxSize, 1.0f, SDK::FLinearColor{ r, g, b, a });
-            }
         }
+
         return rect;
     }
 
