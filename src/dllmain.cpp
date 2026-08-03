@@ -7,7 +7,7 @@
 #include "internal/Language/LanguageManager.h"
 #include "internal/Lua/LuaManager.h"
 #include "internal/Config/ConfigManager.h"
-#include "internal/UWorld/Tick.h"
+#include "internal/AActor/Tick.h"
 #include "internal/UMovementComponent/PhysicsRotation.h"
 #include "internal/UNetConnection/HandleDisconnect.h"
 #include "internal/UConsole/OutputTextLine.h"
@@ -17,7 +17,7 @@
 void init(LPVOID lpParam) {
     g_MDX12::Initialize(lpParam);
     g_MDX12::SetSetupImGuiCallback(g_DrawImGui::MyImGuiDraw);
-    g_MDX12::SetSetupUWorldTickCallback(g_UWorld::Tick);
+    g_MDX12::SetSetupActorTickCallback(g_AActor::Tick);
     g_MDX12::SetSetupHandleDisconnectCallback(g_UNetConnection::HandleDisconnect);
     g_MDX12::SetSetupOutputTextLineCallback(g_UConsole::OutputTextLine);
     g_MDX12::SetSetupPostRenderCallback(g_UGameViewportClient::PostRender);

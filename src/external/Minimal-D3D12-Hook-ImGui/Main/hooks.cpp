@@ -24,8 +24,8 @@
 #pragma warning(pop)
 
 namespace g_Hook {
-    typedef void (__fastcall* tWorldFunction)(SDK::UWorld* rcx, void* rdx);
-    tWorldFunction oWorldTick = nullptr;
+    typedef void (__fastcall* tActorTick)(SDK::AActor* rcx, float DeltaTime);
+    tActorTick oActorTick = nullptr;
 
     typedef void (__fastcall* tHandleDisconnectFunction)(SDK::UNetConnection* rcx, void* rdx);
     tHandleDisconnectFunction oHandleDisconnect = nullptr;
@@ -58,10 +58,12 @@ namespace g_Hook {
     typedef void(__fastcall* tClientChatMessage)(SDK::AShooterPlayerController* rcx, SDK::FPrimalChatMessage& Chat);
     tClientChatMessage oClientChatMessage = nullptr;
 
-    void __fastcall hkUWorldTick(SDK::UWorld* rcx, void* rdx) {
-        g_MDX12::SetupUWorldTick(rcx);
+    void __fastcall hkActorTick(SDK::AActor* rcx, float DeltaTime) {
+        // g_LogManager::AddLog(255, 255, 255, 255, std::format("[{}]", DeltaTime));
+        
+        g_MDX12::SetupActorTick(rcx);
 
-        return oWorldTick(rcx, rdx);
+        return oActorTick(rcx, DeltaTime);
     }
 
     void __fastcall hkHandleDisconnect(SDK::UNetConnection* rcx, void* rdx) {
@@ -168,15 +170,15 @@ namespace g_Hook {
     */
 
     void initUWorldTick() {
-        std::string pattern = g_CheatData::Signature::UWorld::Tick;
+        std::string pattern = g_CheatData::Signature::AActor::Tick;
         AOB::Result ok = AOB::Scan(pattern);
 
         if (ok && ok.size() == 1) {
             void* targetAddr = ok[0];
 
-            if (MH_CreateHook(targetAddr, &hkUWorldTick, reinterpret_cast<LPVOID*>(&oWorldTick)) == MH_OK) {
+            if (MH_CreateHook(targetAddr, &hkActorTick, reinterpret_cast<LPVOID*>(&oActorTick)) == MH_OK) {
                 MH_EnableHook(targetAddr);
-                UWorldTickOK = true;
+                ActorTickOK = true;
             }
         }
     }

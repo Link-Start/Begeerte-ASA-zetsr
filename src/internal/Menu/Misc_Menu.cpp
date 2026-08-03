@@ -71,7 +71,7 @@ namespace g_DrawImGui {
 			ImGui::TextColored(ThemeColors::GetAccent(), secMisc);
 			DrawAnimatedSeparator();
 
-			ImGui::BeginDisabled(!g_Hook::UWorldTickOK);
+			ImGui::BeginDisabled(!g_Hook::ActorTickOK);
 			{
 				if (DrawCustomButton(btnSuicide)) {
 					g_Config::bSuicide = true;
@@ -86,7 +86,7 @@ namespace g_DrawImGui {
 
 			DrawAnimatedSeparator();
 
-			ImGui::BeginDisabled(!g_Hook::UWorldTickOK);
+			ImGui::BeginDisabled(!g_Hook::ActorTickOK);
 			{
 				DrawCustomCheckbox(chkNotes, &g_Config::bUnlockExplorerNotes);
 				DrawCustomCheckbox(chkFeed, &g_Config::bAutoFeed);
@@ -127,7 +127,7 @@ namespace g_DrawImGui {
 			 */
 
 			DrawAnimatedSeparator();
-			ImGui::BeginDisabled(!g_Hook::UWorldTickOK);
+			ImGui::BeginDisabled(!g_Hook::ActorTickOK);
 			{
 				DrawCustomCheckbox(automaticChecked, &g_Config::bAutomatic);
 				DrawCustomSliderFloat(armorRange, &g_Config::ArmorRange, 0.1f, 100.0f, "%.1f", 0.1f, U8(""));
@@ -135,7 +135,7 @@ namespace g_DrawImGui {
 			ImGui::EndDisabled();
 			DrawAnimatedSeparator();
 
-			ImGui::BeginDisabled(!g_Hook::UWorldTickOK);
+			ImGui::BeginDisabled(!g_Hook::ActorTickOK);
 			{
 				DrawCustomCheckbox(outBodyChecked, &g_Config::bOutBodyChecked);
 				ImGui::SameLine();

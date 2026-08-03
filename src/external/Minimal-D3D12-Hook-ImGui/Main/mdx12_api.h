@@ -171,7 +171,7 @@ namespace g_MDX12 {
     void CleanupRenderResources_NoInput();
     void FinalCleanupAll();
     void SetupImGui(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT Flags);
-    void SetupUWorldTick(SDK::UWorld* rcx);
+    void SetupActorTick(SDK::AActor* rcx);
     void SetupHandleDisconnect(SDK::UNetConnection* rcx);
     void SetupOutputTextLine(SDK::UConsole* rcx, SDK::FString* Message);
     void SetupPostRender(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas);
@@ -184,7 +184,7 @@ namespace g_MDX12 {
 
     // Callback function type for custom ImGui drawing
     typedef void(*SetupImGuiCallback)(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT Flags);
-    typedef void(*SetupUWorldTickCallback)(SDK::UWorld* rcx);
+    typedef void(*SetupActorTickCallback)(SDK::AActor* rcx);
     typedef void(*SetupHandleDisconnectCallback)(SDK::UNetConnection* rcx);
     typedef void(*SetupOutputTextLineCallback)(SDK::UConsole* rcx, SDK::FString* Message);
     typedef void(*SetupPostRenderCallback)(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas);
@@ -194,7 +194,7 @@ namespace g_MDX12 {
 
     namespace g_Callbacks {
         extern SetupImGuiCallback g_setupImGuiCallback;
-        extern SetupUWorldTickCallback g_setupUWorldTickCallback;
+        extern SetupActorTickCallback g_setupActorTickCallback;
         extern SetupHandleDisconnectCallback g_setupHandleDisconnectCallback;
         extern SetupOutputTextLineCallback g_setupOutputTextLineCallback;
         extern SetupPostRenderCallback g_setupPostRenderCallback;
@@ -206,7 +206,7 @@ namespace g_MDX12 {
     // Public API
     void Initialize(LPVOID lpParam);
     void SetSetupImGuiCallback(SetupImGuiCallback callback);
-    void SetSetupUWorldTickCallback(SetupUWorldTickCallback callback);
+    void SetSetupActorTickCallback(SetupActorTickCallback callback);
     void SetSetupHandleDisconnectCallback(SetupHandleDisconnectCallback callback);
     void SetSetupOutputTextLineCallback(SetupOutputTextLineCallback callback);
     void SetSetupPostRenderCallback(SetupPostRenderCallback callback);
@@ -218,7 +218,7 @@ namespace g_MDX12 {
 // Export for DLL
 extern "C" __declspec(dllexport) void SetOverlayWaitTimeout(UINT ms);
 extern "C" __declspec(dllexport) void SetSetupImGuiCallback(g_MDX12::SetupImGuiCallback callback);
-extern "C" __declspec(dllexport) void SetSetupUWorldTickCallback(g_MDX12::SetupUWorldTickCallback callback);
+extern "C" __declspec(dllexport) void SetSetupActorTickCallback(g_MDX12::SetupActorTickCallback callback);
 extern "C" __declspec(dllexport) void SetSetupHandleDisconnectCallback(g_MDX12::SetupHandleDisconnectCallback callback);
 extern "C" __declspec(dllexport) void SetSetupOutputTextLineCallback(g_MDX12::SetupOutputTextLineCallback callback);
 extern "C" __declspec(dllexport) void SetSetupPostRenderCallback(g_MDX12::SetupPostRenderCallback callback);

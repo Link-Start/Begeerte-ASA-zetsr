@@ -28,7 +28,7 @@ namespace g_DrawImGui {
             ImGui::TextColored(ThemeColors::GetAccent(), secTitle);
             DrawAnimatedSeparator();
 
-            ImGui::BeginDisabled(!g_Hook::UWorldTickOK);
+            ImGui::BeginDisabled(!g_Hook::ActorTickOK);
             {
                 DrawCustomCheckbox(aimEnabled, &g_Config::bAimbotEnabled);
                 DrawCustomSliderFloat(aimFOV, &g_Config::AimbotFOV, 0.1f, 180.0f, "%.1f", 0.1f, U8("бу"));

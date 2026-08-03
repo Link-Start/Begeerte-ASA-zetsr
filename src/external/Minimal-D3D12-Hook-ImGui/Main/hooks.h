@@ -10,7 +10,7 @@ namespace g_Hook {
     void StartAllHooks();
     void StopAllHooks();
 
-    inline bool UWorldTickOK = false;
+    inline bool ActorTickOK = false;
 	inline bool HandleDisconnectOK = false;
 	inline bool OutputTextLineOK = false;
 	inline bool PostRenderOK = false;

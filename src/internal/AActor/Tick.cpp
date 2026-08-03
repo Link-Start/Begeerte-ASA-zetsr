@@ -1,5 +1,4 @@
 #pragma once
-#define NOMINMAX
 #include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 #include "../Config/Configs.h"
 #include "../Util/Util.h"
@@ -9,8 +8,10 @@
 #include "../../external/SDK/SDK_Headers.hpp"
 #include "../Legit/Aimbot/Aimbot.h"
 
-namespace g_UWorld {
-	void Tick(SDK::UWorld* world) {
+namespace g_AActor {
+	void Tick(SDK::AActor* actor) {
+		SDK::UWorld* world = SDK::UWorld::GetWorld();
+
         g_Aimbot::Tick();
         g_Hack::OutBody();
 		if (g_Config::bSuicide) {

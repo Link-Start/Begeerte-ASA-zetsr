@@ -24,6 +24,7 @@ namespace g_CheatData {
 		namespace AActor {
 			// push rbp | push rbx | push rsi | push rdi | push r12 | push r13 | push r14 | push r15 | lea rbp, [rsp+offset] | sub rsp, alloc | movaps [rsp+offset], xmm11
 			std::string TakeDamage = "40 55 53 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 44 0F 29 AC 24 ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 85 ? ? ? ? 49";
+			std::string Tick = "40 55 41 55 48 8D 6C 24 ? 48 81 EC ? ? ? ? 0F";
 		}
 
 		namespace UNetConnection {
@@ -39,6 +40,7 @@ namespace g_CheatData {
 			std::string PhysicsRotation = "48 8B C4 53 48 81 EC ? ? ? ? 0F 29 70 ? 48 8B D9 0F 29 78 ? 0F 28 F3";
 		}
 
+		/*
 		namespace UWorld {
 			// 7FF7A935DA20 World Tick?
 			// 7FF7A935DC40 World Post Tick?
@@ -76,6 +78,7 @@ namespace g_CheatData {
 			// push rbx | push rbp | push rsi | push rdi | push r12 | push r14 | push r15 | sub rsp, alloc | mov rax, [rip+offset] | xor rax, rsp | mov [rsp+offset], rax | mov r14, rcx
 			std::string Tick = "4C 8B DC 55 41 56 41 57 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 84 24 ? ? ? ? 49";
 		}
+		*/
 
 		namespace UGameViewportClient {
 			// https://github.com/vsylva/ark-asa-internal

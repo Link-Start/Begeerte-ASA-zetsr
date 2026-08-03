@@ -126,6 +126,7 @@
     <ClInclude Include="external\sol2\forward.hpp" />
     <ClInclude Include="external\sol2\sol.hpp" />
     <ClInclude Include="internal\AActor\TakeDamage.h" />
+    <ClInclude Include="internal\AActor\Tick.h" />
     <ClInclude Include="internal\CheatData\CheatData.hpp" />
     <ClInclude Include="internal\Config\ConfigManager.h" />
     <ClInclude Include="internal\Config\Configs.h" />
@@ -154,7 +155,6 @@
     <ClInclude Include="internal\Util\infoCPU.h" />
     <ClInclude Include="internal\Util\infoGPU.h" />
     <ClInclude Include="internal\Util\Util.h" />
-    <ClInclude Include="internal\UWorld\Tick.h" />
   </ItemGroup>
   <ItemGroup>
     <Object Include="external\LuaJIT-2.1\src\lj_vm.obj" />
@@ -193,6 +193,7 @@
     </ClCompile>
     <ClCompile Include="external\SDK\SDK_Impl.cpp" />
     <ClCompile Include="internal\AActor\TakeDamage.cpp" />
+    <ClCompile Include="internal\AActor\Tick.cpp" />
     <ClCompile Include="internal\Config\ConfigManager.cpp" />
     <ClCompile Include="internal\ESP\DrawESP.cpp" />
     <ClCompile Include="internal\ESP\ESP.cpp" />
@@ -217,7 +218,6 @@
     <ClCompile Include="internal\UNetConnection\HandleDisconnect.cpp" />
     <ClCompile Include="internal\Util\infoCPU.cpp" />
     <ClCompile Include="internal\Util\infoGPU.cpp" />
-    <ClCompile Include="internal\UWorld\Tick.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

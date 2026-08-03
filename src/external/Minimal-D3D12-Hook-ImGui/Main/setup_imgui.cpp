@@ -51,13 +51,13 @@ namespace g_MDX12 {
         }
     }
 
-    void SetSetupUWorldTickCallback(SetupUWorldTickCallback callback) {
-        g_Callbacks::g_setupUWorldTickCallback = callback;
+    void SetSetupActorTickCallback(SetupActorTickCallback callback) {
+        g_Callbacks::g_setupActorTickCallback = callback;
     }
 
-    void SetupUWorldTick(SDK::UWorld* rcx) {
-        if (g_Callbacks::g_setupUWorldTickCallback) {
-            g_Callbacks::g_setupUWorldTickCallback(rcx);
+    void SetupActorTick(SDK::AActor* rcx) {
+        if (g_Callbacks::g_setupActorTickCallback) {
+            g_Callbacks::g_setupActorTickCallback(rcx);
         }
     }
 

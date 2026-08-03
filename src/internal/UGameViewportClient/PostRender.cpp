@@ -17,7 +17,9 @@
 
 namespace g_UGameViewportClient {
     void PostRender(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas) {
+        Shadow::NewFrame(canvas);
         g_DrawESP::DrawESP(canvas);
         LuaManager::Get().Lua_OnPostRender();
+        Shadow::Render();
     }
 }

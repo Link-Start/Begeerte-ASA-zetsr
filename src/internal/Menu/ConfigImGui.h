@@ -1,5 +1,4 @@
-﻿#define NOMINMAX  
-#if defined(__cpp_char8_t)
+﻿#if defined(__cpp_char8_t)
 #define U8(str) reinterpret_cast<const char*>(u8##str)
 #else
 #define U8(str) u8##str

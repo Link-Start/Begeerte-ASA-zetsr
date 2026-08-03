@@ -1,5 +1,4 @@
 #pragma once
-#define NOMINMAX  
 #include "../../external/SDK/SDK_Headers.hpp"
 
 namespace g_Config {
