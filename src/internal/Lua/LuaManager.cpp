@@ -687,39 +687,59 @@ bool LuaManager::ExecuteScript(LuaScript& script) {
 }
 
 void LuaManager::RefreshFileList() {
+    // 0. 安全防御：确保 this 不为空（如果是静态/单例调用）
+    if (this == nullptr) return;
+
     std::lock_guard<std::mutex> lock(m_luaMutex);
+
     std::vector<LuaScript> nextList;
+
+    // 1. 保留 Workshop 脚本
     for (auto& s : m_scripts) {
         if (s.isWorkshop) {
             nextList.push_back(std::move(s));
         }
     }
 
-    if (!m_scriptDir.empty() && fs::exists(m_scriptDir)) {
-        for (const auto& entry : fs::directory_iterator(m_scriptDir)) {
-            if (entry.is_regular_file() && entry.path().extension() == ".lua") {
-                fs::path fullPath = fs::absolute(entry.path());
+    // 2. 使用 std::error_code 避免 filesystem 抛出异常导致崩溃
+    std::error_code ec;
+    if (!m_scriptDir.empty() && fs::exists(m_scriptDir, ec) && !ec) {
 
-                auto it = std::find_if(m_scripts.begin(), m_scripts.end(), [&](const LuaScript& old) {
-                    return !old.isWorkshop && fs::absolute(old.path) == fullPath;
-                    });
+        // 使用带 ec 的 directory_iterator，防止权限等问题抛异常
+        fs::directory_iterator dirIt(m_scriptDir, ec);
+        if (!ec) {
+            for (const auto& entry : dirIt) {
+                // 判断是否为 .lua 普通文件
+                if (entry.is_regular_file(ec) && entry.path().extension() == ".lua") {
+                    fs::path fullPath = fs::absolute(entry.path(), ec);
+                    if (ec) continue;
 
-                if (it != m_scripts.end()) {
-                    nextList.push_back(std::move(*it));
-                }
-                else {
-                    LuaScript s;
-                    s.name = entry.path().filename().string();
-                    s.path = fullPath;
-                    s.isWorkshop = false;
-                    s.isLoaded = false;
-                    s.hasError = false;
-                    nextList.push_back(std::move(s));
+                    // 查找旧列表中是否存在该文件（只在未被 move 的非 workshop 脚本中找）
+                    auto it = std::find_if(m_scripts.begin(), m_scripts.end(), [&](const LuaScript& old) {
+                        // 避开已移动或 Workshop 的对象
+                        return !old.isWorkshop && !old.path.empty() && fs::absolute(old.path, ec) == fullPath;
+                        });
+
+                    if (it != m_scripts.end()) {
+                        nextList.push_back(std::move(*it));
+                        // 移动后清空 old.path，标记该节点已被取走，避免重复匹配
+                        it->path.clear();
+                    }
+                    else {
+                        LuaScript s;
+                        s.name = entry.path().filename().string();
+                        s.path = fullPath;
+                        s.isWorkshop = false;
+                        s.isLoaded = false;
+                        s.hasError = false;
+                        nextList.push_back(std::move(s));
+                    }
                 }
             }
         }
     }
 
+    // 3. 更新列表
     m_scripts = std::move(nextList);
 }
 

@@ -3,11 +3,12 @@
 #include <vector>
 #include <string>
 #include "../../external/SDK/SDK_Headers.hpp"
+#include "../../external/Shadow-Gui/include/Shadow.h"
 
 namespace g_ESP {
     struct BoxRect {
-        SDK::FVector2D topLeft;
-        SDK::FVector2D bottomRight;
+        Shadow::Vec2 topLeft;
+        Shadow::Vec2 bottomRight;
         bool valid = false;
     };
 
@@ -50,7 +51,7 @@ namespace g_ESP {
         float GetTopOffset() const { return topOffset; }
         float GetBottomOffset() const { return bottomOffset; }
 
-        void AddBar(SDK::UCanvas* Canvas, BoxRect rect, float currentValue, float maxValue, SDK::FLinearColor color, BarPos pos, BarOrientation orientation, float a);
+        void AddBar(SDK::UCanvas* Canvas, BoxRect rect, float currentValue, float maxValue, Shadow::Color color, BarPos pos, BarOrientation orientation, float a);
     };
 
     class FlagManager {
@@ -68,18 +69,13 @@ namespace g_ESP {
             bottomY = 0.0f;
         }
 
-        void AddFlag(SDK::UCanvas* Canvas, BoxRect rect, const std::string& text, SDK::FLinearColor color, FlagPos pos, float alphaMult, const BarManager* barMgr);
+        void AddFlag(SDK::UCanvas* Canvas, BoxRect rect, const std::string& text, Shadow::Color color, FlagPos pos, float alphaMult, const BarManager* barMgr);
     };
 
     BoxRect GetBox(SDK::UCanvas* Canvas, SDK::AActor* entity, float width_scale);
-    void DrawBox(SDK::UCanvas* Canvas, const BoxRect& rect, SDK::FLinearColor color, float alpha);
+    void DrawBox(SDK::UCanvas* Canvas, const BoxRect& rect, Shadow::Color color, float alpha);
 
     void DrawHealthBar(SDK::UCanvas* Canvas, BoxRect rect, float healthPercent, float maxHealth, float a);
-
-    struct OOFFlag {
-        std::string text;
-        SDK::FLinearColor color;
-    };
 
     enum class RelationType {
         Enemy,

@@ -1,6 +1,7 @@
 #include "ConfigManager.h"
 #include "Configs.h"
 #include <regex>
+#include <unordered_set>
 
 void ConfigManager::Initialize(const std::string& configDir) {
     if (configDir.empty()) return;
@@ -20,40 +21,48 @@ void ConfigManager::Initialize(const std::string& configDir) {
 }
 
 void ConfigManager::RefreshFileList() {
+    std::error_code ec;
+
     if (m_configDir.empty()) {
         m_configs.clear();
         return;
     }
 
-    fs::path dirPath = fs::absolute(m_configDir);
-    if (!fs::exists(dirPath) || !fs::is_directory(dirPath)) return;
+    // 1. 组合为单条安全路径判断，不抛任何异常
+    fs::path dirPath = fs::absolute(m_configDir, ec);
+    if (ec || !fs::is_directory(dirPath, ec)) return;
 
-    std::vector<fs::path> currentFiles;
-    try {
-        for (const auto& entry : fs::directory_iterator(dirPath)) {
-            if (entry.is_regular_file() && entry.path().extension() == ".ini") {
-                currentFiles.push_back(fs::absolute(entry.path()));
+    // 2. 用哈希集合记录磁盘上的绝对路径，查找复杂度从 O(N) 降为 O(1)
+    std::unordered_set<fs::path> currentFiles;
+
+    fs::directory_iterator dirIt(dirPath, ec);
+    if (!ec) {
+        for (const auto& entry : dirIt) {
+            if (entry.is_regular_file(ec) && entry.path().extension() == ".ini") {
+                fs::path fullPath = fs::absolute(entry.path(), ec);
+                if (!ec) {
+                    currentFiles.insert(std::move(fullPath));
+                }
             }
         }
     }
-    catch (const fs::filesystem_error&) {
-        return;
-    }
 
-    m_configs.erase(std::remove_if(m_configs.begin(), m_configs.end(), [&](const ConfigFile& c) {
-        return std::find(currentFiles.begin(), currentFiles.end(), c.path) == currentFiles.end();
-    }), m_configs.end());
-
-    for (const auto& filePath : currentFiles) {
-        auto it = std::find_if(m_configs.begin(), m_configs.end(), [&](const ConfigFile& c) {
-            return c.path == filePath;
+    // 3. C++20 std::erase_if 极其优雅地剔除已被删除的文件
+    std::erase_if(m_configs, [&](const ConfigFile& c) {
+        return !currentFiles.contains(c.path);
         });
 
-        if (it == m_configs.end()) {
-            ConfigFile newConfig;
-            newConfig.name = filePath.filename().string();
-            newConfig.path = filePath;
-            m_configs.push_back(std::move(newConfig));
+    // 4. 补充新增文件（由于已经在 m_configs 里的文件已经被留下了，只需过滤掉即可）
+    for (const auto& filePath : currentFiles) {
+        bool exists = std::any_of(m_configs.begin(), m_configs.end(), [&](const ConfigFile& c) {
+            return c.path == filePath;
+            });
+
+        if (!exists) {
+            m_configs.push_back(ConfigFile{
+                .name = filePath.filename().string(),
+                .path = filePath
+                });
         }
     }
 }

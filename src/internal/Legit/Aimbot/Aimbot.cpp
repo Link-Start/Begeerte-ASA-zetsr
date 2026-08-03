@@ -129,8 +129,8 @@ namespace g_Aimbot {
 			for (int j = 0; j < BoneCount; j++) {
 				SDK::FVector BoneLoc = Mesh->GetSocketLocation(Mesh->GetBoneName(j));
 				if (BoneLoc.IsZero()) continue;
-				MinB.X = min(MinB.X, BoneLoc.X); MinB.Y = min(MinB.Y, BoneLoc.Y); MinB.Z = min(MinB.Z, BoneLoc.Z);
-				MaxB.X = max(MaxB.X, BoneLoc.X); MaxB.Y = max(MaxB.Y, BoneLoc.Y); MaxB.Z = max(MaxB.Z, BoneLoc.Z);
+				MinB.X = std::min(MinB.X, BoneLoc.X); MinB.Y = std::min(MinB.Y, BoneLoc.Y); MinB.Z = std::min(MinB.Z, BoneLoc.Z);
+				MaxB.X = std::max(MaxB.X, BoneLoc.X); MaxB.Y = std::max(MaxB.Y, BoneLoc.Y); MaxB.Z = std::max(MaxB.Z, BoneLoc.Z);
 			}
 			SDK::FVector CurrentTargetLoc = (MinB + MaxB) / 2.0f;
 

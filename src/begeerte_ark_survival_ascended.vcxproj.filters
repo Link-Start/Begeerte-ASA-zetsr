@@ -100,6 +100,12 @@
     <Filter Include="internal\UGameViewportClient">
       <UniqueIdentifier>{825a56c8-2224-430c-acc6-a06369fe27a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="external\Shadow-Gui">
+      <UniqueIdentifier>{9624397e-00d5-4463-bc79-bf07e2878acb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\Shadow-Gui\include">
+      <UniqueIdentifier>{d593b1db-b249-458e-ad64-e9662f5a165d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\LuaJIT-2.1\src\lj_vm.h">
@@ -506,6 +512,9 @@
     </ClInclude>
     <ClInclude Include="internal\UMovementComponent\PhysicsRotation.h">
       <Filter>internal\UMovementComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="external\Shadow-Gui\include\Shadow.h">
+      <Filter>external\Shadow-Gui\include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

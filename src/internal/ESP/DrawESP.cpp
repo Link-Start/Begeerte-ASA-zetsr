@@ -1,5 +1,6 @@
 // DrawESP.cpp
 #include "../../external/SDK/SDK_Headers.hpp"
+#include "../../external/Shadow-Gui/include/Shadow.h"
 #include "ESP.h"
 #include "../Config/Configs.h"
 #include "DrawESP.h"
@@ -14,15 +15,15 @@
 
 namespace {
     // 将 g_Util 中的 ImU32 等价格式转换为 FLinearColor
-    SDK::FLinearColor U32ToFLinearColor(uint32_t color) {
+    Shadow::Color U32ToFLinearColor(uint32_t color) {
         float r = (float)(color & 0xFF) / 255.0f;
         float g = (float)((color >> 8) & 0xFF) / 255.0f;
         float b = (float)((color >> 16) & 0xFF) / 255.0f;
         float a = (float)((color >> 24) & 0xFF) / 255.0f;
-        return SDK::FLinearColor{ r, g, b, a };
+        return Shadow::Color{ r, g, b, a };
     }
 
-    SDK::FLinearColor GetHealthColorLinear(float percentage, float* colorMax, float* colorMin) {
+    Shadow::Color GetHealthColorLinear(float percentage, float* colorMax, float* colorMin) {
         percentage = std::clamp(percentage, 0.0f, 1.0f);
 
         float r = colorMin[0] + (colorMax[0] - colorMin[0]) * percentage;
@@ -30,7 +31,7 @@ namespace {
         float b = colorMin[2] + (colorMax[2] - colorMin[2]) * percentage;
         float a = colorMin[3] + (colorMax[3] - colorMin[3]) * percentage;
 
-        return SDK::FLinearColor{ r, g, b, a };
+        return Shadow::Color{ r, g, b, a };
     }
 }
 
@@ -40,14 +41,14 @@ namespace g_DrawESP {
 
     struct CachedFlag {
         std::string       text;
-        SDK::FLinearColor color;
+        Shadow::Color color;
         g_ESP::FlagPos    pos;
     };
 
     struct CachedBar {
         float                 currentValue;
         float                 maxValue;
-        SDK::FLinearColor     color;
+        Shadow::Color     color;
         g_ESP::BarPos         pos;
         g_ESP::BarOrientation orientation;
     };
@@ -75,9 +76,9 @@ namespace g_DrawESP {
         std::vector<CachedFlag> flags;
         std::vector<CachedBar>  bars;
 
-        SDK::FLinearColor boxColor{ 0,0,0,0 };
-        SDK::FLinearColor nameColor{ 0,0,0,0 };
-        SDK::FLinearColor distanceColor{ 0,0,0,0 };
+        Shadow::Color boxColor{ 0,0,0,0 };
+        Shadow::Color nameColor{ 0,0,0,0 };
+        Shadow::Color distanceColor{ 0,0,0,0 };
         float  configBoxAlpha = 1.0f;
         float  targetAlpha = 0.0f;
         float  alpha = 0.0f;
@@ -277,8 +278,8 @@ namespace g_DrawESP {
                     }
 
                     entry.cachedRect = rect;
-                    entry.boxColor = SDK::FLinearColor{ RagdollCol[0], RagdollCol[1], RagdollCol[2], RagdollCol[3] };
-                    entry.distanceColor = SDK::FLinearColor{ DistCol[0], DistCol[1], DistCol[2], DistCol[3] };
+                    entry.boxColor = Shadow::Color{ RagdollCol[0], RagdollCol[1], RagdollCol[2], RagdollCol[3] };
+                    entry.distanceColor = Shadow::Color{ DistCol[0], DistCol[1], DistCol[2], DistCol[3] };
                     entry.configBoxAlpha = RagdollCol[3];
                     entry.targetAlpha = 1.0f;
                     entry.aliveThisFrame = true;
@@ -411,8 +412,8 @@ namespace g_DrawESP {
                 g_ESP::BoxRect rect = g_ESP::GetBox(Canvas, TargetActor, 0.5f);
 
                 entry.cachedRect = rect;
-                entry.boxColor = SDK::FLinearColor{ BoxColor[0], BoxColor[1], BoxColor[2], BoxColor[3] };
-                entry.nameColor = SDK::FLinearColor{ NameColor[0], NameColor[1], NameColor[2], NameColor[3] };
+                entry.boxColor = Shadow::Color{ BoxColor[0], BoxColor[1], BoxColor[2], BoxColor[3] };
+                entry.nameColor = Shadow::Color{ NameColor[0], NameColor[1], NameColor[2], NameColor[3] };
                 entry.configBoxAlpha = BoxColor[3];
                 entry.isItem = false;
                 entry.isOOF = false;
@@ -456,14 +457,14 @@ namespace g_DrawESP {
                     float* colMax = (relation == g_ESP::RelationType::Team) ? g_Config::TeamHealthColor1 : g_Config::HealthBarColor1;
                     float* colMin = (relation == g_ESP::RelationType::Team) ? g_Config::TeamHealthColor2 : g_Config::HealthBarColor2;
 
-                    const SDK::FLinearColor hpCol = GetHealthColorLinear(healthPct, colMax, colMin);
+                    const Shadow::Color hpCol = GetHealthColorLinear(healthPct, colMax, colMin);
 
                     entry.flags.push_back({ std::to_string((int)entry.cachedHP), hpCol, g_ESP::FlagPos::Left });
                     entry.bars.push_back({ entry.cachedHP, entry.cachedMaxHP, hpCol, g_ESP::BarPos::Left, g_ESP::BarOrientation::Vertical });
                 }
 
                 if (bDrawTorpor && entry.cachedMaxTorpor > 0.0f) {
-                    const SDK::FLinearColor torporCol = SDK::FLinearColor{ TorporColor[0], TorporColor[1], TorporColor[2], TorporColor[3] };
+                    const Shadow::Color torporCol = Shadow::Color{ TorporColor[0], TorporColor[1], TorporColor[2], TorporColor[3] };
                     entry.flags.push_back({
                         std::to_string((int)entry.cachedTorpor) + "/" + std::to_string((int)entry.cachedMaxTorpor),
                         torporCol, g_ESP::FlagPos::Bottom
@@ -472,7 +473,7 @@ namespace g_DrawESP {
                 }
 
                 if (bDrawDistance)
-                    entry.flags.push_back({ std::to_string((int)dist) + "m", SDK::FLinearColor{DistanceColor[0], DistanceColor[1], DistanceColor[2], DistanceColor[3]}, g_ESP::FlagPos::Right });
+                    entry.flags.push_back({ std::to_string((int)dist) + "m", Shadow::Color{DistanceColor[0], DistanceColor[1], DistanceColor[2], DistanceColor[3]}, g_ESP::FlagPos::Right });
 
                 SDK::FVector2D screenPos;
                 if (LocalPC->ProjectWorldLocationToScreen(actorLoc, &screenPos, false)) {
@@ -550,8 +551,8 @@ namespace g_DrawESP {
                 bool bOnScreen = bIsProjected && (screenPos.X > 0 && screenPos.X < screenW && screenPos.Y > 0 && screenPos.Y < screenH);
 
                 if (bIsProjected) {
-                    entry.cachedRect.topLeft = SDK::FVector2D{ (float)(screenPos.X - 5), (float)(screenPos.Y - 5) };
-                    entry.cachedRect.bottomRight = SDK::FVector2D{ (float)(screenPos.X + 5), (float)(screenPos.Y + 5) };
+                    entry.cachedRect.topLeft = Shadow::Vec2{ (float)(screenPos.X - 5), (float)(screenPos.Y - 5) };
+                    entry.cachedRect.bottomRight = Shadow::Vec2{ (float)(screenPos.X + 5), (float)(screenPos.Y + 5) };
                     entry.cachedRect.valid = true;
                 }
 
@@ -576,7 +577,7 @@ namespace g_DrawESP {
                     itemName = Item->Class ? Item->Class->GetName() : "Unknown Item";
                 }
 
-                const SDK::FLinearColor finalCol = U32ToFLinearColor(g_Util::ResolveDroppedItemColor(className, Item->ItemRating, quantity));
+                const Shadow::Color finalCol = U32ToFLinearColor(g_Util::ResolveDroppedItemColor(className, Item->ItemRating, quantity));
 
                 entry.flags.clear();
                 entry.bars.clear();
@@ -588,7 +589,7 @@ namespace g_DrawESP {
                 entry.flags.push_back({ std::move(label) + "] (" + std::to_string((int)dist) + "m" + ")", finalCol, g_ESP::FlagPos::Right });
 
                 entry.boxColor = finalCol;
-                entry.nameColor = SDK::FLinearColor{ g_Config::DroppedItemNameColor[0], g_Config::DroppedItemNameColor[1], g_Config::DroppedItemNameColor[2], g_Config::DroppedItemNameColor[3] };
+                entry.nameColor = Shadow::Color{ g_Config::DroppedItemNameColor[0], g_Config::DroppedItemNameColor[1], g_Config::DroppedItemNameColor[2], g_Config::DroppedItemNameColor[3] };
                 entry.shouldDrawBox = false;
                 entry.shouldDrawHealthBar = false;
                 entry.shouldDrawName = false;
@@ -651,8 +652,8 @@ namespace g_DrawESP {
                 bool bProjected = LocalPC && LocalPC->ProjectWorldLocationToScreen(actorLoc, &screenPos, false);
 
                 if (bProjected) {
-                    entry.cachedRect.topLeft = SDK::FVector2D{ (float)(screenPos.X - 2), (float)(screenPos.Y - 2) };
-                    entry.cachedRect.bottomRight = SDK::FVector2D{ (float)(screenPos.X + 2), (float)(screenPos.Y + 2) };
+                    entry.cachedRect.topLeft = Shadow::Vec2{ (float)(screenPos.X - 2), (float)(screenPos.Y - 2) };
+                    entry.cachedRect.bottomRight = Shadow::Vec2{ (float)(screenPos.X + 2), (float)(screenPos.Y + 2) };
                     entry.cachedRect.valid = true;
                 }
 
@@ -679,7 +680,7 @@ namespace g_DrawESP {
                 float* sColMax = isTeam ? g_Config::TeamStructureHealthColor1 : g_Config::StructureHealthColor1;
                 float* sColMin = isTeam ? g_Config::TeamStructureHealthColor2 : g_Config::StructureHealthColor2;
 
-                const SDK::FLinearColor hpColor = GetHealthColorLinear(healthPct, sColMax, sColMin);
+                const Shadow::Color hpColor = GetHealthColorLinear(healthPct, sColMax, sColMin);
 
                 std::string owner = Structure->OwnerName.ToString();
                 std::string ownerStf = (owner.empty() || owner == "None") ? "" : " [" + owner + "]";
@@ -727,8 +728,8 @@ namespace g_DrawESP {
                 ? (int)waterCandidates.size()
                 : g_Config::WaterMaxCount;
 
-            const SDK::FLinearColor waterColor = SDK::FLinearColor{ g_Config::WaterNameColor[0], g_Config::WaterNameColor[1], g_Config::WaterNameColor[2], g_Config::WaterNameColor[3] };
-            const SDK::FLinearColor waterDistColor = SDK::FLinearColor{ g_Config::WaterDistanceColor[0], g_Config::WaterDistanceColor[1], g_Config::WaterDistanceColor[2], g_Config::WaterDistanceColor[3] };
+            const Shadow::Color waterColor = Shadow::Color{ g_Config::WaterNameColor[0], g_Config::WaterNameColor[1], g_Config::WaterNameColor[2], g_Config::WaterNameColor[3] };
+            const Shadow::Color waterDistColor = Shadow::Color{ g_Config::WaterDistanceColor[0], g_Config::WaterDistanceColor[1], g_Config::WaterDistanceColor[2], g_Config::WaterDistanceColor[3] };
 
             static const std::string kWaterLabel = SDK::FString(L"[水源").ToString();
 
@@ -739,8 +740,8 @@ namespace g_DrawESP {
 
                 SDK::FVector2D currentScreenPos;
                 if (LocalPC && LocalPC->ProjectWorldLocationToScreen(wc.surfaceLoc, &currentScreenPos, false)) {
-                    wEntry.cachedRect.topLeft = SDK::FVector2D{ (float)(currentScreenPos.X - 2), (float)(currentScreenPos.Y - 2) };
-                    wEntry.cachedRect.bottomRight = SDK::FVector2D{ (float)(currentScreenPos.X + 2), (float)(currentScreenPos.Y + 2) };
+                    wEntry.cachedRect.topLeft = Shadow::Vec2{ (float)(currentScreenPos.X - 2), (float)(currentScreenPos.Y - 2) };
+                    wEntry.cachedRect.bottomRight = Shadow::Vec2{ (float)(currentScreenPos.X + 2), (float)(currentScreenPos.Y + 2) };
                     wEntry.cachedRect.valid = true;
 
                     const bool onScreen = currentScreenPos.X > 0 && currentScreenPos.X < screenW
@@ -792,7 +793,7 @@ namespace g_DrawESP {
             if (entry.alpha > 0.001f) {
                 if (!entry.isItem && entry.shouldDrawBox && entry.cachedRect.valid) {
                     float boxConfigAlpha = entry.configBoxAlpha;
-                    SDK::FLinearColor boxCol = entry.boxColor;
+                    Shadow::Color boxCol = entry.boxColor;
 
                     g_ESP::DrawBox(Canvas, entry.cachedRect, boxCol, entry.alpha);
                 }
