@@ -1,12 +1,11 @@
 #pragma once
-#include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 #include "../Config/Configs.h"
 #include "../Config/ConfigManager.h"
 #include "ConfigImGui.h"
 #include "Configs_Menu.h"
-#include "../Util/Util.h"
 #include "../../external/CppSDK/SDK.hpp"
 #include "../Language/LanguageManager.h"
+#include <shellapi.h>
 
 namespace g_DrawImGui {
     void Configs_Menu() {

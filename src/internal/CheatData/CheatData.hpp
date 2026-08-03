@@ -1,4 +1,4 @@
-#include <windows.h>
+#include <string>
 
 namespace g_CheatData {
 	namespace VTable {

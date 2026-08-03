@@ -1,6 +1,4 @@
 #pragma once
-#include <vector>
-#include "../../../external/CppSDK/SDK.hpp"
 
 namespace g_Aimbot {
 	struct TargetInfo {

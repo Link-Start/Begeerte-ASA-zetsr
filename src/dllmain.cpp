@@ -1,18 +1,14 @@
 ﻿#include "external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
-#include "external/CppSDK/SDK.hpp"
-#include "internal/ESP/ESP.h"
-#include "internal/Config/Configs.h"
-#include "internal/ESP/DrawESP.h"
 #include "internal/Menu/DrawImGui.h"
-#include "internal/Language/LanguageManager.h"
-#include "internal/Lua/LuaManager.h"
-#include "internal/Config/ConfigManager.h"
 #include "internal/AActor/Tick.h"
-#include "internal/UMovementComponent/PhysicsRotation.h"
 #include "internal/UNetConnection/HandleDisconnect.h"
 #include "internal/UConsole/OutputTextLine.h"
 #include "internal/UGameViewportClient/PostRender.h"
+#include "internal/UMovementComponent/PhysicsRotation.h"
 #include "internal/AActor/TakeDamage.h"
+#include "internal/Config/ConfigManager.h"
+#include "internal/Language/LanguageManager.h"
+#include "internal/Lua/LuaManager.h"
 
 void init(LPVOID lpParam) {
     g_MDX12::Initialize(lpParam);

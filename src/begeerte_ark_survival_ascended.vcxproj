@@ -104,7 +104,6 @@
     <ClInclude Include="external\LuaJIT-2.1\src\luajit.h" />
     <ClInclude Include="external\LuaJIT-2.1\src\luajit_rolling.h" />
     <ClInclude Include="external\LuaJIT-2.1\src\lualib.h" />
-    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\Font\Alibaba-PuHuiTi-Medium.h" />
     <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\Font\HarmonyOS_Sans_SC_Regular.h" />
     <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imconfig.h" />
     <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui.h" />

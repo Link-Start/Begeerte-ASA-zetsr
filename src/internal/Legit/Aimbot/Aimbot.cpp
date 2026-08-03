@@ -1,12 +1,13 @@
 #include "../../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 #include "../../../external/CppSDK/SDK.hpp"
-#include "Aimbot.h"
 #include "../../../internal/Config/Configs.h"
 #include "../../../internal/ESP/ESP.h"
 #include "../../../internal/Util/Util.h"
+#include "Aimbot.h"
 #include <chrono>
 #include <map>
 #include <float.h>
+#include <vector>
 
 namespace g_Aimbot {
 	static bool bIsAutoFiring = false;

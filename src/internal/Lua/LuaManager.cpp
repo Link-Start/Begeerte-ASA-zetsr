@@ -1,4 +1,4 @@
-#include "LuaManager.h"
+#include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 #include "../../external/CppSDK/SDK.hpp"
 #include "../ESP/ESP.h"
 #include "../Util/infoCPU.h"
@@ -6,6 +6,7 @@
 #include "../Util/Util.h"
 #include "../Log/LogManager.h"
 #include "../Config/Configs.h"
+#include "LuaManager.h"
 #include <algorithm>
 #include <iostream>
 #include <shellapi.h>

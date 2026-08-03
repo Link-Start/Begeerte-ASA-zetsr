@@ -1,10 +1,8 @@
 #pragma once
-#include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 #include "../../external/Minimal-D3D12-Hook-ImGui/Main/hooks.h"
 #include "../Config/Configs.h"
 #include "ConfigImGui.h"
 #include "Misc_Menu.h"
-#include "../Util/Util.h"
 #include "../Hack/Hack.h"
 #include "../../external/CppSDK/SDK.hpp"
 #include "../Language/LanguageManager.h"

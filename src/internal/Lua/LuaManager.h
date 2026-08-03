@@ -8,10 +8,9 @@
 #include <memory>
 #include <windows.h>
 #include <wininet.h>
+#include <shellapi.h>
 
 #pragma comment(lib, "wininet.lib")
-
-#include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 
 #define SOL_ALL_SAFETIES_ON 1
 #include "../../external/sol2/sol.hpp"

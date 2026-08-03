@@ -1,4 +1,8 @@
+#include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 #include "LogManager.h"
+#include <string>
+#include <vector>
+#include <mutex>
 
 namespace g_LogManager {
 

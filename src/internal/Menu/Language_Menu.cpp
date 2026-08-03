@@ -1,9 +1,7 @@
 #pragma once
-#include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 #include "../Language/LanguageManager.h"
 #include "ConfigImGui.h"
 #include "Language_Menu.h"
-#include "../Util/Util.h"
 
 namespace g_DrawImGui {
     void Language_Menu() {

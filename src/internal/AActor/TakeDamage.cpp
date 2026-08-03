@@ -2,11 +2,8 @@
 #define NOMINMAX
 #include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 #include "../Config/Configs.h"
-#include "../Util/Util.h"
-#include "../Lua/LuaManager.h"
 #include "../Hack/Hack.h"
 #include "../../external/CppSDK/SDK.hpp"
-#include "../Log/LogManager.h"
 
 namespace g_AActor {
 	void TakeDamage(SDK::AActor* _this, float DamageAmount, SDK::FDamageEvent* DamageEvent, SDK::AController* Instigator, SDK::AActor* DamageCauser) {

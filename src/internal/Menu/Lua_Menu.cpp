@@ -1,10 +1,8 @@
 #pragma once
-#include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 #include "../Config/Configs.h"
 #include "../Lua/LuaManager.h"
 #include "ConfigImGui.h"
 #include "Lua_Menu.h"
-#include "../Util/Util.h"
 #include "../../external/CppSDK/SDK.hpp"
 #include "../Language/LanguageManager.h"
 

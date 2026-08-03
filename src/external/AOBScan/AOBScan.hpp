@@ -1,6 +1,4 @@
 #include <windows.h>
-#undef min
-#undef max
 #include <vector>
 #include <string>
 #include <sstream>
