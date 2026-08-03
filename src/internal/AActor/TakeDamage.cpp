@@ -5,7 +5,7 @@
 #include "../Util/Util.h"
 #include "../Lua/LuaManager.h"
 #include "../Hack/Hack.h"
-#include "../../external/SDK/SDK_Headers.hpp"
+#include "../../external/CppSDK/SDK.hpp"
 #include "../Log/LogManager.h"
 
 namespace g_AActor {

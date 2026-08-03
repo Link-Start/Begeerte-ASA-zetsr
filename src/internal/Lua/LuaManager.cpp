@@ -1,5 +1,5 @@
 #include "LuaManager.h"
-#include "../../external/SDK/SDK_Headers.hpp"
+#include "../../external/CppSDK/SDK.hpp"
 #include "../ESP/ESP.h"
 #include "../Util/infoCPU.h"
 #include "../Util/infoGPU.h"

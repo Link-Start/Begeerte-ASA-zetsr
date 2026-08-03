@@ -5,7 +5,7 @@
 #include "../Config/ConfigManager.h"
 #include "../Lua/LuaManager.h"
 #include "../Hack/Hack.h"
-#include "../../external/SDK/SDK_Headers.hpp"
+#include "../../external/CppSDK/SDK.hpp"
 #include "../Legit/Aimbot/Aimbot.h"
 
 namespace g_AActor {

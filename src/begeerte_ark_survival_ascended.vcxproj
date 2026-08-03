@@ -20,6 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\AOBScan\AOBScan.hpp" />
+    <ClInclude Include="external\CppSDK\PropertyFixup.hpp" />
+    <ClInclude Include="external\CppSDK\SDK.hpp" />
+    <ClInclude Include="external\CppSDK\UnrealContainers.hpp" />
+    <ClInclude Include="external\CppSDK\UtfN.hpp" />
     <ClInclude Include="external\LuaJIT-2.1\src\lauxlib.h" />
     <ClInclude Include="external\LuaJIT-2.1\src\lj_alloc.h" />
     <ClInclude Include="external\LuaJIT-2.1\src\lj_arch.h" />
@@ -120,7 +124,6 @@
     <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde\table32.h" />
     <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\hde\table64.h" />
     <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\trampoline.h" />
-    <ClInclude Include="external\SDK\SDK_Headers.hpp" />
     <ClInclude Include="external\Shadow-Gui\include\Shadow.h" />
     <ClInclude Include="external\sol2\config.hpp" />
     <ClInclude Include="external\sol2\forward.hpp" />
@@ -161,6 +164,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="external\CppSDK\SDK\Basic.cpp" />
+    <ClCompile Include="external\CppSDK\SDK\CoreUObject_functions.cpp" />
+    <ClCompile Include="external\CppSDK\SDK\Engine_functions.cpp" />
+    <ClCompile Include="external\CppSDK\SDK\ShooterGame_functions.cpp" />
     <ClCompile Include="external\LuaJIT-2.1\src\ljamalg.c" />
     <ClCompile Include="external\LuaJIT-2.1\src\luajit.c" />
     <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui.cpp" />
@@ -191,7 +198,6 @@
     <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\MinHook\src\trampoline.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
     </ClCompile>
-    <ClCompile Include="external\SDK\SDK_Impl.cpp" />
     <ClCompile Include="internal\AActor\TakeDamage.cpp" />
     <ClCompile Include="internal\AActor\Tick.cpp" />
     <ClCompile Include="internal\Config\ConfigManager.cpp" />
@@ -218,6 +224,10 @@
     <ClCompile Include="internal\UNetConnection\HandleDisconnect.cpp" />
     <ClCompile Include="internal\Util\infoCPU.cpp" />
     <ClCompile Include="internal\Util\infoGPU.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="external\CppSDK\Assertions.inl" />
+    <None Include="external\CppSDK\NameCollisions.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

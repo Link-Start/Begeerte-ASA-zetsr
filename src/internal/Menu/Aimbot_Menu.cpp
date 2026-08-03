@@ -6,7 +6,7 @@
 #include "ConfigImGui.h"
 #include "Aimbot_Menu.h"
 #include "../Util/Util.h"
-#include "../../external/SDK/SDK_Headers.hpp"
+#include "../../external/CppSDK/SDK.hpp"
 #include "../Language/LanguageManager.h"
 
 namespace g_DrawImGui {

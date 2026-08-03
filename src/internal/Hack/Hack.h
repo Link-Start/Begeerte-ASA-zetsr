@@ -1,5 +1,5 @@
 #pragma once
-#include "../../external/SDK/SDK_Headers.hpp"
+#include "../../external/CppSDK/SDK.hpp"
 
 namespace g_Hack {
     void DumpServerInfo();

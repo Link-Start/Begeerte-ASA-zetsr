@@ -21,7 +21,7 @@ Credit:
 #include <ranges>
 #include <cstdio>
 
-#include "../../SDK/CppSDK/SDK.hpp"
+#include "../../CppSDK/SDK.hpp"
 
 namespace Shadow {
     enum class HotkeyMode {

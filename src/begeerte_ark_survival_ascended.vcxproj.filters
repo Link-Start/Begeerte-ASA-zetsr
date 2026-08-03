@@ -28,9 +28,6 @@
     <Filter Include="external\Minimal-D3D12-Hook-ImGui\MinHook\include">
       <UniqueIdentifier>{a2a1d641-47b8-4c54-8f55-d64d9fff33bf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="external\SDK">
-      <UniqueIdentifier>{832a86cc-2d57-4311-ad9b-6b118e3ca9b1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="external\sol2">
       <UniqueIdentifier>{db0a6749-6586-473e-a49d-41fbd5fb3ffb}</UniqueIdentifier>
     </Filter>
@@ -102,6 +99,12 @@
     </Filter>
     <Filter Include="external\Shadow-Gui\include">
       <UniqueIdentifier>{d593b1db-b249-458e-ad64-e9662f5a165d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\CppSDK">
+      <UniqueIdentifier>{832a86cc-2d57-4311-ad9b-6b118e3ca9b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\CppSDK\SDK">
+      <UniqueIdentifier>{e80af9e1-a64f-4b45-85ff-a3bc9862ee83}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -354,9 +357,6 @@
     <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\MinHook\include\MinHook.h">
       <Filter>external\Minimal-D3D12-Hook-ImGui\MinHook\include</Filter>
     </ClInclude>
-    <ClInclude Include="external\SDK\SDK_Headers.hpp">
-      <Filter>external\SDK</Filter>
-    </ClInclude>
     <ClInclude Include="external\sol2\config.hpp">
       <Filter>external\sol2</Filter>
     </ClInclude>
@@ -513,6 +513,18 @@
     <ClInclude Include="internal\AActor\Tick.h">
       <Filter>internal\AActor</Filter>
     </ClInclude>
+    <ClInclude Include="external\CppSDK\PropertyFixup.hpp">
+      <Filter>external\CppSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="external\CppSDK\SDK.hpp">
+      <Filter>external\CppSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="external\CppSDK\UnrealContainers.hpp">
+      <Filter>external\CppSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="external\CppSDK\UtfN.hpp">
+      <Filter>external\CppSDK</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Object Include="external\LuaJIT-2.1\src\lj_vm.obj">
@@ -540,9 +552,6 @@
     </ClCompile>
     <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\Main\setup_imgui.cpp">
       <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="external\SDK\SDK_Impl.cpp">
-      <Filter>external\SDK</Filter>
     </ClCompile>
     <ClCompile Include="internal\Config\ConfigManager.cpp">
       <Filter>internal\Config</Filter>
@@ -664,5 +673,25 @@
     <ClCompile Include="internal\AActor\Tick.cpp">
       <Filter>internal\AActor</Filter>
     </ClCompile>
+    <ClCompile Include="external\CppSDK\SDK\CoreUObject_functions.cpp">
+      <Filter>external\CppSDK\SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="external\CppSDK\SDK\Basic.cpp">
+      <Filter>external\CppSDK\SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="external\CppSDK\SDK\Engine_functions.cpp">
+      <Filter>external\CppSDK\SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="external\CppSDK\SDK\ShooterGame_functions.cpp">
+      <Filter>external\CppSDK\SDK</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="external\CppSDK\Assertions.inl">
+      <Filter>external\CppSDK</Filter>
+    </None>
+    <None Include="external\CppSDK\NameCollisions.inl">
+      <Filter>external\CppSDK</Filter>
+    </None>
   </ItemGroup>
 </Project>
