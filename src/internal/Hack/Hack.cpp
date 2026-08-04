@@ -6,7 +6,7 @@
 
 namespace g_Hack {
     static int32_t g_CurrentNoteIndex = 0;
-    static const int32_t g_MaxNoteIndex = 200;
+    static const int32_t g_MaxNoteIndex = 1000;
 
     void DumpServerInfo() {
         SDK::UWorld* World = SDK::UWorld::GetWorld();
