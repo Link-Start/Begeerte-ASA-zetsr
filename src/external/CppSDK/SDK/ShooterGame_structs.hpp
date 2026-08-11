@@ -9696,7 +9696,7 @@ public:
 DUMPER7_ASSERTS_FManagedBoneSetup;
 
 // ScriptStruct ShooterGame.PrimalRaftSparseClassData
-// 0x0018 (0x0E28 - 0x0E10)
+// 0x0020 (0x0E30 - 0x0E10)
 struct FPrimalRaftSparseClassData final : public FPrimalDinoCharacterSparseClassData
 {
 public:
@@ -9704,7 +9704,8 @@ public:
 	float                                         SimpleBuoyancyZOffset;                             // 0x0E18(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         SimpleBuoyancyLocationInterpSpeed;                 // 0x0E1C(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         SimpleBuoyancyRotationInterpSpeed;                 // 0x0E20(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_E24[0x4];                                      // 0x0E24(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_E24[0x4];                                      // 0x0E24(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UTexture2D*                             AnchoredIcon;                                      // 0x0E28(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 };
 DUMPER7_ASSERTS_FPrimalRaftSparseClassData;
 

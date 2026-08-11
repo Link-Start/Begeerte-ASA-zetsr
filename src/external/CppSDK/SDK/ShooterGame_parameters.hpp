@@ -44884,6 +44884,15 @@ public:
 };
 DUMPER7_ASSERTS_PrimalBuff_BPInstigatorStoppedRiding;
 
+// Function ShooterGame.PrimalBuff.BPInstigatorUnseated
+// 0x0008 (0x0008 - 0x0000)
+struct PrimalBuff_BPInstigatorUnseated final
+{
+public:
+	class APrimalStructureSeating*                TheSeatingStructure;                               // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_PrimalBuff_BPInstigatorUnseated;
+
 // Function ShooterGame.PrimalBuff.BPInterceptUseAction
 // 0x0001 (0x0001 - 0x0000)
 struct PrimalBuff_BPInterceptUseAction final
@@ -59750,13 +59759,14 @@ public:
 DUMPER7_ASSERTS_ShooterCheatManager_TP;
 
 // Function ShooterGame.ShooterCheatManager.TPCoords
-// 0x000C (0x000C - 0x0000)
+// 0x0010 (0x0010 - 0x0000)
 struct ShooterCheatManager_TPCoords final
 {
 public:
 	float                                         Lat;                                               // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Lon;                                               // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Z;                                                 // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Index_0;                                           // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_ShooterCheatManager_TPCoords;
 

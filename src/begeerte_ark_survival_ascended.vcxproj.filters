@@ -348,9 +348,6 @@
     <ClInclude Include="external\LuaJIT-2.1\src\lj_udata.h">
       <Filter>external\LuaJIT-2.1\src</Filter>
     </ClInclude>
-    <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\Font\Alibaba-PuHuiTi-Medium.h">
-      <Filter>external\Minimal-D3D12-Hook-ImGui\Font</Filter>
-    </ClInclude>
     <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\Main\mdx12_api.h">
       <Filter>external\Minimal-D3D12-Hook-ImGui\Main</Filter>
     </ClInclude>

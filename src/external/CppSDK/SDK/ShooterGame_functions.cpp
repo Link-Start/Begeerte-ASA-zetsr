@@ -125938,6 +125938,20 @@ void APrimalBuff::BPInstigatorReceivedKillingDamage()
 }
 
 
+// Function ShooterGame.PrimalBuff.BPInstigatorSeated
+// (Event, Public, BlueprintEvent)
+
+void APrimalBuff::BPInstigatorSeated()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalBuff", "BPInstigatorSeated");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function ShooterGame.PrimalBuff.BPInstigatorSleeped
 // (Event, Public, BlueprintEvent)
 // Parameters:
@@ -126003,6 +126017,26 @@ void APrimalBuff::BPInstigatorUnpossessed()
 		Func = Class->GetFunction("PrimalBuff", "BPInstigatorUnpossessed");
 
 	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function ShooterGame.PrimalBuff.BPInstigatorUnseated
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// class APrimalStructureSeating*          TheSeatingStructure                                    (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void APrimalBuff::BPInstigatorUnseated(class APrimalStructureSeating* TheSeatingStructure)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalBuff", "BPInstigatorUnseated");
+
+	Params::PrimalBuff_BPInstigatorUnseated Parms{};
+
+	Parms.TheSeatingStructure = TheSeatingStructure;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 
@@ -172914,8 +172948,9 @@ void UShooterCheatManager::TP(const class FString& LocationName)
 // float                                   Lat                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Lon                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Z                                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UShooterCheatManager::TPCoords(float Lat, float Lon, float Z)
+void UShooterCheatManager::TPCoords(float Lat, float Lon, float Z, int32 Index_0)
 {
 	static class UFunction* Func = nullptr;
 
@@ -172927,6 +172962,7 @@ void UShooterCheatManager::TPCoords(float Lat, float Lon, float Z)
 	Parms.Lat = Lat;
 	Parms.Lon = Lon;
 	Parms.Z = Z;
+	Parms.Index_0 = Index_0;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

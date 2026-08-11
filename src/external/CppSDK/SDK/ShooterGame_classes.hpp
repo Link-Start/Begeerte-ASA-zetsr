@@ -1018,7 +1018,8 @@ public:
 	uint8                                         bHideLegacyStructureAmmoHUD : 1;                   // 0x13C9(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Edit, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bTraceToUnboardLocation : 1;                       // 0x13C9(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Edit, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bOverrideOrbitCamTargetLocation : 1;               // 0x13C9(0x0001)(BitIndex: 0x07, PropSize: 0x0001 (Edit, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_13CA[0x2];                                     // 0x13CA(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         bAllowDinoCompanionAttachment : 1;                 // 0x13CA(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_13CB[0x1];                                     // 0x13CB(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         TPVCameraYawRange;                                 // 0x13CC(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                TPVCameraOffset;                                   // 0x13D0(0x0018)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                TPVCameraOffsetMultiplier;                         // 0x13E8(0x0018)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20423,7 +20424,7 @@ public:
 DUMPER7_ASSERTS_AMissionType_ModularMissionBase;
 
 // Class ShooterGame.ModDataAsset
-// 0x03F8 (0x0428 - 0x0030)
+// 0x04F8 (0x0528 - 0x0030)
 class UModDataAsset final : public UDataAsset
 {
 public:
@@ -20482,18 +20483,22 @@ public:
 	TArray<struct FObjectCorrelation>             AdditionalHumanFemaleAnimMontagesOverrides;        // 0x0388(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
 	TArray<struct FStructureToBuildAddition>      AdditionalStructuresToBuild;                       // 0x0398(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
 	TArray<struct FStructureVariantAddition>      AdditionalStructureVariants;                       // 0x03A8(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	TArray<class UObject*>                        ExtraResources;                                    // 0x03B8(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	TArray<TSoftClassPtr<class UClass>>           ExtraResourcesSoft;                                // 0x03C8(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
-	bool                                          bForceServerUseDinoList;                           // 0x03D8(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3D9[0x7];                                      // 0x03D9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<TSoftClassPtr<class UClass>>           AdditionalAllowDownloadDinoClasses;                // 0x03E0(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
-	bool                                          bForceEnablePhysicsSimulation;                     // 0x03F0(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3F1[0x7];                                      // 0x03F1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<TSubclassOf<class UPrimalWorldBuffData>> AdditionalWorldBuffDefinitions;                  // 0x03F8(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
-	int32                                         OverrideServerPhysXSubsteps;                       // 0x0408(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_40C[0x4];                                      // 0x040C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FCustomCosmeticModObjectSkinEntry> ModCustomCosmeticEntries;                       // 0x0410(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	TSubclassOf<class USparseDataOverrideManager> SparseDataOverrideManager;                         // 0x0420(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<TSoftObjectPtr<class UPrimalProgressionTreeAsset>> AdditionalSkillTrees;                  // 0x03B8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
+	TMap<class FName, struct FMilestoneTreeEntryArray> AdditionalMilestoneTrees;                     // 0x03C8(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	TMap<class FName, TSoftClassPtr<class UClass>> AdditionalMilestoneCompleteEffects;               // 0x0418(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
+	TMap<class FName, TSoftClassPtr<class UClass>> AdditionalSkillTreeUIDataContainerClasses;        // 0x0468(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
+	TArray<class UObject*>                        ExtraResources;                                    // 0x04B8(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	TArray<TSoftClassPtr<class UClass>>           ExtraResourcesSoft;                                // 0x04C8(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
+	bool                                          bForceServerUseDinoList;                           // 0x04D8(0x0001)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4D9[0x7];                                      // 0x04D9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<TSoftClassPtr<class UClass>>           AdditionalAllowDownloadDinoClasses;                // 0x04E0(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
+	bool                                          bForceEnablePhysicsSimulation;                     // 0x04F0(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4F1[0x7];                                      // 0x04F1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<TSubclassOf<class UPrimalWorldBuffData>> AdditionalWorldBuffDefinitions;                  // 0x04F8(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
+	int32                                         OverrideServerPhysXSubsteps;                       // 0x0508(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_50C[0x4];                                      // 0x050C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FCustomCosmeticModObjectSkinEntry> ModCustomCosmeticEntries;                       // 0x0510(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	TSubclassOf<class USparseDataOverrideManager> SparseDataOverrideManager;                         // 0x0520(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -22486,10 +22491,12 @@ public:
 	void BPInstigatorLocalPossessed(class AShooterPlayerController* ByController);
 	void BPInstigatorPossessed(class AController* ByController);
 	void BPInstigatorReceivedKillingDamage();
+	void BPInstigatorSeated();
 	void BPInstigatorSleeped(bool bIsSleeped);
 	void BPInstigatorStartedRiding();
 	void BPInstigatorStoppedRiding(class APrimalDinoCharacter* TheDino);
 	void BPInstigatorUnpossessed();
+	void BPInstigatorUnseated(class APrimalStructureSeating* TheSeatingStructure);
 	bool BPInterceptUseAction();
 	bool BPInterceptWeaponToggle();
 	bool BPIsCharacterHardAttached();
@@ -25659,7 +25666,7 @@ public:
 DUMPER7_ASSERTS_UPrimalWorldBuffCustomImplement;
 
 // Class ShooterGame.PrimalGameData
-// 0x3968 (0x3990 - 0x0028)
+// 0x3A68 (0x3A90 - 0x0028)
 class UPrimalGameData final : public UObject
 {
 public:
@@ -26087,21 +26094,25 @@ public:
 	TSubclassOf<class UObject>                    GeneTraits_Definitions;                            // 0x37C8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TSubclassOf<class UObject>                    CustomGeneTraits_Definitions;                      // 0x37D0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<TSoftObjectPtr<class UPrimalProgressionTreeAsset>> AvailableSkillTrees;                   // 0x37D8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
-	TSubclassOf<class UPrimalItem_HotbarSkill>    HotbarSkillItemClass;                              // 0x37E8(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TMap<class FName, struct FMilestoneTreeEntryArray> AvailableMilestoneTrees;                      // 0x37F0(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	TArray<float>                                 RepeatableMilestoneFlatXPTable;                    // 0x3840(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	TArray<struct FRepeatableMilestoneXPThreshold> RepeatableXPThresholds;                           // 0x3850(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	float                                         DefaultThrallAttackDecisionDuration;               // 0x3860(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3864[0x4];                                     // 0x3864(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class USparseDataOverrideManager*>     ConstructedSparseDataOverrideManagers;             // 0x3868(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-	TSubclassOf<class USparseDataOverrideManager> SparseDataOverrideManager;                         // 0x3878(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TMap<class FName, TSoftClassPtr<class UClass>> MilestoneCompleteEffects;                         // 0x3880(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
-	class USoundBase*                             MilestoneComplete_Sound;                           // 0x38D0(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class USoundBase*                             ActiveSkillTriggered_Sound;                        // 0x38D8(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSoftClassPtr<class UClass>                   ThreateningPlayerBuff;                             // 0x38E0(0x0028)(Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSoftClassPtr<class UClass>                   HostilePlayerBuff;                                 // 0x3908(0x0028)(Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FPlayerPawnDefaultAnimInstances        DefaultPlayerPawnAnimInstances;                    // 0x3930(0x0010)(Edit, DisableEditOnInstance, NoDestructor, NativeAccessSpecifierPublic)
-	TMap<class FName, TSoftClassPtr<class UClass>> SkillTreeUIDataContainerClasses;                  // 0x3940(0x0050)(Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
+	TArray<TSoftObjectPtr<class UPrimalProgressionTreeAsset>> AdditionalSkillTrees;                  // 0x37E8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
+	TSubclassOf<class UPrimalItem_HotbarSkill>    HotbarSkillItemClass;                              // 0x37F8(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TMap<class FName, struct FMilestoneTreeEntryArray> AvailableMilestoneTrees;                      // 0x3800(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	TMap<class FName, struct FMilestoneTreeEntryArray> AdditionalMilestoneTrees;                     // 0x3850(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	TArray<float>                                 RepeatableMilestoneFlatXPTable;                    // 0x38A0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	TArray<struct FRepeatableMilestoneXPThreshold> RepeatableXPThresholds;                           // 0x38B0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	float                                         DefaultThrallAttackDecisionDuration;               // 0x38C0(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_38C4[0x4];                                     // 0x38C4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class USparseDataOverrideManager*>     ConstructedSparseDataOverrideManagers;             // 0x38C8(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TSubclassOf<class USparseDataOverrideManager> SparseDataOverrideManager;                         // 0x38D8(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TMap<class FName, TSoftClassPtr<class UClass>> MilestoneCompleteEffects;                         // 0x38E0(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
+	TMap<class FName, TSoftClassPtr<class UClass>> AdditionalMilestoneCompleteEffects;               // 0x3930(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
+	class USoundBase*                             MilestoneComplete_Sound;                           // 0x3980(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class USoundBase*                             ActiveSkillTriggered_Sound;                        // 0x3988(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSoftClassPtr<class UClass>                   ThreateningPlayerBuff;                             // 0x3990(0x0028)(Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSoftClassPtr<class UClass>                   HostilePlayerBuff;                                 // 0x39B8(0x0028)(Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FPlayerPawnDefaultAnimInstances        DefaultPlayerPawnAnimInstances;                    // 0x39E0(0x0010)(Edit, DisableEditOnInstance, NoDestructor, NativeAccessSpecifierPublic)
+	TMap<class FName, TSoftClassPtr<class UClass>> SkillTreeUIDataContainerClasses;                  // 0x39F0(0x0050)(Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
+	TMap<class FName, TSoftClassPtr<class UClass>> AdditionalSkillTreeUIDataContainerClasses;        // 0x3A40(0x0050)(Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
 
 public:
 	static class UPrimalGameData* BPGetGameData();
@@ -29388,7 +29399,7 @@ public:
 	void ToggleVolumetricDispatcher();
 	void ToggleVolumetricDispatcherDebug();
 	void TP(const class FString& LocationName);
-	void TPCoords(float Lat, float Lon, float Z);
+	void TPCoords(float Lat, float Lon, float Z, int32 Index_0);
 	void TPName(const class FString& PlayerName);
 	void TrackCarByName(const class FString& Name_0);
 	void TransferImprints(const class FString& oldPlayerUniqueNetId, int32 newPlayerId, const class FString& NewImprinterName);
