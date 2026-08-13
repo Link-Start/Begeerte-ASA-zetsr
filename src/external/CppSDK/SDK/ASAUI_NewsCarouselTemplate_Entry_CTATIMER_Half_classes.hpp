@@ -45,17 +45,17 @@ public:
 	bool                                          bUseCompact;                                       // 0x04A8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
-	bool ShouldHideEntry();
-	void ReplaceTimeCode(class FString& FormatString, const class FString& Timecode, const class FString& SuperiorTimeCode, const class FString& InferiorTimeCode, const class FString& PlacementText, int32 CounterValue, int32* CorrectedCounterValue);
-	bool HasAnyActiveTimeCodes(const class FString& FormatString);
-	void GetTimerText(class FText* TimerText);
-	void GetAdjustedTimerFormatText(const class FString& BaseTimerFormatString, int32 Days, int32 Hours, int32 Minutes, int32 Seconds, class FString* CorrectedTimerFormatString, int32* CorrectedDays, int32* CorrectedHours, int32* CorrectedMinutes, int32* CorrectedSeconds);
-	class FText Get_CountDownTimerTextBox_Text();
-	void ExecuteUbergraph_ASAUI_NewsCarouselTemplate_Entry_CTATIMER_Half(int32 EntryPoint);
-	void EntryFocusTick(float DeltaTime, bool bIsHighlighted);
-	void EntryFocusStart(bool bInstigatedByAutoRollover);
-	void EntryFocusEnd(bool bInstigatedByAutoRollover);
 	void BlueprintInit(const class FString& RawExtraData);
+	void EntryFocusEnd(bool bInstigatedByAutoRollover);
+	void EntryFocusStart(bool bInstigatedByAutoRollover);
+	void EntryFocusTick(float DeltaTime, bool bIsHighlighted);
+	void ExecuteUbergraph_ASAUI_NewsCarouselTemplate_Entry_CTATIMER_Half(int32 EntryPoint);
+	class FText Get_CountDownTimerTextBox_Text();
+	void GetAdjustedTimerFormatText(const class FString& BaseTimerFormatString, int32 Days, int32 Hours, int32 Minutes, int32 Seconds, class FString* CorrectedTimerFormatString, int32* CorrectedDays, int32* CorrectedHours, int32* CorrectedMinutes, int32* CorrectedSeconds);
+	void GetTimerText(class FText* TimerText);
+	bool HasAnyActiveTimeCodes(const class FString& FormatString);
+	void ReplaceTimeCode(class FString& FormatString, const class FString& Timecode, const class FString& SuperiorTimeCode, const class FString& InferiorTimeCode, const class FString& PlacementText, int32 CounterValue, int32* CorrectedCounterValue);
+	bool ShouldHideEntry();
 
 public:
 	static class UClass* StaticClass()

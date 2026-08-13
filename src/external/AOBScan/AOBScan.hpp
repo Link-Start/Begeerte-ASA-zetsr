@@ -31,6 +31,9 @@ public:
     };
 
     static Result Scan(const std::string& pattern) {
+        // 判断特征码是否过期，如果为 "OUTDATED"，直接返回未匹配的结果
+        if (pattern == "OUTDATED") return {};
+
         PatternData pmd = PreprocessPattern(pattern);
         if (pmd.entries.empty()) return {};
 

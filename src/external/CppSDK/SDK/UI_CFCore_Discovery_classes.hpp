@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
-#include "UI_CFCore_BasePage_classes.hpp"
 #include "cfcore_structs.hpp"
 #include "Engine_structs.hpp"
+#include "UI_CFCore_BasePage_classes.hpp"
 #include "UMG_structs.hpp"
 
 

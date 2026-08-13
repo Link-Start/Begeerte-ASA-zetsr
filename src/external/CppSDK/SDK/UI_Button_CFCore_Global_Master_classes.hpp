@@ -15,8 +15,8 @@
 #include "Engine_structs.hpp"
 #include "SlateCore_structs.hpp"
 #include "CoreUObject_structs.hpp"
-#include "ENUM_CFCore_ButtonStates_structs.hpp"
 #include "CFCoreWidget_classes.hpp"
+#include "ENUM_CFCore_ButtonStates_structs.hpp"
 
 
 SDK_NAMESPACE_START

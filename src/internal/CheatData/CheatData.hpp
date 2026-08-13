@@ -11,20 +11,21 @@ namespace g_CheatData {
 
 	namespace Signature {
 		namespace AShooterPlayerController {
-			std::string ClientChatMessage = "48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 55 48 8D 6C 24 ? 48 81 EC ? ? ? ? 80 65 ? ? 33 DB 0F";
+			// 48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 55 48 8D 6C 24 ? 48 81 EC ? ? ? ? 80 65 ? ? 33 DB 0F
+			std::string ClientChatMessage = "OUTDATED";
      	}
 
 		namespace APrimalPlayerController {
 			
 			// 他妈的特别特别特别长的特征码
-			std::string ClientNotifyReconnected = "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 33 FF 48 8B DA 48 89 7C 24 ? 48 8B F1 E8 ? ? ? ? 48 8B 43 ? 48 85 C0 74 ? 44 0F B6 00 4C 8D 0D ? ? ? ? 48 8B 4B ? 48 FF C0 48 89 43 ? 48 8B D3 41 8B C0 4C 8D 44 24 ? 41 FF 14 C1 EB ? 48 8B 8B ? ? ? ? 48 8B 41 ? 48 89 83 ? ? ? ? 8B 41 ? 48 0F BA E0 ? 73 ? 48 8B 83 ? ? ? ? 48 39 08 74 ? 0F 1F 80 ? ? ? ? 48 8B 40 ? 48 39 08 75 ? 48 8B 40 ? 48 89 43 ? 48 89 7B ? EB ? 48 63 41 ? 48 8D 54 24 ? 4C 8B 43 ? 49 03 C0 4C 89 43 ? 48 89 43 ? 48 8B 01 FF 90 ? ? ? ? 48 8B 43 ? 48 8B CE 48 8B 54 24 ? 48 85 C0 40 0F 95 C7 48 03 F8 48 89 7B ? 48 8B 06 FF 90 ? ? ? ? 48 8B 5C 24 ? 48 8B 74 24 ? 48 83 C4 ? 5F C3 CC CC CC CC CC 48 83 EC ? 48 8B 05 ? ? ? ? 48 85 C0 75 ? 48 8D 15 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8B 05 ? ? ? ? 48 83 C4 ? C3 CC 48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC ? 33 FF 48 8B DA 48 89 7C 24 ? 4C 8B F1 E8 ? ? ? ? 48 8B 43 ? 48 8D 2D ? ? ? ? 48 85 C0 74 ? 0F B6 10 4C 8D 44 24 ? 48 8B 4B ? 48 FF C0 48 89 43 ? 8B C2 48 8B D3 FF 54 C5 ? 48 8D B3 ? ? ? ? EB ? 48 8D B3 ? ? ? ? 48 8B 0E 48 8B 41 ? 48 89 06 8B 41 ? 48 0F BA E0 ? 73 ? 48 8B 83 ? ? ? ? 48 39 08 74 ? 48 8B 40 ? 48 39 08 75 ? 48 8B 40 ? 48 89 43 ? 48 89 7B ? EB ? 48 63 41 ? 48 8D 54 24 ? 4C 8B 43 ? 49 03 C0 4C 89 43 ? 48 89 43 ? 48 8B 01 FF 90 ? ? ? ? 89 7C 24 ? E8 ? ? ? ? 48 8B 43 ? 48 85 C0 74 ? 0F B6 08 4C 8D 44 24 ? 48 FF C0 48 8B D3 48 89 43 ? 8B C1 48 8B 4B ? FF 54 C5 ? EB ? 48 8B 0E 48 8B 41 ? 48 89 06 8B 41 ? 48 0F BA E0 ? 73 ? 48 8B 83 ? ? ? ? 48 39 08 74 ? 0F 1F 84 00 ? ? ? ? 48 8B 40 ? 48 39 08 75 ? 48 8B 40 ? 48 89 43 ? 48 89 7B ? EB ? 48 63 41 ? 48 8D 54 24 ? 4C 8B 43 ? 49 03 C0 4C 89 43 ? 48 89 43 ? 48 8B 01 FF 90 ? ? ? ? 48 8B 43 ? 49 8B CE 48 8B 54 24 ? 48 85 C0 40 0F 95 C7 48 03 F8 83 7C 24 ? ? 48 89 7B ? 49 8B 06 41 0F 95 C0 FF 90 ? ? ? ? 48 8B 5C 24 ? 48 8B 6C 24 ? 48 83 C4 ? 41 5E 5F 5E C3 CC CC CC CC CC CC CC CC CC 48 83 EC ? 48 8B 05 ? ? ? ? 48 85 C0 75 ? 48 8D 15 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8B 05 ? ? ? ? 48 83 C4 ? C3 CC 48 8B C4 53";
-			std::string ClientNotifyRespawned = "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC ? 33 FF 48 8B DA 48 89 7C 24 ? 4C 8B F1 E8 ? ? ? ? 48 8B 43 ? 48 8D 2D ? ? ? ? 48 85 C0 74 ? 0F B6 10 4C 8D 44 24 ? 48 8B 4B ? 48 FF C0 48 89 43 ? 8B C2 48 8B D3 FF 54 C5 ? 48 8D B3 ? ? ? ? EB ? 48 8D B3 ? ? ? ? 48 8B 0E 48 8B 41 ? 48 89 06 8B 41 ? 48 0F BA E0 ? 73 ? 48 8B 83 ? ? ? ? 48 39 08 74 ? 48 8B 40 ? 48 39 08 75 ? 48 8B 40 ? 48 89 43 ? 48 89 7B ? EB ? 48 63 41 ? 48 8D 54 24 ? 4C 8B 43 ? 49 03 C0 4C 89 43 ? 48 89 43 ? 48 8B 01 FF 90 ? ? ? ? 89 7C 24 ? E8 ? ? ? ? 48 8B 43 ? 48 85 C0 74 ? 0F B6 08 4C 8D 44 24 ? 48 FF C0 48 8B D3 48 89 43 ? 8B C1 48 8B 4B ? FF 54 C5 ? EB ? 48 8B 0E 48 8B 41 ? 48 89 06 8B 41 ? 48 0F BA E0 ? 73 ? 48 8B 83 ? ? ? ? 48 39 08 74 ? 0F 1F 84 00 ? ? ? ? 48 8B 40 ? 48 39 08 75 ? 48 8B 40 ? 48 89 43 ? 48 89 7B ? EB ? 48 63 41 ? 48 8D 54 24 ? 4C 8B 43 ? 49 03 C0 4C 89 43 ? 48 89 43 ? 48 8B 01 FF 90 ? ? ? ? 48 8B 43 ? 49 8B CE 48 8B 54 24 ? 48 85 C0 40 0F 95 C7 48 03 F8 83 7C 24 ? ? 48 89 7B ? 49 8B 06 41 0F 95 C0 FF 90 ? ? ? ? 48 8B 5C 24 ? 48 8B 6C 24 ? 48 83 C4 ? 41 5E 5F 5E C3 CC CC CC CC CC CC CC CC CC 48 83 EC ? 48 8B 05 ? ? ? ? 48 85 C0 75 ? 48 8D 15 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8B 05 ? ? ? ? 48 83 C4 ? C3 CC 48 8B C4 53 41";
+			std::string ClientNotifyReconnected = "OUTDATED";
+			std::string ClientNotifyRespawned = "48 89 5C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? 33 FF 48 8B DA 48 89 7C 24 ? 4C 8B F1 E8 ? ? ? ? 48 8B 43 ? 4C 8D 3D ? ? ? ? 48 85 C0 74 ? 0F B6 08 4C 8D 44 24 ? 48 FF C0 48 8B D3 48 89 43 ? 4D 8B 0C CF 48 8B 4B ? 41 FF D1 EB ? 48 8B 8B ? ? ? ? 48 8B 41 ? 48 89 83 ? ? ? ? 8B 41 ? 48 0F BA E0 ? 73 ? 48 8B 83 ? ? ? ? 48 39 08 74 ? 0F 1F 40 ? 48 8B 40 ? 48 39 08 75 ? 48 8B 40 ? 48 89 43 ? 48 89 7B ? EB ? 48 63 41 ? 48 8D 54 24 ? 4C 8B 43 ? 49 03 C0 4C 89 43 ? 48 89 43 ? 48 8B 01 FF 90 ? ? ? ? B8 ? ? ? ? 89 7C 24 ? 48 8B CB 48 8D 34 18 E8 ? ? ? ? 48 8B 43 ? 48 85 C0 74 ? 0F B6 08 4C 8D 44 24 ? 48 FF C0 48 8B D3 48 89 43 ? 4D 8B 0C CF 48 8B 4B ? 41 FF D1 EB ? 48 8B 0E 48 8B 41 ? 48 89 06 8B 41 ? 48 0F BA E0 ? 73 ? 48 8B 83 ? ? ? ? 48 39 08 74 ? 48 8B 40 ? 48 39 08 75 ? 48 8B 40 ? 48 89 43 ? 48 89 7B ? EB ? 48 63 41 ? 48 8D 54 24 ? 4C 8B 43 ? 49 03 C0 4C 89 43 ? 48 89 43 ? 48 8B 01 FF 90 ? ? ? ? 48 8B 43 ? 49 8B CE 48 8B 54 24 ? 48 85 C0 40 0F 95 C7 48 03 F8 83 7C 24 ? ? 48 89 7B ? 49 8B 06 41 0F 95 C0 FF 90 ? ? ? ? 48 8B 5C 24 ? 48 8B 74 24 ? 48 83 C4 ? 41 5F 41 5E 5F C3 CC CC CC 48 83 EC ? 48 8B 05 ? ? ? ? 48 85 C0 75 ? 48 8D 15 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8B 05 ? ? ? ? 48 83 C4 ? C3 CC 48 8B C4 53 41";
 		}
 
 		namespace AActor {
 			// push rbp | push rbx | push rsi | push rdi | push r12 | push r13 | push r14 | push r15 | lea rbp, [rsp+offset] | sub rsp, alloc | movaps [rsp+offset], xmm11
-			std::string TakeDamage = "40 55 53 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 44 0F 29 AC 24 ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 85 ? ? ? ? 49";
-			std::string Tick = "40 55 41 55 48 8D 6C 24 ? 48 81 EC ? ? ? ? 0F";
+			std::string TakeDamage = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 44 0F 29 9C";
+			std::string Tick = "40 53 48 83 EC ? 0F B6 81 ? ? ? ? 48 8B D9 A8 ? 75 ? A8 ? 74";
 		}
 
 		namespace UNetConnection {
@@ -37,7 +38,7 @@ namespace g_CheatData {
 			// 2026/5/20 @zetsr
 			// mov rax, rsp | push rbx | sub rsp, alloc | movaps [rax+offset], xmm6 | mov rbx, rcx | movaps [rax+offset], xmm7 | movaps
 			// 48 8B C4 53 48 81 EC 00 01 00 00 0F 29 70 E8 48 8B D9 0F 29 78 D8 0F 28
-			std::string PhysicsRotation = "48 8B C4 53 48 81 EC ? ? ? ? 0F 29 70 ? 48 8B D9 0F 29 78 ? 0F 28 F3";
+			std::string PhysicsRotation = "OUTDATED";
 		}
 
 		/*
@@ -86,7 +87,7 @@ namespace g_CheatData {
 
 			// 8B C2 35 DE C5 F3 59 44 8B C0 69 C0 B1 79 37 9E 41 C1 E8 0D 44 33 C0 41 69 C0 6B CA EB 85
 			// mov eax, edx | xor eax, imm32 | mov r8d, eax | imul eax, eax, imm32 | shr r8d, imm8 | xor r8d, eax | imul r8d, r8d, imm32
-			std::string PostRender = "8B C2 35 ? ? ? ? 44 69";
+			std::string PostRender = "8B C2 35 ? ? ? ? 44";
 		}
 
 		namespace UConsole {
@@ -114,7 +115,7 @@ namespace g_CheatData {
 
 			// 2026/6/10 @zetsr
 			// mov rax, rsp | push r12 | sub rsp, alloc | mov [rax+8], rbx | mov
-			std::string OutputTextLine = "48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8B EC 48 83 EC ? 48 63 72";
+			std::string OutputTextLine = "48 8B C4 41 54 48 83 EC ? 48 89 58 ? 48";
 		}
 	}
 }
