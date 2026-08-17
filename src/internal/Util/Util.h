@@ -408,4 +408,88 @@ namespace g_Util {
 
         return targetNativeFuncAddress;
     }
+
+    inline void PotatoGraphics(SDK::UObject* WorldContextObject) {
+        if (!WorldContextObject) return;
+
+        // 辅助宏：通过 KismetSystemLibrary 执行虚幻引擎控制台指令
+        auto Exec = [WorldContextObject](const wchar_t* Cmd) {
+            SDK::UKismetSystemLibrary::ExecuteConsoleCommand(WorldContextObject, SDK::FString(Cmd), nullptr);
+            };
+
+        Exec(L"r.TemporalAA.Upsampling 1");     // 开启 TAA 时空抗锯齿超采样 (提高边缘平滑度与画面重建质量)
+        Exec(L"r.AntiAliasingMethod 2");        // 将抗锯齿算法切换为 TAA (0 = 关闭, 1 = FXAA, 2 = TAA, 3 = TSR)
+        Exec(L"r.SkeletalMeshLODBias 2");       // 骨骼网格体 (如角色、生物模型) 细节等级偏移，强行降低模型面数以提升性能
+        Exec(L"r.MaterialQualityLevel 0");      // 将全局材质质量设为最低级 (0 = Low, 1 = Medium, 2 = High)，简化复杂材质计算
+        Exec(L"r.SubsurfaceScattering 0");      // 禁用次表面散射 (SSS) 特效，关闭皮肤、树叶等透光与漫射计算
+        Exec(L"r.ParticleLODBias 5");           // 粒子系统细节等级偏移，大幅简化或远距离隐藏烟雾、火花等粒子特效
+        Exec(L"p.ClothPhysics 0");              // 禁用服装与布料物理模拟 (如斗篷、装备披风)，降低 CPU 物理计算负担
+        Exec(L"r.DisableDistortion 1");         // 禁用画面扭曲效果 (如爆炸热浪、水下波纹等折射特效)
+
+        // 1. 阴影
+        Exec(L"r.ShadowQuality 0");                     // 关闭通用阴影质量级别 (0 = Off/Lowest)
+        Exec(L"r.Shadow.MaxResolution 0");              // 阴影贴图最大分辨率设为 0，禁用阴影纹理生成
+        Exec(L"r.Shadow.DistanceScale 0");              // 阴影渲染渲染距离归零，超出 0 距离不再渲染阴影
+        Exec(L"r.Shadow.CSM.MaxCascades 0");            // 级联阴影 (CSM) 层级设为 0，关闭级联动态阴影
+        Exec(L"r.Shadow.Virtual.Enable 0");             // 禁用 UE5 虚拟阴影贴图 (Virtual Shadow Maps / VSM)
+        Exec(L"r.DistanceFieldShadowing 0");            // 禁用网格体距离场阴影 (Distance Field Shadows)
+        Exec(L"r.ContactShadows 0");                    // 禁用屏幕空间接触阴影 (Contact Shadows)
+        Exec(L"grass.DisableDynamicShadows 1");         // 强制禁用草地与细小植被的动态投射阴影
+
+        // 2. 光照
+        Exec(L"r.LightFunctionQuality 0");              // 禁用灯光函数 (Light Function) 材质特效
+        Exec(L"r.DynamicGlobalIlluminationMethod 0");   // 关掉水会闪烁
+        Exec(L"r.LightShaftQuality 0");                 // 禁用光轴与体积光斑 (丁达尔效应/Light Shafts)
+
+        Exec(L"r.LightMaxDrawDistanceScale -1");        // 光源最大绘制距离倍率
+
+        Exec(L"r.SkylightIntensityMultiplier 5");       // 天光
+        Exec(L"r.Lumen.ScreenProbeGather.ScreenTraces 0"); // 禁用 Lumen 屏幕空间光线追踪探测
+        Exec(L"r.Lumen.ScreenProbeGather.RadianceCache.ProbeResolution 16"); // 将 Radiance Cache 探针分辨率降至最低 (16)
+
+        // 3. 反射
+        Exec(L"r.ReflectionEnvironment 1");             // 反射环境
+        Exec(L"r.SSR.Quality 0");                       // 禁用屏幕空间反射 (Screen Space Reflections)
+        Exec(L"r.Lumen.Reflections.Allow 0");           // 禁用 Lumen 动态高精度反射
+        Exec(L"r.Lumen.Reflections.Contrast 0");        // 将 Lumen 反射对比度归零，降低计算复杂度
+        Exec(L"r.MinRoughnessOverride 1");              // 强制所有材质粗糙度设为最大值 1.0 (消除光滑高光与反射)
+
+        // 4. 植被
+        Exec(L"foliage.DensityScale 0");                // 植被生成密度归零 (隐藏大部分渲染植被)
+        Exec(L"foliage.LODDistanceScale 0");            // 植被 LOD 距离比例归零 (强制使用最低面数模型)
+        Exec(L"grass.DensityScale 0");                  // 草地生成密度归零 (隐藏地表小草)
+        Exec(L"grass.SizeScale 0");                     // 草地渲染尺寸归零
+        Exec(L"r.Foliage.WPODisableMultiplier 1");      // 禁用植被的世界位置偏移 (WPO / 风吹风动动画)
+        Exec(L"r.Foliage.AutoBoundsWPODisableMax 1");   // 自动关闭远距离植被的动画计算
+        Exec(L"r.Nanite.MaxPixelsPerEdge 4");           // 极简化 Nanite 几何体 (增加每条边的像素网格大小以降低几何面数)
+        Exec(L"wp.Runtime.HLOD.ForceDisable 1");        // 强制禁用世界分区 (World Partition) 远景 HLOD 生成
+
+        // 5. 后处理
+        Exec(L"r.BloomQuality 0");                      // 禁用辉光/泛光 (Bloom) 特效
+        Exec(L"r.DepthOfFieldQuality 0");               // 禁用景深 (Depth of Field) 模糊效果
+        Exec(L"r.MotionBlurQuality 0");                 // 禁用运动模糊 (Motion Blur) 采样质量
+        Exec(L"r.MotionBlur.Amount 0");                 // 将运动模糊强度设为 0
+        Exec(L"r.AmbientOcclusionLevels 0");            // 关闭环境光遮蔽 (AO / SSAO) 级别
+        Exec(L"r.AOOverwriteSceneColor 0");             // 为 1 会导致色彩搞砸
+        Exec(L"r.LensFlareQuality 0");                  // 禁用镜头光晕 (Lens Flare) 特效
+        Exec(L"fx.EnableNiagaraSpriteRendering 0");     // 禁用 Niagara 粒子系统的 Sprite 纹理渲染
+        Exec(L"ark.MaxActiveDestroyedMeshGeoCollectionCount 0"); // 禁用破碎网格体 (Geometry Collection) 物理碎片生成
+
+        // 6. 大气
+        Exec(L"r.SkyAtmosphere 1");                     // 天空大气渲染
+        Exec(L"r.Fog 0");                               // 禁用通用场景雾效 (Height Fog)
+        Exec(L"r.VolumetricFog 0");                     // 禁用体积雾 (Volumetric Fog) 高消耗渲染
+        Exec(L"r.VolumetricCloud 0");                   // 禁用 UE5 3D 动态体积云 (Volumetric Cloud)
+
+        // 7. 材质
+        Exec(L"r.MipMapLODBias 0");                     // 纹理 MipMap 偏移 (设为 0 保持正常贴图，若需贴图极糊可改大如 3~5)
+        Exec(L"r.EmitterSpawnRateScale 0");             // 传统级联粒子 (Cascade Particle) 生成速率归零
+        Exec(L"r.ParticleLODBias 10");                  // 强制粒子系统使用最低细节级别 (LOD)
+        Exec(L"r.TranslucencyVolumeBlur 0");            // 禁用半透明体积模糊计算
+        Exec(L"r.VT.EnableFeedback 0");                 // 禁用虚拟纹理 (Virtual Texture) 采样反馈机制
+
+        // 8. 水体系统
+        Exec(L"r.Water.SingleLayer 0");                 // 关闭单层水体 (Single Layer Water) 渲染管线
+        Exec(L"r.Water.SingleLayer.Reflection 0");      // 关闭水面反射计算
+    }
 }

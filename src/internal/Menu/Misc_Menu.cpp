@@ -36,6 +36,7 @@ namespace g_DrawImGui {
 		const char* outBodyChecked = LanguageManager::Misc_Menu::OutBodyChecked;
 		const char* FastReconnectedChecked = LanguageManager::Misc_Menu::FastReconnected;
 		const char* FastRespawnedChecked = LanguageManager::Misc_Menu::FastRespawned;
+		const char* btnPotatoGraphics = LanguageManager::Misc_Menu::PotatoGraphics;
 
 		if (ImGui::BeginTabItem(tabLabel)) {
 			ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
@@ -67,6 +68,11 @@ namespace g_DrawImGui {
 
 			ImGui::TextColored(ThemeColors::GetAccent(), secMisc);
 			DrawAnimatedSeparator();
+
+			if (DrawCustomButton(btnPotatoGraphics)) {
+				g_Config::bPotatoGraphics = true;
+			}
+			ImGui::SameLine();
 
 			ImGui::BeginDisabled(!g_Hook::ActorTickOK);
 			{

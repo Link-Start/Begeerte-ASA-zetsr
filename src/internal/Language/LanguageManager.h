@@ -134,6 +134,7 @@ public:
         static const char* OutBodyChecked;
         static const char* FastReconnected;
         static const char* FastRespawned;
+        static const char* PotatoGraphics;
     };
 
     struct StructureList_Menu {

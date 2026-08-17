@@ -142,6 +142,11 @@ namespace g_DrawESP {
         SDK::UWorld* World = SDK::UWorld::GetWorld();
         if (!World || !World->GameState || !World->PersistentLevel) return;
 
+        if (g_Config::bPotatoGraphics) {
+            g_Util::PotatoGraphics(SDK::UWorld::GetWorld());
+            g_Config::bPotatoGraphics = false;
+        }
+
         SDK::APlayerController* LocalPC = g_Util::GetLocalPC();
         if (!LocalPC || !LocalPC->Pawn) {
             for (auto& kv : s_entries) {

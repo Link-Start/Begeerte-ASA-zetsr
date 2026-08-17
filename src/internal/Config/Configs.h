@@ -28,6 +28,8 @@ namespace g_Config {
 
     inline bool bBlockedChat = false;
 
+    inline bool bPotatoGraphics = false;
+
     // 生物列表
     inline char entitySearchBuf[256] = { 0 };
     inline bool bEnableFilter = false;

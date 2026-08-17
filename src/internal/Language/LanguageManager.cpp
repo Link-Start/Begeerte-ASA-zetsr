@@ -96,6 +96,7 @@ const char* LanguageManager::Misc_Menu::AutomaticChecked = U8("自动换甲");
 const char* LanguageManager::Misc_Menu::OutBodyChecked = U8("灵魂出窍");
 const char* LanguageManager::Misc_Menu::FastReconnected = U8("跳过进服动画");
 const char* LanguageManager::Misc_Menu::FastRespawned = U8("跳过重生动画");
+const char* LanguageManager::Misc_Menu::PotatoGraphics = U8("战斗画质");
 
 // -- StructureList_Menu --
 const char* LanguageManager::StructureList_Menu::TabLabel = U8("建筑列表");
@@ -273,6 +274,7 @@ void LanguageManager::RegisterDefaults(std::unordered_map<std::string, std::stri
     d["Misc_Menu.OutBodyChecked"] = U8("灵魂出窍");
     d["Misc_Menu.FastReconnected"] = U8("跳过进服动画");
     d["Misc_Menu.FastRespawned"] = U8("跳过重生动画");
+    d["Misc_Menu.PotatoGraphics"] = U8("战斗画质");
 
     // StructureList_Menu
     d["StructureList_Menu.TabLabel"] = U8("建筑列表");
@@ -454,6 +456,7 @@ void LanguageManager::ApplyToStaticMembers() {
     apply("Misc_Menu.OutBodyChecked", Misc_Menu::OutBodyChecked);
     apply("Misc_Menu.FastReconnected", Misc_Menu::FastReconnected);
     apply("Misc_Menu.FastRespawned", Misc_Menu::FastRespawned);
+    apply("Misc_Menu.PotatoGraphics", Misc_Menu::PotatoGraphics);
 
     // StructureList_Menu
     apply("StructureList_Menu.TabLabel", StructureList_Menu::TabLabel);
