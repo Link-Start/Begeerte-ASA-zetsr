@@ -1,11 +1,13 @@
 #pragma once
 #include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
 #include "../../external/CppSDK/SDK.hpp"
+#include "../../external/Shadow-Gui/include/Shadow.h"
 #include "../Config/Configs.h"
 #include <cmath>
 #include <algorithm>
 #include <string>
 #include <sstream>
+#include <numbers>
 
 namespace g_Util {
     static const float inv255 = 1.0f / 255.0f; 
@@ -492,5 +494,172 @@ namespace g_Util {
         // 8. 水体系统
         Exec(L"r.Water.SingleLayer 0");                 // 关闭单层水体 (Single Layer Water) 渲染管线
         Exec(L"r.Water.SingleLayer.Reflection 0");      // 关闭水面反射计算
+    }
+
+    inline bool Welcome(SDK::UWorld* World, SDK::UCanvas* Canvas)
+    {
+        // 只播放一次
+        static bool bFinished = false;
+        if (bFinished) {
+            g_Config::bInitWelcome = true;
+            return true;
+        }
+
+        if (!World || !Canvas || Canvas->SizeX <= 0 || Canvas->SizeY <= 0)
+            return bFinished;
+
+        // 获取 DeltaTime
+        float dt = SDK::UGameplayStatics::GetWorldDeltaSeconds(World);
+        static float CurrentTime = 0.0f;
+        CurrentTime += dt;
+
+        // 时间阶段定义 (秒)
+        constexpr float DelayDuration = 1.f;        // 初始等待秒
+        constexpr float FadeInDuration = 0.8f;      // 半透黑幕与钟表淡入
+        constexpr float CoreAnimDuration = 2.5f;    // 钟表核心旋转展示
+        constexpr float FadeOutDuration = 0.8f;     // 平滑淡出恢复
+        constexpr float TotalDuration = DelayDuration + FadeInDuration + CoreAnimDuration + FadeOutDuration;
+
+        // 延迟阶段：静默等待
+        if (CurrentTime < DelayDuration)
+            return false;
+
+        // 动画整体结束
+        if (CurrentTime >= TotalDuration)
+        {
+            bFinished = true;
+            g_Config::bInitWelcome = true;
+            return true;
+        }
+
+        Shadow::ShadowDrawList* DrawList = Shadow::GetBackgroundDrawList();
+        if (!DrawList)
+            return false;
+
+        const float ScreenW = static_cast<float>(Canvas->SizeX);
+        const float ScreenH = static_cast<float>(Canvas->SizeY);
+        const Shadow::Vec2 Center = { ScreenW * 0.5f, ScreenH * 0.5f };
+
+        // 1. 缓动函数
+        auto EaseInOutCubic = [](float t) -> float {
+            t = std::clamp(t, 0.0f, 1.0f);
+            return t < 0.5f ? 4.0f * t * t * t : 1.0f - std::pow(-2.0f * t + 2.0f, 3.0f) * 0.5f;
+            };
+        auto EaseOutExpo = [](float t) -> float {
+            t = std::clamp(t, 0.0f, 1.0f);
+            return (t >= 1.0f) ? 1.0f : 1.0f - std::pow(2.0f, -10.0f * t);
+            };
+
+        // 2. 动画阶段与透明度计算
+        constexpr float MaxBgAlpha = 0.5f; // 半透明背景最大不透明度 (0.0 完全透明 ~ 1.0 完全不透明)
+
+        float BgAlpha = 0.0f;
+        float ContentAlpha = 0.0f;
+        float ActiveTime = CurrentTime - DelayDuration; // 扣除延迟后的实际动画时间
+
+        if (ActiveTime < FadeInDuration)
+        {
+            // 淡入阶段
+            float t = ActiveTime / FadeInDuration;
+            BgAlpha = EaseInOutCubic(t) * MaxBgAlpha;
+            ContentAlpha = EaseOutExpo(t);
+        }
+        else if (ActiveTime < (FadeInDuration + CoreAnimDuration))
+        {
+            // 核心展示阶段
+            BgAlpha = MaxBgAlpha;
+            ContentAlpha = 1.0f;
+        }
+        else
+        {
+            // 淡出阶段
+            float t = (ActiveTime - (FadeInDuration + CoreAnimDuration)) / FadeOutDuration;
+            BgAlpha = (1.0f - EaseInOutCubic(t)) * MaxBgAlpha;
+            ContentAlpha = 1.0f - EaseInOutCubic(t);
+        }
+
+        BgAlpha = std::clamp(BgAlpha, 0.0f, MaxBgAlpha);
+        ContentAlpha = std::clamp(ContentAlpha, 0.0f, 1.0f);
+
+        // 颜色工具
+        auto MakeCol = [](float r, float g, float b, float a) -> Shadow::Color {
+            return Shadow::Color(
+                std::clamp(r, 0.0f, 1.0f),
+                std::clamp(g, 0.0f, 1.0f),
+                std::clamp(b, 0.0f, 1.0f),
+                std::clamp(a, 0.0f, 1.0f)
+            );
+            };
+
+        // 配色定义：
+        Shadow::Color TranslucentBg = MakeCol(0.f, 0.01f, 0.02f, BgAlpha);             // 半透明深邃暗底
+        Shadow::Color CyanGlow = MakeCol(0.00f, 0.88f, 1.00f, ContentAlpha * 0.90f);     // 科技青
+        Shadow::Color PurpleGlow = MakeCol(0.60f, 0.35f, 1.00f, ContentAlpha * 0.80f);   // 霓虹紫
+        Shadow::Color PureWhite = MakeCol(1.00f, 1.00f, 1.00f, ContentAlpha * 0.95f);    // 亮白刻度
+        Shadow::Color FaintRing = MakeCol(0.00f, 0.88f, 1.00f, ContentAlpha * 0.20f);    // 微弱外轨道底圈
+
+        // 3. 绘制全屏半透明遮罩
+        DrawList->AddRectFilled({ 0.0f, 0.0f }, { ScreenW, ScreenH }, TranslucentBg);
+
+        if (ContentAlpha <= 0.005f)
+            return false;
+
+        // 4. 几何辅助绘制
+        auto DrawRing = [&](Shadow::Vec2 center, float radius, float startAngle, float sweepAngle, int segments, Shadow::Color col, float thickness) {
+            float step = sweepAngle / static_cast<float>(segments);
+            for (int i = 0; i < segments; ++i)
+            {
+                float a1 = startAngle + i * step;
+                float a2 = startAngle + (i + 1) * step;
+                Shadow::Vec2 p1 = { center.x + radius * std::cos(a1), center.y + radius * std::sin(a1) };
+                Shadow::Vec2 p2 = { center.x + radius * std::cos(a2), center.y + radius * std::sin(a2) };
+                DrawList->AddLine(p1, p2, col, thickness);
+            }
+            };
+
+        constexpr float PI = std::numbers::pi_v<float>;
+        const float AnimTime = ActiveTime;
+
+        // 5. 纯钟表科技动画
+        // [1] 底层微弱完整细圆环轨道
+        DrawRing(Center, 68.0f, 0.0f, 2.0f * PI, 48, FaintRing, 1.0f);
+
+        // [2] 顺时针旋转三段式圆弧
+        float InnerRadius = 42.0f + 2.0f * std::sin(AnimTime * 3.0f);
+        float RotSpeed1 = AnimTime * 1.6f;
+        for (int i = 0; i < 3; ++i)
+        {
+            float baseAngle = RotSpeed1 + i * (2.0f * PI / 3.0f);
+            DrawRing(Center, InnerRadius, baseAngle, PI * 0.45f, 24, CyanGlow, 2.0f);
+        }
+
+        // [3] 逆时针旋转 16 周期钟表刻度环
+        float OuterRadius = 68.0f;
+        float RotSpeed2 = -AnimTime * 0.7f;
+        constexpr int NumTicks = 16;
+        for (int i = 0; i < NumTicks; ++i)
+        {
+            float angle = RotSpeed2 + i * (2.0f * PI / NumTicks);
+            float r1 = OuterRadius;
+            float r2 = OuterRadius + ((i % 4 == 0) ? 8.0f : 4.0f); // 主刻度较长
+            Shadow::Vec2 p1 = { Center.x + r1 * std::cos(angle), Center.y + r1 * std::sin(angle) };
+            Shadow::Vec2 p2 = { Center.x + r2 * std::cos(angle), Center.y + r2 * std::sin(angle) };
+            DrawList->AddLine(p1, p2, (i % 4 == 0) ? PureWhite : PurpleGlow, (i % 4 == 0) ? 2.0f : 1.2f);
+        }
+
+        // [4] 中心呼吸菱形与流光核心
+        float CorePulse = 6.0f + 2.0f * std::sin(AnimTime * 4.0f);
+        Shadow::Vec2 Top = { Center.x, Center.y - CorePulse };
+        Shadow::Vec2 Bottom = { Center.x, Center.y + CorePulse };
+        Shadow::Vec2 Left = { Center.x - CorePulse, Center.y };
+        Shadow::Vec2 Right = { Center.x + CorePulse, Center.y };
+
+        DrawList->AddLine(Top, Right, PureWhite, 1.8f);
+        DrawList->AddLine(Right, Bottom, PureWhite, 1.8f);
+        DrawList->AddLine(Bottom, Left, PureWhite, 1.8f);
+        DrawList->AddLine(Left, Top, PureWhite, 1.8f);
+        DrawList->AddRectFilled({ Center.x - 1.5f, Center.y - 1.5f }, { 3.0f, 3.0f }, CyanGlow);
+
+        return false;
     }
 }

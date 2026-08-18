@@ -8,6 +8,8 @@ namespace g_Config {
     inline float MenuColor[4] = { 0.431f, 0.906f, 0.718f, 1.000f };
     inline int MenuScaleIdx = 1;
 
+    inline bool bInitWelcome = false;
+
     // 其他功能
     inline bool bSuperFlyer = false;
     inline bool bForceTurn = false;

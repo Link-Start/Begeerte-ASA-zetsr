@@ -3,6 +3,7 @@
 #include "../../external/Shadow-Gui/include/Shadow.h"
 #include "../ESP/DrawESP.h"
 #include "../Lua/LuaManager.h"
+#include "../Util/Util.h"
 #include "PostRender.h"
 #include <vector>
 #include <string>
@@ -11,7 +12,10 @@
 
 namespace g_UGameViewportClient {
     void PostRender(SDK::UGameViewportClient* rcx, SDK::UCanvas* canvas) {
+        SDK::UWorld* World = SDK::UWorld::GetWorld();
+
         Shadow::NewFrame(canvas);
+        g_Util::Welcome(World, canvas);
         g_DrawESP::DrawESP(canvas);
         LuaManager::Get().Lua_OnPostRender();
         Shadow::Render();

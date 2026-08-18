@@ -38,6 +38,8 @@ namespace g_DrawImGui {
 
 	void MyImGuiDraw(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT Flags)
 	{
+		if (!g_Config::bInitWelcome) return;
+
 		if (!style_initialized) { SetupCustomImGuiStyle(); style_initialized = true; }
 
 		ImU32 current_color_u32 = ImGui::ColorConvertFloat4ToU32(ImVec4(g_Config::MenuColor[0], g_Config::MenuColor[1], g_Config::MenuColor[2], g_Config::MenuColor[3]));
