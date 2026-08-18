@@ -474,9 +474,10 @@ namespace g_Util {
         Exec(L"r.LensFlareQuality 0");                  // 禁用镜头光晕 (Lens Flare) 特效
         Exec(L"fx.EnableNiagaraSpriteRendering 0");     // 禁用 Niagara 粒子系统的 Sprite 纹理渲染
         Exec(L"ark.MaxActiveDestroyedMeshGeoCollectionCount 0"); // 禁用破碎网格体 (Geometry Collection) 物理碎片生成
+        Exec(L"r.EyeAdaptationQuality 0");              // 禁用曝光采样质量
 
         // 6. 大气
-        Exec(L"r.SkyAtmosphere 1");                     // 天空大气渲染
+        Exec(L"r.SkyAtmosphere 0");                     // 天空大气渲染
         Exec(L"r.Fog 0");                               // 禁用通用场景雾效 (Height Fog)
         Exec(L"r.VolumetricFog 0");                     // 禁用体积雾 (Volumetric Fog) 高消耗渲染
         Exec(L"r.VolumetricCloud 0");                   // 禁用 UE5 3D 动态体积云 (Volumetric Cloud)
