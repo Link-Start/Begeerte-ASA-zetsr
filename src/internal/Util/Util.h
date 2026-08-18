@@ -461,7 +461,7 @@ namespace g_Util {
         Exec(L"grass.SizeScale 0");                     // 草地渲染尺寸归零
         Exec(L"r.Foliage.WPODisableMultiplier 1");      // 禁用植被的世界位置偏移 (WPO / 风吹风动动画)
         Exec(L"r.Foliage.AutoBoundsWPODisableMax 1");   // 自动关闭远距离植被的动画计算
-        Exec(L"r.Nanite.MaxPixelsPerEdge 4");           // 极简化 Nanite 几何体 (增加每条边的像素网格大小以降低几何面数)
+        Exec(L"r.Nanite.MaxPixelsPerEdge 10");           // 极简化 Nanite 几何体 (增加每条边的像素网格大小以降低几何面数)
         Exec(L"wp.Runtime.HLOD.ForceDisable 1");        // 强制禁用世界分区 (World Partition) 远景 HLOD 生成
 
         // 5. 后处理
