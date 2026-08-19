@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "Engine_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "Engine_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -48,15 +48,6 @@ public:
 };
 DUMPER7_ASSERTS_PrimalItemArmor_Shield_C_BPClientHandleItemNetExecCommand;
 
-// Function PrimalItemArmor_Shield.PrimalItemArmor_Shield_C.BPGetShieldHitImpactEffect
-// 0x0008 (0x0008 - 0x0000)
-struct PrimalItemArmor_Shield_C_BPGetShieldHitImpactEffect final
-{
-public:
-	class UFXSystemAsset*                         ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_PrimalItemArmor_Shield_C_BPGetShieldHitImpactEffect;
-
 // Function PrimalItemArmor_Shield.PrimalItemArmor_Shield_C.HandleShieldDamageBlocking
 // 0x0080 (0x0080 - 0x0000)
 struct PrimalItemArmor_Shield_C_HandleShieldDamageBlocking final
@@ -87,7 +78,7 @@ public:
 	bool                                          LocalOnly;                                         // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FVector                                HitLoc;                                            // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FVector                                FromLoc;                                           // 0x0020(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FVector                                fromLoc;                                           // 0x0020(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          Temp_bool_Variable;                                // 0x0038(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FVector                                CallFunc_Subtract_VectorVector_ReturnValue;        // 0x0040(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)

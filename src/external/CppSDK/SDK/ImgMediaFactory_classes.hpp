@@ -21,7 +21,7 @@ SDK_NAMESPACE_START
 class UImgMediaSettings final : public UObject
 {
 public:
-	struct FFrameRate                             DefaultFrameRate;                                  // 0x0028(0x0008)(Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FFrameRate                             DefaultFrameRate;                                  // 0x0028(0x0008)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          BandwidthThrottlingEnabled;                        // 0x0030(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_31[0x3];                                       // 0x0031(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         CacheBehindPercentage;                             // 0x0034(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)

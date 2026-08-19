@@ -10,12 +10,15 @@
 
 #include "Basic.hpp"
 
-#include "Niagara_classes.hpp"
+#include "OptimusCore_classes.hpp"
+#include "MovieScene_classes.hpp"
 #include "HairStrandsCore_structs.hpp"
+#include "ComputeFramework_classes.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
-#include "MovieScene_classes.hpp"
+#include "Niagara_classes.hpp"
 
 
 SDK_NAMESPACE_START
@@ -43,6 +46,162 @@ public:
 };
 DUMPER7_ASSERTS_UGroomCacheImportOptions;
 
+// Class HairStrandsCore.OptimusGroomDataInterface
+// 0x0000 (0x0028 - 0x0028)
+class UOptimusGroomDataInterface final : public UOptimusComputeDataInterface
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OptimusGroomDataInterface")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OptimusGroomDataInterface")
+	}
+	static class UOptimusGroomDataInterface* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOptimusGroomDataInterface>();
+	}
+};
+DUMPER7_ASSERTS_UOptimusGroomDataInterface;
+
+// Class HairStrandsCore.OptimusGroomDataProvider
+// 0x0008 (0x0030 - 0x0028)
+class UOptimusGroomDataProvider final : public UComputeDataProvider
+{
+public:
+	class UGroomComponent*                        Groom;                                             // 0x0028(0x0008)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OptimusGroomDataProvider")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OptimusGroomDataProvider")
+	}
+	static class UOptimusGroomDataProvider* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOptimusGroomDataProvider>();
+	}
+};
+DUMPER7_ASSERTS_UOptimusGroomDataProvider;
+
+// Class HairStrandsCore.OptimusGroomExecDataInterface
+// 0x0008 (0x0030 - 0x0028)
+class UOptimusGroomExecDataInterface final : public UOptimusComputeDataInterface
+{
+public:
+	EOptimusGroomExecDomain                       domain;                                            // 0x0028(0x0001)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OptimusGroomExecDataInterface")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OptimusGroomExecDataInterface")
+	}
+	static class UOptimusGroomExecDataInterface* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOptimusGroomExecDataInterface>();
+	}
+};
+DUMPER7_ASSERTS_UOptimusGroomExecDataInterface;
+
+// Class HairStrandsCore.OptimusGroomExecDataProvider
+// 0x0010 (0x0038 - 0x0028)
+class UOptimusGroomExecDataProvider final : public UComputeDataProvider
+{
+public:
+	class UGroomComponent*                        GroomComponent;                                    // 0x0028(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EOptimusGroomExecDomain                       domain;                                            // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OptimusGroomExecDataProvider")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OptimusGroomExecDataProvider")
+	}
+	static class UOptimusGroomExecDataProvider* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOptimusGroomExecDataProvider>();
+	}
+};
+DUMPER7_ASSERTS_UOptimusGroomExecDataProvider;
+
+// Class HairStrandsCore.OptimusGroomWriteDataInterface
+// 0x0000 (0x0028 - 0x0028)
+class UOptimusGroomWriteDataInterface final : public UOptimusComputeDataInterface
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OptimusGroomWriteDataInterface")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OptimusGroomWriteDataInterface")
+	}
+	static class UOptimusGroomWriteDataInterface* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOptimusGroomWriteDataInterface>();
+	}
+};
+DUMPER7_ASSERTS_UOptimusGroomWriteDataInterface;
+
+// Class HairStrandsCore.OptimusGroomWriteDataProvider
+// 0x0010 (0x0038 - 0x0028)
+class UOptimusGroomWriteDataProvider final : public UComputeDataProvider
+{
+public:
+	class UGroomComponent*                        GroomComponent;                                    // 0x0028(0x0008)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_30[0x8];                                       // 0x0030(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OptimusGroomWriteDataProvider")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OptimusGroomWriteDataProvider")
+	}
+	static class UOptimusGroomWriteDataProvider* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOptimusGroomWriteDataProvider>();
+	}
+};
+DUMPER7_ASSERTS_UOptimusGroomWriteDataProvider;
+
+// Class HairStrandsCore.OptimusGroomComponentSource
+// 0x0000 (0x0028 - 0x0028)
+class UOptimusGroomComponentSource final : public UOptimusComponentSource
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OptimusGroomComponentSource")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OptimusGroomComponentSource")
+	}
+	static class UOptimusGroomComponentSource* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOptimusGroomComponentSource>();
+	}
+};
+DUMPER7_ASSERTS_UOptimusGroomComponentSource;
+
 // Class HairStrandsCore.GroomCacheImportData
 // 0x0068 (0x0090 - 0x0028)
 class UGroomCacheImportData final : public UAssetImportData
@@ -67,11 +226,11 @@ public:
 DUMPER7_ASSERTS_UGroomCacheImportData;
 
 // Class HairStrandsCore.GroomActor
-// 0x0008 (0x0498 - 0x0490)
+// 0x0008 (0x04D0 - 0x04C8)
 class AGroomActor final : public AActor
 {
 public:
-	class UGroomComponent*                        GroomComponent;                                    // 0x0490(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UGroomComponent*                        GroomComponent;                                    // 0x04C8(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -90,62 +249,31 @@ public:
 DUMPER7_ASSERTS_AGroomActor;
 
 // Class HairStrandsCore.GroomAsset
-// 0x0100 (0x0128 - 0x0028)
+// 0x00E8 (0x0110 - 0x0028)
 class UGroomAsset final : public UObject
 {
 public:
 	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	EGroomLODMode                                 LODMode;                                           // 0x0030(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_31[0x3];                                       // 0x0031(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         AutoLODBias;                                       // 0x0034(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	TArray<struct FHairGroupInfoWithVisibility>   HairGroupsInfo;                                    // 0x0038(0x0010)(Edit, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FHairGroupsRendering>           HairGroupsRendering;                               // 0x0048(0x0010)(Edit, BlueprintVisible, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FHairGroupsPhysics>             HairGroupsPhysics;                                 // 0x0058(0x0010)(Edit, BlueprintVisible, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FHairGroupsInterpolation>       HairGroupsInterpolation;                           // 0x0068(0x0010)(Edit, BlueprintVisible, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FHairGroupsLOD>                 HairGroupsLOD;                                     // 0x0078(0x0010)(Edit, BlueprintVisible, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FHairGroupsCardsSourceDescription> HairGroupsCards;                                // 0x0088(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FHairGroupsMeshesSourceDescription> HairGroupsMeshes;                              // 0x0098(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FHairGroupsMaterial>            HairGroupsMaterials;                               // 0x00A8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	bool                                          EnableGlobalInterpolation;                         // 0x00B8(0x0001)(Edit, BlueprintVisible, EditFixedSize, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          EnableSimulationCache;                             // 0x00B9(0x0001)(Edit, BlueprintVisible, EditFixedSize, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EGroomInterpolationType                       HairInterpolationType;                             // 0x00BA(0x0001)(Edit, BlueprintVisible, EditFixedSize, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_BB[0x5];                                       // 0x00BB(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	class USkeletalMesh*                          RiggedSkeletalMesh;                                // 0x00C0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TArray<int32>                                 DeformedGroupSections;                             // 0x00C8(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-	struct FPerPlatformInt                        MinLOD;                                            // 0x00D8(0x0004)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	struct FPerPlatformBool                       DisableBelowMinLodStripping;                       // 0x00DC(0x0001)(Edit, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
-	uint8                                         Pad_DD[0x3];                                       // 0x00DD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<float>                                 EffectiveLODBias;                                  // 0x00E0(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_F0[0x20];                                      // 0x00F0(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UAssetUserData*>                 AssetUserData;                                     // 0x0110(0x0010)(Edit, ExportObject, ZeroConstructor, ContainsInstancedReference, AdvancedDisplay, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_120[0x8];                                      // 0x0120(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	TArray<int32> GetDeformedGroupSections();
-	TArray<struct FHairGroupsCardsSourceDescription> GetHairGroupsCards();
-	TArray<struct FHairGroupsInterpolation> GetHairGroupsInterpolation();
-	TArray<struct FHairGroupsLOD> GetHairGroupsLOD();
-	TArray<struct FHairGroupsMaterial> GetHairGroupsMaterials();
-	TArray<struct FHairGroupsMeshesSourceDescription> GetHairGroupsMeshes();
-	TArray<struct FHairGroupsPhysics> GetHairGroupsPhysics();
-	TArray<struct FHairGroupsRendering> GetHairGroupsRendering();
-	void SetDeformedGroupSections(const TArray<int32>& In);
-	void SetEnableGlobalInterpolation(bool In);
-	void SetEnableSimulationCache(bool In);
-	void SetHairGroupsCards(const TArray<struct FHairGroupsCardsSourceDescription>& In);
-	void SetHairGroupsInterpolation(const TArray<struct FHairGroupsInterpolation>& In);
-	void SetHairGroupsLOD(const TArray<struct FHairGroupsLOD>& In);
-	void SetHairGroupsMaterials(const TArray<struct FHairGroupsMaterial>& In);
-	void SetHairGroupsMeshes(const TArray<struct FHairGroupsMeshesSourceDescription>& In);
-	void SetHairGroupsPhysics(const TArray<struct FHairGroupsPhysics>& In);
-	void SetHairGroupsRendering(const TArray<struct FHairGroupsRendering>& In);
-	void SetHairInterpolationType(EGroomInterpolationType In);
-	void SetRiggedSkeletalMesh(class USkeletalMesh* In);
-
-	bool GetEnableGlobalInterpolation() const;
-	bool GetEnableSimulationCache() const;
-	EGroomInterpolationType GetHairInterpolationType() const;
-	class USkeletalMesh* GetRiggedSkeletalMesh() const;
+	TArray<struct FHairGroupInfoWithVisibility>   HairGroupsInfo;                                    // 0x0030(0x0010)(Edit, EditFixedSize, ZeroConstructor, Transient, NativeAccessSpecifierPublic)
+	TArray<struct FHairGroupsRendering>           HairGroupsRendering;                               // 0x0040(0x0010)(Edit, BlueprintVisible, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FHairGroupsPhysics>             HairGroupsPhysics;                                 // 0x0050(0x0010)(Edit, BlueprintVisible, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FHairGroupsInterpolation>       HairGroupsInterpolation;                           // 0x0060(0x0010)(Edit, BlueprintVisible, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FHairGroupsLOD>                 HairGroupsLOD;                                     // 0x0070(0x0010)(Edit, BlueprintVisible, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FHairGroupsCardsSourceDescription> HairGroupsCards;                                // 0x0080(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FHairGroupsMeshesSourceDescription> HairGroupsMeshes;                              // 0x0090(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FHairGroupsMaterial>            HairGroupsMaterials;                               // 0x00A0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_B0[0x10];                                      // 0x00B0(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          EnableGlobalInterpolation;                         // 0x00C0(0x0001)(Edit, BlueprintVisible, EditFixedSize, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EGroomInterpolationType                       HairInterpolationType;                             // 0x00C1(0x0001)(Edit, BlueprintVisible, EditFixedSize, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C2[0x6];                                       // 0x00C2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	class USkeletalMesh*                          RiggedSkeletalMesh;                                // 0x00C8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<int32>                                 DeformedGroupSections;                             // 0x00D0(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	struct FPerPlatformInt                        MinLOD;                                            // 0x00E0(0x0004)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	struct FPerPlatformBool                       DisableBelowMinLodStripping;                       // 0x00E4(0x0001)(Edit, NoDestructor, AdvancedDisplay, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E5[0x3];                                       // 0x00E5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<float>                                 EffectiveLODBias;                                  // 0x00E8(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<class UAssetUserData*>                 AssetUserData;                                     // 0x00F8(0x0010)(Edit, ExportObject, ZeroConstructor, ContainsInstancedReference, AdvancedDisplay, UObjectWrapper, NativeAccessSpecifierPublic)
+	uint8                                         Pad_108[0x8];                                      // 0x0108(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -184,12 +312,11 @@ public:
 DUMPER7_ASSERTS_UHairCardGenerationSettings;
 
 // Class HairStrandsCore.GroomAssetImportData
-// 0x0010 (0x0038 - 0x0028)
+// 0x0008 (0x0030 - 0x0028)
 class UGroomAssetImportData final : public UAssetImportData
 {
 public:
-	class UGroomImportOptions*                    ImportOptions;                                     // 0x0028(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UGroomCreateStrandsTexturesOptions*     HairStrandsTexturesOptions;                        // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UGroomImportOptions*                    ImportOptions;                                     // 0x0028(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -208,43 +335,21 @@ public:
 DUMPER7_ASSERTS_UGroomAssetImportData;
 
 // Class HairStrandsCore.GroomBindingAsset
-// 0x0098 (0x00C0 - 0x0028)
+// 0x0088 (0x00B0 - 0x0028)
 class alignas(0x10) UGroomBindingAsset final : public UObject
 {
 public:
-	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	EGroomBindingMeshType                         GroomBindingType;                                  // 0x0030(0x0001)(Edit, BlueprintVisible, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGroomAsset*                            Groom;                                             // 0x0038(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, AssetRegistrySearchable, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	class USkeletalMesh*                          SourceSkeletalMesh;                                // 0x0040(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	class USkeletalMesh*                          TargetSkeletalMesh;                                // 0x0048(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	class UGeometryCache*                         SourceGeometryCache;                               // 0x0050(0x0008)(Edit, BlueprintVisible, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	class UGeometryCache*                         TargetGeometryCache;                               // 0x0058(0x0008)(Edit, BlueprintVisible, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	int32                                         NumInterpolationPoints;                            // 0x0060(0x0004)(Edit, BlueprintVisible, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	int32                                         MatchingSection;                                   // 0x0064(0x0004)(Edit, BlueprintVisible, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	TArray<struct FGoomBindingGroupInfo>          GroupInfos;                                        // 0x0068(0x0010)(Edit, BlueprintVisible, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_78[0x48];                                      // 0x0078(0x0048)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void SetGroom(class UGroomAsset* InGroom);
-	void SetGroomBindingType(EGroomBindingMeshType InGroomBindingType);
-	void SetGroupInfos(const TArray<struct FGoomBindingGroupInfo>& InGroupInfos);
-	void SetMatchingSection(int32 InMatchingSection);
-	void SetNumInterpolationPoints(int32 InNumInterpolationPoints);
-	void SetSourceGeometryCache(class UGeometryCache* InGeometryCache);
-	void SetSourceSkeletalMesh(class USkeletalMesh* InSkeletalMesh);
-	void SetTargetGeometryCache(class UGeometryCache* InGeometryCache);
-	void SetTargetSkeletalMesh(class USkeletalMesh* InSkeletalMesh);
-
-	class UGroomAsset* GetGroom() const;
-	EGroomBindingMeshType GetGroomBindingType() const;
-	const TArray<struct FGoomBindingGroupInfo> GetGroupInfos() const;
-	int32 GetMatchingSection() const;
-	int32 GetNumInterpolationPoints() const;
-	class UGeometryCache* GetSourceGeometryCache() const;
-	class USkeletalMesh* GetSourceSkeletalMesh() const;
-	class UGeometryCache* GetTargetGeometryCache() const;
-	class USkeletalMesh* GetTargetSkeletalMesh() const;
+	EGroomBindingMeshType                         GroomBindingType;                                  // 0x0028(0x0001)(Edit, BlueprintVisible, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGroomAsset*                            Groom;                                             // 0x0030(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, AssetRegistrySearchable, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class USkeletalMesh*                          SourceSkeletalMesh;                                // 0x0038(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class USkeletalMesh*                          TargetSkeletalMesh;                                // 0x0040(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UGeometryCache*                         SourceGeometryCache;                               // 0x0048(0x0008)(Edit, BlueprintVisible, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UGeometryCache*                         TargetGeometryCache;                               // 0x0050(0x0008)(Edit, BlueprintVisible, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         NumInterpolationPoints;                            // 0x0058(0x0004)(Edit, BlueprintVisible, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         MatchingSection;                                   // 0x005C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<struct FGoomBindingGroupInfo>          GroupInfos;                                        // 0x0060(0x0010)(Edit, BlueprintVisible, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_70[0x40];                                      // 0x0070(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -267,7 +372,7 @@ DUMPER7_ASSERTS_UGroomBindingAsset;
 class UGroomBindingAssetList final : public UObject
 {
 public:
-	TArray<class UGroomBindingAsset*>             Bindings;                                          // 0x0028(0x0010)(Edit, EditFixedSize, ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TArray<class UGroomBindingAsset*>             Bindings;                                          // 0x0028(0x0010)(Edit, EditFixedSize, ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -294,7 +399,6 @@ public:
 	static class UGroomBindingAsset* CreateNewGeometryCacheGroomBindingAssetWithPath(const class FString& DesiredPackagePath, class UGroomAsset* GroomAsset, class UGeometryCache* GeometryCache, int32 NumInterpolationPoints, class UGeometryCache* SourceGeometryCacheForTransfer, int32 MatchingSection);
 	static class UGroomBindingAsset* CreateNewGroomBindingAsset(class UGroomAsset* InGroomAsset, class USkeletalMesh* InSkeletalMesh, int32 InNumInterpolationPoints, class USkeletalMesh* InSourceSkeletalMeshForTransfer, int32 InMatchingSection);
 	static class UGroomBindingAsset* CreateNewGroomBindingAssetWithPath(const class FString& InDesiredPackagePath, class UGroomAsset* InGroomAsset, class USkeletalMesh* InSkeletalMesh, int32 InNumInterpolationPoints, class USkeletalMesh* InSourceSkeletalMeshForTransfer, int32 InMatchingSection);
-	static bool IsHairStrandsSupportedInWorld(const class UObject* WorldContextObject);
 
 public:
 	static class UClass* StaticClass()
@@ -313,14 +417,13 @@ public:
 DUMPER7_ASSERTS_UGroomBlueprintLibrary;
 
 // Class HairStrandsCore.GroomCache
-// 0x0060 (0x0088 - 0x0028)
+// 0x0050 (0x0078 - 0x0028)
 class UGroomCache final : public UObject
 {
 public:
-	uint8                                         Pad_28[0x18];                                      // 0x0028(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UAssetUserData*>                 AssetUserData;                                     // 0x0040(0x0010)(Edit, ExportObject, ZeroConstructor, ContainsInstancedReference, AdvancedDisplay, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	struct FGroomCacheInfo                        GroomCacheInfo;                                    // 0x0050(0x0028)(Edit, EditConst, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_78[0x10];                                      // 0x0078(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_28[0x14];                                      // 0x0028(0x0014)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGroomCacheInfo                        GroomCacheInfo;                                    // 0x003C(0x0028)(Edit, EditConst, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_64[0x14];                                      // 0x0064(0x0014)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -339,37 +442,37 @@ public:
 DUMPER7_ASSERTS_UGroomCache;
 
 // Class HairStrandsCore.GroomComponent
-// 0x0220 (0x0880 - 0x0660)
+// 0x0260 (0x0930 - 0x06D0)
 class UGroomComponent final : public UMeshComponent
 {
 public:
-	uint8                                         Pad_658[0x10];                                     // 0x0658(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGroomAsset*                            GroomAsset;                                        // 0x0668(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UGroomCache*                            GroomCache;                                        // 0x0670(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TArray<class UNiagaraComponent*>              NiagaraComponents;                                 // 0x0678(0x0010)(ExportObject, ZeroConstructor, Transient, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class USkeletalMesh*                          SourceSkeletalMesh;                                // 0x0688(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UGroomBindingAsset*                     BindingAsset;                                      // 0x0690(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPhysicsAsset*                          PhysicsAsset;                                      // 0x0698(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_6A0[0x10];                                     // 0x06A0(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FHairSimulationSettings                SimulationSettings;                                // 0x06B0(0x0090)(Edit, BlueprintVisible, Interp, NativeAccessSpecifierPublic)
-	class UMeshDeformer*                          MeshDeformer;                                      // 0x0740(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UMeshDeformerInstance*                  MeshDeformerInstance;                              // 0x0748(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UMeshDeformerInstanceSettings*          MeshDeformerInstanceSettings;                      // 0x0750(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UMaterialInterface*                     Strands_DebugMaterial;                             // 0x0758(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UMaterialInterface*                     Strands_DefaultMaterial;                           // 0x0760(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UMaterialInterface*                     Cards_DefaultMaterial;                             // 0x0768(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UMaterialInterface*                     Meshes_DefaultMaterial;                            // 0x0770(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UNiagaraSystem*                         AngularSpringsSystem;                              // 0x0778(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UNiagaraSystem*                         CosseratRodsSystem;                                // 0x0780(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class FString                                 AttachmentName;                                    // 0x0788(0x0010)(Edit, BlueprintVisible, ZeroConstructor, Interp, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_798[0x88];                                     // 0x0798(0x0088)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FHairGroupDesc>                 GroomGroupsDesc;                                   // 0x0820(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	bool                                          bUseCards;                                         // 0x0830(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bRunning;                                          // 0x0831(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bLooping;                                          // 0x0832(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bManualTick;                                       // 0x0833(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         ElapsedTime;                                       // 0x0834(0x0004)(Edit, ZeroConstructor, Transient, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_838[0x48];                                     // 0x0838(0x0048)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_6D0[0x10];                                     // 0x06D0(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGroomAsset*                            GroomAsset;                                        // 0x06E0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UGroomCache*                            GroomCache;                                        // 0x06E8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<class UNiagaraComponent*>              NiagaraComponents;                                 // 0x06F0(0x0010)(ExportObject, ZeroConstructor, Transient, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic)
+	class USkeletalMesh*                          SourceSkeletalMesh;                                // 0x0700(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UGroomBindingAsset*                     BindingAsset;                                      // 0x0708(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Interp, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPhysicsAsset*                          PhysicsAsset;                                      // 0x0710(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_718[0x10];                                     // 0x0718(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FHairSimulationSettings                SimulationSettings;                                // 0x0728(0x0090)(Edit, BlueprintVisible, Interp, NativeAccessSpecifierPublic)
+	class UMeshDeformer*                          MeshDeformer;                                      // 0x07B8(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UMeshDeformerInstance*                  MeshDeformerInstance;                              // 0x07C0(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UMeshDeformerInstanceSettings*          MeshDeformerInstanceSettings;                      // 0x07C8(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UMaterialInterface*                     Strands_DebugMaterial;                             // 0x07D0(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UMaterialInterface*                     Strands_DefaultMaterial;                           // 0x07D8(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UMaterialInterface*                     Cards_DefaultMaterial;                             // 0x07E0(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UMaterialInterface*                     Meshes_DefaultMaterial;                            // 0x07E8(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UNiagaraSystem*                         AngularSpringsSystem;                              // 0x07F0(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UNiagaraSystem*                         CosseratRodsSystem;                                // 0x07F8(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 AttachmentName;                                    // 0x0800(0x0010)(Edit, BlueprintVisible, ZeroConstructor, Interp, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_810[0x90];                                     // 0x0810(0x0090)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FHairGroupDesc>                 GroomGroupsDesc;                                   // 0x08A0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	bool                                          bUseCards;                                         // 0x08B0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bRunning;                                          // 0x08B1(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bLooping;                                          // 0x08B2(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bManualTick;                                       // 0x08B3(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         ElapsedTime;                                       // 0x08B4(0x0004)(Edit, ZeroConstructor, Transient, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_8B8[0x78];                                     // 0x08B8(0x0078)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void AddCollisionComponent(class USkeletalMeshComponent* SkeletalMeshComponent);
@@ -380,7 +483,6 @@ public:
 	void SetBindingAsset(class UGroomBindingAsset* InBinding);
 	void SetEnableSimulation(bool bInEnableSimulation);
 	void SetGroomAsset(class UGroomAsset* Asset);
-	void SetGroomCache(class UGroomCache* InGroomCache);
 	void SetHairLengthScale(float Scale);
 	void SetHairLengthScaleEnable(bool bEnable);
 	void SetMeshDeformer(class UMeshDeformer* InMeshDeformer);
@@ -403,19 +505,18 @@ public:
 DUMPER7_ASSERTS_UGroomComponent;
 
 // Class HairStrandsCore.GroomCreateBindingOptions
-// 0x0038 (0x0060 - 0x0028)
+// 0x0030 (0x0058 - 0x0028)
 class UGroomCreateBindingOptions final : public UObject
 {
 public:
-	TWeakObjectPtr<class UGroomAsset>             GroomAsset;                                        // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EGroomBindingMeshType                         GroomBindingType;                                  // 0x0030(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class USkeletalMesh*                          SourceSkeletalMesh;                                // 0x0038(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, AdvancedDisplay, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class USkeletalMesh*                          TargetSkeletalMesh;                                // 0x0040(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UGeometryCache*                         SourceGeometryCache;                               // 0x0048(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, AdvancedDisplay, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UGeometryCache*                         TargetGeometryCache;                               // 0x0050(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	int32                                         NumInterpolationPoints;                            // 0x0058(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         MatchingSection;                                   // 0x005C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EGroomBindingMeshType                         GroomBindingType;                                  // 0x0028(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class USkeletalMesh*                          SourceSkeletalMesh;                                // 0x0030(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, AdvancedDisplay, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class USkeletalMesh*                          TargetSkeletalMesh;                                // 0x0038(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UGeometryCache*                         SourceGeometryCache;                               // 0x0040(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, AdvancedDisplay, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UGeometryCache*                         TargetGeometryCache;                               // 0x0048(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         NumInterpolationPoints;                            // 0x0050(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         MatchingSection;                                   // 0x0054(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -459,27 +560,23 @@ public:
 DUMPER7_ASSERTS_UGroomCreateFollicleMaskOptions;
 
 // Class HairStrandsCore.GroomCreateStrandsTexturesOptions
-// 0x0050 (0x0078 - 0x0028)
+// 0x0040 (0x0068 - 0x0028)
 class UGroomCreateStrandsTexturesOptions final : public UObject
 {
 public:
-	EHairTextureLayout                            layout;                                            // 0x0028(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_29[0x3];                                       // 0x0029(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         Resolution;                                        // 0x002C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EStrandsTexturesTraceType                     TraceType;                                         // 0x0030(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_31[0x3];                                       // 0x0031(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         TraceDistance;                                     // 0x0034(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EStrandsTexturesMeshType                      MeshType;                                          // 0x0038(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UStaticMesh*                            StaticMesh;                                        // 0x0040(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class USkeletalMesh*                          SkeletalMesh;                                      // 0x0048(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	int32                                         LODIndex;                                          // 0x0050(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         SectionIndex;                                      // 0x0054(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         UVChannelIndex;                                    // 0x0058(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_5C[0x4];                                       // 0x005C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<int32>                                 GroupIndex;                                        // 0x0060(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	int32                                         Dilation;                                          // 0x0070(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_74[0x4];                                       // 0x0074(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	int32                                         Resolution;                                        // 0x0028(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EStrandsTexturesTraceType                     TraceType;                                         // 0x002C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2D[0x3];                                       // 0x002D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         TraceDistance;                                     // 0x0030(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EStrandsTexturesMeshType                      MeshType;                                          // 0x0034(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_35[0x3];                                       // 0x0035(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class UStaticMesh*                            StaticMesh;                                        // 0x0038(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class USkeletalMesh*                          SkeletalMesh;                                      // 0x0040(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         LODIndex;                                          // 0x0048(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         SectionIndex;                                      // 0x004C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         UVChannelIndex;                                    // 0x0050(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_54[0x4];                                       // 0x0054(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<int32>                                 GroupIndex;                                        // 0x0058(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -569,11 +666,11 @@ public:
 DUMPER7_ASSERTS_UGroomPluginSettings;
 
 // Class HairStrandsCore.MovieSceneGroomCacheSection
-// 0x0020 (0x0118 - 0x00F8)
+// 0x0020 (0x0110 - 0x00F0)
 class UMovieSceneGroomCacheSection final : public UMovieSceneSection
 {
 public:
-	struct FMovieSceneGroomCacheParams            Params_0;                                          // 0x00F8(0x0020)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	struct FMovieSceneGroomCacheParams            Params_0;                                          // 0x00F0(0x0020)(Edit, NoDestructor, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -592,12 +689,12 @@ public:
 DUMPER7_ASSERTS_UMovieSceneGroomCacheSection;
 
 // Class HairStrandsCore.MovieSceneGroomCacheTrack
-// 0x0018 (0x0110 - 0x00F8)
+// 0x0018 (0x00B0 - 0x0098)
 class UMovieSceneGroomCacheTrack final : public UMovieSceneNameableTrack
 {
 public:
-	uint8                                         Pad_F8[0x8];                                       // 0x00F8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UMovieSceneSection*>             AnimationSections;                                 // 0x0100(0x0010)(ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	uint8                                         Pad_98[0x8];                                       // 0x0098(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class UMovieSceneSection*>             AnimationSections;                                 // 0x00A0(0x0010)(ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()
@@ -621,8 +718,8 @@ class UNiagaraDataInterfaceHairStrands final : public UNiagaraDataInterface
 {
 public:
 	uint8                                         Pad_38[0x8];                                       // 0x0038(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGroomAsset*                            DefaultSource;                                     // 0x0040(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class AActor*                                 SourceActor;                                       // 0x0048(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UGroomAsset*                            DefaultSource;                                     // 0x0040(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 SourceActor;                                       // 0x0048(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_50[0x8];                                       // 0x0050(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:

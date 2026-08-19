@@ -36,18 +36,8 @@ enum class ENetworkFailure : uint8
 	ENetworkFailure_MAX                      = 16,
 };
 
-// Enum NetCore.EReplicationSystem
-// NumValues: 0x0004
-enum class EReplicationSystem : uint8
-{
-	Default                                  = 0,
-	Generic                                  = 1,
-	Iris                                     = 2,
-	EReplicationSystem_MAX                   = 3,
-};
-
 // Enum NetCore.ENetCloseResult
-// NumValues: 0x0072
+// NumValues: 0x006E
 enum class ENetCloseResult : uint8
 {
 	NetDriverAlreadyExists                   = 0,
@@ -102,68 +92,64 @@ enum class ENetCloseResult : uint8
 	EncryptionFailure                        = 49,
 	EncryptionTokenMissing                   = 50,
 	ReceivedNetGUIDBunchFail                 = 51,
-	ReceivedNetExtBunchFail                  = 52,
-	MaxReliableExceeded                      = 53,
-	ReceivedNextBunchFail                    = 54,
-	ReceivedNextBunchQueueFail               = 55,
-	PartialInitialReliableDestroy            = 56,
-	PartialMergeReliableDestroy              = 57,
-	PartialInitialNonByteAligned             = 58,
-	PartialNonByteAligned                    = 59,
-	PartialFinalPackageMapExports            = 60,
-	PartialTooLarge                          = 61,
-	AlreadyOpen                              = 62,
-	ReliableBeforeOpen                       = 63,
-	ReliableBufferOverflow                   = 64,
-	RPCReliableBufferOverflow                = 65,
-	ControlChannelClose                      = 66,
-	ControlChannelEndianCheck                = 67,
-	ControlChannelPlayerChannelFail          = 68,
-	ControlChannelMessageUnknown             = 69,
-	ControlChannelMessageFail                = 70,
-	ControlChannelMessagePayloadFail         = 71,
-	ControlChannelBunchOverflowed            = 72,
-	ControlChannelQueueBunchOverflowed       = 73,
-	ClientHasMustBeMappedGUIDs               = 74,
-	ClientSentDestructionInfo                = 75,
-	UnregisteredMustBeMappedGUID             = 76,
-	ObjectReplicatorReceivedBunchFail        = 77,
-	ContentBlockFail                         = 78,
-	ContentBlockHeaderRepLayoutFail          = 79,
-	ContentBlockHeaderIsActorFail            = 80,
-	ContentBlockHeaderObjFail                = 81,
-	ContentBlockHeaderPrematureEnd           = 82,
-	ContentBlockHeaderSubObjectActor         = 83,
-	ContentBlockHeaderBadParent              = 84,
-	ContentBlockHeaderInvalidCreate          = 85,
-	ContentBlockHeaderStablyNamedFail        = 86,
-	ContentBlockHeaderNoSubObjectClass       = 87,
-	ContentBlockHeaderUObjectSubObject       = 88,
-	ContentBlockHeaderAActorSubObject        = 89,
-	ContentBlockHeaderFail                   = 90,
-	ContentBlockPayloadBitsFail              = 91,
-	FieldHeaderRepIndex                      = 92,
-	FieldHeaderBadRepIndex                   = 93,
-	FieldHeaderPayloadBitsFail               = 94,
-	FieldPayloadFail                         = 95,
-	ReplicationChannelCountMaxedOut          = 96,
-	BeaconControlFlowError                   = 97,
-	BeaconUnableToParsePacket                = 98,
-	BeaconAuthenticationFailure              = 99,
-	BeaconLoginInvalidIdError                = 100,
-	BeaconLoginInvalidAuthHandlerError       = 101,
-	BeaconAuthError                          = 102,
-	BeaconSpawnClientWorldPackageNameError   = 103,
-	BeaconSpawnExistingActorError            = 104,
-	BeaconSpawnFailureError                  = 105,
-	BeaconSpawnNetGUIDAckNoActor             = 106,
-	BeaconSpawnNetGUIDAckNoHost              = 107,
-	BeaconSpawnUnexpectedError               = 108,
-	IrisProtocolMismatch                     = 109,
-	IrisNetRefHandleError                    = 110,
-	FaultDisconnect                          = 111,
-	NotRecoverable                           = 112,
-	ENetCloseResult_MAX                      = 113,
+	MaxReliableExceeded                      = 52,
+	ReceivedNextBunchFail                    = 53,
+	ReceivedNextBunchQueueFail               = 54,
+	PartialInitialReliableDestroy            = 55,
+	PartialMergeReliableDestroy              = 56,
+	PartialInitialNonByteAligned             = 57,
+	PartialNonByteAligned                    = 58,
+	PartialFinalPackageMapExports            = 59,
+	PartialTooLarge                          = 60,
+	AlreadyOpen                              = 61,
+	ReliableBeforeOpen                       = 62,
+	ReliableBufferOverflow                   = 63,
+	RPCReliableBufferOverflow                = 64,
+	ControlChannelClose                      = 65,
+	ControlChannelEndianCheck                = 66,
+	ControlChannelPlayerChannelFail          = 67,
+	ControlChannelMessageUnknown             = 68,
+	ControlChannelMessageFail                = 69,
+	ControlChannelMessagePayloadFail         = 70,
+	ControlChannelBunchOverflowed            = 71,
+	ControlChannelQueueBunchOverflowed       = 72,
+	ClientHasMustBeMappedGUIDs               = 73,
+	ClientSentDestructionInfo                = 74,
+	UnregisteredMustBeMappedGUID             = 75,
+	ObjectReplicatorReceivedBunchFail        = 76,
+	ContentBlockFail                         = 77,
+	ContentBlockHeaderRepLayoutFail          = 78,
+	ContentBlockHeaderIsActorFail            = 79,
+	ContentBlockHeaderObjFail                = 80,
+	ContentBlockHeaderPrematureEnd           = 81,
+	ContentBlockHeaderSubObjectActor         = 82,
+	ContentBlockHeaderBadParent              = 83,
+	ContentBlockHeaderInvalidCreate          = 84,
+	ContentBlockHeaderStablyNamedFail        = 85,
+	ContentBlockHeaderNoSubObjectClass       = 86,
+	ContentBlockHeaderUObjectSubObject       = 87,
+	ContentBlockHeaderAActorSubObject        = 88,
+	ContentBlockHeaderFail                   = 89,
+	ContentBlockPayloadBitsFail              = 90,
+	FieldHeaderRepIndex                      = 91,
+	FieldHeaderBadRepIndex                   = 92,
+	FieldHeaderPayloadBitsFail               = 93,
+	FieldPayloadFail                         = 94,
+	BeaconControlFlowError                   = 95,
+	BeaconUnableToParsePacket                = 96,
+	BeaconAuthenticationFailure              = 97,
+	BeaconLoginInvalidIdError                = 98,
+	BeaconLoginInvalidAuthHandlerError       = 99,
+	BeaconAuthError                          = 100,
+	BeaconSpawnClientWorldPackageNameError   = 101,
+	BeaconSpawnExistingActorError            = 102,
+	BeaconSpawnFailureError                  = 103,
+	BeaconSpawnNetGUIDAckNoActor             = 104,
+	BeaconSpawnNetGUIDAckNoHost              = 105,
+	BeaconSpawnUnexpectedError               = 106,
+	FaultDisconnect                          = 107,
+	NotRecoverable                           = 108,
+	ENetCloseResult_MAX                      = 109,
 };
 
 // Enum NetCore.EFastArraySerializerDeltaFlags
@@ -177,40 +163,6 @@ enum class EFastArraySerializerDeltaFlags : uint8
 	EFastArraySerializerDeltaFlags_MAX       = 5,
 };
 
-// ScriptStruct NetCore.StateStruct
-// 0x0018 (0x0018 - 0x0000)
-struct FStateStruct
-{
-public:
-	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 StateName;                                         // 0x0008(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-};
-DUMPER7_ASSERTS_FStateStruct;
-
-// ScriptStruct NetCore.FastArraySerializerItem
-// 0x000C (0x000C - 0x0000)
-struct FFastArraySerializerItem
-{
-public:
-	int32                                         ReplicationID;                                     // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, RepSkip, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         ReplicationKey;                                    // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, RepSkip, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         MostRecentArrayReplicationKey;                     // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, RepSkip, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FFastArraySerializerItem;
-
-// ScriptStruct NetCore.FastArraySerializer
-// 0x0108 (0x0108 - 0x0000)
-struct alignas(0x08) FFastArraySerializer
-{
-public:
-	uint8                                         Pad_0[0x54];                                       // 0x0000(0x0054)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         ArrayReplicationKey;                               // 0x0054(0x0004)(ZeroConstructor, IsPlainOldData, RepSkip, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_58[0xA8];                                      // 0x0058(0x00A8)(Fixing Size After Last Property [ Dumper-7 ])
-	EFastArraySerializerDeltaFlags                DeltaFlags;                                        // 0x0100(0x0001)(ZeroConstructor, Transient, IsPlainOldData, RepSkip, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_101[0x7];                                      // 0x0101(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FFastArraySerializer;
-
 // ScriptStruct NetCore.NetAnalyticsDataConfig
 // 0x000C (0x000C - 0x0000)
 struct FNetAnalyticsDataConfig final
@@ -221,6 +173,16 @@ public:
 	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FNetAnalyticsDataConfig;
+
+// ScriptStruct NetCore.StateStruct
+// 0x0018 (0x0018 - 0x0000)
+struct FStateStruct
+{
+public:
+	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 StateName;                                         // 0x0008(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+};
+DUMPER7_ASSERTS_FStateStruct;
 
 // ScriptStruct NetCore.EscalationState
 // 0x0018 (0x0030 - 0x0018)
@@ -253,5 +215,29 @@ public:
 	uint8                                         Pad_3A[0x6];                                       // 0x003A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FNetFaultState;
+
+// ScriptStruct NetCore.FastArraySerializerItem
+// 0x000C (0x000C - 0x0000)
+struct FFastArraySerializerItem
+{
+public:
+	int32                                         ReplicationID;                                     // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, RepSkip, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         ReplicationKey;                                    // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, RepSkip, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         MostRecentArrayReplicationKey;                     // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, RepSkip, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FFastArraySerializerItem;
+
+// ScriptStruct NetCore.FastArraySerializer
+// 0x0108 (0x0108 - 0x0000)
+struct alignas(0x08) FFastArraySerializer
+{
+public:
+	uint8                                         Pad_0[0x54];                                       // 0x0000(0x0054)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         ArrayReplicationKey;                               // 0x0054(0x0004)(ZeroConstructor, IsPlainOldData, RepSkip, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_58[0xA8];                                      // 0x0058(0x00A8)(Fixing Size After Last Property [ Dumper-7 ])
+	EFastArraySerializerDeltaFlags                DeltaFlags;                                        // 0x0100(0x0001)(ZeroConstructor, Transient, IsPlainOldData, RepSkip, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_101[0x7];                                      // 0x0101(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FFastArraySerializer;
 
 SDK_NAMESPACE_END

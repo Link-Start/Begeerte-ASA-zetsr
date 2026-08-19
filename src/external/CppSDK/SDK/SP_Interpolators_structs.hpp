@@ -13,6 +13,17 @@
 
 SDK_NAMESPACE_START
 
+// ScriptStruct SP_Interpolators.DoubleIIRInterpolatorRotator
+// 0x0108 (0x0108 - 0x0000)
+struct alignas(0x08) FDoubleIIRInterpolatorRotator final
+{
+public:
+	float                                         PrimaryInterpSpeed;                                // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         IntermediateInterpSpeed;                           // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_8[0x100];                                      // 0x0008(0x0100)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FDoubleIIRInterpolatorRotator;
+
 // ScriptStruct SP_Interpolators.IIRInterpolatorVector
 // 0x0078 (0x0078 - 0x0000)
 struct alignas(0x08) FIIRInterpolatorVector final
@@ -43,17 +54,6 @@ public:
 	uint8                                         Pad_4[0x74];                                       // 0x0004(0x0074)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FIIRInterpolatorRotator;
-
-// ScriptStruct SP_Interpolators.DoubleIIRInterpolatorRotator
-// 0x0108 (0x0108 - 0x0000)
-struct alignas(0x08) FDoubleIIRInterpolatorRotator final
-{
-public:
-	float                                         PrimaryInterpSpeed;                                // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         IntermediateInterpSpeed;                           // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_8[0x100];                                      // 0x0008(0x0100)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FDoubleIIRInterpolatorRotator;
 
 // ScriptStruct SP_Interpolators.IIRInterpolatorFloat
 // 0x0020 (0x0020 - 0x0000)

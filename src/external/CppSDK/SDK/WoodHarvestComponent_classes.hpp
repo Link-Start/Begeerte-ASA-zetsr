@@ -16,8 +16,8 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass WoodHarvestComponent.WoodHarvestComponent_C
-// 0x0000 (0x0238 - 0x0238)
-class UWoodHarvestComponent_C final : public UAttackHarvestComponent_Base_C
+// 0x0000 (0x0210 - 0x0210)
+class UWoodHarvestComponent_C : public UAttackHarvestComponent_Base_C
 {
 public:
 	static class UClass* StaticClass()

@@ -10,265 +10,13 @@
 
 #include "Basic.hpp"
 
-#include "SlateCore_structs.hpp"
-#include "AudioWidgets_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "AudioWidgets_structs.hpp"
+#include "SlateCore_structs.hpp"
 
 
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
-
-// Function AudioWidgets.AudioMaterialButton.SetIsPressed
-// 0x0001 (0x0001 - 0x0000)
-struct AudioMaterialButton_SetIsPressed final
-{
-public:
-	bool                                          InPressed;                                         // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialButton_SetIsPressed;
-
-// Function AudioWidgets.AudioMaterialButton.GetIsPressed
-// 0x0001 (0x0001 - 0x0000)
-struct AudioMaterialButton_GetIsPressed final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialButton_GetIsPressed;
-
-// Function AudioWidgets.AudioMaterialKnob.GetValue
-// 0x0004 (0x0004 - 0x0000)
-struct AudioMaterialKnob_GetValue final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialKnob_GetValue;
-
-// Function AudioWidgets.AudioMaterialKnob.SetFineTuneSpeed
-// 0x0004 (0x0004 - 0x0000)
-struct AudioMaterialKnob_SetFineTuneSpeed final
-{
-public:
-	float                                         InValue;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialKnob_SetFineTuneSpeed;
-
-// Function AudioWidgets.AudioMaterialKnob.SetLocked
-// 0x0001 (0x0001 - 0x0000)
-struct AudioMaterialKnob_SetLocked final
-{
-public:
-	bool                                          InLocked;                                          // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialKnob_SetLocked;
-
-// Function AudioWidgets.AudioMaterialKnob.SetMouseUsesStep
-// 0x0001 (0x0001 - 0x0000)
-struct AudioMaterialKnob_SetMouseUsesStep final
-{
-public:
-	bool                                          InUsesStep;                                        // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialKnob_SetMouseUsesStep;
-
-// Function AudioWidgets.AudioMaterialKnob.SetStepSize
-// 0x0004 (0x0004 - 0x0000)
-struct AudioMaterialKnob_SetStepSize final
-{
-public:
-	float                                         InValue;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialKnob_SetStepSize;
-
-// Function AudioWidgets.AudioMaterialKnob.SetTuneSpeed
-// 0x0004 (0x0004 - 0x0000)
-struct AudioMaterialKnob_SetTuneSpeed final
-{
-public:
-	float                                         InValue;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialKnob_SetTuneSpeed;
-
-// Function AudioWidgets.AudioMaterialKnob.SetValue
-// 0x0004 (0x0004 - 0x0000)
-struct AudioMaterialKnob_SetValue final
-{
-public:
-	float                                         InValue;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialKnob_SetValue;
-
-// Function AudioWidgets.AudioMaterialKnob.GetFineTuneSpeed
-// 0x0004 (0x0004 - 0x0000)
-struct AudioMaterialKnob_GetFineTuneSpeed final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialKnob_GetFineTuneSpeed;
-
-// Function AudioWidgets.AudioMaterialKnob.GetIsLocked
-// 0x0001 (0x0001 - 0x0000)
-struct AudioMaterialKnob_GetIsLocked final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialKnob_GetIsLocked;
-
-// Function AudioWidgets.AudioMaterialKnob.GetMouseUsesStep
-// 0x0001 (0x0001 - 0x0000)
-struct AudioMaterialKnob_GetMouseUsesStep final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialKnob_GetMouseUsesStep;
-
-// Function AudioWidgets.AudioMaterialKnob.GetStepSize
-// 0x0004 (0x0004 - 0x0000)
-struct AudioMaterialKnob_GetStepSize final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialKnob_GetStepSize;
-
-// Function AudioWidgets.AudioMaterialKnob.GetTuneSpeed
-// 0x0004 (0x0004 - 0x0000)
-struct AudioMaterialKnob_GetTuneSpeed final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialKnob_GetTuneSpeed;
-
-// Function AudioWidgets.AudioMaterialMeter.SetMeterChannelInfo
-// 0x0010 (0x0010 - 0x0000)
-struct AudioMaterialMeter_SetMeterChannelInfo final
-{
-public:
-	TArray<struct FMeterChannelInfo>              InMeterChannelInfo;                                // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialMeter_SetMeterChannelInfo;
-
-// Function AudioWidgets.AudioMaterialMeter.GetMeterChannelInfo
-// 0x0010 (0x0010 - 0x0000)
-struct AudioMaterialMeter_GetMeterChannelInfo final
-{
-public:
-	TArray<struct FMeterChannelInfo>              ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialMeter_GetMeterChannelInfo;
-
-// Function AudioWidgets.AudioMaterialSlider.SetFineTuneSpeed
-// 0x0004 (0x0004 - 0x0000)
-struct AudioMaterialSlider_SetFineTuneSpeed final
-{
-public:
-	float                                         InValue;                                           // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialSlider_SetFineTuneSpeed;
-
-// Function AudioWidgets.AudioMaterialSlider.SetLocked
-// 0x0001 (0x0001 - 0x0000)
-struct AudioMaterialSlider_SetLocked final
-{
-public:
-	bool                                          bInLocked;                                         // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialSlider_SetLocked;
-
-// Function AudioWidgets.AudioMaterialSlider.SetMouseUsesStep
-// 0x0001 (0x0001 - 0x0000)
-struct AudioMaterialSlider_SetMouseUsesStep final
-{
-public:
-	bool                                          bInUsesStep;                                       // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialSlider_SetMouseUsesStep;
-
-// Function AudioWidgets.AudioMaterialSlider.SetStepSize
-// 0x0004 (0x0004 - 0x0000)
-struct AudioMaterialSlider_SetStepSize final
-{
-public:
-	float                                         InValue;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialSlider_SetStepSize;
-
-// Function AudioWidgets.AudioMaterialSlider.SetTuneSpeed
-// 0x0004 (0x0004 - 0x0000)
-struct AudioMaterialSlider_SetTuneSpeed final
-{
-public:
-	float                                         InValue;                                           // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialSlider_SetTuneSpeed;
-
-// Function AudioWidgets.AudioMaterialSlider.SetValue
-// 0x0004 (0x0004 - 0x0000)
-struct AudioMaterialSlider_SetValue final
-{
-public:
-	float                                         InValue;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialSlider_SetValue;
-
-// Function AudioWidgets.AudioMaterialSlider.GetFineTuneSpeed
-// 0x0004 (0x0004 - 0x0000)
-struct AudioMaterialSlider_GetFineTuneSpeed final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialSlider_GetFineTuneSpeed;
-
-// Function AudioWidgets.AudioMaterialSlider.GetIsLocked
-// 0x0001 (0x0001 - 0x0000)
-struct AudioMaterialSlider_GetIsLocked final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialSlider_GetIsLocked;
-
-// Function AudioWidgets.AudioMaterialSlider.GetMouseUsesStep
-// 0x0001 (0x0001 - 0x0000)
-struct AudioMaterialSlider_GetMouseUsesStep final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialSlider_GetMouseUsesStep;
-
-// Function AudioWidgets.AudioMaterialSlider.GetStepSize
-// 0x0004 (0x0004 - 0x0000)
-struct AudioMaterialSlider_GetStepSize final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialSlider_GetStepSize;
-
-// Function AudioWidgets.AudioMaterialSlider.GetTuneSpeed
-// 0x0004 (0x0004 - 0x0000)
-struct AudioMaterialSlider_GetTuneSpeed final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialSlider_GetTuneSpeed;
-
-// Function AudioWidgets.AudioMaterialSlider.GetValue
-// 0x0004 (0x0004 - 0x0000)
-struct AudioMaterialSlider_GetValue final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioMaterialSlider_GetValue;
 
 // Function AudioWidgets.AudioMeter.SetBackgroundColor
 // 0x0010 (0x0010 - 0x0000)
@@ -350,15 +98,6 @@ public:
 	TArray<struct FMeterChannelInfo>              ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_AudioMeter_GetMeterChannelInfo;
-
-// Function AudioWidgets.AudioOscilloscope.CanTriggeringBeSet
-// 0x0001 (0x0001 - 0x0000)
-struct AudioOscilloscope_CanTriggeringBeSet final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AudioOscilloscope_CanTriggeringBeSet;
 
 // Function AudioWidgets.AudioRadialSlider.GetOutputValue
 // 0x0008 (0x0008 - 0x0000)
@@ -462,11 +201,11 @@ public:
 DUMPER7_ASSERTS_AudioRadialSlider_SetTextLabelBackgroundColor;
 
 // Function AudioWidgets.AudioRadialSlider.SetUnitsText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct AudioRadialSlider_SetUnitsText final
 {
 public:
-	class FText                                   Units;                                             // 0x0000(0x0010)(ConstParm, Parm, NativeAccessSpecifierPublic)
+	class FText                                   Units;                                             // 0x0000(0x0018)(ConstParm, Parm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_AudioRadialSlider_SetUnitsText;
 
@@ -582,11 +321,11 @@ public:
 DUMPER7_ASSERTS_AudioSliderBase_SetTextLabelBackgroundColor;
 
 // Function AudioWidgets.AudioSliderBase.SetUnitsText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct AudioSliderBase_SetUnitsText final
 {
 public:
-	class FText                                   Units;                                             // 0x0000(0x0010)(ConstParm, Parm, NativeAccessSpecifierPublic)
+	class FText                                   Units;                                             // 0x0000(0x0018)(ConstParm, Parm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_AudioSliderBase_SetUnitsText;
 

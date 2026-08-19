@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // ScriptStruct BaseHumanAnimBP_Fists.BaseHumanAnimBP_Fists_C.AnimBlueprintGeneratedConstantData
-// 0x0000 (0xD4F0 - 0xD4F0)
+// 0x0000 (0x0410 - 0x0410)
 struct BaseHumanAnimBP_Fists::FAnimBlueprintGeneratedConstantData : public BaseHumanAnimBP::FAnimBlueprintGeneratedConstantData
 {
 };

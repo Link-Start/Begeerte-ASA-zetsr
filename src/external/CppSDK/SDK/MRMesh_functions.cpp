@@ -17,7 +17,7 @@
 SDK_NAMESPACE_START
 
 // Function MRMesh.MockDataMeshTrackerComponent.ConnectMRMesh
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UMRMeshComponent*                 InMRMeshPtr                                            (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -42,7 +42,7 @@ void UMockDataMeshTrackerComponent::ConnectMRMesh(class UMRMeshComponent* InMRMe
 
 
 // Function MRMesh.MockDataMeshTrackerComponent.DisconnectMRMesh
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UMRMeshComponent*                 InMRMeshPtr                                            (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -67,7 +67,7 @@ void UMockDataMeshTrackerComponent::DisconnectMRMesh(class UMRMeshComponent* InM
 
 
 // Function MRMesh.MRMeshComponent.Clear
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UMRMeshComponent::Clear()
 {
@@ -86,7 +86,7 @@ void UMRMeshComponent::Clear()
 
 
 // Function MRMesh.MRMeshComponent.ForceNavMeshUpdate
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UMRMeshComponent::ForceNavMeshUpdate()
 {
@@ -105,7 +105,7 @@ void UMRMeshComponent::ForceNavMeshUpdate()
 
 
 // Function MRMesh.MRMeshComponent.RequestNavMeshUpdate
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UMRMeshComponent::RequestNavMeshUpdate()
 {
@@ -124,7 +124,7 @@ void UMRMeshComponent::RequestNavMeshUpdate()
 
 
 // Function MRMesh.MRMeshComponent.SetEnableMeshOcclusion
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bEnable                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -149,7 +149,7 @@ void UMRMeshComponent::SetEnableMeshOcclusion(bool bEnable)
 
 
 // Function MRMesh.MRMeshComponent.SetUseWireframe
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bUseWireframe                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -174,7 +174,7 @@ void UMRMeshComponent::SetUseWireframe(bool bUseWireframe)
 
 
 // Function MRMesh.MRMeshComponent.SetWireframeColor
-// (Final, RequiredAPI, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FLinearColor&              InColor                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -199,7 +199,7 @@ void UMRMeshComponent::SetWireframeColor(const struct FLinearColor& InColor)
 
 
 // Function MRMesh.MRMeshComponent.SetWireframeMaterial
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 // Parameters:
 // class UMaterialInterface*               InMaterial                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -324,7 +324,7 @@ bool UMRMeshComponent::IsConnected() const
 
 
 // Function MRMesh.MeshReconstructorBase.ConnectMRMesh
-// (RequiredAPI, Native, Public)
+// (Native, Public)
 // Parameters:
 // class UMRMeshComponent*                 Mesh                                                   (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -349,7 +349,7 @@ void UMeshReconstructorBase::ConnectMRMesh(class UMRMeshComponent* Mesh)
 
 
 // Function MRMesh.MeshReconstructorBase.DisconnectMRMesh
-// (RequiredAPI, Native, Public)
+// (Native, Public)
 
 void UMeshReconstructorBase::DisconnectMRMesh()
 {
@@ -368,7 +368,7 @@ void UMeshReconstructorBase::DisconnectMRMesh()
 
 
 // Function MRMesh.MeshReconstructorBase.PauseReconstruction
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 
 void UMeshReconstructorBase::PauseReconstruction()
 {
@@ -387,7 +387,7 @@ void UMeshReconstructorBase::PauseReconstruction()
 
 
 // Function MRMesh.MeshReconstructorBase.StartReconstruction
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 
 void UMeshReconstructorBase::StartReconstruction()
 {
@@ -406,7 +406,7 @@ void UMeshReconstructorBase::StartReconstruction()
 
 
 // Function MRMesh.MeshReconstructorBase.StopReconstruction
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 
 void UMeshReconstructorBase::StopReconstruction()
 {
@@ -425,7 +425,7 @@ void UMeshReconstructorBase::StopReconstruction()
 
 
 // Function MRMesh.MeshReconstructorBase.IsReconstructionPaused
-// (RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -450,7 +450,7 @@ bool UMeshReconstructorBase::IsReconstructionPaused() const
 
 
 // Function MRMesh.MeshReconstructorBase.IsReconstructionStarted
-// (RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 

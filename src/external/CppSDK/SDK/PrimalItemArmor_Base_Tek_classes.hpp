@@ -11,26 +11,26 @@
 #include "Basic.hpp"
 
 #include "Engine_structs.hpp"
-#include "MapSpecificTekArmorBuffs_structs.hpp"
 #include "PrimalItemArmorGeneric_classes.hpp"
+#include "MapSpecificTekArmorBuffs_structs.hpp"
 
 
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemArmor_Base_Tek.PrimalItemArmor_Base_Tek_C
-// 0x0060 (0x0BF0 - 0x0B90)
-class UPrimalItemArmor_Base_Tek_C final : public UPrimalItemArmorGeneric_C
+// 0x0060 (0x11E0 - 0x1180)
+class UPrimalItemArmor_Base_Tek_C : public UPrimalItemArmorGeneric_C
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0B90(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	class UPrimalItem*                            SelfObj;                                           // 0x0B98(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	TSoftClassPtr<class UClass>                   MyTekArmorBuff;                                    // 0x0BA0(0x0028)(Edit, BlueprintVisible, DisableEditOnInstance, HasGetValueTypeHash)
-	int32                                         MaxAmmo;                                           // 0x0BC8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bInfiniteAmmo;                                     // 0x0BCC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_BCD[0x3];                                      // 0x0BCD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FMapSpecificTekArmorBuffs>      MapSpecificTekArmorBuffs;                          // 0x0BD0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	class UClass*                                 CachedResolvedTekArmorBuff;                        // 0x0BE0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Transient, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	bool                                          bTekBuffDirty;                                     // 0x0BE8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Transient, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x1178(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	class UPrimalItem*                            SelfObj;                                           // 0x1180(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	TSoftClassPtr<class UClass>                   MyTekArmorBuff;                                    // 0x1188(0x0030)(Edit, BlueprintVisible, DisableEditOnInstance, HasGetValueTypeHash)
+	int32                                         MaxAmmo;                                           // 0x11B8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bInfiniteAmmo;                                     // 0x11BC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_11BD[0x3];                                     // 0x11BD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FMapSpecificTekArmorBuffs>      MapSpecificTekArmorBuffs;                          // 0x11C0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	class UClass*                                 CachedResolvedTekArmorBuff;                        // 0x11D0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Transient, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	bool                                          bTekBuffDirty;                                     // 0x11D8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Transient, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void ApplyingSkinOntoItem(class UPrimalItem* ToOwnerItem, bool bIsFirstTime);

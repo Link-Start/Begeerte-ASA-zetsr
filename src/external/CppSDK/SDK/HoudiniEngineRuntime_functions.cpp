@@ -1324,10 +1324,10 @@ bool UHoudiniStaticMeshComponent::IsHoudiniIconVisible() const
 // Function HoudiniEngineRuntime.HoudiniToolData.PopulateFromJSONData
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// const class FString&                    JsonData                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class FString&                    JSONData                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UHoudiniToolData::PopulateFromJSONData(const class FString& JsonData)
+bool UHoudiniToolData::PopulateFromJSONData(const class FString& JSONData)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1336,7 +1336,7 @@ bool UHoudiniToolData::PopulateFromJSONData(const class FString& JsonData)
 
 	Params::HoudiniToolData_PopulateFromJSONData Parms{};
 
-	Parms.JsonData = std::move(JsonData);
+	Parms.JSONData = std::move(JSONData);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1408,10 +1408,10 @@ bool UHoudiniToolData::SaveToJSONFile(const class FString& JsonFilePath)
 // Function HoudiniEngineRuntime.HoudiniToolData.ConvertToJSONData
 // (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class FString*                          JsonData                                               (Parm, OutParm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString*                          JSONData                                               (Parm, OutParm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UHoudiniToolData::ConvertToJSONData(class FString* JsonData) const
+bool UHoudiniToolData::ConvertToJSONData(class FString* JSONData) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -1427,8 +1427,8 @@ bool UHoudiniToolData::ConvertToJSONData(class FString* JsonData) const
 
 	Func->FunctionFlags = Flgs;
 
-	if (JsonData != nullptr)
-		*JsonData = std::move(Parms.JsonData);
+	if (JSONData != nullptr)
+		*JSONData = std::move(Parms.JSONData);
 
 	return Parms.ReturnValue;
 }

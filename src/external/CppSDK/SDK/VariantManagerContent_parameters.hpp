@@ -101,11 +101,11 @@ public:
 DUMPER7_ASSERTS_PropertyValue_GetFullDisplayString;
 
 // Function VariantManagerContent.PropertyValue.GetPropertyTooltip
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct PropertyValue_GetPropertyTooltip final
 {
 public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	class FText                                   ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PropertyValue_GetPropertyTooltip;
 
@@ -146,13 +146,13 @@ public:
 DUMPER7_ASSERTS_SwitchActor_GetSelectedOption;
 
 // Function VariantManagerContent.Variant.AddDependency
-// 0x0060 (0x0060 - 0x0000)
+// 0x0070 (0x0070 - 0x0000)
 struct Variant_AddDependency final
 {
 public:
-	struct FVariantDependency                     Dependency;                                        // 0x0000(0x0058)(Parm, OutParm, NativeAccessSpecifierPublic)
-	int32                                         ReturnValue;                                       // 0x0058(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_5C[0x4];                                       // 0x005C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FVariantDependency                     Dependency;                                        // 0x0000(0x0068)(Parm, OutParm, NativeAccessSpecifierPublic)
+	int32                                         ReturnValue;                                       // 0x0068(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6C[0x4];                                       // 0x006C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_Variant_AddDependency;
 
@@ -177,13 +177,13 @@ public:
 DUMPER7_ASSERTS_Variant_GetActor;
 
 // Function VariantManagerContent.Variant.GetDependency
-// 0x0060 (0x0060 - 0x0000)
+// 0x0070 (0x0070 - 0x0000)
 struct Variant_GetDependency final
 {
 public:
 	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVariantDependency                     ReturnValue;                                       // 0x0008(0x0058)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	struct FVariantDependency                     ReturnValue;                                       // 0x0008(0x0068)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_Variant_GetDependency;
 
@@ -245,22 +245,22 @@ public:
 DUMPER7_ASSERTS_Variant_IsActive;
 
 // Function VariantManagerContent.Variant.SetDependency
-// 0x0060 (0x0060 - 0x0000)
+// 0x0070 (0x0070 - 0x0000)
 struct Variant_SetDependency final
 {
 public:
 	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVariantDependency                     Dependency;                                        // 0x0008(0x0058)(Parm, OutParm, NativeAccessSpecifierPublic)
+	struct FVariantDependency                     Dependency;                                        // 0x0008(0x0068)(Parm, OutParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_Variant_SetDependency;
 
 // Function VariantManagerContent.Variant.SetDisplayText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct Variant_SetDisplayText final
 {
 public:
-	class FText                                   NewDisplayText;                                    // 0x0000(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class FText                                   NewDisplayText;                                    // 0x0000(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_Variant_SetDisplayText;
 
@@ -298,11 +298,11 @@ public:
 DUMPER7_ASSERTS_Variant_SetThumbnailFromTexture;
 
 // Function VariantManagerContent.Variant.GetDisplayText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct Variant_GetDisplayText final
 {
 public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	class FText                                   ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_Variant_GetDisplayText;
 
@@ -346,11 +346,11 @@ public:
 DUMPER7_ASSERTS_VariantSet_GetVariantByName;
 
 // Function VariantManagerContent.VariantSet.SetDisplayText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct VariantSet_SetDisplayText final
 {
 public:
-	class FText                                   NewDisplayText;                                    // 0x0000(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class FText                                   NewDisplayText;                                    // 0x0000(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_VariantSet_SetDisplayText;
 
@@ -388,11 +388,11 @@ public:
 DUMPER7_ASSERTS_VariantSet_SetThumbnailFromTexture;
 
 // Function VariantManagerContent.VariantSet.GetDisplayText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct VariantSet_GetDisplayText final
 {
 public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	class FText                                   ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_VariantSet_GetDisplayText;
 

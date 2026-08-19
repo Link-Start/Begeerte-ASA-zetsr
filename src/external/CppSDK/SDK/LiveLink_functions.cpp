@@ -114,7 +114,7 @@ bool ULiveLinkBlueprintLibrary::EvaluateLiveLinkFrame(const struct FLiveLinkSubj
 // Parameters:
 // const struct FLiveLinkSubjectName&      SubjectName                                            (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TSubclassOf<class ULiveLinkRole>        Role                                                   (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FTimecode&                 SceneTime                                              (Parm, ZeroConstructor, NoDestructor, NativeAccessSpecifierPublic)
+// const struct FTimecode&                 SceneTime                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FLiveLinkBaseBlueprintData*      OutBlueprintData                                       (Parm, OutParm, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -450,34 +450,6 @@ TArray<struct FLiveLinkSubjectKey> ULiveLinkBlueprintLibrary::GetLiveLinkSubject
 
 	Parms.bIncludeDisabledSubject = bIncludeDisabledSubject;
 	Parms.bIncludeVirtualSubject = bIncludeVirtualSubject;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function LiveLink.LiveLinkBlueprintLibrary.GetLiveLinkSubjectState
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// const struct FLiveLinkSubjectName&      SubjectName                                            (ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// ELiveLinkSubjectState                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-ELiveLinkSubjectState ULiveLinkBlueprintLibrary::GetLiveLinkSubjectState(const struct FLiveLinkSubjectName& SubjectName)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("LiveLinkBlueprintLibrary", "GetLiveLinkSubjectState");
-
-	Params::LiveLinkBlueprintLibrary_GetLiveLinkSubjectState Parms{};
-
-	Parms.SubjectName = std::move(SubjectName);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1192,7 +1164,7 @@ void ULiveLinkComponent::GetSubjectData(const class FName SubjectName, bool* bSu
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // const class FName                       SubjectName                                            (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FTimecode&                 SceneTime                                              (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+// const struct FTimecode&                 SceneTime                                              (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool*                                   bSuccess                                               (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FSubjectFrameHandle*             SubjectFrameHandle                                     (Parm, OutParm, NativeAccessSpecifierPublic)
 

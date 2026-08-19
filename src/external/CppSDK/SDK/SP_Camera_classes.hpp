@@ -10,13 +10,13 @@
 
 #include "Basic.hpp"
 
-#include "SP_Interpolators_structs.hpp"
+#include "SP_Camera_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
 #include "CinematicCamera_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "SP_Camera_structs.hpp"
+#include "SP_Interpolators_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -34,27 +34,27 @@ public:
 	bool                                          bUseCineCam;                                       // 0x0049(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bUseCineCamSettings;                               // 0x004A(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bOverrideFilmback;                                 // 0x004B(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FCameraFilmbackSettings                CineCam_FilmbackOverride;                          // 0x004C(0x0014)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-	float                                         CineCam_CurrentFocalLength;                        // 0x0060(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         CineCam_CurrentAperture;                           // 0x0064(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         CineCam_FocusDistanceAdjustment;                   // 0x0068(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         CineCam_DisplayOnly_FOV;                           // 0x006C(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<class AActor*>                         BlockingActors;                                    // 0x0070(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPublic)
-	uint8                                         Pad_80[0x8];                                       // 0x0080(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TSubclassOf<class UCameraShakeBase>           CameraShakeClass;                                  // 0x0088(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UCameraShakeBase*                       CameraShakeInstance;                               // 0x0090(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bScaleShakeWithViewTargetVelocity;                 // 0x0098(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_99[0x7];                                       // 0x0099(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector2D                              ShakeScaling_SpeedRange;                           // 0x00A0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FVector2D                              ShakeScaling_ScaleRange;                           // 0x00B0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FIIRInterpolatorFloat                  ShakeScaleInterpolator;                            // 0x00C0(0x0020)(Edit, BlueprintVisible, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	bool                                          bDrawDebugShake;                                   // 0x00E0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bUseCustomFocusDistance;                           // 0x00E1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bOverrideViewPitchMinAndMax;                       // 0x00E2(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_E3[0x1];                                       // 0x00E3(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         ViewPitchMinOverride;                              // 0x00E4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         ViewPitchMaxOverride;                              // 0x00E8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_EC[0x64];                                      // 0x00EC(0x0064)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FCameraFilmbackSettings                CineCam_FilmbackOverride;                          // 0x004C(0x000C)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	float                                         CineCam_CurrentFocalLength;                        // 0x0058(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         CineCam_CurrentAperture;                           // 0x005C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         CineCam_FocusDistanceAdjustment;                   // 0x0060(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         CineCam_DisplayOnly_FOV;                           // 0x0064(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<class AActor*>                         BlockingActors;                                    // 0x0068(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPublic)
+	uint8                                         Pad_78[0x8];                                       // 0x0078(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	TSubclassOf<class UCameraShakeBase>           CameraShakeClass;                                  // 0x0080(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UCameraShakeBase*                       CameraShakeInstance;                               // 0x0088(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bScaleShakeWithViewTargetVelocity;                 // 0x0090(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_91[0x7];                                       // 0x0091(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector2D                              ShakeScaling_SpeedRange;                           // 0x0098(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FVector2D                              ShakeScaling_ScaleRange;                           // 0x00A8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FIIRInterpolatorFloat                  ShakeScaleInterpolator;                            // 0x00B8(0x0020)(Edit, BlueprintVisible, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	bool                                          bDrawDebugShake;                                   // 0x00D8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bUseCustomFocusDistance;                           // 0x00D9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bOverrideViewPitchMinAndMax;                       // 0x00DA(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_DB[0x1];                                       // 0x00DB(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         ViewPitchMinOverride;                              // 0x00DC(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         ViewPitchMaxOverride;                              // 0x00E0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_E4[0x6C];                                      // 0x00E4(0x006C)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void ResetToDefaultSettings();
@@ -185,19 +185,19 @@ public:
 DUMPER7_ASSERTS_USPCam_ThirdPerson;
 
 // Class SP_Camera.SPPlayerCameraManager
-// 0x09C0 (0x3690 - 0x2CD0)
+// 0x0940 (0x4600 - 0x3CC0)
 class ASPPlayerCameraManager final : public APlayerCameraManager
 {
 public:
-	float                                         BasePelvisRelativeZ;                               // 0x2CC8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   PelvisBoneName;                                    // 0x2CCC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2CD4[0xC];                                     // 0x2CD4(0x000C)(Fixing Size After Last Property [ Dumper-7 ])
-	class AActor*                                 AltViewTarget;                                     // 0x2CE0(0x0008)(ZeroConstructor, Transient, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2CE8[0x8];                                     // 0x2CE8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class AActor*                                 SavedMainViewTarget;                               // 0x2CF0(0x0008)(ZeroConstructor, Transient, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<struct FActiveSPCamera>                CameraBlendStack;                                  // 0x2CF8(0x0010)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
-	TArray<struct FSPCameraModeInstance>          CameraModeInstances;                               // 0x2D08(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, Transient, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_2D18[0x978];                                   // 0x2D18(0x0978)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	float                                         BasePelvisRelativeZ;                               // 0x3CC0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   PelvisBoneName;                                    // 0x3CC4(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3CCC[0xC];                                     // 0x3CCC(0x000C)(Fixing Size After Last Property [ Dumper-7 ])
+	class AActor*                                 AltViewTarget;                                     // 0x3CD8(0x0008)(ZeroConstructor, Transient, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3CE0[0x8];                                     // 0x3CE0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class AActor*                                 SavedMainViewTarget;                               // 0x3CE8(0x0008)(ZeroConstructor, Transient, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<struct FActiveSPCamera>                CameraBlendStack;                                  // 0x3CF0(0x0010)(ZeroConstructor, Transient, Protected, NativeAccessSpecifierProtected)
+	TArray<struct FSPCameraModeInstance>          CameraModeInstances;                               // 0x3D00(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, Transient, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_3D10[0x8F0];                                   // 0x3D10(0x08F0)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void ClearAlternateCamera();

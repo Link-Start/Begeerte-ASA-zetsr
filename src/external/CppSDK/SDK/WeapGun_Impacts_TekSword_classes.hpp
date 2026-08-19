@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass WeapGun_Impacts_TekSword.WeapGun_Impacts_TekSword_C
-// 0x0000 (0x08B0 - 0x08B0)
+// 0x0000 (0x08E8 - 0x08E8)
 class AWeapGun_Impacts_TekSword_C final : public AWeapGun_Impacts_C
 {
 public:

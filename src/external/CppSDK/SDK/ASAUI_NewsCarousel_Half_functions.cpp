@@ -16,57 +16,21 @@
 
 SDK_NAMESPACE_START
 
-// Function ASAUI_NewsCarousel_Half.ASAUI_NewsCarousel_Half_C.Construct
+// Function ASAUI_NewsCarousel_Half.ASAUI_NewsCarousel_Half_C.PreConstruct
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
-
-void UASAUI_NewsCarousel_Half_C::Construct()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_NewsCarousel_Half_C", "Construct");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function ASAUI_NewsCarousel_Half.ASAUI_NewsCarousel_Half_C.DoClickAction
-// (Event, Public, BlueprintEvent)
 // Parameters:
-// const class FString&                    ActionKey                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
-// const class FString&                    ActionValue                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+// bool                                    IsDesignTime                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UASAUI_NewsCarousel_Half_C::DoClickAction(const class FString& ActionKey, const class FString& ActionValue)
+void UASAUI_NewsCarousel_Half_C::PreConstruct(bool IsDesignTime)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_NewsCarousel_Half_C", "DoClickAction");
+		Func = Class->GetFunction("ASAUI_NewsCarousel_Half_C", "PreConstruct");
 
-	Params::ASAUI_NewsCarousel_Half_C_DoClickAction Parms{};
+	Params::ASAUI_NewsCarousel_Half_C_PreConstruct Parms{};
 
-	Parms.ActionKey = std::move(ActionKey);
-	Parms.ActionValue = std::move(ActionValue);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function ASAUI_NewsCarousel_Half.ASAUI_NewsCarousel_Half_C.ExecuteUbergraph_ASAUI_NewsCarousel_Half
-// (Final, UbergraphFunction)
-// Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UASAUI_NewsCarousel_Half_C::ExecuteUbergraph_ASAUI_NewsCarousel_Half(int32 EntryPoint)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_NewsCarousel_Half_C", "ExecuteUbergraph_ASAUI_NewsCarousel_Half");
-
-	Params::ASAUI_NewsCarousel_Half_C_ExecuteUbergraph_ASAUI_NewsCarousel_Half Parms{};
-
-	Parms.EntryPoint = EntryPoint;
+	Parms.IsDesignTime = IsDesignTime;
 
 	UObject::ProcessEvent(Func, &Parms);
 }
@@ -92,23 +56,59 @@ struct FLinearColor UASAUI_NewsCarousel_Half_C::GetColorAndOpacity()
 }
 
 
-// Function ASAUI_NewsCarousel_Half.ASAUI_NewsCarousel_Half_C.PreConstruct
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+// Function ASAUI_NewsCarousel_Half.ASAUI_NewsCarousel_Half_C.ExecuteUbergraph_ASAUI_NewsCarousel_Half
+// (Final, UbergraphFunction)
 // Parameters:
-// bool                                    IsDesignTime                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UASAUI_NewsCarousel_Half_C::PreConstruct(bool IsDesignTime)
+void UASAUI_NewsCarousel_Half_C::ExecuteUbergraph_ASAUI_NewsCarousel_Half(int32 EntryPoint)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_NewsCarousel_Half_C", "PreConstruct");
+		Func = Class->GetFunction("ASAUI_NewsCarousel_Half_C", "ExecuteUbergraph_ASAUI_NewsCarousel_Half");
 
-	Params::ASAUI_NewsCarousel_Half_C_PreConstruct Parms{};
+	Params::ASAUI_NewsCarousel_Half_C_ExecuteUbergraph_ASAUI_NewsCarousel_Half Parms{};
 
-	Parms.IsDesignTime = IsDesignTime;
+	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ASAUI_NewsCarousel_Half.ASAUI_NewsCarousel_Half_C.DoClickAction
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// const class FString&                    ActionKey                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+// const class FString&                    ActionValue                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+
+void UASAUI_NewsCarousel_Half_C::DoClickAction(const class FString& ActionKey, const class FString& ActionValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ASAUI_NewsCarousel_Half_C", "DoClickAction");
+
+	Params::ASAUI_NewsCarousel_Half_C_DoClickAction Parms{};
+
+	Parms.ActionKey = std::move(ActionKey);
+	Parms.ActionValue = std::move(ActionValue);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ASAUI_NewsCarousel_Half.ASAUI_NewsCarousel_Half_C.Construct
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+
+void UASAUI_NewsCarousel_Half_C::Construct()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ASAUI_NewsCarousel_Half_C", "Construct");
+
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 

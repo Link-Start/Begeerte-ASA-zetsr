@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass NS_DinoFootprint_BP.NS_DinoFootprint_BP_C
-// 0x0000 (0x0880 - 0x0880)
+// 0x0000 (0x0930 - 0x0930)
 class UNS_DinoFootprint_BP_C final : public UNiagaraComponent
 {
 public:

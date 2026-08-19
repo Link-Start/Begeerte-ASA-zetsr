@@ -38,17 +38,6 @@ public:
 };
 DUMPER7_ASSERTS_Buff_Base_C_ExecuteUbergraph_Buff_Base;
 
-// Function Buff_Base.Buff_Base_C.SetBuffHordeManagerData
-// 0x0010 (0x0010 - 0x0000)
-struct Buff_Base_C_SetBuffHordeManagerData final
-{
-public:
-	double                                        Time;                                              // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          Routing;                                           // 0x0008(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          SetRouting;                                        // 0x0009(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_Buff_Base_C_SetBuffHordeManagerData;
-
 // Function Buff_Base.Buff_Base_C.BPCustomAllowAddBuff
 // 0x0050 (0x0050 - 0x0000)
 struct Buff_Base_C_BPCustomAllowAddBuff final

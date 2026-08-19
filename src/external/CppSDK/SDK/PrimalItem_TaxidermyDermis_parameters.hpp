@@ -17,19 +17,19 @@ SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
 // Function PrimalItem_TaxidermyDermis.PrimalItem_TaxidermyDermis_C.BPInitIconMaterial
-// 0x00D8 (0x00D8 - 0x0000)
+// 0x00C8 (0x00C8 - 0x0000)
 struct PrimalItem_TaxidermyDermis_C_BPInitIconMaterial final
 {
 public:
-	struct FCustomItemData                        CallFunc_GetCustomItemData_OutData;                // 0x0000(0x00A8)()
-	bool                                          CallFunc_GetCustomItemData_ReturnValue;            // 0x00A8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_A9[0x7];                                       // 0x00A9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UClass*                                 CallFunc_Array_Get_Item;                           // 0x00B0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UObject*                                CallFunc_GetClassDefaultObject_ReturnValue;        // 0x00B8(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class APrimalDinoCharacter*                   K2Node_DynamicCast_AsPrimal_Dino_Character;        // 0x00C0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	bool                                          K2Node_DynamicCast_bSuccess;                       // 0x00C8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_C9[0x7];                                       // 0x00C9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UTexture*                               CallFunc_GetDinoEntryIcon_ReturnValue;             // 0x00D0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	struct FCustomItemData                        CallFunc_GetCustomItemData_OutData;                // 0x0000(0x0098)()
+	bool                                          CallFunc_GetCustomItemData_ReturnValue;            // 0x0098(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_99[0x7];                                       // 0x0099(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UClass*                                 CallFunc_Array_Get_Item;                           // 0x00A0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UObject*                                CallFunc_GetClassDefaultObject_ReturnValue;        // 0x00A8(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class APrimalDinoCharacter*                   K2Node_DynamicCast_AsPrimal_Dino_Character;        // 0x00B0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	bool                                          K2Node_DynamicCast_bSuccess;                       // 0x00B8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_B9[0x7];                                       // 0x00B9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UTexture*                               CallFunc_GetDinoEntryIcon_ReturnValue;             // 0x00C0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_PrimalItem_TaxidermyDermis_C_BPInitIconMaterial;
 

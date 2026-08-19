@@ -21,10 +21,10 @@ void init(LPVOID lpParam) {
     g_MDX12::SetSetupTakeDamageCallback(g_AActor::TakeDamage);
 
     ConfigManager::Get().Initialize("cfg");
-    LanguageManager::Get().Initialize("language");
-    LanguageManager::Get().FetchWorkshopScripts();
-    LuaManager::Get().Initialize("lua");
-    LuaManager::Get().FetchWorkshopScripts();
+    // LanguageManager::Get().Initialize("language");
+    // LanguageManager::Get().FetchWorkshopScripts();
+    // LuaManager::Get().Initialize("lua");
+    // LuaManager::Get().FetchWorkshopScripts();
 }
 
 void MainThread(LPVOID lpParam) {

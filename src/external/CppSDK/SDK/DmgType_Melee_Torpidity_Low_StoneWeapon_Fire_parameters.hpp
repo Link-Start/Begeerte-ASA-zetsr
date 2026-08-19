@@ -17,7 +17,7 @@ SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
 // Function DmgType_Melee_Torpidity_Low_StoneWeapon_Fire.DmgType_Melee_Torpidity_Low_StoneWeapon_Fire_C.OverrideBuffToGiveVictimCharacter
-// 0x00D0 (0x00D0 - 0x0000)
+// 0x00E0 (0x00E0 - 0x0000)
 struct DmgType_Melee_Torpidity_Low_StoneWeapon_Fire_C_OverrideBuffToGiveVictimCharacter final
 {
 public:
@@ -34,12 +34,12 @@ public:
 	class APrimalDinoCharacter*                   K2Node_DynamicCast_AsPrimal_Dino_Character;        // 0x0058(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	bool                                          K2Node_DynamicCast_bSuccess;                       // 0x0060(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_61[0x7];                                       // 0x0061(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TSoftClassPtr<class UClass>                   Temp_softclass_Variable;                           // 0x0068(0x0028)(UObjectWrapper, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_DoubleDouble_ReturnValue;            // 0x0090(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_91[0x7];                                       // 0x0091(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TSoftClassPtr<class UClass>                   K2Node_Select_Default;                             // 0x0098(0x0028)(UObjectWrapper, HasGetValueTypeHash)
-	class UClass*                                 CallFunc_ClassAssetResolve_ReturnValue;            // 0x00C0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	double                                        CallFunc_Less_DoubleDouble_A_ImplicitCast;         // 0x00C8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	TSoftClassPtr<class UClass>                   Temp_softclass_Variable;                           // 0x0068(0x0030)(UObjectWrapper, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_DoubleDouble_ReturnValue;            // 0x0098(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_99[0x7];                                       // 0x0099(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TSoftClassPtr<class UClass>                   K2Node_Select_Default;                             // 0x00A0(0x0030)(UObjectWrapper, HasGetValueTypeHash)
+	class UClass*                                 CallFunc_ClassAssetResolve_ReturnValue;            // 0x00D0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	double                                        CallFunc_Less_DoubleDouble_A_ImplicitCast;         // 0x00D8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_DmgType_Melee_Torpidity_Low_StoneWeapon_Fire_C_OverrideBuffToGiveVictimCharacter;
 

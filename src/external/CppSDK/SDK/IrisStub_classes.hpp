@@ -115,26 +115,6 @@ public:
 };
 DUMPER7_ASSERTS_UNetObjectCountLimiterConfig;
 
-// Class IrisStub.NetObjectFactory
-// 0x0000 (0x0028 - 0x0028)
-class UNetObjectFactory : public UObject
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("NetObjectFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"NetObjectFactory")
-	}
-	static class UNetObjectFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UNetObjectFactory>();
-	}
-};
-DUMPER7_ASSERTS_UNetObjectFactory;
-
 // Class IrisStub.NetObjectFilterConfig
 // 0x0000 (0x0028 - 0x0028)
 class UNetObjectFilterConfig final : public UObject

@@ -10,111 +10,16 @@
 
 #include "Basic.hpp"
 
-#include "GameplayTags_structs.hpp"
-#include "EnhancedInput_structs.hpp"
-#include "CoreUObject_structs.hpp"
-#include "CoreUObject_classes.hpp"
 #include "Engine_classes.hpp"
+#include "EnhancedInput_structs.hpp"
 #include "DeveloperSettings_structs.hpp"
 #include "DeveloperSettings_classes.hpp"
+#include "CoreUObject_structs.hpp"
+#include "CoreUObject_classes.hpp"
 #include "InputCore_structs.hpp"
 
 
 SDK_NAMESPACE_START
-
-// Class EnhancedInput.EnhancedPlayerMappableKeyProfile
-// 0x0070 (0x0098 - 0x0028)
-class UEnhancedPlayerMappableKeyProfile final : public UObject
-{
-public:
-	struct FGameplayTag                           ProfileIdentifier;                                 // 0x0028(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, SaveGame, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FPlatformUserId                        OwningUserId;                                      // 0x0030(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_34[0x4];                                       // 0x0034(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FText                                   DisplayName;                                       // 0x0038(0x0010)(Edit, BlueprintVisible, SaveGame, Protected, NativeAccessSpecifierProtected)
-	TMap<class FName, struct FKeyMappingRow>      PlayerMappedKeys;                                  // 0x0048(0x0050)(Edit, BlueprintVisible, BlueprintReadOnly, Transient, Protected, NativeAccessSpecifierProtected)
-
-public:
-	void ResetMappingToDefault(const class FName InMappingName);
-	void ResetToDefault();
-	void SetDisplayName(const class FText& NewDisplayName);
-
-	bool DoesMappingPassQueryOptions(const struct FPlayerKeyMapping& PlayerMapping, const struct FPlayerMappableKeyQueryOptions& Options) const;
-	void DumpProfileToLog() const;
-	int32 GetMappedKeysInRow(const class FName MappingName, TArray<struct FKey>* OutKeys) const;
-	int32 GetMappingNamesForKey(const struct FKey& InKey, TArray<class FName>* OutMappingNames) const;
-	const TMap<class FName, struct FKeyMappingRow> GetPlayerMappingRows() const;
-	const class FText GetProfileDisplayName() const;
-	const struct FGameplayTag GetProfileIdentifer() const;
-	void K2_FindKeyMapping(struct FPlayerKeyMapping* OutKeyMapping, const struct FMapPlayerKeyArgs& InArgs) const;
-	int32 QueryPlayerMappedKeys(const struct FPlayerMappableKeyQueryOptions& Options, TArray<struct FKey>* OutKeys) const;
-	class FString ToString() const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("EnhancedPlayerMappableKeyProfile")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"EnhancedPlayerMappableKeyProfile")
-	}
-	static class UEnhancedPlayerMappableKeyProfile* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UEnhancedPlayerMappableKeyProfile>();
-	}
-};
-DUMPER7_ASSERTS_UEnhancedPlayerMappableKeyProfile;
-
-// Class EnhancedInput.EnhancedInputUserSettings
-// 0x00F8 (0x0120 - 0x0028)
-class UEnhancedInputUserSettings final : public USaveGame
-{
-public:
-	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(class UEnhancedInputUserSettings* Settings)> OnSettingsChanged;    // 0x0030(0x0010)(ZeroConstructor, Transient, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void()>              OnSettingsApplied;                                 // 0x0040(0x0010)(ZeroConstructor, Transient, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_50[0x20];                                      // 0x0050(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGameplayTag                           CurrentProfileIdentifier;                          // 0x0070(0x0008)(SaveGame, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	TMap<struct FGameplayTag, class UEnhancedPlayerMappableKeyProfile*> SavedKeyProfiles;            // 0x0078(0x0050)(Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	TWeakObjectPtr<class ULocalPlayer>            OwningLocalPlayer;                                 // 0x00C8(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	TSet<class UInputMappingContext*>             RegisteredMappingContexts;                         // 0x00D0(0x0050)(Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-
-public:
-	void ApplySettings();
-	void AsyncSaveSettings();
-	class UEnhancedPlayerMappableKeyProfile* CreateNewKeyProfile(const struct FPlayerMappableKeyProfileCreationArgs& InArgs);
-	void MapPlayerKey(const struct FMapPlayerKeyArgs& InArgs, struct FGameplayTagContainer* FailureReason);
-	bool RegisterInputMappingContext(const class UInputMappingContext* IMC);
-	bool RegisterInputMappingContexts(const TSet<class UInputMappingContext*>& MappingContexts);
-	void ResetAllPlayerKeysInRow(const struct FMapPlayerKeyArgs& InArgs, struct FGameplayTagContainer* FailureReason);
-	void ResetKeyProfileToDefault(const struct FGameplayTag& ProfileId, struct FGameplayTagContainer* FailureReason);
-	void SaveSettings();
-	bool SetKeyProfile(const struct FGameplayTag& InProfileId);
-	void UnMapPlayerKey(const struct FMapPlayerKeyArgs& InArgs, struct FGameplayTagContainer* FailureReason);
-	bool UnregisterInputMappingContext(const class UInputMappingContext* IMC);
-	bool UnregisterInputMappingContexts(const TSet<class UInputMappingContext*>& MappingContexts);
-
-	const TSet<struct FPlayerKeyMapping> FindMappingsInRow(const class FName MappingName) const;
-	class UEnhancedPlayerMappableKeyProfile* GetCurrentKeyProfile() const;
-	const struct FGameplayTag GetCurrentKeyProfileIdentifier() const;
-	class UEnhancedPlayerMappableKeyProfile* GetKeyProfileWithIdentifier(const struct FGameplayTag& ProfileId) const;
-	bool IsMappingContextRegistered(const class UInputMappingContext* IMC) const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("EnhancedInputUserSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"EnhancedInputUserSettings")
-	}
-	static class UEnhancedInputUserSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UEnhancedInputUserSettings>();
-	}
-};
-DUMPER7_ASSERTS_UEnhancedInputUserSettings;
 
 // Class EnhancedInput.EnhancedInputActionDelegateBinding
 // 0x0010 (0x0038 - 0x0028)
@@ -138,6 +43,32 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UEnhancedInputActionDelegateBinding;
+
+// Class EnhancedInput.EnhancedInputPlatformSettings
+// 0x0028 (0x0068 - 0x0040)
+class UEnhancedInputPlatformSettings final : public UPlatformSettings
+{
+public:
+	TArray<TSoftClassPtr<class UClass>>           InputData;                                         // 0x0040(0x0010)(Edit, ZeroConstructor, Config, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	TArray<TSubclassOf<class UEnhancedInputPlatformData>> InputDataClasses;                          // 0x0050(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	bool                                          bShouldLogMappingContextRedirects;                 // 0x0060(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_61[0x7];                                       // 0x0061(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("EnhancedInputPlatformSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"EnhancedInputPlatformSettings")
+	}
+	static class UEnhancedInputPlatformSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UEnhancedInputPlatformSettings>();
+	}
+};
+DUMPER7_ASSERTS_UEnhancedInputPlatformSettings;
 
 // Class EnhancedInput.EnhancedInputActionValueBinding
 // 0x0010 (0x0038 - 0x0028)
@@ -163,14 +94,14 @@ public:
 DUMPER7_ASSERTS_UEnhancedInputActionValueBinding;
 
 // Class EnhancedInput.EnhancedInputComponent
-// 0x0038 (0x0190 - 0x0158)
+// 0x0038 (0x0178 - 0x0140)
 class UEnhancedInputComponent final : public UInputComponent
 {
 public:
-	uint8                                         Pad_158[0x38];                                     // 0x0158(0x0038)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_140[0x38];                                     // 0x0140(0x0038)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	struct FInputActionValue GetBoundActionValue(const class UInputAction* action) const;
+	struct FInputActionValue GetBoundActionValue(const class UInputAction* Action) const;
 
 public:
 	static class UClass* StaticClass()
@@ -189,24 +120,19 @@ public:
 DUMPER7_ASSERTS_UEnhancedInputComponent;
 
 // Class EnhancedInput.EnhancedInputDeveloperSettings
-// 0x00B0 (0x00E8 - 0x0038)
+// 0x0068 (0x00A0 - 0x0038)
 class UEnhancedInputDeveloperSettings final : public UDeveloperSettingsBackedByCVars
 {
 public:
 	TArray<struct FDefaultContextSetting>         DefaultMappingContexts;                            // 0x0038(0x0010)(Edit, ZeroConstructor, Config, NativeAccessSpecifierPublic)
 	TArray<struct FDefaultContextSetting>         DefaultWorldSubsystemMappingContexts;              // 0x0048(0x0010)(Edit, ZeroConstructor, Config, NativeAccessSpecifierPublic)
-	struct FPerPlatformSettings                   PlatformSettings;                                  // 0x0058(0x0010)(Edit, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	TSoftClassPtr<class UClass>                   UserSettingsClass;                                 // 0x0068(0x0028)(Edit, Config, NoClear, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSoftClassPtr<class UClass>                   DefaultPlayerMappableKeyProfileClass;              // 0x0090(0x0028)(Edit, Config, NoClear, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSoftClassPtr<class UClass>                   DefaultWorldInputClass;                            // 0x00B8(0x0028)(Edit, Config, NoClear, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         bSendTriggeredEventsWhenInputIsFlushed : 1;        // 0x00E0(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bEnableUserSettings : 1;                           // 0x00E0(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bEnableDefaultMappingContexts : 1;                 // 0x00E0(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bShouldOnlyTriggerLastActionInChord : 1;           // 0x00E0(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bLogOnDeprecatedConfigUsed : 1;                    // 0x00E0(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bEnableWorldSubsystem : 1;                         // 0x00E0(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bShouldLogAllWorldSubsystemInputs : 1;             // 0x00E0(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_E1[0x7];                                       // 0x00E1(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TSoftClassPtr<class UClass>                   DefaultWorldInputClass;                            // 0x0058(0x0030)(Edit, Config, NoClear, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FPerPlatformSettings                   PlatformSettings;                                  // 0x0088(0x0010)(Edit, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	uint8                                         bEnableDefaultMappingContexts : 1;                 // 0x0098(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bShouldOnlyTriggerLastActionInChord : 1;           // 0x0098(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bEnableWorldSubsystem : 1;                         // 0x0098(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bShouldLogAllWorldSubsystemInputs : 1;             // 0x0098(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, Config, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_99[0x7];                                       // 0x0099(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -235,9 +161,7 @@ public:
 	static struct FVector Conv_InputActionValueToAxis3D(const struct FInputActionValue& ActionValue);
 	static bool Conv_InputActionValueToBool(const struct FInputActionValue& InValue);
 	static class FString Conv_InputActionValueToString(const struct FInputActionValue& ActionValue);
-	static class FString Conv_TriggerEventValueToString(const ETriggerEvent TriggerEvent);
-	static void FlushPlayerInput(class APlayerController* PlayerController);
-	static struct FInputActionValue GetBoundActionValue(class AActor* Actor, const class UInputAction* action);
+	static struct FInputActionValue GetBoundActionValue(class AActor* Actor, const class UInputAction* Action);
 	static struct FPlayerMappableKeySlot GetFirstPlayerMappableKeySlot();
 	static struct FPlayerMappableKeySlot GetFourthPlayerMappableKeySlot();
 	static class FName GetMappingName(const struct FEnhancedActionKeyMapping& ActionKeyMapping);
@@ -270,7 +194,7 @@ DUMPER7_ASSERTS_UEnhancedInputLibrary;
 class UEnhancedInputPlatformData final : public UObject
 {
 public:
-	TMap<class UInputMappingContext*, class UInputMappingContext*> MappingContextRedirects;          // 0x0028(0x0050)(Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	TMap<class UInputMappingContext*, class UInputMappingContext*> MappingContextRedirects;          // 0x0028(0x0050)(Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
 
 public:
 	const class UInputMappingContext* GetContextRedirect(class UInputMappingContext* InContext) const;
@@ -291,60 +215,31 @@ public:
 };
 DUMPER7_ASSERTS_UEnhancedInputPlatformData;
 
-// Class EnhancedInput.EnhancedInputPlatformSettings
-// 0x0028 (0x0068 - 0x0040)
-class UEnhancedInputPlatformSettings final : public UPlatformSettings
-{
-public:
-	TArray<TSoftClassPtr<class UClass>>           InputData;                                         // 0x0040(0x0010)(Edit, ZeroConstructor, Config, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
-	TArray<TSubclassOf<class UEnhancedInputPlatformData>> InputDataClasses;                          // 0x0050(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
-	bool                                          bShouldLogMappingContextRedirects;                 // 0x0060(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_61[0x7];                                       // 0x0061(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("EnhancedInputPlatformSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"EnhancedInputPlatformSettings")
-	}
-	static class UEnhancedInputPlatformSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UEnhancedInputPlatformSettings>();
-	}
-};
-DUMPER7_ASSERTS_UEnhancedInputPlatformSettings;
-
 // Class EnhancedInput.EnhancedInputSubsystemInterface
 // 0x0000 (0x0000 - 0x0000)
 class IEnhancedInputSubsystemInterface final
 {
 public:
 	void AddMappingContext(const class UInputMappingContext* MappingContext, int32 Priority, const struct FModifyContextOptions& Options);
+	void AddPlayerMappableConfig(const class UPlayerMappableInputConfig* Config, const struct FModifyContextOptions& Options);
 	void ClearAllMappings();
-	void InjectInputForAction(const class UInputAction* action, const struct FInputActionValue& RawValue, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers);
-	void InjectInputForPlayerMapping(const class FName MappingName, const struct FInputActionValue& RawValue, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers);
-	void InjectInputVectorForAction(const class UInputAction* action, const struct FVector& Value, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers);
-	void InjectInputVectorForPlayerMapping(const class FName MappingName, const struct FVector& Value, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers);
-	void OnUserKeyProfileChanged(const class UEnhancedPlayerMappableKeyProfile* InNewProfile);
-	void OnUserSettingsChanged(class UEnhancedInputUserSettings* Settings);
-	EMappingQueryResult QueryMapKeyInActiveContextSet(const class UInputMappingContext* InputContext, const class UInputAction* action, const struct FKey& Key, TArray<struct FMappingQueryIssue>* OutIssues, EMappingQueryIssue BlockingIssues);
-	EMappingQueryResult QueryMapKeyInContextSet(const TArray<class UInputMappingContext*>& PrioritizedActiveContexts, const class UInputMappingContext* InputContext, const class UInputAction* action, const struct FKey& Key, TArray<struct FMappingQueryIssue>* OutIssues, EMappingQueryIssue BlockingIssues);
+	void InjectInputForAction(const class UInputAction* Action, const struct FInputActionValue& RawValue, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers);
+	void InjectInputVectorForAction(const class UInputAction* Action, const struct FVector& Value, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers);
+	int32 K2_AddPlayerMappedKeyInSlot(const class FName MappingName, const struct FKey& NewKey, const struct FPlayerMappableKeySlot& KeySlot, const struct FModifyContextOptions& Options);
+	int32 K2_RemovePlayerMappedKeyInSlot(const class FName MappingName, const struct FPlayerMappableKeySlot& KeySlot, const struct FModifyContextOptions& Options);
+	EMappingQueryResult QueryMapKeyInActiveContextSet(const class UInputMappingContext* InputContext, const class UInputAction* Action, const struct FKey& Key, TArray<struct FMappingQueryIssue>* OutIssues, EMappingQueryIssue BlockingIssues);
+	EMappingQueryResult QueryMapKeyInContextSet(const TArray<class UInputMappingContext*>& PrioritizedActiveContexts, const class UInputMappingContext* InputContext, const class UInputAction* Action, const struct FKey& Key, TArray<struct FMappingQueryIssue>* OutIssues, EMappingQueryIssue BlockingIssues);
+	void RemoveAllPlayerMappedKeys(const struct FModifyContextOptions& Options);
+	int32 RemoveAllPlayerMappedKeysForMapping(const class FName MappingName, const struct FModifyContextOptions& Options);
 	void RemoveMappingContext(const class UInputMappingContext* MappingContext, const struct FModifyContextOptions& Options);
+	void RemovePlayerMappableConfig(const class UPlayerMappableInputConfig* Config, const struct FModifyContextOptions& Options);
 	void RequestRebuildControlMappings(const struct FModifyContextOptions& Options, EInputMappingRebuildType RebuildType);
-	void StartContinuousInputInjectionForAction(const class UInputAction* action, const struct FInputActionValue& RawValue, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers);
-	void StartContinuousInputInjectionForPlayerMapping(const class FName MappingName, const struct FInputActionValue& RawValue, const TArray<class UInputModifier*>& Modifiers, const TArray<class UInputTrigger*>& Triggers);
-	void StopContinuousInputInjectionForAction(const class UInputAction* action);
-	void StopContinuousInputInjectionForPlayerMapping(const class FName MappingName);
-	void UpdateValueOfContinuousInputInjectionForAction(const class UInputAction* action, const struct FInputActionValue& RawValue);
-	void UpdateValueOfContinuousInputInjectionForPlayerMapping(const class FName MappingName, const struct FInputActionValue& RawValue);
 
 	TArray<struct FEnhancedActionKeyMapping> GetAllPlayerMappableActionKeyMappings() const;
-	class UEnhancedInputUserSettings* GetUserSettings() const;
+	TArray<struct FKey> GetAllPlayerMappedKeys(const class FName MappingName) const;
 	bool HasMappingContext(const class UInputMappingContext* MappingContext, int32* OutFoundPriority) const;
-	TArray<struct FKey> QueryKeysMappedToAction(const class UInputAction* action) const;
+	struct FKey K2_GetPlayerMappedKeyInSlot(const class FName MappingName, const struct FPlayerMappableKeySlot& KeySlot) const;
+	TArray<struct FKey> QueryKeysMappedToAction(const class UInputAction* Action) const;
 
 public:
 	static class UClass* StaticClass()
@@ -372,14 +267,12 @@ public:
 DUMPER7_ASSERTS_IEnhancedInputSubsystemInterface;
 
 // Class EnhancedInput.EnhancedInputLocalPlayerSubsystem
-// 0x01B8 (0x01E8 - 0x0030)
+// 0x01B0 (0x01E0 - 0x0030)
 class UEnhancedInputLocalPlayerSubsystem final : public ULocalPlayerSubsystem
 {
 public:
-	uint8                                         Pad_30[0x150];                                     // 0x0030(0x0150)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void()>              ControlMappingsRebuiltDelegate;                    // 0x0180(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	class UEnhancedInputUserSettings*             UserSettings;                                      // 0x0190(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	TMap<class UInputAction*, struct FInjectedInput> ContinuouslyInjectedInputs;                     // 0x0198(0x0050)(Transient, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_30[0x1A0];                                     // 0x0030(0x01A0)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void()>              ControlMappingsRebuiltDelegate;                    // 0x01D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -402,11 +295,10 @@ DUMPER7_ASSERTS_UEnhancedInputLocalPlayerSubsystem;
 class UEnhancedInputWorldSubsystem final : public UWorldSubsystem
 {
 public:
-	uint8                                         Pad_30[0x150];                                     // 0x0030(0x0150)(Fixing Size After Last Property [ Dumper-7 ])
-	class UEnhancedPlayerInput*                   PlayerInput;                                       // 0x0180(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_188[0x10];                                     // 0x0188(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<TWeakObjectPtr<class UInputComponent>> CurrentInputStack;                                 // 0x0198(0x0010)(ExportObject, ZeroConstructor, Transient, ContainsInstancedReference, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
-	TMap<class UInputAction*, struct FInjectedInput> ContinuouslyInjectedInputs;                     // 0x01A8(0x0050)(Transient, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_30[0x1A0];                                     // 0x0030(0x01A0)(Fixing Size After Last Property [ Dumper-7 ])
+	class UEnhancedPlayerInput*                   PlayerInput;                                       // 0x01D0(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_1D8[0x10];                                     // 0x01D8(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<TWeakObjectPtr<class UInputComponent>> CurrentInputStack;                                 // 0x01E8(0x0010)(ExportObject, ZeroConstructor, Transient, ContainsInstancedReference, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
 
 public:
 	void AddActorInputComponent(class AActor* Actor);
@@ -429,20 +321,19 @@ public:
 DUMPER7_ASSERTS_UEnhancedInputWorldSubsystem;
 
 // Class EnhancedInput.EnhancedPlayerInput
-// 0x03A8 (0x0890 - 0x04E8)
+// 0x02A8 (0x0790 - 0x04E8)
 class UEnhancedPlayerInput final : public UPlayerInput
 {
 public:
-	TMap<class UInputAction*, struct FKeyConsumptionOptions> KeyConsumptionData;                     // 0x04E8(0x0050)(Protected, NativeAccessSpecifierProtected)
-	TMap<class UInputMappingContext*, int32>      AppliedInputContexts;                              // 0x0538(0x0050)(Transient, NativeAccessSpecifierPrivate)
-	TArray<struct FEnhancedActionKeyMapping>      EnhancedActionMappings;                            // 0x0588(0x0010)(ZeroConstructor, Transient, ContainsInstancedReference, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_598[0x50];                                     // 0x0598(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
-	TMap<class UInputAction*, struct FInputActionInstance> ActionInstanceData;                       // 0x05E8(0x0050)(Transient, ContainsInstancedReference, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_638[0xF0];                                     // 0x0638(0x00F0)(Fixing Size After Last Property [ Dumper-7 ])
-	TMap<struct FKey, struct FVector>             KeysPressedThisTick;                               // 0x0728(0x0050)(Transient, NativeAccessSpecifierPrivate)
-	TMap<class UInputAction*, struct FInjectedInputArray> InputsInjectedThisTick;                    // 0x0778(0x0050)(Transient, NativeAccessSpecifierPrivate)
-	TSet<class UInputAction*>                     LastInjectedActions;                               // 0x07C8(0x0050)(Transient, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	uint8                                         Pad_818[0x78];                                     // 0x0818(0x0078)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TMap<class UInputMappingContext*, int32>      AppliedInputContexts;                              // 0x04E8(0x0050)(Transient, NativeAccessSpecifierPrivate)
+	TArray<struct FEnhancedActionKeyMapping>      EnhancedActionMappings;                            // 0x0538(0x0010)(ZeroConstructor, Transient, ContainsInstancedReference, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_548[0x50];                                     // 0x0548(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
+	TMap<class UInputAction*, struct FInputActionInstance> ActionInstanceData;                       // 0x0598(0x0050)(Transient, ContainsInstancedReference, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_5E8[0xA0];                                     // 0x05E8(0x00A0)(Fixing Size After Last Property [ Dumper-7 ])
+	TMap<struct FKey, struct FVector>             KeysPressedThisTick;                               // 0x0688(0x0050)(Transient, NativeAccessSpecifierPrivate)
+	TMap<class UInputAction*, struct FInjectedInputArray> InputsInjectedThisTick;                    // 0x06D8(0x0050)(Transient, NativeAccessSpecifierPrivate)
+	TSet<class UInputAction*>                     LastInjectedActions;                               // 0x0728(0x0050)(Transient, UObjectWrapper, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_778[0x18];                                     // 0x0778(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -465,18 +356,15 @@ DUMPER7_ASSERTS_UEnhancedPlayerInput;
 class UInputAction final : public UDataAsset
 {
 public:
-	class FText                                   ActionDescription;                                 // 0x0030(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
-	bool                                          bTriggerWhenPaused;                                // 0x0040(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bConsumeInput;                                     // 0x0041(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bConsumesActionAndAxisMappings;                    // 0x0042(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bReserveAllMappings;                               // 0x0043(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         TriggerEventsThatConsumeLegacyKeys;                // 0x0044(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EInputActionValueType                         ValueType;                                         // 0x0048(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, AssetRegistrySearchable, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EInputActionAccumulationBehavior              AccumulationBehavior;                              // 0x0049(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4A[0x6];                                       // 0x004A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UInputTrigger*>                  Triggers;                                          // 0x0050(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TArray<class UInputModifier*>                 Modifiers;                                         // 0x0060(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPlayerMappableKeySettings*             PlayerMappableKeySettings;                         // 0x0070(0x0008)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class FText                                   ActionDescription;                                 // 0x0030(0x0018)(Edit, BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
+	bool                                          bConsumeInput;                                     // 0x0048(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bTriggerWhenPaused;                                // 0x0049(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bReserveAllMappings;                               // 0x004A(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EInputActionValueType                         ValueType;                                         // 0x004B(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, AssetRegistrySearchable, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4C[0x4];                                       // 0x004C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class UInputTrigger*>                  Triggers;                                          // 0x0050(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic)
+	TArray<class UInputModifier*>                 Modifiers;                                         // 0x0060(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic)
+	class UPlayerMappableKeySettings*             PlayerMappableKeySettings;                         // 0x0070(0x0008)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()
@@ -518,19 +406,19 @@ public:
 DUMPER7_ASSERTS_UInputDebugKeyDelegateBinding;
 
 // Class EnhancedInput.InputMappingContext
-// 0x0020 (0x0050 - 0x0030)
+// 0x0028 (0x0058 - 0x0030)
 class UInputMappingContext final : public UDataAsset
 {
 public:
 	TArray<struct FEnhancedActionKeyMapping>      Mappings;                                          // 0x0030(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Config, ContainsInstancedReference, Protected, NativeAccessSpecifierProtected)
-	class FText                                   ContextDescription;                                // 0x0040(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
+	class FText                                   ContextDescription;                                // 0x0040(0x0018)(Edit, BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
 
 public:
-	struct FEnhancedActionKeyMapping MapKey(const class UInputAction* action, const struct FKey& ToKey);
-	void UnmapAction(const class UInputAction* action);
+	struct FEnhancedActionKeyMapping MapKey(const class UInputAction* Action, const struct FKey& ToKey);
+	void UnmapAction(const class UInputAction* Action);
 	void UnmapAll();
-	void UnmapAllKeysFromAction(const class UInputAction* action);
-	void UnmapKey(const class UInputAction* action, const struct FKey& Key);
+	void UnmapAllKeysFromAction(const class UInputAction* Action);
+	void UnmapKey(const class UInputAction* Action, const struct FKey& Key);
 
 public:
 	static class UClass* StaticClass()
@@ -572,33 +460,6 @@ public:
 };
 DUMPER7_ASSERTS_UInputModifier;
 
-// Class EnhancedInput.InputModifierSmoothDelta
-// 0x0040 (0x0068 - 0x0028)
-class UInputModifierSmoothDelta final : public UInputModifier
-{
-public:
-	ENormalizeInputSmoothingType                  SmoothingMethod;                                   // 0x0028(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_29[0x3];                                       // 0x0029(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         Speed;                                             // 0x002C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         EasingExponent;                                    // 0x0030(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_34[0x34];                                      // 0x0034(0x0034)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InputModifierSmoothDelta")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InputModifierSmoothDelta")
-	}
-	static class UInputModifierSmoothDelta* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInputModifierSmoothDelta>();
-	}
-};
-DUMPER7_ASSERTS_UInputModifierSmoothDelta;
-
 // Class EnhancedInput.InputModifierDeadZone
 // 0x0010 (0x0038 - 0x0028)
 class UInputModifierDeadZone final : public UInputModifier
@@ -630,7 +491,7 @@ DUMPER7_ASSERTS_UInputModifierDeadZone;
 class UInputModifierScalar final : public UInputModifier
 {
 public:
-	struct FVector                                Scalar;                                            // 0x0028(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Scalar;                                            // 0x0028(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -745,9 +606,9 @@ DUMPER7_ASSERTS_UInputModifierResponseCurveExponential;
 class UInputModifierResponseCurveUser final : public UInputModifier
 {
 public:
-	class UCurveFloat*                            ResponseX;                                         // 0x0028(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UCurveFloat*                            ResponseY;                                         // 0x0030(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UCurveFloat*                            ResponseZ;                                         // 0x0038(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UCurveFloat*                            ResponseX;                                         // 0x0028(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UCurveFloat*                            ResponseY;                                         // 0x0030(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UCurveFloat*                            ResponseZ;                                         // 0x0038(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -1057,7 +918,7 @@ DUMPER7_ASSERTS_UInputTriggerPulse;
 class UInputTriggerChordAction : public UInputTrigger
 {
 public:
-	class UInputAction*                           ChordAction;                                       // 0x0050(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UInputAction*                           ChordAction;                                       // 0x0050(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -1122,16 +983,16 @@ public:
 DUMPER7_ASSERTS_UInputTriggerCombo;
 
 // Class EnhancedInput.PlayerMappableInputConfig
-// 0x0078 (0x00A8 - 0x0030)
+// 0x0080 (0x00B0 - 0x0030)
 class UPlayerMappableInputConfig final : public UPrimaryDataAsset
 {
 public:
 	class FName                                   ConfigName;                                        // 0x0030(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class FText                                   ConfigDisplayName;                                 // 0x0038(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, Protected, NativeAccessSpecifierProtected)
-	bool                                          bIsDeprecated;                                     // 0x0048(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_49[0x7];                                       // 0x0049(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UObject*                                MetaData;                                          // 0x0050(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	TMap<class UInputMappingContext*, int32>      Contexts;                                          // 0x0058(0x0050)(Edit, BlueprintVisible, BlueprintReadOnly, Protected, NativeAccessSpecifierProtected)
+	class FText                                   ConfigDisplayName;                                 // 0x0038(0x0018)(Edit, BlueprintVisible, BlueprintReadOnly, Protected, NativeAccessSpecifierProtected)
+	bool                                          bIsDeprecated;                                     // 0x0050(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_51[0x7];                                       // 0x0051(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UObject*                                MetaData;                                          // 0x0058(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	TMap<class UInputMappingContext*, int32>      Contexts;                                          // 0x0060(0x0050)(Edit, BlueprintVisible, BlueprintReadOnly, Protected, NativeAccessSpecifierProtected)
 
 public:
 	void ResetToDefault();
@@ -1162,15 +1023,14 @@ public:
 DUMPER7_ASSERTS_UPlayerMappableInputConfig;
 
 // Class EnhancedInput.PlayerMappableKeySettings
-// 0x0050 (0x0078 - 0x0028)
+// 0x0040 (0x0068 - 0x0028)
 class UPlayerMappableKeySettings final : public UObject
 {
 public:
-	class UObject*                                MetaData;                                          // 0x0028(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UObject*                                MetaData;                                          // 0x0028(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FName                                   Name_0;                                            // 0x0030(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FText                                   DisplayName;                                       // 0x0038(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
-	class FText                                   DisplayCategory;                                   // 0x0048(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
-	struct FGameplayTagContainer                  SupportedKeyProfiles;                              // 0x0058(0x0020)(Edit, BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
+	class FText                                   DisplayName;                                       // 0x0038(0x0018)(Edit, BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
+	class FText                                   DisplayCategory;                                   // 0x0050(0x0018)(Edit, BlueprintVisible, BlueprintReadOnly, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()

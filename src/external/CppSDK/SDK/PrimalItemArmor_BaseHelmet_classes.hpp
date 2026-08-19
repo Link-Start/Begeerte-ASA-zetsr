@@ -16,14 +16,10 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemArmor_BaseHelmet.PrimalItemArmor_BaseHelmet_C
-// 0x0010 (0x0BA0 - 0x0B90)
-class UPrimalItemArmor_BaseHelmet_C : public UPrimalItemArmorGeneric_C
+// 0x0000 (0x1180 - 0x1180)
+#pragma pack(push, 0x1)
+class SDK_ALIGN(0x10) UPrimalItemArmor_BaseHelmet_C : public UPrimalItemArmorGeneric_C
 {
-public:
-	bool                                          bPreventAnimation_Brows_0;                         // 0x0B90(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bPreventAnimation_Eyes_0;                          // 0x0B91(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bPreventAnimation_Mouth_0;                         // 0x0B92(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
 public:
 	static class UClass* StaticClass()
 	{
@@ -38,6 +34,7 @@ public:
 		return GetDefaultObjImpl<UPrimalItemArmor_BaseHelmet_C>();
 	}
 };
+#pragma pack(pop)
 DUMPER7_ASSERTS_UPrimalItemArmor_BaseHelmet_C;
 
 SDK_NAMESPACE_END

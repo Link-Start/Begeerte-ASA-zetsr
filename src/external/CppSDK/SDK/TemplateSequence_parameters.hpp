@@ -65,52 +65,52 @@ public:
 DUMPER7_ASSERTS_TemplateSequenceActor_LoadSequence;
 
 // Function TemplateSequence.TemplateSequencePlayer.CreateTemplateSequencePlayer
-// 0x0048 (0x0048 - 0x0000)
+// 0x0040 (0x0040 - 0x0000)
 struct TemplateSequencePlayer_CreateTemplateSequencePlayer final
 {
 public:
 	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UTemplateSequence*                      TemplateSequence;                                  // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FMovieSceneSequencePlaybackSettings    Settings;                                          // 0x0010(0x0028)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-	class ATemplateSequenceActor*                 OutActor;                                          // 0x0038(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UTemplateSequencePlayer*                ReturnValue;                                       // 0x0040(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FMovieSceneSequencePlaybackSettings    Settings;                                          // 0x0010(0x0020)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+	class ATemplateSequenceActor*                 OutActor;                                          // 0x0030(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UTemplateSequencePlayer*                ReturnValue;                                       // 0x0038(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_TemplateSequencePlayer_CreateTemplateSequencePlayer;
 
 // Function TemplateSequence.SequenceCameraShakeTestUtil.GetCameraCachePOV
-// 0x0970 (0x0970 - 0x0000)
+// 0x08F0 (0x08F0 - 0x0000)
 struct SequenceCameraShakeTestUtil_GetCameraCachePOV final
 {
 public:
 	class APlayerController*                      PlayerController;                                  // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FMinimalViewInfo                       ReturnValue;                                       // 0x0010(0x0960)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	struct FMinimalViewInfo                       ReturnValue;                                       // 0x0010(0x08E0)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_SequenceCameraShakeTestUtil_GetCameraCachePOV;
 
 // Function TemplateSequence.SequenceCameraShakeTestUtil.GetLastFrameCameraCachePOV
-// 0x0970 (0x0970 - 0x0000)
+// 0x08F0 (0x08F0 - 0x0000)
 struct SequenceCameraShakeTestUtil_GetLastFrameCameraCachePOV final
 {
 public:
 	class APlayerController*                      PlayerController;                                  // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FMinimalViewInfo                       ReturnValue;                                       // 0x0010(0x0960)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	struct FMinimalViewInfo                       ReturnValue;                                       // 0x0010(0x08E0)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_SequenceCameraShakeTestUtil_GetLastFrameCameraCachePOV;
 
 // Function TemplateSequence.SequenceCameraShakeTestUtil.GetPostProcessBlendCache
-// 0x0840 (0x0840 - 0x0000)
+// 0x0810 (0x0810 - 0x0000)
 struct SequenceCameraShakeTestUtil_GetPostProcessBlendCache final
 {
 public:
 	class APlayerController*                      PlayerController;                                  // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         PPIndex;                                           // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPostProcessSettings                   OutPPSettings;                                     // 0x0010(0x0820)(Parm, OutParm, NativeAccessSpecifierPublic)
-	float                                         OutPPBlendWeight;                                  // 0x0830(0x0004)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0834(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_835[0xB];                                      // 0x0835(0x000B)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FPostProcessSettings                   OutPPSettings;                                     // 0x0010(0x07F0)(Parm, OutParm, NativeAccessSpecifierPublic)
+	float                                         OutPPBlendWeight;                                  // 0x0800(0x0004)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0804(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_805[0xB];                                      // 0x0805(0x000B)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_SequenceCameraShakeTestUtil_GetPostProcessBlendCache;
 

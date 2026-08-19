@@ -16,6 +16,16 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
+// Function UI_NoModsFoundInCategoty.UI_NoModsFoundInCategoty_C.Tick
+// 0x003C (0x003C - 0x0000)
+struct UI_NoModsFoundInCategoty_C_Tick final
+{
+public:
+	struct FGeometry                              MyGeometry;                                        // 0x0000(0x0038)(BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor)
+	float                                         InDeltaTime;                                       // 0x0038(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_UI_NoModsFoundInCategoty_C_Tick;
+
 // Function UI_NoModsFoundInCategoty.UI_NoModsFoundInCategoty_C.ExecuteUbergraph_UI_NoModsFoundInCategoty
 // 0x0040 (0x0040 - 0x0000)
 struct UI_NoModsFoundInCategoty_C_ExecuteUbergraph_UI_NoModsFoundInCategoty final
@@ -26,26 +36,6 @@ public:
 	float                                         K2Node_Event_InDeltaTime;                          // 0x003C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_UI_NoModsFoundInCategoty_C_ExecuteUbergraph_UI_NoModsFoundInCategoty;
-
-// Function UI_NoModsFoundInCategoty.UI_NoModsFoundInCategoty_C.GetRootCFWidget
-// 0x0010 (0x0010 - 0x0000)
-struct UI_NoModsFoundInCategoty_C_GetRootCFWidget final
-{
-public:
-	class UPanelWidget*                           RootPanelWidget;                                   // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_UI_NoModsFoundInCategoty_C_GetRootCFWidget;
-
-// Function UI_NoModsFoundInCategoty.UI_NoModsFoundInCategoty_C.Tick
-// 0x003C (0x003C - 0x0000)
-struct UI_NoModsFoundInCategoty_C_Tick final
-{
-public:
-	struct FGeometry                              MyGeometry;                                        // 0x0000(0x0038)(BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor)
-	float                                         InDeltaTime;                                       // 0x0038(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_UI_NoModsFoundInCategoty_C_Tick;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

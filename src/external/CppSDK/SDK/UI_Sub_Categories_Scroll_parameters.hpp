@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
+#include "SlateCore_structs.hpp"
 #include "InputCore_structs.hpp"
 #include "UMG_structs.hpp"
-#include "SlateCore_structs.hpp"
 #include "Engine_structs.hpp"
 #include "STRUCT_SubOptions_structs.hpp"
 
@@ -20,28 +20,39 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function UI_Sub-Categories_Scroll.UI_Sub-Categories_Scroll_C.Event Check If Selected
-// 0x0018 (0x0018 - 0x0000)
-struct UI_Sub_Categories_Scroll_C_Event_Check_If_Selected final
+// Function UI_Sub-Categories_Scroll.UI_Sub-Categories_Scroll_C.OnRemovedFromFocusPath
+// 0x0008 (0x0008 - 0x0000)
+struct UI_Sub_Categories_Scroll_C_OnRemovedFromFocusPath final
 {
 public:
-	class UUI_Sub_Category_C*                     SubCategoryWidget_Ref;                             // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	class FString                                 Text;                                              // 0x0008(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+	struct FFocusEvent                            InFocusEvent;                                      // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor)
 };
-DUMPER7_ASSERTS_UI_Sub_Categories_Scroll_C_Event_Check_If_Selected;
+DUMPER7_ASSERTS_UI_Sub_Categories_Scroll_C_OnRemovedFromFocusPath;
 
-// Function UI_Sub-Categories_Scroll.UI_Sub-Categories_Scroll_C.Event On Subcategory Select Event
-// 0x0018 (0x0018 - 0x0000)
-struct UI_Sub_Categories_Scroll_C_Event_On_Subcategory_Select_Event final
+// Function UI_Sub-Categories_Scroll.UI_Sub-Categories_Scroll_C.OnKeyDown
+// 0x0150 (0x0150 - 0x0000)
+struct UI_Sub_Categories_Scroll_C_OnKeyDown final
 {
 public:
-	class FString                                 SubCategory;                                       // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
-	int64                                         SubCategoryID;                                     // 0x0010(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FGeometry                              MyGeometry;                                        // 0x0000(0x0038)(BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor)
+	struct FKeyEvent                              InKeyEvent;                                        // 0x0038(0x0040)(BlueprintVisible, BlueprintReadOnly, Parm)
+	struct FEventReply                            ReturnValue;                                       // 0x0078(0x00B8)(Parm, OutParm, ReturnParm)
+	struct FKey                                   CallFunc_GetKey_ReturnValue;                       // 0x0130(0x0018)(HasGetValueTypeHash)
+	bool                                          CallFunc_EqualEqual_KeyKey_ReturnValue;            // 0x0148(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
-DUMPER7_ASSERTS_UI_Sub_Categories_Scroll_C_Event_On_Subcategory_Select_Event;
+DUMPER7_ASSERTS_UI_Sub_Categories_Scroll_C_OnKeyDown;
+
+// Function UI_Sub-Categories_Scroll.UI_Sub-Categories_Scroll_C.OnAddedToFocusPath
+// 0x0008 (0x0008 - 0x0000)
+struct UI_Sub_Categories_Scroll_C_OnAddedToFocusPath final
+{
+public:
+	struct FFocusEvent                            InFocusEvent;                                      // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor)
+};
+DUMPER7_ASSERTS_UI_Sub_Categories_Scroll_C_OnAddedToFocusPath;
 
 // Function UI_Sub-Categories_Scroll.UI_Sub-Categories_Scroll_C.ExecuteUbergraph_UI_Sub-Categories_Scroll
-// 0x0108 (0x0108 - 0x0000)
+// 0x0120 (0x0120 - 0x0000)
 struct UI_Sub_Categories_Scroll_C_ExecuteUbergraph_UI_Sub_Categories_Scroll final
 {
 public:
@@ -58,57 +69,46 @@ public:
 	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x003C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	class UUI_Sub_Category_C*                     K2Node_CustomEvent_SubCategoryWidget_Ref;          // 0x0040(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 	class FString                                 K2Node_CustomEvent_Text;                           // 0x0048(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0058(0x0010)()
-	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0068(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_69[0x7];                                       // 0x0069(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FText                                   CallFunc_GetText_ReturnValue;                      // 0x0070(0x0010)()
-	bool                                          CallFunc_EqualEqual_TextText_ReturnValue;          // 0x0080(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_81[0x3];                                       // 0x0081(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	TDelegate<void()>                             K2Node_CreateDelegate_OutputDelegate;              // 0x0084(0x0010)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	TDelegate<void(const class FString& SubCategory, int64 SubCategoryID)> K2Node_CreateDelegate_OutputDelegate_1; // 0x0094(0x0010)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_A4[0x4];                                       // 0x00A4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FTimerHandle                           CallFunc_K2_SetTimerDelegate_ReturnValue;          // 0x00A8(0x0008)(NoDestructor, HasGetValueTypeHash)
-	struct FFocusEvent                            K2Node_Event_InFocusEvent_1;                       // 0x00B0(0x0008)(NoDestructor)
-	struct FSTRUCT_SubOptions                     CallFunc_Array_Get_Item;                           // 0x00B8(0x0028)(ZeroConstructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x00E0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x00E4(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_E5[0x3];                                       // 0x00E5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FText                                   CallFunc_Conv_StringToText_ReturnValue_1;          // 0x00E8(0x0010)()
-	struct FFocusEvent                            K2Node_Event_InFocusEvent;                         // 0x00F8(0x0008)(NoDestructor)
-	bool                                          CallFunc_BooleanOR_ReturnValue;                    // 0x0100(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0058(0x0018)()
+	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0070(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_71[0x7];                                       // 0x0071(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FText                                   CallFunc_GetText_ReturnValue;                      // 0x0078(0x0018)()
+	bool                                          CallFunc_EqualEqual_TextText_ReturnValue;          // 0x0090(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_91[0x3];                                       // 0x0091(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	TDelegate<void()>                             K2Node_CreateDelegate_OutputDelegate;              // 0x0094(0x0010)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	TDelegate<void(const class FString& SubCategory, int64 SubCategoryID)> K2Node_CreateDelegate_OutputDelegate_1; // 0x00A4(0x0010)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_B4[0x4];                                       // 0x00B4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FTimerHandle                           CallFunc_K2_SetTimerDelegate_ReturnValue;          // 0x00B8(0x0008)(NoDestructor, HasGetValueTypeHash)
+	struct FFocusEvent                            K2Node_Event_InFocusEvent_1;                       // 0x00C0(0x0008)(NoDestructor)
+	struct FSTRUCT_SubOptions                     CallFunc_Array_Get_Item;                           // 0x00C8(0x0028)(ZeroConstructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x00F0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x00F4(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_F5[0x3];                                       // 0x00F5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FText                                   CallFunc_Conv_StringToText_ReturnValue_1;          // 0x00F8(0x0018)()
+	struct FFocusEvent                            K2Node_Event_InFocusEvent;                         // 0x0110(0x0008)(NoDestructor)
+	bool                                          CallFunc_BooleanOR_ReturnValue;                    // 0x0118(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_UI_Sub_Categories_Scroll_C_ExecuteUbergraph_UI_Sub_Categories_Scroll;
 
-// Function UI_Sub-Categories_Scroll.UI_Sub-Categories_Scroll_C.OnAddedToFocusPath
-// 0x0008 (0x0008 - 0x0000)
-struct UI_Sub_Categories_Scroll_C_OnAddedToFocusPath final
+// Function UI_Sub-Categories_Scroll.UI_Sub-Categories_Scroll_C.Event On Subcategory Select Event
+// 0x0018 (0x0018 - 0x0000)
+struct UI_Sub_Categories_Scroll_C_Event_On_Subcategory_Select_Event final
 {
 public:
-	struct FFocusEvent                            InFocusEvent;                                      // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor)
+	class FString                                 SubCategory;                                       // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+	int64                                         SubCategoryID;                                     // 0x0010(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
-DUMPER7_ASSERTS_UI_Sub_Categories_Scroll_C_OnAddedToFocusPath;
+DUMPER7_ASSERTS_UI_Sub_Categories_Scroll_C_Event_On_Subcategory_Select_Event;
 
-// Function UI_Sub-Categories_Scroll.UI_Sub-Categories_Scroll_C.OnKeyDown
-// 0x0150 (0x0150 - 0x0000)
-struct UI_Sub_Categories_Scroll_C_OnKeyDown final
+// Function UI_Sub-Categories_Scroll.UI_Sub-Categories_Scroll_C.Event Check If Selected
+// 0x0018 (0x0018 - 0x0000)
+struct UI_Sub_Categories_Scroll_C_Event_Check_If_Selected final
 {
 public:
-	struct FGeometry                              MyGeometry;                                        // 0x0000(0x0038)(BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor)
-	struct FKeyEvent                              InKeyEvent;                                        // 0x0038(0x0040)(BlueprintVisible, BlueprintReadOnly, Parm)
-	struct FEventReply                            ReturnValue;                                       // 0x0078(0x00B8)(Parm, OutParm, ReturnParm)
-	struct FKey                                   CallFunc_GetKey_ReturnValue;                       // 0x0130(0x0018)(HasGetValueTypeHash)
-	bool                                          CallFunc_EqualEqual_KeyKey_ReturnValue;            // 0x0148(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class UUI_Sub_Category_C*                     SubCategoryWidget_Ref;                             // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class FString                                 Text;                                              // 0x0008(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
 };
-DUMPER7_ASSERTS_UI_Sub_Categories_Scroll_C_OnKeyDown;
-
-// Function UI_Sub-Categories_Scroll.UI_Sub-Categories_Scroll_C.OnRemovedFromFocusPath
-// 0x0008 (0x0008 - 0x0000)
-struct UI_Sub_Categories_Scroll_C_OnRemovedFromFocusPath final
-{
-public:
-	struct FFocusEvent                            InFocusEvent;                                      // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor)
-};
-DUMPER7_ASSERTS_UI_Sub_Categories_Scroll_C_OnRemovedFromFocusPath;
+DUMPER7_ASSERTS_UI_Sub_Categories_Scroll_C_Event_Check_If_Selected;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

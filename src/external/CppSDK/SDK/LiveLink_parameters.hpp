@@ -59,7 +59,8 @@ struct LiveLinkBlueprintLibrary_EvaluateLiveLinkFrameAtSceneTime final
 public:
 	struct FLiveLinkSubjectName                   SubjectName;                                       // 0x0000(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TSubclassOf<class ULiveLinkRole>              Role;                                              // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FTimecode                              SceneTime;                                         // 0x0010(0x0018)(Parm, ZeroConstructor, NoDestructor, NativeAccessSpecifierPublic)
+	struct FTimecode                              SceneTime;                                         // 0x0010(0x0014)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FLiveLinkBaseBlueprintData             OutBlueprintData;                                  // 0x0028(0x0008)(Parm, OutParm, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0030(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -181,17 +182,6 @@ public:
 };
 DUMPER7_ASSERTS_LiveLinkBlueprintLibrary_GetLiveLinkSubjects;
 
-// Function LiveLink.LiveLinkBlueprintLibrary.GetLiveLinkSubjectState
-// 0x000C (0x000C - 0x0000)
-struct LiveLinkBlueprintLibrary_GetLiveLinkSubjectState final
-{
-public:
-	struct FLiveLinkSubjectName                   SubjectName;                                       // 0x0000(0x0008)(ConstParm, Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ELiveLinkSubjectState                         ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_LiveLinkBlueprintLibrary_GetLiveLinkSubjectState;
-
 // Function LiveLink.LiveLinkBlueprintLibrary.GetMetadata
 // 0x0088 (0x0088 - 0x0000)
 struct LiveLinkBlueprintLibrary_GetMetadata final
@@ -236,42 +226,42 @@ public:
 DUMPER7_ASSERTS_LiveLinkBlueprintLibrary_GetRootTransform;
 
 // Function LiveLink.LiveLinkBlueprintLibrary.GetSourceMachineName
-// 0x0028 (0x0028 - 0x0000)
+// 0x0030 (0x0030 - 0x0000)
 struct LiveLinkBlueprintLibrary_GetSourceMachineName final
 {
 public:
 	struct FLiveLinkSourceHandle                  SourceHandle;                                      // 0x0000(0x0018)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class FText                                   ReturnValue;                                       // 0x0018(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	class FText                                   ReturnValue;                                       // 0x0018(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_LiveLinkBlueprintLibrary_GetSourceMachineName;
 
 // Function LiveLink.LiveLinkBlueprintLibrary.GetSourceStatus
-// 0x0028 (0x0028 - 0x0000)
+// 0x0030 (0x0030 - 0x0000)
 struct LiveLinkBlueprintLibrary_GetSourceStatus final
 {
 public:
 	struct FLiveLinkSourceHandle                  SourceHandle;                                      // 0x0000(0x0018)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class FText                                   ReturnValue;                                       // 0x0018(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	class FText                                   ReturnValue;                                       // 0x0018(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_LiveLinkBlueprintLibrary_GetSourceStatus;
 
 // Function LiveLink.LiveLinkBlueprintLibrary.GetSourceType
-// 0x0028 (0x0028 - 0x0000)
+// 0x0030 (0x0030 - 0x0000)
 struct LiveLinkBlueprintLibrary_GetSourceType final
 {
 public:
 	struct FLiveLinkSourceHandle                  SourceHandle;                                      // 0x0000(0x0018)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class FText                                   ReturnValue;                                       // 0x0018(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	class FText                                   ReturnValue;                                       // 0x0018(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_LiveLinkBlueprintLibrary_GetSourceType;
 
 // Function LiveLink.LiveLinkBlueprintLibrary.GetSourceTypeFromGuid
-// 0x0020 (0x0020 - 0x0000)
+// 0x0028 (0x0028 - 0x0000)
 struct LiveLinkBlueprintLibrary_GetSourceTypeFromGuid final
 {
 public:
 	struct FGuid                                  SourceGuid;                                        // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FText                                   ReturnValue;                                       // 0x0010(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	class FText                                   ReturnValue;                                       // 0x0010(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_LiveLinkBlueprintLibrary_GetSourceTypeFromGuid;
 
@@ -438,15 +428,15 @@ public:
 DUMPER7_ASSERTS_LiveLinkComponent_GetSubjectData;
 
 // Function LiveLink.LiveLinkComponent.GetSubjectDataAtSceneTime
-// 0x0040 (0x0040 - 0x0000)
+// 0x0038 (0x0038 - 0x0000)
 struct LiveLinkComponent_GetSubjectDataAtSceneTime final
 {
 public:
 	class FName                                   SubjectName;                                       // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FTimecode                              SceneTime;                                         // 0x0008(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          bSuccess;                                          // 0x0020(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSubjectFrameHandle                    SubjectFrameHandle;                                // 0x0028(0x0018)(Parm, OutParm, NativeAccessSpecifierPublic)
+	struct FTimecode                              SceneTime;                                         // 0x0008(0x0014)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bSuccess;                                          // 0x001C(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FSubjectFrameHandle                    SubjectFrameHandle;                                // 0x0020(0x0018)(Parm, OutParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_LiveLinkComponent_GetSubjectDataAtSceneTime;
 
@@ -464,12 +454,12 @@ public:
 DUMPER7_ASSERTS_LiveLinkComponent_GetSubjectDataAtWorldTime;
 
 // Function LiveLink.LiveLinkMessageBusFinder.ConnectToProvider
-// 0x00A8 (0x00A8 - 0x0000)
+// 0x0058 (0x0058 - 0x0000)
 struct LiveLinkMessageBusFinder_ConnectToProvider final
 {
 public:
-	struct FProviderPollResult                    provider;                                          // 0x0000(0x0090)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FLiveLinkSourceHandle                  SourceHandle;                                      // 0x0090(0x0018)(Parm, OutParm, NativeAccessSpecifierPublic)
+	struct FProviderPollResult                    provider;                                          // 0x0000(0x0040)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FLiveLinkSourceHandle                  SourceHandle;                                      // 0x0040(0x0018)(Parm, OutParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_LiveLinkMessageBusFinder_ConnectToProvider;
 

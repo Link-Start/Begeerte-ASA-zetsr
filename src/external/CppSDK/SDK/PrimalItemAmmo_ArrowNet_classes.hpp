@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemAmmo_ArrowNet.PrimalItemAmmo_ArrowNet_C
-// 0x0000 (0x0B90 - 0x0B90)
+// 0x0000 (0x1170 - 0x1170)
 class UPrimalItemAmmo_ArrowNet_C : public UPrimalItemAmmo_ArrowBase_C
 {
 public:

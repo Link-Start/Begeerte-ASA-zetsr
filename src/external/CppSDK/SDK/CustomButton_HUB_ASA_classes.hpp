@@ -11,21 +11,21 @@
 #include "Basic.hpp"
 
 #include "Engine_structs.hpp"
-#include "ShooterGame_classes.hpp"
 #include "SlateCore_structs.hpp"
+#include "ShooterGame_classes.hpp"
 
 
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass CustomButton_HUB_ASA.CustomButton_HUB_ASA_C
-// 0x06F0 (0x0DE0 - 0x06F0)
+// 0x07F0 (0x0F50 - 0x0760)
 class UCustomButton_HUB_ASA_C final : public UCustomButtonWidget
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x06F0(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	uint8                                         Pad_6F8[0x8];                                      // 0x06F8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FButtonStyle                           SelectedStyle;                                     // 0x0700(0x0370)(Edit, BlueprintVisible, DisableEditOnInstance)
-	struct FButtonStyle                           UnSelectedStyle;                                   // 0x0A70(0x0370)(Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0760(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	uint8                                         Pad_768[0x8];                                      // 0x0768(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FButtonStyle                           SelectedStyle;                                     // 0x0770(0x03F0)(Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FButtonStyle                           UnSelectedStyle;                                   // 0x0B60(0x03F0)(Edit, BlueprintVisible, DisableEditOnInstance)
 
 public:
 	void BPSetToggledState(bool IsToggled);

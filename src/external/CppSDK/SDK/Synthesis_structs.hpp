@@ -490,6 +490,20 @@ enum class ESynthSlateColorStyle : uint8
 	ESynthSlateColorStyle_MAX                = 3,
 };
 
+// ScriptStruct Synthesis.SourceEffectChorusBaseSettings
+// 0x0018 (0x0018 - 0x0000)
+struct FSourceEffectChorusBaseSettings final
+{
+public:
+	float                                         Depth;                                             // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Frequency;                                         // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Feedback;                                          // 0x0008(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         WetLevel;                                          // 0x000C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         DryLevel;                                          // 0x0010(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Spread;                                            // 0x0014(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FSourceEffectChorusBaseSettings;
+
 // ScriptStruct Synthesis.Synth1PatchCable
 // 0x0008 (0x0008 - 0x0000)
 struct FSynth1PatchCable final
@@ -623,35 +637,21 @@ public:
 DUMPER7_ASSERTS_FSourceEffectBitCrusherBaseSettings;
 
 // ScriptStruct Synthesis.SourceEffectBitCrusherSettings
-// 0x00C0 (0x00C0 - 0x0000)
+// 0x00D0 (0x00D0 - 0x0000)
 struct FSourceEffectBitCrusherSettings final
 {
 public:
 	float                                         CrushedSampleRate;                                 // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSoundModulationDestinationSettings    SampleRateModulation;                              // 0x0008(0x0058)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	float                                         CrushedBits;                                       // 0x0060(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_64[0x4];                                       // 0x0064(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSoundModulationDestinationSettings    BitModulation;                                     // 0x0068(0x0058)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FSoundModulationDestinationSettings    SampleRateModulation;                              // 0x0008(0x0060)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	float                                         CrushedBits;                                       // 0x0068(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6C[0x4];                                       // 0x006C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FSoundModulationDestinationSettings    BitModulation;                                     // 0x0070(0x0060)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FSourceEffectBitCrusherSettings;
 
-// ScriptStruct Synthesis.SourceEffectChorusBaseSettings
-// 0x0018 (0x0018 - 0x0000)
-struct FSourceEffectChorusBaseSettings final
-{
-public:
-	float                                         Depth;                                             // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Frequency;                                         // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Feedback;                                          // 0x0008(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         WetLevel;                                          // 0x000C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         DryLevel;                                          // 0x0010(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Spread;                                            // 0x0014(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FSourceEffectChorusBaseSettings;
-
 // ScriptStruct Synthesis.SourceEffectChorusSettings
-// 0x0228 (0x0228 - 0x0000)
+// 0x0258 (0x0258 - 0x0000)
 struct FSourceEffectChorusSettings final
 {
 public:
@@ -661,12 +661,12 @@ public:
 	float                                         WetLevel;                                          // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         DryLevel;                                          // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         Spread;                                            // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FSoundModulationDestinationSettings    DepthModulation;                                   // 0x0018(0x0058)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FSoundModulationDestinationSettings    FrequencyModulation;                               // 0x0070(0x0058)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FSoundModulationDestinationSettings    FeedbackModulation;                                // 0x00C8(0x0058)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FSoundModulationDestinationSettings    WetModulation;                                     // 0x0120(0x0058)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FSoundModulationDestinationSettings    DryModulation;                                     // 0x0178(0x0058)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FSoundModulationDestinationSettings    SpreadModulation;                                  // 0x01D0(0x0058)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FSoundModulationDestinationSettings    DepthModulation;                                   // 0x0018(0x0060)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FSoundModulationDestinationSettings    FrequencyModulation;                               // 0x0078(0x0060)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FSoundModulationDestinationSettings    FeedbackModulation;                                // 0x00D8(0x0060)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FSoundModulationDestinationSettings    WetModulation;                                     // 0x0138(0x0060)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FSoundModulationDestinationSettings    DryModulation;                                     // 0x0198(0x0060)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FSoundModulationDestinationSettings    SpreadModulation;                                  // 0x01F8(0x0060)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FSourceEffectChorusSettings;
 
@@ -745,7 +745,7 @@ DUMPER7_ASSERTS_FSourceEffectEQSettings;
 struct FSourceEffectFilterAudioBusModulationSettings final
 {
 public:
-	class UAudioBus*                              AudioBus;                                          // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UAudioBus*                              AudioBus;                                          // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         EnvelopeFollowerAttackTimeMsec;                    // 0x0008(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         EnvelopeFollowerReleaseTimeMsec;                   // 0x000C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         EnvelopeGainMultiplier;                            // 0x0010(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -877,7 +877,7 @@ public:
 	float                                         DryLevel;                                          // 0x000C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         WetLevel;                                          // 0x0010(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAudioBus*                              AudioBusModulator;                                 // 0x0018(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UAudioBus*                              AudioBusModulator;                                 // 0x0018(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FSourceEffectRingModulationSettings;
 
@@ -945,7 +945,7 @@ public:
 	uint8                                         Pad_16[0x2];                                       // 0x0016(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         SurroundRearChannelBleedAmount;                    // 0x0018(0x0004)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAudioImpulseResponse*                  ImpulseResponse;                                   // 0x0020(0x0008)(ZeroConstructor, Deprecated, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UAudioImpulseResponse*                  ImpulseResponse;                                   // 0x0020(0x0008)(ZeroConstructor, Deprecated, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          AllowHardwareAcceleration;                         // 0x0028(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -1018,8 +1018,8 @@ public:
 	bool                                          bBypass;                                           // 0x000A(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ESubmixEffectDynamicsKeySource                KeySource;                                         // 0x000B(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAudioBus*                              ExternalAudioBus;                                  // 0x0010(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class USoundSubmix*                           ExternalSubmix;                                    // 0x0018(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UAudioBus*                              ExternalAudioBus;                                  // 0x0010(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class USoundSubmix*                           ExternalSubmix;                                    // 0x0018(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         KeyGainDb;                                         // 0x0020(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bKeyAudition;                                      // 0x0024(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_25[0x3];                                       // 0x0025(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
@@ -1085,35 +1085,35 @@ public:
 DUMPER7_ASSERTS_FSubmixEffectTapDelaySettings;
 
 // ScriptStruct Synthesis.Synth2DSliderStyle
-// 0x0388 (0x0390 - 0x0008)
+// 0x0428 (0x0430 - 0x0008)
 struct FSynth2DSliderStyle final : public FSlateWidgetStyle
 {
 public:
 	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSlateBrush                            NormalThumbImage;                                  // 0x0010(0x00B0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FSlateBrush                            DisabledThumbImage;                                // 0x00C0(0x00B0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FSlateBrush                            NormalBarImage;                                    // 0x0170(0x00B0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FSlateBrush                            DisabledBarImage;                                  // 0x0220(0x00B0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FSlateBrush                            BackgroundImage;                                   // 0x02D0(0x00B0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	float                                         BarThickness;                                      // 0x0380(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_384[0xC];                                      // 0x0384(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FSlateBrush                            NormalThumbImage;                                  // 0x0010(0x00D0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FSlateBrush                            DisabledThumbImage;                                // 0x00E0(0x00D0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FSlateBrush                            NormalBarImage;                                    // 0x01B0(0x00D0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FSlateBrush                            DisabledBarImage;                                  // 0x0280(0x00D0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FSlateBrush                            BackgroundImage;                                   // 0x0350(0x00D0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	float                                         BarThickness;                                      // 0x0420(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_424[0xC];                                      // 0x0424(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FSynth2DSliderStyle;
 
 // ScriptStruct Synthesis.SynthKnobStyle
-// 0x02D8 (0x02E0 - 0x0008)
+// 0x0358 (0x0360 - 0x0008)
 struct FSynthKnobStyle final : public FSlateWidgetStyle
 {
 public:
 	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSlateBrush                            LargeKnob;                                         // 0x0010(0x00B0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FSlateBrush                            LargeKnobOverlay;                                  // 0x00C0(0x00B0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FSlateBrush                            MediumKnob;                                        // 0x0170(0x00B0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FSlateBrush                            MediumKnobOverlay;                                 // 0x0220(0x00B0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	float                                         MinValueAngle;                                     // 0x02D0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MaxValueAngle;                                     // 0x02D4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ESynthKnobSize                                KnobSize;                                          // 0x02D8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2D9[0x7];                                      // 0x02D9(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FSlateBrush                            LargeKnob;                                         // 0x0010(0x00D0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FSlateBrush                            LargeKnobOverlay;                                  // 0x00E0(0x00D0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FSlateBrush                            MediumKnob;                                        // 0x01B0(0x00D0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FSlateBrush                            MediumKnobOverlay;                                 // 0x0280(0x00D0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	float                                         MinValueAngle;                                     // 0x0350(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MaxValueAngle;                                     // 0x0354(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	ESynthKnobSize                                KnobSize;                                          // 0x0358(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_359[0x7];                                      // 0x0359(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FSynthKnobStyle;
 

@@ -16,8 +16,8 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemResource_Keratin.PrimalItemResource_Keratin_C
-// 0x0000 (0x0B90 - 0x0B90)
-class UPrimalItemResource_Keratin_C final : public UPrimalItemResource_ChitinOrKeratin_C
+// 0x0000 (0x1170 - 0x1170)
+class UPrimalItemResource_Keratin_C : public UPrimalItemResource_ChitinOrKeratin_C
 {
 public:
 	static class UClass* StaticClass()

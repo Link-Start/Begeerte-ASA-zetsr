@@ -98,11 +98,11 @@ public:
 DUMPER7_ASSERTS_CineCameraComponent_SetCustomNearClippingPlane;
 
 // Function CinematicCamera.CineCameraComponent.SetFilmback
-// 0x0014 (0x0014 - 0x0000)
+// 0x000C (0x000C - 0x0000)
 struct CineCameraComponent_SetFilmback final
 {
 public:
-	struct FCameraFilmbackSettings                NewFilmback;                                       // 0x0000(0x0014)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	struct FCameraFilmbackSettings                NewFilmback;                                       // 0x0000(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CineCameraComponent_SetFilmback;
 
@@ -116,11 +116,11 @@ public:
 DUMPER7_ASSERTS_CineCameraComponent_SetFilmbackPresetByName;
 
 // Function CinematicCamera.CineCameraComponent.SetFocusSettings
-// 0x0060 (0x0060 - 0x0000)
+// 0x0068 (0x0068 - 0x0000)
 struct CineCameraComponent_SetFocusSettings final
 {
 public:
-	struct FCameraFocusSettings                   NewFocusSettings;                                  // 0x0000(0x0060)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FCameraFocusSettings                   NewFocusSettings;                                  // 0x0000(0x0068)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CineCameraComponent_SetFocusSettings;
 
@@ -178,15 +178,6 @@ public:
 };
 DUMPER7_ASSERTS_CineCameraComponent_GetHorizontalFieldOfView;
 
-// Function CinematicCamera.CineCameraComponent.GetHorizontalProjectionOffset
-// 0x0004 (0x0004 - 0x0000)
-struct CineCameraComponent_GetHorizontalProjectionOffset final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CineCameraComponent_GetHorizontalProjectionOffset;
-
 // Function CinematicCamera.CineCameraComponent.GetLensPresetName
 // 0x0010 (0x0010 - 0x0000)
 struct CineCameraComponent_GetLensPresetName final
@@ -204,15 +195,6 @@ public:
 	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CineCameraComponent_GetVerticalFieldOfView;
-
-// Function CinematicCamera.CineCameraComponent.GetVerticalProjectionOffset
-// 0x0004 (0x0004 - 0x0000)
-struct CineCameraComponent_GetVerticalProjectionOffset final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CineCameraComponent_GetVerticalProjectionOffset;
 
 // Function CinematicCamera.CineCameraSettings.GetCineCameraSettings
 // 0x0008 (0x0008 - 0x0000)
@@ -236,14 +218,14 @@ public:
 DUMPER7_ASSERTS_CineCameraSettings_GetCropPresetByName;
 
 // Function CinematicCamera.CineCameraSettings.GetFilmbackPresetByName
-// 0x0028 (0x0028 - 0x0000)
+// 0x0020 (0x0020 - 0x0000)
 struct CineCameraSettings_GetFilmbackPresetByName final
 {
 public:
 	class FString                                 PresetName;                                        // 0x0000(0x0010)(ConstParm, Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FCameraFilmbackSettings                FilmbackSettings;                                  // 0x0010(0x0014)(Parm, OutParm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0024(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_25[0x3];                                       // 0x0025(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FCameraFilmbackSettings                FilmbackSettings;                                  // 0x0010(0x000C)(Parm, OutParm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x001C(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_CineCameraSettings_GetFilmbackPresetByName;
 

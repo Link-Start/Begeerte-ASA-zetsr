@@ -14,7 +14,7 @@
 SDK_NAMESPACE_START
 
 // Enum AudioPlatformConfiguration.ESoundwaveSampleRateSettings
-// NumValues: 0x0005
+// NumValues: 0x0006
 enum class ESoundwaveSampleRateSettings : uint8
 {
 	Max                                      = 0,
@@ -22,6 +22,7 @@ enum class ESoundwaveSampleRateSettings : uint8
 	Medium                                   = 2,
 	Low                                      = 3,
 	Min                                      = 4,
+	MatchDevice_DEPRECATED                   = 5,
 };
 
 // ScriptStruct AudioPlatformConfiguration.PlatformRuntimeAudioCompressionOverrides

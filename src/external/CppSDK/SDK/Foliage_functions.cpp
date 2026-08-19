@@ -16,6 +16,105 @@
 
 SDK_NAMESPACE_START
 
+// Function Foliage.FoliageStatistics.FoliageOverlappingBoxCount
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UStaticMesh*                StaticMesh                                             (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FBox&                      Box                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+int32 UFoliageStatistics::FoliageOverlappingBoxCount(class UObject* WorldContextObject, const class UStaticMesh* StaticMesh, const struct FBox& Box)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("FoliageStatistics", "FoliageOverlappingBoxCount");
+
+	Params::FoliageStatistics_FoliageOverlappingBoxCount Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.StaticMesh = StaticMesh;
+	Parms.Box = std::move(Box);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Foliage.FoliageStatistics.FoliageOverlappingBoxTransforms
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UStaticMesh*                StaticMesh                                             (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FBox&                      Box                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+// TArray<struct FTransform>*              OutTransforms                                          (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+
+void UFoliageStatistics::FoliageOverlappingBoxTransforms(class UObject* WorldContextObject, const class UStaticMesh* StaticMesh, const struct FBox& Box, TArray<struct FTransform>* OutTransforms)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("FoliageStatistics", "FoliageOverlappingBoxTransforms");
+
+	Params::FoliageStatistics_FoliageOverlappingBoxTransforms Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.StaticMesh = StaticMesh;
+	Parms.Box = std::move(Box);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (OutTransforms != nullptr)
+		*OutTransforms = std::move(Parms.OutTransforms);
+}
+
+
+// Function Foliage.FoliageStatistics.FoliageOverlappingSphereCount
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UStaticMesh*                StaticMesh                                             (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector&                   CenterPosition                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Radius                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+int32 UFoliageStatistics::FoliageOverlappingSphereCount(class UObject* WorldContextObject, const class UStaticMesh* StaticMesh, const struct FVector& CenterPosition, float Radius)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("FoliageStatistics", "FoliageOverlappingSphereCount");
+
+	Params::FoliageStatistics_FoliageOverlappingSphereCount Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.StaticMesh = StaticMesh;
+	Parms.CenterPosition = std::move(CenterPosition);
+	Parms.Radius = Radius;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function Foliage.FoliageType.GetResponseToChannel
 // (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
@@ -101,105 +200,6 @@ void AInstancedFoliageActor::BPConvertStaticMeshActorsToFoliage(const TArray<cla
 }
 
 
-// Function Foliage.FoliageStatistics.FoliageOverlappingBoxCount
-// (Final, RequiredAPI, Native, Static, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class UStaticMesh*                StaticMesh                                             (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FBox&                      Box                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 UFoliageStatistics::FoliageOverlappingBoxCount(class UObject* WorldContextObject, const class UStaticMesh* StaticMesh, const struct FBox& Box)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("FoliageStatistics", "FoliageOverlappingBoxCount");
-
-	Params::FoliageStatistics_FoliageOverlappingBoxCount Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.StaticMesh = StaticMesh;
-	Parms.Box = std::move(Box);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Foliage.FoliageStatistics.FoliageOverlappingBoxTransforms
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class UStaticMesh*                StaticMesh                                             (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FBox&                      Box                                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// TArray<struct FTransform>*              OutTransforms                                          (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-
-void UFoliageStatistics::FoliageOverlappingBoxTransforms(class UObject* WorldContextObject, const class UStaticMesh* StaticMesh, const struct FBox& Box, TArray<struct FTransform>* OutTransforms)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("FoliageStatistics", "FoliageOverlappingBoxTransforms");
-
-	Params::FoliageStatistics_FoliageOverlappingBoxTransforms Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.StaticMesh = StaticMesh;
-	Parms.Box = std::move(Box);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (OutTransforms != nullptr)
-		*OutTransforms = std::move(Parms.OutTransforms);
-}
-
-
-// Function Foliage.FoliageStatistics.FoliageOverlappingSphereCount
-// (Final, RequiredAPI, Native, Static, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class UStaticMesh*                StaticMesh                                             (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector&                   CenterPosition                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   Radius                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 UFoliageStatistics::FoliageOverlappingSphereCount(class UObject* WorldContextObject, const class UStaticMesh* StaticMesh, const struct FVector& CenterPosition, float Radius)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("FoliageStatistics", "FoliageOverlappingSphereCount");
-
-	Params::FoliageStatistics_FoliageOverlappingSphereCount Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.StaticMesh = StaticMesh;
-	Parms.CenterPosition = std::move(CenterPosition);
-	Parms.Radius = Radius;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function Foliage.InteractiveFoliageActor.CapsuleTouched
 // (Final, Native, Protected, HasOutParams)
 // Parameters:
@@ -236,7 +236,7 @@ void AInteractiveFoliageActor::CapsuleTouched(class UPrimitiveComponent* Overlap
 
 
 // Function Foliage.ProceduralFoliageSpawner.Simulate
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   NumSteps                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 

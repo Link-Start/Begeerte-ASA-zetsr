@@ -11,25 +11,23 @@
 #include "Basic.hpp"
 
 #include "Engine_structs.hpp"
-#include "CFCoreWidget_classes.hpp"
+#include "ShooterGame_classes.hpp"
 
 
 SDK_NAMESPACE_START
 
 // WidgetBlueprintGeneratedClass UI_NoModsFoundInCategoty.UI_NoModsFoundInCategoty_C
-// 0x0020 (0x0890 - 0x0870)
-class UUI_NoModsFoundInCategoty_C final : public UCFCoreWidget_C
+// 0x0018 (0x0348 - 0x0330)
+class UUI_NoModsFoundInCategoty_C final : public UPrimalUserWidget
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame_UI_NoModsFoundInCategoty_C;         // 0x0870(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	class UCanvasPanel*                           CanvasPanel_0;                                     // 0x0878(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 IMG_NoModsBackground;                              // 0x0880(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UVerticalBox*                           VerBox_NoInstalledMods;                            // 0x0888(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0330(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	class UImage*                                 IMG_NoModsBackground;                              // 0x0338(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UVerticalBox*                           VerBox_NoInstalledMods;                            // 0x0340(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
 
 public:
-	void ExecuteUbergraph_UI_NoModsFoundInCategoty(int32 EntryPoint);
-	void GetRootCFWidget(class UPanelWidget** RootPanelWidget);
 	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
+	void ExecuteUbergraph_UI_NoModsFoundInCategoty(int32 EntryPoint);
 
 public:
 	static class UClass* StaticClass()

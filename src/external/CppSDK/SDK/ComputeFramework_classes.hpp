@@ -68,7 +68,7 @@ public:
 	uint8                                         Pad_44[0x4];                                       // 0x0044(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FComputeKernelPermutationSet           PermutationSet;                                    // 0x0048(0x0010)(Edit, EditConst, NativeAccessSpecifierPublic)
 	struct FComputeKernelDefinitionSet            DefinitionsSet;                                    // 0x0058(0x0010)(Edit, EditConst, NativeAccessSpecifierPublic)
-	TArray<class UComputeSource*>                 AdditionalSources;                                 // 0x0068(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TArray<class UComputeSource*>                 AdditionalSources;                                 // 0x0068(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
 	TArray<struct FShaderFunctionDefinition>      ExternalInputs;                                    // 0x0078(0x0010)(Edit, EditFixedSize, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
 	TArray<struct FShaderFunctionDefinition>      ExternalOutputs;                                   // 0x0088(0x0010)(Edit, EditFixedSize, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
 
@@ -93,7 +93,7 @@ DUMPER7_ASSERTS_UComputeKernelSource;
 class UComputeSource : public UObject
 {
 public:
-	TArray<class UComputeSource*>                 AdditionalSources;                                 // 0x0028(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TArray<class UComputeSource*>                 AdditionalSources;                                 // 0x0028(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -112,16 +112,16 @@ public:
 DUMPER7_ASSERTS_UComputeSource;
 
 // Class ComputeFramework.ComputeGraph
-// 0x00B8 (0x00E0 - 0x0028)
+// 0x0068 (0x0090 - 0x0028)
 class UComputeGraph : public UObject
 {
 public:
-	TArray<class UComputeKernel*>                 KernelInvocations;                                 // 0x0028(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	TArray<class UComputeDataInterface*>          DataInterfaces;                                    // 0x0038(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	TArray<class UComputeKernel*>                 KernelInvocations;                                 // 0x0028(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	TArray<class UComputeDataInterface*>          DataInterfaces;                                    // 0x0038(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
 	TArray<struct FComputeGraphEdge>              GraphEdges;                                        // 0x0048(0x0010)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	TArray<TSubclassOf<class UObject>>            Bindings;                                          // 0x0058(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	TArray<TSubclassOf<class UObject>>            Bindings;                                          // 0x0058(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
 	TArray<int32>                                 DataInterfaceToBinding;                            // 0x0068(0x0010)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	uint8                                         Pad_78[0x68];                                      // 0x0078(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_78[0x18];                                      // 0x0078(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -140,12 +140,12 @@ public:
 DUMPER7_ASSERTS_UComputeGraph;
 
 // Class ComputeFramework.ComputeGraphComponent
-// 0x0020 (0x00F0 - 0x00D0)
+// 0x0020 (0x00D8 - 0x00B8)
 class UComputeGraphComponent final : public UActorComponent
 {
 public:
-	class UComputeGraph*                          ComputeGraph;                                      // 0x00D0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	struct FComputeGraphInstance                  ComputeGraphInstance;                              // 0x00D8(0x0018)(NativeAccessSpecifierPrivate)
+	class UComputeGraph*                          ComputeGraph;                                      // 0x00B8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FComputeGraphInstance                  ComputeGraphInstance;                              // 0x00C0(0x0018)(NativeAccessSpecifierPrivate)
 
 public:
 	void CreateDataProviders(int32 InBindingIndex, class UObject* InBindingObject);
@@ -173,7 +173,7 @@ DUMPER7_ASSERTS_UComputeGraphComponent;
 class UComputeKernel final : public UObject
 {
 public:
-	class UComputeKernelSource*                   KernelSource;                                      // 0x0028(0x0008)(Edit, ZeroConstructor, NoDestructor, AssetRegistrySearchable, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UComputeKernelSource*                   KernelSource;                                      // 0x0028(0x0008)(Edit, ZeroConstructor, NoDestructor, AssetRegistrySearchable, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         KernelFlags;                                       // 0x0030(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_34[0x4];                                       // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 

@@ -16,34 +16,6 @@
 
 SDK_NAMESPACE_START
 
-// Function Landscape.AsyncCopyGrassHeightsToTexture.CopyGrassHeightsToTextureAsync
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class ULandscapeComponent*              Component                                              (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UAsyncCopyGrassHeightsToTexture*  ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UAsyncCopyGrassHeightsToTexture* UAsyncCopyGrassHeightsToTexture::CopyGrassHeightsToTextureAsync(class ULandscapeComponent* Component)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("AsyncCopyGrassHeightsToTexture", "CopyGrassHeightsToTextureAsync");
-
-	Params::AsyncCopyGrassHeightsToTexture_CopyGrassHeightsToTextureAsync Parms{};
-
-	Parms.Component = Component;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function Landscape.LandscapeProxy.ChangeComponentScreenSizeToUseSubSections
 // (Native, Public, BlueprintCallable)
 // Parameters:
@@ -329,40 +301,14 @@ void ALandscapeProxy::SetVirtualTextureRenderPassType(ERuntimeVirtualTextureMain
 }
 
 
-// Function Landscape.Landscape.GetLoadedLandscapeProxies
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// TArray<class ALandscapeProxy*>          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-
-TArray<class ALandscapeProxy*> ALandscape::GetLoadedLandscapeProxies()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Landscape", "GetLoadedLandscapeProxies");
-
-	Params::Landscape_GetLoadedLandscapeProxies Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function Landscape.Landscape.RenderHeightmap
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
-// const struct FTransform&                InWorldTransform                                       (Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FBox2D&                    InExtents                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+// const struct FTransform&                InWorldTransform                                       (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FBox2D&                    InExtents                                              (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // class UTextureRenderTarget2D*           OutRenderTarget                                        (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool ALandscape::RenderHeightmap(const struct FTransform& InWorldTransform, const struct FBox2D& InExtents, class UTextureRenderTarget2D* OutRenderTarget)
+void ALandscape::RenderHeightmap(const struct FTransform& InWorldTransform, const struct FBox2D& InExtents, class UTextureRenderTarget2D* OutRenderTarget)
 {
 	static class UFunction* Func = nullptr;
 
@@ -381,104 +327,6 @@ bool ALandscape::RenderHeightmap(const struct FTransform& InWorldTransform, cons
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Landscape.Landscape.RenderWeightmap
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// const struct FTransform&                InWorldTransform                                       (Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FBox2D&                    InExtents                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class FName                             InWeightmapLayerName                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UTextureRenderTarget2D*           OutRenderTarget                                        (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool ALandscape::RenderWeightmap(const struct FTransform& InWorldTransform, const struct FBox2D& InExtents, class FName InWeightmapLayerName, class UTextureRenderTarget2D* OutRenderTarget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Landscape", "RenderWeightmap");
-
-	Params::Landscape_RenderWeightmap Parms{};
-
-	Parms.InWorldTransform = std::move(InWorldTransform);
-	Parms.InExtents = std::move(InExtents);
-	Parms.InWeightmapLayerName = InWeightmapLayerName;
-	Parms.OutRenderTarget = OutRenderTarget;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Landscape.Landscape.RenderWeightmaps
-// (Final, RequiredAPI, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
-// Parameters:
-// const struct FTransform&                InWorldTransform                                       (Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FBox2D&                    InExtents                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// const TArray<class FName>&              InWeightmapLayerNames                                  (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-// class UTextureRenderTarget*             OutRenderTarget                                        (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool ALandscape::RenderWeightmaps(const struct FTransform& InWorldTransform, const struct FBox2D& InExtents, const TArray<class FName>& InWeightmapLayerNames, class UTextureRenderTarget* OutRenderTarget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Landscape", "RenderWeightmaps");
-
-	Params::Landscape_RenderWeightmaps Parms{};
-
-	Parms.InWorldTransform = std::move(InWorldTransform);
-	Parms.InExtents = std::move(InExtents);
-	Parms.InWeightmapLayerNames = std::move(InWeightmapLayerNames);
-	Parms.OutRenderTarget = OutRenderTarget;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Landscape.Landscape.GetTargetLayerNames
-// (Final, Native, Public, BlueprintCallable, Const)
-// Parameters:
-// bool                                    bInIncludeVisibilityLayer                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TArray<class FName>                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-
-TArray<class FName> ALandscape::GetTargetLayerNames(bool bInIncludeVisibilityLayer) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Landscape", "GetTargetLayerNames");
-
-	Params::Landscape_GetTargetLayerNames Parms{};
-
-	Parms.bInIncludeVisibilityLayer = bInIncludeVisibilityLayer;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
@@ -592,64 +440,6 @@ void ULandscapeComponent::SetLODBias(int32 InLODBias)
 }
 
 
-// Function Landscape.LandscapeComponent.GetActiveExcludedBoxesAsSplatBounds
-// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// struct FTransform*                      OutSplatBoundsTransform                                (Parm, OutParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TArray<struct FSplatBounds>*            OutBoxSplatBounds                                      (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-// ESplatBoundsType                        BoundsType                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void ULandscapeComponent::GetActiveExcludedBoxesAsSplatBounds(struct FTransform* OutSplatBoundsTransform, TArray<struct FSplatBounds>* OutBoxSplatBounds, ESplatBoundsType BoundsType) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("LandscapeComponent", "GetActiveExcludedBoxesAsSplatBounds");
-
-	Params::LandscapeComponent_GetActiveExcludedBoxesAsSplatBounds Parms{};
-
-	Parms.BoundsType = BoundsType;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (OutSplatBoundsTransform != nullptr)
-		*OutSplatBoundsTransform = std::move(Parms.OutSplatBoundsTransform);
-
-	if (OutBoxSplatBounds != nullptr)
-		*OutBoxSplatBounds = std::move(Parms.OutBoxSplatBounds);
-}
-
-
-// Function Landscape.LandscapeComponent.GetGrassSliceCount
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 ULandscapeComponent::GetGrassSliceCount() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("LandscapeComponent", "GetGrassSliceCount");
-
-	Params::LandscapeComponent_GetGrassSliceCount Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function Landscape.LandscapeComponent.GetMaterialInstanceDynamic
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
@@ -729,7 +519,7 @@ TArray<class USplineMeshComponent*> ULandscapeSplinesComponent::GetSplineMeshCom
 
 
 // Function Landscape.LandscapeBlueprintBrushBase.GetBlueprintRenderDependencies
-// (RequiredAPI, Event, Public, HasOutParams, BlueprintEvent)
+// (Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // TArray<class UObject*>*                 OutStreamableAssets                                    (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 
@@ -750,7 +540,7 @@ void ALandscapeBlueprintBrushBase::GetBlueprintRenderDependencies(TArray<class U
 
 
 // Function Landscape.LandscapeBlueprintBrushBase.Initialize
-// (RequiredAPI, Native, Event, Public, HasOutParams, HasDefaults, BlueprintEvent)
+// (Native, Event, Public, HasOutParams, HasDefaults, BlueprintEvent)
 // Parameters:
 // const struct FTransform&                InLandscapeTransform                                   (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FIntPoint&                 InLandscapeSize                                        (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -779,7 +569,7 @@ void ALandscapeBlueprintBrushBase::Initialize(const struct FTransform& InLandsca
 
 
 // Function Landscape.LandscapeBlueprintBrushBase.Render
-// (RequiredAPI, Native, Event, Public, HasOutParams, BlueprintEvent)
+// (Native, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // bool                                    InIsHeightmap                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UTextureRenderTarget2D*           InCombinedResult                                       (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -810,36 +600,8 @@ class UTextureRenderTarget2D* ALandscapeBlueprintBrushBase::Render(bool InIsHeig
 }
 
 
-// Function Landscape.LandscapeBlueprintBrushBase.RenderLayer
-// (RequiredAPI, Native, Event, Public, HasOutParams, BlueprintEvent)
-// Parameters:
-// const struct FLandscapeBrushParameters& InParameters                                           (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-// class UTextureRenderTarget2D*           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UTextureRenderTarget2D* ALandscapeBlueprintBrushBase::RenderLayer(const struct FLandscapeBrushParameters& InParameters)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("LandscapeBlueprintBrushBase", "RenderLayer");
-
-	Params::LandscapeBlueprintBrushBase_RenderLayer Parms{};
-
-	Parms.InParameters = std::move(InParameters);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function Landscape.LandscapeBlueprintBrushBase.RequestLandscapeUpdate
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bInUserTriggered                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 

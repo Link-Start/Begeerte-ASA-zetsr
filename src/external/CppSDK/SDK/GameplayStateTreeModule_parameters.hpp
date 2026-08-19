@@ -21,7 +21,7 @@ SDK_PARAM_NAMESPACE_START
 struct StateTreeComponent_SendStateTreeEvent final
 {
 public:
-	struct FStateTreeEvent                        Event;                                             // 0x0000(0x0020)(ConstParm, Parm, OutParm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FStateTreeEvent                        Event;                                             // 0x0000(0x0020)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_StateTreeComponent_SendStateTreeEvent;
 

@@ -20,16 +20,16 @@ SDK_NAMESPACE_START
 struct FStructSerializerNumericTestStruct final
 {
 public:
-	int8                                          int8_0;                                            // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int8                                          Int8;                                              // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1[0x1];                                        // 0x0001(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	int16                                         int16_0;                                           // 0x0002(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int16                                         Int16;                                             // 0x0002(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         int32_0;                                           // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int64                                         int64_0;                                           // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int64                                         Int64;                                             // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         uint8_0;                                           // 0x0010(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_11[0x1];                                       // 0x0011(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
 	uint16                                        uint16_0;                                          // 0x0012(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint32                                        uint32_0;                                          // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint64                                        uint64_0;                                          // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint64                                        UInt64;                                            // 0x0018(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         float_0;                                           // 0x0020(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	double                                        Double;                                            // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -55,20 +55,20 @@ public:
 DUMPER7_ASSERTS_FStructSerializerBooleanTestStruct;
 
 // ScriptStruct Serialization.StructSerializerObjectTestStruct
-// 0x00C0 (0x00C0 - 0x0000)
+// 0x00D0 (0x00D0 - 0x0000)
 struct FStructSerializerObjectTestStruct final
 {
 public:
-	TSubclassOf<class UObject>                    RawClass;                                          // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TSubclassOf<class UObject>                    WrappedClass;                                      // 0x0008(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TSubclassOf<class UObject>                    RawClass;                                          // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UObject>                    WrappedClass;                                      // 0x0008(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TSubclassOf<class UMetaData>                  SubClass;                                          // 0x0010(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSoftClassPtr<class UClass>                   SoftClass;                                         // 0x0018(0x0028)(UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UObject*                                RawObject;                                         // 0x0040(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UObject*                                WrappedObject;                                     // 0x0048(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TWeakObjectPtr<class UMetaData>               WeakObject;                                        // 0x0050(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSoftObjectPtr<class UMetaData>               SoftObject;                                        // 0x0058(0x0028)(UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FSoftClassPath                         ClassPath;                                         // 0x0080(0x0020)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FSoftObjectPath                        ObjectPath;                                        // 0x00A0(0x0020)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSoftClassPtr<class UClass>                   SoftClass;                                         // 0x0018(0x0030)(UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                RawObject;                                         // 0x0048(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                WrappedObject;                                     // 0x0050(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TWeakObjectPtr<class UMetaData>               WeakObject;                                        // 0x0058(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSoftObjectPtr<class UMetaData>               SoftObject;                                        // 0x0060(0x0030)(UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FSoftClassPath                         ClassPath;                                         // 0x0090(0x0020)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FSoftObjectPath                        ObjectPath;                                        // 0x00B0(0x0020)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FStructSerializerObjectTestStruct;
 
@@ -80,10 +80,9 @@ public:
 	struct FGuid                                  Guid;                                              // 0x0000(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FName                                   Name;                                              // 0x0010(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 String;                                            // 0x0018(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FText                                   Text;                                              // 0x0028(0x0010)(NativeAccessSpecifierPublic)
-	struct FDateTime                              DateTime;                                          // 0x0038(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FTimespan                              Timespan;                                          // 0x0040(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                Vector;                                            // 0x0048(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FText                                   Text;                                              // 0x0028(0x0018)(NativeAccessSpecifierPublic)
+	struct FVector                                Vector;                                            // 0x0040(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_58[0x8];                                       // 0x0058(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FVector4                               Vector4;                                           // 0x0060(0x0020)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FRotator                               Rotator;                                           // 0x0080(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_98[0x8];                                       // 0x0098(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
@@ -221,38 +220,21 @@ public:
 };
 DUMPER7_ASSERTS_FStructSerializerSetTestStruct;
 
-// ScriptStruct Serialization.StructSerializerOptionalTestStruct
-// 0x0200 (0x0200 - 0x0000)
-struct FStructSerializerOptionalTestStruct final
-{
-public:
-	TOptional<class FString, true>                StrOptional;                                       // 0x0000(0x0010)(HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TOptional<class FString, true>                StrOptionalUnset;                                  // 0x0010(0x0010)(HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TOptional<int32>                              IntOptional;                                       // 0x0020(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TOptional<int32>                              IntOptionalUnset;                                  // 0x0028(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TOptional<class FName, true>                  NameOptional;                                      // 0x0030(0x0008)(IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TOptional<class FName, true>                  NameOptionalUnset;                                 // 0x0038(0x0008)(IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TOptional<struct FStructSerializerBuiltinTestStruct> StructOptional;                             // 0x0040(0x00E0)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TOptional<struct FStructSerializerBuiltinTestStruct> StructOptionalUnset;                        // 0x0120(0x00E0)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FStructSerializerOptionalTestStruct;
-
 // ScriptStruct Serialization.StructSerializerTestStruct
-// 0x0A10 (0x0A10 - 0x0000)
+// 0x0820 (0x0820 - 0x0000)
 struct FStructSerializerTestStruct final
 {
 public:
 	struct FStructSerializerNumericTestStruct     Numerics;                                          // 0x0000(0x0030)(NoDestructor, NativeAccessSpecifierPublic)
 	struct FStructSerializerBooleanTestStruct     Booleans;                                          // 0x0030(0x0003)(NoDestructor, NativeAccessSpecifierPublic)
 	uint8                                         Pad_33[0x5];                                       // 0x0033(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FStructSerializerObjectTestStruct      Objects;                                           // 0x0038(0x00C0)(NativeAccessSpecifierPublic)
-	uint8                                         Pad_F8[0x8];                                       // 0x00F8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FStructSerializerBuiltinTestStruct     Builtins;                                          // 0x0100(0x00D0)(HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FStructSerializerArrayTestStruct       Arrays;                                            // 0x01D0(0x0060)(NativeAccessSpecifierPublic)
-	struct FStructSerializerMapTestStruct         Maps;                                              // 0x0230(0x0140)(NativeAccessSpecifierPublic)
-	struct FStructSerializerSetTestStruct         Sets;                                              // 0x0370(0x0140)(NativeAccessSpecifierPublic)
-	struct FStructSerializerOptionalTestStruct    Optionals;                                         // 0x04B0(0x0200)(NativeAccessSpecifierPublic)
-	struct FStructSerializerLWCTypesTest          LWCTypes;                                          // 0x06B0(0x0360)(NativeAccessSpecifierPublic)
+	struct FStructSerializerObjectTestStruct      Objects;                                           // 0x0038(0x00D0)(NativeAccessSpecifierPublic)
+	uint8                                         Pad_108[0x8];                                      // 0x0108(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FStructSerializerBuiltinTestStruct     Builtins;                                          // 0x0110(0x00D0)(HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FStructSerializerArrayTestStruct       Arrays;                                            // 0x01E0(0x0060)(NativeAccessSpecifierPublic)
+	struct FStructSerializerMapTestStruct         Maps;                                              // 0x0240(0x0140)(NativeAccessSpecifierPublic)
+	struct FStructSerializerSetTestStruct         Sets;                                              // 0x0380(0x0140)(NativeAccessSpecifierPublic)
+	struct FStructSerializerLWCTypesTest          LWCTypes;                                          // 0x04C0(0x0360)(NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FStructSerializerTestStruct;
 

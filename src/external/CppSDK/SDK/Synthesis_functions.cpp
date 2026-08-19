@@ -16,6 +16,31 @@
 
 SDK_NAMESPACE_START
 
+// Function Synthesis.SourceEffectDynamicsProcessorPreset.SetSettings
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const struct FSourceEffectDynamicsProcessorSettings&InSettings                                             (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+
+void USourceEffectDynamicsProcessorPreset::SetSettings(const struct FSourceEffectDynamicsProcessorSettings& InSettings)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SourceEffectDynamicsProcessorPreset", "SetSettings");
+
+	Params::SourceEffectDynamicsProcessorPreset_SetSettings Parms{};
+
+	Parms.InSettings = std::move(InSettings);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function Synthesis.ModularSynthLibrary.AddModularSynthPresetToBankAsset
 // (Final, Native, Static, Private, HasOutParams, BlueprintCallable)
 // Parameters:
@@ -2308,31 +2333,6 @@ void USourceEffectConvolutionReverbPreset::SetSettings(const struct FSourceEffec
 		Func = Class->GetFunction("SourceEffectConvolutionReverbPreset", "SetSettings");
 
 	Params::SourceEffectConvolutionReverbPreset_SetSettings Parms{};
-
-	Parms.InSettings = std::move(InSettings);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Synthesis.SourceEffectDynamicsProcessorPreset.SetSettings
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const struct FSourceEffectDynamicsProcessorSettings&InSettings                                             (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-
-void USourceEffectDynamicsProcessorPreset::SetSettings(const struct FSourceEffectDynamicsProcessorSettings& InSettings)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SourceEffectDynamicsProcessorPreset", "SetSettings");
-
-	Params::SourceEffectDynamicsProcessorPreset_SetSettings Parms{};
 
 	Parms.InSettings = std::move(InSettings);
 

@@ -16,35 +16,55 @@
 
 SDK_NAMESPACE_START
 
-// Function USDStage.UsdDynamicBindingResolverLibrary.ResolveWithStageActor
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// Function USDStage.UsdStageActor.GetGeneratedAssets
+// (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FMovieSceneDynamicBindingResolveParams&Params_0                                               (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-// const class FString&                    StageActorIDNameFilter                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    RootLayerFilter                                        (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    PrimPath                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FMovieSceneDynamicBindingResolveResultReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
+// TArray<class UObject*>                  ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 
-struct FMovieSceneDynamicBindingResolveResult UUsdDynamicBindingResolverLibrary::ResolveWithStageActor(class UObject* WorldContextObject, const struct FMovieSceneDynamicBindingResolveParams& Params_0, const class FString& StageActorIDNameFilter, const class FString& RootLayerFilter, const class FString& PrimPath)
+TArray<class UObject*> AUsdStageActor::GetGeneratedAssets(const class FString& PrimPath)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("UsdDynamicBindingResolverLibrary", "ResolveWithStageActor");
+		Func = Class->GetFunction("UsdStageActor", "GetGeneratedAssets");
 
-	Params::UsdDynamicBindingResolverLibrary_ResolveWithStageActor Parms{};
+	Params::UsdStageActor_GetGeneratedAssets Parms{};
 
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.Params_0 = std::move(Params_0);
-	Parms.StageActorIDNameFilter = std::move(StageActorIDNameFilter);
-	Parms.RootLayerFilter = std::move(RootLayerFilter);
 	Parms.PrimPath = std::move(PrimPath);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function USDStage.UsdStageActor.GetGeneratedComponent
+// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Parameters:
+// const class FString&                    PrimPath                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class USceneComponent*                  ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class USceneComponent* AUsdStageActor::GetGeneratedComponent(const class FString& PrimPath)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UsdStageActor", "GetGeneratedComponent");
+
+	Params::UsdStageActor_GetGeneratedComponent Parms{};
+
+	Parms.PrimPath = std::move(PrimPath);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 
@@ -65,6 +85,34 @@ class ULevelSequence* AUsdStageActor::GetLevelSequence()
 		Func = Class->GetFunction("UsdStageActor", "GetLevelSequence");
 
 	Params::UsdStageActor_GetLevelSequence Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function USDStage.UsdStageActor.GetSourcePrimPath
+// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          Object                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class FString AUsdStageActor::GetSourcePrimPath(class UObject* Object)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UsdStageActor", "GetSourcePrimPath");
+
+	Params::UsdStageActor_GetSourcePrimPath Parms{};
+
+	Parms.Object = Object;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -121,31 +169,6 @@ void AUsdStageActor::SetAssetCache(class UUsdAssetCache2* NewCache)
 }
 
 
-// Function USDStage.UsdStageActor.SetBlockedPrefixFilters
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const TArray<class FString>&            NewFilters                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-
-void AUsdStageActor::SetBlockedPrefixFilters(const TArray<class FString>& NewFilters)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UsdStageActor", "SetBlockedPrefixFilters");
-
-	Params::UsdStageActor_SetBlockedPrefixFilters Parms{};
-
-	Parms.NewFilters = std::move(NewFilters);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function USDStage.UsdStageActor.SetCollapseTopLevelPointInstancers
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
@@ -161,106 +184,6 @@ void AUsdStageActor::SetCollapseTopLevelPointInstancers(bool bCollapse)
 	Params::UsdStageActor_SetCollapseTopLevelPointInstancers Parms{};
 
 	Parms.bCollapse = bCollapse;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function USDStage.UsdStageActor.SetCollectFromEntireSubtrees
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bNewCollectValue                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AUsdStageActor::SetCollectFromEntireSubtrees(bool bNewCollectValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UsdStageActor", "SetCollectFromEntireSubtrees");
-
-	Params::UsdStageActor_SetCollectFromEntireSubtrees Parms{};
-
-	Parms.bNewCollectValue = bNewCollectValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function USDStage.UsdStageActor.SetCollectMetadata
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bNewCollectValue                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AUsdStageActor::SetCollectMetadata(bool bNewCollectValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UsdStageActor", "SetCollectMetadata");
-
-	Params::UsdStageActor_SetCollectMetadata Parms{};
-
-	Parms.bNewCollectValue = bNewCollectValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function USDStage.UsdStageActor.SetCollectOnComponents
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bNewCollectValue                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AUsdStageActor::SetCollectOnComponents(bool bNewCollectValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UsdStageActor", "SetCollectOnComponents");
-
-	Params::UsdStageActor_SetCollectOnComponents Parms{};
-
-	Parms.bNewCollectValue = bNewCollectValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function USDStage.UsdStageActor.SetGeometryCacheImport
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// EGeometryCacheImport                    ImportOption                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AUsdStageActor::SetGeometryCacheImport(EGeometryCacheImport ImportOption)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UsdStageActor", "SetGeometryCacheImport");
-
-	Params::UsdStageActor_SetGeometryCacheImport Parms{};
-
-	Parms.ImportOption = ImportOption;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -311,31 +234,6 @@ void AUsdStageActor::SetInterpolationType(EUsdInterpolationType NewType)
 	Params::UsdStageActor_SetInterpolationType Parms{};
 
 	Parms.NewType = NewType;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function USDStage.UsdStageActor.SetInvertFilters
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bNewInvertValue                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AUsdStageActor::SetInvertFilters(bool bNewInvertValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UsdStageActor", "SetInvertFilters");
-
-	Params::UsdStageActor_SetInvertFilters Parms{};
-
-	Parms.bNewInvertValue = bNewInvertValue;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -521,31 +419,6 @@ void AUsdStageActor::SetRenderContext(const class FName& NewRenderContext)
 }
 
 
-// Function USDStage.UsdStageActor.SetReuseIdenticalAssets
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bReuse                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AUsdStageActor::SetReuseIdenticalAssets(bool bReuse)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UsdStageActor", "SetReuseIdenticalAssets");
-
-	Params::UsdStageActor_SetReuseIdenticalAssets Parms{};
-
-	Parms.bReuse = bReuse;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function USDStage.UsdStageActor.SetRootLayer
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
@@ -596,81 +469,6 @@ void AUsdStageActor::SetRootMotionHandling(EUsdRootMotionHandling NewHandlingStr
 }
 
 
-// Function USDStage.UsdStageActor.SetShareAssetsForIdenticalPrims
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bShare                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AUsdStageActor::SetShareAssetsForIdenticalPrims(bool bShare)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UsdStageActor", "SetShareAssetsForIdenticalPrims");
-
-	Params::UsdStageActor_SetShareAssetsForIdenticalPrims Parms{};
-
-	Parms.bShare = bShare;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function USDStage.UsdStageActor.SetStageState
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// EUsdStageState                          NewStageState                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AUsdStageActor::SetStageState(EUsdStageState NewStageState)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UsdStageActor", "SetStageState");
-
-	Params::UsdStageActor_SetStageState Parms{};
-
-	Parms.NewStageState = NewStageState;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function USDStage.UsdStageActor.SetSubdivisionLevel
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// int32                                   NewLevel                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AUsdStageActor::SetSubdivisionLevel(int32 NewLevel)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UsdStageActor", "SetSubdivisionLevel");
-
-	Params::UsdStageActor_SetSubdivisionLevel Parms{};
-
-	Parms.NewLevel = NewLevel;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function USDStage.UsdStageActor.SetTime
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
@@ -696,112 +494,6 @@ void AUsdStageActor::SetTime(float InTime)
 }
 
 
-// Function USDStage.UsdStageActor.SetUsdAssetCache
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UUsdAssetCache3*                  NewCache                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AUsdStageActor::SetUsdAssetCache(class UUsdAssetCache3* NewCache)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UsdStageActor", "SetUsdAssetCache");
-
-	Params::UsdStageActor_SetUsdAssetCache Parms{};
-
-	Parms.NewCache = NewCache;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function USDStage.UsdStageActor.SetUsePrimKindsForCollapsing
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bUse                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void AUsdStageActor::SetUsePrimKindsForCollapsing(bool bUse)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UsdStageActor", "SetUsePrimKindsForCollapsing");
-
-	Params::UsdStageActor_SetUsePrimKindsForCollapsing Parms{};
-
-	Parms.bUse = bUse;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function USDStage.UsdStageActor.GetGeneratedAssets
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const class FString&                    PrimPath                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TArray<class UObject*>                  ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-
-TArray<class UObject*> AUsdStageActor::GetGeneratedAssets(const class FString& PrimPath) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UsdStageActor", "GetGeneratedAssets");
-
-	Params::UsdStageActor_GetGeneratedAssets Parms{};
-
-	Parms.PrimPath = std::move(PrimPath);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function USDStage.UsdStageActor.GetGeneratedComponent
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const class FString&                    PrimPath                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class USceneComponent*                  ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class USceneComponent* AUsdStageActor::GetGeneratedComponent(const class FString& PrimPath) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UsdStageActor", "GetGeneratedComponent");
-
-	Params::UsdStageActor_GetGeneratedComponent Parms{};
-
-	Parms.PrimPath = std::move(PrimPath);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function USDStage.UsdStageActor.GetIsolatedRootLayer
 // (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
@@ -815,34 +507,6 @@ class FString AUsdStageActor::GetIsolatedRootLayer() const
 		Func = Class->GetFunction("UsdStageActor", "GetIsolatedRootLayer");
 
 	Params::UsdStageActor_GetIsolatedRootLayer Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function USDStage.UsdStageActor.GetSourcePrimPath
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const class UObject*                    Object                                                 (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class FString AUsdStageActor::GetSourcePrimPath(const class UObject* Object) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UsdStageActor", "GetSourcePrimPath");
-
-	Params::UsdStageActor_GetSourcePrimPath Parms{};
-
-	Parms.Object = Object;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

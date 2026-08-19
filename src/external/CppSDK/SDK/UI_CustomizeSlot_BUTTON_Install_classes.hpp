@@ -10,18 +10,18 @@
 
 #include "Basic.hpp"
 
-#include "UI_CFCore_CustomizeColorSlot_classes.hpp"
+#include "UI_CustomizeColorSlot_classes.hpp"
 
 
 SDK_NAMESPACE_START
 
 // WidgetBlueprintGeneratedClass UI_CustomizeSlot_BUTTON_Install.UI_CustomizeSlot_BUTTON_Install_C
-// 0x0000 (0x03B8 - 0x03B8)
-class UUI_CustomizeSlot_BUTTON_Install_C final : public UUI_CFCore_CustomizeColorSlot_C
+// 0x0000 (0x0378 - 0x0378)
+class UUI_CustomizeSlot_BUTTON_Install_C final : public UUI_CustomizeColorSlot_C
 {
 public:
-	void GetColor(struct FLinearColor* Color);
 	void SetColor(const struct FLinearColor& Color);
+	void GetColor(struct FLinearColor* Color);
 
 public:
 	static class UClass* StaticClass()

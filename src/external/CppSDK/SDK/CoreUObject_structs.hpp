@@ -67,8 +67,29 @@ enum class ELocalizedTextSourceCategory : uint8
 	ELocalizedTextSourceCategory_MAX         = 3,
 };
 
+// Enum CoreUObject.EMouseCursor
+// NumValues: 0x000F
+enum class EMouseCursor : uint8
+{
+	None                                     = 0,
+	Default                                  = 1,
+	TextEditBeam                             = 2,
+	ResizeLeftRight                          = 3,
+	ResizeUpDown                             = 4,
+	ResizeSouthEast                          = 5,
+	ResizeSouthWest                          = 6,
+	CardinalCross                            = 7,
+	Crosshairs                               = 8,
+	Hand                                     = 9,
+	GrabHand                                 = 10,
+	GrabHandClosed                           = 11,
+	SlashedCircle                            = 12,
+	EyeDropper                               = 13,
+	EMouseCursor_MAX                         = 14,
+};
+
 // Enum CoreUObject.ELifetimeCondition
-// NumValues: 0x0012
+// NumValues: 0x0011
 enum class ELifetimeCondition : uint8
 {
 	COND_None                                = 0,
@@ -85,151 +106,9 @@ enum class ELifetimeCondition : uint8
 	COND_SimulatedOnlyNoReplay               = 11,
 	COND_SimulatedOrPhysicsNoReplay          = 12,
 	COND_SkipReplay                          = 13,
-	COND_Dynamic                             = 14,
 	COND_Never                               = 15,
 	COND_NetGroup                            = 16,
 	COND_Max                                 = 17,
-};
-
-// Enum CoreUObject.EDataValidationUsecase
-// NumValues: 0x0007
-enum class EDataValidationUsecase : uint8
-{
-	None                                     = 0,
-	Manual                                   = 1,
-	Commandlet                               = 2,
-	Save                                     = 3,
-	PreSubmit                                = 4,
-	Script                                   = 5,
-	EDataValidationUsecase_MAX               = 6,
-};
-
-// Enum CoreUObject.ETestInstanceDataObjectBird
-// NumValues: 0x0008
-enum class ETestInstanceDataObjectBird : uint8
-{
-	TIDOB_None                               = 0,
-	TIDOB_Cardinal                           = 1,
-	TIDOB_Crow                               = 2,
-	TIDOB_Eagle                              = 3,
-	TIDOB_Hawk                               = 4,
-	TIDOB_Owl                                = 5,
-	TIDOB_Raven                              = 6,
-	TIDOB_MAX                                = 7,
-};
-
-// Enum CoreUObject.ETestInstanceDataObjectGrain
-// NumValues: 0x0007
-enum class ETestInstanceDataObjectGrain : uint8
-{
-	None                                     = 0,
-	Barley                                   = 1,
-	Corn                                     = 2,
-	Quinoa                                   = 3,
-	Rice                                     = 4,
-	Wheat                                    = 5,
-	ETestInstanceDataObjectGrain_MAX         = 6,
-};
-
-// Enum CoreUObject.ETestInstanceDataObjectGrainAlternate
-// NumValues: 0x0006
-enum class ETestInstanceDataObjectGrainAlternate : uint8
-{
-	None                                     = 0,
-	Corn                                     = 1,
-	Rice                                     = 2,
-	Rye                                      = 3,
-	Wheat                                    = 4,
-	ETestInstanceDataObjectGrainAlternate_MAX = 5,
-};
-
-// Enum CoreUObject.ETestInstanceDataObjectGrainAlternateEnumClass
-// NumValues: 0x0006
-enum class ETestInstanceDataObjectGrainAlternateEnumClass : uint8
-{
-	None                                     = 0,
-	Corn                                     = 1,
-	Rice                                     = 2,
-	Rye                                      = 3,
-	Wheat                                    = 4,
-	ETestInstanceDataObjectGrainAlternateEnumClass_MAX = 5,
-};
-
-// Enum CoreUObject.ETestInstanceDataObjectFruit
-// NumValues: 0x0006
-enum class ETestInstanceDataObjectFruit : uint8
-{
-	None                                     = 0,
-	Apple                                    = 1,
-	Banana                                   = 2,
-	Lemon                                    = 3,
-	Orange                                   = 4,
-	ETestInstanceDataObjectFruit_MAX         = 5,
-};
-
-// Enum CoreUObject.ETestInstanceDataObjectFruitAlternate
-// NumValues: 0x0006
-enum class ETestInstanceDataObjectFruitAlternate : uint8
-{
-	None                                     = 0,
-	Apple                                    = 1,
-	Cherry                                   = 2,
-	Orange                                   = 3,
-	Pear                                     = 4,
-	ETestInstanceDataObjectFruitAlternate_MAX = 5,
-};
-
-// Enum CoreUObject.ETestInstanceDataObjectFruitAlternateNamespace
-// NumValues: 0x0006
-enum class ETestInstanceDataObjectFruitAlternateNamespace : uint8
-{
-	None                                     = 0,
-	Apple                                    = 1,
-	Cherry                                   = 2,
-	Orange                                   = 3,
-	Pear                                     = 4,
-	ETestInstanceDataObjectFruitAlternateNamespace_MAX = 5,
-};
-
-// Enum CoreUObject.ETestInstanceDataObjectDirection
-// NumValues: 0x0006
-enum class ETestInstanceDataObjectDirection : uint16
-{
-	None                                     = 0,
-	North                                    = 1,
-	East                                     = 2,
-	South                                    = 4,
-	West                                     = 8,
-	ETestInstanceDataObjectDirection_MAX     = 16,
-};
-
-// Enum CoreUObject.ETestInstanceDataObjectDirectionAlternate
-// NumValues: 0x0008
-enum class ETestInstanceDataObjectDirectionAlternate : uint16
-{
-	None                                     = 0,
-	Up                                       = 1,
-	Down                                     = 2,
-	North                                    = 4,
-	East                                     = 8,
-	South                                    = 16,
-	West                                     = 32,
-	ETestInstanceDataObjectDirectionAlternate_MAX = 64,
-};
-
-// Enum CoreUObject.ETestInstanceDataObjectFullFlags
-// NumValues: 0x0009
-enum class ETestInstanceDataObjectFullFlags : uint8
-{
-	None                                     = 0,
-	Flag0                                    = 1,
-	Flag1                                    = 2,
-	Flag2                                    = 4,
-	Flag4                                    = 16,
-	Flag5                                    = 32,
-	Flag6                                    = 64,
-	Flag7                                    = 128,
-	ETestInstanceDataObjectFullFlags_MAX     = 248,
 };
 
 // Enum CoreUObject.ESearchCase
@@ -292,7 +171,7 @@ enum class EAxisList : uint8
 };
 
 // Enum CoreUObject.EPixelFormat
-// NumValues: 0x005E
+// NumValues: 0x0058
 enum class EPixelFormat : uint8
 {
 	PF_Unknown                               = 0,
@@ -382,39 +261,11 @@ enum class EPixelFormat : uint8
 	PF_R64_UINT                              = 84,
 	PF_R9G9B9EXP5                            = 85,
 	PF_P010                                  = 86,
-	PF_ASTC_4x4_NORM_RG                      = 87,
-	PF_ASTC_6x6_NORM_RG                      = 88,
-	PF_ASTC_8x8_NORM_RG                      = 89,
-	PF_ASTC_10x10_NORM_RG                    = 90,
-	PF_ASTC_12x12_NORM_RG                    = 91,
-	PF_R16G16_SINT                           = 92,
-	PF_MAX_0                                 = 93,
-};
-
-// Enum CoreUObject.EMouseCursor
-// NumValues: 0x0010
-enum class EMouseCursor : uint8
-{
-	None                                     = 0,
-	Default                                  = 1,
-	TextEditBeam                             = 2,
-	ResizeLeftRight                          = 3,
-	ResizeUpDown                             = 4,
-	ResizeSouthEast                          = 5,
-	ResizeSouthWest                          = 6,
-	CardinalCross                            = 7,
-	Crosshairs                               = 8,
-	Hand                                     = 9,
-	GrabHand                                 = 10,
-	GrabHandClosed                           = 11,
-	SlashedCircle                            = 12,
-	EyeDropper                               = 13,
-	Custom                                   = 14,
-	EMouseCursor_MAX                         = 15,
+	PF_MAX_0                                 = 87,
 };
 
 // Enum CoreUObject.EUnit
-// NumValues: 0x004D
+// NumValues: 0x0034
 enum class EUnit : uint8
 {
 	Micrometers                              = 0,
@@ -433,67 +284,42 @@ enum class EUnit : uint8
 	MetersPerSecond                          = 13,
 	KilometersPerHour                        = 14,
 	MilesPerHour                             = 15,
-	DegreesPerSecond                         = 16,
-	RadiansPerSecond                         = 17,
-	CentimetersPerSecondSquared              = 18,
-	MetersPerSecondSquared                   = 19,
-	Celsius                                  = 20,
-	Farenheit                                = 21,
-	Kelvin                                   = 22,
-	Micrograms                               = 23,
-	Milligrams                               = 24,
-	Grams                                    = 25,
-	Kilograms                                = 26,
-	MetricTons                               = 27,
-	Ounces                                   = 28,
-	Pounds                                   = 29,
-	Stones                                   = 30,
-	GramsPerCubicCentimeter                  = 31,
-	GramsPerCubicMeter                       = 32,
-	KilogramsPerCubicCentimeter              = 33,
-	KilogramsPerCubicMeter                   = 34,
-	Newtons                                  = 35,
-	PoundsForce                              = 36,
-	KilogramsForce                           = 37,
-	KilogramCentimetersPerSecondSquared      = 38,
-	NewtonMeters                             = 39,
-	KilogramCentimetersSquaredPerSecondSquared = 40,
-	NewtonSeconds                            = 41,
-	KilogramCentimeters                      = 42,
-	KilogramMeters                           = 43,
-	Hertz                                    = 44,
-	Kilohertz                                = 45,
-	Megahertz                                = 46,
-	Gigahertz                                = 47,
-	RevolutionsPerMinute                     = 48,
-	Bytes                                    = 49,
-	Kilobytes                                = 50,
-	Megabytes                                = 51,
-	Gigabytes                                = 52,
-	Terabytes                                = 53,
-	Lumens                                   = 54,
-	Candela                                  = 55,
-	Lux                                      = 56,
-	CandelaPerMeter2                         = 57,
-	ExposureValue                            = 58,
-	Nanoseconds                              = 59,
-	Microseconds                             = 60,
-	Milliseconds                             = 61,
-	Seconds                                  = 62,
-	Minutes                                  = 63,
-	Hours                                    = 64,
-	Days                                     = 65,
-	Months                                   = 66,
-	Years                                    = 67,
-	PixelsPerInch                            = 68,
-	Percentage                               = 69,
-	Multiplier                               = 70,
-	Pascals                                  = 71,
-	KiloPascals                              = 72,
-	MegaPascals                              = 73,
-	GigaPascals                              = 74,
-	Unspecified                              = 75,
-	EUnit_MAX                                = 76,
+	Celsius                                  = 16,
+	Farenheit                                = 17,
+	Kelvin                                   = 18,
+	Micrograms                               = 19,
+	Milligrams                               = 20,
+	Grams                                    = 21,
+	Kilograms                                = 22,
+	MetricTons                               = 23,
+	Ounces                                   = 24,
+	Pounds                                   = 25,
+	Stones                                   = 26,
+	Newtons                                  = 27,
+	PoundsForce                              = 28,
+	KilogramsForce                           = 29,
+	Hertz                                    = 30,
+	Kilohertz                                = 31,
+	Megahertz                                = 32,
+	Gigahertz                                = 33,
+	RevolutionsPerMinute                     = 34,
+	Bytes                                    = 35,
+	Kilobytes                                = 36,
+	Megabytes                                = 37,
+	Gigabytes                                = 38,
+	Terabytes                                = 39,
+	Lumens                                   = 40,
+	Milliseconds                             = 46,
+	Seconds                                  = 47,
+	Minutes                                  = 48,
+	Hours                                    = 49,
+	Days                                     = 50,
+	Months                                   = 51,
+	Years                                    = 52,
+	Multiplier                               = 55,
+	Percentage                               = 54,
+	Unspecified                              = 56,
+	EUnit_MAX                                = 57,
 };
 
 // Enum CoreUObject.EPropertyAccessChangeNotifyMode
@@ -504,17 +330,6 @@ enum class EPropertyAccessChangeNotifyMode : uint8
 	Never                                    = 1,
 	Always                                   = 2,
 	EPropertyAccessChangeNotifyMode_MAX      = 3,
-};
-
-// Enum CoreUObject.EAppMsgCategory
-// NumValues: 0x0005
-enum class EAppMsgCategory : uint8
-{
-	Warning                                  = 0,
-	Error                                    = 1,
-	Success                                  = 2,
-	Info                                     = 3,
-	EAppMsgCategory_MAX                      = 4,
 };
 
 // Enum CoreUObject.EAppReturnType
@@ -558,16 +373,6 @@ enum class EInputDeviceTriggerMask : uint8
 	EInputDeviceTriggerMask_MAX              = 4,
 };
 
-// Enum CoreUObject.EInputDeviceAnalogStickMask
-// NumValues: 0x0004
-enum class EInputDeviceAnalogStickMask : uint8
-{
-	None                                     = 0,
-	Left                                     = 1,
-	Right                                    = 2,
-	EInputDeviceAnalogStickMask_MAX          = 3,
-};
-
 // Enum CoreUObject.EDataValidationResult
 // NumValues: 0x0004
 enum class EDataValidationResult : uint8
@@ -578,154 +383,96 @@ enum class EDataValidationResult : uint8
 	EDataValidationResult_MAX                = 3,
 };
 
-// Enum CoreUObject.EOverriddenPropertyOperation
-// NumValues: 0x0006
-enum class EOverriddenPropertyOperation : uint8
+// ScriptStruct CoreUObject.Guid
+// 0x0010 (0x0010 - 0x0000)
+struct FGuid final
 {
-	None                                     = 0,
-	Modified                                 = 1,
-	Replace                                  = 2,
-	Add                                      = 3,
-	Remove                                   = 4,
-	EOverriddenPropertyOperation_MAX         = 5,
+public:
+	int32                                         A;                                                 // 0x0000(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         B;                                                 // 0x0004(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         C;                                                 // 0x0008(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         D;                                                 // 0x000C(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
+DUMPER7_ASSERTS_FGuid;
 
-// Enum CoreUObject.EFallbackEnum
-// NumValues: 0x0001
-enum class EFallbackEnum : uint8
+// ScriptStruct CoreUObject.Quat
+// 0x0020 (0x0020 - 0x0000)
+struct alignas(0x10) FQuat final
 {
-	EFallbackEnum_MAX                        = 1,
+public:
+	double                                        X;                                                 // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        Y;                                                 // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        Z;                                                 // 0x0010(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        W;                                                 // 0x0018(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
+DUMPER7_ASSERTS_FQuat;
 
-// Enum CoreUObject.EUserDefinedStructureStatus
-// NumValues: 0x0005
-enum class EUserDefinedStructureStatus : uint8
+// ScriptStruct CoreUObject.InterpCurvePointQuat
+// 0x0080 (0x0080 - 0x0000)
+struct FInterpCurvePointQuat final
 {
-	UDSS_UpToDate                            = 0,
-	UDSS_Dirty                               = 1,
-	UDSS_Error                               = 2,
-	UDSS_Duplicate                           = 3,
-	UDSS_MAX                                 = 4,
+public:
+	float                                         InVal;                                             // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0xC];                                        // 0x0004(0x000C)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FQuat                                  OutVal;                                            // 0x0010(0x0020)(Edit, BlueprintVisible, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FQuat                                  ArriveTangent;                                     // 0x0030(0x0020)(Edit, BlueprintVisible, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FQuat                                  LeaveTangent;                                      // 0x0050(0x0020)(Edit, BlueprintVisible, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EInterpCurveMode                              InterpMode;                                        // 0x0070(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_71[0xF];                                       // 0x0071(0x000F)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
+DUMPER7_ASSERTS_FInterpCurvePointQuat;
 
-// Enum CoreUObject.EVersePackageScope
-// NumValues: 0x0005
-enum class EVersePackageScope : uint8
+// ScriptStruct CoreUObject.InterpCurveQuat
+// 0x0018 (0x0018 - 0x0000)
+struct FInterpCurveQuat final
 {
-	PublicAPI                                = 0,
-	InternalAPI                              = 1,
-	PublicUser                               = 2,
-	InternalUser                             = 3,
-	EVersePackageScope_MAX                   = 4,
+public:
+	TArray<struct FInterpCurvePointQuat>          Points;                                            // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	bool                                          bIsLooped;                                         // 0x0010(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         LoopKeyOffset;                                     // 0x0014(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
+DUMPER7_ASSERTS_FInterpCurveQuat;
 
-// Enum CoreUObject.EVersePackageType
-// NumValues: 0x0005
-enum class EVersePackageType : uint8
+// ScriptStruct CoreUObject.TopLevelAssetPath
+// 0x0010 (0x0010 - 0x0000)
+struct FTopLevelAssetPath final
 {
-	VNI                                      = 0,
-	Content                                  = 1,
-	PublishedContent                         = 2,
-	Assets                                   = 3,
-	EVersePackageType_MAX                    = 4,
+public:
+	class FName                                   PackageName;                                       // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class FName                                   AssetName;                                         // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 };
+DUMPER7_ASSERTS_FTopLevelAssetPath;
 
-// Enum CoreUObject.EVerseEnumFlags
-// NumValues: 0x0003
-enum class EVerseEnumFlags : uint32
+// ScriptStruct CoreUObject.SoftObjectPath
+// 0x0020 (0x0020 - 0x0000)
+struct FSoftObjectPath
 {
-	None                                     = 0,
-	NativeBound                              = 1,
-	EVerseEnumFlags_MAX                      = 2,
+public:
+	struct FTopLevelAssetPath                     AssetPath;                                         // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 SubPathString;                                     // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
+DUMPER7_ASSERTS_FSoftObjectPath;
 
-// Enum CoreUObject.EVerseFalse
-// NumValues: 0x0002
-enum class EVerseFalse : uint8
+// ScriptStruct CoreUObject.ARFilter
+// 0x0150 (0x0150 - 0x0000)
+struct FARFilter final
 {
-	Value                                    = 0,
-	EVerseFalse_MAX                          = 1,
+public:
+	TArray<class FName>                           PackageNames;                                      // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	TArray<class FName>                           PackagePaths;                                      // 0x0010(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	TArray<struct FSoftObjectPath>                SoftObjectPaths;                                   // 0x0020(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	TArray<class FName>                           ClassNames;                                        // 0x0030(0x0010)(BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FTopLevelAssetPath>             ClassPaths;                                        // 0x0040(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	uint8                                         Pad_50[0x50];                                      // 0x0050(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
+	TSet<class FName>                             RecursiveClassesExclusionSet;                      // 0x00A0(0x0050)(BlueprintVisible, NativeAccessSpecifierPublic)
+	TSet<struct FTopLevelAssetPath>               RecursiveClassPathsExclusionSet;                   // 0x00F0(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	bool                                          bRecursivePaths;                                   // 0x0140(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bRecursiveClasses;                                 // 0x0141(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIncludeOnlyOnDiskAssets;                          // 0x0142(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_143[0xD];                                      // 0x0143(0x000D)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-
-// Enum CoreUObject.EVerseTrue
-// NumValues: 0x0002
-enum class EVerseTrue : uint8
-{
-	Value                                    = 0,
-	EVerseTrue_MAX                           = 1,
-};
-
-// Enum CoreUObject.EPropertyBagPropertyType
-// NumValues: 0x0014
-enum class EPropertyBagPropertyType : uint8
-{
-	None                                     = 0,
-	Bool                                     = 1,
-	Byte                                     = 2,
-	Int32                                    = 3,
-	Int64                                    = 4,
-	Float                                    = 5,
-	Double                                   = 6,
-	Name                                     = 7,
-	String                                   = 8,
-	Text                                     = 9,
-	Enum                                     = 10,
-	Struct                                   = 11,
-	Object                                   = 12,
-	SoftObject                               = 13,
-	Class                                    = 14,
-	SoftClass                                = 15,
-	UInt32                                   = 16,
-	UInt64                                   = 17,
-	Count                                    = 18,
-	EPropertyBagPropertyType_MAX             = 19,
-};
-
-// Enum CoreUObject.EPropertyBagContainerType
-// NumValues: 0x0005
-enum class EPropertyBagContainerType : uint8
-{
-	None                                     = 0,
-	Array                                    = 1,
-	Set                                      = 2,
-	Count                                    = 3,
-	EPropertyBagContainerType_MAX            = 4,
-};
-
-// Enum CoreUObject.EPropertyBagResult
-// NumValues: 0x0006
-enum class EPropertyBagResult : uint8
-{
-	Success                                  = 0,
-	TypeMismatch                             = 1,
-	OutOfBounds                              = 2,
-	PropertyNotFound                         = 3,
-	DuplicatedValue                          = 4,
-	EPropertyBagResult_MAX                   = 5,
-};
-
-// Enum CoreUObject.EPropertyBagMissingEnum
-// NumValues: 0x0002
-enum class EPropertyBagMissingEnum : uint8
-{
-	Missing                                  = 0,
-	EPropertyBagMissingEnum_MAX              = 1,
-};
-
-// Enum CoreUObject.EVerseEffectSet
-// NumValues: 0x0009
-enum class EVerseEffectSet : uint8
-{
-	None                                     = 0,
-	Suspends                                 = 1,
-	Decides                                  = 2,
-	Diverges                                 = 4,
-	Reads                                    = 8,
-	Writes                                   = 16,
-	Allocates                                = 32,
-	NoRollback                               = 64,
-	EVerseEffectSet_MAX                      = 128,
-};
+DUMPER7_ASSERTS_FARFilter;
 
 // ScriptStruct CoreUObject.Vector
 // 0x0018 (0x0018 - 0x0000)
@@ -880,45 +627,17 @@ public:
 };
 DUMPER7_ASSERTS_FInterpCurvePointVector;
 
-// ScriptStruct CoreUObject.TopLevelAssetPath
-// 0x0010 (0x0010 - 0x0000)
-struct FTopLevelAssetPath final
+// ScriptStruct CoreUObject.InterpCurveVector
+// 0x0018 (0x0018 - 0x0000)
+struct FInterpCurveVector final
 {
 public:
-	class FName                                   PackageName;                                       // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class FName                                   AssetName;                                         // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	TArray<struct FInterpCurvePointVector>        Points;                                            // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	bool                                          bIsLooped;                                         // 0x0010(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         LoopKeyOffset;                                     // 0x0014(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FTopLevelAssetPath;
-
-// ScriptStruct CoreUObject.SoftObjectPath
-// 0x0020 (0x0020 - 0x0000)
-struct FSoftObjectPath
-{
-public:
-	struct FTopLevelAssetPath                     AssetPath;                                         // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 SubPathString;                                     // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FSoftObjectPath;
-
-// ScriptStruct CoreUObject.ARFilter
-// 0x0150 (0x0150 - 0x0000)
-struct FARFilter final
-{
-public:
-	TArray<class FName>                           PackageNames;                                      // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	TArray<class FName>                           PackagePaths;                                      // 0x0010(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	TArray<struct FSoftObjectPath>                SoftObjectPaths;                                   // 0x0020(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	TArray<class FName>                           ClassNames;                                        // 0x0030(0x0010)(BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FTopLevelAssetPath>             ClassPaths;                                        // 0x0040(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	uint8                                         Pad_50[0x50];                                      // 0x0050(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
-	TSet<class FName>                             RecursiveClassesExclusionSet;                      // 0x00A0(0x0050)(BlueprintVisible, NativeAccessSpecifierPublic)
-	TSet<struct FTopLevelAssetPath>               RecursiveClassPathsExclusionSet;                   // 0x00F0(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	bool                                          bRecursivePaths;                                   // 0x0140(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bRecursiveClasses;                                 // 0x0141(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIncludeOnlyOnDiskAssets;                          // 0x0142(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_143[0xD];                                      // 0x0143(0x000D)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FARFilter;
+DUMPER7_ASSERTS_FInterpCurveVector;
 
 // ScriptStruct CoreUObject.Vector2D
 // 0x0010 (0x0010 - 0x0000)
@@ -1067,81 +786,17 @@ public:
 };
 DUMPER7_ASSERTS_FInterpCurvePointVector2D;
 
-// ScriptStruct CoreUObject.Quat
-// 0x0020 (0x0020 - 0x0000)
-struct alignas(0x10) FQuat final
-{
-public:
-	double                                        X;                                                 // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        Y;                                                 // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        Z;                                                 // 0x0010(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        W;                                                 // 0x0018(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FQuat;
-
-// ScriptStruct CoreUObject.InterpCurvePointQuat
-// 0x0080 (0x0080 - 0x0000)
-struct FInterpCurvePointQuat final
-{
-public:
-	float                                         InVal;                                             // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0xC];                                        // 0x0004(0x000C)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FQuat                                  OutVal;                                            // 0x0010(0x0020)(Edit, BlueprintVisible, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FQuat                                  ArriveTangent;                                     // 0x0030(0x0020)(Edit, BlueprintVisible, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FQuat                                  LeaveTangent;                                      // 0x0050(0x0020)(Edit, BlueprintVisible, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EInterpCurveMode                              InterpMode;                                        // 0x0070(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_71[0xF];                                       // 0x0071(0x000F)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FInterpCurvePointQuat;
-
-// ScriptStruct CoreUObject.InterpCurveQuat
+// ScriptStruct CoreUObject.InterpCurveVector2D
 // 0x0018 (0x0018 - 0x0000)
-struct FInterpCurveQuat final
+struct FInterpCurveVector2D final
 {
 public:
-	TArray<struct FInterpCurvePointQuat>          Points;                                            // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FInterpCurvePointVector2D>      Points;                                            // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
 	bool                                          bIsLooped;                                         // 0x0010(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         LoopKeyOffset;                                     // 0x0014(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FInterpCurveQuat;
-
-// ScriptStruct CoreUObject.TwoVectors
-// 0x0030 (0x0030 - 0x0000)
-struct FTwoVectors final
-{
-public:
-	struct FVector                                v1;                                                // 0x0000(0x0018)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                v2;                                                // 0x0018(0x0018)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FTwoVectors;
-
-// ScriptStruct CoreUObject.InterpCurvePointTwoVectors
-// 0x00A0 (0x00A0 - 0x0000)
-struct FInterpCurvePointTwoVectors final
-{
-public:
-	float                                         InVal;                                             // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FTwoVectors                            OutVal;                                            // 0x0008(0x0030)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	struct FTwoVectors                            ArriveTangent;                                     // 0x0038(0x0030)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	struct FTwoVectors                            LeaveTangent;                                      // 0x0068(0x0030)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	EInterpCurveMode                              InterpMode;                                        // 0x0098(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_99[0x7];                                       // 0x0099(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FInterpCurvePointTwoVectors;
-
-// ScriptStruct CoreUObject.InterpCurveTwoVectors
-// 0x0018 (0x0018 - 0x0000)
-struct FInterpCurveTwoVectors final
-{
-public:
-	TArray<struct FInterpCurvePointTwoVectors>    Points;                                            // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	bool                                          bIsLooped;                                         // 0x0010(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         LoopKeyOffset;                                     // 0x0014(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FInterpCurveTwoVectors;
+DUMPER7_ASSERTS_FInterpCurveVector2D;
 
 // ScriptStruct CoreUObject.AssetBundleEntry
 // 0x0018 (0x0018 - 0x0000)
@@ -1176,38 +831,6 @@ public:
 };
 DUMPER7_ASSERTS_FAssetData;
 
-// ScriptStruct CoreUObject.Uint64Point
-// 0x0010 (0x0010 - 0x0000)
-struct FUint64Point final
-{
-public:
-	int64                                         X;                                                 // 0x0000(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int64                                         Y;                                                 // 0x0008(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FUint64Point;
-
-// ScriptStruct CoreUObject.Uint64Rect
-// 0x0020 (0x0020 - 0x0000)
-struct FUint64Rect final
-{
-public:
-	struct FUint64Point                           min_0;                                             // 0x0000(0x0010)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FUint64Point                           max_0;                                             // 0x0010(0x0010)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FUint64Rect;
-
-// ScriptStruct CoreUObject.Guid
-// 0x0010 (0x0010 - 0x0000)
-struct FGuid final
-{
-public:
-	int32                                         A;                                                 // 0x0000(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         B;                                                 // 0x0004(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         C;                                                 // 0x0008(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         D;                                                 // 0x000C(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FGuid;
-
 // ScriptStruct CoreUObject.AutomationEvent
 // 0x0038 (0x0038 - 0x0000)
 struct FAutomationEvent final
@@ -1223,10 +846,10 @@ DUMPER7_ASSERTS_FAutomationEvent;
 
 // ScriptStruct CoreUObject.DateTime
 // 0x0008 (0x0008 - 0x0000)
-struct FDateTime final
+struct alignas(0x08) FDateTime final
 {
 public:
-	int64                                         Ticks;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FDateTime;
 
@@ -1243,98 +866,37 @@ public:
 };
 DUMPER7_ASSERTS_FAutomationExecutionEntry;
 
-// ScriptStruct CoreUObject.InstancedStruct
-// 0x0010 (0x0010 - 0x0000)
-struct alignas(0x08) FInstancedStruct final
-{
-public:
-	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FInstancedStruct;
-
-// ScriptStruct CoreUObject.InstancedPropertyBag
-// 0x0010 (0x0010 - 0x0000)
-struct FInstancedPropertyBag
-{
-public:
-	struct FInstancedStruct                       Value;                                             // 0x0000(0x0010)(Edit, Protected, NativeAccessSpecifierProtected)
-};
-DUMPER7_ASSERTS_FInstancedPropertyBag;
-
-// ScriptStruct CoreUObject.PrimaryAssetType
-// 0x0008 (0x0008 - 0x0000)
-struct FPrimaryAssetType final
-{
-public:
-	class FName                                   Name;                                              // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FPrimaryAssetType;
-
-// ScriptStruct CoreUObject.PrimaryAssetId
-// 0x0010 (0x0010 - 0x0000)
-struct FPrimaryAssetId final
-{
-public:
-	struct FPrimaryAssetType                      PrimaryAssetType;                                  // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   PrimaryAssetName;                                  // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FPrimaryAssetId;
-
 // ScriptStruct CoreUObject.Box
 // 0x0038 (0x0038 - 0x0000)
 struct FBox final
 {
 public:
-	struct FVector                                min_0;                                             // 0x0000(0x0018)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                max_0;                                             // 0x0018(0x0018)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Min;                                               // 0x0000(0x0018)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Max;                                               // 0x0018(0x0018)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          IsValid;                                           // 0x0030(0x0001)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FBox;
-
-// ScriptStruct CoreUObject.UintVector4
-// 0x0010 (0x0010 - 0x0000)
-struct FUintVector4 final
-{
-public:
-	uint32                                        X;                                                 // 0x0000(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint32                                        Y;                                                 // 0x0004(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint32                                        Z;                                                 // 0x0008(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint32                                        W;                                                 // 0x000C(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FUintVector4;
 
 // ScriptStruct CoreUObject.Box2D
 // 0x0028 (0x0028 - 0x0000)
 struct FBox2D final
 {
 public:
-	struct FVector2D                              min_0;                                             // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              max_0;                                             // 0x0010(0x0010)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              Min;                                               // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              Max;                                               // 0x0010(0x0010)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bIsValid;                                          // 0x0020(0x0001)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FBox2D;
-
-// ScriptStruct CoreUObject.Quat4f
-// 0x0010 (0x0010 - 0x0000)
-struct alignas(0x10) FQuat4f final
-{
-public:
-	float                                         X;                                                 // 0x0000(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Y;                                                 // 0x0004(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Z;                                                 // 0x0008(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         W;                                                 // 0x000C(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FQuat4f;
 
 // ScriptStruct CoreUObject.Vector2f
 // 0x0008 (0x0008 - 0x0000)
 struct FVector2f
 {
 public:
-	float                                         X;                                                 // 0x0000(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Y;                                                 // 0x0004(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         X;                                                 // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Y;                                                 // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FVector2f;
 
@@ -1343,8 +905,8 @@ DUMPER7_ASSERTS_FVector2f;
 struct FBox2f final
 {
 public:
-	struct FVector2f                              min_0;                                             // 0x0000(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2f                              max_0;                                             // 0x0008(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2f                              Min;                                               // 0x0000(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2f                              Max;                                               // 0x0008(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bIsValid;                                          // 0x0010(0x0001)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -1366,8 +928,8 @@ DUMPER7_ASSERTS_FVector3d;
 struct FBox3d final
 {
 public:
-	struct FVector3d                              min_0;                                             // 0x0000(0x0018)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector3d                              max_0;                                             // 0x0018(0x0018)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector3d                              Min;                                               // 0x0000(0x0018)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector3d                              Max;                                               // 0x0018(0x0018)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          IsValid;                                           // 0x0030(0x0001)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -1384,37 +946,17 @@ public:
 };
 DUMPER7_ASSERTS_FVector3f;
 
-// ScriptStruct CoreUObject.Ray3f
-// 0x0018 (0x0018 - 0x0000)
-struct FRay3f final
-{
-public:
-	struct FVector3f                              Origin;                                            // 0x0000(0x000C)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector3f                              Direction;                                         // 0x000C(0x000C)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FRay3f;
-
 // ScriptStruct CoreUObject.Box3f
 // 0x001C (0x001C - 0x0000)
 struct FBox3f final
 {
 public:
-	struct FVector3f                              min_0;                                             // 0x0000(0x000C)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector3f                              max_0;                                             // 0x000C(0x000C)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector3f                              Min;                                               // 0x0000(0x000C)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector3f                              Max;                                               // 0x000C(0x000C)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          IsValid;                                           // 0x0018(0x0001)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_19[0x3];                                       // 0x0019(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FBox3f;
-
-// ScriptStruct CoreUObject.PropertyBagPropertyDescMetaData
-// 0x0018 (0x0018 - 0x0000)
-struct FPropertyBagPropertyDescMetaData final
-{
-public:
-	class FName                                   Key;                                               // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Value;                                             // 0x0008(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FPropertyBagPropertyDescMetaData;
 
 // ScriptStruct CoreUObject.BoxSphereBounds
 // 0x0038 (0x0038 - 0x0000)
@@ -1514,8 +1056,8 @@ DUMPER7_ASSERTS_FFilePath;
 struct FFloatInterval final
 {
 public:
-	float                                         min_0;                                             // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         max_0;                                             // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Min;                                               // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Max;                                               // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FFloatInterval;
 
@@ -1556,7 +1098,7 @@ struct FFrameNumberRangeBound final
 public:
 	ERangeBoundTypes                              Type;                                              // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FFrameNumber                           Value;                                             // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FFrameNumber                           Value;                                             // 0x0004(0x0004)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 };
 DUMPER7_ASSERTS_FFrameNumberRangeBound;
 
@@ -1565,8 +1107,8 @@ DUMPER7_ASSERTS_FFrameNumberRangeBound;
 struct FFrameNumberRange final
 {
 public:
-	struct FFrameNumberRangeBound                 LowerBound;                                        // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	struct FFrameNumberRangeBound                 UpperBound;                                        // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FFrameNumberRangeBound                 LowerBound;                                        // 0x0000(0x0008)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FFrameNumberRangeBound                 UpperBound;                                        // 0x0008(0x0008)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 };
 DUMPER7_ASSERTS_FFrameNumberRange;
 
@@ -1585,7 +1127,7 @@ DUMPER7_ASSERTS_FFrameRate;
 struct FFrameTime final
 {
 public:
-	struct FFrameNumber                           FrameNumber;                                       // 0x0000(0x0004)(BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FFrameNumber                           FrameNumber;                                       // 0x0000(0x0004)(BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         SubFrame;                                          // 0x0004(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 };
 DUMPER7_ASSERTS_FFrameTime;
@@ -1604,8 +1146,8 @@ DUMPER7_ASSERTS_FInputDeviceId;
 struct FInt32Interval final
 {
 public:
-	int32                                         min_0;                                             // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         max_0;                                             // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Min;                                               // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Max;                                               // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FInt32Interval;
 
@@ -1639,16 +1181,6 @@ public:
 	struct FInt32RangeBound                       UpperBound;                                        // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 };
 DUMPER7_ASSERTS_FInt32Range;
-
-// ScriptStruct CoreUObject.Int32Rect
-// 0x0010 (0x0010 - 0x0000)
-struct FInt32Rect final
-{
-public:
-	struct FInt32Point                            min_0;                                             // 0x0000(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FInt32Point                            max_0;                                             // 0x0008(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FInt32Rect;
 
 // ScriptStruct CoreUObject.Int32Vector
 // 0x000C (0x000C - 0x0000)
@@ -1692,16 +1224,6 @@ public:
 	int64                                         Y;                                                 // 0x0008(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FInt64Point;
-
-// ScriptStruct CoreUObject.Int64Rect
-// 0x0020 (0x0020 - 0x0000)
-struct FInt64Rect final
-{
-public:
-	struct FInt64Point                            min_0;                                             // 0x0000(0x0010)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FInt64Point                            max_0;                                             // 0x0010(0x0010)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FInt64Rect;
 
 // ScriptStruct CoreUObject.Int64Vector
 // 0x0018 (0x0018 - 0x0000)
@@ -1762,24 +1284,6 @@ public:
 };
 DUMPER7_ASSERTS_FInterpCurveFloat;
 
-// ScriptStruct CoreUObject.VerseSessionVar
-// 0x0020 (0x0020 - 0x0000)
-struct FVerseSessionVar final
-{
-public:
-	TFieldPath<class FMapProperty>                Property;                                          // 0x0000(0x0020)(HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FVerseSessionVar;
-
-// ScriptStruct CoreUObject.ConstSharedStruct
-// 0x0010 (0x0010 - 0x0000)
-struct alignas(0x08) FConstSharedStruct final
-{
-public:
-	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FConstSharedStruct;
-
 // ScriptStruct CoreUObject.LinearColor
 // 0x0010 (0x0010 - 0x0000)
 struct FLinearColor final
@@ -1818,63 +1322,42 @@ public:
 };
 DUMPER7_ASSERTS_FInterpCurveLinearColor;
 
-// ScriptStruct CoreUObject.PerPlatformBool
-// 0x0001 (0x0001 - 0x0000)
-struct FPerPlatformBool final
+// ScriptStruct CoreUObject.TwoVectors
+// 0x0030 (0x0030 - 0x0000)
+struct FTwoVectors final
 {
 public:
-	bool                                          Default;                                           // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                v1;                                                // 0x0000(0x0018)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                v2;                                                // 0x0018(0x0018)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FPerPlatformBool;
+DUMPER7_ASSERTS_FTwoVectors;
 
-// ScriptStruct CoreUObject.Quat4d
-// 0x0020 (0x0020 - 0x0000)
-struct alignas(0x10) FQuat4d final
+// ScriptStruct CoreUObject.InterpCurvePointTwoVectors
+// 0x00A0 (0x00A0 - 0x0000)
+struct FInterpCurvePointTwoVectors final
 {
 public:
-	double                                        X;                                                 // 0x0000(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        Y;                                                 // 0x0008(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        Z;                                                 // 0x0010(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        W;                                                 // 0x0018(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         InVal;                                             // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FTwoVectors                            OutVal;                                            // 0x0008(0x0030)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	struct FTwoVectors                            ArriveTangent;                                     // 0x0038(0x0030)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	struct FTwoVectors                            LeaveTangent;                                      // 0x0068(0x0030)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	EInterpCurveMode                              InterpMode;                                        // 0x0098(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_99[0x7];                                       // 0x0099(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FQuat4d;
+DUMPER7_ASSERTS_FInterpCurvePointTwoVectors;
 
-// ScriptStruct CoreUObject.Transform3d
-// 0x0060 (0x0060 - 0x0000)
-struct FTransform3d final
-{
-public:
-	struct FQuat4d                                Rotation;                                          // 0x0000(0x0020)(Edit, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector3d                              Translation;                                       // 0x0020(0x0018)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_38[0x8];                                       // 0x0038(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector3d                              Scale3D;                                           // 0x0040(0x0018)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_58[0x8];                                       // 0x0058(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FTransform3d;
-
-// ScriptStruct CoreUObject.InterpCurveVector
+// ScriptStruct CoreUObject.InterpCurveTwoVectors
 // 0x0018 (0x0018 - 0x0000)
-struct FInterpCurveVector final
+struct FInterpCurveTwoVectors final
 {
 public:
-	TArray<struct FInterpCurvePointVector>        Points;                                            // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FInterpCurvePointTwoVectors>    Points;                                            // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
 	bool                                          bIsLooped;                                         // 0x0010(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         LoopKeyOffset;                                     // 0x0014(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FInterpCurveVector;
-
-// ScriptStruct CoreUObject.InterpCurveVector2D
-// 0x0018 (0x0018 - 0x0000)
-struct FInterpCurveVector2D final
-{
-public:
-	TArray<struct FInterpCurvePointVector2D>      Points;                                            // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	bool                                          bIsLooped;                                         // 0x0010(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         LoopKeyOffset;                                     // 0x0014(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FInterpCurveVector2D;
+DUMPER7_ASSERTS_FInterpCurveTwoVectors;
 
 // ScriptStruct CoreUObject.IntPoint
 // 0x0008 (0x0008 - 0x0000)
@@ -1886,25 +1369,6 @@ public:
 };
 DUMPER7_ASSERTS_FIntPoint;
 
-// ScriptStruct CoreUObject.PropertyBagContainerTypes
-// 0x0003 (0x0003 - 0x0000)
-struct FPropertyBagContainerTypes final
-{
-public:
-	uint8                                         Pad_0[0x3];                                        // 0x0000(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FPropertyBagContainerTypes;
-
-// ScriptStruct CoreUObject.IntRect
-// 0x0010 (0x0010 - 0x0000)
-struct FIntRect final
-{
-public:
-	struct FIntPoint                              min_0;                                             // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FIntPoint                              max_0;                                             // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FIntRect;
-
 // ScriptStruct CoreUObject.IntVector
 // 0x000C (0x000C - 0x0000)
 struct FIntVector final
@@ -1915,17 +1379,6 @@ public:
 	int32                                         Z;                                                 // 0x0008(0x0004)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FIntVector;
-
-// ScriptStruct CoreUObject.TestInstanceDataObjectPointAlternate
-// 0x000C (0x000C - 0x0000)
-struct FTestInstanceDataObjectPointAlternate final
-{
-public:
-	int32                                         U;                                                 // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         V;                                                 // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         W;                                                 // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FTestInstanceDataObjectPointAlternate;
 
 // ScriptStruct CoreUObject.IntVector2
 // 0x0008 (0x0008 - 0x0000)
@@ -2079,59 +1532,75 @@ public:
 DUMPER7_ASSERTS_FPlatformInputDeviceState;
 
 // ScriptStruct CoreUObject.PolyglotTextData
-// 0x00B0 (0x00B0 - 0x0000)
+// 0x00B8 (0x00B8 - 0x0000)
 struct FPolyglotTextData final
 {
 public:
 	ELocalizedTextSourceCategory                  Category;                                          // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	class FString                                 NativeCulture;                                     // 0x0008(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 NameSpace;                                         // 0x0018(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Namespace;                                         // 0x0018(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 Key;                                               // 0x0028(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 NativeString;                                      // 0x0038(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TMap<class FString, class FString>            LocalizedStrings;                                  // 0x0048(0x0050)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	bool                                          bIsMinimalPatch;                                   // 0x0098(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_99[0x7];                                       // 0x0099(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FText                                   CachedText;                                        // 0x00A0(0x0010)(Transient, NativeAccessSpecifierPublic)
+	class FText                                   CachedText;                                        // 0x00A0(0x0018)(Transient, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FPolyglotTextData;
 
-// ScriptStruct CoreUObject.PrimalPODVariant
+// ScriptStruct CoreUObject.PrimaryAssetType
+// 0x0008 (0x0008 - 0x0000)
+struct FPrimaryAssetType final
+{
+public:
+	class FName                                   Name;                                              // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FPrimaryAssetType;
+
+// ScriptStruct CoreUObject.PrimaryAssetId
 // 0x0010 (0x0010 - 0x0000)
-struct alignas(0x08) FPrimalPODVariant final
+struct FPrimaryAssetId final
 {
 public:
-	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FPrimaryAssetType                      PrimaryAssetType;                                  // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   PrimaryAssetName;                                  // 0x0008(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FPrimalPODVariant;
-
-// ScriptStruct CoreUObject.PrimalPropertyBag
-// 0x0050 (0x0050 - 0x0000)
-struct alignas(0x08) FPrimalPropertyBag final
-{
-public:
-	uint8                                         Pad_0[0x50];                                       // 0x0000(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FPrimalPropertyBag;
-
-// ScriptStruct CoreUObject.PrimalVariant
-// 0x0028 (0x0028 - 0x0000)
-struct alignas(0x08) FPrimalVariant final
-{
-public:
-	uint8                                         Pad_0[0x28];                                       // 0x0000(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FPrimalVariant;
+DUMPER7_ASSERTS_FPrimaryAssetId;
 
 // ScriptStruct CoreUObject.QualifiedFrameTime
 // 0x0010 (0x0010 - 0x0000)
 struct FQualifiedFrameTime final
 {
 public:
-	struct FFrameTime                             Time;                                              // 0x0000(0x0008)(BlueprintVisible, ZeroConstructor, NoDestructor, NativeAccessSpecifierPublic)
-	struct FFrameRate                             Rate;                                              // 0x0008(0x0008)(BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FFrameTime                             Time;                                              // 0x0000(0x0008)(BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FFrameRate                             Rate;                                              // 0x0008(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FQualifiedFrameTime;
+
+// ScriptStruct CoreUObject.Quat4d
+// 0x0020 (0x0020 - 0x0000)
+struct alignas(0x10) FQuat4d final
+{
+public:
+	double                                        X;                                                 // 0x0000(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        Y;                                                 // 0x0008(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        Z;                                                 // 0x0010(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        W;                                                 // 0x0018(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FQuat4d;
+
+// ScriptStruct CoreUObject.Quat4f
+// 0x0010 (0x0010 - 0x0000)
+struct alignas(0x10) FQuat4f final
+{
+public:
+	float                                         X;                                                 // 0x0000(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Y;                                                 // 0x0004(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Z;                                                 // 0x0008(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         W;                                                 // 0x000C(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FQuat4f;
 
 // ScriptStruct CoreUObject.RandomStream
 // 0x0008 (0x0008 - 0x0000)
@@ -2162,6 +1631,16 @@ public:
 	struct FVector3d                              Direction;                                         // 0x0018(0x0018)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FRay3d;
+
+// ScriptStruct CoreUObject.Ray3f
+// 0x0018 (0x0018 - 0x0000)
+struct FRay3f final
+{
+public:
+	struct FVector3f                              Origin;                                            // 0x0000(0x000C)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector3f                              Direction;                                         // 0x000C(0x000C)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FRay3f;
 
 // ScriptStruct CoreUObject.Rotator
 // 0x0018 (0x0018 - 0x0000)
@@ -2381,41 +1860,20 @@ public:
 };
 DUMPER7_ASSERTS_FTemplateString;
 
-// ScriptStruct CoreUObject.TestUndeclaredScriptStructObjectReferencesTest
-// 0x0058 (0x0058 - 0x0000)
-struct FTestUndeclaredScriptStructObjectReferencesTest final
-{
-public:
-	class UObject*                                StrongObjectPointer;                               // 0x0000(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TSoftObjectPtr<class UObject>                 SoftObjectPointer;                                 // 0x0008(0x0028)(Transient, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FSoftObjectPath                        SoftObjectPath;                                    // 0x0030(0x0020)(ZeroConstructor, Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TWeakObjectPtr<class UObject>                 WeakObjectPointer;                                 // 0x0050(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FTestUndeclaredScriptStructObjectReferencesTest;
-
 // ScriptStruct CoreUObject.TestUninitializedScriptStructMembersTest
 // 0x0018 (0x0018 - 0x0000)
 struct FTestUninitializedScriptStructMembersTest final
 {
 public:
-	class UObject*                                UninitializedObjectReference;                      // 0x0000(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UObject*                                InitializedObjectReference;                        // 0x0008(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UObject*                                UninitializedObjectReference;                      // 0x0000(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                InitializedObjectReference;                        // 0x0008(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         UnusedValue;                                       // 0x0010(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FTestUninitializedScriptStructMembersTest;
 
-// ScriptStruct CoreUObject.PerPlatformFrameRate
-// 0x0008 (0x0008 - 0x0000)
-struct FPerPlatformFrameRate final
-{
-public:
-	struct FFrameRate                             Default;                                           // 0x0000(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FPerPlatformFrameRate;
-
 // ScriptStruct CoreUObject.Timecode
-// 0x0018 (0x0018 - 0x0000)
+// 0x0014 (0x0014 - 0x0000)
 struct FTimecode final
 {
 public:
@@ -2423,18 +1881,17 @@ public:
 	int32                                         Minutes;                                           // 0x0004(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         Seconds;                                           // 0x0008(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         Frames;                                            // 0x000C(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SubFrame;                                          // 0x0010(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDropFrameFormat;                                  // 0x0014(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_15[0x3];                                       // 0x0015(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bDropFrameFormat;                                  // 0x0010(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FTimecode;
 
 // ScriptStruct CoreUObject.Timespan
 // 0x0008 (0x0008 - 0x0000)
-struct FTimespan final
+struct alignas(0x08) FTimespan final
 {
 public:
-	int64                                         Ticks;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FTimespan;
 
@@ -2450,6 +1907,19 @@ public:
 	uint8                                         Pad_58[0x8];                                       // 0x0058(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FTransform;
+
+// ScriptStruct CoreUObject.Transform3d
+// 0x0060 (0x0060 - 0x0000)
+struct FTransform3d final
+{
+public:
+	struct FQuat4d                                Rotation;                                          // 0x0000(0x0020)(Edit, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector3d                              Translation;                                       // 0x0020(0x0018)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_38[0x8];                                       // 0x0038(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector3d                              Scale3D;                                           // 0x0040(0x0018)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_58[0x8];                                       // 0x0058(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FTransform3d;
 
 // ScriptStruct CoreUObject.Transform3f
 // 0x0030 (0x0030 - 0x0000)
@@ -2473,16 +1943,6 @@ public:
 	int32                                         Y;                                                 // 0x0004(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FUint32Point;
-
-// ScriptStruct CoreUObject.Uint32Rect
-// 0x0010 (0x0010 - 0x0000)
-struct FUint32Rect final
-{
-public:
-	struct FUint32Point                           min_0;                                             // 0x0000(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FUint32Point                           max_0;                                             // 0x0008(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FUint32Rect;
 
 // ScriptStruct CoreUObject.Uint32Vector
 // 0x000C (0x000C - 0x0000)
@@ -2516,6 +1976,16 @@ public:
 	uint32                                        W;                                                 // 0x000C(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FUint32Vector4;
+
+// ScriptStruct CoreUObject.Uint64Point
+// 0x0010 (0x0010 - 0x0000)
+struct FUint64Point final
+{
+public:
+	int64                                         X;                                                 // 0x0000(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int64                                         Y;                                                 // 0x0008(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FUint64Point;
 
 // ScriptStruct CoreUObject.Uint64Vector
 // 0x0018 (0x0018 - 0x0000)
@@ -2560,16 +2030,6 @@ public:
 };
 DUMPER7_ASSERTS_FUintPoint;
 
-// ScriptStruct CoreUObject.UintRect
-// 0x0010 (0x0010 - 0x0000)
-struct FUintRect final
-{
-public:
-	struct FUintPoint                             min_0;                                             // 0x0000(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FUintPoint                             max_0;                                             // 0x0008(0x0008)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FUintRect;
-
 // ScriptStruct CoreUObject.UintVector
 // 0x000C (0x000C - 0x0000)
 struct FUintVector final
@@ -2590,6 +2050,18 @@ public:
 	uint32                                        Y;                                                 // 0x0004(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FUintVector2;
+
+// ScriptStruct CoreUObject.UintVector4
+// 0x0010 (0x0010 - 0x0000)
+struct FUintVector4 final
+{
+public:
+	uint32                                        X;                                                 // 0x0000(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint32                                        Y;                                                 // 0x0004(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint32                                        Z;                                                 // 0x0008(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint32                                        W;                                                 // 0x000C(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FUintVector4;
 
 // ScriptStruct CoreUObject.Vector4
 // 0x0020 (0x0020 - 0x0000)
@@ -2626,251 +2098,5 @@ public:
 	float                                         W;                                                 // 0x000C(0x0004)(Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FVector4f;
-
-// ScriptStruct CoreUObject.TestInstanceDataObjectPoint
-// 0x0010 (0x0010 - 0x0000)
-struct FTestInstanceDataObjectPoint final
-{
-public:
-	int32                                         X;                                                 // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         Y;                                                 // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         Z;                                                 // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         W;                                                 // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FTestInstanceDataObjectPoint;
-
-// ScriptStruct CoreUObject.TestInstanceDataObjectStruct
-// 0x0030 (0x0030 - 0x0000)
-struct FTestInstanceDataObjectStruct final
-{
-public:
-	int32                                         A;                                                 // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         B;                                                 // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         C;                                                 // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         D;                                                 // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectBird                   Bird;                                              // 0x0010(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectGrain                  Grain;                                             // 0x0011(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectFruit                  Fruit;                                             // 0x0012(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_13[0x1];                                       // 0x0013(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	ETestInstanceDataObjectDirection              Direction;                                         // 0x0014(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectFullFlags              FullFlags;                                         // 0x0016(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectGrain                  GrainFromEnumClass;                                // 0x0017(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectFruit                  FruitFromNamespace;                                // 0x0018(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectGrain                  GrainTypeChange;                                   // 0x0019(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectFruit                  FruitTypeChange;                                   // 0x001A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectGrain                  GrainTypeAndPropertyChange;                        // 0x001B(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectFruit                  FruitTypeAndPropertyChange;                        // 0x001C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FTestInstanceDataObjectPoint           Point;                                             // 0x0020(0x0010)(NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FTestInstanceDataObjectStruct;
-
-// ScriptStruct CoreUObject.TestInstanceDataObjectStructAlternate
-// 0x0038 (0x0038 - 0x0000)
-struct FTestInstanceDataObjectStructAlternate final
-{
-public:
-	float                                         B;                                                 // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	int64                                         C;                                                 // 0x0008(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         D;                                                 // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         E;                                                 // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectBird                   Bird;                                              // 0x0018(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectGrainAlternate         Grain;                                             // 0x0019(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectFruitAlternate         Fruit;                                             // 0x001A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1B[0x1];                                       // 0x001B(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	ETestInstanceDataObjectDirectionAlternate     Direction;                                         // 0x001C(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectGrainAlternateEnumClass GrainFromEnumClass;                               // 0x001E(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectFruitAlternateNamespace FruitFromNamespace;                               // 0x001F(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectGrainAlternate         GrainTypeChange;                                   // 0x0020(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectFruitAlternate         FruitTypeChange;                                   // 0x0021(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectGrainAlternateEnumClass GrainTypeAndPropertyChange;                       // 0x0022(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectFruitAlternateNamespace FruitTypeAndPropertyChange;                       // 0x0023(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectGrainAlternate         DeletedGrain;                                      // 0x0024(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectFruitAlternate         DeletedFruit;                                      // 0x0025(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETestInstanceDataObjectDirectionAlternate     DeletedDirection;                                  // 0x0026(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FTestInstanceDataObjectPointAlternate  Point;                                             // 0x0028(0x000C)(NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_34[0x4];                                       // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FTestInstanceDataObjectStructAlternate;
-
-// ScriptStruct CoreUObject.OverriddenPropertyNodeID
-// 0x0010 (0x0010 - 0x0000)
-struct FOverriddenPropertyNodeID final
-{
-public:
-	class FName                                   Path;                                              // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UObject*                                Object;                                            // 0x0008(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FOverriddenPropertyNodeID;
-
-// ScriptStruct CoreUObject.OverriddenPropertyNode
-// 0x0068 (0x0068 - 0x0000)
-struct FOverriddenPropertyNode final
-{
-public:
-	struct FOverriddenPropertyNodeID              NodeID;                                            // 0x0000(0x0010)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EOverriddenPropertyOperation                  Operation;                                         // 0x0010(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TMap<struct FOverriddenPropertyNodeID, struct FOverriddenPropertyNodeID> SubPropertyNodeKeys;    // 0x0018(0x0050)(NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FOverriddenPropertyNode;
-
-// ScriptStruct CoreUObject.OverriddenPropertySet
-// 0x0060 (0x0060 - 0x0000)
-struct FOverriddenPropertySet final
-{
-public:
-	class UObject*                                Owner;                                             // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	TSet<struct FOverriddenPropertyNode>          OverriddenPropertyNodes;                           // 0x0008(0x0050)(NativeAccessSpecifierPrivate)
-	uint8                                         Pad_58[0x8];                                       // 0x0058(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FOverriddenPropertySet;
-
-// ScriptStruct CoreUObject.PropertyTextFName
-// 0x0018 (0x0018 - 0x0000)
-struct alignas(0x08) FPropertyTextFName final
-{
-public:
-	uint8                                         Pad_0[0x18];                                       // 0x0000(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FPropertyTextFName;
-
-// ScriptStruct CoreUObject.PropertyTextString
-// 0x0020 (0x0020 - 0x0000)
-struct alignas(0x08) FPropertyTextString final
-{
-public:
-	uint8                                         Pad_0[0x20];                                       // 0x0000(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FPropertyTextString;
-
-// ScriptStruct CoreUObject.InstancedStructContainer
-// 0x0010 (0x0010 - 0x0000)
-struct alignas(0x08) FInstancedStructContainer final
-{
-public:
-	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FInstancedStructContainer;
-
-// ScriptStruct CoreUObject.PropertyBagPropertyDesc
-// 0x0030 (0x0030 - 0x0000)
-struct FPropertyBagPropertyDesc final
-{
-public:
-	class UObject*                                ValueTypeObject;                                   // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	struct FGuid                                  ID;                                                // 0x0008(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   Name;                                              // 0x0018(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPropertyBagPropertyType                      ValueType;                                         // 0x0020(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FPropertyBagContainerTypes             ContainerTypes;                                    // 0x0021(0x0003)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_24[0xC];                                       // 0x0024(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FPropertyBagPropertyDesc;
-
-// ScriptStruct CoreUObject.PropertyBagMissingStruct
-// 0x0001 (0x0001 - 0x0000)
-struct FPropertyBagMissingStruct final
-{
-public:
-	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FPropertyBagMissingStruct;
-
-// ScriptStruct CoreUObject.SharedStruct
-// 0x0010 (0x0010 - 0x0000)
-struct alignas(0x08) FSharedStruct final
-{
-public:
-	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FSharedStruct;
-
-// ScriptStruct CoreUObject.ObjectCookedMetaDataStore
-// 0x0050 (0x0050 - 0x0000)
-struct FObjectCookedMetaDataStore final
-{
-public:
-	TMap<class FName, class FString>              ObjectMetaData;                                    // 0x0000(0x0050)(NativeAccessSpecifierPrivate)
-};
-DUMPER7_ASSERTS_FObjectCookedMetaDataStore;
-
-// ScriptStruct CoreUObject.FieldCookedMetaDataStore
-// 0x0050 (0x0050 - 0x0000)
-struct FFieldCookedMetaDataStore final
-{
-public:
-	TMap<class FName, class FString>              FieldMetaData;                                     // 0x0000(0x0050)(NativeAccessSpecifierPrivate)
-};
-DUMPER7_ASSERTS_FFieldCookedMetaDataStore;
-
-// ScriptStruct CoreUObject.StructCookedMetaDataStore
-// 0x00A0 (0x00A0 - 0x0000)
-struct FStructCookedMetaDataStore final
-{
-public:
-	struct FObjectCookedMetaDataStore             ObjectMetaData;                                    // 0x0000(0x0050)(NativeAccessSpecifierPrivate)
-	TMap<class FName, struct FFieldCookedMetaDataStore> PropertiesMetaData;                          // 0x0050(0x0050)(NativeAccessSpecifierPrivate)
-};
-DUMPER7_ASSERTS_FStructCookedMetaDataStore;
-
-// ScriptStruct CoreUObject.PerPlatformInt
-// 0x0004 (0x0004 - 0x0000)
-struct FPerPlatformInt final
-{
-public:
-	int32                                         Default;                                           // 0x0000(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FPerPlatformInt;
-
-// ScriptStruct CoreUObject.FreezablePerPlatformInt
-// 0x0004 (0x0004 - 0x0000)
-struct alignas(0x04) FFreezablePerPlatformInt final
-{
-public:
-	uint8                                         Pad_0[0x4];                                        // 0x0000(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FFreezablePerPlatformInt;
-
-// ScriptStruct CoreUObject.PerPlatformFloat
-// 0x0004 (0x0004 - 0x0000)
-struct FPerPlatformFloat final
-{
-public:
-	float                                         Default;                                           // 0x0000(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FPerPlatformFloat;
-
-// ScriptStruct CoreUObject.VersePersistentVar
-// 0x0030 (0x0030 - 0x0000)
-struct FVersePersistentVar final
-{
-public:
-	class FString                                 Path;                                              // 0x0000(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TFieldPath<class FMapProperty>                Property;                                          // 0x0010(0x0020)(HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FVersePersistentVar;
-
-// ScriptStruct CoreUObject.VerseClassVarAccessor
-// 0x0010 (0x0010 - 0x0000)
-struct FVerseClassVarAccessor final
-{
-public:
-	class UFunction*                              Func;                                              // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	bool                                          bIsInstanceMember;                                 // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsFallible;                                       // 0x0009(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_A[0x6];                                        // 0x000A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FVerseClassVarAccessor;
-
-// ScriptStruct CoreUObject.VerseClassVarAccessors
-// 0x00A0 (0x00A0 - 0x0000)
-struct FVerseClassVarAccessors final
-{
-public:
-	TMap<int32, struct FVerseClassVarAccessor>    Getters;                                           // 0x0000(0x0050)(NativeAccessSpecifierPublic)
-	TMap<int32, struct FVerseClassVarAccessor>    Setters;                                           // 0x0050(0x0050)(NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FVerseClassVarAccessors;
 
 SDK_NAMESPACE_END

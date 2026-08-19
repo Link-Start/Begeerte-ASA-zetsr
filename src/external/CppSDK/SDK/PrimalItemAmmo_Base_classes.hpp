@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemAmmo_Base.PrimalItemAmmo_Base_C
-// 0x0000 (0x0B90 - 0x0B90)
+// 0x0000 (0x1170 - 0x1170)
 class UPrimalItemAmmo_Base_C : public UPrimalItem_Base_C
 {
 public:

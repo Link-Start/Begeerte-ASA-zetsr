@@ -174,113 +174,6 @@ class FString USentryAttachment::GetPath() const
 }
 
 
-// Function Sentry.SentryBeforeBreadcrumbHandler.HandleBeforeBreadcrumb
-// (Native, Event, Public, BlueprintEvent)
-// Parameters:
-// class USentryBreadcrumb*                Breadcrumb                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class USentryHint*                      Hint                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class USentryBreadcrumb*                ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class USentryBreadcrumb* USentryBeforeBreadcrumbHandler::HandleBeforeBreadcrumb(class USentryBreadcrumb* Breadcrumb, class USentryHint* Hint)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryBeforeBreadcrumbHandler", "HandleBeforeBreadcrumb");
-
-	Params::SentryBeforeBreadcrumbHandler_HandleBeforeBreadcrumb Parms{};
-
-	Parms.Breadcrumb = Breadcrumb;
-	Parms.Hint = Hint;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryBeforeLogHandler.HandleBeforeLog
-// (Native, Event, Public, BlueprintEvent)
-// Parameters:
-// class USentryLog*                       LogData                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class USentryLog*                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class USentryLog* USentryBeforeLogHandler::HandleBeforeLog(class USentryLog* LogData)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryBeforeLogHandler", "HandleBeforeLog");
-
-	Params::SentryBeforeLogHandler_HandleBeforeLog Parms{};
-
-	Parms.LogData = LogData;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryBeforeSendHandler.HandleBeforeSend
-// (Native, Event, Public, BlueprintEvent)
-// Parameters:
-// class USentryEvent*                     Event                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class USentryHint*                      Hint                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class USentryEvent*                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class USentryEvent* USentryBeforeSendHandler::HandleBeforeSend(class USentryEvent* Event, class USentryHint* Hint)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryBeforeSendHandler", "HandleBeforeSend");
-
-	Params::SentryBeforeSendHandler_HandleBeforeSend Parms{};
-
-	Parms.Event = Event;
-	Parms.Hint = Hint;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryBreadcrumb.Initialize
-// (Final, Native, Public, BlueprintCallable)
-
-void USentryBreadcrumb::Initialize()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryBreadcrumb", "Initialize");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Sentry.SentryBreadcrumb.SetCategory
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -309,9 +202,9 @@ void USentryBreadcrumb::SetCategory(const class FString& Category)
 // Function Sentry.SentryBreadcrumb.SetData
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// const TMap<class FString, struct FSentryVariant>&Data                                                   (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// const TMap<class FString, class FString>&Data                                                   (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
-void USentryBreadcrumb::SetData(const TMap<class FString, struct FSentryVariant>& Data)
+void USentryBreadcrumb::SetData(const TMap<class FString, class FString>& Data)
 {
 	static class UFunction* Func = nullptr;
 
@@ -434,9 +327,9 @@ class FString USentryBreadcrumb::GetCategory() const
 // Function Sentry.SentryBreadcrumb.GetData
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// TMap<class FString, struct FSentryVariant>ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+// TMap<class FString, class FString>      ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
-TMap<class FString, struct FSentryVariant> USentryBreadcrumb::GetData() const
+TMap<class FString, class FString> USentryBreadcrumb::GetData() const
 {
 	static class UFunction* Func = nullptr;
 
@@ -531,204 +424,6 @@ class FString USentryBreadcrumb::GetType() const
 }
 
 
-// Function Sentry.SentryEvent.Initialize
-// (Final, Native, Public, BlueprintCallable)
-
-void USentryEvent::Initialize()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "Initialize");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryEvent.RemoveContext
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryEvent::RemoveContext(const class FString& Key)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "RemoveContext");
-
-	Params::SentryEvent_RemoveContext Parms{};
-
-	Parms.Key = std::move(Key);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryEvent.RemoveExtra
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryEvent::RemoveExtra(const class FString& Key)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "RemoveExtra");
-
-	Params::SentryEvent_RemoveExtra Parms{};
-
-	Parms.Key = std::move(Key);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryEvent.RemoveTag
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryEvent::RemoveTag(const class FString& Key)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "RemoveTag");
-
-	Params::SentryEvent_RemoveTag Parms{};
-
-	Parms.Key = std::move(Key);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryEvent.SetContext
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const TMap<class FString, struct FSentryVariant>&Values                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void USentryEvent::SetContext(const class FString& Key, const TMap<class FString, struct FSentryVariant>& Values)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "SetContext");
-
-	Params::SentryEvent_SetContext Parms{};
-
-	Parms.Key = std::move(Key);
-	Parms.Values = std::move(Values);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryEvent.SetExtra
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FSentryVariant&            Value                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void USentryEvent::SetExtra(const class FString& Key, const struct FSentryVariant& Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "SetExtra");
-
-	Params::SentryEvent_SetExtra Parms{};
-
-	Parms.Key = std::move(Key);
-	Parms.Value = std::move(Value);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryEvent.SetExtras
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const TMap<class FString, struct FSentryVariant>&Extras                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void USentryEvent::SetExtras(const TMap<class FString, struct FSentryVariant>& Extras)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "SetExtras");
-
-	Params::SentryEvent_SetExtras Parms{};
-
-	Parms.Extras = std::move(Extras);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryEvent.SetFingerprint
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const TArray<class FString>&            fingerprint                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-
-void USentryEvent::SetFingerprint(const TArray<class FString>& fingerprint)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "SetFingerprint");
-
-	Params::SentryEvent_SetFingerprint Parms{};
-
-	Parms.fingerprint = std::move(fingerprint);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Sentry.SentryEvent.SetLevel
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -776,189 +471,6 @@ void USentryEvent::SetMessage(const class FString& Message)
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryEvent.SetTag
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Value                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryEvent::SetTag(const class FString& Key, const class FString& Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "SetTag");
-
-	Params::SentryEvent_SetTag Parms{};
-
-	Parms.Key = std::move(Key);
-	Parms.Value = std::move(Value);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryEvent.SetTags
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const TMap<class FString, class FString>&Tags                                                   (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void USentryEvent::SetTags(const TMap<class FString, class FString>& Tags)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "SetTags");
-
-	Params::SentryEvent_SetTags Parms{};
-
-	Parms.Tags = std::move(Tags);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryEvent.GetContext
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TMap<class FString, struct FSentryVariant>ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-TMap<class FString, struct FSentryVariant> USentryEvent::GetContext(const class FString& Key) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "GetContext");
-
-	Params::SentryEvent_GetContext Parms{};
-
-	Parms.Key = std::move(Key);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryEvent.GetExtra
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FSentryVariant                   ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-struct FSentryVariant USentryEvent::GetExtra(const class FString& Key) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "GetExtra");
-
-	Params::SentryEvent_GetExtra Parms{};
-
-	Parms.Key = std::move(Key);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryEvent.GetExtras
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// TMap<class FString, struct FSentryVariant>ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-TMap<class FString, struct FSentryVariant> USentryEvent::GetExtras() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "GetExtras");
-
-	Params::SentryEvent_GetExtras Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryEvent.GetFingerprint
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// TArray<class FString>                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-
-TArray<class FString> USentryEvent::GetFingerprint() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "GetFingerprint");
-
-	Params::SentryEvent_GetFingerprint Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryEvent.GetId
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class FString USentryEvent::GetId() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "GetId");
-
-	Params::SentryEvent_GetId Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
@@ -1012,318 +524,19 @@ class FString USentryEvent::GetMessage() const
 }
 
 
-// Function Sentry.SentryEvent.GetTag
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class FString USentryEvent::GetTag(const class FString& Key) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "GetTag");
-
-	Params::SentryEvent_GetTag Parms{};
-
-	Parms.Key = std::move(Key);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryEvent.GetTags
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// TMap<class FString, class FString>      ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-TMap<class FString, class FString> USentryEvent::GetTags() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "GetTags");
-
-	Params::SentryEvent_GetTags Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryEvent.IsAnr
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentryEvent::IsAnr() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "IsAnr");
-
-	Params::SentryEvent_IsAnr Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryEvent.IsCrash
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentryEvent::IsCrash() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "IsCrash");
-
-	Params::SentryEvent_IsCrash Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryEvent.TryGetContext
-// (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TMap<class FString, struct FSentryVariant>*Value                                                  (Parm, OutParm, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentryEvent::TryGetContext(const class FString& Key, TMap<class FString, struct FSentryVariant>* Value) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "TryGetContext");
-
-	Params::SentryEvent_TryGetContext Parms{};
-
-	Parms.Key = std::move(Key);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Value != nullptr)
-		*Value = std::move(Parms.Value);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryEvent.TryGetExtra
-// (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FSentryVariant*                  Value                                                  (Parm, OutParm, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentryEvent::TryGetExtra(const class FString& Key, struct FSentryVariant* Value) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "TryGetExtra");
-
-	Params::SentryEvent_TryGetExtra Parms{};
-
-	Parms.Key = std::move(Key);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Value != nullptr)
-		*Value = std::move(Parms.Value);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryEvent.TryGetTag
-// (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString*                          Value                                                  (Parm, OutParm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentryEvent::TryGetTag(const class FString& Key, class FString* Value) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryEvent", "TryGetTag");
-
-	Params::SentryEvent_TryGetTag Parms{};
-
-	Parms.Key = std::move(Key);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Value != nullptr)
-		*Value = std::move(Parms.Value);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryFeedback.Initialize
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryFeedback::Initialize(const class FString& Message)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryFeedback", "Initialize");
-
-	Params::SentryFeedback_Initialize Parms{};
-
-	Parms.Message = std::move(Message);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryFeedback.SetAssociatedEvent
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    EventId                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryFeedback::SetAssociatedEvent(const class FString& EventId)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryFeedback", "SetAssociatedEvent");
-
-	Params::SentryFeedback_SetAssociatedEvent Parms{};
-
-	Parms.EventId = std::move(EventId);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryFeedback.SetContactEmail
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    email                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryFeedback::SetContactEmail(const class FString& email)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryFeedback", "SetContactEmail");
-
-	Params::SentryFeedback_SetContactEmail Parms{};
-
-	Parms.email = std::move(email);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryFeedback.SetName
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Name_0                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryFeedback::SetName(const class FString& Name_0)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryFeedback", "SetName");
-
-	Params::SentryFeedback_SetName Parms{};
-
-	Parms.Name_0 = std::move(Name_0);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryFeedback.GetAssociatedEvent
+// Function Sentry.SentryId.ToString
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FString USentryFeedback::GetAssociatedEvent() const
+class FString USentryId::ToString() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("SentryFeedback", "GetAssociatedEvent");
+		Func = Class->GetFunction("SentryId", "ToString");
 
-	Params::SentryFeedback_GetAssociatedEvent Parms{};
+	Params::SentryId_ToString Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1333,125 +546,6 @@ class FString USentryFeedback::GetAssociatedEvent() const
 	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryFeedback.GetContactEmail
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class FString USentryFeedback::GetContactEmail() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryFeedback", "GetContactEmail");
-
-	Params::SentryFeedback_GetContactEmail Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryFeedback.GetMessage
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class FString USentryFeedback::GetMessage() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryFeedback", "GetMessage");
-
-	Params::SentryFeedback_GetMessage Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryFeedback.GetName
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class FString USentryFeedback::GetName() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryFeedback", "GetName");
-
-	Params::SentryFeedback_GetName Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryHint.AddAttachment
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class USentryAttachment*                Attachment                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryHint::AddAttachment(class USentryAttachment* Attachment)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryHint", "AddAttachment");
-
-	Params::SentryHint_AddAttachment Parms{};
-
-	Parms.Attachment = Attachment;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryHint.Initialize
-// (Final, Native, Public, BlueprintCallable)
-
-void USentryHint::Initialize()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryHint", "Initialize");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
 }
 
 
@@ -1553,11 +647,11 @@ class USentryAttachment* USentryLibrary::CreateSentryAttachmentWithPath(const cl
 // const class FString&                    Message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    Type                                                   (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    Category                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const TMap<class FString, struct FSentryVariant>&Data                                                   (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// const TMap<class FString, class FString>&Data                                                   (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // ESentryLevel                            Level                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class USentryBreadcrumb*                ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class USentryBreadcrumb* USentryLibrary::CreateSentryBreadcrumb(const class FString& Message, const class FString& Type, const class FString& Category, const TMap<class FString, struct FSentryVariant>& Data, ESentryLevel Level)
+class USentryBreadcrumb* USentryLibrary::CreateSentryBreadcrumb(const class FString& Message, const class FString& Type, const class FString& Category, const TMap<class FString, class FString>& Data, ESentryLevel Level)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1613,81 +707,17 @@ class USentryEvent* USentryLibrary::CreateSentryEvent(const class FString& Messa
 }
 
 
-// Function Sentry.SentryLibrary.CreateSentryFeedback
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Name_0                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    email                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    EventId                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class USentryFeedback*                  ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class USentryFeedback* USentryLibrary::CreateSentryFeedback(const class FString& Message, const class FString& Name_0, const class FString& email, const class FString& EventId)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryLibrary", "CreateSentryFeedback");
-
-	Params::SentryLibrary_CreateSentryFeedback Parms{};
-
-	Parms.Message = std::move(Message);
-	Parms.Name_0 = std::move(Name_0);
-	Parms.email = std::move(email);
-	Parms.EventId = std::move(EventId);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryLibrary.CreateSentryTransactionContext
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Name_0                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Operation                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class USentryTransactionContext*        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class USentryTransactionContext* USentryLibrary::CreateSentryTransactionContext(const class FString& Name_0, const class FString& Operation)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryLibrary", "CreateSentryTransactionContext");
-
-	Params::SentryLibrary_CreateSentryTransactionContext Parms{};
-
-	Parms.Name_0 = std::move(Name_0);
-	Parms.Operation = std::move(Operation);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function Sentry.SentryLibrary.CreateSentryUser
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // const class FString&                    email                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    ID                                                     (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Username                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class FString&                    username                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    IpAddress                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const TMap<class FString, class FString>&Data                                                   (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // class USentryUser*                      ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class USentryUser* USentryLibrary::CreateSentryUser(const class FString& email, const class FString& ID, const class FString& Username, const class FString& IpAddress, const TMap<class FString, class FString>& Data)
+class USentryUser* USentryLibrary::CreateSentryUser(const class FString& email, const class FString& ID, const class FString& username, const class FString& IpAddress, const TMap<class FString, class FString>& Data)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1698,9 +728,43 @@ class USentryUser* USentryLibrary::CreateSentryUser(const class FString& email, 
 
 	Parms.email = std::move(email);
 	Parms.ID = std::move(ID);
-	Parms.Username = std::move(Username);
+	Parms.username = std::move(username);
 	Parms.IpAddress = std::move(IpAddress);
 	Parms.Data = std::move(Data);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Sentry.SentryLibrary.CreateSentryUserFeedback
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class USentryId*                        EventId                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class FString&                    Name_0                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class FString&                    email                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class FString&                    Comments                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class USentryUserFeedback*              ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class USentryUserFeedback* USentryLibrary::CreateSentryUserFeedback(class USentryId* EventId, const class FString& Name_0, const class FString& email, const class FString& Comments)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("SentryLibrary", "CreateSentryUserFeedback");
+
+	Params::SentryLibrary_CreateSentryUserFeedback Parms{};
+
+	Parms.EventId = EventId;
+	Parms.Name_0 = std::move(Name_0);
+	Parms.email = std::move(email);
+	Parms.Comments = std::move(Comments);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1764,175 +828,6 @@ TArray<uint8> USentryLibrary::StringToBytesArray(const class FString& InString)
 	Func->FunctionFlags |= 0x400;
 
 	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryLog.Initialize
-// (Final, Native, Public, BlueprintCallable)
-
-void USentryLog::Initialize()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryLog", "Initialize");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryLog.SetBody
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Body_0                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryLog::SetBody(const class FString& Body_0)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryLog", "SetBody");
-
-	Params::SentryLog_SetBody Parms{};
-
-	Parms.Body_0 = std::move(Body_0);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryLog.SetLevel
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// ESentryLevel                            Level_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryLog::SetLevel(ESentryLevel Level_0)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryLog", "SetLevel");
-
-	Params::SentryLog_SetLevel Parms{};
-
-	Parms.Level_0 = Level_0;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryLog.GetBody
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class FString USentryLog::GetBody() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryLog", "GetBody");
-
-	Params::SentryLog_GetBody Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryLog.GetLevel
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// ESentryLevel                            ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-ESentryLevel USentryLog::GetLevel() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryLog", "GetLevel");
-
-	Params::SentryLog_GetLevel Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentrySamplingContext.GetCustomSamplingContext
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// TMap<class FString, struct FSentryVariant>ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-TMap<class FString, struct FSentryVariant> USentrySamplingContext::GetCustomSamplingContext() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySamplingContext", "GetCustomSamplingContext");
-
-	Params::SentrySamplingContext_GetCustomSamplingContext Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentrySamplingContext.GetTransactionContext
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class USentryTransactionContext*        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class USentryTransactionContext* USentrySamplingContext::GetTransactionContext() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySamplingContext", "GetTransactionContext");
-
-	Params::SentrySamplingContext_GetTransactionContext Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 
@@ -2047,25 +942,6 @@ void USentryScope::ClearBreadcrumbs()
 }
 
 
-// Function Sentry.SentryScope.Initialize
-// (Final, Native, Public, BlueprintCallable)
-
-void USentryScope::Initialize()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryScope", "Initialize");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Sentry.SentryScope.RemoveContext
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -2145,9 +1021,9 @@ void USentryScope::RemoveTag(const class FString& Key)
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const TMap<class FString, struct FSentryVariant>&Values                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// const TMap<class FString, class FString>&Values                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
-void USentryScope::SetContext(const class FString& Key, const TMap<class FString, struct FSentryVariant>& Values)
+void USentryScope::SetContext(const class FString& Key, const TMap<class FString, class FString>& Values)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2168,23 +1044,46 @@ void USentryScope::SetContext(const class FString& Key, const TMap<class FString
 }
 
 
-// Function Sentry.SentryScope.SetExtra
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Function Sentry.SentryScope.SetDist
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FSentryVariant&            Value                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// const class FString&                    Dist                                                   (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USentryScope::SetExtra(const class FString& Key, const struct FSentryVariant& Value)
+void USentryScope::SetDist(const class FString& Dist)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("SentryScope", "SetExtra");
+		Func = Class->GetFunction("SentryScope", "SetDist");
 
-	Params::SentryScope_SetExtra Parms{};
+	Params::SentryScope_SetDist Parms{};
 
-	Parms.Key = std::move(Key);
-	Parms.Value = std::move(Value);
+	Parms.Dist = std::move(Dist);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Sentry.SentryScope.SetEnvironment
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const class FString&                    environment                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void USentryScope::SetEnvironment(const class FString& environment)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SentryScope", "SetEnvironment");
+
+	Params::SentryScope_SetEnvironment Parms{};
+
+	Parms.environment = std::move(environment);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -2198,9 +1097,9 @@ void USentryScope::SetExtra(const class FString& Key, const struct FSentryVarian
 // Function Sentry.SentryScope.SetExtras
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// const TMap<class FString, struct FSentryVariant>&Extras                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// const TMap<class FString, class FString>&Extras                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
-void USentryScope::SetExtras(const TMap<class FString, struct FSentryVariant>& Extras)
+void USentryScope::SetExtras(const TMap<class FString, class FString>& Extras)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2210,6 +1109,33 @@ void USentryScope::SetExtras(const TMap<class FString, struct FSentryVariant>& E
 	Params::SentryScope_SetExtras Parms{};
 
 	Parms.Extras = std::move(Extras);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Sentry.SentryScope.SetExtraValue
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class FString&                    Value                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void USentryScope::SetExtraValue(const class FString& Key, const class FString& Value)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SentryScope", "SetExtraValue");
+
+	Params::SentryScope_SetExtraValue Parms{};
+
+	Parms.Key = std::move(Key);
+	Parms.Value = std::move(Value);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -2270,33 +1196,6 @@ void USentryScope::SetLevel(ESentryLevel Level)
 }
 
 
-// Function Sentry.SentryScope.SetTag
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Value                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryScope::SetTag(const class FString& Key, const class FString& Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryScope", "SetTag");
-
-	Params::SentryScope_SetTag Parms{};
-
-	Parms.Key = std::move(Key);
-	Parms.Value = std::move(Value);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Sentry.SentryScope.SetTags
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
@@ -2322,22 +1221,46 @@ void USentryScope::SetTags(const TMap<class FString, class FString>& Tags)
 }
 
 
-// Function Sentry.SentryScope.GetContext
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Function Sentry.SentryScope.SetTagValue
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TMap<class FString, struct FSentryVariant>ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+// const class FString&                    Value                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-TMap<class FString, struct FSentryVariant> USentryScope::GetContext(const class FString& Key) const
+void USentryScope::SetTagValue(const class FString& Key, const class FString& Value)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("SentryScope", "GetContext");
+		Func = Class->GetFunction("SentryScope", "SetTagValue");
 
-	Params::SentryScope_GetContext Parms{};
+	Params::SentryScope_SetTagValue Parms{};
 
 	Parms.Key = std::move(Key);
+	Parms.Value = std::move(Value);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Sentry.SentryScope.GetDist
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class FString USentryScope::GetDist() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SentryScope", "GetDist");
+
+	Params::SentryScope_GetDist Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -2350,22 +1273,19 @@ TMap<class FString, struct FSentryVariant> USentryScope::GetContext(const class 
 }
 
 
-// Function Sentry.SentryScope.GetExtra
+// Function Sentry.SentryScope.GetEnvironment
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FSentryVariant                   ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FSentryVariant USentryScope::GetExtra(const class FString& Key) const
+class FString USentryScope::GetEnvironment() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("SentryScope", "GetExtra");
+		Func = Class->GetFunction("SentryScope", "GetEnvironment");
 
-	Params::SentryScope_GetExtra Parms{};
-
-	Parms.Key = std::move(Key);
+	Params::SentryScope_GetEnvironment Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -2381,9 +1301,9 @@ struct FSentryVariant USentryScope::GetExtra(const class FString& Key) const
 // Function Sentry.SentryScope.GetExtras
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// TMap<class FString, struct FSentryVariant>ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+// TMap<class FString, class FString>      ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
-TMap<class FString, struct FSentryVariant> USentryScope::GetExtras() const
+TMap<class FString, class FString> USentryScope::GetExtras() const
 {
 	static class UFunction* Func = nullptr;
 
@@ -2391,6 +1311,34 @@ TMap<class FString, struct FSentryVariant> USentryScope::GetExtras() const
 		Func = Class->GetFunction("SentryScope", "GetExtras");
 
 	Params::SentryScope_GetExtras Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Sentry.SentryScope.GetExtraValue
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class FString USentryScope::GetExtraValue(const class FString& Key) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SentryScope", "GetExtraValue");
+
+	Params::SentryScope_GetExtraValue Parms{};
+
+	Parms.Key = std::move(Key);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -2453,34 +1401,6 @@ ESentryLevel USentryScope::GetLevel() const
 }
 
 
-// Function Sentry.SentryScope.GetTag
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class FString USentryScope::GetTag(const class FString& Key) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryScope", "GetTag");
-
-	Params::SentryScope_GetTag Parms{};
-
-	Parms.Key = std::move(Key);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function Sentry.SentryScope.GetTags
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
@@ -2506,359 +1426,22 @@ TMap<class FString, class FString> USentryScope::GetTags() const
 }
 
 
-// Function Sentry.SentryScope.TryGetContext
-// (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TMap<class FString, struct FSentryVariant>*Value                                                  (Parm, OutParm, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentryScope::TryGetContext(const class FString& Key, TMap<class FString, struct FSentryVariant>* Value) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryScope", "TryGetContext");
-
-	Params::SentryScope_TryGetContext Parms{};
-
-	Parms.Key = std::move(Key);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Value != nullptr)
-		*Value = std::move(Parms.Value);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryScope.TryGetExtra
-// (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FSentryVariant*                  Value                                                  (Parm, OutParm, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentryScope::TryGetExtra(const class FString& Key, struct FSentryVariant* Value) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryScope", "TryGetExtra");
-
-	Params::SentryScope_TryGetExtra Parms{};
-
-	Parms.Key = std::move(Key);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Value != nullptr)
-		*Value = std::move(Parms.Value);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryScope.TryGetTag
-// (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString*                          Value                                                  (Parm, OutParm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentryScope::TryGetTag(const class FString& Key, class FString* Value) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryScope", "TryGetTag");
-
-	Params::SentryScope_TryGetTag Parms{};
-
-	Parms.Key = std::move(Key);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Value != nullptr)
-		*Value = std::move(Parms.Value);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentrySpan.Finish
-// (Final, Native, Public, BlueprintCallable)
-
-void USentrySpan::Finish()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySpan", "Finish");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentrySpan.FinishWithTimestamp
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// int64                                   Timestamp                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentrySpan::FinishWithTimestamp(int64 Timestamp)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySpan", "FinishWithTimestamp");
-
-	Params::SentrySpan_FinishWithTimestamp Parms{};
-
-	Parms.Timestamp = Timestamp;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentrySpan.GetTrace
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// class FString*                          Name_0                                                 (Parm, OutParm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString*                          Value                                                  (Parm, OutParm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentrySpan::GetTrace(class FString* Name_0, class FString* Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySpan", "GetTrace");
-
-	Params::SentrySpan_GetTrace Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Name_0 != nullptr)
-		*Name_0 = std::move(Parms.Name_0);
-
-	if (Value != nullptr)
-		*Value = std::move(Parms.Value);
-}
-
-
-// Function Sentry.SentrySpan.RemoveData
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentrySpan::RemoveData(const class FString& Key)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySpan", "RemoveData");
-
-	Params::SentrySpan_RemoveData Parms{};
-
-	Parms.Key = std::move(Key);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentrySpan.RemoveTag
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentrySpan::RemoveTag(const class FString& Key)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySpan", "RemoveTag");
-
-	Params::SentrySpan_RemoveTag Parms{};
-
-	Parms.Key = std::move(Key);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentrySpan.SetData
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const TMap<class FString, struct FSentryVariant>&Values                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void USentrySpan::SetData(const class FString& Key, const TMap<class FString, struct FSentryVariant>& Values)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySpan", "SetData");
-
-	Params::SentrySpan_SetData Parms{};
-
-	Parms.Key = std::move(Key);
-	Parms.Values = std::move(Values);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentrySpan.SetTag
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Value                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentrySpan::SetTag(const class FString& Key, const class FString& Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySpan", "SetTag");
-
-	Params::SentrySpan_SetTag Parms{};
-
-	Parms.Key = std::move(Key);
-	Parms.Value = std::move(Value);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentrySpan.StartChild
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Operation                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Description                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    BindToScope                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class USentrySpan*                      ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class USentrySpan* USentrySpan::StartChild(const class FString& Operation, const class FString& Description, bool BindToScope)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySpan", "StartChild");
-
-	Params::SentrySpan_StartChild Parms{};
-
-	Parms.Operation = std::move(Operation);
-	Parms.Description = std::move(Description);
-	Parms.BindToScope = BindToScope;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentrySpan.StartChildWithTimestamp
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Operation                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Description                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int64                                   Timestamp                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    BindToScope                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class USentrySpan*                      ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class USentrySpan* USentrySpan::StartChildWithTimestamp(const class FString& Operation, const class FString& Description, int64 Timestamp, bool BindToScope)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySpan", "StartChildWithTimestamp");
-
-	Params::SentrySpan_StartChildWithTimestamp Parms{};
-
-	Parms.Operation = std::move(Operation);
-	Parms.Description = std::move(Description);
-	Parms.Timestamp = Timestamp;
-	Parms.BindToScope = BindToScope;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentrySpan.IsFinished
+// Function Sentry.SentryScope.GetTagValue
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool USentrySpan::IsFinished() const
+class FString USentryScope::GetTagValue(const class FString& Key) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySpan", "IsFinished");
+		Func = Class->GetFunction("SentryScope", "GetTagValue");
 
-	Params::SentrySpan_IsFinished Parms{};
+	Params::SentryScope_GetTagValue Parms{};
+
+	Parms.Key = std::move(Key);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -2868,31 +1451,6 @@ bool USentrySpan::IsFinished() const
 	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentrySubsystem.AddAttachment
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class USentryAttachment*                Attachment                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentrySubsystem::AddAttachment(class USentryAttachment* Attachment)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "AddAttachment");
-
-	Params::SentrySubsystem_AddAttachment Parms{};
-
-	Parms.Attachment = Attachment;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
 }
 
 
@@ -2927,10 +1485,10 @@ void USentrySubsystem::AddBreadcrumb(class USentryBreadcrumb* Breadcrumb)
 // const class FString&                    Message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    Category                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    Type                                                   (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const TMap<class FString, struct FSentryVariant>&Data                                                   (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// const TMap<class FString, class FString>&Data                                                   (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // ESentryLevel                            Level                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USentrySubsystem::AddBreadcrumbWithParams(const class FString& Message, const class FString& Category, const class FString& Type, const TMap<class FString, struct FSentryVariant>& Data, ESentryLevel Level)
+void USentrySubsystem::AddBreadcrumbWithParams(const class FString& Message, const class FString& Category, const class FString& Type, const TMap<class FString, class FString>& Data, ESentryLevel Level)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2958,9 +1516,9 @@ void USentrySubsystem::AddBreadcrumbWithParams(const class FString& Message, con
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class USentryEvent*                     Event                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class USentryId*                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FString USentrySubsystem::CaptureEvent(class USentryEvent* Event)
+class USentryId* USentrySubsystem::CaptureEvent(class USentryEvent* Event)
 {
 	static class UFunction* Func = nullptr;
 
@@ -2987,9 +1545,9 @@ class FString USentrySubsystem::CaptureEvent(class USentryEvent* Event)
 // Parameters:
 // class USentryEvent*                     Event                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const TDelegate<void(class USentryScope* Scope)>&OnConfigureScope                                       (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class USentryId*                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FString USentrySubsystem::CaptureEventWithScope(class USentryEvent* Event, const TDelegate<void(class USentryScope* Scope)>& OnConfigureScope)
+class USentryId* USentrySubsystem::CaptureEventWithScope(class USentryEvent* Event, const TDelegate<void(class USentryScope* Scope)>& OnConfigureScope)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3012,70 +1570,14 @@ class FString USentrySubsystem::CaptureEventWithScope(class USentryEvent* Event,
 }
 
 
-// Function Sentry.SentrySubsystem.CaptureFeedback
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class USentryFeedback*                  Feedback                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentrySubsystem::CaptureFeedback(class USentryFeedback* Feedback)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "CaptureFeedback");
-
-	Params::SentrySubsystem_CaptureFeedback Parms{};
-
-	Parms.Feedback = Feedback;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentrySubsystem.CaptureFeedbackWithParams
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Name_0                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    email                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    EventId                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentrySubsystem::CaptureFeedbackWithParams(const class FString& Message, const class FString& Name_0, const class FString& email, const class FString& EventId)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "CaptureFeedbackWithParams");
-
-	Params::SentrySubsystem_CaptureFeedbackWithParams Parms{};
-
-	Parms.Message = std::move(Message);
-	Parms.Name_0 = std::move(Name_0);
-	Parms.email = std::move(email);
-	Parms.EventId = std::move(EventId);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Sentry.SentrySubsystem.CaptureMessage
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const class FString&                    Message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // ESentryLevel                            Level                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class USentryId*                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FString USentrySubsystem::CaptureMessage(const class FString& Message, ESentryLevel Level)
+class USentryId* USentrySubsystem::CaptureMessage(const class FString& Message, ESentryLevel Level)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3104,9 +1606,9 @@ class FString USentrySubsystem::CaptureMessage(const class FString& Message, ESe
 // const class FString&                    Message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const TDelegate<void(class USentryScope* Scope)>&OnConfigureScope                                       (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // ESentryLevel                            Level                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class USentryId*                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FString USentrySubsystem::CaptureMessageWithScope(const class FString& Message, const TDelegate<void(class USentryScope* Scope)>& OnConfigureScope, ESentryLevel Level)
+class USentryId* USentrySubsystem::CaptureMessageWithScope(const class FString& Message, const TDelegate<void(class USentryScope* Scope)>& OnConfigureScope, ESentryLevel Level)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3130,20 +1632,57 @@ class FString USentrySubsystem::CaptureMessageWithScope(const class FString& Mes
 }
 
 
-// Function Sentry.SentrySubsystem.ClearAttachments
+// Function Sentry.SentrySubsystem.CaptureUserFeedback
 // (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class USentryUserFeedback*              UserFeedback                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USentrySubsystem::ClearAttachments()
+void USentrySubsystem::CaptureUserFeedback(class USentryUserFeedback* UserFeedback)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "ClearAttachments");
+		Func = Class->GetFunction("SentrySubsystem", "CaptureUserFeedback");
+
+	Params::SentrySubsystem_CaptureUserFeedback Parms{};
+
+	Parms.UserFeedback = UserFeedback;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, nullptr);
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function Sentry.SentrySubsystem.CaptureUserFeedbackWithParams
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class USentryId*                        EventId                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class FString&                    email                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class FString&                    Comments                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class FString&                    Name_0                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void USentrySubsystem::CaptureUserFeedbackWithParams(class USentryId* EventId, const class FString& email, const class FString& Comments, const class FString& Name_0)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SentrySubsystem", "CaptureUserFeedbackWithParams");
+
+	Params::SentrySubsystem_CaptureUserFeedbackWithParams Parms{};
+
+	Parms.EventId = EventId;
+	Parms.email = std::move(email);
+	Parms.Comments = std::move(Comments);
+	Parms.Name_0 = std::move(Name_0);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -3187,69 +1726,26 @@ void USentrySubsystem::Close()
 }
 
 
-// Function Sentry.SentrySubsystem.ContinueTrace
+// Function Sentry.SentrySubsystem.ConfigureScope
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// const class FString&                    SentryTrace                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const TArray<class FString>&            BaggageHeaders                                         (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-// class USentryTransactionContext*        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const TDelegate<void(class USentryScope* Scope)>&OnConfigureScope                                       (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class USentryTransactionContext* USentrySubsystem::ContinueTrace(const class FString& SentryTrace, const TArray<class FString>& BaggageHeaders)
+void USentrySubsystem::ConfigureScope(const TDelegate<void(class USentryScope* Scope)>& OnConfigureScope)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "ContinueTrace");
+		Func = Class->GetFunction("SentrySubsystem", "ConfigureScope");
 
-	Params::SentrySubsystem_ContinueTrace Parms{};
+	Params::SentrySubsystem_ConfigureScope Parms{};
 
-	Parms.SentryTrace = std::move(SentryTrace);
-	Parms.BaggageHeaders = std::move(BaggageHeaders);
+	Parms.OnConfigureScope = OnConfigureScope;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentrySubsystem.EndSession
-// (Final, Native, Public, BlueprintCallable)
-
-void USentrySubsystem::EndSession()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "EndSession");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentrySubsystem.GiveUserConsent
-// (Final, Native, Public, BlueprintCallable)
-
-void USentrySubsystem::GiveUserConsent()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "GiveUserConsent");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }
@@ -3289,141 +1785,6 @@ void USentrySubsystem::InitializeWithSettings(const TDelegate<void(class USentry
 	Params::SentrySubsystem_InitializeWithSettings Parms{};
 
 	Parms.OnConfigureSettings = OnConfigureSettings;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentrySubsystem.LogDebug
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Category                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentrySubsystem::LogDebug(const class FString& Message, const class FString& Category)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "LogDebug");
-
-	Params::SentrySubsystem_LogDebug Parms{};
-
-	Parms.Message = std::move(Message);
-	Parms.Category = std::move(Category);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentrySubsystem.LogError
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Category                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentrySubsystem::LogError(const class FString& Message, const class FString& Category)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "LogError");
-
-	Params::SentrySubsystem_LogError Parms{};
-
-	Parms.Message = std::move(Message);
-	Parms.Category = std::move(Category);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentrySubsystem.LogFatal
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Category                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentrySubsystem::LogFatal(const class FString& Message, const class FString& Category)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "LogFatal");
-
-	Params::SentrySubsystem_LogFatal Parms{};
-
-	Parms.Message = std::move(Message);
-	Parms.Category = std::move(Category);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentrySubsystem.LogInfo
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Category                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentrySubsystem::LogInfo(const class FString& Message, const class FString& Category)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "LogInfo");
-
-	Params::SentrySubsystem_LogInfo Parms{};
-
-	Parms.Message = std::move(Message);
-	Parms.Category = std::move(Category);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentrySubsystem.LogWarning
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Message                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Category                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentrySubsystem::LogWarning(const class FString& Message, const class FString& Category)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "LogWarning");
-
-	Params::SentrySubsystem_LogWarning Parms{};
-
-	Parms.Message = std::move(Message);
-	Parms.Category = std::move(Category);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3478,32 +1839,13 @@ void USentrySubsystem::RemoveUser()
 }
 
 
-// Function Sentry.SentrySubsystem.RevokeUserConsent
-// (Final, Native, Public, BlueprintCallable)
-
-void USentrySubsystem::RevokeUserConsent()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "RevokeUserConsent");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function Sentry.SentrySubsystem.SetContext
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const TMap<class FString, struct FSentryVariant>&Values                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// const TMap<class FString, class FString>&Values                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
-void USentrySubsystem::SetContext(const class FString& Key, const TMap<class FString, struct FSentryVariant>& Values)
+void USentrySubsystem::SetContext(const class FString& Key, const TMap<class FString, class FString>& Values)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3598,652 +1940,6 @@ void USentrySubsystem::SetUser(class USentryUser* User)
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentrySubsystem.StartSession
-// (Final, Native, Public, BlueprintCallable)
-
-void USentrySubsystem::StartSession()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "StartSession");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentrySubsystem.StartTransaction
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Name_0                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Operation                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    BindToScope                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class USentryTransaction*               ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class USentryTransaction* USentrySubsystem::StartTransaction(const class FString& Name_0, const class FString& Operation, bool BindToScope)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "StartTransaction");
-
-	Params::SentrySubsystem_StartTransaction Parms{};
-
-	Parms.Name_0 = std::move(Name_0);
-	Parms.Operation = std::move(Operation);
-	Parms.BindToScope = BindToScope;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentrySubsystem.StartTransactionWithContext
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class USentryTransactionContext*        Context                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    BindToScope                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class USentryTransaction*               ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class USentryTransaction* USentrySubsystem::StartTransactionWithContext(class USentryTransactionContext* Context, bool BindToScope)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "StartTransactionWithContext");
-
-	Params::SentrySubsystem_StartTransactionWithContext Parms{};
-
-	Parms.Context = Context;
-	Parms.BindToScope = BindToScope;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentrySubsystem.StartTransactionWithContextAndOptions
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// class USentryTransactionContext*        Context                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FSentryTransactionOptions& Options                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// class USentryTransaction*               ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class USentryTransaction* USentrySubsystem::StartTransactionWithContextAndOptions(class USentryTransactionContext* Context, const struct FSentryTransactionOptions& Options)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "StartTransactionWithContextAndOptions");
-
-	Params::SentrySubsystem_StartTransactionWithContextAndOptions Parms{};
-
-	Parms.Context = Context;
-	Parms.Options = std::move(Options);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentrySubsystem.StartTransactionWithContextAndTimestamp
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class USentryTransactionContext*        Context                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int64                                   Timestamp                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    BindToScope                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class USentryTransaction*               ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class USentryTransaction* USentrySubsystem::StartTransactionWithContextAndTimestamp(class USentryTransactionContext* Context, int64 Timestamp, bool BindToScope)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "StartTransactionWithContextAndTimestamp");
-
-	Params::SentrySubsystem_StartTransactionWithContextAndTimestamp Parms{};
-
-	Parms.Context = Context;
-	Parms.Timestamp = Timestamp;
-	Parms.BindToScope = BindToScope;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentrySubsystem.GetUserConsent
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// EUserConsent                            ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-EUserConsent USentrySubsystem::GetUserConsent() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "GetUserConsent");
-
-	Params::SentrySubsystem_GetUserConsent Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentrySubsystem.IsCrashedLastRun
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// ESentryCrashedLastRun                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-ESentryCrashedLastRun USentrySubsystem::IsCrashedLastRun() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "IsCrashedLastRun");
-
-	Params::SentrySubsystem_IsCrashedLastRun Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentrySubsystem.IsEnabled
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentrySubsystem::IsEnabled() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "IsEnabled");
-
-	Params::SentrySubsystem_IsEnabled Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentrySubsystem.IsSupportedForCurrentSettings
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentrySubsystem::IsSupportedForCurrentSettings() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentrySubsystem", "IsSupportedForCurrentSettings");
-
-	Params::SentrySubsystem_IsSupportedForCurrentSettings Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryTraceSampler.Sample
-// (Native, Event, Public, HasOutParams, BlueprintEvent)
-// Parameters:
-// class USentrySamplingContext*           samplingContext                                        (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float*                                  samplingValue                                          (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentryTraceSampler::Sample(class USentrySamplingContext* samplingContext, float* samplingValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryTraceSampler", "Sample");
-
-	Params::SentryTraceSampler_Sample Parms{};
-
-	Parms.samplingContext = samplingContext;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (samplingValue != nullptr)
-		*samplingValue = Parms.samplingValue;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryTransaction.Finish
-// (Final, Native, Public, BlueprintCallable)
-
-void USentryTransaction::Finish()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryTransaction", "Finish");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryTransaction.FinishWithTimestamp
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// int64                                   Timestamp                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryTransaction::FinishWithTimestamp(int64 Timestamp)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryTransaction", "FinishWithTimestamp");
-
-	Params::SentryTransaction_FinishWithTimestamp Parms{};
-
-	Parms.Timestamp = Timestamp;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryTransaction.GetTrace
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// class FString*                          Name_0                                                 (Parm, OutParm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FString*                          Value                                                  (Parm, OutParm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryTransaction::GetTrace(class FString* Name_0, class FString* Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryTransaction", "GetTrace");
-
-	Params::SentryTransaction_GetTrace Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Name_0 != nullptr)
-		*Name_0 = std::move(Parms.Name_0);
-
-	if (Value != nullptr)
-		*Value = std::move(Parms.Value);
-}
-
-
-// Function Sentry.SentryTransaction.RemoveData
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryTransaction::RemoveData(const class FString& Key)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryTransaction", "RemoveData");
-
-	Params::SentryTransaction_RemoveData Parms{};
-
-	Parms.Key = std::move(Key);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryTransaction.RemoveTag
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryTransaction::RemoveTag(const class FString& Key)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryTransaction", "RemoveTag");
-
-	Params::SentryTransaction_RemoveTag Parms{};
-
-	Parms.Key = std::move(Key);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryTransaction.SetData
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const TMap<class FString, struct FSentryVariant>&Values                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void USentryTransaction::SetData(const class FString& Key, const TMap<class FString, struct FSentryVariant>& Values)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryTransaction", "SetData");
-
-	Params::SentryTransaction_SetData Parms{};
-
-	Parms.Key = std::move(Key);
-	Parms.Values = std::move(Values);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryTransaction.SetName
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Name_0                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryTransaction::SetName(const class FString& Name_0)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryTransaction", "SetName");
-
-	Params::SentryTransaction_SetName Parms{};
-
-	Parms.Name_0 = std::move(Name_0);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryTransaction.SetTag
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Key                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Value                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryTransaction::SetTag(const class FString& Key, const class FString& Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryTransaction", "SetTag");
-
-	Params::SentryTransaction_SetTag Parms{};
-
-	Parms.Key = std::move(Key);
-	Parms.Value = std::move(Value);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryTransaction.StartChildSpan
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Operation                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Description                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    BindToScope                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class USentrySpan*                      ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class USentrySpan* USentryTransaction::StartChildSpan(const class FString& Operation, const class FString& Description, bool BindToScope)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryTransaction", "StartChildSpan");
-
-	Params::SentryTransaction_StartChildSpan Parms{};
-
-	Parms.Operation = std::move(Operation);
-	Parms.Description = std::move(Description);
-	Parms.BindToScope = BindToScope;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryTransaction.StartChildSpanWithTimestamp
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Operation                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Description                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int64                                   Timestamp                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    BindToScope                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class USentrySpan*                      ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class USentrySpan* USentryTransaction::StartChildSpanWithTimestamp(const class FString& Operation, const class FString& Description, int64 Timestamp, bool BindToScope)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryTransaction", "StartChildSpanWithTimestamp");
-
-	Params::SentryTransaction_StartChildSpanWithTimestamp Parms{};
-
-	Parms.Operation = std::move(Operation);
-	Parms.Description = std::move(Description);
-	Parms.Timestamp = Timestamp;
-	Parms.BindToScope = BindToScope;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryTransaction.IsFinished
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentryTransaction::IsFinished() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryTransaction", "IsFinished");
-
-	Params::SentryTransaction_IsFinished Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryTransactionContext.Initialize
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Name_0                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Operation                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USentryTransactionContext::Initialize(const class FString& Name_0, const class FString& Operation)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryTransactionContext", "Initialize");
-
-	Params::SentryTransactionContext_Initialize Parms{};
-
-	Parms.Name_0 = std::move(Name_0);
-	Parms.Operation = std::move(Operation);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function Sentry.SentryTransactionContext.GetName
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class FString USentryTransactionContext::GetName() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryTransactionContext", "GetName");
-
-	Params::SentryTransactionContext_GetName Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryTransactionContext.GetOperation
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class FString USentryTransactionContext::GetOperation() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SentryTransactionContext", "GetOperation");
-
-	Params::SentryTransactionContext_GetOperation Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
@@ -4350,9 +2046,9 @@ void USentryUser::SetIpAddress(const class FString& IpAddress)
 // Function Sentry.SentryUser.SetUsername
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// const class FString&                    Username                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class FString&                    username                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USentryUser::SetUsername(const class FString& Username)
+void USentryUser::SetUsername(const class FString& username)
 {
 	static class UFunction* Func = nullptr;
 
@@ -4361,7 +2057,7 @@ void USentryUser::SetUsername(const class FString& Username)
 
 	Params::SentryUser_SetUsername Parms{};
 
-	Parms.Username = std::move(Username);
+	Parms.username = std::move(username);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -4497,335 +2193,124 @@ class FString USentryUser::GetUsername() const
 }
 
 
-// Function Sentry.SentryVariantHelper.Conv_ArrayToFSentryVariant
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// Function Sentry.SentryUserFeedback.Initialize
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// const TArray<struct FSentryVariant>&    Value                                                  (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-// struct FSentryVariant                   ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+// class USentryId*                        EventId                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FSentryVariant USentryVariantHelper::Conv_ArrayToFSentryVariant(const TArray<struct FSentryVariant>& Value)
+void USentryUserFeedback::Initialize(class USentryId* EventId)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "Conv_ArrayToFSentryVariant");
+		Func = Class->GetFunction("SentryUserFeedback", "Initialize");
 
-	Params::SentryVariantHelper_Conv_ArrayToFSentryVariant Parms{};
+	Params::SentryUserFeedback_Initialize Parms{};
 
-	Parms.Value = std::move(Value);
+	Parms.EventId = EventId;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
-// Function Sentry.SentryVariantHelper.Conv_BoolToFSentryVariant
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Function Sentry.SentryUserFeedback.SetComment
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// bool                                    Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FSentryVariant                   ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+// const class FString&                    Comments                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FSentryVariant USentryVariantHelper::Conv_BoolToFSentryVariant(bool Value)
+void USentryUserFeedback::SetComment(const class FString& Comments)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "Conv_BoolToFSentryVariant");
+		Func = Class->GetFunction("SentryUserFeedback", "SetComment");
 
-	Params::SentryVariantHelper_Conv_BoolToFSentryVariant Parms{};
+	Params::SentryUserFeedback_SetComment Parms{};
 
-	Parms.Value = Value;
+	Parms.Comments = std::move(Comments);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
-// Function Sentry.SentryVariantHelper.Conv_FloatToFSentryVariant
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Function Sentry.SentryUserFeedback.SetEmail
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// float                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FSentryVariant                   ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+// const class FString&                    email                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FSentryVariant USentryVariantHelper::Conv_FloatToFSentryVariant(float Value)
+void USentryUserFeedback::SetEmail(const class FString& email)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "Conv_FloatToFSentryVariant");
+		Func = Class->GetFunction("SentryUserFeedback", "SetEmail");
 
-	Params::SentryVariantHelper_Conv_FloatToFSentryVariant Parms{};
+	Params::SentryUserFeedback_SetEmail Parms{};
 
-	Parms.Value = Value;
+	Parms.email = std::move(email);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
-// Function Sentry.SentryVariantHelper.Conv_IntToFSentryVariant
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Function Sentry.SentryUserFeedback.SetName
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// int32                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FSentryVariant                   ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+// const class FString&                    Name_0                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FSentryVariant USentryVariantHelper::Conv_IntToFSentryVariant(int32 Value)
+void USentryUserFeedback::SetName(const class FString& Name_0)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "Conv_IntToFSentryVariant");
+		Func = Class->GetFunction("SentryUserFeedback", "SetName");
 
-	Params::SentryVariantHelper_Conv_IntToFSentryVariant Parms{};
+	Params::SentryUserFeedback_SetName Parms{};
 
-	Parms.Value = Value;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.Conv_MapToFSentryVariant
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const TMap<class FString, struct FSentryVariant>&Value                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// struct FSentryVariant                   ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-struct FSentryVariant USentryVariantHelper::Conv_MapToFSentryVariant(const TMap<class FString, struct FSentryVariant>& Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "Conv_MapToFSentryVariant");
-
-	Params::SentryVariantHelper_Conv_MapToFSentryVariant Parms{};
-
-	Parms.Value = std::move(Value);
+	Parms.Name_0 = std::move(Name_0);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
-// Function Sentry.SentryVariantHelper.Conv_StringToFSentryVariant
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Function Sentry.SentryUserFeedback.GetComment
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// const class FString&                    Value                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FSentryVariant                   ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-struct FSentryVariant USentryVariantHelper::Conv_StringToFSentryVariant(const class FString& Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "Conv_StringToFSentryVariant");
-
-	Params::SentryVariantHelper_Conv_StringToFSentryVariant Parms{};
-
-	Parms.Value = std::move(Value);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.GetArray
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const struct FSentryVariant&            Variant                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// TArray<struct FSentryVariant>           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-
-TArray<struct FSentryVariant> USentryVariantHelper::GetArray(const struct FSentryVariant& Variant)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "GetArray");
-
-	Params::SentryVariantHelper_GetArray Parms{};
-
-	Parms.Variant = std::move(Variant);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.GetBool
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const struct FSentryVariant&            Variant                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentryVariantHelper::GetBool(const struct FSentryVariant& Variant)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "GetBool");
-
-	Params::SentryVariantHelper_GetBool Parms{};
-
-	Parms.Variant = std::move(Variant);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.GetFloat
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const struct FSentryVariant&            Variant                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float USentryVariantHelper::GetFloat(const struct FSentryVariant& Variant)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "GetFloat");
-
-	Params::SentryVariantHelper_GetFloat Parms{};
-
-	Parms.Variant = std::move(Variant);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.GetInteger
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const struct FSentryVariant&            Variant                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 USentryVariantHelper::GetInteger(const struct FSentryVariant& Variant)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "GetInteger");
-
-	Params::SentryVariantHelper_GetInteger Parms{};
-
-	Parms.Variant = std::move(Variant);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.GetMap
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const struct FSentryVariant&            Variant                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// TMap<class FString, struct FSentryVariant>ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-TMap<class FString, struct FSentryVariant> USentryVariantHelper::GetMap(const struct FSentryVariant& Variant)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "GetMap");
-
-	Params::SentryVariantHelper_GetMap Parms{};
-
-	Parms.Variant = std::move(Variant);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.GetString
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const struct FSentryVariant&            Variant                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FString USentryVariantHelper::GetString(const struct FSentryVariant& Variant)
+class FString USentryUserFeedback::GetComment() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "GetString");
+		Func = Class->GetFunction("SentryUserFeedback", "GetComment");
 
-	Params::SentryVariantHelper_GetString Parms{};
-
-	Parms.Variant = std::move(Variant);
+	Params::SentryUserFeedback_GetComment Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 
@@ -4833,27 +2318,24 @@ class FString USentryVariantHelper::GetString(const struct FSentryVariant& Varia
 }
 
 
-// Function Sentry.SentryVariantHelper.GetType
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// Function Sentry.SentryUserFeedback.GetEmail
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// const struct FSentryVariant&            Variant                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// ESentryVariantType                      ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-ESentryVariantType USentryVariantHelper::GetType(const struct FSentryVariant& Variant)
+class FString USentryUserFeedback::GetEmail() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "GetType");
+		Func = Class->GetFunction("SentryUserFeedback", "GetEmail");
 
-	Params::SentryVariantHelper_GetType Parms{};
-
-	Parms.Variant = std::move(Variant);
+	Params::SentryUserFeedback_GetEmail Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 
@@ -4861,361 +2343,26 @@ ESentryVariantType USentryVariantHelper::GetType(const struct FSentryVariant& Va
 }
 
 
-// Function Sentry.SentryVariantHelper.MakeSentryVariantFromArray
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// Function Sentry.SentryUserFeedback.GetName
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// const TArray<struct FSentryVariant>&    Value                                                  (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-// struct FSentryVariant                   ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FSentryVariant USentryVariantHelper::MakeSentryVariantFromArray(const TArray<struct FSentryVariant>& Value)
+class FString USentryUserFeedback::GetName() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "MakeSentryVariantFromArray");
+		Func = Class->GetFunction("SentryUserFeedback", "GetName");
 
-	Params::SentryVariantHelper_MakeSentryVariantFromArray Parms{};
-
-	Parms.Value = std::move(Value);
+	Params::SentryUserFeedback_GetName Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.MakeSentryVariantFromBool
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// bool                                    Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FSentryVariant                   ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-struct FSentryVariant USentryVariantHelper::MakeSentryVariantFromBool(bool Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "MakeSentryVariantFromBool");
-
-	Params::SentryVariantHelper_MakeSentryVariantFromBool Parms{};
-
-	Parms.Value = Value;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.MakeSentryVariantFromFloat
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// float                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FSentryVariant                   ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-struct FSentryVariant USentryVariantHelper::MakeSentryVariantFromFloat(float Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "MakeSentryVariantFromFloat");
-
-	Params::SentryVariantHelper_MakeSentryVariantFromFloat Parms{};
-
-	Parms.Value = Value;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.MakeSentryVariantFromInteger
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// int32                                   Value                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FSentryVariant                   ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-struct FSentryVariant USentryVariantHelper::MakeSentryVariantFromInteger(int32 Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "MakeSentryVariantFromInteger");
-
-	Params::SentryVariantHelper_MakeSentryVariantFromInteger Parms{};
-
-	Parms.Value = Value;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.MakeSentryVariantFromMap
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const TMap<class FString, struct FSentryVariant>&Value                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// struct FSentryVariant                   ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-struct FSentryVariant USentryVariantHelper::MakeSentryVariantFromMap(const TMap<class FString, struct FSentryVariant>& Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "MakeSentryVariantFromMap");
-
-	Params::SentryVariantHelper_MakeSentryVariantFromMap Parms{};
-
-	Parms.Value = std::move(Value);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.MakeSentryVariantFromString
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const class FString&                    Value                                                  (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FSentryVariant                   ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-struct FSentryVariant USentryVariantHelper::MakeSentryVariantFromString(const class FString& Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "MakeSentryVariantFromString");
-
-	Params::SentryVariantHelper_MakeSentryVariantFromString Parms{};
-
-	Parms.Value = std::move(Value);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.TryGetArray
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const struct FSentryVariant&            Variant                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// TArray<struct FSentryVariant>*          Value                                                  (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentryVariantHelper::TryGetArray(const struct FSentryVariant& Variant, TArray<struct FSentryVariant>* Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "TryGetArray");
-
-	Params::SentryVariantHelper_TryGetArray Parms{};
-
-	Parms.Variant = std::move(Variant);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Value != nullptr)
-		*Value = std::move(Parms.Value);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.TryGetBool
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const struct FSentryVariant&            Variant                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// bool*                                   Value                                                  (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentryVariantHelper::TryGetBool(const struct FSentryVariant& Variant, bool* Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "TryGetBool");
-
-	Params::SentryVariantHelper_TryGetBool Parms{};
-
-	Parms.Variant = std::move(Variant);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Value != nullptr)
-		*Value = Parms.Value;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.TryGetFloat
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const struct FSentryVariant&            Variant                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// float*                                  Value                                                  (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentryVariantHelper::TryGetFloat(const struct FSentryVariant& Variant, float* Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "TryGetFloat");
-
-	Params::SentryVariantHelper_TryGetFloat Parms{};
-
-	Parms.Variant = std::move(Variant);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Value != nullptr)
-		*Value = Parms.Value;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.TryGetInteger
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const struct FSentryVariant&            Variant                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// int32*                                  Value                                                  (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentryVariantHelper::TryGetInteger(const struct FSentryVariant& Variant, int32* Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "TryGetInteger");
-
-	Params::SentryVariantHelper_TryGetInteger Parms{};
-
-	Parms.Variant = std::move(Variant);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Value != nullptr)
-		*Value = Parms.Value;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.TryGetMap
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const struct FSentryVariant&            Variant                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// TMap<class FString, struct FSentryVariant>*Value                                                  (Parm, OutParm, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentryVariantHelper::TryGetMap(const struct FSentryVariant& Variant, TMap<class FString, struct FSentryVariant>* Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "TryGetMap");
-
-	Params::SentryVariantHelper_TryGetMap Parms{};
-
-	Parms.Variant = std::move(Variant);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Value != nullptr)
-		*Value = std::move(Parms.Value);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function Sentry.SentryVariantHelper.TryGetString
-// (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const struct FSentryVariant&            Variant                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// class FString*                          Value                                                  (Parm, OutParm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USentryVariantHelper::TryGetString(const struct FSentryVariant& Variant, class FString* Value)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("SentryVariantHelper", "TryGetString");
-
-	Params::SentryVariantHelper_TryGetString Parms{};
-
-	Parms.Variant = std::move(Variant);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Value != nullptr)
-		*Value = std::move(Parms.Value);
 
 	return Parms.ReturnValue;
 }

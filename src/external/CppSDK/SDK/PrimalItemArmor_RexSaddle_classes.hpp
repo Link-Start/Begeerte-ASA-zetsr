@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemArmor_RexSaddle.PrimalItemArmor_RexSaddle_C
-// 0x0000 (0x0BB0 - 0x0BB0)
+// 0x0000 (0x1190 - 0x1190)
 class UPrimalItemArmor_RexSaddle_C final : public UPrimalItemArmor_SaddleGeneric_C
 {
 public:

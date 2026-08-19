@@ -18,7 +18,7 @@ SDK_NAMESPACE_START
 enum class EOptimusDefaultDeformerMode : uint8
 {
 	Never                                    = 0,
-	OptIn                                    = 1,
+	SkinCacheOnly                            = 1,
 	Always                                   = 2,
 	EOptimusDefaultDeformerMode_MAX          = 3,
 };

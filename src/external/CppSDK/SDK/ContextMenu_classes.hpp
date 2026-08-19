@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // WidgetBlueprintGeneratedClass ContextMenu.ContextMenu_C
-// 0x0000 (0x03D0 - 0x03D0)
+// 0x0000 (0x0388 - 0x0388)
 class UContextMenu_C final : public UContextMenu
 {
 public:

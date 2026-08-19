@@ -16,8 +16,8 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass DinoTamedInventoryComponent_BP_Base.DinoTamedInventoryComponent_BP_Base_C
-// 0x0000 (0x0830 - 0x0830)
-class UDinoTamedInventoryComponent_BP_Base_C final : public UPrimalInventoryComponent
+// 0x0000 (0x0740 - 0x0740)
+class UDinoTamedInventoryComponent_BP_Base_C : public UPrimalInventoryComponent
 {
 public:
 	static class UClass* StaticClass()

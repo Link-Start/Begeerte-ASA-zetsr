@@ -16,49 +16,41 @@
 
 SDK_NAMESPACE_START
 
-// Function UI_Sub-Category.UI_Sub-Category_C.BndEvt__Sub-Category1_Btn_Category_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature
-// (BlueprintEvent)
-
-void UUI_Sub_Category_C::BndEvt__Sub_Category1_Btn_Category_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_Sub-Category_C", "BndEvt__Sub-Category1_Btn_Category_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function UI_Sub-Category.UI_Sub-Category_C.Construct
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-
-void UUI_Sub_Category_C::Construct()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_Sub-Category_C", "Construct");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function UI_Sub-Category.UI_Sub-Category_C.Event Set Button Style
-// (HasOutParams, BlueprintCallable, BlueprintEvent)
+// Function UI_Sub-Category.UI_Sub-Category_C.OnSuccess_B7C25CB3474DE2A4D0BC4DAA4F40DDC8
+// (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// const struct FButtonStyle&              InStyle                                                (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+// class UTexture2DDynamic*                Texture                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 
-void UUI_Sub_Category_C::Event_Set_Button_Style(const struct FButtonStyle& InStyle)
+void UUI_Sub_Category_C::OnSuccess_B7C25CB3474DE2A4D0BC4DAA4F40DDC8(class UTexture2DDynamic* Texture)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UI_Sub-Category_C", "Event Set Button Style");
+		Func = Class->GetFunction("UI_Sub-Category_C", "OnSuccess_B7C25CB3474DE2A4D0BC4DAA4F40DDC8");
 
-	Params::UI_Sub_Category_C_Event_Set_Button_Style Parms{};
+	Params::UI_Sub_Category_C_OnSuccess_B7C25CB3474DE2A4D0BC4DAA4F40DDC8 Parms{};
 
-	Parms.InStyle = std::move(InStyle);
+	Parms.Texture = Texture;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_Sub-Category.UI_Sub-Category_C.OnFail_B7C25CB3474DE2A4D0BC4DAA4F40DDC8
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// class UTexture2DDynamic*                Texture                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+
+void UUI_Sub_Category_C::OnFail_B7C25CB3474DE2A4D0BC4DAA4F40DDC8(class UTexture2DDynamic* Texture)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_Sub-Category_C", "OnFail_B7C25CB3474DE2A4D0BC4DAA4F40DDC8");
+
+	Params::UI_Sub_Category_C_OnFail_B7C25CB3474DE2A4D0BC4DAA4F40DDC8 Parms{};
+
+	Parms.Texture = Texture;
 
 	UObject::ProcessEvent(Func, &Parms);
 }
@@ -84,64 +76,51 @@ void UUI_Sub_Category_C::ExecuteUbergraph_UI_Sub_Category(int32 EntryPoint)
 }
 
 
-// Function UI_Sub-Category.UI_Sub-Category_C.GetRootCFWidget
-// (Public, HasOutParams, BlueprintCallable, BlueprintEvent, BlueprintPure)
+// Function UI_Sub-Category.UI_Sub-Category_C.Event Set Button Style
+// (HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// class UPanelWidget**                    RootPanelWidget                                        (Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+// const struct FButtonStyle&              InStyle                                                (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 
-void UUI_Sub_Category_C::GetRootCFWidget(class UPanelWidget** RootPanelWidget)
+void UUI_Sub_Category_C::Event_Set_Button_Style(const struct FButtonStyle& InStyle)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UI_Sub-Category_C", "GetRootCFWidget");
+		Func = Class->GetFunction("UI_Sub-Category_C", "Event Set Button Style");
 
-	Params::UI_Sub_Category_C_GetRootCFWidget Parms{};
+	Params::UI_Sub_Category_C_Event_Set_Button_Style Parms{};
 
-	UObject::ProcessEvent(Func, &Parms);
-
-	if (RootPanelWidget != nullptr)
-		*RootPanelWidget = Parms.RootPanelWidget;
-}
-
-
-// Function UI_Sub-Category.UI_Sub-Category_C.OnFail_B7C25CB3474DE2A4D0BC4DAA4F40DDC8
-// (BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class UTexture2DDynamic*                Texture                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-
-void UUI_Sub_Category_C::OnFail_B7C25CB3474DE2A4D0BC4DAA4F40DDC8(class UTexture2DDynamic* Texture)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_Sub-Category_C", "OnFail_B7C25CB3474DE2A4D0BC4DAA4F40DDC8");
-
-	Params::UI_Sub_Category_C_OnFail_B7C25CB3474DE2A4D0BC4DAA4F40DDC8 Parms{};
-
-	Parms.Texture = Texture;
+	Parms.InStyle = std::move(InStyle);
 
 	UObject::ProcessEvent(Func, &Parms);
 }
 
 
-// Function UI_Sub-Category.UI_Sub-Category_C.OnSuccess_B7C25CB3474DE2A4D0BC4DAA4F40DDC8
-// (BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class UTexture2DDynamic*                Texture                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// Function UI_Sub-Category.UI_Sub-Category_C.Construct
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 
-void UUI_Sub_Category_C::OnSuccess_B7C25CB3474DE2A4D0BC4DAA4F40DDC8(class UTexture2DDynamic* Texture)
+void UUI_Sub_Category_C::Construct()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UI_Sub-Category_C", "OnSuccess_B7C25CB3474DE2A4D0BC4DAA4F40DDC8");
+		Func = Class->GetFunction("UI_Sub-Category_C", "Construct");
 
-	Params::UI_Sub_Category_C_OnSuccess_B7C25CB3474DE2A4D0BC4DAA4F40DDC8 Parms{};
+	UObject::ProcessEvent(Func, nullptr);
+}
 
-	Parms.Texture = Texture;
 
-	UObject::ProcessEvent(Func, &Parms);
+// Function UI_Sub-Category.UI_Sub-Category_C.BndEvt__Sub-Category1_Btn_Category_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature
+// (BlueprintEvent)
+
+void UUI_Sub_Category_C::BndEvt__Sub_Category1_Btn_Category_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_Sub-Category_C", "BndEvt__Sub-Category1_Btn_Category_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 

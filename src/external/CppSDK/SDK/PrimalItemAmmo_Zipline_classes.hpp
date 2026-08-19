@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemAmmo_Zipline.PrimalItemAmmo_Zipline_C
-// 0x0000 (0x0B90 - 0x0B90)
+// 0x0000 (0x1170 - 0x1170)
 class UPrimalItemAmmo_Zipline_C final : public UPrimalItemAmmo_ArrowBase_C
 {
 public:

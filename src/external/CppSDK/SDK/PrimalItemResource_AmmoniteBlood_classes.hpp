@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemResource_AmmoniteBlood.PrimalItemResource_AmmoniteBlood_C
-// 0x0000 (0x0B90 - 0x0B90)
+// 0x0000 (0x1170 - 0x1170)
 class UPrimalItemResource_AmmoniteBlood_C final : public UPrimalItemResource_LeechBlood_C
 {
 public:

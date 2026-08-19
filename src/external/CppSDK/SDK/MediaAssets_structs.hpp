@@ -47,15 +47,6 @@ enum class EMediaPlayerTrack : uint8
 	EMediaPlayerTrack_MAX                    = 7,
 };
 
-// Enum MediaAssets.EMediaTimeRangeBPType
-// NumValues: 0x0003
-enum class EMediaTimeRangeBPType : uint8
-{
-	Absolute                                 = 0,
-	Current                                  = 1,
-	EMediaTimeRangeBPType_MAX                = 2,
-};
-
 // Enum MediaAssets.EMediaSoundChannels
 // NumValues: 0x0004
 enum class EMediaSoundChannels : uint32
@@ -123,27 +114,6 @@ enum class EMediaWebcamCaptureDeviceFilter : uint8
 	EMediaWebcamCaptureDeviceFilter_MAX      = 9,
 };
 
-// ScriptStruct MediaAssets.MediaMetadataItemBPT
-// 0x0040 (0x0040 - 0x0000)
-struct FMediaMetadataItemBPT final
-{
-public:
-	class FString                                 LanguageCode;                                      // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 MimeType;                                          // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 StringData;                                        // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<uint8>                                 BinaryData;                                        // 0x0030(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FMediaMetadataItemBPT;
-
-// ScriptStruct MediaAssets.MediaMetadataItemsBPT
-// 0x0010 (0x0010 - 0x0000)
-struct FMediaMetadataItemsBPT final
-{
-public:
-	TArray<struct FMediaMetadataItemBPT>          Items;                                             // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FMediaMetadataItemsBPT;
-
 // ScriptStruct MediaAssets.MediaSoundComponentSpectralData
 // 0x0008 (0x0008 - 0x0000)
 struct FMediaSoundComponentSpectralData final
@@ -166,12 +136,12 @@ public:
 DUMPER7_ASSERTS_FMediaSourceCacheSettings;
 
 // ScriptStruct MediaAssets.MediaCaptureDevice
-// 0x0020 (0x0020 - 0x0000)
+// 0x0028 (0x0028 - 0x0000)
 struct FMediaCaptureDevice final
 {
 public:
-	class FText                                   DisplayName;                                       // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Transient, NativeAccessSpecifierPublic)
-	class FString                                 URL;                                               // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FText                                   DisplayName;                                       // 0x0000(0x0018)(BlueprintVisible, BlueprintReadOnly, Transient, NativeAccessSpecifierPublic)
+	class FString                                 URL;                                               // 0x0018(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FMediaCaptureDevice;
 

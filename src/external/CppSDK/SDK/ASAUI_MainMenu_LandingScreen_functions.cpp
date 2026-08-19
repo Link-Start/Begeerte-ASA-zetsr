@@ -16,65 +16,59 @@
 
 SDK_NAMESPACE_START
 
-// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.BndEvt__ASAUI_MainMenu_LandingScreen_GoToLastPlayedButton_K2Node_ComponentBoundEvent_3_OnButtonClicked__DelegateSignature
-// (BlueprintEvent)
+// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.UnpauseCarousels
+// (BlueprintCallable, BlueprintEvent)
 
-void UASAUI_MainMenu_LandingScreen_C::BndEvt__ASAUI_MainMenu_LandingScreen_GoToLastPlayedButton_K2Node_ComponentBoundEvent_3_OnButtonClicked__DelegateSignature()
+void UASAUI_MainMenu_LandingScreen_C::UnpauseCarousels()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_MainMenu_LandingScreen_C", "BndEvt__ASAUI_MainMenu_LandingScreen_GoToLastPlayedButton_K2Node_ComponentBoundEvent_3_OnButtonClicked__DelegateSignature");
+		Func = Class->GetFunction("ASAUI_MainMenu_LandingScreen_C", "UnpauseCarousels");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.BndEvt__ASAUI_MainMenu_LandingScreen_PressAToStartButton_K2Node_ComponentBoundEvent_2_OnButtonClicked__DelegateSignature
-// (BlueprintEvent)
+// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.StartCarousels
+// (BlueprintCallable, BlueprintEvent)
 
-void UASAUI_MainMenu_LandingScreen_C::BndEvt__ASAUI_MainMenu_LandingScreen_PressAToStartButton_K2Node_ComponentBoundEvent_2_OnButtonClicked__DelegateSignature()
+void UASAUI_MainMenu_LandingScreen_C::StartCarousels()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_MainMenu_LandingScreen_C", "BndEvt__ASAUI_MainMenu_LandingScreen_PressAToStartButton_K2Node_ComponentBoundEvent_2_OnButtonClicked__DelegateSignature");
+		Func = Class->GetFunction("ASAUI_MainMenu_LandingScreen_C", "StartCarousels");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.Construct
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.RefreshAnim
+// (BlueprintCallable, BlueprintEvent)
 
-void UASAUI_MainMenu_LandingScreen_C::Construct()
+void UASAUI_MainMenu_LandingScreen_C::RefreshAnim()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_MainMenu_LandingScreen_C", "Construct");
+		Func = Class->GetFunction("ASAUI_MainMenu_LandingScreen_C", "RefreshAnim");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.ExecuteUbergraph_ASAUI_MainMenu_LandingScreen
-// (Final, UbergraphFunction)
-// Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.PauseCarousels
+// (BlueprintCallable, BlueprintEvent)
 
-void UASAUI_MainMenu_LandingScreen_C::ExecuteUbergraph_ASAUI_MainMenu_LandingScreen(int32 EntryPoint)
+void UASAUI_MainMenu_LandingScreen_C::PauseCarousels()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_MainMenu_LandingScreen_C", "ExecuteUbergraph_ASAUI_MainMenu_LandingScreen");
+		Func = Class->GetFunction("ASAUI_MainMenu_LandingScreen_C", "PauseCarousels");
 
-	Params::ASAUI_MainMenu_LandingScreen_C_ExecuteUbergraph_ASAUI_MainMenu_LandingScreen Parms{};
-
-	Parms.EntryPoint = EntryPoint;
-
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 
@@ -98,57 +92,77 @@ void UASAUI_MainMenu_LandingScreen_C::ModIDLinkRequested(int64 ModIDRequested)
 }
 
 
-// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.PauseCarousels
-// (BlueprintCallable, BlueprintEvent)
+// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.ExecuteUbergraph_ASAUI_MainMenu_LandingScreen
+// (Final, UbergraphFunction)
+// Parameters:
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UASAUI_MainMenu_LandingScreen_C::PauseCarousels()
+void UASAUI_MainMenu_LandingScreen_C::ExecuteUbergraph_ASAUI_MainMenu_LandingScreen(int32 EntryPoint)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_MainMenu_LandingScreen_C", "PauseCarousels");
+		Func = Class->GetFunction("ASAUI_MainMenu_LandingScreen_C", "ExecuteUbergraph_ASAUI_MainMenu_LandingScreen");
+
+	Params::ASAUI_MainMenu_LandingScreen_C_ExecuteUbergraph_ASAUI_MainMenu_LandingScreen Parms{};
+
+	Parms.EntryPoint = EntryPoint;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.Construct
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+
+void UASAUI_MainMenu_LandingScreen_C::Construct()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ASAUI_MainMenu_LandingScreen_C", "Construct");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.RefreshAnim
-// (BlueprintCallable, BlueprintEvent)
+// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.BndEvt__ASAUI_MainMenu_LandingScreen_PressAToStartButton_K2Node_ComponentBoundEvent_2_OnButtonClicked__DelegateSignature
+// (BlueprintEvent)
 
-void UASAUI_MainMenu_LandingScreen_C::RefreshAnim()
+void UASAUI_MainMenu_LandingScreen_C::BndEvt__ASAUI_MainMenu_LandingScreen_PressAToStartButton_K2Node_ComponentBoundEvent_2_OnButtonClicked__DelegateSignature()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_MainMenu_LandingScreen_C", "RefreshAnim");
+		Func = Class->GetFunction("ASAUI_MainMenu_LandingScreen_C", "BndEvt__ASAUI_MainMenu_LandingScreen_PressAToStartButton_K2Node_ComponentBoundEvent_2_OnButtonClicked__DelegateSignature");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.StartCarousels
-// (BlueprintCallable, BlueprintEvent)
+// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.BndEvt__ASAUI_MainMenu_LandingScreen_GoToLastPlayedButton_K2Node_ComponentBoundEvent_3_OnButtonClicked__DelegateSignature
+// (BlueprintEvent)
 
-void UASAUI_MainMenu_LandingScreen_C::StartCarousels()
+void UASAUI_MainMenu_LandingScreen_C::BndEvt__ASAUI_MainMenu_LandingScreen_GoToLastPlayedButton_K2Node_ComponentBoundEvent_3_OnButtonClicked__DelegateSignature()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_MainMenu_LandingScreen_C", "StartCarousels");
+		Func = Class->GetFunction("ASAUI_MainMenu_LandingScreen_C", "BndEvt__ASAUI_MainMenu_LandingScreen_GoToLastPlayedButton_K2Node_ComponentBoundEvent_3_OnButtonClicked__DelegateSignature");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.UnpauseCarousels
-// (BlueprintCallable, BlueprintEvent)
+// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.BndEvt__ASAUI_MainMenu_LandingScreen_AnimePromoButton_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature
+// (BlueprintEvent)
 
-void UASAUI_MainMenu_LandingScreen_C::UnpauseCarousels()
+void UASAUI_MainMenu_LandingScreen_C::BndEvt__ASAUI_MainMenu_LandingScreen_AnimePromoButton_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_MainMenu_LandingScreen_C", "UnpauseCarousels");
+		Func = Class->GetFunction("ASAUI_MainMenu_LandingScreen_C", "BndEvt__ASAUI_MainMenu_LandingScreen_AnimePromoButton_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature");
 
 	UObject::ProcessEvent(Func, nullptr);
 }

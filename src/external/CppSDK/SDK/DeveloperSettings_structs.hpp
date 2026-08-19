@@ -18,7 +18,7 @@ SDK_NAMESPACE_START
 struct FPerPlatformSettings final
 {
 public:
-	TArray<class UPlatformSettings*>              Settings;                                          // 0x0000(0x0010)(Edit, ExportObject, EditFixedSize, ZeroConstructor, Transient, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	TArray<class UPlatformSettings*>              Settings;                                          // 0x0000(0x0010)(Edit, ExportObject, EditFixedSize, ZeroConstructor, Transient, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate)
 };
 DUMPER7_ASSERTS_FPerPlatformSettings;
 
@@ -27,8 +27,8 @@ DUMPER7_ASSERTS_FPerPlatformSettings;
 struct FPlatformSettingsInstances final
 {
 public:
-	class UPlatformSettings*                      PlatformInstance;                                  // 0x0000(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TMap<class FName, class UPlatformSettings*>   OtherPlatforms;                                    // 0x0008(0x0050)(Transient, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPlatformSettings*                      PlatformInstance;                                  // 0x0000(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TMap<class FName, class UPlatformSettings*>   OtherPlatforms;                                    // 0x0008(0x0050)(Transient, UObjectWrapper, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FPlatformSettingsInstances;
 

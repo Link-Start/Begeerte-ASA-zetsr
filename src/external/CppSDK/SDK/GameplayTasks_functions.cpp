@@ -17,7 +17,7 @@
 SDK_NAMESPACE_START
 
 // Function GameplayTasks.GameplayTask.EndTask
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UGameplayTask::EndTask()
 {
@@ -36,7 +36,7 @@ void UGameplayTask::EndTask()
 
 
 // Function GameplayTasks.GameplayTask.ReadyForActivation
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UGameplayTask::ReadyForActivation()
 {
@@ -55,7 +55,7 @@ void UGameplayTask::ReadyForActivation()
 
 
 // Function GameplayTasks.GameplayTasksComponent.K2_RunGameplayTask
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // TScriptInterface<class IGameplayTaskOwnerInterface>TaskOwner                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UGameplayTask*                    Task                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -91,7 +91,7 @@ EGameplayTaskRunResult UGameplayTasksComponent::K2_RunGameplayTask(TScriptInterf
 
 
 // Function GameplayTasks.GameplayTasksComponent.OnRep_SimulatedTasks
-// (Final, RequiredAPI, Native, Public, HasOutParams)
+// (Final, Native, Public, HasOutParams)
 // Parameters:
 // const TArray<class UGameplayTask*>&     PreviousSimulatedTasks                                 (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 
@@ -116,7 +116,7 @@ void UGameplayTasksComponent::OnRep_SimulatedTasks(const TArray<class UGameplayT
 
 
 // Function GameplayTasks.GameplayTask_ClaimResource.ClaimResource
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // TScriptInterface<class IGameplayTaskOwnerInterface>InTaskOwner                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TSubclassOf<class UGameplayTaskResource>ResourceClass                                          (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -150,7 +150,7 @@ class UGameplayTask_ClaimResource* UGameplayTask_ClaimResource::ClaimResource(TS
 
 
 // Function GameplayTasks.GameplayTask_ClaimResource.ClaimResources
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // TScriptInterface<class IGameplayTaskOwnerInterface>InTaskOwner                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const TArray<TSubclassOf<class UGameplayTaskResource>>&ResourceClasses                                        (Parm, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)

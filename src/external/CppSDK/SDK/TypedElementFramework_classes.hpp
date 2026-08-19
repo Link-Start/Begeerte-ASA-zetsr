@@ -15,45 +15,92 @@
 
 SDK_NAMESPACE_START
 
-// Class TypedElementFramework.EditorDataStorageFactory
-// 0x0000 (0x0028 - 0x0028)
-class UEditorDataStorageFactory : public UObject
+// Class TypedElementFramework.TypedElementDataStorageCompatibilityInterface
+// 0x0000 (0x0000 - 0x0000)
+class ITypedElementDataStorageCompatibilityInterface final
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("EditorDataStorageFactory")
+		STATIC_CLASS_IMPL("TypedElementDataStorageCompatibilityInterface")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"EditorDataStorageFactory")
+		STATIC_NAME_IMPL(L"TypedElementDataStorageCompatibilityInterface")
 	}
-	static class UEditorDataStorageFactory* GetDefaultObj()
+	static class ITypedElementDataStorageCompatibilityInterface* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UEditorDataStorageFactory>();
+		return GetDefaultObjImpl<ITypedElementDataStorageCompatibilityInterface>();
 	}
-};
-DUMPER7_ASSERTS_UEditorDataStorageFactory;
 
-// Class TypedElementFramework.Test_PingPongBetweenPhaseFactory
-// 0x0000 (0x0028 - 0x0028)
-class UTest_PingPongBetweenPhaseFactory final : public UEditorDataStorageFactory
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
+	}
+};
+DUMPER7_ASSERTS_ITypedElementDataStorageCompatibilityInterface;
+
+// Class TypedElementFramework.TypedElementDataStorageInterface
+// 0x0000 (0x0000 - 0x0000)
+class ITypedElementDataStorageInterface final
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("Test_PingPongBetweenPhaseFactory")
+		STATIC_CLASS_IMPL("TypedElementDataStorageInterface")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"Test_PingPongBetweenPhaseFactory")
+		STATIC_NAME_IMPL(L"TypedElementDataStorageInterface")
 	}
-	static class UTest_PingPongBetweenPhaseFactory* GetDefaultObj()
+	static class ITypedElementDataStorageInterface* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UTest_PingPongBetweenPhaseFactory>();
+		return GetDefaultObjImpl<ITypedElementDataStorageInterface>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
 	}
 };
-DUMPER7_ASSERTS_UTest_PingPongBetweenPhaseFactory;
+DUMPER7_ASSERTS_ITypedElementDataStorageInterface;
+
+// Class TypedElementFramework.TypedElementDataStorageUiInterface
+// 0x0000 (0x0000 - 0x0000)
+class ITypedElementDataStorageUiInterface final
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("TypedElementDataStorageUiInterface")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"TypedElementDataStorageUiInterface")
+	}
+	static class ITypedElementDataStorageUiInterface* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<ITypedElementDataStorageUiInterface>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
+	}
+};
+DUMPER7_ASSERTS_ITypedElementDataStorageUiInterface;
 
 // Class TypedElementFramework.TypedElementHandleLibrary
 // 0x0000 (0x0028 - 0x0028)
@@ -153,11 +200,11 @@ public:
 DUMPER7_ASSERTS_ITypedElementCounterInterface;
 
 // Class TypedElementFramework.TypedElementRegistry
-// 0x0920 (0x0948 - 0x0028)
+// 0x0950 (0x0978 - 0x0028)
 class UTypedElementRegistry final : public UObject
 {
 public:
-	uint8                                         Pad_28[0x920];                                     // 0x0028(0x0920)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_28[0x950];                                     // 0x0028(0x0950)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UTypedElementRegistry* GetInstance();

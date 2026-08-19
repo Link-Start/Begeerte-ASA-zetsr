@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItem_GlowStick.PrimalItem_GlowStick_C
-// 0x0000 (0x0B90 - 0x0B90)
+// 0x0000 (0x1170 - 0x1170)
 class UPrimalItem_GlowStick_C final : public UPrimalItem_Base_C
 {
 public:

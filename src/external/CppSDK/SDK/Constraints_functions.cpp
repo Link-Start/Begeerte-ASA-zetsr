@@ -17,7 +17,7 @@
 SDK_NAMESPACE_START
 
 // Function Constraints.ConstraintsScriptingLibrary.AddConstraint
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UWorld*                           InWorld                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UTransformableHandle*             InParentHandle                                         (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -53,7 +53,7 @@ bool UConstraintsScriptingLibrary::AddConstraint(class UWorld* InWorld, class UT
 
 
 // Function Constraints.ConstraintsScriptingLibrary.CreateFromType
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UWorld*                           InWorld                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const ETransformConstraintType          InType                                                 (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -83,7 +83,7 @@ class UTickableTransformConstraint* UConstraintsScriptingLibrary::CreateFromType
 
 
 // Function Constraints.ConstraintsScriptingLibrary.CreateTransformableComponentHandle
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // class UWorld*                           InWorld                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class USceneComponent*                  InSceneComponent                                       (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -115,7 +115,7 @@ class UTransformableComponentHandle* UConstraintsScriptingLibrary::CreateTransfo
 
 
 // Function Constraints.ConstraintsScriptingLibrary.CreateTransformableHandle
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // class UWorld*                           InWorld                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UObject*                          InObject                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -147,7 +147,7 @@ class UTransformableHandle* UConstraintsScriptingLibrary::CreateTransformableHan
 
 
 // Function Constraints.ConstraintsScriptingLibrary.GetConstraintsArray
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UWorld*                           InWorld                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<class UTickableConstraint*>      ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
@@ -174,8 +174,36 @@ TArray<class UTickableConstraint*> UConstraintsScriptingLibrary::GetConstraintsA
 }
 
 
+// Function Constraints.ConstraintsScriptingLibrary.GetManager
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UWorld*                           InWorld                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UConstraintsManager*              ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UConstraintsManager* UConstraintsScriptingLibrary::GetManager(class UWorld* InWorld)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("ConstraintsScriptingLibrary", "GetManager");
+
+	Params::ConstraintsScriptingLibrary_GetManager Parms{};
+
+	Parms.InWorld = InWorld;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function Constraints.ConstraintsScriptingLibrary.RemoveConstraint
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UWorld*                           InWorld                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   InIndex                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -205,7 +233,7 @@ bool UConstraintsScriptingLibrary::RemoveConstraint(class UWorld* InWorld, int32
 
 
 // Function Constraints.ConstraintsScriptingLibrary.RemoveThisConstraint
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UWorld*                           InWorld                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UTickableConstraint*              InTickableConstraint                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)

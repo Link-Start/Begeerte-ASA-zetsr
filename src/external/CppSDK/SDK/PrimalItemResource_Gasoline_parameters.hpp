@@ -38,7 +38,7 @@ public:
 DUMPER7_ASSERTS_PrimalItemResource_Gasoline_C_BPUsedOntoItem;
 
 // Function PrimalItemResource_Gasoline.PrimalItemResource_Gasoline_C.CheckForGasolineData
-// 0x00D0 (0x00D0 - 0x0000)
+// 0x00C0 (0x00C0 - 0x0000)
 struct PrimalItemResource_Gasoline_C_CheckForGasolineData final
 {
 public:
@@ -46,22 +46,22 @@ public:
 	bool                                          SupportsDragOn;                                    // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          ReturnValue_Loc;                                   // 0x0009(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_A[0x6];                                        // 0x000A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FCustomItemData                        CallFunc_GetCustomItemData_OutData;                // 0x0010(0x00A8)()
-	bool                                          CallFunc_GetCustomItemData_ReturnValue;            // 0x00B8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Not_PreBool_ReturnValue;                  // 0x00B9(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_BA[0x2];                                       // 0x00BA(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         CallFunc_Array_Get_Item;                           // 0x00BC(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Not_PreBool_ReturnValue_1;                // 0x00C0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_DoubleDouble_ReturnValue;            // 0x00C1(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_BooleanAND_ReturnValue;                   // 0x00C2(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Array_IsValidIndex_ReturnValue;           // 0x00C3(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_C4[0x4];                                       // 0x00C4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        CallFunc_Less_DoubleDouble_A_ImplicitCast;         // 0x00C8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FCustomItemData                        CallFunc_GetCustomItemData_OutData;                // 0x0010(0x0098)()
+	bool                                          CallFunc_GetCustomItemData_ReturnValue;            // 0x00A8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Not_PreBool_ReturnValue;                  // 0x00A9(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_AA[0x2];                                       // 0x00AA(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         CallFunc_Array_Get_Item;                           // 0x00AC(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Not_PreBool_ReturnValue_1;                // 0x00B0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_DoubleDouble_ReturnValue;            // 0x00B1(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_BooleanAND_ReturnValue;                   // 0x00B2(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Array_IsValidIndex_ReturnValue;           // 0x00B3(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_B4[0x4];                                       // 0x00B4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        CallFunc_Less_DoubleDouble_A_ImplicitCast;         // 0x00B8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_PrimalItemResource_Gasoline_C_CheckForGasolineData;
 
 // Function PrimalItemResource_Gasoline.PrimalItemResource_Gasoline_C.RefillGasoline
-// 0x01D8 (0x01D8 - 0x0000)
+// 0x01B8 (0x01B8 - 0x0000)
 struct PrimalItemResource_Gasoline_C_RefillGasoline final
 {
 public:
@@ -72,16 +72,16 @@ public:
 	class UPrimalItem*                            K2Node_DynamicCast_AsPrimal_Item;                  // 0x0028(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	bool                                          K2Node_DynamicCast_bSuccess;                       // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FCustomItemData                        CallFunc_GetCustomItemData_OutData;                // 0x0038(0x00A8)()
-	bool                                          CallFunc_GetCustomItemData_ReturnValue;            // 0x00E0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_E1[0x7];                                       // 0x00E1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 CallFunc_Concat_StrStr_ReturnValue;                // 0x00E8(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	class FString                                 CallFunc_Concat_StrStr_ReturnValue_1;              // 0x00F8(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	int32                                         CallFunc_IncrementItemQuantity_ReturnValue;        // 0x0108(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_10C[0x4];                                      // 0x010C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FCustomItemData                        K2Node_MakeStruct_CustomItemData;                  // 0x0110(0x00A8)()
-	TArray<double>                                K2Node_VariableSet_CustomFloats_Loc_ImplicitCast;  // 0x01B8(0x0010)(ReferenceParm)
-	TArray<float>                                 K2Node_MakeStruct_CustomDataFloats_ImplicitCast;   // 0x01C8(0x0010)(ReferenceParm)
+	struct FCustomItemData                        CallFunc_GetCustomItemData_OutData;                // 0x0038(0x0098)()
+	bool                                          CallFunc_GetCustomItemData_ReturnValue;            // 0x00D0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_D1[0x7];                                       // 0x00D1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 CallFunc_Concat_StrStr_ReturnValue;                // 0x00D8(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	class FString                                 CallFunc_Concat_StrStr_ReturnValue_1;              // 0x00E8(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	int32                                         CallFunc_IncrementItemQuantity_ReturnValue;        // 0x00F8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_FC[0x4];                                       // 0x00FC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FCustomItemData                        K2Node_MakeStruct_CustomItemData;                  // 0x0100(0x0098)()
+	TArray<double>                                K2Node_VariableSet_CustomFloats_Loc_ImplicitCast;  // 0x0198(0x0010)(ReferenceParm)
+	TArray<float>                                 K2Node_MakeStruct_CustomDataFloats_ImplicitCast;   // 0x01A8(0x0010)(ReferenceParm)
 };
 DUMPER7_ASSERTS_PrimalItemResource_Gasoline_C_RefillGasoline;
 

@@ -24,15 +24,15 @@ public:
 DUMPER7_ASSERTS_CheatMenuFolderButton_C_ExecuteUbergraph_CheatMenuFolderButton;
 
 // Function CheatMenuFolderButton.CheatMenuFolderButton_C.SetFolder
-// 0x0030 (0x0030 - 0x0000)
+// 0x0038 (0x0038 - 0x0000)
 struct CheatMenuFolderButton_C_SetFolder final
 {
 public:
-	class FText                                   FolderName;                                        // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm)
-	int32                                         ScreenNumber;                                      // 0x0010(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UTexture2D*                             Image;                                             // 0x0018(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class FString                                 CallFunc_Conv_TextToString_ReturnValue;            // 0x0020(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	class FText                                   FolderName;                                        // 0x0000(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm)
+	int32                                         ScreenNumber;                                      // 0x0018(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UTexture2D*                             Image;                                             // 0x0020(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class FString                                 CallFunc_Conv_TextToString_ReturnValue;            // 0x0028(0x0010)(ZeroConstructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenuFolderButton_C_SetFolder;
 

@@ -17,16 +17,16 @@ SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
 // Function CheatMenuCheatButton.CheatMenuCheatButton_C.CloseConfirmation
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct CheatMenuCheatButton_C_CloseConfirmation final
 {
 public:
-	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0000(0x0010)()
+	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0000(0x0018)()
 };
 DUMPER7_ASSERTS_CheatMenuCheatButton_C_CloseConfirmation;
 
 // Function CheatMenuCheatButton.CheatMenuCheatButton_C.ExecuteUbergraph_CheatMenuCheatButton
-// 0x0060 (0x0060 - 0x0000)
+// 0x0068 (0x0068 - 0x0000)
 struct CheatMenuCheatButton_C_ExecuteUbergraph_CheatMenuCheatButton final
 {
 public:
@@ -34,21 +34,21 @@ public:
 	bool                                          Temp_bool_Variable;                                // 0x0004(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x0008(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class FText                                   CallFunc_GetText_ReturnValue;                      // 0x0010(0x0010)()
-	class FString                                 CallFunc_Concat_StrStr_ReturnValue;                // 0x0020(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	class FString                                 CallFunc_Conv_TextToString_ReturnValue;            // 0x0030(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	class FString                                 CallFunc_Concat_StrStr_ReturnValue_1;              // 0x0040(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	class FString                                 K2Node_Select_Default;                             // 0x0050(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	class FText                                   CallFunc_GetText_ReturnValue;                      // 0x0010(0x0018)()
+	class FString                                 CallFunc_Concat_StrStr_ReturnValue;                // 0x0028(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	class FString                                 CallFunc_Conv_TextToString_ReturnValue;            // 0x0038(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	class FString                                 CallFunc_Concat_StrStr_ReturnValue_1;              // 0x0048(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	class FString                                 K2Node_Select_Default;                             // 0x0058(0x0010)(ZeroConstructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenuCheatButton_C_ExecuteUbergraph_CheatMenuCheatButton;
 
 // Function CheatMenuCheatButton.CheatMenuCheatButton_C.ShowConfirmation
-// 0x0020 (0x0020 - 0x0000)
+// 0x0028 (0x0028 - 0x0000)
 struct CheatMenuCheatButton_C_ShowConfirmation final
 {
 public:
 	TArray<struct FFormatArgumentData>            K2Node_MakeArray_Array;                            // 0x0000(0x0010)(ReferenceParm)
-	class FText                                   CallFunc_Format_ReturnValue;                       // 0x0010(0x0010)()
+	class FText                                   CallFunc_Format_ReturnValue;                       // 0x0010(0x0018)()
 };
 DUMPER7_ASSERTS_CheatMenuCheatButton_C_ShowConfirmation;
 

@@ -45,27 +45,27 @@ public:
 DUMPER7_ASSERTS_FOpenColorIODisplayView;
 
 // ScriptStruct OpenColorIO.OpenColorIOColorConversionSettings
-// 0x0080 (0x0080 - 0x0000)
+// 0x0098 (0x0098 - 0x0000)
 struct FOpenColorIOColorConversionSettings final
 {
 public:
-	class UOpenColorIOConfiguration*              ConfigurationSource;                               // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UOpenColorIOConfiguration*              ConfigurationSource;                               // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FOpenColorIOColorSpace                 SourceColorSpace;                                  // 0x0008(0x0028)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	struct FOpenColorIOColorSpace                 DestinationColorSpace;                             // 0x0030(0x0028)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	struct FOpenColorIODisplayView                DestinationDisplayView;                            // 0x0058(0x0020)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 	EOpenColorIOViewTransformDirection            DisplayViewDirection;                              // 0x0078(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_79[0x7];                                       // 0x0079(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_79[0x1F];                                      // 0x0079(0x001F)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FOpenColorIOColorConversionSettings;
 
 // ScriptStruct OpenColorIO.OpenColorIODisplayConfiguration
-// 0x0088 (0x0088 - 0x0000)
+// 0x00A0 (0x00A0 - 0x0000)
 struct FOpenColorIODisplayConfiguration final
 {
 public:
 	bool                                          bIsEnabled;                                        // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FOpenColorIOColorConversionSettings    ColorConfiguration;                                // 0x0008(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FOpenColorIOColorConversionSettings    ColorConfiguration;                                // 0x0008(0x0098)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FOpenColorIODisplayConfiguration;
 

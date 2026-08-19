@@ -12,155 +12,255 @@
 
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "InteractiveToolsFramework_structs.hpp"
 #include "Engine_classes.hpp"
+#include "InteractiveToolsFramework_structs.hpp"
 
 
 SDK_NAMESPACE_START
 
-// Class InteractiveToolsFramework.AssetBackedTarget
-// 0x0000 (0x0000 - 0x0000)
-class IAssetBackedTarget final
+// Class InteractiveToolsFramework.InteractiveToolBuilder
+// 0x0000 (0x0028 - 0x0028)
+class UInteractiveToolBuilder : public UObject
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("AssetBackedTarget")
+		STATIC_CLASS_IMPL("InteractiveToolBuilder")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"AssetBackedTarget")
+		STATIC_NAME_IMPL(L"InteractiveToolBuilder")
 	}
-	static class IAssetBackedTarget* GetDefaultObj()
+	static class UInteractiveToolBuilder* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<IAssetBackedTarget>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
+		return GetDefaultObjImpl<UInteractiveToolBuilder>();
 	}
 };
-DUMPER7_ASSERTS_IAssetBackedTarget;
+DUMPER7_ASSERTS_UInteractiveToolBuilder;
 
-// Class InteractiveToolsFramework.TransformProxy
-// 0x0188 (0x01B0 - 0x0028)
-class UTransformProxy : public UObject
+// Class InteractiveToolsFramework.InputBehavior
+// 0x0008 (0x0030 - 0x0028)
+class UInputBehavior : public UObject
 {
 public:
-	uint8                                         Pad_28[0xA8];                                      // 0x0028(0x00A8)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bRotatePerObject;                                  // 0x00D0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bSetPivotMode;                                     // 0x00D1(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_D2[0x1E];                                      // 0x00D2(0x001E)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FTransform                             SharedTransform;                                   // 0x00F0(0x0060)(IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FTransform                             InitialSharedTransform;                            // 0x0150(0x0060)(IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("TransformProxy")
+		STATIC_CLASS_IMPL("InputBehavior")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"TransformProxy")
+		STATIC_NAME_IMPL(L"InputBehavior")
 	}
-	static class UTransformProxy* GetDefaultObj()
+	static class UInputBehavior* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UTransformProxy>();
+		return GetDefaultObjImpl<UInputBehavior>();
 	}
 };
-DUMPER7_ASSERTS_UTransformProxy;
+DUMPER7_ASSERTS_UInputBehavior;
 
-// Class InteractiveToolsFramework.ComponentBoundTransformProxy
-// 0x0010 (0x01C0 - 0x01B0)
-class UComponentBoundTransformProxy final : public UTransformProxy
+// Class InteractiveToolsFramework.AnyButtonInputBehavior
+// 0x0050 (0x0080 - 0x0030)
+class UAnyButtonInputBehavior : public UInputBehavior
 {
 public:
-	uint8                                         Pad_1B0[0x10];                                     // 0x01B0(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_30[0x50];                                      // 0x0030(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("ComponentBoundTransformProxy")
+		STATIC_CLASS_IMPL("AnyButtonInputBehavior")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"ComponentBoundTransformProxy")
+		STATIC_NAME_IMPL(L"AnyButtonInputBehavior")
 	}
-	static class UComponentBoundTransformProxy* GetDefaultObj()
+	static class UAnyButtonInputBehavior* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UComponentBoundTransformProxy>();
+		return GetDefaultObjImpl<UAnyButtonInputBehavior>();
 	}
 };
-DUMPER7_ASSERTS_UComponentBoundTransformProxy;
+DUMPER7_ASSERTS_UAnyButtonInputBehavior;
 
-// Class InteractiveToolsFramework.GizmoBaseComponentInterface
-// 0x0000 (0x0000 - 0x0000)
-class IGizmoBaseComponentInterface final
+// Class InteractiveToolsFramework.SingleClickInputBehavior
+// 0x00B0 (0x0130 - 0x0080)
+class USingleClickInputBehavior : public UAnyButtonInputBehavior
 {
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GizmoBaseComponentInterface")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GizmoBaseComponentInterface")
-	}
-	static class IGizmoBaseComponentInterface* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<IGizmoBaseComponentInterface>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
-	}
-};
-DUMPER7_ASSERTS_IGizmoBaseComponentInterface;
-
-// Class InteractiveToolsFramework.GizmoBaseComponent
-// 0x0040 (0x0660 - 0x0620)
-#pragma pack(push, 0x1)
-class SDK_ALIGN(0x10) UGizmoBaseComponent : public UPrimitiveComponent
-{
-public:
-	uint8                                         Pad_620[0x8];                                      // 0x0620(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FLinearColor                           Color;                                             // 0x0628(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         HoverSizeMultiplier;                               // 0x0638(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         PixelHitDistanceThreshold;                         // 0x063C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_640[0x8];                                      // 0x0640(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGizmoViewContext*                      GizmoViewContext;                                  // 0x0648(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_650[0x8];                                      // 0x0650(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void UpdateHoverState(bool bHoveringIn);
-	void UpdateWorldLocalState(bool bWorldIn);
+	uint8                                         Pad_80[0x40];                                      // 0x0080(0x0040)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          HitTestOnRelease;                                  // 0x00C0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C1[0x6F];                                      // 0x00C1(0x006F)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("GizmoBaseComponent")
+		STATIC_CLASS_IMPL("SingleClickInputBehavior")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"GizmoBaseComponent")
+		STATIC_NAME_IMPL(L"SingleClickInputBehavior")
 	}
-	static class UGizmoBaseComponent* GetDefaultObj()
+	static class USingleClickInputBehavior* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UGizmoBaseComponent>();
+		return GetDefaultObjImpl<USingleClickInputBehavior>();
 	}
 };
-#pragma pack(pop)
-DUMPER7_ASSERTS_UGizmoBaseComponent;
+DUMPER7_ASSERTS_USingleClickInputBehavior;
+
+// Class InteractiveToolsFramework.InteractiveToolPropertySet
+// 0x0080 (0x00A8 - 0x0028)
+class UInteractiveToolPropertySet : public UObject
+{
+public:
+	uint8                                         Pad_28[0x10];                                      // 0x0028(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	TMap<class FString, class UInteractiveToolPropertySet*> CachedPropertiesMap;                     // 0x0038(0x0050)(Transient, DuplicateTransient, NonTransactional, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	bool                                          bIsPropertySetEnabled;                             // 0x0088(0x0001)(ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_89[0x1F];                                      // 0x0089(0x001F)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InteractiveToolPropertySet")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InteractiveToolPropertySet")
+	}
+	static class UInteractiveToolPropertySet* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInteractiveToolPropertySet>();
+	}
+};
+DUMPER7_ASSERTS_UInteractiveToolPropertySet;
+
+// Class InteractiveToolsFramework.SingleClickOrDragInputBehavior
+// 0x0100 (0x0180 - 0x0080)
+class USingleClickOrDragInputBehavior final : public UAnyButtonInputBehavior
+{
+public:
+	uint8                                         Pad_80[0xA0];                                      // 0x0080(0x00A0)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bBeginDragIfClickTargetNotHit;                     // 0x0120(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_121[0x3];                                      // 0x0121(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         ClickDistanceThreshold;                            // 0x0124(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_128[0x58];                                     // 0x0128(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("SingleClickOrDragInputBehavior")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"SingleClickOrDragInputBehavior")
+	}
+	static class USingleClickOrDragInputBehavior* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<USingleClickOrDragInputBehavior>();
+	}
+};
+DUMPER7_ASSERTS_USingleClickOrDragInputBehavior;
+
+// Class InteractiveToolsFramework.GizmoComponentAxisSource
+// 0x0018 (0x0040 - 0x0028)
+class UGizmoComponentAxisSource final : public UObject
+{
+public:
+	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class USceneComponent*                        Component;                                         // 0x0030(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         AxisIndex;                                         // 0x0038(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bLocalAxes;                                        // 0x003C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3D[0x3];                                       // 0x003D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GizmoComponentAxisSource")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GizmoComponentAxisSource")
+	}
+	static class UGizmoComponentAxisSource* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGizmoComponentAxisSource>();
+	}
+};
+DUMPER7_ASSERTS_UGizmoComponentAxisSource;
+
+// Class InteractiveToolsFramework.InteractiveTool
+// 0x0070 (0x0098 - 0x0028)
+class UInteractiveTool : public UObject
+{
+public:
+	uint8                                         Pad_28[0x38];                                      // 0x0028(0x0038)(Fixing Size After Last Property [ Dumper-7 ])
+	class UInputBehaviorSet*                      InputBehaviors;                                    // 0x0060(0x0008)(ZeroConstructor, Transient, DuplicateTransient, NonTransactional, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	TArray<class UObject*>                        ToolPropertyObjects;                               // 0x0068(0x0010)(ZeroConstructor, Transient, DuplicateTransient, NonTransactional, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	uint8                                         Pad_78[0x20];                                      // 0x0078(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InteractiveTool")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InteractiveTool")
+	}
+	static class UInteractiveTool* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInteractiveTool>();
+	}
+};
+DUMPER7_ASSERTS_UInteractiveTool;
+
+// Class InteractiveToolsFramework.MouseWheelInputBehavior
+// 0x00B0 (0x0130 - 0x0080)
+class UMouseWheelInputBehavior final : public UAnyButtonInputBehavior
+{
+public:
+	uint8                                         Pad_80[0xB0];                                      // 0x0080(0x00B0)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("MouseWheelInputBehavior")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"MouseWheelInputBehavior")
+	}
+	static class UMouseWheelInputBehavior* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMouseWheelInputBehavior>();
+	}
+};
+DUMPER7_ASSERTS_UMouseWheelInputBehavior;
+
+// Class InteractiveToolsFramework.MultiSelectionTool
+// 0x0018 (0x00B0 - 0x0098)
+class UMultiSelectionTool : public UInteractiveTool
+{
+public:
+	uint8                                         Pad_98[0x8];                                       // 0x0098(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class UToolTarget*>                    Targets;                                           // 0x00A0(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("MultiSelectionTool")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"MultiSelectionTool")
+	}
+	static class UMultiSelectionTool* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMultiSelectionTool>();
+	}
+};
+DUMPER7_ASSERTS_UMultiSelectionTool;
 
 // Class InteractiveToolsFramework.InteractiveGizmoBuilder
 // 0x0000 (0x0028 - 0x0028)
@@ -182,28 +282,266 @@ public:
 };
 DUMPER7_ASSERTS_UInteractiveGizmoBuilder;
 
-// Class InteractiveToolsFramework.SimpleLambdaInteractiveGizmoBuilder
-// 0x0048 (0x0070 - 0x0028)
-class USimpleLambdaInteractiveGizmoBuilder final : public UInteractiveGizmoBuilder
+// Class InteractiveToolsFramework.BrushStampIndicatorBuilder
+// 0x0000 (0x0028 - 0x0028)
+class UBrushStampIndicatorBuilder final : public UInteractiveGizmoBuilder
 {
 public:
-	uint8                                         Pad_28[0x48];                                      // 0x0028(0x0048)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("BrushStampIndicatorBuilder")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"BrushStampIndicatorBuilder")
+	}
+	static class UBrushStampIndicatorBuilder* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UBrushStampIndicatorBuilder>();
+	}
+};
+DUMPER7_ASSERTS_UBrushStampIndicatorBuilder;
+
+// Class InteractiveToolsFramework.SingleClickTool
+// 0x0008 (0x00A0 - 0x0098)
+class USingleClickTool : public UInteractiveTool
+{
+public:
+	uint8                                         Pad_98[0x8];                                       // 0x0098(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("SimpleLambdaInteractiveGizmoBuilder")
+		STATIC_CLASS_IMPL("SingleClickTool")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"SimpleLambdaInteractiveGizmoBuilder")
+		STATIC_NAME_IMPL(L"SingleClickTool")
 	}
-	static class USimpleLambdaInteractiveGizmoBuilder* GetDefaultObj()
+	static class USingleClickTool* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<USimpleLambdaInteractiveGizmoBuilder>();
+		return GetDefaultObjImpl<USingleClickTool>();
 	}
 };
-DUMPER7_ASSERTS_USimpleLambdaInteractiveGizmoBuilder;
+DUMPER7_ASSERTS_USingleClickTool;
+
+// Class InteractiveToolsFramework.LocalSingleClickInputBehavior
+// 0x00D0 (0x0200 - 0x0130)
+class ULocalSingleClickInputBehavior final : public USingleClickInputBehavior
+{
+public:
+	uint8                                         Pad_130[0xD0];                                     // 0x0130(0x00D0)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("LocalSingleClickInputBehavior")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"LocalSingleClickInputBehavior")
+	}
+	static class ULocalSingleClickInputBehavior* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<ULocalSingleClickInputBehavior>();
+	}
+};
+DUMPER7_ASSERTS_ULocalSingleClickInputBehavior;
+
+// Class InteractiveToolsFramework.InteractiveCommand
+// 0x0000 (0x0028 - 0x0028)
+class UInteractiveCommand : public UObject
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InteractiveCommand")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InteractiveCommand")
+	}
+	static class UInteractiveCommand* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInteractiveCommand>();
+	}
+};
+DUMPER7_ASSERTS_UInteractiveCommand;
+
+// Class InteractiveToolsFramework.ClickDragInputBehavior
+// 0x00C0 (0x0140 - 0x0080)
+class UClickDragInputBehavior : public UAnyButtonInputBehavior
+{
+public:
+	uint8                                         Pad_80[0xA0];                                      // 0x0080(0x00A0)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bUpdateModifiersDuringDrag;                        // 0x0120(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_121[0x1F];                                     // 0x0121(0x001F)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("ClickDragInputBehavior")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"ClickDragInputBehavior")
+	}
+	static class UClickDragInputBehavior* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UClickDragInputBehavior>();
+	}
+};
+DUMPER7_ASSERTS_UClickDragInputBehavior;
+
+// Class InteractiveToolsFramework.InteractiveToolWithToolTargetsBuilder
+// 0x0000 (0x0028 - 0x0028)
+class UInteractiveToolWithToolTargetsBuilder : public UInteractiveToolBuilder
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InteractiveToolWithToolTargetsBuilder")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InteractiveToolWithToolTargetsBuilder")
+	}
+	static class UInteractiveToolWithToolTargetsBuilder* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInteractiveToolWithToolTargetsBuilder>();
+	}
+};
+DUMPER7_ASSERTS_UInteractiveToolWithToolTargetsBuilder;
+
+// Class InteractiveToolsFramework.GizmoBaseFloatParameterSource
+// 0x0020 (0x0048 - 0x0028)
+class UGizmoBaseFloatParameterSource : public UObject
+{
+public:
+	uint8                                         Pad_28[0x20];                                      // 0x0028(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GizmoBaseFloatParameterSource")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GizmoBaseFloatParameterSource")
+	}
+	static class UGizmoBaseFloatParameterSource* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGizmoBaseFloatParameterSource>();
+	}
+};
+DUMPER7_ASSERTS_UGizmoBaseFloatParameterSource;
+
+// Class InteractiveToolsFramework.InteractiveGizmo
+// 0x0010 (0x0038 - 0x0028)
+class UInteractiveGizmo : public UObject
+{
+public:
+	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class UInputBehaviorSet*                      InputBehaviors;                                    // 0x0030(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InteractiveGizmo")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InteractiveGizmo")
+	}
+	static class UInteractiveGizmo* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInteractiveGizmo>();
+	}
+};
+DUMPER7_ASSERTS_UInteractiveGizmo;
+
+// Class InteractiveToolsFramework.ScalableSphereGizmo
+// 0x00C8 (0x0100 - 0x0038)
+class alignas(0x10) UScalableSphereGizmo final : public UInteractiveGizmo
+{
+public:
+	uint8                                         Pad_38[0x48];                                      // 0x0038(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         HitErrorThreshold;                                 // 0x0080(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_84[0x4];                                       // 0x0084(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class FText                                   TransactionDescription;                            // 0x0088(0x0018)(NativeAccessSpecifierPublic)
+	float                                         Radius;                                            // 0x00A0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bIsHovering;                                       // 0x00A4(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bIsDragging;                                       // 0x00A5(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_A6[0x2];                                       // 0x00A6(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	class UTransformProxy*                        ActiveTarget;                                      // 0x00A8(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FVector                                ActiveAxis;                                        // 0x00B0(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FVector                                DragStartWorldPosition;                            // 0x00C8(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FVector                                DragCurrentPositionProjected;                      // 0x00E0(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	float                                         InteractionStartParameter;                         // 0x00F8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_FC[0x4];                                       // 0x00FC(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("ScalableSphereGizmo")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"ScalableSphereGizmo")
+	}
+	static class UScalableSphereGizmo* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UScalableSphereGizmo>();
+	}
+};
+DUMPER7_ASSERTS_UScalableSphereGizmo;
+
+// Class InteractiveToolsFramework.SingleSelectionTool
+// 0x0010 (0x00A8 - 0x0098)
+class USingleSelectionTool : public UInteractiveTool
+{
+public:
+	uint8                                         Pad_98[0x8];                                       // 0x0098(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class UToolTarget*                            Target;                                            // 0x00A0(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("SingleSelectionTool")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"SingleSelectionTool")
+	}
+	static class USingleSelectionTool* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<USingleSelectionTool>();
+	}
+};
+DUMPER7_ASSERTS_USingleSelectionTool;
+
+// Class InteractiveToolsFramework.InteractionMechanic
+// 0x0008 (0x0030 - 0x0028)
+class UInteractionMechanic : public UObject
+{
+public:
+	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InteractionMechanic")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InteractionMechanic")
+	}
+	static class UInteractionMechanic* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UInteractionMechanic>();
+	}
+};
+DUMPER7_ASSERTS_UInteractionMechanic;
 
 // Class InteractiveToolsFramework.InteractiveCommandArguments
 // 0x0008 (0x0030 - 0x0028)
@@ -248,25 +586,328 @@ public:
 };
 DUMPER7_ASSERTS_UInteractiveCommandResult;
 
-// Class InteractiveToolsFramework.InteractiveCommand
-// 0x0000 (0x0028 - 0x0028)
-class UInteractiveCommand : public UObject
+// Class InteractiveToolsFramework.MeshSurfacePointToolBuilder
+// 0x0008 (0x0030 - 0x0028)
+class UMeshSurfacePointToolBuilder : public UInteractiveToolWithToolTargetsBuilder
+{
+public:
+	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("MeshSurfacePointToolBuilder")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"MeshSurfacePointToolBuilder")
+	}
+	static class UMeshSurfacePointToolBuilder* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMeshSurfacePointToolBuilder>();
+	}
+};
+DUMPER7_ASSERTS_UMeshSurfacePointToolBuilder;
+
+// Class InteractiveToolsFramework.MaterialProvider
+// 0x0000 (0x0000 - 0x0000)
+class IMaterialProvider final
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("InteractiveCommand")
+		STATIC_CLASS_IMPL("MaterialProvider")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"InteractiveCommand")
+		STATIC_NAME_IMPL(L"MaterialProvider")
 	}
-	static class UInteractiveCommand* GetDefaultObj()
+	static class IMaterialProvider* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UInteractiveCommand>();
+		return GetDefaultObjImpl<IMaterialProvider>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
 	}
 };
-DUMPER7_ASSERTS_UInteractiveCommand;
+DUMPER7_ASSERTS_IMaterialProvider;
+
+// Class InteractiveToolsFramework.InternalToolFrameworkActor
+// 0x0008 (0x04D0 - 0x04C8)
+class AInternalToolFrameworkActor : public AActor
+{
+public:
+	bool                                          bIsSelectableInEditor;                             // 0x04C8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4C9[0x7];                                      // 0x04C9(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("InternalToolFrameworkActor")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"InternalToolFrameworkActor")
+	}
+	static class AInternalToolFrameworkActor* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<AInternalToolFrameworkActor>();
+	}
+};
+DUMPER7_ASSERTS_AInternalToolFrameworkActor;
+
+// Class InteractiveToolsFramework.AxisAngleGizmo
+// 0x0198 (0x01D0 - 0x0038)
+class alignas(0x10) UAxisAngleGizmo final : public UInteractiveGizmo
+{
+public:
+	uint8                                         Pad_38[0x10];                                      // 0x0038(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	TScriptInterface<class IGizmoAxisSource>      AxisSource;                                        // 0x0048(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TScriptInterface<class IGizmoFloatParameterSource> AngleSource;                                  // 0x0058(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TScriptInterface<class IGizmoClickTarget>     HitTarget;                                         // 0x0068(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TScriptInterface<class IGizmoStateTarget>     StateTarget;                                       // 0x0078(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UClickDragInputBehavior*                MouseBehavior;                                     // 0x0088(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_90[0x80];                                      // 0x0090(0x0080)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bInInteraction;                                    // 0x0110(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_111[0x7];                                      // 0x0111(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                RotationOrigin;                                    // 0x0118(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                RotationAxis;                                      // 0x0130(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                RotationPlaneX;                                    // 0x0148(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                RotationPlaneY;                                    // 0x0160(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                InteractionStartPoint;                             // 0x0178(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                InteractionCurPoint;                               // 0x0190(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         InteractionStartAngle;                             // 0x01A8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         InteractionCurAngle;                               // 0x01AC(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1B0[0x20];                                     // 0x01B0(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("AxisAngleGizmo")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"AxisAngleGizmo")
+	}
+	static class UAxisAngleGizmo* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UAxisAngleGizmo>();
+	}
+};
+DUMPER7_ASSERTS_UAxisAngleGizmo;
+
+// Class InteractiveToolsFramework.SceneSnappingManager
+// 0x0000 (0x0028 - 0x0028)
+class USceneSnappingManager : public UObject
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("SceneSnappingManager")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"SceneSnappingManager")
+	}
+	static class USceneSnappingManager* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<USceneSnappingManager>();
+	}
+};
+DUMPER7_ASSERTS_USceneSnappingManager;
+
+// Class InteractiveToolsFramework.GizmoLambdaHitTarget
+// 0x00C8 (0x00F0 - 0x0028)
+class UGizmoLambdaHitTarget final : public UObject
+{
+public:
+	uint8                                         Pad_28[0xC8];                                      // 0x0028(0x00C8)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GizmoLambdaHitTarget")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GizmoLambdaHitTarget")
+	}
+	static class UGizmoLambdaHitTarget* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGizmoLambdaHitTarget>();
+	}
+};
+DUMPER7_ASSERTS_UGizmoLambdaHitTarget;
+
+// Class InteractiveToolsFramework.MeshSurfacePointTool
+// 0x0058 (0x0100 - 0x00A8)
+class UMeshSurfacePointTool : public USingleSelectionTool
+{
+public:
+	uint8                                         Pad_A8[0x50];                                      // 0x00A8(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
+	TWeakObjectPtr<class UWorld>                  TargetWorld;                                       // 0x00F8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("MeshSurfacePointTool")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"MeshSurfacePointTool")
+	}
+	static class UMeshSurfacePointTool* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMeshSurfacePointTool>();
+	}
+};
+DUMPER7_ASSERTS_UMeshSurfacePointTool;
+
+// Class InteractiveToolsFramework.GizmoBaseComponent
+// 0x0030 (0x06C0 - 0x0690)
+class UGizmoBaseComponent : public UPrimitiveComponent
+{
+public:
+	struct FLinearColor                           Color;                                             // 0x0690(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         HoverSizeMultiplier;                               // 0x06A0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         PixelHitDistanceThreshold;                         // 0x06A4(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6A8[0x8];                                      // 0x06A8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGizmoViewContext*                      GizmoViewContext;                                  // 0x06B0(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_6B8[0x8];                                      // 0x06B8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void UpdateHoverState(bool bHoveringIn);
+	void UpdateWorldLocalState(bool bWorldIn);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GizmoBaseComponent")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GizmoBaseComponent")
+	}
+	static class UGizmoBaseComponent* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGizmoBaseComponent>();
+	}
+};
+DUMPER7_ASSERTS_UGizmoBaseComponent;
+
+// Class InteractiveToolsFramework.BaseBrushTool
+// 0x0188 (0x0288 - 0x0100)
+class UBaseBrushTool : public UMeshSurfacePointTool
+{
+public:
+	class UBrushBaseProperties*                   BrushProperties;                                   // 0x0100(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bInBrushStroke;                                    // 0x0108(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_109[0x3];                                      // 0x0109(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         WorldToLocalScale;                                 // 0x010C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FBrushStampData                        LastBrushStamp;                                    // 0x0110(0x0130)(NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_240[0x10];                                     // 0x0240(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	TSoftClassPtr<class UClass>                   PropertyClass;                                     // 0x0250(0x0030)(Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UBrushStampIndicator*                   BrushStampIndicator;                               // 0x0280(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("BaseBrushTool")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"BaseBrushTool")
+	}
+	static class UBaseBrushTool* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UBaseBrushTool>();
+	}
+};
+DUMPER7_ASSERTS_UBaseBrushTool;
+
+// Class InteractiveToolsFramework.AssetBackedTarget
+// 0x0000 (0x0000 - 0x0000)
+class IAssetBackedTarget final
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("AssetBackedTarget")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"AssetBackedTarget")
+	}
+	static class IAssetBackedTarget* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<IAssetBackedTarget>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
+	}
+};
+DUMPER7_ASSERTS_IAssetBackedTarget;
+
+// Class InteractiveToolsFramework.SelectionSet
+// 0x0018 (0x0040 - 0x0028)
+class USelectionSet : public UObject
+{
+public:
+	uint8                                         Pad_28[0x18];                                      // 0x0028(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("SelectionSet")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"SelectionSet")
+	}
+	static class USelectionSet* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<USelectionSet>();
+	}
+};
+DUMPER7_ASSERTS_USelectionSet;
+
+// Class InteractiveToolsFramework.MeshSelectionSet
+// 0x0040 (0x0080 - 0x0040)
+class UMeshSelectionSet final : public USelectionSet
+{
+public:
+	TArray<int32>                                 Vertices;                                          // 0x0040(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<int32>                                 Edges;                                             // 0x0050(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<int32>                                 Faces;                                             // 0x0060(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<int32>                                 Groups;                                            // 0x0070(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("MeshSelectionSet")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"MeshSelectionSet")
+	}
+	static class UMeshSelectionSet* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMeshSelectionSet>();
+	}
+};
+DUMPER7_ASSERTS_UMeshSelectionSet;
 
 // Class InteractiveToolsFramework.ToolContextTransactionProvider
 // 0x0000 (0x0000 - 0x0000)
@@ -297,30 +938,6 @@ public:
 };
 DUMPER7_ASSERTS_IToolContextTransactionProvider;
 
-// Class InteractiveToolsFramework.InternalToolFrameworkActor
-// 0x0008 (0x0498 - 0x0490)
-class AInternalToolFrameworkActor : public AActor
-{
-public:
-	bool                                          bIsSelectableInEditor;                             // 0x0490(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_491[0x7];                                      // 0x0491(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InternalToolFrameworkActor")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InternalToolFrameworkActor")
-	}
-	static class AInternalToolFrameworkActor* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<AInternalToolFrameworkActor>();
-	}
-};
-DUMPER7_ASSERTS_AInternalToolFrameworkActor;
-
 // Class InteractiveToolsFramework.ToolFrameworkComponent
 // 0x0000 (0x0000 - 0x0000)
 class IToolFrameworkComponent final
@@ -349,6 +966,37 @@ public:
 	}
 };
 DUMPER7_ASSERTS_IToolFrameworkComponent;
+
+// Class InteractiveToolsFramework.IntervalGizmo
+// 0x01C8 (0x0200 - 0x0038)
+class alignas(0x10) UIntervalGizmo final : public UInteractiveGizmo
+{
+public:
+	class UGizmoTransformChangeStateTarget*       StateTarget;                                       // 0x0038(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_40[0x58];                                      // 0x0040(0x0058)(Fixing Size After Last Property [ Dumper-7 ])
+	class UTransformProxy*                        TransformProxy;                                    // 0x0098(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	TArray<class UPrimitiveComponent*>            ActiveComponents;                                  // 0x00A0(0x0010)(ExportObject, ZeroConstructor, ContainsInstancedReference, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	TArray<class UInteractiveGizmo*>              ActiveGizmos;                                      // 0x00B0(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	uint8                                         Pad_C0[0x18];                                      // 0x00C0(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGizmoComponentAxisSource*              AxisYSource;                                       // 0x00D8(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UGizmoComponentAxisSource*              AxisZSource;                                       // 0x00E0(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_E8[0x118];                                     // 0x00E8(0x0118)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("IntervalGizmo")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"IntervalGizmo")
+	}
+	static class UIntervalGizmo* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UIntervalGizmo>();
+	}
+};
+DUMPER7_ASSERTS_UIntervalGizmo;
 
 // Class InteractiveToolsFramework.InteractiveToolCameraFocusAPI
 // 0x0000 (0x0000 - 0x0000)
@@ -408,35 +1056,6 @@ public:
 };
 DUMPER7_ASSERTS_IInteractiveToolNestedAcceptCancelAPI;
 
-// Class InteractiveToolsFramework.InteractiveToolShutdownQueryAPI
-// 0x0000 (0x0000 - 0x0000)
-class IInteractiveToolShutdownQueryAPI final
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InteractiveToolShutdownQueryAPI")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InteractiveToolShutdownQueryAPI")
-	}
-	static class IInteractiveToolShutdownQueryAPI* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<IInteractiveToolShutdownQueryAPI>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
-	}
-};
-DUMPER7_ASSERTS_IInteractiveToolShutdownQueryAPI;
-
 // Class InteractiveToolsFramework.InteractiveToolExclusiveToolAPI
 // 0x0000 (0x0000 - 0x0000)
 class IInteractiveToolExclusiveToolAPI final
@@ -466,92 +1085,49 @@ public:
 };
 DUMPER7_ASSERTS_IInteractiveToolExclusiveToolAPI;
 
-// Class InteractiveToolsFramework.InteractiveToolEditorGizmoAPI
-// 0x0000 (0x0000 - 0x0000)
-class IInteractiveToolEditorGizmoAPI final
+// Class InteractiveToolsFramework.PlanePositionGizmo
+// 0x0238 (0x0270 - 0x0038)
+class alignas(0x10) UPlanePositionGizmo final : public UInteractiveGizmo
 {
+public:
+	uint8                                         Pad_38[0x10];                                      // 0x0038(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	TScriptInterface<class IGizmoAxisSource>      AxisSource;                                        // 0x0048(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TScriptInterface<class IGizmoVec2ParameterSource> ParameterSource;                               // 0x0058(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TScriptInterface<class IGizmoClickTarget>     HitTarget;                                         // 0x0068(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TScriptInterface<class IGizmoStateTarget>     StateTarget;                                       // 0x0078(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UClickDragInputBehavior*                MouseBehavior;                                     // 0x0088(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnableSignedAxis;                                 // 0x0090(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bFlipX;                                            // 0x0091(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bFlipY;                                            // 0x0092(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_93[0x8D];                                      // 0x0093(0x008D)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bInInteraction;                                    // 0x0120(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_121[0x7];                                      // 0x0121(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                InteractionOrigin;                                 // 0x0128(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                InteractionNormal;                                 // 0x0140(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                InteractionAxisX;                                  // 0x0158(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                InteractionAxisY;                                  // 0x0170(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                InteractionStartPoint;                             // 0x0188(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                InteractionCurPoint;                               // 0x01A0(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              InteractionStartParameter;                         // 0x01B8(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              InteractionCurParameter;                           // 0x01C8(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              ParameterSigns;                                    // 0x01D8(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1E8[0x88];                                     // 0x01E8(0x0088)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("InteractiveToolEditorGizmoAPI")
+		STATIC_CLASS_IMPL("PlanePositionGizmo")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"InteractiveToolEditorGizmoAPI")
+		STATIC_NAME_IMPL(L"PlanePositionGizmo")
 	}
-	static class IInteractiveToolEditorGizmoAPI* GetDefaultObj()
+	static class UPlanePositionGizmo* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<IInteractiveToolEditorGizmoAPI>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
+		return GetDefaultObjImpl<UPlanePositionGizmo>();
 	}
 };
-DUMPER7_ASSERTS_IInteractiveToolEditorGizmoAPI;
-
-// Class InteractiveToolsFramework.InteractiveToolManageGeometrySelectionAPI
-// 0x0000 (0x0000 - 0x0000)
-class IInteractiveToolManageGeometrySelectionAPI final
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InteractiveToolManageGeometrySelectionAPI")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InteractiveToolManageGeometrySelectionAPI")
-	}
-	static class IInteractiveToolManageGeometrySelectionAPI* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<IInteractiveToolManageGeometrySelectionAPI>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
-	}
-};
-DUMPER7_ASSERTS_IInteractiveToolManageGeometrySelectionAPI;
-
-// Class InteractiveToolsFramework.MaterialProvider
-// 0x0000 (0x0000 - 0x0000)
-class IMaterialProvider final
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MaterialProvider")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MaterialProvider")
-	}
-	static class IMaterialProvider* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<IMaterialProvider>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
-	}
-};
-DUMPER7_ASSERTS_IMaterialProvider;
+DUMPER7_ASSERTS_UPlanePositionGizmo;
 
 // Class InteractiveToolsFramework.MeshDescriptionCommitter
 // 0x0000 (0x0000 - 0x0000)
@@ -658,29 +1234,6 @@ public:
 };
 DUMPER7_ASSERTS_UGizmoLocalVec2ParameterSource;
 
-// Class InteractiveToolsFramework.GizmoBaseFloatParameterSource
-// 0x0020 (0x0048 - 0x0028)
-class UGizmoBaseFloatParameterSource : public UObject
-{
-public:
-	uint8                                         Pad_28[0x20];                                      // 0x0028(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GizmoBaseFloatParameterSource")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GizmoBaseFloatParameterSource")
-	}
-	static class UGizmoBaseFloatParameterSource* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGizmoBaseFloatParameterSource>();
-	}
-};
-DUMPER7_ASSERTS_UGizmoBaseFloatParameterSource;
-
 // Class InteractiveToolsFramework.GizmoAxisTranslationParameterSource
 // 0x0148 (0x0190 - 0x0048)
 class UGizmoAxisTranslationParameterSource final : public UGizmoBaseFloatParameterSource
@@ -776,23 +1329,21 @@ public:
 DUMPER7_ASSERTS_UGizmoAxisRotationParameterSource;
 
 // Class InteractiveToolsFramework.GizmoUniformScaleParameterSource
-// 0x01A8 (0x01F0 - 0x0048)
+// 0x0118 (0x0160 - 0x0048)
 class UGizmoUniformScaleParameterSource final : public UGizmoBaseVec2ParameterSource
 {
 public:
-	uint8                                         Pad_48[0x88];                                      // 0x0048(0x0088)(Fixing Size After Last Property [ Dumper-7 ])
-	TScriptInterface<class IGizmoAxisSource>      AxisSource;                                        // 0x00D0(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TScriptInterface<class IGizmoTransformSource> TransformSource;                                   // 0x00E0(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ScaleMultiplier;                                   // 0x00F0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_F4[0x4];                                       // 0x00F4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector2D                              Parameter;                                         // 0x00F8(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGizmoVec2ParameterChange              LastChange;                                        // 0x0108(0x0020)(NoDestructor, NativeAccessSpecifierPublic)
-	struct FVector                                CurScaleOrigin;                                    // 0x0128(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                CurScaleNormal;                                    // 0x0140(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                CurScaleAxisX;                                     // 0x0158(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                CurScaleAxisY;                                     // 0x0170(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_188[0x8];                                      // 0x0188(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FTransform                             InitialTransform;                                  // 0x0190(0x0060)(IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TScriptInterface<class IGizmoAxisSource>      AxisSource;                                        // 0x0048(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TScriptInterface<class IGizmoTransformSource> TransformSource;                                   // 0x0058(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ScaleMultiplier;                                   // 0x0068(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6C[0x4];                                       // 0x006C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector2D                              Parameter;                                         // 0x0070(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGizmoVec2ParameterChange              LastChange;                                        // 0x0080(0x0020)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FVector                                CurScaleOrigin;                                    // 0x00A0(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                CurScaleNormal;                                    // 0x00B8(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                CurScaleAxisX;                                     // 0x00D0(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                CurScaleAxisY;                                     // 0x00E8(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FTransform                             InitialTransform;                                  // 0x0100(0x0060)(IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -811,23 +1362,21 @@ public:
 DUMPER7_ASSERTS_UGizmoUniformScaleParameterSource;
 
 // Class InteractiveToolsFramework.GizmoAxisScaleParameterSource
-// 0x0158 (0x01A0 - 0x0048)
+// 0x00C8 (0x0110 - 0x0048)
 class UGizmoAxisScaleParameterSource final : public UGizmoBaseFloatParameterSource
 {
 public:
-	uint8                                         Pad_48[0x88];                                      // 0x0048(0x0088)(Fixing Size After Last Property [ Dumper-7 ])
-	TScriptInterface<class IGizmoAxisSource>      AxisSource;                                        // 0x00D0(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TScriptInterface<class IGizmoTransformSource> TransformSource;                                   // 0x00E0(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ScaleMultiplier;                                   // 0x00F0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bClampToZero;                                      // 0x00F4(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_F5[0x3];                                       // 0x00F5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         Parameter;                                         // 0x00F8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGizmoFloatParameterChange             LastChange;                                        // 0x00FC(0x0008)(NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_104[0x4];                                      // 0x0104(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                CurScaleAxis;                                      // 0x0108(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                CurScaleOrigin;                                    // 0x0120(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_138[0x8];                                      // 0x0138(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FTransform                             InitialTransform;                                  // 0x0140(0x0060)(IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TScriptInterface<class IGizmoAxisSource>      AxisSource;                                        // 0x0048(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TScriptInterface<class IGizmoTransformSource> TransformSource;                                   // 0x0058(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ScaleMultiplier;                                   // 0x0068(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bClampToZero;                                      // 0x006C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6D[0x3];                                       // 0x006D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         Parameter;                                         // 0x0070(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGizmoFloatParameterChange             LastChange;                                        // 0x0074(0x0008)(NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_7C[0x4];                                       // 0x007C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                CurScaleAxis;                                      // 0x0080(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                CurScaleOrigin;                                    // 0x0098(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FTransform                             InitialTransform;                                  // 0x00B0(0x0060)(IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -846,25 +1395,25 @@ public:
 DUMPER7_ASSERTS_UGizmoAxisScaleParameterSource;
 
 // Class InteractiveToolsFramework.GizmoPlaneScaleParameterSource
-// 0x0228 (0x0270 - 0x0048)
+// 0x0168 (0x01B0 - 0x0048)
 class UGizmoPlaneScaleParameterSource final : public UGizmoBaseVec2ParameterSource
 {
 public:
-	uint8                                         Pad_48[0x108];                                     // 0x0048(0x0108)(Fixing Size After Last Property [ Dumper-7 ])
-	TScriptInterface<class IGizmoAxisSource>      AxisSource;                                        // 0x0150(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TScriptInterface<class IGizmoTransformSource> TransformSource;                                   // 0x0160(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ScaleMultiplier;                                   // 0x0170(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUseEqualScaling;                                  // 0x0174(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bClampToZero;                                      // 0x0175(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_176[0x2];                                      // 0x0176(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector2D                              Parameter;                                         // 0x0178(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGizmoVec2ParameterChange              LastChange;                                        // 0x0188(0x0020)(NoDestructor, NativeAccessSpecifierPublic)
-	struct FVector                                CurScaleOrigin;                                    // 0x01A8(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                CurScaleNormal;                                    // 0x01C0(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                CurScaleAxisX;                                     // 0x01D8(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                CurScaleAxisY;                                     // 0x01F0(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_208[0x8];                                      // 0x0208(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FTransform                             InitialTransform;                                  // 0x0210(0x0060)(IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_48[0x48];                                      // 0x0048(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
+	TScriptInterface<class IGizmoAxisSource>      AxisSource;                                        // 0x0090(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TScriptInterface<class IGizmoTransformSource> TransformSource;                                   // 0x00A0(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ScaleMultiplier;                                   // 0x00B0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUseEqualScaling;                                  // 0x00B4(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bClampToZero;                                      // 0x00B5(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_B6[0x2];                                       // 0x00B6(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector2D                              Parameter;                                         // 0x00B8(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGizmoVec2ParameterChange              LastChange;                                        // 0x00C8(0x0020)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FVector                                CurScaleOrigin;                                    // 0x00E8(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                CurScaleNormal;                                    // 0x0100(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                CurScaleAxisX;                                     // 0x0118(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                CurScaleAxisY;                                     // 0x0130(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_148[0x8];                                      // 0x0148(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FTransform                             InitialTransform;                                  // 0x0150(0x0060)(IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -940,55 +1489,6 @@ public:
 };
 DUMPER7_ASSERTS_IPrimitiveComponentBackedTarget;
 
-// Class InteractiveToolsFramework.InteractiveGizmo
-// 0x0010 (0x0038 - 0x0028)
-class UInteractiveGizmo : public UObject
-{
-public:
-	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UInputBehaviorSet*                      InputBehaviors;                                    // 0x0030(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InteractiveGizmo")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InteractiveGizmo")
-	}
-	static class UInteractiveGizmo* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInteractiveGizmo>();
-	}
-};
-DUMPER7_ASSERTS_UInteractiveGizmo;
-
-// Class InteractiveToolsFramework.SimpleSingleClickGizmo
-// 0x0040 (0x0078 - 0x0038)
-class USimpleSingleClickGizmo final : public UInteractiveGizmo
-{
-public:
-	uint8                                         Pad_38[0x28];                                      // 0x0038(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
-	TScriptInterface<class IGizmoClickTarget>     HitTarget;                                         // 0x0060(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class USingleClickInputBehavior*              ClickBehavior;                                     // 0x0070(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("SimpleSingleClickGizmo")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"SimpleSingleClickGizmo")
-	}
-	static class USimpleSingleClickGizmo* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<USimpleSingleClickGizmo>();
-	}
-};
-DUMPER7_ASSERTS_USimpleSingleClickGizmo;
-
 // Class InteractiveToolsFramework.SkeletalMeshBackedTarget
 // 0x0000 (0x0000 - 0x0000)
 class ISkeletalMeshBackedTarget final
@@ -1047,127 +1547,6 @@ public:
 };
 DUMPER7_ASSERTS_IStaticMeshBackedTarget;
 
-// Class InteractiveToolsFramework.ToolsContextCursorAPI
-// 0x0008 (0x0030 - 0x0028)
-class UToolsContextCursorAPI final : public UObject
-{
-public:
-	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("ToolsContextCursorAPI")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"ToolsContextCursorAPI")
-	}
-	static class UToolsContextCursorAPI* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UToolsContextCursorAPI>();
-	}
-};
-DUMPER7_ASSERTS_UToolsContextCursorAPI;
-
-// Class InteractiveToolsFramework.ViewAdjustedStaticMeshGizmoComponent
-// 0x0040 (0x0750 - 0x0710)
-class UViewAdjustedStaticMeshGizmoComponent final : public UStaticMeshComponent
-{
-public:
-	uint8                                         Pad_710[0x8];                                      // 0x0710(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGizmoViewContext*                      GizmoViewContext;                                  // 0x0718(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    SubstituteInteractionComponent;                    // 0x0720(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	class UMaterialInterface*                     HoverOverrideMaterial;                             // 0x0728(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	uint8                                         Pad_730[0x20];                                     // 0x0730(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("ViewAdjustedStaticMeshGizmoComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"ViewAdjustedStaticMeshGizmoComponent")
-	}
-	static class UViewAdjustedStaticMeshGizmoComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UViewAdjustedStaticMeshGizmoComponent>();
-	}
-};
-DUMPER7_ASSERTS_UViewAdjustedStaticMeshGizmoComponent;
-
-// Class InteractiveToolsFramework.InputBehavior
-// 0x0008 (0x0030 - 0x0028)
-class UInputBehavior : public UObject
-{
-public:
-	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InputBehavior")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InputBehavior")
-	}
-	static class UInputBehavior* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInputBehavior>();
-	}
-};
-DUMPER7_ASSERTS_UInputBehavior;
-
-// Class InteractiveToolsFramework.AnyButtonInputBehavior
-// 0x0050 (0x0080 - 0x0030)
-class UAnyButtonInputBehavior : public UInputBehavior
-{
-public:
-	uint8                                         Pad_30[0x50];                                      // 0x0030(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("AnyButtonInputBehavior")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"AnyButtonInputBehavior")
-	}
-	static class UAnyButtonInputBehavior* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UAnyButtonInputBehavior>();
-	}
-};
-DUMPER7_ASSERTS_UAnyButtonInputBehavior;
-
-// Class InteractiveToolsFramework.ClickDragInputBehavior
-// 0x00C0 (0x0140 - 0x0080)
-class UClickDragInputBehavior : public UAnyButtonInputBehavior
-{
-public:
-	uint8                                         Pad_80[0xA0];                                      // 0x0080(0x00A0)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bUpdateModifiersDuringDrag;                        // 0x0120(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_121[0x1F];                                     // 0x0121(0x001F)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("ClickDragInputBehavior")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"ClickDragInputBehavior")
-	}
-	static class UClickDragInputBehavior* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UClickDragInputBehavior>();
-	}
-};
-DUMPER7_ASSERTS_UClickDragInputBehavior;
-
 // Class InteractiveToolsFramework.LocalClickDragInputBehavior
 // 0x0140 (0x0280 - 0x0140)
 class ULocalClickDragInputBehavior final : public UClickDragInputBehavior
@@ -1190,74 +1569,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_ULocalClickDragInputBehavior;
-
-// Class InteractiveToolsFramework.SingleClickInputBehavior
-// 0x00B0 (0x0130 - 0x0080)
-class USingleClickInputBehavior : public UAnyButtonInputBehavior
-{
-public:
-	uint8                                         Pad_80[0x40];                                      // 0x0080(0x0040)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          HitTestOnRelease;                                  // 0x00C0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C1[0x6F];                                      // 0x00C1(0x006F)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("SingleClickInputBehavior")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"SingleClickInputBehavior")
-	}
-	static class USingleClickInputBehavior* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<USingleClickInputBehavior>();
-	}
-};
-DUMPER7_ASSERTS_USingleClickInputBehavior;
-
-// Class InteractiveToolsFramework.DoubleClickInputBehavior
-// 0x0000 (0x0130 - 0x0130)
-class UDoubleClickInputBehavior : public USingleClickInputBehavior
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("DoubleClickInputBehavior")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"DoubleClickInputBehavior")
-	}
-	static class UDoubleClickInputBehavior* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UDoubleClickInputBehavior>();
-	}
-};
-DUMPER7_ASSERTS_UDoubleClickInputBehavior;
-
-// Class InteractiveToolsFramework.LocalDoubleClickInputBehavior
-// 0x00D0 (0x0200 - 0x0130)
-class ULocalDoubleClickInputBehavior final : public UDoubleClickInputBehavior
-{
-public:
-	uint8                                         Pad_130[0xD0];                                     // 0x0130(0x00D0)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("LocalDoubleClickInputBehavior")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"LocalDoubleClickInputBehavior")
-	}
-	static class ULocalDoubleClickInputBehavior* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<ULocalDoubleClickInputBehavior>();
-	}
-};
-DUMPER7_ASSERTS_ULocalDoubleClickInputBehavior;
 
 // Class InteractiveToolsFramework.KeyAsModifierInputBehavior
 // 0x0068 (0x0098 - 0x0030)
@@ -1282,35 +1593,12 @@ public:
 };
 DUMPER7_ASSERTS_UKeyAsModifierInputBehavior;
 
-// Class InteractiveToolsFramework.KeyInputBehavior
-// 0x00E0 (0x0110 - 0x0030)
-class UKeyInputBehavior final : public UInputBehavior
-{
-public:
-	uint8                                         Pad_30[0xE0];                                      // 0x0030(0x00E0)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("KeyInputBehavior")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"KeyInputBehavior")
-	}
-	static class UKeyInputBehavior* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UKeyInputBehavior>();
-	}
-};
-DUMPER7_ASSERTS_UKeyInputBehavior;
-
 // Class InteractiveToolsFramework.MouseHoverBehavior
-// 0x00B0 (0x00E0 - 0x0030)
+// 0x0068 (0x0098 - 0x0030)
 class UMouseHoverBehavior : public UInputBehavior
 {
 public:
-	uint8                                         Pad_30[0xB0];                                      // 0x0030(0x00B0)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_30[0x68];                                      // 0x0030(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -1329,11 +1617,11 @@ public:
 DUMPER7_ASSERTS_UMouseHoverBehavior;
 
 // Class InteractiveToolsFramework.LocalMouseHoverBehavior
-// 0x0140 (0x0220 - 0x00E0)
+// 0x0148 (0x01E0 - 0x0098)
 class ULocalMouseHoverBehavior final : public UMouseHoverBehavior
 {
 public:
-	uint8                                         Pad_E0[0x140];                                     // 0x00E0(0x0140)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_98[0x148];                                     // 0x0098(0x0148)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -1351,35 +1639,12 @@ public:
 };
 DUMPER7_ASSERTS_ULocalMouseHoverBehavior;
 
-// Class InteractiveToolsFramework.MouseWheelInputBehavior
-// 0x00B0 (0x0130 - 0x0080)
-class UMouseWheelInputBehavior final : public UAnyButtonInputBehavior
-{
-public:
-	uint8                                         Pad_80[0xB0];                                      // 0x0080(0x00B0)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MouseWheelInputBehavior")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MouseWheelInputBehavior")
-	}
-	static class UMouseWheelInputBehavior* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMouseWheelInputBehavior>();
-	}
-};
-DUMPER7_ASSERTS_UMouseWheelInputBehavior;
-
 // Class InteractiveToolsFramework.MultiClickSequenceInputBehavior
-// 0x00F0 (0x0170 - 0x0080)
+// 0x00B0 (0x0130 - 0x0080)
 class UMultiClickSequenceInputBehavior final : public UAnyButtonInputBehavior
 {
 public:
-	uint8                                         Pad_80[0xF0];                                      // 0x0080(0x00F0)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_80[0xB0];                                      // 0x0080(0x00B0)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -1396,56 +1661,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UMultiClickSequenceInputBehavior;
-
-// Class InteractiveToolsFramework.LocalSingleClickInputBehavior
-// 0x00D0 (0x0200 - 0x0130)
-class ULocalSingleClickInputBehavior final : public USingleClickInputBehavior
-{
-public:
-	uint8                                         Pad_130[0xD0];                                     // 0x0130(0x00D0)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("LocalSingleClickInputBehavior")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"LocalSingleClickInputBehavior")
-	}
-	static class ULocalSingleClickInputBehavior* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<ULocalSingleClickInputBehavior>();
-	}
-};
-DUMPER7_ASSERTS_ULocalSingleClickInputBehavior;
-
-// Class InteractiveToolsFramework.SingleClickOrDragInputBehavior
-// 0x0100 (0x0180 - 0x0080)
-class USingleClickOrDragInputBehavior final : public UAnyButtonInputBehavior
-{
-public:
-	uint8                                         Pad_80[0xA0];                                      // 0x0080(0x00A0)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bBeginDragIfClickTargetNotHit;                     // 0x0120(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_121[0x3];                                      // 0x0121(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         ClickDistanceThreshold;                            // 0x0124(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_128[0x58];                                     // 0x0128(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("SingleClickOrDragInputBehavior")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"SingleClickOrDragInputBehavior")
-	}
-	static class USingleClickOrDragInputBehavior* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<USingleClickOrDragInputBehavior>();
-	}
-};
-DUMPER7_ASSERTS_USingleClickOrDragInputBehavior;
 
 // Class InteractiveToolsFramework.SingleKeyCaptureBehavior
 // 0x00E0 (0x0110 - 0x0030)
@@ -1519,46 +1734,6 @@ public:
 };
 DUMPER7_ASSERTS_UAxisAngleGizmoBuilder;
 
-// Class InteractiveToolsFramework.AxisAngleGizmo
-// 0x0198 (0x01D0 - 0x0038)
-class alignas(0x10) UAxisAngleGizmo final : public UInteractiveGizmo
-{
-public:
-	uint8                                         Pad_38[0x10];                                      // 0x0038(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	TScriptInterface<class IGizmoAxisSource>      AxisSource;                                        // 0x0048(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TScriptInterface<class IGizmoFloatParameterSource> AngleSource;                                  // 0x0058(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TScriptInterface<class IGizmoClickTarget>     HitTarget;                                         // 0x0068(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TScriptInterface<class IGizmoStateTarget>     StateTarget;                                       // 0x0078(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UClickDragInputBehavior*                MouseBehavior;                                     // 0x0088(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_90[0x80];                                      // 0x0090(0x0080)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bInInteraction;                                    // 0x0110(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_111[0x7];                                      // 0x0111(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                RotationOrigin;                                    // 0x0118(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                RotationAxis;                                      // 0x0130(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                RotationPlaneX;                                    // 0x0148(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                RotationPlaneY;                                    // 0x0160(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                InteractionStartPoint;                             // 0x0178(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                InteractionCurPoint;                               // 0x0190(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         InteractionStartAngle;                             // 0x01A8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         InteractionCurAngle;                               // 0x01AC(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1B0[0x20];                                     // 0x01B0(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("AxisAngleGizmo")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"AxisAngleGizmo")
-	}
-	static class UAxisAngleGizmo* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UAxisAngleGizmo>();
-	}
-};
-DUMPER7_ASSERTS_UAxisAngleGizmo;
-
 // Class InteractiveToolsFramework.AxisPositionGizmoBuilder
 // 0x0000 (0x0028 - 0x0028)
 class UAxisPositionGizmoBuilder final : public UInteractiveGizmoBuilder
@@ -1587,10 +1762,10 @@ public:
 	uint8                                         Pad_38[0x10];                                      // 0x0038(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
 	TScriptInterface<class IGizmoAxisSource>      AxisSource;                                        // 0x0048(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TScriptInterface<class IGizmoFloatParameterSource> ParameterSource;                              // 0x0058(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UGizmoViewContext*                      GizmoViewContext;                                  // 0x0068(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UGizmoViewContext*                      GizmoViewContext;                                  // 0x0068(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TScriptInterface<class IGizmoClickTarget>     HitTarget;                                         // 0x0070(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TScriptInterface<class IGizmoStateTarget>     StateTarget;                                       // 0x0080(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UClickDragInputBehavior*                MouseBehavior;                                     // 0x0090(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UClickDragInputBehavior*                MouseBehavior;                                     // 0x0090(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bEnableSignedAxis;                                 // 0x0098(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_99[0x88];                                      // 0x0099(0x0088)(Fixing Size After Last Property [ Dumper-7 ])
 	bool                                          bInInteraction;                                    // 0x0121(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1698,53 +1873,6 @@ public:
 };
 DUMPER7_ASSERTS_UGizmoWorldAxisSource;
 
-// Class InteractiveToolsFramework.GizmoComponentAxisSource
-// 0x0018 (0x0040 - 0x0028)
-class UGizmoComponentAxisSource final : public UObject
-{
-public:
-	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class USceneComponent*                        Component;                                         // 0x0030(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	int32                                         AxisIndex;                                         // 0x0038(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bLocalAxes;                                        // 0x003C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3D[0x3];                                       // 0x003D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GizmoComponentAxisSource")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GizmoComponentAxisSource")
-	}
-	static class UGizmoComponentAxisSource* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGizmoComponentAxisSource>();
-	}
-};
-DUMPER7_ASSERTS_UGizmoComponentAxisSource;
-
-// Class InteractiveToolsFramework.BrushStampIndicatorBuilder
-// 0x0000 (0x0028 - 0x0028)
-class UBrushStampIndicatorBuilder final : public UInteractiveGizmoBuilder
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("BrushStampIndicatorBuilder")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"BrushStampIndicatorBuilder")
-	}
-	static class UBrushStampIndicatorBuilder* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UBrushStampIndicatorBuilder>();
-	}
-};
-DUMPER7_ASSERTS_UBrushStampIndicatorBuilder;
-
 // Class InteractiveToolsFramework.BrushStampIndicator
 // 0x00A0 (0x00D8 - 0x0038)
 class UBrushStampIndicator final : public UInteractiveGizmo
@@ -1754,13 +1882,12 @@ public:
 	uint8                                         Pad_39[0x3];                                       // 0x0039(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         BrushRadius;                                       // 0x003C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         BrushFalloff;                                      // 0x0040(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         BrushStrength;                                     // 0x0044(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_44[0x4];                                       // 0x0044(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FVector                                BrushPosition;                                     // 0x0048(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                BrushNormal;                                       // 0x0060(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bDrawIndicatorLines;                               // 0x0078(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bDrawRadiusCircle;                                 // 0x0079(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bScaleNormalByStrength;                            // 0x007A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_7B[0x1];                                       // 0x007B(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_7A[0x2];                                       // 0x007A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
 	int32                                         SampleStepCount;                                   // 0x007C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FLinearColor                           LineColor;                                         // 0x0080(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         LineThickness;                                     // 0x0090(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1770,7 +1897,7 @@ public:
 	float                                         SecondaryLineThickness;                            // 0x0098(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FLinearColor                           SecondaryLineColor;                                // 0x009C(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_AC[0x4];                                       // 0x00AC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UPrimitiveComponent*                    AttachedComponent;                                 // 0x00B0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    AttachedComponent;                                 // 0x00B0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_B8[0x20];                                      // 0x00B8(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -1790,7 +1917,7 @@ public:
 DUMPER7_ASSERTS_UBrushStampIndicator;
 
 // Class InteractiveToolsFramework.GizmoActor
-// 0x0000 (0x0498 - 0x0498)
+// 0x0000 (0x04D0 - 0x04D0)
 class AGizmoActor : public AInternalToolFrameworkActor
 {
 public:
@@ -1810,27 +1937,27 @@ public:
 DUMPER7_ASSERTS_AGizmoActor;
 
 // Class InteractiveToolsFramework.CombinedTransformGizmoActor
-// 0x0088 (0x0520 - 0x0498)
+// 0x0088 (0x0558 - 0x04D0)
 class ACombinedTransformGizmoActor final : public AGizmoActor
 {
 public:
-	class UPrimitiveComponent*                    TranslateX;                                        // 0x0498(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    TranslateY;                                        // 0x04A0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    TranslateZ;                                        // 0x04A8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    TranslateYZ;                                       // 0x04B0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    TranslateXZ;                                       // 0x04B8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    TranslateXY;                                       // 0x04C0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    RotateX;                                           // 0x04C8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    RotateY;                                           // 0x04D0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    RotateZ;                                           // 0x04D8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    RotationSphere;                                    // 0x04E0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    UniformScale;                                      // 0x04E8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    AxisScaleX;                                        // 0x04F0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    AxisScaleY;                                        // 0x04F8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    AxisScaleZ;                                        // 0x0500(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    PlaneScaleYZ;                                      // 0x0508(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    PlaneScaleXZ;                                      // 0x0510(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    PlaneScaleXY;                                      // 0x0518(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    TranslateX;                                        // 0x04D0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    TranslateY;                                        // 0x04D8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    TranslateZ;                                        // 0x04E0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    TranslateYZ;                                       // 0x04E8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    TranslateXZ;                                       // 0x04F0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    TranslateXY;                                       // 0x04F8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    RotateX;                                           // 0x0500(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    RotateY;                                           // 0x0508(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    RotateZ;                                           // 0x0510(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    RotationSphere;                                    // 0x0518(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    UniformScale;                                      // 0x0520(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    AxisScaleX;                                        // 0x0528(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    AxisScaleY;                                        // 0x0530(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    AxisScaleZ;                                        // 0x0538(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    PlaneScaleYZ;                                      // 0x0540(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    PlaneScaleXZ;                                      // 0x0548(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    PlaneScaleXY;                                      // 0x0550(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -1847,6 +1974,53 @@ public:
 	}
 };
 DUMPER7_ASSERTS_ACombinedTransformGizmoActor;
+
+// Class InteractiveToolsFramework.GizmoBaseTransformSource
+// 0x0020 (0x0048 - 0x0028)
+class UGizmoBaseTransformSource : public UObject
+{
+public:
+	uint8                                         Pad_28[0x20];                                      // 0x0028(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GizmoBaseTransformSource")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GizmoBaseTransformSource")
+	}
+	static class UGizmoBaseTransformSource* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGizmoBaseTransformSource>();
+	}
+};
+DUMPER7_ASSERTS_UGizmoBaseTransformSource;
+
+// Class InteractiveToolsFramework.GizmoScaledTransformSource
+// 0x0098 (0x00E0 - 0x0048)
+class alignas(0x10) UGizmoScaledTransformSource final : public UGizmoBaseTransformSource
+{
+public:
+	TScriptInterface<class IGizmoTransformSource> ChildTransformSource;                              // 0x0048(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_58[0x88];                                      // 0x0058(0x0088)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GizmoScaledTransformSource")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GizmoScaledTransformSource")
+	}
+	static class UGizmoScaledTransformSource* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGizmoScaledTransformSource>();
+	}
+};
+DUMPER7_ASSERTS_UGizmoScaledTransformSource;
 
 // Class InteractiveToolsFramework.CombinedTransformGizmoBuilder
 // 0x00C8 (0x00F0 - 0x0028)
@@ -1872,11 +2046,11 @@ public:
 DUMPER7_ASSERTS_UCombinedTransformGizmoBuilder;
 
 // Class InteractiveToolsFramework.CombinedTransformGizmo
-// 0x0378 (0x03B0 - 0x0038)
+// 0x0368 (0x03A0 - 0x0038)
 class alignas(0x10) UCombinedTransformGizmo : public UInteractiveGizmo
 {
 public:
-	class UTransformProxy*                        ActiveTarget;                                      // 0x0038(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UTransformProxy*                        ActiveTarget;                                      // 0x0038(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bSnapToWorldGrid;                                  // 0x0040(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_41[0x3];                                       // 0x0041(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	bool                                          bGridSizeIsExplicit;                               // 0x0044(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1886,24 +2060,24 @@ public:
 	uint8                                         Pad_61[0x7];                                       // 0x0061(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FRotator                               ExplicitRotationGridSize;                          // 0x0068(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 	bool                                          bSnapToWorldRotGrid;                               // 0x0080(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bSnapToScaleGrid;                                  // 0x0081(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUseContextCoordinateSystem;                       // 0x0082(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EToolContextCoordinateSystem                  CurrentCoordinateSystem;                           // 0x0083(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUseContextGizmoMode;                              // 0x0084(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EToolContextTransformGizmoMode                ActiveGizmoMode;                                   // 0x0085(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_86[0x12A];                                     // 0x0086(0x012A)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UPrimitiveComponent*>            ActiveComponents;                                  // 0x01B0(0x0010)(ExportObject, ZeroConstructor, ContainsInstancedReference, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	TArray<class UInteractiveGizmo*>              ActiveGizmos;                                      // 0x01C0(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	bool                                          bUseContextCoordinateSystem;                       // 0x0081(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_82[0x2];                                       // 0x0082(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	EToolContextCoordinateSystem                  CurrentCoordinateSystem;                           // 0x0084(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUseContextGizmoMode;                              // 0x0088(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EToolContextTransformGizmoMode                ActiveGizmoMode;                                   // 0x0089(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_8A[0x126];                                     // 0x008A(0x0126)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class UPrimitiveComponent*>            ActiveComponents;                                  // 0x01B0(0x0010)(ExportObject, ZeroConstructor, ContainsInstancedReference, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	TArray<class UInteractiveGizmo*>              ActiveGizmos;                                      // 0x01C0(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
 	uint8                                         Pad_1D0[0x50];                                     // 0x01D0(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGizmoConstantFrameAxisSource*          CameraAxisSource;                                  // 0x0220(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UGizmoComponentAxisSource*              AxisXSource;                                       // 0x0228(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UGizmoComponentAxisSource*              AxisYSource;                                       // 0x0230(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UGizmoComponentAxisSource*              AxisZSource;                                       // 0x0238(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UGizmoComponentAxisSource*              UnitAxisXSource;                                   // 0x0240(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UGizmoComponentAxisSource*              UnitAxisYSource;                                   // 0x0248(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UGizmoComponentAxisSource*              UnitAxisZSource;                                   // 0x0250(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UGizmoTransformChangeStateTarget*       StateTarget;                                       // 0x0258(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_260[0x150];                                    // 0x0260(0x0150)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UGizmoConstantFrameAxisSource*          CameraAxisSource;                                  // 0x0220(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UGizmoComponentAxisSource*              AxisXSource;                                       // 0x0228(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UGizmoComponentAxisSource*              AxisYSource;                                       // 0x0230(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UGizmoComponentAxisSource*              AxisZSource;                                       // 0x0238(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UGizmoComponentAxisSource*              UnitAxisXSource;                                   // 0x0240(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UGizmoComponentAxisSource*              UnitAxisYSource;                                   // 0x0248(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UGizmoComponentAxisSource*              UnitAxisZSource;                                   // 0x0250(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UGizmoTransformChangeStateTarget*       StateTarget;                                       // 0x0258(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_260[0x140];                                    // 0x0260(0x0140)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -1922,15 +2096,15 @@ public:
 DUMPER7_ASSERTS_UCombinedTransformGizmo;
 
 // Class InteractiveToolsFramework.GizmoArrowComponent
-// 0x0020 (0x0680 - 0x0660)
+// 0x0030 (0x06F0 - 0x06C0)
 class UGizmoArrowComponent final : public UGizmoBaseComponent
 {
 public:
-	struct FVector                                Direction;                                         // 0x0658(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Gap;                                               // 0x0670(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Length;                                            // 0x0674(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Thickness;                                         // 0x0678(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_67C[0x4];                                      // 0x067C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FVector                                Direction;                                         // 0x06C0(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Gap;                                               // 0x06D8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Length;                                            // 0x06DC(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Thickness;                                         // 0x06E0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6E4[0xC];                                      // 0x06E4(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -1949,17 +2123,18 @@ public:
 DUMPER7_ASSERTS_UGizmoArrowComponent;
 
 // Class InteractiveToolsFramework.GizmoBoxComponent
-// 0x0050 (0x06B0 - 0x0660)
+// 0x0060 (0x0720 - 0x06C0)
 class UGizmoBoxComponent final : public UGizmoBaseComponent
 {
 public:
-	struct FVector                                Origin;                                            // 0x0658(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FQuat                                  Rotation;                                          // 0x0670(0x0020)(Edit, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                Dimensions;                                        // 0x0690(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         LineThickness;                                     // 0x06A8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bRemoveHiddenLines;                                // 0x06AC(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEnableAxisFlip;                                   // 0x06AD(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_6AE[0x2];                                      // 0x06AE(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FVector                                Origin;                                            // 0x06C0(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6D8[0x8];                                      // 0x06D8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FQuat                                  Rotation;                                          // 0x06E0(0x0020)(Edit, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Dimensions;                                        // 0x0700(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         LineThickness;                                     // 0x0718(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bRemoveHiddenLines;                                // 0x071C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnableAxisFlip;                                   // 0x071D(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_71E[0x2];                                      // 0x071E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -1978,18 +2153,18 @@ public:
 DUMPER7_ASSERTS_UGizmoBoxComponent;
 
 // Class InteractiveToolsFramework.GizmoCircleComponent
-// 0x0020 (0x0680 - 0x0660)
+// 0x0030 (0x06F0 - 0x06C0)
 class UGizmoCircleComponent final : public UGizmoBaseComponent
 {
 public:
-	struct FVector                                Normal;                                            // 0x0658(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Radius;                                            // 0x0670(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Thickness;                                         // 0x0674(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         NumSides;                                          // 0x0678(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bViewAligned;                                      // 0x067C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDrawFullCircle;                                   // 0x067D(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOnlyAllowFrontFacingHits;                         // 0x067E(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_67F[0x1];                                      // 0x067F(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FVector                                Normal;                                            // 0x06C0(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Radius;                                            // 0x06D8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Thickness;                                         // 0x06DC(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         NumSides;                                          // 0x06E0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bViewAligned;                                      // 0x06E4(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bDrawFullCircle;                                   // 0x06E5(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOnlyAllowFrontFacingHits;                         // 0x06E6(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6E7[0x9];                                      // 0x06E7(0x0009)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -2142,10 +2317,10 @@ class UGizmoElementArrow final : public UGizmoElementBase
 {
 public:
 	uint8                                         Pad_108[0x8];                                      // 0x0108(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGizmoElementCylinder*                  CylinderElement;                                   // 0x0110(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UGizmoElementCone*                      ConeElement;                                       // 0x0118(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UGizmoElementBox*                       BoxElement;                                        // 0x0120(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	struct FVector                                base;                                              // 0x0128(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UGizmoElementCylinder*                  CylinderElement;                                   // 0x0110(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UGizmoElementCone*                      ConeElement;                                       // 0x0118(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UGizmoElementBox*                       BoxElement;                                        // 0x0120(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FVector                                Base;                                              // 0x0128(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	struct FVector                                Direction;                                         // 0x0140(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	struct FVector                                SideDirection;                                     // 0x0158(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	float                                         BodyLength;                                        // 0x0170(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
@@ -2257,7 +2432,7 @@ DUMPER7_ASSERTS_UGizmoElementCone;
 class UGizmoElementCylinder final : public UGizmoElementBase
 {
 public:
-	struct FVector                                base;                                              // 0x0108(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FVector                                Base;                                              // 0x0108(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	struct FVector                                Direction;                                         // 0x0120(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	float                                         Height;                                            // 0x0138(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	float                                         Radius;                                            // 0x013C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
@@ -2288,7 +2463,7 @@ public:
 	bool                                          bConstantScale;                                    // 0x0158(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	bool                                          bHitOwner;                                         // 0x0159(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_15A[0x6];                                      // 0x015A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UGizmoElementBase*>              Elements;                                          // 0x0160(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	TArray<class UGizmoElementBase*>              Elements;                                          // 0x0160(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
 
 public:
 	static class UClass* StaticClass()
@@ -2312,9 +2487,9 @@ class alignas(0x10) UGizmoElementHitTarget final : public UObject
 {
 public:
 	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGizmoElementBase*                      GizmoElement;                                      // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UGizmoViewContext*                      GizmoViewContext;                                  // 0x0038(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UTransformProxy*                        GizmoTransformProxy;                               // 0x0040(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UGizmoElementBase*                      GizmoElement;                                      // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UGizmoViewContext*                      GizmoViewContext;                                  // 0x0038(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UTransformProxy*                        GizmoTransformProxy;                               // 0x0040(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_48[0x48];                                      // 0x0048(0x0048)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -2339,9 +2514,9 @@ class alignas(0x10) UGizmoElementHitMultiTarget final : public UObject
 {
 public:
 	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGizmoElementBase*                      GizmoElement;                                      // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UGizmoViewContext*                      GizmoViewContext;                                  // 0x0038(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UTransformProxy*                        GizmoTransformProxy;                               // 0x0040(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UGizmoElementBase*                      GizmoElement;                                      // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UGizmoViewContext*                      GizmoViewContext;                                  // 0x0038(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UTransformProxy*                        GizmoTransformProxy;                               // 0x0040(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_48[0x48];                                      // 0x0048(0x0048)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -2359,34 +2534,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UGizmoElementHitMultiTarget;
-
-// Class InteractiveToolsFramework.GizmoElementLineStrip
-// 0x0070 (0x01C8 - 0x0158)
-class UGizmoElementLineStrip final : public UGizmoElementLineBase
-{
-public:
-	TArray<struct FVector>                        Vertices;                                          // 0x0158(0x0010)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	struct FVector                                base;                                              // 0x0168(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FVector                                UpDirection;                                       // 0x0180(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FVector                                SideDirection;                                     // 0x0198(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bDrawLineStrip;                                    // 0x01B0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_1B1[0x17];                                     // 0x01B1(0x0017)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GizmoElementLineStrip")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GizmoElementLineStrip")
-	}
-	static class UGizmoElementLineStrip* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGizmoElementLineStrip>();
-	}
-};
-DUMPER7_ASSERTS_UGizmoElementLineStrip;
 
 // Class InteractiveToolsFramework.GizmoElementRectangle
 // 0x0058 (0x01B0 - 0x0158)
@@ -2420,31 +2567,6 @@ public:
 };
 DUMPER7_ASSERTS_UGizmoElementRectangle;
 
-// Class InteractiveToolsFramework.GizmoElementSphere
-// 0x0020 (0x0128 - 0x0108)
-class UGizmoElementSphere final : public UGizmoElementBase
-{
-public:
-	struct FVector                                Center;                                            // 0x0108(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         Radius;                                            // 0x0120(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	int32                                         NumSides;                                          // 0x0124(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GizmoElementSphere")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GizmoElementSphere")
-	}
-	static class UGizmoElementSphere* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGizmoElementSphere>();
-	}
-};
-DUMPER7_ASSERTS_UGizmoElementSphere;
-
 // Class InteractiveToolsFramework.GizmoElementTorus
 // 0x0010 (0x01D8 - 0x01C8)
 class UGizmoElementTorus final : public UGizmoElementCircleBase
@@ -2470,33 +2592,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UGizmoElementTorus;
-
-// Class InteractiveToolsFramework.GizmoElementTriangleList
-// 0x0068 (0x0170 - 0x0108)
-class UGizmoElementTriangleList final : public UGizmoElementBase
-{
-public:
-	TArray<struct FVector>                        Vertices;                                          // 0x0108(0x0010)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-	struct FVector                                base;                                              // 0x0118(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FVector                                UpDirection;                                       // 0x0130(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	struct FVector                                SideDirection;                                     // 0x0148(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_160[0x10];                                     // 0x0160(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GizmoElementTriangleList")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GizmoElementTriangleList")
-	}
-	static class UGizmoElementTriangleList* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGizmoElementTriangleList>();
-	}
-};
-DUMPER7_ASSERTS_UGizmoElementTriangleList;
 
 // Class InteractiveToolsFramework.GizmoTransformSource
 // 0x0000 (0x0000 - 0x0000)
@@ -2801,17 +2896,17 @@ public:
 DUMPER7_ASSERTS_IGizmoVec2ParameterSource;
 
 // Class InteractiveToolsFramework.GizmoLineHandleComponent
-// 0x0040 (0x06A0 - 0x0660)
+// 0x0040 (0x0700 - 0x06C0)
 class UGizmoLineHandleComponent final : public UGizmoBaseComponent
 {
 public:
-	struct FVector                                Normal;                                            // 0x0658(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         HandleSize;                                        // 0x0670(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Thickness;                                         // 0x0674(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                Direction;                                         // 0x0678(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Length;                                            // 0x0690(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bImageScale;                                       // 0x0694(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_695[0xB];                                      // 0x0695(0x000B)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FVector                                Normal;                                            // 0x06C0(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         HandleSize;                                        // 0x06D8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Thickness;                                         // 0x06DC(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Direction;                                         // 0x06E0(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Length;                                            // 0x06F8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bImageScale;                                       // 0x06FC(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6FD[0x3];                                      // 0x06FD(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -2830,21 +2925,21 @@ public:
 DUMPER7_ASSERTS_UGizmoLineHandleComponent;
 
 // Class InteractiveToolsFramework.GizmoRectangleComponent
-// 0x0050 (0x06B0 - 0x0660)
+// 0x0050 (0x0710 - 0x06C0)
 class UGizmoRectangleComponent final : public UGizmoBaseComponent
 {
 public:
-	struct FVector                                DirectionX;                                        // 0x0658(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                DirectionY;                                        // 0x0670(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOrientYAccordingToCamera;                         // 0x0688(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_689[0x3];                                      // 0x0689(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         OffsetX;                                           // 0x068C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         OffsetY;                                           // 0x0690(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         LengthX;                                           // 0x0694(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         LengthY;                                           // 0x0698(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Thickness;                                         // 0x069C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         SegmentFlags;                                      // 0x06A0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_6A1[0xF];                                      // 0x06A1(0x000F)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FVector                                DirectionX;                                        // 0x06C0(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                DirectionY;                                        // 0x06D8(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOrientYAccordingToCamera;                         // 0x06F0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6F1[0x3];                                      // 0x06F1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         OffsetX;                                           // 0x06F4(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         OffsetY;                                           // 0x06F8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         LengthX;                                           // 0x06FC(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         LengthY;                                           // 0x0700(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Thickness;                                         // 0x0704(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         SegmentFlags;                                      // 0x0708(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_709[0x7];                                      // 0x0709(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -2885,36 +2980,13 @@ public:
 };
 DUMPER7_ASSERTS_UGizmoViewContext;
 
-// Class InteractiveToolsFramework.GizmoLambdaHitTarget
-// 0x00C8 (0x00F0 - 0x0028)
-class UGizmoLambdaHitTarget final : public UObject
-{
-public:
-	uint8                                         Pad_28[0xC8];                                      // 0x0028(0x00C8)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GizmoLambdaHitTarget")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GizmoLambdaHitTarget")
-	}
-	static class UGizmoLambdaHitTarget* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGizmoLambdaHitTarget>();
-	}
-};
-DUMPER7_ASSERTS_UGizmoLambdaHitTarget;
-
 // Class InteractiveToolsFramework.GizmoComponentHitTarget
 // 0x00D8 (0x0100 - 0x0028)
 class alignas(0x10) UGizmoComponentHitTarget final : public UObject
 {
 public:
 	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UPrimitiveComponent*                    Component;                                         // 0x0030(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    Component;                                         // 0x0030(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_38[0xC8];                                      // 0x0038(0x00C8)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -2934,13 +3006,13 @@ public:
 DUMPER7_ASSERTS_UGizmoComponentHitTarget;
 
 // Class InteractiveToolsFramework.IntervalGizmoActor
-// 0x0018 (0x04B0 - 0x0498)
+// 0x0018 (0x04E8 - 0x04D0)
 class AIntervalGizmoActor final : public AGizmoActor
 {
 public:
-	class UGizmoLineHandleComponent*              UpIntervalComponent;                               // 0x0498(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UGizmoLineHandleComponent*              DownIntervalComponent;                             // 0x04A0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UGizmoLineHandleComponent*              ForwardIntervalComponent;                          // 0x04A8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UGizmoLineHandleComponent*              UpIntervalComponent;                               // 0x04D0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UGizmoLineHandleComponent*              DownIntervalComponent;                             // 0x04D8(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UGizmoLineHandleComponent*              ForwardIntervalComponent;                          // 0x04E0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -2980,37 +3052,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UIntervalGizmoBuilder;
-
-// Class InteractiveToolsFramework.IntervalGizmo
-// 0x01C8 (0x0200 - 0x0038)
-class alignas(0x10) UIntervalGizmo final : public UInteractiveGizmo
-{
-public:
-	class UGizmoTransformChangeStateTarget*       StateTarget;                                       // 0x0038(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_40[0x58];                                      // 0x0040(0x0058)(Fixing Size After Last Property [ Dumper-7 ])
-	class UTransformProxy*                        TransformProxy;                                    // 0x0098(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	TArray<class UPrimitiveComponent*>            ActiveComponents;                                  // 0x00A0(0x0010)(ExportObject, ZeroConstructor, ContainsInstancedReference, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	TArray<class UInteractiveGizmo*>              ActiveGizmos;                                      // 0x00B0(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_C0[0x18];                                      // 0x00C0(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGizmoComponentAxisSource*              AxisYSource;                                       // 0x00D8(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UGizmoComponentAxisSource*              AxisZSource;                                       // 0x00E0(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_E8[0x118];                                     // 0x00E8(0x0118)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("IntervalGizmo")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"IntervalGizmo")
-	}
-	static class UIntervalGizmo* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UIntervalGizmo>();
-	}
-};
-DUMPER7_ASSERTS_UIntervalGizmo;
 
 // Class InteractiveToolsFramework.GizmoAxisIntervalParameterSource
 // 0x0018 (0x0060 - 0x0048)
@@ -3082,50 +3123,6 @@ public:
 };
 DUMPER7_ASSERTS_UPlanePositionGizmoBuilder;
 
-// Class InteractiveToolsFramework.PlanePositionGizmo
-// 0x0278 (0x02B0 - 0x0038)
-class alignas(0x10) UPlanePositionGizmo final : public UInteractiveGizmo
-{
-public:
-	uint8                                         Pad_38[0x10];                                      // 0x0038(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	TScriptInterface<class IGizmoAxisSource>      AxisSource;                                        // 0x0048(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TScriptInterface<class IGizmoVec2ParameterSource> ParameterSource;                               // 0x0058(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TScriptInterface<class IGizmoClickTarget>     HitTarget;                                         // 0x0068(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TScriptInterface<class IGizmoStateTarget>     StateTarget;                                       // 0x0078(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UClickDragInputBehavior*                MouseBehavior;                                     // 0x0088(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	bool                                          bEnableSignedAxis;                                 // 0x0090(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bFlipX;                                            // 0x0091(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bFlipY;                                            // 0x0092(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_93[0x8D];                                      // 0x0093(0x008D)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bInInteraction;                                    // 0x0120(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_121[0x7];                                      // 0x0121(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                InteractionOrigin;                                 // 0x0128(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                InteractionNormal;                                 // 0x0140(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                InteractionAxisX;                                  // 0x0158(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                InteractionAxisY;                                  // 0x0170(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                InteractionStartPoint;                             // 0x0188(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                InteractionCurPoint;                               // 0x01A0(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              InteractionStartParameter;                         // 0x01B8(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              InteractionCurParameter;                           // 0x01C8(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              ParameterSigns;                                    // 0x01D8(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1E8[0xC8];                                     // 0x01E8(0x00C8)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PlanePositionGizmo")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PlanePositionGizmo")
-	}
-	static class UPlanePositionGizmo* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPlanePositionGizmo>();
-	}
-};
-DUMPER7_ASSERTS_UPlanePositionGizmo;
-
 // Class InteractiveToolsFramework.RepositionableTransformGizmoBuilder
 // 0x0000 (0x00F0 - 0x00F0)
 class URepositionableTransformGizmoBuilder final : public UCombinedTransformGizmoBuilder
@@ -3147,13 +3144,13 @@ public:
 DUMPER7_ASSERTS_URepositionableTransformGizmoBuilder;
 
 // Class InteractiveToolsFramework.RepositionableTransformGizmo
-// 0x00A0 (0x0450 - 0x03B0)
+// 0x00A0 (0x0440 - 0x03A0)
 class URepositionableTransformGizmo final : public UCombinedTransformGizmo
 {
 public:
-	uint8                                         Pad_3B0[0x90];                                     // 0x03B0(0x0090)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGizmoTransformChangeStateTarget*       RepositionStateTarget;                             // 0x0440(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_448[0x8];                                      // 0x0448(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_3A0[0x90];                                     // 0x03A0(0x0090)(Fixing Size After Last Property [ Dumper-7 ])
+	class UGizmoTransformChangeStateTarget*       RepositionStateTarget;                             // 0x0430(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_438[0x8];                                      // 0x0438(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -3190,42 +3187,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UScalableSphereGizmoBuilder;
-
-// Class InteractiveToolsFramework.ScalableSphereGizmo
-// 0x00C8 (0x0100 - 0x0038)
-class alignas(0x10) UScalableSphereGizmo final : public UInteractiveGizmo
-{
-public:
-	uint8                                         Pad_38[0x48];                                      // 0x0038(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         HitErrorThreshold;                                 // 0x0080(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_84[0x4];                                       // 0x0084(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FText                                   TransactionDescription;                            // 0x0088(0x0010)(NativeAccessSpecifierPublic)
-	float                                         Radius;                                            // 0x0098(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bIsHovering;                                       // 0x009C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bIsDragging;                                       // 0x009D(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_9E[0x2];                                       // 0x009E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	class UTransformProxy*                        ActiveTarget;                                      // 0x00A0(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	struct FVector                                ActiveAxis;                                        // 0x00A8(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	struct FVector                                DragStartWorldPosition;                            // 0x00C0(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	struct FVector                                DragCurrentPositionProjected;                      // 0x00D8(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	float                                         InteractionStartParameter;                         // 0x00F0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_F4[0xC];                                       // 0x00F4(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("ScalableSphereGizmo")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"ScalableSphereGizmo")
-	}
-	static class UScalableSphereGizmo* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UScalableSphereGizmo>();
-	}
-};
-DUMPER7_ASSERTS_UScalableSphereGizmo;
 
 // Class InteractiveToolsFramework.ScalableSphereGizmoInputBehavior
 // 0x0050 (0x00D0 - 0x0080)
@@ -3297,12 +3258,12 @@ public:
 DUMPER7_ASSERTS_UGizmoLambdaStateTarget;
 
 // Class InteractiveToolsFramework.GizmoObjectModifyStateTarget
-// 0x0030 (0x0058 - 0x0028)
+// 0x0038 (0x0060 - 0x0028)
 class UGizmoObjectModifyStateTarget final : public UObject
 {
 public:
-	uint8                                         Pad_28[0x20];                                      // 0x0028(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	TScriptInterface<class IToolContextTransactionProvider> TransactionManager;                      // 0x0048(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_28[0x28];                                      // 0x0028(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
+	TScriptInterface<class IToolContextTransactionProvider> TransactionManager;                      // 0x0050(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -3325,9 +3286,9 @@ DUMPER7_ASSERTS_UGizmoObjectModifyStateTarget;
 class alignas(0x10) UGizmoTransformChangeStateTarget final : public UObject
 {
 public:
-	uint8                                         Pad_28[0x20];                                      // 0x0028(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	TScriptInterface<class IToolContextTransactionProvider> TransactionManager;                      // 0x0048(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_58[0xE8];                                      // 0x0058(0x00E8)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_28[0x28];                                      // 0x0028(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
+	TScriptInterface<class IToolContextTransactionProvider> TransactionManager;                      // 0x0050(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_60[0xE0];                                      // 0x0060(0x00E0)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -3368,35 +3329,40 @@ public:
 };
 DUMPER7_ASSERTS_UCombinedTransformGizmoContextObject;
 
-// Class InteractiveToolsFramework.GizmoBaseTransformSource
-// 0x0020 (0x0048 - 0x0028)
-class UGizmoBaseTransformSource : public UObject
+// Class InteractiveToolsFramework.TransformProxy
+// 0x0188 (0x01B0 - 0x0028)
+class UTransformProxy final : public UObject
 {
 public:
-	uint8                                         Pad_28[0x20];                                      // 0x0028(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_28[0xA8];                                      // 0x0028(0x00A8)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bRotatePerObject;                                  // 0x00D0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bSetPivotMode;                                     // 0x00D1(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_D2[0x1E];                                      // 0x00D2(0x001E)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FTransform                             SharedTransform;                                   // 0x00F0(0x0060)(IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	struct FTransform                             InitialSharedTransform;                            // 0x0150(0x0060)(IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("GizmoBaseTransformSource")
+		STATIC_CLASS_IMPL("TransformProxy")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"GizmoBaseTransformSource")
+		STATIC_NAME_IMPL(L"TransformProxy")
 	}
-	static class UGizmoBaseTransformSource* GetDefaultObj()
+	static class UTransformProxy* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UGizmoBaseTransformSource>();
+		return GetDefaultObjImpl<UTransformProxy>();
 	}
 };
-DUMPER7_ASSERTS_UGizmoBaseTransformSource;
+DUMPER7_ASSERTS_UTransformProxy;
 
 // Class InteractiveToolsFramework.GizmoComponentWorldTransformSource
 // 0x0010 (0x0058 - 0x0048)
 class UGizmoComponentWorldTransformSource final : public UGizmoBaseTransformSource
 {
 public:
-	class USceneComponent*                        Component;                                         // 0x0048(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class USceneComponent*                        Component;                                         // 0x0048(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bModifyComponentOnTransform;                       // 0x0050(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_51[0x7];                                       // 0x0051(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
@@ -3416,36 +3382,12 @@ public:
 };
 DUMPER7_ASSERTS_UGizmoComponentWorldTransformSource;
 
-// Class InteractiveToolsFramework.GizmoScaledTransformSource
-// 0x0098 (0x00E0 - 0x0048)
-class alignas(0x10) UGizmoScaledTransformSource final : public UGizmoBaseTransformSource
-{
-public:
-	TScriptInterface<class IGizmoTransformSource> ChildTransformSource;                              // 0x0048(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_58[0x88];                                      // 0x0058(0x0088)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GizmoScaledTransformSource")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GizmoScaledTransformSource")
-	}
-	static class UGizmoScaledTransformSource* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGizmoScaledTransformSource>();
-	}
-};
-DUMPER7_ASSERTS_UGizmoScaledTransformSource;
-
 // Class InteractiveToolsFramework.GizmoTransformProxyTransformSource
 // 0x0028 (0x0070 - 0x0048)
 class UGizmoTransformProxyTransformSource final : public UGizmoBaseTransformSource
 {
 public:
-	class UTransformProxy*                        Proxy;                                             // 0x0048(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UTransformProxy*                        Proxy;                                             // 0x0048(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_50[0x20];                                      // 0x0050(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -3488,32 +3430,6 @@ public:
 };
 DUMPER7_ASSERTS_UGizmoScaledAndUnscaledTransformSources;
 
-// Class InteractiveToolsFramework.InteractiveToolPropertySet
-// 0x0080 (0x00A8 - 0x0028)
-class UInteractiveToolPropertySet : public UObject
-{
-public:
-	uint8                                         Pad_28[0x10];                                      // 0x0028(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	TMap<class FString, class UInteractiveToolPropertySet*> CachedPropertiesMap;                     // 0x0038(0x0050)(Transient, DuplicateTransient, NonTransactional, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	bool                                          bIsPropertySetEnabled;                             // 0x0088(0x0001)(ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_89[0x1F];                                      // 0x0089(0x001F)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InteractiveToolPropertySet")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InteractiveToolPropertySet")
-	}
-	static class UInteractiveToolPropertySet* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInteractiveToolPropertySet>();
-	}
-};
-DUMPER7_ASSERTS_UInteractiveToolPropertySet;
-
 // Class InteractiveToolsFramework.BrushBaseProperties
 // 0x0018 (0x00C0 - 0x00A8)
 class UBrushBaseProperties final : public UInteractiveToolPropertySet
@@ -3544,154 +3460,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UBrushBaseProperties;
-
-// Class InteractiveToolsFramework.BrushAdjusterInputBehavior
-// 0x0050 (0x00D0 - 0x0080)
-class UBrushAdjusterInputBehavior final : public UAnyButtonInputBehavior
-{
-public:
-	uint8                                         Pad_80[0x50];                                      // 0x0080(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("BrushAdjusterInputBehavior")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"BrushAdjusterInputBehavior")
-	}
-	static class UBrushAdjusterInputBehavior* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UBrushAdjusterInputBehavior>();
-	}
-};
-DUMPER7_ASSERTS_UBrushAdjusterInputBehavior;
-
-// Class InteractiveToolsFramework.InteractiveTool
-// 0x0070 (0x0098 - 0x0028)
-class UInteractiveTool : public UObject
-{
-public:
-	uint8                                         Pad_28[0x38];                                      // 0x0028(0x0038)(Fixing Size After Last Property [ Dumper-7 ])
-	class UInputBehaviorSet*                      InputBehaviors;                                    // 0x0060(0x0008)(ZeroConstructor, Transient, DuplicateTransient, NonTransactional, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	TArray<class UObject*>                        ToolPropertyObjects;                               // 0x0068(0x0010)(ZeroConstructor, Transient, DuplicateTransient, NonTransactional, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_78[0x20];                                      // 0x0078(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InteractiveTool")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InteractiveTool")
-	}
-	static class UInteractiveTool* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInteractiveTool>();
-	}
-};
-DUMPER7_ASSERTS_UInteractiveTool;
-
-// Class InteractiveToolsFramework.SingleSelectionTool
-// 0x0010 (0x00A8 - 0x0098)
-class USingleSelectionTool : public UInteractiveTool
-{
-public:
-	uint8                                         Pad_98[0x8];                                       // 0x0098(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UToolTarget*                            Target;                                            // 0x00A0(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("SingleSelectionTool")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"SingleSelectionTool")
-	}
-	static class USingleSelectionTool* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<USingleSelectionTool>();
-	}
-};
-DUMPER7_ASSERTS_USingleSelectionTool;
-
-// Class InteractiveToolsFramework.MeshSurfacePointTool
-// 0x0058 (0x0100 - 0x00A8)
-class UMeshSurfacePointTool : public USingleSelectionTool
-{
-public:
-	uint8                                         Pad_A8[0x50];                                      // 0x00A8(0x0050)(Fixing Size After Last Property [ Dumper-7 ])
-	TWeakObjectPtr<class UWorld>                  TargetWorld;                                       // 0x00F8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MeshSurfacePointTool")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MeshSurfacePointTool")
-	}
-	static class UMeshSurfacePointTool* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMeshSurfacePointTool>();
-	}
-};
-DUMPER7_ASSERTS_UMeshSurfacePointTool;
-
-// Class InteractiveToolsFramework.BaseBrushTool
-// 0x01A8 (0x02A8 - 0x0100)
-class UBaseBrushTool : public UMeshSurfacePointTool
-{
-public:
-	class UBrushBaseProperties*                   BrushProperties;                                   // 0x0100(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	bool                                          bInBrushStroke;                                    // 0x0108(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_109[0x3];                                      // 0x0109(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         WorldToLocalScale;                                 // 0x010C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FBrushStampData                        LastBrushStamp;                                    // 0x0110(0x0148)(NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_258[0x10];                                     // 0x0258(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	TSoftClassPtr<class UClass>                   PropertyClass;                                     // 0x0268(0x0028)(Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	class UBrushStampIndicator*                   BrushStampIndicator;                               // 0x0290(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_298[0x10];                                     // 0x0298(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("BaseBrushTool")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"BaseBrushTool")
-	}
-	static class UBaseBrushTool* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UBaseBrushTool>();
-	}
-};
-DUMPER7_ASSERTS_UBaseBrushTool;
-
-// Class InteractiveToolsFramework.InteractiveToolBuilder
-// 0x0000 (0x0028 - 0x0028)
-class UInteractiveToolBuilder : public UObject
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InteractiveToolBuilder")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InteractiveToolBuilder")
-	}
-	static class UInteractiveToolBuilder* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInteractiveToolBuilder>();
-	}
-};
-DUMPER7_ASSERTS_UInteractiveToolBuilder;
 
 // Class InteractiveToolsFramework.ClickDragToolBuilder
 // 0x0000 (0x0028 - 0x0028)
@@ -3736,49 +3504,6 @@ public:
 };
 DUMPER7_ASSERTS_UClickDragTool;
 
-// Class InteractiveToolsFramework.InteractiveToolWithToolTargetsBuilder
-// 0x0000 (0x0028 - 0x0028)
-class UInteractiveToolWithToolTargetsBuilder : public UInteractiveToolBuilder
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InteractiveToolWithToolTargetsBuilder")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InteractiveToolWithToolTargetsBuilder")
-	}
-	static class UInteractiveToolWithToolTargetsBuilder* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInteractiveToolWithToolTargetsBuilder>();
-	}
-};
-DUMPER7_ASSERTS_UInteractiveToolWithToolTargetsBuilder;
-
-// Class InteractiveToolsFramework.MeshSurfacePointToolBuilder
-// 0x0008 (0x0030 - 0x0028)
-class UMeshSurfacePointToolBuilder : public UInteractiveToolWithToolTargetsBuilder
-{
-public:
-	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MeshSurfacePointToolBuilder")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MeshSurfacePointToolBuilder")
-	}
-	static class UMeshSurfacePointToolBuilder* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMeshSurfacePointToolBuilder>();
-	}
-};
-DUMPER7_ASSERTS_UMeshSurfacePointToolBuilder;
-
 // Class InteractiveToolsFramework.SingleClickToolBuilder
 // 0x0000 (0x0028 - 0x0028)
 class USingleClickToolBuilder final : public UInteractiveToolBuilder
@@ -3799,35 +3524,12 @@ public:
 };
 DUMPER7_ASSERTS_USingleClickToolBuilder;
 
-// Class InteractiveToolsFramework.SingleClickTool
-// 0x0008 (0x00A0 - 0x0098)
-class USingleClickTool : public UInteractiveTool
-{
-public:
-	uint8                                         Pad_98[0x8];                                       // 0x0098(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("SingleClickTool")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"SingleClickTool")
-	}
-	static class USingleClickTool* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<USingleClickTool>();
-	}
-};
-DUMPER7_ASSERTS_USingleClickTool;
-
 // Class InteractiveToolsFramework.ContextObjectStore
 // 0x0010 (0x0038 - 0x0028)
 class UContextObjectStore final : public UObject
 {
 public:
-	TArray<class UObject*>                        ContextObjects;                                    // 0x0028(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	TArray<class UObject*>                        ContextObjects;                                    // 0x0028(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
 
 public:
 	static class UClass* StaticClass()
@@ -3928,7 +3630,7 @@ public:
 	bool                                          bAutoInvalidateOnHover;                            // 0x0028(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bAutoInvalidateOnCapture;                          // 0x0029(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_2A[0xE];                                       // 0x002A(0x000E)(Fixing Size After Last Property [ Dumper-7 ])
-	class UInputBehaviorSet*                      ActiveInputBehaviors;                              // 0x0038(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UInputBehaviorSet*                      ActiveInputBehaviors;                              // 0x0038(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_40[0x150];                                     // 0x0040(0x0150)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -3947,29 +3649,6 @@ public:
 };
 DUMPER7_ASSERTS_UInputRouter;
 
-// Class InteractiveToolsFramework.InteractionMechanic
-// 0x0008 (0x0030 - 0x0028)
-class UInteractionMechanic : public UObject
-{
-public:
-	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("InteractionMechanic")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"InteractionMechanic")
-	}
-	static class UInteractionMechanic* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UInteractionMechanic>();
-	}
-};
-DUMPER7_ASSERTS_UInteractionMechanic;
-
 // Class InteractiveToolsFramework.InteractiveGizmoManager
 // 0x0098 (0x00C0 - 0x0028)
 class UInteractiveGizmoManager final : public UObject
@@ -3978,7 +3657,7 @@ public:
 	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<struct FActiveGizmo>                   ActiveGizmos;                                      // 0x0030(0x0010)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
 	uint8                                         Pad_40[0x18];                                      // 0x0040(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMap<class FString, class UInteractiveGizmoBuilder*> GizmoBuilders;                              // 0x0058(0x0050)(Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	TMap<class FString, class UInteractiveGizmoBuilder*> GizmoBuilders;                              // 0x0058(0x0050)(Protected, UObjectWrapper, NativeAccessSpecifierProtected)
 	uint8                                         Pad_A8[0x18];                                      // 0x00A8(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -3998,16 +3677,16 @@ public:
 DUMPER7_ASSERTS_UInteractiveGizmoManager;
 
 // Class InteractiveToolsFramework.InteractiveToolManager
-// 0x0188 (0x01B0 - 0x0028)
+// 0x0170 (0x0198 - 0x0028)
 class UInteractiveToolManager final : public UObject
 {
 public:
 	uint8                                         Pad_28[0x30];                                      // 0x0028(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
-	class UInteractiveTool*                       ActiveLeftTool;                                    // 0x0058(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UInteractiveTool*                       ActiveRightTool;                                   // 0x0060(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_68[0x98];                                      // 0x0068(0x0098)(Fixing Size After Last Property [ Dumper-7 ])
-	TMap<class FString, class UInteractiveToolBuilder*> ToolBuilders;                                // 0x0100(0x0050)(Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_150[0x60];                                     // 0x0150(0x0060)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UInteractiveTool*                       ActiveLeftTool;                                    // 0x0058(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UInteractiveTool*                       ActiveRightTool;                                   // 0x0060(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_68[0x80];                                      // 0x0068(0x0080)(Fixing Size After Last Property [ Dumper-7 ])
+	TMap<class FString, class UInteractiveToolBuilder*> ToolBuilders;                                // 0x00E8(0x0050)(Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	uint8                                         Pad_138[0x60];                                     // 0x0138(0x0060)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -4031,14 +3710,13 @@ class alignas(0x10) UInteractiveToolsContext final : public UObject
 {
 public:
 	uint8                                         Pad_28[0x30];                                      // 0x0028(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
-	class UInputRouter*                           InputRouter;                                       // 0x0058(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UToolTargetManager*                     TargetManager;                                     // 0x0060(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UInteractiveToolManager*                ToolManager;                                       // 0x0068(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UInteractiveGizmoManager*               GizmoManager;                                      // 0x0070(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UContextObjectStore*                    ContextObjectStore;                                // 0x0078(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UInputRouter*                           InputRouter;                                       // 0x0058(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UToolTargetManager*                     TargetManager;                                     // 0x0060(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UInteractiveToolManager*                ToolManager;                                       // 0x0068(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UInteractiveGizmoManager*               GizmoManager;                                      // 0x0070(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UContextObjectStore*                    ContextObjectStore;                                // 0x0078(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_80[0x280];                                     // 0x0080(0x0280)(Fixing Size After Last Property [ Dumper-7 ])
-	TSoftClassPtr<class UClass>                   ToolManagerClass;                                  // 0x0300(0x0028)(Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_328[0x8];                                      // 0x0328(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TSoftClassPtr<class UClass>                   ToolManagerClass;                                  // 0x0300(0x0030)(Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 
 public:
 	static class UClass* StaticClass()
@@ -4056,106 +3734,13 @@ public:
 };
 DUMPER7_ASSERTS_UInteractiveToolsContext;
 
-// Class InteractiveToolsFramework.MultiSelectionTool
-// 0x0018 (0x00B0 - 0x0098)
-class UMultiSelectionTool : public UInteractiveTool
-{
-public:
-	uint8                                         Pad_98[0x8];                                       // 0x0098(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UToolTarget*>                    Targets;                                           // 0x00A0(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MultiSelectionTool")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MultiSelectionTool")
-	}
-	static class UMultiSelectionTool* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMultiSelectionTool>();
-	}
-};
-DUMPER7_ASSERTS_UMultiSelectionTool;
-
-// Class InteractiveToolsFramework.SceneSnappingManager
-// 0x0000 (0x0028 - 0x0028)
-class USceneSnappingManager : public UObject
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("SceneSnappingManager")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"SceneSnappingManager")
-	}
-	static class USceneSnappingManager* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<USceneSnappingManager>();
-	}
-};
-DUMPER7_ASSERTS_USceneSnappingManager;
-
-// Class InteractiveToolsFramework.SelectionSet
-// 0x0018 (0x0040 - 0x0028)
-class USelectionSet : public UObject
-{
-public:
-	uint8                                         Pad_28[0x18];                                      // 0x0028(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("SelectionSet")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"SelectionSet")
-	}
-	static class USelectionSet* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<USelectionSet>();
-	}
-};
-DUMPER7_ASSERTS_USelectionSet;
-
-// Class InteractiveToolsFramework.MeshSelectionSet
-// 0x0040 (0x0080 - 0x0040)
-class UMeshSelectionSet final : public USelectionSet
-{
-public:
-	TArray<int32>                                 Vertices;                                          // 0x0040(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<int32>                                 Edges;                                             // 0x0050(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<int32>                                 Faces;                                             // 0x0060(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<int32>                                 Groups;                                            // 0x0070(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MeshSelectionSet")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MeshSelectionSet")
-	}
-	static class UMeshSelectionSet* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMeshSelectionSet>();
-	}
-};
-DUMPER7_ASSERTS_UMeshSelectionSet;
-
 // Class InteractiveToolsFramework.ToolTargetManager
 // 0x0018 (0x0040 - 0x0028)
 class UToolTargetManager final : public UObject
 {
 public:
 	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UToolTargetFactory*>             Factories;                                         // 0x0030(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	TArray<class UToolTargetFactory*>             Factories;                                         // 0x0030(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
 
 public:
 	static class UClass* StaticClass()

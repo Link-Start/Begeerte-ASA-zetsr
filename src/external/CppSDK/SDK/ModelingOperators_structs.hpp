@@ -54,78 +54,14 @@ enum class ERecomputeUVsPropertiesLayoutType : uint32
 	ERecomputeUVsPropertiesLayoutType_MAX    = 5,
 };
 
-// Enum ModelingOperators.EFlattenCurveMethod
-// NumValues: 0x0006
-enum class EFlattenCurveMethod : uint8
-{
-	DoNotFlatten                             = 0,
-	ToBestFitPlane                           = 1,
-	AlongX                                   = 2,
-	AlongY                                   = 3,
-	AlongZ                                   = 4,
-	EFlattenCurveMethod_MAX                  = 5,
-};
-
-// Enum ModelingOperators.ECombineCurvesMethod
-// NumValues: 0x0006
-enum class ECombineCurvesMethod : uint8
-{
-	LeaveSeparate                            = 0,
-	Union                                    = 1,
-	Intersect                                = 2,
-	Difference                               = 3,
-	ExclusiveOr                              = 4,
-	ECombineCurvesMethod_MAX                 = 5,
-};
-
-// Enum ModelingOperators.EOffsetClosedCurvesMethod
-// NumValues: 0x0004
-enum class EOffsetClosedCurvesMethod : uint8
-{
-	DoNotOffset                              = 0,
-	OffsetOuterSide                          = 1,
-	OffsetBothSides                          = 2,
-	EOffsetClosedCurvesMethod_MAX            = 3,
-};
-
-// Enum ModelingOperators.EOffsetOpenCurvesMethod
-// NumValues: 0x0003
-enum class EOffsetOpenCurvesMethod : uint8
-{
-	TreatAsClosed                            = 0,
-	Offset                                   = 1,
-	EOffsetOpenCurvesMethod_MAX              = 2,
-};
-
-// Enum ModelingOperators.EOffsetJoinMethod
-// NumValues: 0x0004
-enum class EOffsetJoinMethod : uint8
-{
-	Square                                   = 0,
-	Miter                                    = 1,
-	Round                                    = 2,
-	EOffsetJoinMethod_MAX                    = 3,
-};
-
-// Enum ModelingOperators.EOpenCurveEndShapes
-// NumValues: 0x0004
-enum class EOpenCurveEndShapes : uint8
-{
-	Square                                   = 0,
-	Round                                    = 1,
-	Butt                                     = 2,
-	EOpenCurveEndShapes_MAX                  = 3,
-};
-
 // Enum ModelingOperators.EUVLayoutType
-// NumValues: 0x0005
+// NumValues: 0x0004
 enum class EUVLayoutType : uint32
 {
 	Transform                                = 0,
 	Stack                                    = 1,
 	Repack                                   = 2,
-	Normalize                                = 3,
-	EUVLayoutType_MAX                        = 4,
+	EUVLayoutType_MAX                        = 3,
 };
 
 // Enum ModelingOperators.ENormalCalculationMethod
@@ -220,16 +156,6 @@ enum class EMorphologyOperation : uint8
 	Close                                    = 2,
 	Open                                     = 3,
 	EMorphologyOperation_MAX                 = 4,
-};
-
-// Enum ModelingOperators.ETexelDensityToolMode
-// NumValues: 0x0004
-enum class ETexelDensityToolMode : uint32
-{
-	ApplyToIslands                           = 0,
-	ApplyToWhole                             = 1,
-	Normalize                                = 2,
-	ETexelDensityToolMode_MAX                = 3,
 };
 
 // Enum ModelingOperators.EUVProjectionMethod

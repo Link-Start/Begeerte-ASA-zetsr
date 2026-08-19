@@ -14,12 +14,12 @@
 SDK_NAMESPACE_START
 
 // UserDefinedStruct MapSpecificTekArmorBuffs.MapSpecificTekArmorBuffs
-// 0x0038 (0x0038 - 0x0000)
+// 0x0040 (0x0040 - 0x0000)
 struct FMapSpecificTekArmorBuffs final
 {
 public:
-	TSoftClassPtr<class UClass>                   TekArmorBuff_6_F5E423204C994EC6354175AE7BC652F7;   // 0x0000(0x0028)(Edit, BlueprintVisible, UObjectWrapper, HasGetValueTypeHash)
-	class FString                                 ForMap_5_BDE018E042331E4B7EC006837145188A;         // 0x0028(0x0010)(Edit, BlueprintVisible, ZeroConstructor, UObjectWrapper, HasGetValueTypeHash)
+	TSoftClassPtr<class UClass>                   TekArmorBuff_6_F5E423204C994EC6354175AE7BC652F7;   // 0x0000(0x0030)(Edit, BlueprintVisible, UObjectWrapper, HasGetValueTypeHash)
+	class FString                                 ForMap_5_BDE018E042331E4B7EC006837145188A;         // 0x0030(0x0010)(Edit, BlueprintVisible, ZeroConstructor, UObjectWrapper, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_FMapSpecificTekArmorBuffs;
 

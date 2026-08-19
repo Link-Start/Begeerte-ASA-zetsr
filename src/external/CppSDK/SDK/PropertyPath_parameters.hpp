@@ -26,29 +26,29 @@ public:
 DUMPER7_ASSERTS_PropertyPathTestObject_SetFloat;
 
 // Function PropertyPath.PropertyPathTestObject.SetStruct
-// 0x0060 (0x0060 - 0x0000)
+// 0x0050 (0x0050 - 0x0000)
 struct PropertyPathTestObject_SetStruct final
 {
 public:
-	struct FPropertyPathTestStruct                InStruct;                                          // 0x0000(0x0060)(Parm, NativeAccessSpecifierPublic)
+	struct FPropertyPathTestStruct                InStruct;                                          // 0x0000(0x0050)(Parm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PropertyPathTestObject_SetStruct;
 
 // Function PropertyPath.PropertyPathTestObject.SetStructConstRef
-// 0x0060 (0x0060 - 0x0000)
+// 0x0050 (0x0050 - 0x0000)
 struct PropertyPathTestObject_SetStructConstRef final
 {
 public:
-	struct FPropertyPathTestStruct                InStruct;                                          // 0x0000(0x0060)(Parm, NativeAccessSpecifierPublic)
+	struct FPropertyPathTestStruct                InStruct;                                          // 0x0000(0x0050)(Parm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PropertyPathTestObject_SetStructConstRef;
 
 // Function PropertyPath.PropertyPathTestObject.SetStructRef
-// 0x0060 (0x0060 - 0x0000)
+// 0x0050 (0x0050 - 0x0000)
 struct PropertyPathTestObject_SetStructRef final
 {
 public:
-	struct FPropertyPathTestStruct                InStruct;                                          // 0x0000(0x0060)(Parm, NativeAccessSpecifierPublic)
+	struct FPropertyPathTestStruct                InStruct;                                          // 0x0000(0x0050)(Parm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PropertyPathTestObject_SetStructRef;
 
@@ -62,29 +62,29 @@ public:
 DUMPER7_ASSERTS_PropertyPathTestObject_GetFloat;
 
 // Function PropertyPath.PropertyPathTestObject.GetStruct
-// 0x0060 (0x0060 - 0x0000)
+// 0x0050 (0x0050 - 0x0000)
 struct PropertyPathTestObject_GetStruct final
 {
 public:
-	struct FPropertyPathTestStruct                ReturnValue;                                       // 0x0000(0x0060)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	struct FPropertyPathTestStruct                ReturnValue;                                       // 0x0000(0x0050)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PropertyPathTestObject_GetStruct;
 
 // Function PropertyPath.PropertyPathTestObject.GetStructConstRef
-// 0x0060 (0x0060 - 0x0000)
+// 0x0050 (0x0050 - 0x0000)
 struct PropertyPathTestObject_GetStructConstRef final
 {
 public:
-	struct FPropertyPathTestStruct                ReturnValue;                                       // 0x0000(0x0060)(ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FPropertyPathTestStruct                ReturnValue;                                       // 0x0000(0x0050)(ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PropertyPathTestObject_GetStructConstRef;
 
 // Function PropertyPath.PropertyPathTestObject.GetStructRef
-// 0x0060 (0x0060 - 0x0000)
+// 0x0050 (0x0050 - 0x0000)
 struct PropertyPathTestObject_GetStructRef final
 {
 public:
-	struct FPropertyPathTestStruct                ReturnValue;                                       // 0x0000(0x0060)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	struct FPropertyPathTestStruct                ReturnValue;                                       // 0x0000(0x0050)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PropertyPathTestObject_GetStructRef;
 

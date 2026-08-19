@@ -184,15 +184,6 @@ public:
 };
 DUMPER7_ASSERTS_DLSSLibrary_IsDLSSSupported;
 
-// Function DLSSBlueprint.DLSSLibrary.IsRayTracingAvailable
-// 0x0001 (0x0001 - 0x0000)
-struct DLSSLibrary_IsRayTracingAvailable final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_DLSSLibrary_IsRayTracingAvailable;
-
 // Function DLSSBlueprint.DLSSLibrary.QueryDLSSRRSupport
 // 0x0001 (0x0001 - 0x0000)
 struct DLSSLibrary_QueryDLSSRRSupport final

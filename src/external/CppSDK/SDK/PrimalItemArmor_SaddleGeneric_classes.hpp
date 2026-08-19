@@ -17,13 +17,13 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemArmor_SaddleGeneric.PrimalItemArmor_SaddleGeneric_C
-// 0x0020 (0x0BB0 - 0x0B90)
+// 0x0010 (0x1190 - 0x1180)
 class UPrimalItemArmor_SaddleGeneric_C : public UPrimalItemArmorGeneric_C
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0B90(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	double                                        LastTorchDurabilityLossTime;                       // 0x0B98(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        SavedSaddleDurability;                             // 0x0BA0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x1178(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	double                                        LastTorchDurabilityLossTime;                       // 0x1180(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        SavedSaddleDurability;                             // 0x1188(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void BlueprintEquipped(bool bIsFromSaveGame);

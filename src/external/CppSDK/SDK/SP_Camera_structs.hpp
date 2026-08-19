@@ -55,13 +55,13 @@ public:
 DUMPER7_ASSERTS_FPenetrationAvoidanceRay;
 
 // ScriptStruct SP_Camera.ActiveSPCamera
-// 0x0990 (0x0990 - 0x0000)
+// 0x0910 (0x0910 - 0x0000)
 struct alignas(0x10) FActiveSPCamera final
 {
 public:
 	class USPCameraMode*                          Camera;                                            // 0x0000(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class AActor*                                 ViewTarget;                                        // 0x0008(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_10[0x980];                                     // 0x0010(0x0980)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_10[0x900];                                     // 0x0010(0x0900)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FActiveSPCamera;
 

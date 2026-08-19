@@ -111,29 +111,6 @@ void UASAUI_MainMenuWidget_SettingsOverlay_C::BPVirtualCursorinit()
 }
 
 
-// Function ASAUI_MainMenuWidget_SettingsOverlay.ASAUI_MainMenuWidget_SettingsOverlay_C.BPGamepadReleased
-// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// const struct FKey&                      theKey                                                 (BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-bool UASAUI_MainMenuWidget_SettingsOverlay_C::BPGamepadReleased(const struct FKey& theKey)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_MainMenuWidget_SettingsOverlay_C", "BPGamepadReleased");
-
-	Params::ASAUI_MainMenuWidget_SettingsOverlay_C_BPGamepadReleased Parms{};
-
-	Parms.theKey = std::move(theKey);
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	return Parms.ReturnValue;
-}
-
-
 // Function ASAUI_MainMenuWidget_SettingsOverlay.ASAUI_MainMenuWidget_SettingsOverlay_C.BndEvt__ASAUI_MainMenuWidget_SettingsOverlay_SettingsButton_K2Node_ComponentBoundEvent_10_OnButtonClickedEvent__DelegateSignature
 // (BlueprintEvent)
 

@@ -46,7 +46,7 @@ void UStateTreeNodeBlueprintBase::RequestTransition(const struct FStateTreeState
 // Function StateTreeModule.StateTreeNodeBlueprintBase.SendEvent
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// const struct FStateTreeEvent&           Event                                                  (ConstParm, Parm, OutParm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FStateTreeEvent&           Event                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
 void UStateTreeNodeBlueprintBase::SendEvent(const struct FStateTreeEvent& Event)
 {
@@ -68,110 +68,6 @@ void UStateTreeNodeBlueprintBase::SendEvent(const struct FStateTreeEvent& Event)
 }
 
 
-// Function StateTreeModule.StateTreeNodeBlueprintBase.GetPropertyDescriptionByPropertyName
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FName                             PropertyName                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-class FText UStateTreeNodeBlueprintBase::GetPropertyDescriptionByPropertyName(class FName PropertyName) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StateTreeNodeBlueprintBase", "GetPropertyDescriptionByPropertyName");
-
-	Params::StateTreeNodeBlueprintBase_GetPropertyDescriptionByPropertyName Parms{};
-
-	Parms.PropertyName = PropertyName;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function StateTreeModule.StateTreeNodeBlueprintBase.GetPropertyReference
-// (Final, Native, Public, HasOutParams, Const)
-// Parameters:
-// const struct FStateTreeBlueprintPropertyRef&PropertyRef                                            (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-
-void UStateTreeNodeBlueprintBase::GetPropertyReference(const struct FStateTreeBlueprintPropertyRef& PropertyRef) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StateTreeNodeBlueprintBase", "GetPropertyReference");
-
-	Params::StateTreeNodeBlueprintBase_GetPropertyReference Parms{};
-
-	Parms.PropertyRef = std::move(PropertyRef);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function StateTreeModule.StateTreeNodeBlueprintBase.IsPropertyRefValid
-// (Final, Native, Public, HasOutParams, Const)
-// Parameters:
-// const struct FStateTreeBlueprintPropertyRef&PropertyRef                                            (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UStateTreeNodeBlueprintBase::IsPropertyRefValid(const struct FStateTreeBlueprintPropertyRef& PropertyRef) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StateTreeNodeBlueprintBase", "IsPropertyRefValid");
-
-	Params::StateTreeNodeBlueprintBase_IsPropertyRefValid Parms{};
-
-	Parms.PropertyRef = std::move(PropertyRef);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function StateTreeModule.StateTreeNodeBlueprintBase.ReceiveGetDescription
-// (Event, Protected, BlueprintEvent, Const)
-// Parameters:
-// EStateTreeNodeFormatting                Formatting                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-class FText UStateTreeNodeBlueprintBase::ReceiveGetDescription(EStateTreeNodeFormatting Formatting) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StateTreeNodeBlueprintBase", "ReceiveGetDescription");
-
-	Params::StateTreeNodeBlueprintBase_ReceiveGetDescription Parms{};
-
-	Parms.Formatting = Formatting;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	return Parms.ReturnValue;
-}
-
-
 // Function StateTreeModule.StateTreeConditionBlueprintBase.ReceiveTestCondition
 // (Event, Public, BlueprintEvent, Const)
 // Parameters:
@@ -185,26 +81,6 @@ bool UStateTreeConditionBlueprintBase::ReceiveTestCondition() const
 		Func = Class->GetFunction("StateTreeConditionBlueprintBase", "ReceiveTestCondition");
 
 	Params::StateTreeConditionBlueprintBase_ReceiveTestCondition Parms{};
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function StateTreeModule.StateTreeConsiderationBlueprintBase.ReceiveGetScore
-// (Event, Public, BlueprintEvent, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UStateTreeConsiderationBlueprintBase::ReceiveGetScore() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StateTreeConsiderationBlueprintBase", "ReceiveGetScore");
-
-	Params::StateTreeConsiderationBlueprintBase_ReceiveGetScore Parms{};
 
 	UObject::ProcessEvent(Func, &Parms);
 
@@ -260,35 +136,10 @@ void UStateTreeEvaluatorBlueprintBase::ReceiveTreeStop()
 }
 
 
-// Function StateTreeModule.StateTreeTaskBlueprintBase.FinishTask
-// (Final, Native, Protected, BlueprintCallable)
-// Parameters:
-// const bool                              bSucceeded                                             (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UStateTreeTaskBlueprintBase::FinishTask(const bool bSucceeded)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StateTreeTaskBlueprintBase", "FinishTask");
-
-	Params::StateTreeTaskBlueprintBase_FinishTask Parms{};
-
-	Parms.bSucceeded = bSucceeded;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function StateTreeModule.StateTreeTaskBlueprintBase.ReceiveEnterState
 // (Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
-// const struct FStateTreeTransitionResult&Transition                                             (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// const struct FStateTreeTransitionResult&Transition                                             (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 // EStateTreeRunStatus                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 EStateTreeRunStatus UStateTreeTaskBlueprintBase::ReceiveEnterState(const struct FStateTreeTransitionResult& Transition)
@@ -311,7 +162,7 @@ EStateTreeRunStatus UStateTreeTaskBlueprintBase::ReceiveEnterState(const struct 
 // Function StateTreeModule.StateTreeTaskBlueprintBase.ReceiveExitState
 // (Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
-// const struct FStateTreeTransitionResult&Transition                                             (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// const struct FStateTreeTransitionResult&Transition                                             (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 
 void UStateTreeTaskBlueprintBase::ReceiveExitState(const struct FStateTreeTransitionResult& Transition)
 {
@@ -323,46 +174,6 @@ void UStateTreeTaskBlueprintBase::ReceiveExitState(const struct FStateTreeTransi
 	Params::StateTreeTaskBlueprintBase_ReceiveExitState Parms{};
 
 	Parms.Transition = std::move(Transition);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function StateTreeModule.StateTreeTaskBlueprintBase.ReceiveLatentEnterState
-// (Event, Public, HasOutParams, BlueprintEvent)
-// Parameters:
-// const struct FStateTreeTransitionResult&Transition                                             (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void UStateTreeTaskBlueprintBase::ReceiveLatentEnterState(const struct FStateTreeTransitionResult& Transition)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StateTreeTaskBlueprintBase", "ReceiveLatentEnterState");
-
-	Params::StateTreeTaskBlueprintBase_ReceiveLatentEnterState Parms{};
-
-	Parms.Transition = std::move(Transition);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function StateTreeModule.StateTreeTaskBlueprintBase.ReceiveLatentTick
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// const float                             DeltaTime                                              (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UStateTreeTaskBlueprintBase::ReceiveLatentTick(const float DeltaTime)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("StateTreeTaskBlueprintBase", "ReceiveLatentTick");
-
-	Params::StateTreeTaskBlueprintBase_ReceiveLatentTick Parms{};
-
-	Parms.DeltaTime = DeltaTime;
 
 	UObject::ProcessEvent(Func, &Parms);
 }

@@ -51,25 +51,14 @@ public:
 };
 DUMPER7_ASSERTS_FGeometryCacheMeshData;
 
-// ScriptStruct GeometryCache.NiagaraGeometryCacheMICOverride
-// 0x0010 (0x0010 - 0x0000)
-struct FNiagaraGeometryCacheMICOverride final
-{
-public:
-	class UMaterialInterface*                     OriginalMaterial;                                  // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UMaterialInstanceConstant*              ReplacementMaterial;                               // 0x0008(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FNiagaraGeometryCacheMICOverride;
-
 // ScriptStruct GeometryCache.NiagaraGeometryCacheReference
-// 0x0048 (0x0048 - 0x0000)
+// 0x0038 (0x0038 - 0x0000)
 struct FNiagaraGeometryCacheReference final
 {
 public:
-	class UGeometryCache*                         GeometryCache;                                     // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UGeometryCache*                         GeometryCache;                                     // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FNiagaraUserParameterBinding           GeometryCacheUserParamBinding;                     // 0x0008(0x0020)(Edit, NativeAccessSpecifierPublic)
-	TArray<class UMaterialInterface*>             OverrideMaterials;                                 // 0x0028(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TArray<struct FNiagaraGeometryCacheMICOverride> MICOverrideMaterials;                            // 0x0038(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<class UMaterialInterface*>             OverrideMaterials;                                 // 0x0028(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FNiagaraGeometryCacheReference;
 

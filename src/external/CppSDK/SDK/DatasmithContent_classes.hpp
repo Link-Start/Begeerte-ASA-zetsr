@@ -10,11 +10,11 @@
 
 #include "Basic.hpp"
 
-#include "DatasmithContent_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
+#include "DatasmithContent_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -41,26 +41,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UDatasmithObjectTemplate;
-
-// Class DatasmithContent.DatasmithSceneImportData
-// 0x0000 (0x0028 - 0x0028)
-class UDatasmithSceneImportData : public UAssetImportData
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("DatasmithSceneImportData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"DatasmithSceneImportData")
-	}
-	static class UDatasmithSceneImportData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UDatasmithSceneImportData>();
-	}
-};
-DUMPER7_ASSERTS_UDatasmithSceneImportData;
 
 // Class DatasmithContent.DatasmithActorTemplate
 // 0x00A0 (0x00D0 - 0x0030)
@@ -107,32 +87,32 @@ public:
 DUMPER7_ASSERTS_UDatasmithAdditionalData;
 
 // Class DatasmithContent.DatasmithAreaLightActor
-// 0x0078 (0x0508 - 0x0490)
+// 0x0078 (0x0540 - 0x04C8)
 class ADatasmithAreaLightActor final : public AActor
 {
 public:
-	EComponentMobility                            Mobility;                                          // 0x0490(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EDatasmithAreaLightActorType                  LightType;                                         // 0x0491(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EDatasmithAreaLightActorShape                 LightShape;                                        // 0x0492(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_493[0x5];                                      // 0x0493(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector2D                              Dimensions;                                        // 0x0498(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Intensity;                                         // 0x04A8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ELightUnits                                   IntensityUnits;                                    // 0x04AC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4AD[0x3];                                      // 0x04AD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FLinearColor                           Color;                                             // 0x04B0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Temperature;                                       // 0x04C0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4C4[0x4];                                      // 0x04C4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UTextureLightProfile*                   IESTexture;                                        // 0x04C8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	bool                                          bUseIESBrightness;                                 // 0x04D0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4D1[0x3];                                      // 0x04D1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         IESBrightnessScale;                                // 0x04D4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FRotator                               Rotation;                                          // 0x04D8(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	float                                         SourceRadius;                                      // 0x04F0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SourceLength;                                      // 0x04F4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         AttenuationRadius;                                 // 0x04F8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SpotlightInnerAngle;                               // 0x04FC(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SpotlightOuterAngle;                               // 0x0500(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_504[0x4];                                      // 0x0504(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	EComponentMobility                            Mobility;                                          // 0x04C8(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EDatasmithAreaLightActorType                  LightType;                                         // 0x04C9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EDatasmithAreaLightActorShape                 LightShape;                                        // 0x04CA(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4CB[0x5];                                      // 0x04CB(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector2D                              Dimensions;                                        // 0x04D0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Intensity;                                         // 0x04E0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	ELightUnits                                   IntensityUnits;                                    // 0x04E4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4E5[0x3];                                      // 0x04E5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FLinearColor                           Color;                                             // 0x04E8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Temperature;                                       // 0x04F8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4FC[0x4];                                      // 0x04FC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UTextureLightProfile*                   IESTexture;                                        // 0x0500(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUseIESBrightness;                                 // 0x0508(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_509[0x3];                                      // 0x0509(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         IESBrightnessScale;                                // 0x050C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FRotator                               Rotation;                                          // 0x0510(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	float                                         SourceRadius;                                      // 0x0528(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SourceLength;                                      // 0x052C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         AttenuationRadius;                                 // 0x0530(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SpotlightInnerAngle;                               // 0x0534(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SpotlightOuterAngle;                               // 0x0538(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_53C[0x4];                                      // 0x053C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -151,7 +131,7 @@ public:
 DUMPER7_ASSERTS_ADatasmithAreaLightActor;
 
 // Class DatasmithContent.DatasmithAreaLightActorTemplate
-// 0x0090 (0x00C0 - 0x0030)
+// 0x0098 (0x00C8 - 0x0030)
 class UDatasmithAreaLightActorTemplate final : public UDatasmithObjectTemplate
 {
 public:
@@ -165,15 +145,15 @@ public:
 	uint8                                         Pad_5D[0x3];                                       // 0x005D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         Temperature;                                       // 0x0060(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_64[0x4];                                       // 0x0064(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TSoftObjectPtr<class UTextureLightProfile>    IESTexture;                                        // 0x0068(0x0028)(UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUseIESBrightness;                                 // 0x0090(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_91[0x3];                                       // 0x0091(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         IESBrightnessScale;                                // 0x0094(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FRotator                               Rotation;                                          // 0x0098(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	float                                         SourceRadius;                                      // 0x00B0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SourceLength;                                      // 0x00B4(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         AttenuationRadius;                                 // 0x00B8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_BC[0x4];                                       // 0x00BC(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TSoftObjectPtr<class UTextureLightProfile>    IESTexture;                                        // 0x0068(0x0030)(UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUseIESBrightness;                                 // 0x0098(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_99[0x3];                                       // 0x0099(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         IESBrightnessScale;                                // 0x009C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FRotator                               Rotation;                                          // 0x00A0(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	float                                         SourceRadius;                                      // 0x00B8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         SourceLength;                                      // 0x00BC(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         AttenuationRadius;                                 // 0x00C0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C4[0x4];                                       // 0x00C4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -190,34 +170,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UDatasmithAreaLightActorTemplate;
-
-// Class DatasmithContent.DatasmithGLTFSceneImportData
-// 0x0048 (0x0070 - 0x0028)
-class UDatasmithGLTFSceneImportData final : public UDatasmithSceneImportData
-{
-public:
-	class FString                                 Generator;                                         // 0x0028(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Version;                                           // 0x0038(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 Author;                                            // 0x0040(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 License;                                           // 0x0050(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Source;                                            // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("DatasmithGLTFSceneImportData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"DatasmithGLTFSceneImportData")
-	}
-	static class UDatasmithGLTFSceneImportData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UDatasmithGLTFSceneImportData>();
-	}
-};
-DUMPER7_ASSERTS_UDatasmithGLTFSceneImportData;
 
 // Class DatasmithContent.DatasmithAssetImportData
 // 0x0000 (0x0028 - 0x0028)
@@ -279,6 +231,26 @@ public:
 };
 DUMPER7_ASSERTS_UDatasmithStaticMeshCADImportData;
 
+// Class DatasmithContent.DatasmithSceneImportData
+// 0x0000 (0x0028 - 0x0028)
+class UDatasmithSceneImportData : public UAssetImportData
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("DatasmithSceneImportData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"DatasmithSceneImportData")
+	}
+	static class UDatasmithSceneImportData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UDatasmithSceneImportData>();
+	}
+};
+DUMPER7_ASSERTS_UDatasmithSceneImportData;
+
 // Class DatasmithContent.DatasmithTranslatedSceneImportData
 // 0x0000 (0x0028 - 0x0028)
 class UDatasmithTranslatedSceneImportData final : public UDatasmithSceneImportData
@@ -338,6 +310,34 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UDatasmithMDLSceneImportData;
+
+// Class DatasmithContent.DatasmithGLTFSceneImportData
+// 0x0048 (0x0070 - 0x0028)
+class UDatasmithGLTFSceneImportData final : public UDatasmithSceneImportData
+{
+public:
+	class FString                                 Generator;                                         // 0x0028(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Version;                                           // 0x0038(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 Author;                                            // 0x0040(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 License;                                           // 0x0050(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Source;                                            // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("DatasmithGLTFSceneImportData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"DatasmithGLTFSceneImportData")
+	}
+	static class UDatasmithGLTFSceneImportData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UDatasmithGLTFSceneImportData>();
+	}
+};
+DUMPER7_ASSERTS_UDatasmithGLTFSceneImportData;
 
 // Class DatasmithContent.DatasmithStaticMeshGLTFImportData
 // 0x0010 (0x0038 - 0x0028)
@@ -502,6 +502,49 @@ public:
 };
 DUMPER7_ASSERTS_UDatasmithVREDSceneImportData;
 
+// Class DatasmithContent.DatasmithIFCSceneImportData
+// 0x0000 (0x0028 - 0x0028)
+class UDatasmithIFCSceneImportData final : public UDatasmithSceneImportData
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("DatasmithIFCSceneImportData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"DatasmithIFCSceneImportData")
+	}
+	static class UDatasmithIFCSceneImportData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UDatasmithIFCSceneImportData>();
+	}
+};
+DUMPER7_ASSERTS_UDatasmithIFCSceneImportData;
+
+// Class DatasmithContent.DatasmithStaticMeshIFCImportData
+// 0x0010 (0x0038 - 0x0028)
+class UDatasmithStaticMeshIFCImportData final : public UDatasmithStaticMeshImportData
+{
+public:
+	class FString                                 SourceGlobalId;                                    // 0x0028(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("DatasmithStaticMeshIFCImportData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"DatasmithStaticMeshIFCImportData")
+	}
+	static class UDatasmithStaticMeshIFCImportData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UDatasmithStaticMeshIFCImportData>();
+	}
+};
+DUMPER7_ASSERTS_UDatasmithStaticMeshIFCImportData;
+
 // Class DatasmithContent.DatasmithAssetUserData
 // 0x0050 (0x0078 - 0x0028)
 class UDatasmithAssetUserData final : public UAssetUserData
@@ -526,11 +569,11 @@ public:
 DUMPER7_ASSERTS_UDatasmithAssetUserData;
 
 // Class DatasmithContent.DatasmithCineCameraActorTemplate
-// 0x0030 (0x0060 - 0x0030)
+// 0x0038 (0x0068 - 0x0030)
 class UDatasmithCineCameraActorTemplate final : public UDatasmithObjectTemplate
 {
 public:
-	struct FDatasmithCameraLookatTrackingSettingsTemplate LookatTrackingSettings;                    // 0x0030(0x0030)(NativeAccessSpecifierPublic)
+	struct FDatasmithCameraLookatTrackingSettingsTemplate LookatTrackingSettings;                    // 0x0030(0x0038)(NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -631,10 +674,10 @@ DUMPER7_ASSERTS_UDatasmithCustomActionBase;
 class UDatasmithDecalComponentTemplate final : public UDatasmithObjectTemplate
 {
 public:
-	int32                                         SortOrder;                                         // 0x0030(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         sortOrder;                                         // 0x0030(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_34[0x4];                                       // 0x0034(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FVector                                DecalSize;                                         // 0x0038(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UMaterialInterface*                     Material;                                          // 0x0050(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UMaterialInterface*                     Material;                                          // 0x0050(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -653,11 +696,11 @@ public:
 DUMPER7_ASSERTS_UDatasmithDecalComponentTemplate;
 
 // Class DatasmithContent.DatasmithImportedSequencesActor
-// 0x0010 (0x04A0 - 0x0490)
+// 0x0010 (0x04D8 - 0x04C8)
 class ADatasmithImportedSequencesActor final : public AActor
 {
 public:
-	TArray<class ULevelSequence*>                 ImportedSequences;                                 // 0x0490(0x0010)(Edit, BlueprintVisible, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TArray<class ULevelSequence*>                 ImportedSequences;                                 // 0x04C8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
 
 public:
 	void PlayLevelSequence(class ULevelSequence* SequenceToPlay);
@@ -699,11 +742,11 @@ public:
 DUMPER7_ASSERTS_UDatasmithOptionsBase;
 
 // Class DatasmithContent.DatasmithCommonTessellationOptions
-// 0x0020 (0x0048 - 0x0028)
+// 0x0010 (0x0038 - 0x0028)
 class UDatasmithCommonTessellationOptions final : public UDatasmithOptionsBase
 {
 public:
-	struct FDatasmithTessellationOptions          Options;                                           // 0x0028(0x0020)(Edit, BlueprintVisible, Config, NoDestructor, NativeAccessSpecifierPublic)
+	struct FDatasmithTessellationOptions          Options;                                           // 0x0028(0x0010)(Edit, BlueprintVisible, Config, NoDestructor, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -763,7 +806,7 @@ DUMPER7_ASSERTS_UDatasmithImportOptions;
 class UDatasmithLandscapeTemplate final : public UDatasmithObjectTemplate
 {
 public:
-	class UMaterialInterface*                     LandscapeMaterial;                                 // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UMaterialInterface*                     LandscapeMaterial;                                 // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         StaticLightingLOD;                                 // 0x0038(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
@@ -800,8 +843,8 @@ public:
 	float                                         IESBrightnessScale;                                // 0x0040(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FLinearColor                           LightColor;                                        // 0x0044(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_54[0x4];                                       // 0x0054(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMaterialInterface*                     LightFunctionMaterial;                             // 0x0058(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UTextureLightProfile*                   IESTexture;                                        // 0x0060(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UMaterialInterface*                     LightFunctionMaterial;                             // 0x0058(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UTextureLightProfile*                   IESTexture;                                        // 0x0060(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -820,15 +863,15 @@ public:
 DUMPER7_ASSERTS_UDatasmithLightComponentTemplate;
 
 // Class DatasmithContent.DatasmithMaterialInstanceTemplate
-// 0x0168 (0x0198 - 0x0030)
+// 0x0170 (0x01A0 - 0x0030)
 class UDatasmithMaterialInstanceTemplate final : public UDatasmithObjectTemplate
 {
 public:
-	TSoftObjectPtr<class UMaterialInterface>      ParentMaterial;                                    // 0x0030(0x0028)(UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TMap<class FName, float>                      ScalarParameterValues;                             // 0x0058(0x0050)(NativeAccessSpecifierPublic)
-	TMap<class FName, struct FLinearColor>        VectorParameterValues;                             // 0x00A8(0x0050)(NativeAccessSpecifierPublic)
-	TMap<class FName, TSoftObjectPtr<class UTexture>> TextureParameterValues;                        // 0x00F8(0x0050)(UObjectWrapper, NativeAccessSpecifierPublic)
-	struct FDatasmithStaticParameterSetTemplate   StaticParameters;                                  // 0x0148(0x0050)(NativeAccessSpecifierPublic)
+	TSoftObjectPtr<class UMaterialInterface>      ParentMaterial;                                    // 0x0030(0x0030)(UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TMap<class FName, float>                      ScalarParameterValues;                             // 0x0060(0x0050)(NativeAccessSpecifierPublic)
+	TMap<class FName, struct FLinearColor>        VectorParameterValues;                             // 0x00B0(0x0050)(NativeAccessSpecifierPublic)
+	TMap<class FName, TSoftObjectPtr<class UTexture>> TextureParameterValues;                        // 0x0100(0x0050)(UObjectWrapper, NativeAccessSpecifierPublic)
+	struct FDatasmithStaticParameterSetTemplate   StaticParameters;                                  // 0x0150(0x0050)(NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -923,12 +966,12 @@ public:
 DUMPER7_ASSERTS_UDatasmithScene;
 
 // Class DatasmithContent.DatasmithSceneActor
-// 0x0058 (0x04E8 - 0x0490)
+// 0x0058 (0x0520 - 0x04C8)
 class ADatasmithSceneActor final : public AActor
 {
 public:
-	class UDatasmithScene*                        Scene;                                             // 0x0490(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TMap<class FName, TSoftObjectPtr<class AActor>> RelatedActors;                                   // 0x0498(0x0050)(Edit, EditConst, AdvancedDisplay, UObjectWrapper, NativeAccessSpecifierPublic)
+	class UDatasmithScene*                        Scene;                                             // 0x04C8(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TMap<class FName, TSoftObjectPtr<class AActor>> RelatedActors;                                   // 0x04D0(0x0050)(Edit, EditConst, AdvancedDisplay, UObjectWrapper, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -954,12 +997,11 @@ public:
 	struct FTransform                             RelativeTransform;                                 // 0x0030(0x0060)(IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EComponentMobility                            Mobility;                                          // 0x0090(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_91[0x7];                                       // 0x0091(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TSoftObjectPtr<class USceneComponent>         AttachParent;                                      // 0x0098(0x0028)(ExportObject, InstancedReference, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bVisible;                                          // 0x00C0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bCastShadow;                                       // 0x00C1(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C2[0x6];                                       // 0x00C2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	TSet<class FName>                             Tags;                                              // 0x00C8(0x0050)(NativeAccessSpecifierPublic)
-	uint8                                         Pad_118[0x8];                                      // 0x0118(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TSoftObjectPtr<class USceneComponent>         AttachParent;                                      // 0x0098(0x0030)(ExportObject, InstancedReference, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bVisible;                                          // 0x00C8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bCastShadow;                                       // 0x00C9(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_CA[0x6];                                       // 0x00CA(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	TSet<class FName>                             Tags;                                              // 0x00D0(0x0050)(NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -985,7 +1027,7 @@ public:
 	ESkyLightSourceType                           SourceType;                                        // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_31[0x3];                                       // 0x0031(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	int32                                         CubemapResolution;                                 // 0x0034(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UTextureCube*                           Cubemap;                                           // 0x0038(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UTextureCube*                           Cubemap;                                           // 0x0038(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -1032,8 +1074,8 @@ DUMPER7_ASSERTS_UDatasmithSpotLightComponentTemplate;
 class UDatasmithStaticMeshComponentTemplate final : public UDatasmithObjectTemplate
 {
 public:
-	class UStaticMesh*                            StaticMesh;                                        // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TArray<class UMaterialInterface*>             OverrideMaterials;                                 // 0x0038(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UStaticMesh*                            StaticMesh;                                        // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<class UMaterialInterface*>             OverrideMaterials;                                 // 0x0038(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()

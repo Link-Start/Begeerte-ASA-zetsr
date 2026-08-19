@@ -18,29 +18,29 @@
 SDK_NAMESPACE_START
 
 // WidgetBlueprintGeneratedClass UpdatingModsToast.UpdatingModsToast_C
-// 0x0048 (0x0850 - 0x0808)
+// 0x0050 (0x07C0 - 0x0770)
 class UUpdatingModsToast_C final : public UPrimalUI_Toast
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0808(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	class UWidgetAnimation*                       Close;                                             // 0x0810(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, RepSkip, NoDestructor, HasGetValueTypeHash)
-	class UWidgetAnimation*                       Open;                                              // 0x0818(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, RepSkip, NoDestructor, HasGetValueTypeHash)
-	class URichTextBlock*                         MainText;                                          // 0x0820(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 ProgressImage;                                     // 0x0828(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class FText                                   OverrideText;                                      // 0x0830(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	class UMaterialInstanceDynamic*               ProgressBarMat;                                    // 0x0840(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	bool                                          HideCounter;                                       // 0x0848(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0770(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	class UWidgetAnimation*                       Close;                                             // 0x0778(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, RepSkip, NoDestructor, HasGetValueTypeHash)
+	class UWidgetAnimation*                       Open;                                              // 0x0780(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, RepSkip, NoDestructor, HasGetValueTypeHash)
+	class URichTextBlock*                         MainText;                                          // 0x0788(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 ProgressImage;                                     // 0x0790(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class FText                                   OverrideText;                                      // 0x0798(0x0018)(Edit, BlueprintVisible, DisableEditOnInstance)
+	class UMaterialInstanceDynamic*               ProgressBarMat;                                    // 0x07B0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	bool                                          HideCounter;                                       // 0x07B8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
-	void Construct();
-	void ExecuteUbergraph_UpdatingModsToast(int32 EntryPoint);
-	void incrementCounter();
-	void InitCounter(int32 NewCounterMax, bool bInWillSetCounter);
-	void OverrideTextValue(const class FText& NewText, bool HideProgressBar, bool HideCounter_0);
-	void OverrideTextValueWithString(const class FString& NewText, bool HideProgressBar, bool HideCounter_0);
-	void SetCounter(int32 NewCounter);
-	void UpdateMainText();
 	void UpdateProgressBar();
+	void UpdateMainText();
+	void SetCounter(int32 NewCounter);
+	void OverrideTextValueWithString(const class FString& NewText, bool HideProgressBar, bool HideCounter_0);
+	void OverrideTextValue(const class FText& NewText, bool HideProgressBar, bool HideCounter_0);
+	void InitCounter(int32 NewCounterMax, bool bInWillSetCounter);
+	void incrementCounter();
+	void ExecuteUbergraph_UpdatingModsToast(int32 EntryPoint);
+	void Construct();
 
 public:
 	static class UClass* StaticClass()

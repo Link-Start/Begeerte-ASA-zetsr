@@ -30,14 +30,13 @@ enum class EDatasmithAreaLightActorShape : uint8
 };
 
 // Enum DatasmithContent.EDatasmithAreaLightActorType
-// NumValues: 0x0005
+// NumValues: 0x0004
 enum class EDatasmithAreaLightActorType : uint8
 {
 	Point                                    = 0,
 	Spot                                     = 1,
-	IES_DEPRECATED                           = 2,
-	Rect                                     = 3,
-	EDatasmithAreaLightActorType_MAX         = 4,
+	Rect                                     = 2,
+	EDatasmithAreaLightActorType_MAX         = 3,
 };
 
 // Enum DatasmithContent.EDatasmithImportSearchPackagePolicy
@@ -146,14 +145,14 @@ public:
 DUMPER7_ASSERTS_FDatasmithImportInfo;
 
 // ScriptStruct DatasmithContent.DatasmithCameraLookatTrackingSettingsTemplate
-// 0x0030 (0x0030 - 0x0000)
+// 0x0038 (0x0038 - 0x0000)
 struct FDatasmithCameraLookatTrackingSettingsTemplate final
 {
 public:
 	uint8                                         bEnableLookAtTracking : 1;                         // 0x0000(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         bAllowRoll : 1;                                    // 0x0000(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TSoftObjectPtr<class AActor>                  ActorToTrack;                                      // 0x0008(0x0028)(UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSoftObjectPtr<class AActor>                  ActorToTrack;                                      // 0x0008(0x0030)(UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FDatasmithCameraLookatTrackingSettingsTemplate;
 
@@ -262,7 +261,7 @@ public:
 DUMPER7_ASSERTS_FDatasmithImportBaseOptions;
 
 // ScriptStruct DatasmithContent.DatasmithTessellationOptions
-// 0x0020 (0x0020 - 0x0000)
+// 0x0010 (0x0010 - 0x0000)
 struct FDatasmithTessellationOptions
 {
 public:
@@ -270,19 +269,17 @@ public:
 	float                                         MaxEdgeLength;                                     // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         NormalTolerance;                                   // 0x0008(0x0004)(Edit, BlueprintVisible, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EDatasmithCADStitchingTechnique               StitchingTechnique;                                // 0x000C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_D[0x3];                                        // 0x000D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        GeometricTolerance;                                // 0x0010(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	double                                        StitchingTolerance;                                // 0x0018(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_D[0x3];                                        // 0x000D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FDatasmithTessellationOptions;
 
 // ScriptStruct DatasmithContent.DatasmithRetessellationOptions
-// 0x0008 (0x0028 - 0x0020)
+// 0x0004 (0x0014 - 0x0010)
 struct FDatasmithRetessellationOptions final : public FDatasmithTessellationOptions
 {
 public:
-	EDatasmithCADRetessellationRule               RetessellationRule;                                // 0x0020(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	EDatasmithCADRetessellationRule               RetessellationRule;                                // 0x0010(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FDatasmithRetessellationOptions;
 
@@ -320,7 +317,7 @@ struct FDatasmithStaticMaterialTemplate final
 {
 public:
 	class FName                                   MaterialSlotName;                                  // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UMaterialInterface*                     MaterialInterface;                                 // 0x0008(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UMaterialInterface*                     MaterialInterface;                                 // 0x0008(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FDatasmithStaticMaterialTemplate;
 

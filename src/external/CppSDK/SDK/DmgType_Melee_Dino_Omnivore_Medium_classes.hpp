@@ -17,7 +17,7 @@ SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass DmgType_Melee_Dino_Omnivore_Medium.DmgType_Melee_Dino_Omnivore_Medium_C
 // 0x0000 (0x0180 - 0x0180)
-class UDmgType_Melee_Dino_Omnivore_Medium_C : public UDmgType_Melee_Dino_Carnivore_C
+class UDmgType_Melee_Dino_Omnivore_Medium_C final : public UDmgType_Melee_Dino_Carnivore_C
 {
 public:
 	static class UClass* StaticClass()

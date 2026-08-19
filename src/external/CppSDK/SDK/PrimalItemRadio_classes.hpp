@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemRadio.PrimalItemRadio_C
-// 0x0000 (0x0B90 - 0x0B90)
+// 0x0000 (0x1180 - 0x1180)
 class UPrimalItemRadio_C final : public UPrimalItem_Radio
 {
 public:

@@ -10,14 +10,14 @@
 
 #include "Basic.hpp"
 
-#include "EngineCameras_classes.hpp"
+#include "GameplayCameras_classes.hpp"
 
 
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass FPVMeleeCameraShake.FPVMeleeCameraShake_C
-// 0x0000 (0x0200 - 0x0200)
-class UFPVMeleeCameraShake_C final : public ULegacyCameraShake
+// 0x0000 (0x0230 - 0x0230)
+class UFPVMeleeCameraShake_C final : public UMatineeCameraShake
 {
 public:
 	static class UClass* StaticClass()

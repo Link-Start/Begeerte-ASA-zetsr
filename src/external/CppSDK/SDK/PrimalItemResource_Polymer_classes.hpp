@@ -16,8 +16,8 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemResource_Polymer.PrimalItemResource_Polymer_C
-// 0x0000 (0x0B90 - 0x0B90)
-class UPrimalItemResource_Polymer_C final : public UPrimalItemResource_Craftable_C
+// 0x0000 (0x1170 - 0x1170)
+class UPrimalItemResource_Polymer_C : public UPrimalItemResource_Craftable_C
 {
 public:
 	static class UClass* StaticClass()

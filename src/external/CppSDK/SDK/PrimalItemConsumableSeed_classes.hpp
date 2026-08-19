@@ -16,12 +16,9 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemConsumableSeed.PrimalItemConsumableSeed_C
-// 0x0000 (0x0B90 - 0x0B90)
+// 0x0000 (0x1170 - 0x1170)
 class UPrimalItemConsumableSeed_C : public UPrimalItemConsumableEatable_C
 {
-public:
-	void Interface_PrimalItemConsumableSeed_Get_Crop_Plot_Emitter_VFX_To_Be_Active(uint8 Current_Crop_Stage, bool Is_Growing, class UFXSystemAsset** Emitter_To_Be_Active, struct FVector* Location_Offset);
-
 public:
 	static class UClass* StaticClass()
 	{

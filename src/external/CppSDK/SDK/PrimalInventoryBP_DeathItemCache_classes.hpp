@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalInventoryBP_DeathItemCache.PrimalInventoryBP_DeathItemCache_C
-// 0x0000 (0x0830 - 0x0830)
+// 0x0000 (0x0740 - 0x0740)
 class UPrimalInventoryBP_DeathItemCache_C final : public UPrimalInventoryBP_StorageBox_Base_C
 {
 public:

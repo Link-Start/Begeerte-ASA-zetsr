@@ -77,6 +77,16 @@ public:
 };
 DUMPER7_ASSERTS_ConstraintsScriptingLibrary_GetConstraintsArray;
 
+// Function Constraints.ConstraintsScriptingLibrary.GetManager
+// 0x0010 (0x0010 - 0x0000)
+struct ConstraintsScriptingLibrary_GetManager final
+{
+public:
+	class UWorld*                                 InWorld;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UConstraintsManager*                    ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ConstraintsScriptingLibrary_GetManager;
+
 // Function Constraints.ConstraintsScriptingLibrary.RemoveConstraint
 // 0x0010 (0x0010 - 0x0000)
 struct ConstraintsScriptingLibrary_RemoveConstraint final

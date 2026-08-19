@@ -57,6 +57,35 @@ public:
 };
 DUMPER7_ASSERTS_UAudioSynesthesiaNRTSettings;
 
+// Class AudioSynesthesia.LoudnessNRTSettings
+// 0x0018 (0x0040 - 0x0028)
+class ULoudnessNRTSettings final : public UAudioSynesthesiaNRTSettings
+{
+public:
+	float                                         AnalysisPeriod;                                    // 0x0028(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MinimumFrequency;                                  // 0x002C(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MaximumFrequency;                                  // 0x0030(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	ELoudnessNRTCurveTypeEnum                     CurveType;                                         // 0x0034(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_35[0x3];                                       // 0x0035(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         NoiseFloorDb;                                      // 0x0038(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("LoudnessNRTSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"LoudnessNRTSettings")
+	}
+	static class ULoudnessNRTSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<ULoudnessNRTSettings>();
+	}
+};
+DUMPER7_ASSERTS_ULoudnessNRTSettings;
+
 // Class AudioSynesthesia.AudioSynesthesiaNRT
 // 0x0000 (0x0078 - 0x0078)
 class UAudioSynesthesiaNRT : public UAudioAnalyzerNRT
@@ -76,72 +105,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UAudioSynesthesiaNRT;
-
-// Class AudioSynesthesia.ConstantQSettings
-// 0x0020 (0x0048 - 0x0028)
-class UConstantQSettings final : public UAudioSynesthesiaSettings
-{
-public:
-	float                                         StartingFrequencyHz;                               // 0x0028(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         NumBands;                                          // 0x002C(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         NumBandsPerOctave;                                 // 0x0030(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         AnalysisPeriodInSeconds;                           // 0x0034(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDownmixToMono;                                    // 0x0038(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EConstantQFFTSizeEnum                         FFTSize;                                           // 0x0039(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EFFTWindowType                                WindowType;                                        // 0x003A(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EAudioSpectrumType                            SpectrumType;                                      // 0x003B(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         BandWidthStretch;                                  // 0x003C(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EConstantQNormalizationEnum                   CQTNormalization;                                  // 0x0040(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_41[0x3];                                       // 0x0041(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         NoiseFloorDb;                                      // 0x0044(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("ConstantQSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"ConstantQSettings")
-	}
-	static class UConstantQSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UConstantQSettings>();
-	}
-};
-DUMPER7_ASSERTS_UConstantQSettings;
-
-// Class AudioSynesthesia.ConstantQAnalyzer
-// 0x0058 (0x00F8 - 0x00A0)
-class UConstantQAnalyzer final : public UAudioAnalyzer
-{
-public:
-	class UConstantQSettings*                     Settings;                                          // 0x00A0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TMulticastInlineDelegate<void(int32 ChannelIndex, const TArray<struct FConstantQResults>& ConstantQResults)> OnConstantQResults; // 0x00A8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_B8[0x18];                                      // 0x00B8(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(int32 ChannelIndex, const struct FConstantQResults& LatestConstantQResults)> OnLatestConstantQResults; // 0x00D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_E0[0x18];                                      // 0x00E0(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void GetCenterFrequencies(TArray<float>* OutCenterFrequencies);
-
-	const int32 GetNumCenterFrequencies() const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("ConstantQAnalyzer")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"ConstantQAnalyzer")
-	}
-	static class UConstantQAnalyzer* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UConstantQAnalyzer>();
-	}
-};
-DUMPER7_ASSERTS_UConstantQAnalyzer;
 
 // Class AudioSynesthesia.ConstantQNRTSettings
 // 0x0020 (0x0048 - 0x0028)
@@ -182,7 +145,7 @@ DUMPER7_ASSERTS_UConstantQNRTSettings;
 class UConstantQNRT final : public UAudioSynesthesiaNRT
 {
 public:
-	class UConstantQNRTSettings*                  Settings;                                          // 0x0078(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UConstantQNRTSettings*                  Settings;                                          // 0x0078(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	void GetChannelConstantQAtTime(const float InSeconds, const int32 InChannel, TArray<float>* OutConstantQ) const;
@@ -234,15 +197,15 @@ public:
 DUMPER7_ASSERTS_ULoudnessSettings;
 
 // Class AudioSynesthesia.LoudnessAnalyzer
-// 0x0048 (0x00E8 - 0x00A0)
+// 0x0048 (0x00D8 - 0x0090)
 class ULoudnessAnalyzer final : public UAudioAnalyzer
 {
 public:
-	class ULoudnessSettings*                      Settings;                                          // 0x00A0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TMulticastInlineDelegate<void(const TArray<struct FLoudnessResults>& OverallLoudnessResults)> OnOverallLoudnessResults; // 0x00A8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(int32 ChannelIndex, const TArray<struct FLoudnessResults>& LoudnessResults)> OnPerChannelLoudnessResults; // 0x00B8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(const struct FLoudnessResults& LatestOverallLoudnessResults)> OnLatestOverallLoudnessResults; // 0x00C8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	TMulticastInlineDelegate<void(int32 ChannelIndex, const struct FLoudnessResults& LatestLoudnessResults)> OnLatestPerChannelLoudnessResults; // 0x00D8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	class ULoudnessSettings*                      Settings;                                          // 0x0090(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(const TArray<struct FLoudnessResults>& OverallLoudnessResults)> OnOverallLoudnessResults; // 0x0098(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(int32 ChannelIndex, const TArray<struct FLoudnessResults>& LoudnessResults)> OnPerChannelLoudnessResults; // 0x00A8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(const struct FLoudnessResults& LatestOverallLoudnessResults)> OnLatestOverallLoudnessResults; // 0x00B8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(int32 ChannelIndex, const struct FLoudnessResults& LatestLoudnessResults)> OnLatestPerChannelLoudnessResults; // 0x00C8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -260,41 +223,12 @@ public:
 };
 DUMPER7_ASSERTS_ULoudnessAnalyzer;
 
-// Class AudioSynesthesia.LoudnessNRTSettings
-// 0x0018 (0x0040 - 0x0028)
-class ULoudnessNRTSettings final : public UAudioSynesthesiaNRTSettings
-{
-public:
-	float                                         AnalysisPeriod;                                    // 0x0028(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MinimumFrequency;                                  // 0x002C(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MaximumFrequency;                                  // 0x0030(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ELoudnessNRTCurveTypeEnum                     CurveType;                                         // 0x0034(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_35[0x3];                                       // 0x0035(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         NoiseFloorDb;                                      // 0x0038(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("LoudnessNRTSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"LoudnessNRTSettings")
-	}
-	static class ULoudnessNRTSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<ULoudnessNRTSettings>();
-	}
-};
-DUMPER7_ASSERTS_ULoudnessNRTSettings;
-
 // Class AudioSynesthesia.LoudnessNRT
 // 0x0008 (0x0080 - 0x0078)
 class ULoudnessNRT final : public UAudioSynesthesiaNRT
 {
 public:
-	class ULoudnessNRTSettings*                   Settings;                                          // 0x0078(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class ULoudnessNRTSettings*                   Settings;                                          // 0x0078(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	void GetChannelLoudnessAtTime(const float InSeconds, const int32 InChannel, float* OutLoudness) const;
@@ -348,19 +282,19 @@ public:
 DUMPER7_ASSERTS_UMeterSettings;
 
 // Class AudioSynesthesia.MeterAnalyzer
-// 0x00A8 (0x0148 - 0x00A0)
+// 0x00A8 (0x0138 - 0x0090)
 class UMeterAnalyzer final : public UAudioAnalyzer
 {
 public:
-	class UMeterSettings*                         Settings;                                          // 0x00A0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TMulticastInlineDelegate<void(const TArray<struct FMeterResults>& MeterResults)> OnOverallMeterResults; // 0x00A8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_B8[0x18];                                      // 0x00B8(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(int32 ChannelIndex, const TArray<struct FMeterResults>& MeterResults)> OnPerChannelMeterResults; // 0x00D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_E0[0x18];                                      // 0x00E0(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(const struct FMeterResults& LatestOverallMeterResults)> OnLatestOverallMeterResults; // 0x00F8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_108[0x18];                                     // 0x0108(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(int32 ChannelIndex, const struct FMeterResults& LatestMeterResults)> OnLatestPerChannelMeterResults; // 0x0120(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_130[0x18];                                     // 0x0130(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UMeterSettings*                         Settings;                                          // 0x0090(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(const TArray<struct FMeterResults>& MeterResults)> OnOverallMeterResults; // 0x0098(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A8[0x18];                                      // 0x00A8(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(int32 ChannelIndex, const TArray<struct FMeterResults>& MeterResults)> OnPerChannelMeterResults; // 0x00C0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_D0[0x18];                                      // 0x00D0(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(const struct FMeterResults& LatestOverallMeterResults)> OnLatestOverallMeterResults; // 0x00E8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_F8[0x18];                                      // 0x00F8(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(int32 ChannelIndex, const struct FMeterResults& LatestMeterResults)> OnLatestPerChannelMeterResults; // 0x0110(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_120[0x18];                                     // 0x0120(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -412,7 +346,7 @@ DUMPER7_ASSERTS_UOnsetNRTSettings;
 class UOnsetNRT final : public UAudioSynesthesiaNRT
 {
 public:
-	class UOnsetNRTSettings*                      Settings;                                          // 0x0078(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UOnsetNRTSettings*                      Settings;                                          // 0x0078(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	void GetChannelOnsetsBetweenTimes(const float InStartSeconds, const float InEndSeconds, const int32 InChannel, TArray<float>* OutOnsetTimestamps, TArray<float>* OutOnsetStrengths) const;
@@ -462,15 +396,15 @@ public:
 DUMPER7_ASSERTS_USynesthesiaSpectrumAnalysisSettings;
 
 // Class AudioSynesthesia.SynesthesiaSpectrumAnalyzer
-// 0x0058 (0x00F8 - 0x00A0)
+// 0x0058 (0x00E8 - 0x0090)
 class USynesthesiaSpectrumAnalyzer final : public UAudioAnalyzer
 {
 public:
-	class USynesthesiaSpectrumAnalysisSettings*   Settings;                                          // 0x00A0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TMulticastInlineDelegate<void(int32 ChannelIndex, const TArray<struct FSynesthesiaSpectrumResults>& SpectrumResults)> OnSpectrumResults; // 0x00A8(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_B8[0x18];                                      // 0x00B8(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(int32 ChannelIndex, const struct FSynesthesiaSpectrumResults& LatestSpectrumResults)> OnLatestSpectrumResults; // 0x00D0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_E0[0x18];                                      // 0x00E0(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class USynesthesiaSpectrumAnalysisSettings*   Settings;                                          // 0x0090(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(int32 ChannelIndex, const TArray<struct FSynesthesiaSpectrumResults>& SpectrumResults)> OnSpectrumResults; // 0x0098(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A8[0x18];                                      // 0x00A8(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(int32 ChannelIndex, const struct FSynesthesiaSpectrumResults& LatestSpectrumResults)> OnLatestSpectrumResults; // 0x00C0(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_D0[0x18];                                      // 0x00D0(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void GetCenterFrequencies(const float InSampleRate, TArray<float>* OutCenterFrequencies);

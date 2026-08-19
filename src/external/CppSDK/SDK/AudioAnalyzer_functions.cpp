@@ -17,7 +17,7 @@
 SDK_NAMESPACE_START
 
 // Function AudioAnalyzer.AudioAnalyzer.StartAnalyzing
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // const class UObject*                    WorldContextObject                                     (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UAudioBus*                        AudioBusToAnalyze                                      (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -44,7 +44,7 @@ void UAudioAnalyzer::StartAnalyzing(const class UObject* WorldContextObject, cla
 
 
 // Function AudioAnalyzer.AudioAnalyzer.StopAnalyzing
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // const class UObject*                    WorldContextObject                                     (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 

@@ -10,14 +10,14 @@
 
 #include "Basic.hpp"
 
-#include "PrimalItemWeaponGenericAmmolessConsumeSelf_classes.hpp"
+#include "PrimalItem_WeaponSpear_classes.hpp"
 
 
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItem_WeaponSpear_Explosive.PrimalItem_WeaponSpear_Explosive_C
-// 0x0000 (0x0B90 - 0x0B90)
-class UPrimalItem_WeaponSpear_Explosive_C final : public UPrimalItemWeaponGenericAmmolessConsumeSelf_C
+// 0x0000 (0x1170 - 0x1170)
+class UPrimalItem_WeaponSpear_Explosive_C final : public UPrimalItem_WeaponSpear_C
 {
 public:
 	static class UClass* StaticClass()

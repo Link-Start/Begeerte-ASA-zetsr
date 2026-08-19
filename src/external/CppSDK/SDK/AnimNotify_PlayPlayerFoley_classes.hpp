@@ -26,9 +26,9 @@ public:
 	double                                        Volume_Multiplier;                                 // 0x0048(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
-	void SelectSound(class UPDA_FoleyCollection_C* FolleyColletion, class USoundBase** FoleySoundReferance) const;
 	class FString GetNotifyName() const;
 	bool Received_Notify(class USkeletalMeshComponent* MeshComp, class UAnimSequenceBase* Animation, const struct FAnimNotifyEventReference& EventReference) const;
+	void SelectSound(class UPDA_FoleyCollection_C* FolleyColletion, class USoundBase** FoleySoundReferance) const;
 
 public:
 	static class UClass* StaticClass()

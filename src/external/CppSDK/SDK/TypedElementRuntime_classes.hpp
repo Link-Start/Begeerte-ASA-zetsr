@@ -44,14 +44,14 @@ public:
 DUMPER7_ASSERTS_UTypedElementSelectionSetLibrary;
 
 // Class TypedElementRuntime.TypedElementSelectionSet
-// 0x0878 (0x08A0 - 0x0028)
+// 0x0870 (0x0898 - 0x0028)
 class UTypedElementSelectionSet final : public UObject
 {
 public:
 	uint8                                         Pad_28[0x800];                                     // 0x0028(0x0800)(Fixing Size After Last Property [ Dumper-7 ])
 	TMulticastInlineDelegate<void(const class UTypedElementSelectionSet* SelectionSet)> OnPreSelectionChange; // 0x0828(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	TMulticastInlineDelegate<void(const class UTypedElementSelectionSet* SelectionSet)> OnSelectionChange; // 0x0838(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_848[0x58];                                     // 0x0848(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_848[0x50];                                     // 0x0848(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	bool ClearSelection(const struct FTypedElementSelectionOptions& InSelectionOptions);
@@ -192,39 +192,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_ITypedElementObjectInterface;
-
-// Class TypedElementRuntime.TypedElementPrimitiveCustomDataInterface
-// 0x0000 (0x0000 - 0x0000)
-class ITypedElementPrimitiveCustomDataInterface final
-{
-public:
-	void SetCustomData(const struct FScriptTypedElementHandle& InElementHandle, const TArray<float>& CustomDataFloats, bool bMarkRenderStateDirty);
-	void SetCustomDataValue(const struct FScriptTypedElementHandle& InElementHandle, int32 CustomDataIndex, float CustomDataValue, bool bMarkRenderStateDirty);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("TypedElementPrimitiveCustomDataInterface")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"TypedElementPrimitiveCustomDataInterface")
-	}
-	static class ITypedElementPrimitiveCustomDataInterface* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<ITypedElementPrimitiveCustomDataInterface>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
-	}
-};
-DUMPER7_ASSERTS_ITypedElementPrimitiveCustomDataInterface;
 
 // Class TypedElementRuntime.TypedElementSelectionInterface
 // 0x0000 (0x0000 - 0x0000)

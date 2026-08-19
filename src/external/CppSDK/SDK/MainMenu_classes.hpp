@@ -17,22 +17,22 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass MainMenu.MainMenu_C
-// 0x0020 (0x04B8 - 0x0498)
+// 0x0020 (0x04F0 - 0x04D0)
 class AMainMenu_C final : public ALevelScriptActor
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0498(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	double                                        Counter;                                           // 0x04A0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class USphereReflectionCaptureComponent*      CaptureComp;                                       // 0x04A8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	class AShooterMatineeActor*                   MatineeActor_0_ExecuteUbergraph_MainMenu_RefProperty; // 0x04B0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x04D0(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	double                                        Counter;                                           // 0x04D8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class USphereReflectionCaptureComponent*      CaptureComp;                                       // 0x04E0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class AShooterMatineeActor*                   MatineeActor_0_ExecuteUbergraph_MainMenu_RefProperty; // 0x04E8(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 
 public:
-	void ExecuteUbergraph_MainMenu(int32 EntryPoint);
-	void HideVisualSettingsPP();
-	void K2Node_MatineeController_1_Finished();
-	void K2Node_MatineeController_1_MatineeEvent();
-	void ReceiveBeginPlay();
 	void ShowVisualSettingsPP();
+	void ReceiveBeginPlay();
+	void K2Node_MatineeController_1_MatineeEvent();
+	void K2Node_MatineeController_1_Finished();
+	void HideVisualSettingsPP();
+	void ExecuteUbergraph_MainMenu(int32 EntryPoint);
 
 public:
 	static class UClass* StaticClass()

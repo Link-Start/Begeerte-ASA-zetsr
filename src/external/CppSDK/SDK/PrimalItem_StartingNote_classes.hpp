@@ -10,39 +10,36 @@
 
 #include "Basic.hpp"
 
-#include "ArrayOfStrings_structs.hpp"
 #include "Engine_structs.hpp"
+#include "ArrayOfStrings_structs.hpp"
 #include "PrimalItem_Note_classes.hpp"
 
 
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItem_StartingNote.PrimalItem_StartingNote_C
-// 0x00E0 (0x0C70 - 0x0B90)
+// 0x00D0 (0x1240 - 0x1170)
 class UPrimalItem_StartingNote_C final : public UPrimalItem_Note_C
 {
 public:
-	uint8                                         Pad_B84[0x4];                                      // 0x0B84(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0B88(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	TArray<class UTexture2D*>                     AscensionIcons;                                    // 0x0B90(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	class FString                                 LocalCustomItemDesc;                               // 0x0BA0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
-	TArray<class FString>                         DifficultyStrings;                                 // 0x0BB0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	TArray<class FString>                         BossStrings;                                       // 0x0BC0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	TArray<struct FArrayOfStrings>                BossPostStrings;                                   // 0x0BD0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	class UTexture2D*                             LocalItemIcon;                                     // 0x0BE0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	TArray<class UTexture2D*>                     LocalAscensionIcons;                               // 0x0BE8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	TArray<class UTexture2D*>                     SecondaryAscensionIcons;                           // 0x0BF8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	class UTexture2D*                             SecondaryIcon;                                     // 0x0C08(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	TArray<class UTexture2D*>                     TertiaryAscensionIcons;                            // 0x0C10(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	class UTexture2D*                             TertiaryIcon;                                      // 0x0C20(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	TArray<class UTexture2D*>                     QuaternaryAscensionIcons;                          // 0x0C28(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	class UTexture2D*                             QuaternaryIcon;                                    // 0x0C38(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	bool                                          bResetHighlightTime;                               // 0x0C40(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_C41[0x7];                                      // 0x0C41(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        HighlightStartTime;                                // 0x0C48(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        HighlightTimeToEnableRespawn;                      // 0x0C50(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	TArray<class UTexture2D*>                     QuinaryAscensionIcons;                             // 0x0C58(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	class UTexture2D*                             QuinaryIcon;                                       // 0x0C68(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x1170(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	TArray<class UTexture2D*>                     AscensionIcons;                                    // 0x1178(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	class FString                                 LocalCustomItemDesc;                               // 0x1188(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
+	TArray<class FString>                         DifficultyStrings;                                 // 0x1198(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	TArray<class FString>                         BossStrings;                                       // 0x11A8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	TArray<struct FArrayOfStrings>                BossPostStrings;                                   // 0x11B8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	class UTexture2D*                             LocalItemIcon;                                     // 0x11C8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	TArray<class UTexture2D*>                     LocalAscensionIcons;                               // 0x11D0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	TArray<class UTexture2D*>                     SecondaryAscensionIcons;                           // 0x11E0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	class UTexture2D*                             SecondaryIcon;                                     // 0x11F0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	TArray<class UTexture2D*>                     TertiaryAscensionIcons;                            // 0x11F8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	class UTexture2D*                             TertiaryIcon;                                      // 0x1208(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	TArray<class UTexture2D*>                     QuaternaryAscensionIcons;                          // 0x1210(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	class UTexture2D*                             QuaternaryIcon;                                    // 0x1220(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	bool                                          bResetHighlightTime;                               // 0x1228(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_1229[0x7];                                     // 0x1229(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        HighlightStartTime;                                // 0x1230(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        HighlightTimeToEnableRespawn;                      // 0x1238(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void BlueprintUsed();

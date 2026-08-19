@@ -16,78 +16,115 @@
 
 SDK_NAMESPACE_START
 
-// Function Dino_Character_BP.Dino_Character_BP_C.ReceiveBeginPlay
-// (Event, Protected, BlueprintEvent)
+// Function Dino_Character_BP.Dino_Character_BP_C.BlendSpaceGenerated
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// class UBlendSpace*                      BlendSpace                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 
-void ADino_Character_BP_C::ReceiveBeginPlay()
+void ADino_Character_BP_C::BlendSpaceGenerated(class UBlendSpace* BlendSpace)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Dino_Character_BP_C", "ReceiveBeginPlay");
+		Func = Class->GetFunction("Dino_Character_BP_C", "BlendSpaceGenerated");
+
+	Params::Dino_Character_BP_C_BlendSpaceGenerated Parms{};
+
+	Parms.BlendSpace = BlendSpace;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function Dino_Character_BP.Dino_Character_BP_C.BlueprintOverrideWantsToRun
+// (Event, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// bool                                    bInputWantsToRun                                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool                                    bWantsToRunBeforeTargetIsRunningCheck                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+bool ADino_Character_BP_C::BlueprintOverrideWantsToRun(bool bInputWantsToRun, bool bWantsToRunBeforeTargetIsRunningCheck)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Dino_Character_BP_C", "BlueprintOverrideWantsToRun");
+
+	Params::Dino_Character_BP_C_BlueprintOverrideWantsToRun Parms{};
+
+	Parms.bInputWantsToRun = bInputWantsToRun;
+	Parms.bWantsToRunBeforeTargetIsRunningCheck = bWantsToRunBeforeTargetIsRunningCheck;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Dino_Character_BP.Dino_Character_BP_C.BP_OnSetDeath
+// (Event, Protected, BlueprintEvent)
+
+void ADino_Character_BP_C::BP_OnSetDeath()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Dino_Character_BP_C", "BP_OnSetDeath");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function Dino_Character_BP.Dino_Character_BP_C.ExecuteUbergraph_Dino_Character_BP
-// (Final, UbergraphFunction, HasDefaults)
-// Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// Function Dino_Character_BP.Dino_Character_BP_C.BPBecomeAdult
+// (Event, Public, BlueprintEvent)
 
-void ADino_Character_BP_C::ExecuteUbergraph_Dino_Character_BP(int32 EntryPoint)
+void ADino_Character_BP_C::BPBecomeAdult()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Dino_Character_BP_C", "ExecuteUbergraph_Dino_Character_BP");
+		Func = Class->GetFunction("Dino_Character_BP_C", "BPBecomeAdult");
 
-	Params::Dino_Character_BP_C_ExecuteUbergraph_Dino_Character_BP Parms{};
-
-	Parms.EntryPoint = EntryPoint;
-
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function Dino_Character_BP.Dino_Character_BP_C.BPCameraAllowPivotPitchModifiers
-// (Public, HasOutParams, BlueprintCallable, BlueprintEvent, BlueprintPure)
-// Parameters:
-// bool*                                   bAllow                                                 (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// Function Dino_Character_BP.Dino_Character_BP_C.BPBecomeBaby
+// (Event, Public, BlueprintEvent)
 
-void ADino_Character_BP_C::BPCameraAllowPivotPitchModifiers(bool* bAllow)
+void ADino_Character_BP_C::BPBecomeBaby()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Dino_Character_BP_C", "BPCameraAllowPivotPitchModifiers");
+		Func = Class->GetFunction("Dino_Character_BP_C", "BPBecomeBaby");
 
-	Params::Dino_Character_BP_C_BPCameraAllowPivotPitchModifiers Parms{};
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	if (bAllow != nullptr)
-		*bAllow = Parms.bAllow;
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function Dino_Character_BP.Dino_Character_BP_C.SetSubmarineStructure
-// (Public, BlueprintCallable, BlueprintEvent)
+// Function Dino_Character_BP.Dino_Character_BP_C.BPGetMultiUseEntries
+// (Event, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// class APrimalStructure*                 Structure                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// class APlayerController*                ForPC                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// const TArray<struct FMultiUseEntry>&    MultiUseEntries                                        (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, ContainsInstancedReference)
+// TArray<struct FMultiUseEntry>           ReturnValue                                            (Parm, OutParm, ReturnParm, ContainsInstancedReference)
 
-void ADino_Character_BP_C::SetSubmarineStructure(class APrimalStructure* Structure)
+TArray<struct FMultiUseEntry> ADino_Character_BP_C::BPGetMultiUseEntries(class APlayerController* ForPC, const TArray<struct FMultiUseEntry>& MultiUseEntries)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Dino_Character_BP_C", "SetSubmarineStructure");
+		Func = Class->GetFunction("Dino_Character_BP_C", "BPGetMultiUseEntries");
 
-	Params::Dino_Character_BP_C_SetSubmarineStructure Parms{};
+	Params::Dino_Character_BP_C_BPGetMultiUseEntries Parms{};
 
-	Parms.Structure = Structure;
+	Parms.ForPC = ForPC;
+	Parms.MultiUseEntries = std::move(MultiUseEntries);
 
 	UObject::ProcessEvent(Func, &Parms);
+
+	return Parms.ReturnValue;
 }
 
 
@@ -116,46 +153,19 @@ TArray<struct FMultiUseEntry> ADino_Character_BP_C::BPGetRidingMultiUseEntries(c
 }
 
 
-// Function Dino_Character_BP.Dino_Character_BP_C.FearTheManticore
-// (Public, BlueprintCallable, BlueprintEvent)
+// Function Dino_Character_BP.Dino_Character_BP_C.BPHandleRightShoulderButton
+// (Event, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                                    ShouldFear                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void ADino_Character_BP_C::FearTheManticore(bool ShouldFear)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Dino_Character_BP_C", "FearTheManticore");
-
-	Params::Dino_Character_BP_C_FearTheManticore Parms{};
-
-	Parms.ShouldFear = ShouldFear;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function Dino_Character_BP.Dino_Character_BP_C.BPTryMultiUse
-// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class APlayerController*                ForPC                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// int32                                   UseIndex                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// class FName                             UseName                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-bool ADino_Character_BP_C::BPTryMultiUse(class APlayerController* ForPC, int32 UseIndex, class FName UseName)
+bool ADino_Character_BP_C::BPHandleRightShoulderButton()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Dino_Character_BP_C", "BPTryMultiUse");
+		Func = Class->GetFunction("Dino_Character_BP_C", "BPHandleRightShoulderButton");
 
-	Params::Dino_Character_BP_C_BPTryMultiUse Parms{};
-
-	Parms.ForPC = ForPC;
-	Parms.UseIndex = UseIndex;
-	Parms.UseName = UseName;
+	Params::Dino_Character_BP_C_BPHandleRightShoulderButton Parms{};
 
 	UObject::ProcessEvent(Func, &Parms);
 
@@ -163,26 +173,71 @@ bool ADino_Character_BP_C::BPTryMultiUse(class APlayerController* ForPC, int32 U
 }
 
 
-// Function Dino_Character_BP.Dino_Character_BP_C.BPGetMultiUseEntries
-// (Event, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class APlayerController*                ForPC                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// const TArray<struct FMultiUseEntry>&    MultiUseEntries                                        (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, ContainsInstancedReference)
-// TArray<struct FMultiUseEntry>           ReturnValue                                            (Parm, OutParm, ReturnParm, ContainsInstancedReference)
+// Function Dino_Character_BP.Dino_Character_BP_C.BPNotifyClaimed
+// (Event, Public, BlueprintEvent)
 
-TArray<struct FMultiUseEntry> ADino_Character_BP_C::BPGetMultiUseEntries(class APlayerController* ForPC, const TArray<struct FMultiUseEntry>& MultiUseEntries)
+void ADino_Character_BP_C::BPNotifyClaimed()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Dino_Character_BP_C", "BPGetMultiUseEntries");
+		Func = Class->GetFunction("Dino_Character_BP_C", "BPNotifyClaimed");
 
-	Params::Dino_Character_BP_C_BPGetMultiUseEntries Parms{};
+	UObject::ProcessEvent(Func, nullptr);
+}
 
-	Parms.ForPC = ForPC;
-	Parms.MultiUseEntries = std::move(MultiUseEntries);
+
+// Function Dino_Character_BP.Dino_Character_BP_C.BPOverrideCameraArmLength
+// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// const struct FPrimalCameraParams&       CameraParams                                           (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+// float                                   CurrentCameraArmLength                                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// float&                                  DesiredCameraArmLength                                 (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+bool ADino_Character_BP_C::BPOverrideCameraArmLength(const struct FPrimalCameraParams& CameraParams, float CurrentCameraArmLength, float& DesiredCameraArmLength)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Dino_Character_BP_C", "BPOverrideCameraArmLength");
+
+	Params::Dino_Character_BP_C_BPOverrideCameraArmLength Parms{};
+
+	Parms.CameraParams = std::move(CameraParams);
+	Parms.CurrentCameraArmLength = CurrentCameraArmLength;
+	Parms.DesiredCameraArmLength = DesiredCameraArmLength;
 
 	UObject::ProcessEvent(Func, &Parms);
+
+	DesiredCameraArmLength = Parms.DesiredCameraArmLength;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Dino_Character_BP.Dino_Character_BP_C.BPOverrideCameraArmLengthInterpParams
+// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// const struct FPrimalCameraParams&       CameraParams                                           (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+// struct FPrimalCameraInterpParams&       OutInterpParams                                        (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, NoDestructor)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+bool ADino_Character_BP_C::BPOverrideCameraArmLengthInterpParams(const struct FPrimalCameraParams& CameraParams, struct FPrimalCameraInterpParams& OutInterpParams)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Dino_Character_BP_C", "BPOverrideCameraArmLengthInterpParams");
+
+	Params::Dino_Character_BP_C_BPOverrideCameraArmLengthInterpParams Parms{};
+
+	Parms.CameraParams = std::move(CameraParams);
+	Parms.OutInterpParams = std::move(OutInterpParams);
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	OutInterpParams = std::move(Parms.OutInterpParams);
 
 	return Parms.ReturnValue;
 }
@@ -215,33 +270,6 @@ bool ADino_Character_BP_C::BPOverrideCameraDesiredPivotLocation(const struct FVe
 }
 
 
-// Function Dino_Character_BP.Dino_Character_BP_C.BPOverrideCameraDesiredPivotRotation
-// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// const struct FRotator&                  CurrentCameraPivotRotation                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
-// struct FRotator&                        DesiredCameraPivotRotation                             (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-bool ADino_Character_BP_C::BPOverrideCameraDesiredPivotRotation(const struct FRotator& CurrentCameraPivotRotation, struct FRotator& DesiredCameraPivotRotation)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Dino_Character_BP_C", "BPOverrideCameraDesiredPivotRotation");
-
-	Params::Dino_Character_BP_C_BPOverrideCameraDesiredPivotRotation Parms{};
-
-	Parms.CurrentCameraPivotRotation = std::move(CurrentCameraPivotRotation);
-	Parms.DesiredCameraPivotRotation = std::move(DesiredCameraPivotRotation);
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	DesiredCameraPivotRotation = std::move(Parms.DesiredCameraPivotRotation);
-
-	return Parms.ReturnValue;
-}
-
-
 // Function Dino_Character_BP.Dino_Character_BP_C.BPOverrideCameraDesiredPivotOffset
 // (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -264,6 +292,33 @@ bool ADino_Character_BP_C::BPOverrideCameraDesiredPivotOffset(const struct FPrim
 	UObject::ProcessEvent(Func, &Parms);
 
 	DesiredCameraOffset = std::move(Parms.DesiredCameraOffset);
+
+	return Parms.ReturnValue;
+}
+
+
+// Function Dino_Character_BP.Dino_Character_BP_C.BPOverrideCameraDesiredPivotRotation
+// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// const struct FRotator&                  CurrentCameraPivotRotation                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+// struct FRotator&                        DesiredCameraPivotRotation                             (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+bool ADino_Character_BP_C::BPOverrideCameraDesiredPivotRotation(const struct FRotator& CurrentCameraPivotRotation, struct FRotator& DesiredCameraPivotRotation)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Dino_Character_BP_C", "BPOverrideCameraDesiredPivotRotation");
+
+	Params::Dino_Character_BP_C_BPOverrideCameraDesiredPivotRotation Parms{};
+
+	Parms.CurrentCameraPivotRotation = std::move(CurrentCameraPivotRotation);
+	Parms.DesiredCameraPivotRotation = std::move(DesiredCameraPivotRotation);
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	DesiredCameraPivotRotation = std::move(Parms.DesiredCameraPivotRotation);
 
 	return Parms.ReturnValue;
 }
@@ -310,79 +365,118 @@ bool ADino_Character_BP_C::BPOverrideCameraPivotLocationInterpParams(const struc
 }
 
 
-// Function Dino_Character_BP.Dino_Character_BP_C.BPOverrideCameraArmLengthInterpParams
-// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Function Dino_Character_BP.Dino_Character_BP_C.BPSpawnAttackerDamageImpactFX
+// (Event, Public, BlueprintEvent)
 // Parameters:
-// const struct FPrimalCameraParams&       CameraParams                                           (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
-// struct FPrimalCameraInterpParams&       OutInterpParams                                        (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, NoDestructor)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// class FName                             SocketName                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// class APrimalCharacter*                 VictimChar                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 
-bool ADino_Character_BP_C::BPOverrideCameraArmLengthInterpParams(const struct FPrimalCameraParams& CameraParams, struct FPrimalCameraInterpParams& OutInterpParams)
+void ADino_Character_BP_C::BPSpawnAttackerDamageImpactFX(class FName SocketName, class APrimalCharacter* VictimChar)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Dino_Character_BP_C", "BPOverrideCameraArmLengthInterpParams");
+		Func = Class->GetFunction("Dino_Character_BP_C", "BPSpawnAttackerDamageImpactFX");
 
-	Params::Dino_Character_BP_C_BPOverrideCameraArmLengthInterpParams Parms{};
+	Params::Dino_Character_BP_C_BPSpawnAttackerDamageImpactFX Parms{};
 
-	Parms.CameraParams = std::move(CameraParams);
-	Parms.OutInterpParams = std::move(OutInterpParams);
+	Parms.SocketName = SocketName;
+	Parms.VictimChar = VictimChar;
 
 	UObject::ProcessEvent(Func, &Parms);
+}
 
-	OutInterpParams = std::move(Parms.OutInterpParams);
+
+// Function Dino_Character_BP.Dino_Character_BP_C.BPTriggerStasisEvent
+// (Event, Public, BlueprintEvent)
+
+void ADino_Character_BP_C::BPTriggerStasisEvent()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Dino_Character_BP_C", "BPTriggerStasisEvent");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function Dino_Character_BP.Dino_Character_BP_C.BPTryMultiUse
+// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// class APlayerController*                ForPC                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// int32                                   UseIndex                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+bool ADino_Character_BP_C::BPTryMultiUse(class APlayerController* ForPC, int32 UseIndex)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Dino_Character_BP_C", "BPTryMultiUse");
+
+	Params::Dino_Character_BP_C_BPTryMultiUse Parms{};
+
+	Parms.ForPC = ForPC;
+	Parms.UseIndex = UseIndex;
+
+	UObject::ProcessEvent(Func, &Parms);
 
 	return Parms.ReturnValue;
 }
 
 
-// Function Dino_Character_BP.Dino_Character_BP_C.BPOverrideCameraArmLength
-// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// const struct FPrimalCameraParams&       CameraParams                                           (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
-// float                                   CurrentCameraArmLength                                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// float&                                  DesiredCameraArmLength                                 (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// Function Dino_Character_BP.Dino_Character_BP_C.EditorBeginPlay
+// (Event, Public, BlueprintEvent)
 
-bool ADino_Character_BP_C::BPOverrideCameraArmLength(const struct FPrimalCameraParams& CameraParams, float CurrentCameraArmLength, float& DesiredCameraArmLength)
+void ADino_Character_BP_C::EditorBeginPlay()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Dino_Character_BP_C", "BPOverrideCameraArmLength");
+		Func = Class->GetFunction("Dino_Character_BP_C", "EditorBeginPlay");
 
-	Params::Dino_Character_BP_C_BPOverrideCameraArmLength Parms{};
-
-	Parms.CameraParams = std::move(CameraParams);
-	Parms.CurrentCameraArmLength = CurrentCameraArmLength;
-	Parms.DesiredCameraArmLength = DesiredCameraArmLength;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	DesiredCameraArmLength = Parms.DesiredCameraArmLength;
-
-	return Parms.ReturnValue;
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function Dino_Character_BP.Dino_Character_BP_C.GetFXBloodColor
-// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Function Dino_Character_BP.Dino_Character_BP_C.ExecuteUbergraph_Dino_Character_BP
+// (Final, UbergraphFunction, HasDefaults)
 // Parameters:
-// struct FLinearColor                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-struct FLinearColor ADino_Character_BP_C::GetFXBloodColor()
+void ADino_Character_BP_C::ExecuteUbergraph_Dino_Character_BP(int32 EntryPoint)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Dino_Character_BP_C", "GetFXBloodColor");
+		Func = Class->GetFunction("Dino_Character_BP_C", "ExecuteUbergraph_Dino_Character_BP");
 
-	Params::Dino_Character_BP_C_GetFXBloodColor Parms{};
+	Params::Dino_Character_BP_C_ExecuteUbergraph_Dino_Character_BP Parms{};
+
+	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
+}
 
-	return Parms.ReturnValue;
+
+// Function Dino_Character_BP.Dino_Character_BP_C.FearTheManticore
+// (Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// bool                                    ShouldFear                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void ADino_Character_BP_C::FearTheManticore(bool ShouldFear)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Dino_Character_BP_C", "FearTheManticore");
+
+	Params::Dino_Character_BP_C_FearTheManticore Parms{};
+
+	Parms.ShouldFear = ShouldFear;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 
@@ -407,19 +501,19 @@ void ADino_Character_BP_C::GetDinoContentData(struct FDinoContentData* DinoConte
 }
 
 
-// Function Dino_Character_BP.Dino_Character_BP_C.BPHandleRightShoulderButton
-// (Event, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
+// Function Dino_Character_BP.Dino_Character_BP_C.GetFXBloodColor
+// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// struct FLinearColor                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-bool ADino_Character_BP_C::BPHandleRightShoulderButton()
+struct FLinearColor ADino_Character_BP_C::GetFXBloodColor()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Dino_Character_BP_C", "BPHandleRightShoulderButton");
+		Func = Class->GetFunction("Dino_Character_BP_C", "GetFXBloodColor");
 
-	Params::Dino_Character_BP_C_BPHandleRightShoulderButton Parms{};
+	Params::Dino_Character_BP_C_GetFXBloodColor Parms{};
 
 	UObject::ProcessEvent(Func, &Parms);
 
@@ -427,51 +521,17 @@ bool ADino_Character_BP_C::BPHandleRightShoulderButton()
 }
 
 
-// Function Dino_Character_BP.Dino_Character_BP_C.EditorBeginPlay
-// (Event, Public, BlueprintEvent)
-
-void ADino_Character_BP_C::EditorBeginPlay()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Dino_Character_BP_C", "EditorBeginPlay");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function Dino_Character_BP.Dino_Character_BP_C.BP_OnSetDeath
+// Function Dino_Character_BP.Dino_Character_BP_C.ReceiveBeginPlay
 // (Event, Protected, BlueprintEvent)
 
-void ADino_Character_BP_C::BP_OnSetDeath()
+void ADino_Character_BP_C::ReceiveBeginPlay()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Dino_Character_BP_C", "BP_OnSetDeath");
+		Func = Class->GetFunction("Dino_Character_BP_C", "ReceiveBeginPlay");
 
 	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function Dino_Character_BP.Dino_Character_BP_C.BlendSpaceGenerated
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// class UBlendSpace*                      BlendSpace                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-
-void ADino_Character_BP_C::BlendSpaceGenerated(class UBlendSpace* BlendSpace)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Dino_Character_BP_C", "BlendSpaceGenerated");
-
-	Params::Dino_Character_BP_C_BlendSpaceGenerated Parms{};
-
-	Parms.BlendSpace = BlendSpace;
-
-	UObject::ProcessEvent(Func, &Parms);
 }
 
 
@@ -489,39 +549,31 @@ void ADino_Character_BP_C::ReceiveDestroyed()
 }
 
 
-// Function Dino_Character_BP.Dino_Character_BP_C.BPTriggerStasisEvent
-// (Event, Public, BlueprintEvent)
+// Function Dino_Character_BP.Dino_Character_BP_C.UpdateBabyAndRunValues
+// (Public, BlueprintCallable, BlueprintEvent)
 
-void ADino_Character_BP_C::BPTriggerStasisEvent()
+void ADino_Character_BP_C::UpdateBabyAndRunValues()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Dino_Character_BP_C", "BPTriggerStasisEvent");
+		Func = Class->GetFunction("Dino_Character_BP_C", "UpdateBabyAndRunValues");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function Dino_Character_BP.Dino_Character_BP_C.BPSpawnAttackerDamageImpactFX
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// class FName                             SocketName                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// class APrimalCharacter*                 VictimChar                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// Function Dino_Character_BP.Dino_Character_BP_C.UpdateWildBabyNextRunTime
+// (BlueprintCallable, BlueprintEvent)
 
-void ADino_Character_BP_C::BPSpawnAttackerDamageImpactFX(class FName SocketName, class APrimalCharacter* VictimChar)
+void ADino_Character_BP_C::UpdateWildBabyNextRunTime()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Dino_Character_BP_C", "BPSpawnAttackerDamageImpactFX");
+		Func = Class->GetFunction("Dino_Character_BP_C", "UpdateWildBabyNextRunTime");
 
-	Params::Dino_Character_BP_C_BPSpawnAttackerDamageImpactFX Parms{};
-
-	Parms.SocketName = SocketName;
-	Parms.VictimChar = VictimChar;
-
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 

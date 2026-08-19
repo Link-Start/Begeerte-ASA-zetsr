@@ -45,6 +45,27 @@ enum class EGLTFMaterialBakeMode : uint8
 	EGLTFMaterialBakeMode_MAX                = 3,
 };
 
+// Enum GLTFExporter.EGLTFMaterialBakeSizePOT
+// NumValues: 0x000F
+enum class EGLTFMaterialBakeSizePOT : uint8
+{
+	POT_1                                    = 0,
+	POT_2                                    = 1,
+	POT_4                                    = 2,
+	POT_8                                    = 3,
+	POT_16                                   = 4,
+	POT_32                                   = 5,
+	POT_64                                   = 6,
+	POT_128                                  = 7,
+	POT_256                                  = 8,
+	POT_512                                  = 9,
+	POT_1024                                 = 10,
+	POT_2048                                 = 11,
+	POT_4096                                 = 12,
+	POT_8192                                 = 13,
+	POT_MAX                                  = 14,
+};
+
 // Enum GLTFExporter.EGLTFMaterialPropertyGroup
 // NumValues: 0x0009
 enum class EGLTFMaterialPropertyGroup : uint8
@@ -71,30 +92,17 @@ public:
 };
 DUMPER7_ASSERTS_FGLTFExportMessages;
 
-// ScriptStruct GLTFExporter.GLTFMaterialBakeSize
-// 0x000C (0x000C - 0x0000)
-struct FGLTFMaterialBakeSize final
-{
-public:
-	int32                                         X;                                                 // 0x0000(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         Y;                                                 // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAutoDetect;                                       // 0x0008(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FGLTFMaterialBakeSize;
-
 // ScriptStruct GLTFExporter.GLTFOverrideMaterialBakeSettings
-// 0x0014 (0x0014 - 0x0000)
+// 0x0006 (0x0006 - 0x0000)
 struct FGLTFOverrideMaterialBakeSettings final
 {
 public:
 	bool                                          bOverrideSize;                                     // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGLTFMaterialBakeSize                  Size;                                              // 0x0004(0x000C)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          bOverrideFilter;                                   // 0x0010(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETextureFilter                                Filter;                                            // 0x0011(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOverrideTiling;                                   // 0x0012(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETextureAddress                               Tiling;                                            // 0x0013(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EGLTFMaterialBakeSizePOT                      Size;                                              // 0x0001(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOverrideFilter;                                   // 0x0002(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	ETextureFilter                                Filter;                                            // 0x0003(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOverrideTiling;                                   // 0x0004(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	ETextureAddress                               Tiling;                                            // 0x0005(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FGLTFOverrideMaterialBakeSettings;
 

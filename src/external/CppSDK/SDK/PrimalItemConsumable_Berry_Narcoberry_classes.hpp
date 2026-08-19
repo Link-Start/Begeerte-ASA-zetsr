@@ -16,8 +16,8 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemConsumable_Berry_Narcoberry.PrimalItemConsumable_Berry_Narcoberry_C
-// 0x0000 (0x0B90 - 0x0B90)
-class UPrimalItemConsumable_Berry_Narcoberry_C final : public UPrimalItemConsumable_Berry_Base_C
+// 0x0000 (0x1170 - 0x1170)
+class UPrimalItemConsumable_Berry_Narcoberry_C : public UPrimalItemConsumable_Berry_Base_C
 {
 public:
 	static class UClass* StaticClass()

@@ -46,16 +46,6 @@ public:
 };
 DUMPER7_ASSERTS_BlueprintGameplayTagLibrary_BreakGameplayTagContainer;
 
-// Function GameplayTags.BlueprintGameplayTagLibrary.Conv_ObjectToGameplayTagAssetInterface
-// 0x0018 (0x0018 - 0x0000)
-struct BlueprintGameplayTagLibrary_Conv_ObjectToGameplayTagAssetInterface final
-{
-public:
-	class UObject*                                InObject;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TScriptInterface<class IGameplayTagAssetInterface> ReturnValue;                                  // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BlueprintGameplayTagLibrary_Conv_ObjectToGameplayTagAssetInterface;
-
 // Function GameplayTags.BlueprintGameplayTagLibrary.DoesContainerMatchTagQuery
 // 0x0070 (0x0070 - 0x0000)
 struct BlueprintGameplayTagLibrary_DoesContainerMatchTagQuery final
@@ -146,16 +136,6 @@ public:
 	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_BlueprintGameplayTagLibrary_GetNumGameplayTagsInContainer;
-
-// Function GameplayTags.BlueprintGameplayTagLibrary.GetOwnedGameplayTags
-// 0x0030 (0x0030 - 0x0000)
-struct BlueprintGameplayTagLibrary_GetOwnedGameplayTags final
-{
-public:
-	TScriptInterface<class IGameplayTagAssetInterface> TagContainerInterface;                        // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGameplayTagContainer                  ReturnValue;                                       // 0x0010(0x0020)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BlueprintGameplayTagLibrary_GetOwnedGameplayTags;
 
 // Function GameplayTags.BlueprintGameplayTagLibrary.GetTagName
 // 0x0010 (0x0010 - 0x0000)
@@ -270,36 +250,6 @@ public:
 };
 DUMPER7_ASSERTS_BlueprintGameplayTagLibrary_MakeGameplayTagQuery;
 
-// Function GameplayTags.BlueprintGameplayTagLibrary.MakeGameplayTagQuery_MatchAllTags
-// 0x0068 (0x0068 - 0x0000)
-struct BlueprintGameplayTagLibrary_MakeGameplayTagQuery_MatchAllTags final
-{
-public:
-	struct FGameplayTagContainer                  InTags;                                            // 0x0000(0x0020)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FGameplayTagQuery                      ReturnValue;                                       // 0x0020(0x0048)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BlueprintGameplayTagLibrary_MakeGameplayTagQuery_MatchAllTags;
-
-// Function GameplayTags.BlueprintGameplayTagLibrary.MakeGameplayTagQuery_MatchAnyTags
-// 0x0068 (0x0068 - 0x0000)
-struct BlueprintGameplayTagLibrary_MakeGameplayTagQuery_MatchAnyTags final
-{
-public:
-	struct FGameplayTagContainer                  InTags;                                            // 0x0000(0x0020)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FGameplayTagQuery                      ReturnValue;                                       // 0x0020(0x0048)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BlueprintGameplayTagLibrary_MakeGameplayTagQuery_MatchAnyTags;
-
-// Function GameplayTags.BlueprintGameplayTagLibrary.MakeGameplayTagQuery_MatchNoTags
-// 0x0068 (0x0068 - 0x0000)
-struct BlueprintGameplayTagLibrary_MakeGameplayTagQuery_MatchNoTags final
-{
-public:
-	struct FGameplayTagContainer                  InTags;                                            // 0x0000(0x0020)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FGameplayTagQuery                      ReturnValue;                                       // 0x0020(0x0048)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BlueprintGameplayTagLibrary_MakeGameplayTagQuery_MatchNoTags;
-
 // Function GameplayTags.BlueprintGameplayTagLibrary.MakeLiteralGameplayTag
 // 0x0010 (0x0010 - 0x0000)
 struct BlueprintGameplayTagLibrary_MakeLiteralGameplayTag final
@@ -406,14 +356,14 @@ public:
 };
 DUMPER7_ASSERTS_BlueprintGameplayTagLibrary_RemoveGameplayTag;
 
-// Function GameplayTags.GameplayTagAssetInterface.BP_GetOwnedGameplayTags
+// Function GameplayTags.GameplayTagAssetInterface.GetOwnedGameplayTags
 // 0x0020 (0x0020 - 0x0000)
-struct GameplayTagAssetInterface_BP_GetOwnedGameplayTags final
+struct GameplayTagAssetInterface_GetOwnedGameplayTags final
 {
 public:
-	struct FGameplayTagContainer                  ReturnValue;                                       // 0x0000(0x0020)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	struct FGameplayTagContainer                  TagContainer;                                      // 0x0000(0x0020)(Parm, OutParm, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_GameplayTagAssetInterface_BP_GetOwnedGameplayTags;
+DUMPER7_ASSERTS_GameplayTagAssetInterface_GetOwnedGameplayTags;
 
 // Function GameplayTags.GameplayTagAssetInterface.HasAllMatchingGameplayTags
 // 0x0028 (0x0028 - 0x0000)

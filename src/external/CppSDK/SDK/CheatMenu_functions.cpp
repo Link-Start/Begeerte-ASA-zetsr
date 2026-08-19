@@ -760,9 +760,9 @@ void UCheatMenu_C::GetBossSpawnArray(TArray<class FString>* BossNames, TArray<cl
 // int32                                   ScreenTracker_0                                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // TArray<struct FCheatMenuCharacterLevelPreset>*CharacterPresetLevel_0                                 (Parm, OutParm)
 // TArray<struct FCheatMenuCharacterPresetItems>*CharacterPresetItem                                    (Parm, OutParm)
-// bool*                                   success                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool*                                   Success                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UCheatMenu_C::GetCharacterPresetsForEntry(int32 ScreenTracker_0, TArray<struct FCheatMenuCharacterLevelPreset>* CharacterPresetLevel_0, TArray<struct FCheatMenuCharacterPresetItems>* CharacterPresetItem, bool* success)
+void UCheatMenu_C::GetCharacterPresetsForEntry(int32 ScreenTracker_0, TArray<struct FCheatMenuCharacterLevelPreset>* CharacterPresetLevel_0, TArray<struct FCheatMenuCharacterPresetItems>* CharacterPresetItem, bool* Success)
 {
 	static class UFunction* Func = nullptr;
 
@@ -781,8 +781,8 @@ void UCheatMenu_C::GetCharacterPresetsForEntry(int32 ScreenTracker_0, TArray<str
 	if (CharacterPresetItem != nullptr)
 		*CharacterPresetItem = std::move(Parms.CharacterPresetItem);
 
-	if (success != nullptr)
-		*success = Parms.success;
+	if (Success != nullptr)
+		*Success = Parms.Success;
 }
 
 
@@ -793,9 +793,9 @@ void UCheatMenu_C::GetCharacterPresetsForEntry(int32 ScreenTracker_0, TArray<str
 // TArray<class FString>*                  CheatStrings_0                                         (Parm, OutParm)
 // TArray<bool>*                           RequireConfirm                                         (Parm, OutParm)
 // bool*                                   AllowAdditionalString                                  (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// bool*                                   success                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool*                                   Success                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UCheatMenu_C::GetCheatListsForEntry(int32 ScreenTracker_0, TArray<class FString>* CheatStrings_0, TArray<bool>* RequireConfirm, bool* AllowAdditionalString, bool* success)
+void UCheatMenu_C::GetCheatListsForEntry(int32 ScreenTracker_0, TArray<class FString>* CheatStrings_0, TArray<bool>* RequireConfirm, bool* AllowAdditionalString, bool* Success)
 {
 	static class UFunction* Func = nullptr;
 
@@ -817,8 +817,8 @@ void UCheatMenu_C::GetCheatListsForEntry(int32 ScreenTracker_0, TArray<class FSt
 	if (AllowAdditionalString != nullptr)
 		*AllowAdditionalString = Parms.AllowAdditionalString;
 
-	if (success != nullptr)
-		*success = Parms.success;
+	if (Success != nullptr)
+		*Success = Parms.Success;
 }
 
 
@@ -828,9 +828,9 @@ void UCheatMenu_C::GetCheatListsForEntry(int32 ScreenTracker_0, TArray<class FSt
 // int32                                   ScreenTracker_0                                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // TArray<TSoftClassPtr<class UClass>>*    Dinos                                                  (Parm, OutParm)
 // TArray<TSoftClassPtr<class UClass>>*    Saddles                                                (Parm, OutParm)
-// bool*                                   success                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool*                                   Success                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UCheatMenu_C::GetDinoListsForEntry(int32 ScreenTracker_0, TArray<TSoftClassPtr<class UClass>>* Dinos, TArray<TSoftClassPtr<class UClass>>* Saddles, bool* success)
+void UCheatMenu_C::GetDinoListsForEntry(int32 ScreenTracker_0, TArray<TSoftClassPtr<class UClass>>* Dinos, TArray<TSoftClassPtr<class UClass>>* Saddles, bool* Success)
 {
 	static class UFunction* Func = nullptr;
 
@@ -849,8 +849,8 @@ void UCheatMenu_C::GetDinoListsForEntry(int32 ScreenTracker_0, TArray<TSoftClass
 	if (Saddles != nullptr)
 		*Saddles = std::move(Parms.Saddles);
 
-	if (success != nullptr)
-		*success = Parms.success;
+	if (Success != nullptr)
+		*Success = Parms.Success;
 }
 
 
@@ -860,9 +860,9 @@ void UCheatMenu_C::GetDinoListsForEntry(int32 ScreenTracker_0, TArray<TSoftClass
 // int32                                   ScreenTracker_0                                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // TArray<TSoftClassPtr<class UClass>>*    DinoEggBlueprintIDs_0                                  (Parm, OutParm)
 // TArray<TSoftClassPtr<class UClass>>*    DinoFertEggBlueprintIDs_0                              (Parm, OutParm)
-// bool*                                   success                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool*                                   Success                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UCheatMenu_C::GetEggListsForEntry(int32 ScreenTracker_0, TArray<TSoftClassPtr<class UClass>>* DinoEggBlueprintIDs_0, TArray<TSoftClassPtr<class UClass>>* DinoFertEggBlueprintIDs_0, bool* success)
+void UCheatMenu_C::GetEggListsForEntry(int32 ScreenTracker_0, TArray<TSoftClassPtr<class UClass>>* DinoEggBlueprintIDs_0, TArray<TSoftClassPtr<class UClass>>* DinoFertEggBlueprintIDs_0, bool* Success)
 {
 	static class UFunction* Func = nullptr;
 
@@ -881,8 +881,8 @@ void UCheatMenu_C::GetEggListsForEntry(int32 ScreenTracker_0, TArray<TSoftClassP
 	if (DinoFertEggBlueprintIDs_0 != nullptr)
 		*DinoFertEggBlueprintIDs_0 = std::move(Parms.DinoFertEggBlueprintIDs_0);
 
-	if (success != nullptr)
-		*success = Parms.success;
+	if (Success != nullptr)
+		*Success = Parms.Success;
 }
 
 
@@ -912,9 +912,9 @@ void UCheatMenu_C::GetMapJumpArray(TArray<class FString>* EmptyStringArray)
 // Parameters:
 // int32                                   ScreenTracker_0                                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // TArray<struct FCheatMapJumpInfo>*       MapJumps                                               (Parm, OutParm)
-// bool*                                   success                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool*                                   Success                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UCheatMenu_C::GetMapJumpListForEntry(int32 ScreenTracker_0, TArray<struct FCheatMapJumpInfo>* MapJumps, bool* success)
+void UCheatMenu_C::GetMapJumpListForEntry(int32 ScreenTracker_0, TArray<struct FCheatMapJumpInfo>* MapJumps, bool* Success)
 {
 	static class UFunction* Func = nullptr;
 
@@ -930,8 +930,8 @@ void UCheatMenu_C::GetMapJumpListForEntry(int32 ScreenTracker_0, TArray<struct F
 	if (MapJumps != nullptr)
 		*MapJumps = std::move(Parms.MapJumps);
 
-	if (success != nullptr)
-		*success = Parms.success;
+	if (Success != nullptr)
+		*Success = Parms.Success;
 }
 
 
@@ -940,9 +940,9 @@ void UCheatMenu_C::GetMapJumpListForEntry(int32 ScreenTracker_0, TArray<struct F
 // Parameters:
 // int32                                   ScreenTracker_0                                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // TArray<class FString>*                  CheatStrings_0                                         (Parm, OutParm)
-// bool*                                   success                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool*                                   Success                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UCheatMenu_C::GetMapOpenListsForEntry(int32 ScreenTracker_0, TArray<class FString>* CheatStrings_0, bool* success)
+void UCheatMenu_C::GetMapOpenListsForEntry(int32 ScreenTracker_0, TArray<class FString>* CheatStrings_0, bool* Success)
 {
 	static class UFunction* Func = nullptr;
 
@@ -958,8 +958,8 @@ void UCheatMenu_C::GetMapOpenListsForEntry(int32 ScreenTracker_0, TArray<class F
 	if (CheatStrings_0 != nullptr)
 		*CheatStrings_0 = std::move(Parms.CheatStrings_0);
 
-	if (success != nullptr)
-		*success = Parms.success;
+	if (Success != nullptr)
+		*Success = Parms.Success;
 }
 
 

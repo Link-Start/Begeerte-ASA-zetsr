@@ -70,7 +70,7 @@ namespace g_DrawImGui {
 
 					std::string gender = "?";
 					if (LocalPC->Pawn && TargetActor && TargetChar) {
-						gender = TargetActor->IsFemale() ? "F" : "M";
+						// gender = TargetActor->IsFemale() ? "F" : "M";
 					}
 
 					std::string displayName;

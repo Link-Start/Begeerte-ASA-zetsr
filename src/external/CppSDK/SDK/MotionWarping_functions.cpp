@@ -315,16 +315,14 @@ void UMotionWarpingComponent::AddOrUpdateWarpTarget(const struct FMotionWarpingT
 
 
 // Function MotionWarping.MotionWarpingComponent.AddOrUpdateWarpTargetFromComponent
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class FName                             WarpTargetName                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class USceneComponent*            Component                                              (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bFollowComponent                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector&                   LocationOffset                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FRotator&                  RotationOffset                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UMotionWarpingComponent::AddOrUpdateWarpTargetFromComponent(class FName WarpTargetName, const class USceneComponent* Component, class FName BoneName, bool bFollowComponent, const struct FVector& LocationOffset, const struct FRotator& RotationOffset)
+void UMotionWarpingComponent::AddOrUpdateWarpTargetFromComponent(class FName WarpTargetName, const class USceneComponent* Component, class FName BoneName, bool bFollowComponent)
 {
 	static class UFunction* Func = nullptr;
 
@@ -337,8 +335,6 @@ void UMotionWarpingComponent::AddOrUpdateWarpTargetFromComponent(class FName War
 	Parms.Component = Component;
 	Parms.BoneName = BoneName;
 	Parms.bFollowComponent = bFollowComponent;
-	Parms.LocationOffset = std::move(LocationOffset);
-	Parms.RotationOffset = std::move(RotationOffset);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -451,31 +447,6 @@ void UMotionWarpingComponent::DisableAllRootMotionModifiers()
 }
 
 
-// Function MotionWarping.MotionWarpingComponent.RemoveAllWarpTargets
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 UMotionWarpingComponent::RemoveAllWarpTargets()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MotionWarpingComponent", "RemoveAllWarpTargets");
-
-	Params::MotionWarpingComponent_RemoveAllWarpTargets Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function MotionWarping.MotionWarpingComponent.RemoveWarpTarget
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -492,34 +463,6 @@ int32 UMotionWarpingComponent::RemoveWarpTarget(class FName WarpTargetName)
 	Params::MotionWarpingComponent_RemoveWarpTarget Parms{};
 
 	Parms.WarpTargetName = WarpTargetName;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function MotionWarping.MotionWarpingComponent.RemoveWarpTargets
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const TArray<class FName>&              WarpTargetNames                                        (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 UMotionWarpingComponent::RemoveWarpTargets(const TArray<class FName>& WarpTargetNames)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MotionWarpingComponent", "RemoveWarpTargets");
-
-	Params::MotionWarpingComponent_RemoveWarpTargets Parms{};
-
-	Parms.WarpTargetNames = std::move(WarpTargetNames);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -583,12 +526,10 @@ class URootMotionModifier_Scale* URootMotionModifier_Scale::AddRootMotionModifie
 // bool                                    bInIgnoreZAxis                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bInWarpRotation                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EMotionWarpRotationType                 InRotationType                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EMotionWarpRotationMethod               InRotationMethod                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   InWarpRotationTimeMultiplier                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   InWarpMaxRotationRate                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class URootMotionModifier_SkewWarp*     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class URootMotionModifier_SkewWarp* URootMotionModifier_SkewWarp::AddRootMotionModifierSkewWarp(class UMotionWarpingComponent* InMotionWarpingComp, const class UAnimSequenceBase* InAnimation, float InStartTime, float InEndTime, class FName InWarpTargetName, EWarpPointAnimProvider InWarpPointAnimProvider, const struct FTransform& InWarpPointAnimTransform, class FName InWarpPointAnimBoneName, bool bInWarpTranslation, bool bInIgnoreZAxis, bool bInWarpRotation, EMotionWarpRotationType InRotationType, EMotionWarpRotationMethod InRotationMethod, float InWarpRotationTimeMultiplier, float InWarpMaxRotationRate)
+class URootMotionModifier_SkewWarp* URootMotionModifier_SkewWarp::AddRootMotionModifierSkewWarp(class UMotionWarpingComponent* InMotionWarpingComp, const class UAnimSequenceBase* InAnimation, float InStartTime, float InEndTime, class FName InWarpTargetName, EWarpPointAnimProvider InWarpPointAnimProvider, const struct FTransform& InWarpPointAnimTransform, class FName InWarpPointAnimBoneName, bool bInWarpTranslation, bool bInIgnoreZAxis, bool bInWarpRotation, EMotionWarpRotationType InRotationType, float InWarpRotationTimeMultiplier)
 {
 	static class UFunction* Func = nullptr;
 
@@ -609,9 +550,7 @@ class URootMotionModifier_SkewWarp* URootMotionModifier_SkewWarp::AddRootMotionM
 	Parms.bInIgnoreZAxis = bInIgnoreZAxis;
 	Parms.bInWarpRotation = bInWarpRotation;
 	Parms.InRotationType = InRotationType;
-	Parms.InRotationMethod = InRotationMethod;
 	Parms.InWarpRotationTimeMultiplier = InWarpRotationTimeMultiplier;
-	Parms.InWarpMaxRotationRate = InWarpMaxRotationRate;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

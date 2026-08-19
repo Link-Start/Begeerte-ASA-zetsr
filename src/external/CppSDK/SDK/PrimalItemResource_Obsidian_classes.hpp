@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemResource_Obsidian.PrimalItemResource_Obsidian_C
-// 0x0000 (0x0B90 - 0x0B90)
+// 0x0000 (0x1170 - 0x1170)
 class UPrimalItemResource_Obsidian_C final : public UPrimalItemResourceGeneric_C
 {
 public:

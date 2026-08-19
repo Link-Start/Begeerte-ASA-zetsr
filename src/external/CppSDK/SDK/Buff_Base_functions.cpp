@@ -56,44 +56,6 @@ void ABuff_Base_C::ExecuteUbergraph_Buff_Base(int32 EntryPoint)
 }
 
 
-// Function Buff_Base.Buff_Base_C.PressedAltFire
-// (BlueprintCallable, BlueprintEvent)
-
-void ABuff_Base_C::PressedAltFire()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Buff_Base_C", "PressedAltFire");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function Buff_Base.Buff_Base_C.SetBuffHordeManagerData
-// (Public, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// double                                  Time                                                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// bool                                    Routing                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// bool                                    SetRouting                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void ABuff_Base_C::SetBuffHordeManagerData(double Time, bool Routing, bool SetRouting)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Buff_Base_C", "SetBuffHordeManagerData");
-
-	Params::Buff_Base_C_SetBuffHordeManagerData Parms{};
-
-	Parms.Time = Time;
-	Parms.Routing = Routing;
-	Parms.SetRouting = SetRouting;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
 // Function Buff_Base.Buff_Base_C.BPCustomAllowAddBuff
 // (Event, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure, Const)
 // Parameters:

@@ -40,12 +40,6 @@
     <Filter Include="internal\ESP">
       <UniqueIdentifier>{146e9827-3933-4db4-82e5-e1395a4acd7f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="internal\Legit">
-      <UniqueIdentifier>{0c251a25-45d5-4aa3-b3d7-05d601ad305b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="internal\Legit\Aimbot">
-      <UniqueIdentifier>{eaa24300-16a4-4f4f-bc35-8ad76fccfbcb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="internal\Lua">
       <UniqueIdentifier>{f8ae5bd2-3f00-40a1-8f81-406c31511012}</UniqueIdentifier>
     </Filter>
@@ -477,9 +471,6 @@
     <ClInclude Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imstb_truetype.h">
       <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="internal\Legit\Aimbot\Aimbot.h">
-      <Filter>internal\Legit\Aimbot</Filter>
-    </ClInclude>
     <ClInclude Include="internal\Language\LanguageManager.h">
       <Filter>internal\Language</Filter>
     </ClInclude>
@@ -642,9 +633,6 @@
     </ClCompile>
     <ClCompile Include="external\Minimal-D3D12-Hook-ImGui\ImGui\imgui_widgets.cpp">
       <Filter>external\Minimal-D3D12-Hook-ImGui\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="internal\Legit\Aimbot\Aimbot.cpp">
-      <Filter>internal\Legit\Aimbot</Filter>
     </ClCompile>
     <ClCompile Include="internal\Menu\Language_Menu.cpp">
       <Filter>internal\Menu</Filter>

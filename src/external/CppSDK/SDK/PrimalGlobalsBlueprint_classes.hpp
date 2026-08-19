@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalGlobalsBlueprint.PrimalGlobalsBlueprint_C
-// 0x0000 (0x0458 - 0x0458)
+// 0x0000 (0x03B0 - 0x03B0)
 class UPrimalGlobalsBlueprint_C final : public UPrimalGlobals
 {
 public:

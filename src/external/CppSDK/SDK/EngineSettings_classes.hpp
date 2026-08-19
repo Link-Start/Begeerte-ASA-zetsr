@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
-#include "EngineSettings_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "EngineSettings_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -179,7 +179,7 @@ public:
 DUMPER7_ASSERTS_UGeneralEngineSettings;
 
 // Class EngineSettings.GeneralProjectSettings
-// 0x00E0 (0x0108 - 0x0028)
+// 0x00F0 (0x0118 - 0x0028)
 class UGeneralProjectSettings final : public UObject
 {
 public:
@@ -194,18 +194,18 @@ public:
 	class FString                                 ProjectName;                                       // 0x00A8(0x0010)(Edit, ZeroConstructor, Config, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 ProjectVersion;                                    // 0x00B8(0x0010)(Edit, ZeroConstructor, Config, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 SupportContact;                                    // 0x00C8(0x0010)(Edit, ZeroConstructor, Config, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FText                                   ProjectDisplayedTitle;                             // 0x00D8(0x0010)(Edit, Config, NativeAccessSpecifierPublic)
-	class FText                                   ProjectDebugTitleInfo;                             // 0x00E8(0x0010)(Edit, Config, NativeAccessSpecifierPublic)
-	bool                                          bShouldWindowPreserveAspectRatio;                  // 0x00F8(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUseBorderlessWindow;                              // 0x00F9(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bStartInVR;                                        // 0x00FA(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAllowWindowResize;                                // 0x00FB(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAllowClose;                                       // 0x00FC(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAllowMaximize;                                    // 0x00FD(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAllowMinimize;                                    // 0x00FE(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_FF[0x1];                                       // 0x00FF(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         EyeOffsetForFakeStereoRenderingDevice;             // 0x0100(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         FOVForFakeStereoRenderingDevice;                   // 0x0104(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FText                                   ProjectDisplayedTitle;                             // 0x00D8(0x0018)(Edit, Config, NativeAccessSpecifierPublic)
+	class FText                                   ProjectDebugTitleInfo;                             // 0x00F0(0x0018)(Edit, Config, NativeAccessSpecifierPublic)
+	bool                                          bShouldWindowPreserveAspectRatio;                  // 0x0108(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUseBorderlessWindow;                              // 0x0109(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bStartInVR;                                        // 0x010A(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAllowWindowResize;                                // 0x010B(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAllowClose;                                       // 0x010C(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAllowMaximize;                                    // 0x010D(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAllowMinimize;                                    // 0x010E(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_10F[0x1];                                      // 0x010F(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         EyeOffsetForFakeStereoRenderingDevice;             // 0x0110(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         FOVForFakeStereoRenderingDevice;                   // 0x0114(0x0004)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()

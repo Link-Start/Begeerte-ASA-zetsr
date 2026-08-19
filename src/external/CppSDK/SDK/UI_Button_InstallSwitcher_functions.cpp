@@ -16,33 +16,12 @@
 
 SDK_NAMESPACE_START
 
-// Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.GetRootCFWidget
-// (Public, HasOutParams, BlueprintCallable, BlueprintEvent, BlueprintPure)
-// Parameters:
-// class UPanelWidget**                    RootPanelWidget                                        (Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-
-void UUI_Button_InstallSwitcher_C::GetRootCFWidget(class UPanelWidget** RootPanelWidget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_Button_InstallSwitcher_C", "GetRootCFWidget");
-
-	Params::UI_Button_InstallSwitcher_C_GetRootCFWidget Parms{};
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	if (RootPanelWidget != nullptr)
-		*RootPanelWidget = Parms.RootPanelWidget;
-}
-
-
 // Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.UpdateButtonSwitcherStatus
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// const struct FInstallProgressMod&       ModInfo                                                (BlueprintVisible, BlueprintReadOnly, Parm, ContainsInstancedReference)
+// EInstallStatus                          Selection                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UUI_Button_InstallSwitcher_C::UpdateButtonSwitcherStatus(const struct FInstallProgressMod& ModInfo)
+void UUI_Button_InstallSwitcher_C::UpdateButtonSwitcherStatus(EInstallStatus Selection)
 {
 	static class UFunction* Func = nullptr;
 
@@ -51,7 +30,7 @@ void UUI_Button_InstallSwitcher_C::UpdateButtonSwitcherStatus(const struct FInst
 
 	Params::UI_Button_InstallSwitcher_C_UpdateButtonSwitcherStatus Parms{};
 
-	Parms.ModInfo = std::move(ModInfo);
+	Parms.Selection = Selection;
 
 	UObject::ProcessEvent(Func, &Parms);
 }
@@ -60,9 +39,9 @@ void UUI_Button_InstallSwitcher_C::UpdateButtonSwitcherStatus(const struct FInst
 // Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.UpdateButtonCollor
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// ENUM_CFCore_Install                     ButtonStatus                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// ENUM_Install                            ButtonStatus                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UUI_Button_InstallSwitcher_C::UpdateButtonCollor(ENUM_CFCore_Install ButtonStatus)
+void UUI_Button_InstallSwitcher_C::UpdateButtonCollor(ENUM_Install ButtonStatus)
 {
 	static class UFunction* Func = nullptr;
 
@@ -92,11 +71,12 @@ void UUI_Button_InstallSwitcher_C::Update_All_Theme_Settings()
 
 
 // Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.SetProgress
-// (HasOutParams, BlueprintCallable, BlueprintEvent)
+// (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// const struct FInstallProgressMod&       InstallProgressMod                                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, ContainsInstancedReference)
+// int32                                   Amount                                                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// ELibraryProgressState                   InstalationState                                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UUI_Button_InstallSwitcher_C::SetProgress(const struct FInstallProgressMod& InstallProgressMod)
+void UUI_Button_InstallSwitcher_C::SetProgress(int32 Amount, ELibraryProgressState InstalationState)
 {
 	static class UFunction* Func = nullptr;
 
@@ -105,7 +85,28 @@ void UUI_Button_InstallSwitcher_C::SetProgress(const struct FInstallProgressMod&
 
 	Params::UI_Button_InstallSwitcher_C_SetProgress Parms{};
 
-	Parms.InstallProgressMod = std::move(InstallProgressMod);
+	Parms.Amount = Amount;
+	Parms.InstalationState = InstalationState;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.ExecuteUbergraph_UI_Button_InstallSwitcher
+// (Final, UbergraphFunction)
+// Parameters:
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UUI_Button_InstallSwitcher_C::ExecuteUbergraph_UI_Button_InstallSwitcher(int32 EntryPoint)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_Button_InstallSwitcher_C", "ExecuteUbergraph_UI_Button_InstallSwitcher");
+
+	Params::UI_Button_InstallSwitcher_C_ExecuteUbergraph_UI_Button_InstallSwitcher Parms{};
+
+	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
 }
@@ -125,20 +126,6 @@ void UUI_Button_InstallSwitcher_C::BndEvt__UI_Button_InstallSwitcher_UI_Button_A
 }
 
 
-// Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.BndEvt__UI_Button_InstallSwitcher_UI_Button_Ark_Global_Update_K2Node_ComponentBoundEvent_3_OnClick__DelegateSignature
-// (BlueprintEvent)
-
-void UUI_Button_InstallSwitcher_C::BndEvt__UI_Button_InstallSwitcher_UI_Button_Ark_Global_Update_K2Node_ComponentBoundEvent_3_OnClick__DelegateSignature()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_Button_InstallSwitcher_C", "BndEvt__UI_Button_InstallSwitcher_UI_Button_Ark_Global_Update_K2Node_ComponentBoundEvent_3_OnClick__DelegateSignature");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
 // Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.Construct
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 
@@ -153,23 +140,17 @@ void UUI_Button_InstallSwitcher_C::Construct()
 }
 
 
-// Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.ExecuteUbergraph_UI_Button_InstallSwitcher
-// (Final, UbergraphFunction, HasDefaults)
-// Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// Function UI_Button_InstallSwitcher.UI_Button_InstallSwitcher_C.BndEvt__UI_Button_InstallSwitcher_UI_Button_Ark_Global_Update_K2Node_ComponentBoundEvent_3_OnClick__DelegateSignature
+// (BlueprintEvent)
 
-void UUI_Button_InstallSwitcher_C::ExecuteUbergraph_UI_Button_InstallSwitcher(int32 EntryPoint)
+void UUI_Button_InstallSwitcher_C::BndEvt__UI_Button_InstallSwitcher_UI_Button_Ark_Global_Update_K2Node_ComponentBoundEvent_3_OnClick__DelegateSignature()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UI_Button_InstallSwitcher_C", "ExecuteUbergraph_UI_Button_InstallSwitcher");
+		Func = Class->GetFunction("UI_Button_InstallSwitcher_C", "BndEvt__UI_Button_InstallSwitcher_UI_Button_Ark_Global_Update_K2Node_ComponentBoundEvent_3_OnClick__DelegateSignature");
 
-	Params::UI_Button_InstallSwitcher_C_ExecuteUbergraph_UI_Button_InstallSwitcher Parms{};
-
-	Parms.EntryPoint = EntryPoint;
-
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 

@@ -17,7 +17,7 @@
 SDK_NAMESPACE_START
 
 // Function GameplayDebugger.GameplayDebuggerCategoryReplicator.ClientDataPackPacket
-// (RequiredAPI, Net, NetReliable, Native, Event, Protected, NetClient)
+// (Net, NetReliable, Native, Event, Protected, NetClient)
 // Parameters:
 // const struct FGameplayDebuggerDataPackRPCParams&Params_0                                               (ConstParm, Parm, ReferenceParm, NativeAccessSpecifierPublic)
 
@@ -42,7 +42,7 @@ void AGameplayDebuggerCategoryReplicator::ClientDataPackPacket(const struct FGam
 
 
 // Function GameplayDebugger.GameplayDebuggerCategoryReplicator.OnRep_ReplicatedData
-// (Final, RequiredAPI, Native, Protected)
+// (Final, Native, Protected)
 
 void AGameplayDebuggerCategoryReplicator::OnRep_ReplicatedData()
 {
@@ -61,7 +61,7 @@ void AGameplayDebuggerCategoryReplicator::OnRep_ReplicatedData()
 
 
 // Function GameplayDebugger.GameplayDebuggerCategoryReplicator.ServerResetViewPoint
-// (RequiredAPI, Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
+// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
 
 void AGameplayDebuggerCategoryReplicator::ServerResetViewPoint()
 {
@@ -80,7 +80,7 @@ void AGameplayDebuggerCategoryReplicator::ServerResetViewPoint()
 
 
 // Function GameplayDebugger.GameplayDebuggerCategoryReplicator.ServerSendCategoryInputEvent
-// (RequiredAPI, Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
+// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
 // Parameters:
 // int32                                   categoryId                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   HandlerId                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -107,7 +107,7 @@ void AGameplayDebuggerCategoryReplicator::ServerSendCategoryInputEvent(int32 cat
 
 
 // Function GameplayDebugger.GameplayDebuggerCategoryReplicator.ServerSendExtensionInputEvent
-// (RequiredAPI, Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
+// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
 // Parameters:
 // int32                                   ExtensionId                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   HandlerId                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -134,7 +134,7 @@ void AGameplayDebuggerCategoryReplicator::ServerSendExtensionInputEvent(int32 Ex
 
 
 // Function GameplayDebugger.GameplayDebuggerCategoryReplicator.ServerSetCategoryEnabled
-// (RequiredAPI, Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
+// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
 // Parameters:
 // int32                                   categoryId                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bEnable                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -161,7 +161,7 @@ void AGameplayDebuggerCategoryReplicator::ServerSetCategoryEnabled(int32 categor
 
 
 // Function GameplayDebugger.GameplayDebuggerCategoryReplicator.ServerSetDebugActor
-// (RequiredAPI, Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
+// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
 // Parameters:
 // class AActor*                           Actor                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bSelectInEditor                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -188,7 +188,7 @@ void AGameplayDebuggerCategoryReplicator::ServerSetDebugActor(class AActor* Acto
 
 
 // Function GameplayDebugger.GameplayDebuggerCategoryReplicator.ServerSetEnabled
-// (RequiredAPI, Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
+// (Net, NetReliable, Native, Event, Protected, NetServer, NetValidate)
 // Parameters:
 // bool                                    bEnable                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -213,7 +213,7 @@ void AGameplayDebuggerCategoryReplicator::ServerSetEnabled(bool bEnable)
 
 
 // Function GameplayDebugger.GameplayDebuggerCategoryReplicator.ServerSetViewPoint
-// (RequiredAPI, Net, NetReliable, Native, Event, Protected, NetServer, HasDefaults, NetValidate)
+// (Net, NetReliable, Native, Event, Protected, NetServer, HasDefaults, NetValidate)
 // Parameters:
 // const struct FVector&                   InViewLocation                                         (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector&                   InViewDirection                                        (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)

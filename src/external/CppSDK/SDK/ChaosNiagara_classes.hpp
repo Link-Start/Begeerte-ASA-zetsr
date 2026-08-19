@@ -10,10 +10,9 @@
 
 #include "Basic.hpp"
 
-#include "Niagara_structs.hpp"
-#include "Niagara_classes.hpp"
-#include "ChaosNiagara_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "ChaosNiagara_structs.hpp"
+#include "Niagara_classes.hpp"
 
 
 SDK_NAMESPACE_START
@@ -23,7 +22,7 @@ SDK_NAMESPACE_START
 class UNiagaraDataInterfaceChaosDestruction final : public UNiagaraDataInterface
 {
 public:
-	TSet<class AChaosSolverActor*>                ChaosSolverActorSet;                               // 0x0038(0x0050)(Edit, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TSet<class AChaosSolverActor*>                ChaosSolverActorSet;                               // 0x0038(0x0050)(Edit, UObjectWrapper, NativeAccessSpecifierPublic)
 	EDataSourceTypeEnum                           DataSourceType;                                    // 0x0088(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_89[0x3];                                       // 0x0089(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	int32                                         DataProcessFrequency;                              // 0x008C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -62,7 +61,7 @@ public:
 	int32                                         MaxDataPerCell;                                    // 0x01B8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bApplyMaterialsFilter;                             // 0x01BC(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1BD[0x3];                                      // 0x01BD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	TSet<class UPhysicalMaterial*>                ChaosBreakingMaterialSet;                          // 0x01C0(0x0050)(Edit, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TSet<class UPhysicalMaterial*>                ChaosBreakingMaterialSet;                          // 0x01C0(0x0050)(Edit, UObjectWrapper, NativeAccessSpecifierPublic)
 	bool                                          bGetExternalBreakingData;                          // 0x0210(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bGetExternalTrailingData;                          // 0x0211(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_212[0x6];                                      // 0x0212(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
@@ -103,18 +102,11 @@ public:
 DUMPER7_ASSERTS_UNiagaraDataInterfaceChaosDestruction;
 
 // Class ChaosNiagara.NiagaraDataInterfaceGeometryCollection
-// 0x0068 (0x00A0 - 0x0038)
+// 0x0008 (0x0040 - 0x0038)
 class UNiagaraDataInterfaceGeometryCollection final : public UNiagaraDataInterface
 {
 public:
-	ENDIGeometryCollection_SourceMode             SourceMode;                                        // 0x0038(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGeometryCollection*                    DefaultGeometryCollection;                         // 0x0040(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TSoftObjectPtr<class AGeometryCollectionActor> GeometryCollectionActor;                          // 0x0048(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UGeometryCollectionComponent*           SourceComponent;                                   // 0x0070(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	struct FNiagaraUserParameterBinding           GeometryCollectionUserParameter;                   // 0x0078(0x0020)(Edit, NativeAccessSpecifierPublic)
-	bool                                          bIncludeIntermediateBones;                         // 0x0098(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_99[0x7];                                       // 0x0099(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class AGeometryCollectionActor*               GeometryCollectionActor;                           // 0x0038(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()

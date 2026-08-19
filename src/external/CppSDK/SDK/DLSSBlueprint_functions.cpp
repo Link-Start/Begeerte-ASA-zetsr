@@ -485,31 +485,6 @@ bool UDLSSLibrary::IsDLSSSupported()
 }
 
 
-// Function DLSSBlueprint.DLSSLibrary.IsRayTracingAvailable
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UDLSSLibrary::IsRayTracingAvailable()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("DLSSLibrary", "IsRayTracingAvailable");
-
-	Params::DLSSLibrary_IsRayTracingAvailable Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function DLSSBlueprint.DLSSLibrary.QueryDLSSRRSupport
 // (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:

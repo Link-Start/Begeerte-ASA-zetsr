@@ -17,6 +17,25 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
+// Function ResonanceAudio.ResonanceAudioSpatializationSourceSettings.SetSoundSourceDirectivity
+// 0x0008 (0x0008 - 0x0000)
+struct ResonanceAudioSpatializationSourceSettings_SetSoundSourceDirectivity final
+{
+public:
+	float                                         InPattern;                                         // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         InSharpness;                                       // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ResonanceAudioSpatializationSourceSettings_SetSoundSourceDirectivity;
+
+// Function ResonanceAudio.ResonanceAudioSpatializationSourceSettings.SetSoundSourceSpread
+// 0x0004 (0x0004 - 0x0000)
+struct ResonanceAudioSpatializationSourceSettings_SetSoundSourceSpread final
+{
+public:
+	float                                         InSpread;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ResonanceAudioSpatializationSourceSettings_SetSoundSourceSpread;
+
 // Function ResonanceAudio.ResonanceAudioBlueprintFunctionLibrary.GetGlobalReverbPreset
 // 0x0008 (0x0008 - 0x0000)
 struct ResonanceAudioBlueprintFunctionLibrary_GetGlobalReverbPreset final
@@ -115,25 +134,6 @@ public:
 	struct FQuat                                  InRotation;                                        // 0x0000(0x0020)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_ResonanceAudioReverbPluginPreset_SetRoomRotation;
-
-// Function ResonanceAudio.ResonanceAudioSpatializationSourceSettings.SetSoundSourceDirectivity
-// 0x0008 (0x0008 - 0x0000)
-struct ResonanceAudioSpatializationSourceSettings_SetSoundSourceDirectivity final
-{
-public:
-	float                                         InPattern;                                         // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         InSharpness;                                       // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ResonanceAudioSpatializationSourceSettings_SetSoundSourceDirectivity;
-
-// Function ResonanceAudio.ResonanceAudioSpatializationSourceSettings.SetSoundSourceSpread
-// 0x0004 (0x0004 - 0x0000)
-struct ResonanceAudioSpatializationSourceSettings_SetSoundSourceSpread final
-{
-public:
-	float                                         InSpread;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ResonanceAudioSpatializationSourceSettings_SetSoundSourceSpread;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

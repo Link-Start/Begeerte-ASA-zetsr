@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItem_BloodExtractor.PrimalItem_BloodExtractor_C
-// 0x0000 (0x0B80 - 0x0B80)
+// 0x0000 (0x1170 - 0x1170)
 class UPrimalItem_BloodExtractor_C final : public UPrimalItem
 {
 public:

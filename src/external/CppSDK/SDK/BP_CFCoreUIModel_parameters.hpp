@@ -10,28 +10,12 @@
 
 #include "Basic.hpp"
 
-#include "cfcore_structs.hpp"
 #include "cfcore_ui_structs.hpp"
+#include "cfcore_structs.hpp"
 
 
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
-
-// Function BP_CFCoreUIModel.BP_CFCoreUIModel_C.OnEventReceived_LibraryProgress
-// 0x0078 (0x0078 - 0x0000)
-struct BP_CFCoreUIModel_C_OnEventReceived_LibraryProgress final
-{
-public:
-	EGameModsEvent                                evt;                                               // 0x0000(0x0001)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FLibraryProgress                       progress;                                          // 0x0008(0x0040)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
-	TArray<struct FInstallProgressMod>            OutModsList;                                       // 0x0048(0x0010)(Parm, OutParm, ContainsInstancedReference)
-	bool                                          ReturnValue;                                       // 0x0058(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_59[0x7];                                       // 0x0059(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FInstallProgressMod>            CallFunc_OnEventReceived_LibraryProgress_OutModsList; // 0x0060(0x0010)(ReferenceParm, ContainsInstancedReference)
-	bool                                          CallFunc_OnEventReceived_LibraryProgress_ReturnValue; // 0x0070(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_BP_CFCoreUIModel_C_OnEventReceived_LibraryProgress;
 
 // Function BP_CFCoreUIModel.BP_CFCoreUIModel_C.OnEventReceived
 // 0x0048 (0x0048 - 0x0000)
@@ -48,6 +32,22 @@ public:
 	bool                                          CallFunc_OnEventReceived_ReturnValue;              // 0x0040(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_BP_CFCoreUIModel_C_OnEventReceived;
+
+// Function BP_CFCoreUIModel.BP_CFCoreUIModel_C.OnEventReceived_LibraryProgress
+// 0x0078 (0x0078 - 0x0000)
+struct BP_CFCoreUIModel_C_OnEventReceived_LibraryProgress final
+{
+public:
+	EGameModsEvent                                evt;                                               // 0x0000(0x0001)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FLibraryProgress                       progress;                                          // 0x0008(0x0040)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+	TArray<struct FInstallProgressMod>            OutModsList;                                       // 0x0048(0x0010)(Parm, OutParm, ContainsInstancedReference)
+	bool                                          ReturnValue;                                       // 0x0058(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_59[0x7];                                       // 0x0059(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FInstallProgressMod>            CallFunc_OnEventReceived_LibraryProgress_OutModsList; // 0x0060(0x0010)(ReferenceParm, ContainsInstancedReference)
+	bool                                          CallFunc_OnEventReceived_LibraryProgress_ReturnValue; // 0x0070(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_BP_CFCoreUIModel_C_OnEventReceived_LibraryProgress;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

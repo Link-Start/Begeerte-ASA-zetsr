@@ -227,25 +227,6 @@ enum class EConvexOverlapRemoval : uint8
 	EConvexOverlapRemoval_MAX                = 4,
 };
 
-// Enum Chaos.EGenerateConvexMethod
-// NumValues: 0x0004
-enum class EGenerateConvexMethod : uint8
-{
-	ExternalCollision                        = 0,
-	ComputedFromGeometry                     = 1,
-	IntersectExternalWithComputed            = 2,
-	EGenerateConvexMethod_MAX                = 3,
-};
-
-// Enum Chaos.EAllowConvexMergeMethod
-// NumValues: 0x0003
-enum class EAllowConvexMergeMethod : uint8
-{
-	ByProximity                              = 0,
-	Any                                      = 1,
-	EAllowConvexMergeMethod_MAX              = 2,
-};
-
 // Enum Chaos.EProximityMethod
 // NumValues: 0x0003
 enum class EProximityMethod : uint8
@@ -256,22 +237,11 @@ enum class EProximityMethod : uint8
 };
 
 // Enum Chaos.EProximityContactMethod
-// NumValues: 0x0004
+// NumValues: 0x0002
 enum class EProximityContactMethod : uint8
 {
 	MinOverlapInProjectionToMajorAxes        = 0,
-	ConvexHullSharpContact                   = 1,
-	ConvexHullAreaContact                    = 2,
-	EProximityContactMethod_MAX              = 3,
-};
-
-// Enum Chaos.EConnectionContactMethod
-// NumValues: 0x0003
-enum class EConnectionContactMethod : uint8
-{
-	None                                     = 0,
-	ConvexHullContactArea                    = 1,
-	EConnectionContactMethod_MAX             = 2,
+	EProximityContactMethod_MAX              = 1,
 };
 
 // Enum Chaos.ECollisionTypeEnum
@@ -347,15 +317,6 @@ enum class EEmissionPatternTypeEnum : uint8
 	Chaos_Max                                = 2,
 };
 
-// Enum Chaos.EDamageModelTypeEnum
-// NumValues: 0x0003
-enum class EDamageModelTypeEnum : uint8
-{
-	Chaos_Damage_Model_UserDefined_Damage_Threshold = 0,
-	Chaos_Damage_Model_Material_Strength_And_Connectivity_DamageThreshold = 1,
-	Chaos_Max                                = 2,
-};
-
 // Enum Chaos.EChaosSolverTickMode
 // NumValues: 0x0005
 enum class EChaosSolverTickMode : uint8
@@ -390,16 +351,6 @@ enum class EChaosBufferMode : uint8
 	EChaosBufferMode_MAX                     = 4,
 };
 
-// Enum Chaos.EChaosSoftsSimulationSpace
-// NumValues: 0x0004
-enum class EChaosSoftsSimulationSpace : uint8
-{
-	WorldSpace                               = 0,
-	ComponentSpace                           = 1,
-	ReferenceBoneSpace                       = 2,
-	EChaosSoftsSimulationSpace_MAX           = 3,
-};
-
 // Enum Chaos.EClusterUnionMethod
 // NumValues: 0x0007
 enum class EClusterUnionMethod : uint8
@@ -424,21 +375,27 @@ enum class EGeometryCollectionCacheType : uint8
 	EGeometryCollectionCacheType_MAX         = 4,
 };
 
+// ScriptStruct Chaos.SolverTrailingFilterSettings
+// 0x0010 (0x0010 - 0x0000)
+struct FSolverTrailingFilterSettings final
+{
+public:
+	bool                                          FilterEnabled;                                     // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         MinMass;                                           // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MinSpeed;                                          // 0x0008(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MinVolume;                                         // 0x000C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FSolverTrailingFilterSettings;
+
 // ScriptStruct Chaos.ManagedArrayCollection
 // 0x00B0 (0x00B0 - 0x0000)
-struct alignas(0x08) FManagedArrayCollection
+struct alignas(0x08) FManagedArrayCollection final
 {
 public:
 	uint8                                         Pad_0[0xB0];                                       // 0x0000(0x00B0)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FManagedArrayCollection;
-
-// ScriptStruct Chaos.FieldCollection
-// 0x0000 (0x00B0 - 0x00B0)
-struct FFieldCollection final : public FManagedArrayCollection
-{
-};
-DUMPER7_ASSERTS_FFieldCollection;
 
 // ScriptStruct Chaos.ClosestPhysicsObjectResult
 // 0x0028 (0x0028 - 0x0000)
@@ -475,21 +432,8 @@ public:
 };
 DUMPER7_ASSERTS_FSolverBreakingFilterSettings;
 
-// ScriptStruct Chaos.SolverTrailingFilterSettings
-// 0x0010 (0x0010 - 0x0000)
-struct FSolverTrailingFilterSettings final
-{
-public:
-	bool                                          FilterEnabled;                                     // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         MinMass;                                           // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MinSpeed;                                          // 0x0008(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MinVolume;                                         // 0x000C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FSolverTrailingFilterSettings;
-
 // ScriptStruct Chaos.ChaosSolverConfiguration
-// 0x006C (0x006C - 0x0000)
+// 0x0068 (0x0068 - 0x0000)
 struct FChaosSolverConfiguration final
 {
 public:
@@ -500,22 +444,21 @@ public:
 	float                                         CollisionMarginMax;                                // 0x0010(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         CollisionCullDistance;                             // 0x0014(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         CollisionMaxPushOutVelocity;                       // 0x0018(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         CollisionInitialOverlapDepenetrationVelocity;      // 0x001C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ClusterConnectionFactor;                           // 0x0020(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EClusterUnionMethod                           ClusterUnionConnectionType;                        // 0x0024(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bGenerateCollisionData;                            // 0x0025(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_26[0x2];                                       // 0x0026(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSolverCollisionFilterSettings         CollisionFilterSettings;                           // 0x0028(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          bGenerateBreakData;                                // 0x0038(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_39[0x3];                                       // 0x0039(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSolverBreakingFilterSettings          BreakingFilterSettings;                            // 0x003C(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          bGenerateTrailingData;                             // 0x004C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4D[0x3];                                       // 0x004D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSolverTrailingFilterSettings          TrailingFilterSettings;                            // 0x0050(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	int32                                         Iterations;                                        // 0x0060(0x0004)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	int32                                         PushOutIterations;                                 // 0x0064(0x0004)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bGenerateContactGraph;                             // 0x0068(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_69[0x3];                                       // 0x0069(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	float                                         ClusterConnectionFactor;                           // 0x001C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EClusterUnionMethod                           ClusterUnionConnectionType;                        // 0x0020(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bGenerateCollisionData;                            // 0x0021(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_22[0x2];                                       // 0x0022(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FSolverCollisionFilterSettings         CollisionFilterSettings;                           // 0x0024(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          bGenerateBreakData;                                // 0x0034(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_35[0x3];                                       // 0x0035(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FSolverBreakingFilterSettings          BreakingFilterSettings;                            // 0x0038(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          bGenerateTrailingData;                             // 0x0048(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_49[0x3];                                       // 0x0049(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FSolverTrailingFilterSettings          TrailingFilterSettings;                            // 0x004C(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	int32                                         Iterations;                                        // 0x005C(0x0004)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	int32                                         PushOutIterations;                                 // 0x0060(0x0004)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bGenerateContactGraph;                             // 0x0064(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_65[0x3];                                       // 0x0065(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FChaosSolverConfiguration;
 

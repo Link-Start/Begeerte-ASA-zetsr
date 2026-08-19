@@ -160,9 +160,9 @@ void APreviewScene_Base_C::SetDebugLightRotation(const struct FRotator& NewRotat
 // Function PreviewScene_Base.PreviewScene_Base_C.UpdateFloorLocation
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                                    IsFemale_0                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool                                    isFemale                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void APreviewScene_Base_C::UpdateFloorLocation(bool IsFemale_0)
+void APreviewScene_Base_C::UpdateFloorLocation(bool isFemale)
 {
 	static class UFunction* Func = nullptr;
 
@@ -171,7 +171,7 @@ void APreviewScene_Base_C::UpdateFloorLocation(bool IsFemale_0)
 
 	Params::PreviewScene_Base_C_UpdateFloorLocation Parms{};
 
-	Parms.IsFemale_0 = IsFemale_0;
+	Parms.isFemale = isFemale;
 
 	UObject::ProcessEvent(Func, &Parms);
 }

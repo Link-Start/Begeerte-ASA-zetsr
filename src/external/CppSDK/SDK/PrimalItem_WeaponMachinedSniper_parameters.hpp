@@ -15,7 +15,7 @@ SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
 // Function PrimalItem_WeaponMachinedSniper.PrimalItem_WeaponMachinedSniper_C.BPPreventWeaponEquip
-// 0x0068 (0x0068 - 0x0000)
+// 0x0070 (0x0070 - 0x0000)
 struct PrimalItem_WeaponMachinedSniper_C_BPPreventWeaponEquip final
 {
 public:
@@ -29,11 +29,11 @@ public:
 	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x001C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	class AShooterCharacter*                      CallFunc_GetOwnerPlayer_ReturnValue;               // 0x0020(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	class APrimalDinoCharacter*                   CallFunc_GetRidingDino_ReturnValue;                // 0x0028(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	TSoftClassPtr<class UClass>                   CallFunc_Array_Get_Item;                           // 0x0030(0x0028)(HasGetValueTypeHash)
-	bool                                          CallFunc_ObjectIsChildOfSoftRef_ReturnValue;       // 0x0058(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_59[0x3];                                       // 0x0059(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x005C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0060(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	TSoftClassPtr<class UClass>                   CallFunc_Array_Get_Item;                           // 0x0030(0x0030)(HasGetValueTypeHash)
+	bool                                          CallFunc_ObjectIsChildOfSoftRef_ReturnValue;       // 0x0060(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_61[0x3];                                       // 0x0061(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0064(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0068(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_PrimalItem_WeaponMachinedSniper_C_BPPreventWeaponEquip;
 

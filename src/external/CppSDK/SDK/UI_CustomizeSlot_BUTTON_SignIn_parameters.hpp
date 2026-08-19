@@ -17,16 +17,6 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function UI_CustomizeSlot_BUTTON_SignIn.UI_CustomizeSlot_BUTTON_SignIn_C.GetColor
-// 0x0110 (0x0110 - 0x0000)
-struct UI_CustomizeSlot_BUTTON_SignIn_C_GetColor final
-{
-public:
-	struct FLinearColor                           Color;                                             // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FCFCoreThemeRowData                    CallFunc_GetCurrentTheme_CurrentTheme;             // 0x0010(0x0100)()
-};
-DUMPER7_ASSERTS_UI_CustomizeSlot_BUTTON_SignIn_C_GetColor;
-
 // Function UI_CustomizeSlot_BUTTON_SignIn.UI_CustomizeSlot_BUTTON_SignIn_C.SetColor
 // 0x0014 (0x0014 - 0x0000)
 struct UI_CustomizeSlot_BUTTON_SignIn_C_SetColor final
@@ -36,6 +26,16 @@ public:
 	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0010(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_UI_CustomizeSlot_BUTTON_SignIn_C_SetColor;
+
+// Function UI_CustomizeSlot_BUTTON_SignIn.UI_CustomizeSlot_BUTTON_SignIn_C.GetColor
+// 0x0110 (0x0110 - 0x0000)
+struct UI_CustomizeSlot_BUTTON_SignIn_C_GetColor final
+{
+public:
+	struct FLinearColor                           Color;                                             // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FCFCoreThemeRowData                    CallFunc_GetCurrentTheme_CurrentTheme;             // 0x0010(0x0100)()
+};
+DUMPER7_ASSERTS_UI_CustomizeSlot_BUTTON_SignIn_C_GetColor;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

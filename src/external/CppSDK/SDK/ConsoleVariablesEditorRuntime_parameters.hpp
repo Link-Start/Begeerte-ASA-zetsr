@@ -17,15 +17,6 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function ConsoleVariablesEditorRuntime.ConsoleVariablesAsset.AddFrom
-// 0x0008 (0x0008 - 0x0000)
-struct ConsoleVariablesAsset_AddFrom final
-{
-public:
-	const class UConsoleVariablesAsset*           InAssetToCopy;                                     // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ConsoleVariablesAsset_AddFrom;
-
 // Function ConsoleVariablesEditorRuntime.ConsoleVariablesAsset.AddOrSetConsoleObjectSavedData
 // 0x0028 (0x0028 - 0x0000)
 struct ConsoleVariablesAsset_AddOrSetConsoleObjectSavedData final
@@ -49,7 +40,7 @@ DUMPER7_ASSERTS_ConsoleVariablesAsset_CopyFrom;
 struct ConsoleVariablesAsset_RemoveConsoleVariable final
 {
 public:
-	class FString                                 InCommandString;                                   // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 InCommandString;                                   // 0x0000(0x0010)(ConstParm, Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -89,7 +80,7 @@ DUMPER7_ASSERTS_ConsoleVariablesAsset_ExecuteSavedCommands;
 struct ConsoleVariablesAsset_FindSavedDataByCommandString final
 {
 public:
-	class FString                                 InCommandString;                                   // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 InCommandString;                                   // 0x0000(0x0010)(ConstParm, Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FConsoleVariablesEditorAssetSaveData   OutValue;                                          // 0x0010(0x0028)(Parm, OutParm, NativeAccessSpecifierPublic)
 	ESearchCase                                   SearchCase;                                        // 0x0038(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0039(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)

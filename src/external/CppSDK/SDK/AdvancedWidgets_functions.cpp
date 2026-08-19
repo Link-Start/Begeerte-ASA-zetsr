@@ -17,7 +17,7 @@
 SDK_NAMESPACE_START
 
 // Function AdvancedWidgets.RadialSlider.SetAngularOffset
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -42,7 +42,7 @@ void URadialSlider::SetAngularOffset(float InValue)
 
 
 // Function AdvancedWidgets.RadialSlider.SetCenterBackgroundColor
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FLinearColor&              InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -67,7 +67,7 @@ void URadialSlider::SetCenterBackgroundColor(const struct FLinearColor& InValue)
 
 
 // Function AdvancedWidgets.RadialSlider.SetCustomDefaultValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -92,7 +92,7 @@ void URadialSlider::SetCustomDefaultValue(float InValue)
 
 
 // Function AdvancedWidgets.RadialSlider.SetHandStartEndRatio
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector2D&                 InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -117,7 +117,7 @@ void URadialSlider::SetHandStartEndRatio(const struct FVector2D& InValue)
 
 
 // Function AdvancedWidgets.RadialSlider.SetLocked
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -142,7 +142,7 @@ void URadialSlider::SetLocked(bool InValue)
 
 
 // Function AdvancedWidgets.RadialSlider.SetShowSliderHand
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    InShowSliderHand                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -167,7 +167,7 @@ void URadialSlider::SetShowSliderHand(bool InShowSliderHand)
 
 
 // Function AdvancedWidgets.RadialSlider.SetShowSliderHandle
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    InShowSliderHandle                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -192,7 +192,7 @@ void URadialSlider::SetShowSliderHandle(bool InShowSliderHandle)
 
 
 // Function AdvancedWidgets.RadialSlider.SetSliderBarColor
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FLinearColor&              InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -217,7 +217,7 @@ void URadialSlider::SetSliderBarColor(const struct FLinearColor& InValue)
 
 
 // Function AdvancedWidgets.RadialSlider.SetSliderHandleColor
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FLinearColor&              InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -242,7 +242,7 @@ void URadialSlider::SetSliderHandleColor(const struct FLinearColor& InValue)
 
 
 // Function AdvancedWidgets.RadialSlider.SetSliderHandleEndAngle
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -267,7 +267,7 @@ void URadialSlider::SetSliderHandleEndAngle(float InValue)
 
 
 // Function AdvancedWidgets.RadialSlider.SetSliderHandleStartAngle
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -292,7 +292,7 @@ void URadialSlider::SetSliderHandleStartAngle(float InValue)
 
 
 // Function AdvancedWidgets.RadialSlider.SetSliderProgressColor
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FLinearColor&              InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -317,7 +317,7 @@ void URadialSlider::SetSliderProgressColor(const struct FLinearColor& InValue)
 
 
 // Function AdvancedWidgets.RadialSlider.SetSliderRange
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // const struct FRuntimeFloatCurve&        InSliderRange                                          (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
@@ -342,7 +342,7 @@ void URadialSlider::SetSliderRange(const struct FRuntimeFloatCurve& InSliderRang
 
 
 // Function AdvancedWidgets.RadialSlider.SetStepSize
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -367,7 +367,7 @@ void URadialSlider::SetStepSize(float InValue)
 
 
 // Function AdvancedWidgets.RadialSlider.SetUseVerticalDrag
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    InUseVerticalDrag                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -392,7 +392,7 @@ void URadialSlider::SetUseVerticalDrag(bool InUseVerticalDrag)
 
 
 // Function AdvancedWidgets.RadialSlider.SetValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -417,7 +417,7 @@ void URadialSlider::SetValue(float InValue)
 
 
 // Function AdvancedWidgets.RadialSlider.SetValueTags
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // const TArray<float>&                    InValueTags                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 
@@ -442,7 +442,7 @@ void URadialSlider::SetValueTags(const TArray<float>& InValueTags)
 
 
 // Function AdvancedWidgets.RadialSlider.GetCustomDefaultValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -467,7 +467,7 @@ float URadialSlider::GetCustomDefaultValue() const
 
 
 // Function AdvancedWidgets.RadialSlider.GetNormalizedSliderHandlePosition
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -492,7 +492,7 @@ float URadialSlider::GetNormalizedSliderHandlePosition() const
 
 
 // Function AdvancedWidgets.RadialSlider.GetValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 

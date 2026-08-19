@@ -16,57 +16,23 @@
 
 SDK_NAMESPACE_START
 
-// Function UI_HelpPage.UI_HelpPage_C.BPHandleDockedModeChange
-// (Event, Public, BlueprintEvent)
+// Function UI_HelpPage.UI_HelpPage_C.GetWidgetToScaleForHandheld
+// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                                    bIsDocked                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// class UWidget*                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash)
 
-void UUI_HelpPage_C::BPHandleDockedModeChange(bool bIsDocked)
+class UWidget* UUI_HelpPage_C::GetWidgetToScaleForHandheld()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UI_HelpPage_C", "BPHandleDockedModeChange");
+		Func = Class->GetFunction("UI_HelpPage_C", "GetWidgetToScaleForHandheld");
 
-	Params::UI_HelpPage_C_BPHandleDockedModeChange Parms{};
-
-	Parms.bIsDocked = bIsDocked;
+	Params::UI_HelpPage_C_GetWidgetToScaleForHandheld Parms{};
 
 	UObject::ProcessEvent(Func, &Parms);
-}
 
-
-// Function UI_HelpPage.UI_HelpPage_C.Construct
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-
-void UUI_HelpPage_C::Construct()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_HelpPage_C", "Construct");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function UI_HelpPage.UI_HelpPage_C.ExecuteUbergraph_UI_HelpPage
-// (Final, UbergraphFunction)
-// Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UUI_HelpPage_C::ExecuteUbergraph_UI_HelpPage(int32 EntryPoint)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_HelpPage_C", "ExecuteUbergraph_UI_HelpPage");
-
-	Params::UI_HelpPage_C_ExecuteUbergraph_UI_HelpPage Parms{};
-
-	Parms.EntryPoint = EntryPoint;
-
-	UObject::ProcessEvent(Func, &Parms);
+	return Parms.ReturnValue;
 }
 
 
@@ -90,23 +56,57 @@ class USizeBox* UUI_HelpPage_C::GetSizeboxForExtraHandheldScaling()
 }
 
 
-// Function UI_HelpPage.UI_HelpPage_C.GetWidgetToScaleForHandheld
-// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Function UI_HelpPage.UI_HelpPage_C.ExecuteUbergraph_UI_HelpPage
+// (Final, UbergraphFunction)
 // Parameters:
-// class UWidget*                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash)
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-class UWidget* UUI_HelpPage_C::GetWidgetToScaleForHandheld()
+void UUI_HelpPage_C::ExecuteUbergraph_UI_HelpPage(int32 EntryPoint)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UI_HelpPage_C", "GetWidgetToScaleForHandheld");
+		Func = Class->GetFunction("UI_HelpPage_C", "ExecuteUbergraph_UI_HelpPage");
 
-	Params::UI_HelpPage_C_GetWidgetToScaleForHandheld Parms{};
+	Params::UI_HelpPage_C_ExecuteUbergraph_UI_HelpPage Parms{};
+
+	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
+}
 
-	return Parms.ReturnValue;
+
+// Function UI_HelpPage.UI_HelpPage_C.Construct
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+
+void UUI_HelpPage_C::Construct()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_HelpPage_C", "Construct");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function UI_HelpPage.UI_HelpPage_C.BPHandleDockedModeChange
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// bool                                    bIsDocked                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UUI_HelpPage_C::BPHandleDockedModeChange(bool bIsDocked)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_HelpPage_C", "BPHandleDockedModeChange");
+
+	Params::UI_HelpPage_C_BPHandleDockedModeChange Parms{};
+
+	Parms.bIsDocked = bIsDocked;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 

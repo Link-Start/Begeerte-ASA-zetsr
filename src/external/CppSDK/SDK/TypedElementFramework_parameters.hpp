@@ -303,25 +303,25 @@ public:
 DUMPER7_ASSERTS_TypedElementRegistry_GetElementInterface;
 
 // Function TypedElementFramework.TestTypedElementInterfaceA.GetDisplayName
-// 0x0018 (0x0018 - 0x0000)
+// 0x0020 (0x0020 - 0x0000)
 struct TestTypedElementInterfaceA_GetDisplayName final
 {
 public:
 	struct FScriptTypedElementHandle              InElementHandle;                                   // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class FText                                   ReturnValue;                                       // 0x0008(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	class FText                                   ReturnValue;                                       // 0x0008(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_TestTypedElementInterfaceA_GetDisplayName;
 
 // Function TypedElementFramework.TestTypedElementInterfaceA.SetDisplayName
-// 0x0020 (0x0020 - 0x0000)
+// 0x0028 (0x0028 - 0x0000)
 struct TestTypedElementInterfaceA_SetDisplayName final
 {
 public:
 	struct FScriptTypedElementHandle              InElementHandle;                                   // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class FText                                   InNewName;                                         // 0x0008(0x0010)(Parm, NativeAccessSpecifierPublic)
-	bool                                          bNotify;                                           // 0x0018(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0019(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1A[0x6];                                       // 0x001A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class FText                                   InNewName;                                         // 0x0008(0x0018)(Parm, NativeAccessSpecifierPublic)
+	bool                                          bNotify;                                           // 0x0020(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0021(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_22[0x6];                                       // 0x0022(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_TestTypedElementInterfaceA_SetDisplayName;
 

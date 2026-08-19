@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass LeftClimbing_ImpactEffect_Rock.LeftClimbing_ImpactEffect_Rock_C
-// 0x0000 (0x04E0 - 0x04E0)
+// 0x0000 (0x0518 - 0x0518)
 class ALeftClimbing_ImpactEffect_Rock_C final : public AClimbing_ImpactEffect_C
 {
 public:

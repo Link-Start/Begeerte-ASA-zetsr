@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemConsumable_Egg_Hesperonis.PrimalItemConsumable_Egg_Hesperonis_C
-// 0x0000 (0x0BC0 - 0x0BC0)
+// 0x0000 (0x11A0 - 0x11A0)
 class UPrimalItemConsumable_Egg_Hesperonis_C final : public UPrimalItemConsumable_Egg_Small_C
 {
 public:

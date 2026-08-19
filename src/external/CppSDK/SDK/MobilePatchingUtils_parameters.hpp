@@ -64,11 +64,11 @@ public:
 DUMPER7_ASSERTS_MobilePendingContent_GetDownloadSpeed;
 
 // Function MobilePatchingUtils.MobilePendingContent.GetDownloadStatusText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct MobilePendingContent_GetDownloadStatusText final
 {
 public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	class FText                                   ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_MobilePendingContent_GetDownloadStatusText;
 
@@ -105,7 +105,7 @@ struct MobilePendingContent_StartInstall final
 {
 public:
 	TDelegate<void()>                             OnSucceeded;                                       // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(class FText ErrorText, int32 ErrorCode)> OnFailed;                                // 0x0010(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(class FText ErrorText, int32 errorCode)> OnFailed;                                // 0x0010(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_MobilePendingContent_StartInstall;
 
@@ -155,7 +155,7 @@ public:
 	class FString                                 CloudURL;                                          // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 InstallDirectory;                                  // 0x0020(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TDelegate<void(class UMobilePendingContent* MobilePendingContent)> OnSucceeded;                  // 0x0030(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(class FText ErrorText, int32 ErrorCode)> OnFailed;                                // 0x0040(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(class FText ErrorText, int32 errorCode)> OnFailed;                                // 0x0040(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_MobilePatchingLibrary_RequestContent;
 

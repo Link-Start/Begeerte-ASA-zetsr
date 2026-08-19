@@ -24,29 +24,36 @@ enum class ETypedElementChildInclusionMethod : uint8
 };
 
 // Enum TypedElementRuntime.ETypedElementSelectionMethod
-// NumValues: 0x0004
+// NumValues: 0x0003
 enum class ETypedElementSelectionMethod : uint8
 {
 	Primary                                  = 0,
 	Secondary                                = 1,
-	FromSecondary                            = 2,
-	ETypedElementSelectionMethod_MAX         = 3,
+	ETypedElementSelectionMethod_MAX         = 2,
 };
 
 // ScriptStruct TypedElementRuntime.TypedElementSelectionOptions
-// 0x0010 (0x0010 - 0x0000)
-struct alignas(0x04) FTypedElementSelectionOptions final
+// 0x0005 (0x0005 - 0x0000)
+struct FTypedElementSelectionOptions final
 {
 public:
 	bool                                          bAllowHidden;                                      // 0x0000(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	bool                                          bAllowGroups;                                      // 0x0001(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	bool                                          bAllowLegacyNotifications;                         // 0x0002(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	bool                                          bWarnIfLocked;                                     // 0x0003(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bAllowSubRootSelection;                            // 0x0004(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	ETypedElementChildInclusionMethod             ChildElementInclusionMethod;                       // 0x0005(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_6[0xA];                                        // 0x0006(0x000A)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	ETypedElementChildInclusionMethod             ChildElementInclusionMethod;                       // 0x0004(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 };
 DUMPER7_ASSERTS_FTypedElementSelectionOptions;
+
+// ScriptStruct TypedElementRuntime.TypedElementSelectionNormalizationOptions
+// 0x0002 (0x0002 - 0x0000)
+struct FTypedElementSelectionNormalizationOptions final
+{
+public:
+	bool                                          bExpandGroups;                                     // 0x0000(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bFollowAttachment;                                 // 0x0001(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+};
+DUMPER7_ASSERTS_FTypedElementSelectionNormalizationOptions;
 
 // ScriptStruct TypedElementRuntime.TypedElementSelectionSetState
 // 0x0018 (0x0018 - 0x0000)
@@ -59,33 +66,12 @@ public:
 DUMPER7_ASSERTS_FTypedElementSelectionSetState;
 
 // ScriptStruct TypedElementRuntime.TypedElementIsSelectedOptions
-// 0x000C (0x000C - 0x0000)
-struct alignas(0x04) FTypedElementIsSelectedOptions final
+// 0x0001 (0x0001 - 0x0000)
+struct FTypedElementIsSelectedOptions final
 {
 public:
 	bool                                          bAllowIndirect;                                    // 0x0000(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_1[0xB];                                        // 0x0001(0x000B)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FTypedElementIsSelectedOptions;
-
-// ScriptStruct TypedElementRuntime.TypedElementSelectionNormalizationOptions
-// 0x000C (0x000C - 0x0000)
-struct alignas(0x04) FTypedElementSelectionNormalizationOptions final
-{
-public:
-	bool                                          bExpandGroups;                                     // 0x0000(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bFollowAttachment;                                 // 0x0001(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_2[0xA];                                        // 0x0002(0x000A)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FTypedElementSelectionNormalizationOptions;
-
-// ScriptStruct TypedElementRuntime.TypedElementAssetDataReferencedOptions
-// 0x0001 (0x0001 - 0x0000)
-struct FTypedElementAssetDataReferencedOptions final
-{
-public:
-	bool                                          bOnlyTopLevelAsset;                                // 0x0000(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-};
-DUMPER7_ASSERTS_FTypedElementAssetDataReferencedOptions;
 
 SDK_NAMESPACE_END

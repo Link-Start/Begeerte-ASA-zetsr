@@ -16,15 +16,15 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemArmor_BasePants.PrimalItemArmor_BasePants_C
-// 0x0030 (0x0BC0 - 0x0B90)
+// 0x0020 (0x11A0 - 0x1180)
 class UPrimalItemArmor_BasePants_C : public UPrimalItemArmorGeneric_C
 {
 public:
-	class USoundBase*                             SoundOverrideProneStart;                           // 0x0B90(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	class USoundBase*                             SoundOverrideProneEnd;                             // 0x0B98(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	class USoundBase*                             SoundOverrideProneStep;                            // 0x0BA0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	class USoundBase*                             SoundOverrideCrouchStart;                          // 0x0BA8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	class USoundBase*                             SoundOverrideCrouchEnd;                            // 0x0BB0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	class USoundBase*                             SoundOverrideProneStart;                           // 0x1178(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	class USoundBase*                             SoundOverrideProneEnd;                             // 0x1180(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	class USoundBase*                             SoundOverrideProneStep;                            // 0x1188(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	class USoundBase*                             SoundOverrideCrouchStart;                          // 0x1190(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	class USoundBase*                             SoundOverrideCrouchEnd;                            // 0x1198(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 
 public:
 	class USoundBase* OverrideCrouchingSound(class USoundBase* InSound, bool bIsProne, int32 soundState);

@@ -14,8 +14,17 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
+// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.ModIDLinkRequested
+// 0x0008 (0x0008 - 0x0000)
+struct ASAUI_MainMenu_LandingScreen_C_ModIDLinkRequested final
+{
+public:
+	int64                                         ModIDRequested;                                    // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_ASAUI_MainMenu_LandingScreen_C_ModIDLinkRequested;
+
 // Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.ExecuteUbergraph_ASAUI_MainMenu_LandingScreen
-// 0x0058 (0x0058 - 0x0000)
+// 0x0048 (0x0048 - 0x0000)
 struct ASAUI_MainMenu_LandingScreen_C_ExecuteUbergraph_ASAUI_MainMenu_LandingScreen final
 {
 public:
@@ -28,21 +37,9 @@ public:
 	class UUI_MainMenu*                           K2Node_DynamicCast_AsUI_Main_Menu;                 // 0x0030(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 	bool                                          K2Node_DynamicCast_bSuccess;                       // 0x0038(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UReMainMenuUI_ASA_C*                    K2Node_DynamicCast_AsRe_Main_Menu_UI_ASA;          // 0x0040(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	bool                                          K2Node_DynamicCast_bSuccess_1;                     // 0x0048(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_49[0x7];                                       // 0x0049(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	int64                                         K2Node_CustomEvent_ModIDRequested;                 // 0x0050(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int64                                         K2Node_CustomEvent_ModIDRequested;                 // 0x0040(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_ASAUI_MainMenu_LandingScreen_C_ExecuteUbergraph_ASAUI_MainMenu_LandingScreen;
-
-// Function ASAUI_MainMenu_LandingScreen.ASAUI_MainMenu_LandingScreen_C.ModIDLinkRequested
-// 0x0008 (0x0008 - 0x0000)
-struct ASAUI_MainMenu_LandingScreen_C_ModIDLinkRequested final
-{
-public:
-	int64                                         ModIDRequested;                                    // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_ASAUI_MainMenu_LandingScreen_C_ModIDLinkRequested;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

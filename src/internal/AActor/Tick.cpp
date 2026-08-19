@@ -5,13 +5,11 @@
 #include "../Lua/LuaManager.h"
 #include "../Hack/Hack.h"
 #include "../../external/CppSDK/SDK.hpp"
-#include "../Legit/Aimbot/Aimbot.h"
 
 namespace g_AActor {
 	void Tick(SDK::AActor* actor) {
 		SDK::UWorld* world = SDK::UWorld::GetWorld();
 
-        g_Aimbot::Tick();
         g_Hack::OutBody();
 		if (g_Config::bSuicide) {
 			g_Hack::Suicide(world);
@@ -49,7 +47,7 @@ namespace g_AActor {
             // 执行使用逻辑
             if (g_Config::bUseItem) {
                 // 执行操作
-                PC->ServerRequestInventoryUseItem(Inv, g_Config::useItemID, g_Config::useItemSlotID);
+                PC->ServerRequestInventoryUseItem(Inv, g_Config::useItemID);
 
                 // 重置状态
                 g_Config::bUseItem = false;

@@ -98,18 +98,6 @@ enum class ELocationZToSpawnEnum : uint8
 	ChaosNiagara_Max                         = 4,
 };
 
-// Enum ChaosNiagara.ENDIGeometryCollection_SourceMode
-// NumValues: 0x0006
-enum class ENDIGeometryCollection_SourceMode : uint8
-{
-	Default                                  = 0,
-	Source                                   = 1,
-	AttachParent                             = 2,
-	DefaultCollectionOnly                    = 3,
-	ParameterBinding                         = 4,
-	ENDIGeometryCollection_MAX               = 5,
-};
-
 // ScriptStruct ChaosNiagara.ChaosDestructionEvent
 // 0x0078 (0x0078 - 0x0000)
 struct FChaosDestructionEvent final

@@ -11,35 +11,35 @@
 #include "Basic.hpp"
 
 #include "Engine_structs.hpp"
-#include "UI_CFCore_CustomComboBox_classes.hpp"
+#include "UI_CustomComboBox_classes.hpp"
+#include "ENUM_SideTabs_structs.hpp"
 
 
 SDK_NAMESPACE_START
 
 // WidgetBlueprintGeneratedClass UI_CategoriesSelect.UI_CategoriesSelect_C
-// 0x0050 (0x1540 - 0x14F0)
-class UUI_CategoriesSelect_C final : public UUI_CFCore_CustomComboBox_C
+// 0x0040 (0x1180 - 0x1140)
+class UUI_CategoriesSelect_C final : public UUI_CustomComboBox_C
 {
 public:
-	uint8                                         Pad_14E1[0x7];                                     // 0x14E1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPointerToUberGraphFrame               UberGraphFrame_UI_CategoriesSelect_C;              // 0x14E8(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	TMulticastInlineDelegate<void()>              OnGenerated;                                       // 0x14F0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	int64                                         CurrentClassCategoryID;                            // 0x1500(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	TArray<class FString>                         Temp;                                              // 0x1508(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	int64                                         SelectedCategoryID;                                // 0x1518(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class UUI_CFCore_ParentBrowser_C*             UI_ParentPage;                                     // 0x1520(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	TMulticastInlineDelegate<void()>              OnOptionChangedIGuess;                             // 0x1528(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	uint8                                         Pad_1131[0x7];                                     // 0x1131(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPointerToUberGraphFrame               UberGraphFrame_UI_CategoriesSelect_C;              // 0x1138(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	TMulticastInlineDelegate<void()>              OnGenerated;                                       // 0x1140(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	int64                                         CurrentClassCategoryID;                            // 0x1150(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	TArray<class FString>                         Temp;                                              // 0x1158(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	int64                                         SelectedCategoryID;                                // 0x1168(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class UUI_ParentBrowser_C*                    UI_ParentPage;                                     // 0x1170(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
 
 public:
-	void CreateAllCategoriesCategory();
-	void ExecuteUbergraph_UI_CategoriesSelect(int32 EntryPoint);
-	void FilterOutCategories(TArray<struct FCategory>& Categories);
-	void OnCategoriesInfoFound(const TArray<struct FCategory>& Categories);
-	void OnCategoriesInfoFound_Error(const struct FCFCoreError& Error);
-	void OnOptionSelectedInterface(const class FString& Option, int64 ID);
-	void PreConstruct(bool IsDesignTime);
-	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void UpdateOptions(int64 Current_Class_Category_ID);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
+	void PreConstruct(bool IsDesignTime);
+	void OnOptionSelectedInterface(const class FString& Option, int64 ID);
+	void OnCategoriesInfoFound_Error(const struct FCFCoreError& Error);
+	void OnCategoriesInfoFound(const TArray<struct FCategory>& Categories);
+	void FilterOutCategories(TArray<struct FCategory>& Categories);
+	void ExecuteUbergraph_UI_CategoriesSelect(int32 EntryPoint);
+	void CreateAllCategoriesCategory();
 
 public:
 	static class UClass* StaticClass()

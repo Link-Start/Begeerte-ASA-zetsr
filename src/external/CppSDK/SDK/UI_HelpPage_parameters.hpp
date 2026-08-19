@@ -16,14 +16,23 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function UI_HelpPage.UI_HelpPage_C.BPHandleDockedModeChange
-// 0x0001 (0x0001 - 0x0000)
-struct UI_HelpPage_C_BPHandleDockedModeChange final
+// Function UI_HelpPage.UI_HelpPage_C.GetWidgetToScaleForHandheld
+// 0x0008 (0x0008 - 0x0000)
+struct UI_HelpPage_C_GetWidgetToScaleForHandheld final
 {
 public:
-	bool                                          bIsDocked;                                         // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class UWidget*                                ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash)
 };
-DUMPER7_ASSERTS_UI_HelpPage_C_BPHandleDockedModeChange;
+DUMPER7_ASSERTS_UI_HelpPage_C_GetWidgetToScaleForHandheld;
+
+// Function UI_HelpPage.UI_HelpPage_C.GetSizeboxForExtraHandheldScaling
+// 0x0008 (0x0008 - 0x0000)
+struct UI_HelpPage_C_GetSizeboxForExtraHandheldScaling final
+{
+public:
+	class USizeBox*                               ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_UI_HelpPage_C_GetSizeboxForExtraHandheldScaling;
 
 // Function UI_HelpPage.UI_HelpPage_C.ExecuteUbergraph_UI_HelpPage
 // 0x0038 (0x0038 - 0x0000)
@@ -41,23 +50,14 @@ public:
 };
 DUMPER7_ASSERTS_UI_HelpPage_C_ExecuteUbergraph_UI_HelpPage;
 
-// Function UI_HelpPage.UI_HelpPage_C.GetSizeboxForExtraHandheldScaling
-// 0x0008 (0x0008 - 0x0000)
-struct UI_HelpPage_C_GetSizeboxForExtraHandheldScaling final
+// Function UI_HelpPage.UI_HelpPage_C.BPHandleDockedModeChange
+// 0x0001 (0x0001 - 0x0000)
+struct UI_HelpPage_C_BPHandleDockedModeChange final
 {
 public:
-	class USizeBox*                               ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	bool                                          bIsDocked;                                         // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
-DUMPER7_ASSERTS_UI_HelpPage_C_GetSizeboxForExtraHandheldScaling;
-
-// Function UI_HelpPage.UI_HelpPage_C.GetWidgetToScaleForHandheld
-// 0x0008 (0x0008 - 0x0000)
-struct UI_HelpPage_C_GetWidgetToScaleForHandheld final
-{
-public:
-	class UWidget*                                ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_UI_HelpPage_C_GetWidgetToScaleForHandheld;
+DUMPER7_ASSERTS_UI_HelpPage_C_BPHandleDockedModeChange;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

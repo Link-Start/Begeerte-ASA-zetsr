@@ -22,7 +22,7 @@ SDK_NAMESPACE_START
 class USlateWidgetStyleAsset final : public UObject
 {
 public:
-	class USlateWidgetStyleContainerBase*         CustomStyle;                                       // 0x0028(0x0008)(Edit, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class USlateWidgetStyleContainerBase*         CustomStyle;                                       // 0x0028(0x0008)(Edit, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -194,12 +194,12 @@ public:
 DUMPER7_ASSERTS_ISlateWidgetStyleContainerInterface;
 
 // Class SlateCore.SlateThemeManager
-// 0x07B0 (0x07D8 - 0x0028)
+// 0x0998 (0x09C0 - 0x0028)
 class USlateThemeManager final : public UObject
 {
 public:
 	struct FGuid                                  CurrentThemeId;                                    // 0x0028(0x0010)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FStyleColorList                        ActiveColors;                                      // 0x0038(0x07A0)(Edit, Transient, NativeAccessSpecifierPublic)
+	struct FStyleColorList                        ActiveColors;                                      // 0x0038(0x0988)(Edit, Transient, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()

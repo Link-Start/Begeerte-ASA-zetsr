@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItem_TekGrenade.PrimalItem_TekGrenade_C
-// 0x0000 (0x0B90 - 0x0B90)
+// 0x0000 (0x1170 - 0x1170)
 class UPrimalItem_TekGrenade_C final : public UPrimalItemWeaponGenericAmmolessConsumeSelf_C
 {
 public:

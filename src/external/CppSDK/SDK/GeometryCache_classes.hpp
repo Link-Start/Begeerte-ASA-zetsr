@@ -12,28 +12,26 @@
 
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "GeometryCache_structs.hpp"
 #include "Engine_classes.hpp"
 #include "Niagara_structs.hpp"
 #include "Niagara_classes.hpp"
-#include "GeometryCache_structs.hpp"
 
 
 SDK_NAMESPACE_START
 
 // Class GeometryCache.GeometryCache
-// 0x0070 (0x0098 - 0x0028)
+// 0x0048 (0x0070 - 0x0028)
 class UGeometryCache final : public UObject
 {
 public:
 	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UMaterialInterface*>             Materials;                                         // 0x0030(0x0010)(Edit, BlueprintVisible, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TArray<class FName>                           MaterialSlotNames;                                 // 0x0040(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<class UGeometryCacheTrack*>            Tracks;                                            // 0x0050(0x0010)(Edit, ZeroConstructor, EditConst, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TArray<class UAssetUserData*>                 AssetUserData;                                     // 0x0060(0x0010)(Edit, ExportObject, ZeroConstructor, ContainsInstancedReference, AdvancedDisplay, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_70[0x18];                                      // 0x0070(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         StartFrame;                                        // 0x0088(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	int32                                         EndFrame;                                          // 0x008C(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint64                                        Hash;                                              // 0x0090(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	TArray<class UMaterialInterface*>             Materials;                                         // 0x0030(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
+	TArray<class UGeometryCacheTrack*>            Tracks;                                            // 0x0040(0x0010)(Edit, ZeroConstructor, EditConst, UObjectWrapper, NativeAccessSpecifierPublic)
+	uint8                                         Pad_50[0x10];                                      // 0x0050(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         StartFrame;                                        // 0x0060(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	int32                                         EndFrame;                                          // 0x0064(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint64                                        Hash;                                              // 0x0068(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 
 public:
 	static class UClass* StaticClass()
@@ -51,12 +49,62 @@ public:
 };
 DUMPER7_ASSERTS_UGeometryCache;
 
+// Class GeometryCache.GeometryCacheTrack
+// 0x0030 (0x0058 - 0x0028)
+class UGeometryCacheTrack : public UObject
+{
+public:
+	float                                         Duration;                                          // 0x0028(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_2C[0x2C];                                      // 0x002C(0x002C)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GeometryCacheTrack")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GeometryCacheTrack")
+	}
+	static class UGeometryCacheTrack* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGeometryCacheTrack>();
+	}
+};
+DUMPER7_ASSERTS_UGeometryCacheTrack;
+
+// Class GeometryCache.GeometryCacheTrackStreamable
+// 0x0080 (0x00D8 - 0x0058)
+class UGeometryCacheTrackStreamable final : public UGeometryCacheTrack
+{
+public:
+	class UGeometryCacheCodecBase*                Codec;                                             // 0x0058(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_60[0x68];                                      // 0x0060(0x0068)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         StartSampleTime;                                   // 0x00C8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_CC[0xC];                                       // 0x00CC(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("GeometryCacheTrackStreamable")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"GeometryCacheTrackStreamable")
+	}
+	static class UGeometryCacheTrackStreamable* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UGeometryCacheTrackStreamable>();
+	}
+};
+DUMPER7_ASSERTS_UGeometryCacheTrackStreamable;
+
 // Class GeometryCache.GeometryCacheActor
-// 0x0008 (0x0498 - 0x0490)
+// 0x0008 (0x04D0 - 0x04C8)
 class AGeometryCacheActor final : public AActor
 {
 public:
-	class UGeometryCacheComponent*                GeometryCacheComponent;                            // 0x0490(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class UGeometryCacheComponent*                GeometryCacheComponent;                            // 0x04C8(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 
 public:
 	class UGeometryCacheComponent* GetGeometryCacheComponent() const;
@@ -148,27 +196,27 @@ public:
 DUMPER7_ASSERTS_UGeometryCacheCodecV1;
 
 // Class GeometryCache.GeometryCacheComponent
-// 0x0080 (0x06E0 - 0x0660)
+// 0x0090 (0x0760 - 0x06D0)
 class UGeometryCacheComponent : public UMeshComponent
 {
 public:
-	class UGeometryCache*                         GeometryCache;                                     // 0x0658(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	bool                                          bRunning;                                          // 0x0660(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bLooping;                                          // 0x0661(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bExtrapolateFrames;                                // 0x0662(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_663[0x1];                                      // 0x0663(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         StartTimeOffset;                                   // 0x0664(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         PlaybackSpeed;                                     // 0x0668(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         MotionVectorScale;                                 // 0x066C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	int32                                         NumTracks;                                         // 0x0670(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         ElapsedTime;                                       // 0x0674(0x0004)(Edit, ZeroConstructor, Transient, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_678[0x4C];                                     // 0x0678(0x004C)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         Duration;                                          // 0x06C4(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bManualTick;                                       // 0x06C8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	bool                                          bOverrideWireframeColor;                           // 0x06C9(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_6CA[0x2];                                      // 0x06CA(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FLinearColor                           WireframeOverrideColor;                            // 0x06CC(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_6DC[0x4];                                      // 0x06DC(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UGeometryCache*                         GeometryCache;                                     // 0x06D0(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bRunning;                                          // 0x06D8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bLooping;                                          // 0x06D9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bExtrapolateFrames;                                // 0x06DA(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_6DB[0x1];                                      // 0x06DB(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         StartTimeOffset;                                   // 0x06DC(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         PlaybackSpeed;                                     // 0x06E0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         MotionVectorScale;                                 // 0x06E4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	int32                                         NumTracks;                                         // 0x06E8(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         ElapsedTime;                                       // 0x06EC(0x0004)(Edit, ZeroConstructor, Transient, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_6F0[0x4C];                                     // 0x06F0(0x004C)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         Duration;                                          // 0x073C(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bManualTick;                                       // 0x0740(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	bool                                          bOverrideWireframeColor;                           // 0x0741(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_742[0x2];                                      // 0x0742(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FLinearColor                           WireframeOverrideColor;                            // 0x0744(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_754[0xC];                                      // 0x0754(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void Pause();
@@ -189,10 +237,8 @@ public:
 
 	float GetAnimationTime() const;
 	float GetDuration() const;
-	float GetElapsedTime() const;
 	float GetMotionVectorScale() const;
 	int32 GetNumberOfFrames() const;
-	int32 GetNumberOfTracks() const;
 	bool GetOverrideWireframeColor() const;
 	float GetPlaybackDirection() const;
 	float GetPlaybackSpeed() const;
@@ -218,30 +264,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UGeometryCacheComponent;
-
-// Class GeometryCache.GeometryCacheTrack
-// 0x0030 (0x0058 - 0x0028)
-class UGeometryCacheTrack : public UObject
-{
-public:
-	float                                         Duration;                                          // 0x0028(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_2C[0x2C];                                      // 0x002C(0x002C)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GeometryCacheTrack")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GeometryCacheTrack")
-	}
-	static class UGeometryCacheTrack* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGeometryCacheTrack>();
-	}
-};
-DUMPER7_ASSERTS_UGeometryCacheTrack;
 
 // Class GeometryCache.GeometryCacheTrack_FlipbookAnimation
 // 0x0028 (0x0080 - 0x0058)
@@ -269,32 +291,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UGeometryCacheTrack_FlipbookAnimation;
-
-// Class GeometryCache.GeometryCacheTrackStreamable
-// 0x0078 (0x00D0 - 0x0058)
-class UGeometryCacheTrackStreamable final : public UGeometryCacheTrack
-{
-public:
-	class UGeometryCacheCodecBase*                Codec;                                             // 0x0058(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_60[0x60];                                      // 0x0060(0x0060)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         StartSampleTime;                                   // 0x00C0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_C4[0xC];                                       // 0x00C4(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("GeometryCacheTrackStreamable")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"GeometryCacheTrackStreamable")
-	}
-	static class UGeometryCacheTrackStreamable* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UGeometryCacheTrackStreamable>();
-	}
-};
-DUMPER7_ASSERTS_UGeometryCacheTrackStreamable;
 
 // Class GeometryCache.GeometryCacheTrack_TransformAnimation
 // 0x00C8 (0x0120 - 0x0058)
@@ -349,27 +345,24 @@ public:
 DUMPER7_ASSERTS_UGeometryCacheTrack_TransformGroupAnimation;
 
 // Class GeometryCache.NiagaraGeometryCacheRendererProperties
-// 0x0228 (0x02E0 - 0x00B8)
+// 0x0288 (0x0368 - 0x00E0)
 class UNiagaraGeometryCacheRendererProperties final : public UNiagaraRendererProperties
 {
 public:
-	TArray<struct FNiagaraGeometryCacheReference> GeometryCaches;                                    // 0x00B8(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	ENiagaraRendererSourceDataMode                SourceMode;                                        // 0x00C8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsLooping;                                        // 0x00C9(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_CA[0x2];                                       // 0x00CA(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	uint32                                        ComponentCountLimit;                               // 0x00CC(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FNiagaraVariableAttributeBinding       PositionBinding;                                   // 0x00D0(0x0038)(Edit, NativeAccessSpecifierPublic)
-	struct FNiagaraVariableAttributeBinding       RotationBinding;                                   // 0x0108(0x0038)(Edit, NativeAccessSpecifierPublic)
-	struct FNiagaraVariableAttributeBinding       ScaleBinding;                                      // 0x0140(0x0038)(Edit, NativeAccessSpecifierPublic)
-	struct FNiagaraVariableAttributeBinding       ElapsedTimeBinding;                                // 0x0178(0x0038)(Edit, NativeAccessSpecifierPublic)
-	struct FNiagaraVariableAttributeBinding       EnabledBinding;                                    // 0x01B0(0x0038)(Edit, NativeAccessSpecifierPublic)
-	struct FNiagaraVariableAttributeBinding       ArrayIndexBinding;                                 // 0x01E8(0x0038)(Edit, NativeAccessSpecifierPublic)
-	struct FNiagaraVariableAttributeBinding       RendererVisibilityTagBinding;                      // 0x0220(0x0038)(Edit, NativeAccessSpecifierPublic)
-	int32                                         RendererVisibility;                                // 0x0258(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAssignComponentsOnParticleID;                     // 0x025C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_25D[0x3];                                      // 0x025D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FNiagaraRendererMaterialParameters     MaterialParameters;                                // 0x0260(0x0050)(Edit, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2B0[0x30];                                     // 0x02B0(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TArray<struct FNiagaraGeometryCacheReference> GeometryCaches;                                    // 0x00E0(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	bool                                          bIsLooping;                                        // 0x00F0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_F1[0x3];                                       // 0x00F1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	uint32                                        ComponentCountLimit;                               // 0x00F4(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FNiagaraVariableAttributeBinding       PositionBinding;                                   // 0x00F8(0x0058)(Edit, NativeAccessSpecifierPublic)
+	struct FNiagaraVariableAttributeBinding       RotationBinding;                                   // 0x0150(0x0058)(Edit, NativeAccessSpecifierPublic)
+	struct FNiagaraVariableAttributeBinding       ScaleBinding;                                      // 0x01A8(0x0058)(Edit, NativeAccessSpecifierPublic)
+	struct FNiagaraVariableAttributeBinding       ElapsedTimeBinding;                                // 0x0200(0x0058)(Edit, NativeAccessSpecifierPublic)
+	struct FNiagaraVariableAttributeBinding       EnabledBinding;                                    // 0x0258(0x0058)(Edit, NativeAccessSpecifierPublic)
+	struct FNiagaraVariableAttributeBinding       ArrayIndexBinding;                                 // 0x02B0(0x0058)(Edit, NativeAccessSpecifierPublic)
+	struct FNiagaraVariableAttributeBinding       RendererVisibilityTagBinding;                      // 0x0308(0x0058)(Edit, NativeAccessSpecifierPublic)
+	int32                                         RendererVisibility;                                // 0x0360(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAssignComponentsOnParticleID;                     // 0x0364(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_365[0x3];                                      // 0x0365(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

@@ -182,44 +182,6 @@ void UMediaPlateComponent::OnMediaOpened(const class FString& DeviceUrl)
 }
 
 
-// Function MediaPlate.MediaPlateComponent.OnMediaResumed
-// (Final, Native, Private)
-
-void UMediaPlateComponent::OnMediaResumed()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MediaPlateComponent", "OnMediaResumed");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function MediaPlate.MediaPlateComponent.OnMediaSuspended
-// (Final, Native, Private)
-
-void UMediaPlateComponent::OnMediaSuspended()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MediaPlateComponent", "OnMediaSuspended");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function MediaPlate.MediaPlateComponent.Open
 // (Final, Native, Public, BlueprintCallable)
 

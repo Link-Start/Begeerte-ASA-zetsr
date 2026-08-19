@@ -16,16 +16,6 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function LiveLinkComponents.LiveLinkComponentController.SetControlledComponent
-// 0x0010 (0x0010 - 0x0000)
-struct LiveLinkComponentController_SetControlledComponent final
-{
-public:
-	TSubclassOf<class ULiveLinkRole>              InRoleClass;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UActorComponent*                        InComponent;                                       // 0x0008(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_LiveLinkComponentController_SetControlledComponent;
-
 // Function LiveLinkComponents.LiveLinkComponentController.SetSubjectRepresentation
 // 0x0010 (0x0010 - 0x0000)
 struct LiveLinkComponentController_SetSubjectRepresentation final
@@ -34,16 +24,6 @@ public:
 	struct FLiveLinkSubjectRepresentation         InSubjectRepresentation;                           // 0x0000(0x0010)(Parm, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_LiveLinkComponentController_SetSubjectRepresentation;
-
-// Function LiveLinkComponents.LiveLinkComponentController.GetControlledComponent
-// 0x0010 (0x0010 - 0x0000)
-struct LiveLinkComponentController_GetControlledComponent final
-{
-public:
-	TSubclassOf<class ULiveLinkRole>              InRoleClass;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UActorComponent*                        ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_LiveLinkComponentController_GetControlledComponent;
 
 // Function LiveLinkComponents.LiveLinkComponentController.GetSubjectRepresentation
 // 0x0010 (0x0010 - 0x0000)

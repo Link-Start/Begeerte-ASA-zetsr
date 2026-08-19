@@ -18,55 +18,55 @@
 SDK_NAMESPACE_START
 
 // WidgetBlueprintGeneratedClass ASAUI_NewsCarouselTemplate_Entry_News_Video_Half.ASAUI_NewsCarouselTemplate_Entry_News_Video_Half_C
-// 0x00C8 (0x0478 - 0x03B0)
+// 0x00C8 (0x0430 - 0x0368)
 class UASAUI_NewsCarouselTemplate_Entry_News_Video_Half_C final : public UUI_MenuCarouselEntryWidget
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x03B0(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	class UImage*                                 DarkenVideoImage;                                  // 0x03B8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 ExtLinkImage;                                      // 0x03C0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UHorizontalBox*                         LegendBox;                                         // 0x03C8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 MainImage;                                         // 0x03D0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UBorder*                                MainVideo_Border;                                  // 0x03D8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 MuteGamepadIcon;                                   // 0x03E0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 MuteImage;                                         // 0x03E8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UPrimalRichTextBlock*                   MuteLabel;                                         // 0x03F0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	class UImage*                                 UnmuteImage;                                       // 0x03F8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	double                                        AutoScrollWaitAtStart;                             // 0x0400(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        DefaultAutoScrollSpeed;                            // 0x0408(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        AutoScrollTracker;                                 // 0x0410(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        AutoScrollWaitAtEnd;                               // 0x0418(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class FString                                 VideoName;                                         // 0x0420(0x0010)(Edit, BlueprintVisible, ZeroConstructor, Transient, DisableEditOnInstance, HasGetValueTypeHash, TObjectPtr)
-	bool                                          bIsMuted;                                          // 0x0430(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Transient, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bIsLooping;                                        // 0x0431(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Transient, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bWasHighlighted;                                   // 0x0432(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bHasSetIcon;                                       // 0x0433(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bFirstAudioFromAdvertKey;                          // 0x0434(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_435[0x3];                                      // 0x0435(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 AdvertKey;                                         // 0x0438(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash, TObjectPtr)
-	class FString                                 VideoPathFormatString;                             // 0x0448(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash, TObjectPtr)
-	bool                                          IsDownloading;                                     // 0x0458(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          FailedToDownloadVideo;                             // 0x0459(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_45A[0x6];                                      // 0x045A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FString>                         VideoSourcePaths;                                  // 0x0460(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance, TObjectPtr)
-	int32                                         UseVideoSourceLocation;                            // 0x0470(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bIsInFocus;                                        // 0x0474(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0368(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	class UImage*                                 DarkenVideoImage;                                  // 0x0370(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 ExtLinkImage;                                      // 0x0378(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UHorizontalBox*                         LegendBox;                                         // 0x0380(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 MainImage;                                         // 0x0388(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UBorder*                                MainVideo_Border;                                  // 0x0390(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 MuteGamepadIcon;                                   // 0x0398(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 MuteImage;                                         // 0x03A0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UPrimalRichTextBlock*                   MuteLabel;                                         // 0x03A8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	class UImage*                                 UnmuteImage;                                       // 0x03B0(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	double                                        AutoScrollWaitAtStart;                             // 0x03B8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        DefaultAutoScrollSpeed;                            // 0x03C0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        AutoScrollTracker;                                 // 0x03C8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        AutoScrollWaitAtEnd;                               // 0x03D0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FString                                 VideoName;                                         // 0x03D8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, Transient, DisableEditOnInstance, HasGetValueTypeHash, TObjectPtr)
+	bool                                          bIsMuted;                                          // 0x03E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Transient, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bIsLooping;                                        // 0x03E9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Transient, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bWasHighlighted;                                   // 0x03EA(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bHasSetIcon;                                       // 0x03EB(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bFirstAudioFromAdvertKey;                          // 0x03EC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_3ED[0x3];                                      // 0x03ED(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 AdvertKey;                                         // 0x03F0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash, TObjectPtr)
+	class FString                                 VideoPathFormatString;                             // 0x0400(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash, TObjectPtr)
+	bool                                          IsDownloading;                                     // 0x0410(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          FailedToDownloadVideo;                             // 0x0411(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_412[0x6];                                      // 0x0412(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class FString>                         VideoSourcePaths;                                  // 0x0418(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance, TObjectPtr)
+	int32                                         UseVideoSourceLocation;                            // 0x0428(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bIsInFocus;                                        // 0x042C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
-	bool AllowAutoscrollNavFrom();
-	void BlueprintInit(const class FString& RawExtraData);
-	void EntryDoSecondaryClickAction(const class FName& SecondaryZoneClicked, bool bIsFromGamepad);
-	void EntryDoSecondaryHovered(const class FName& SecondaryZoneHovered);
-	void EntryDoSecondaryUnhovered(const class FName& SecondaryZoneUnhovered);
-	void EntryFocusEnd(bool bInstigatedByAutoRollover);
-	void EntryFocusStart(bool bInstigatedByAutoRollover);
-	void EntryFocusTick(float DeltaTime, bool bIsHighlighted);
-	void ExecuteUbergraph_ASAUI_NewsCarouselTemplate_Entry_News_Video_Half(int32 EntryPoint);
-	void OnCarouselPaused();
-	void OnCarouselUnpaused();
-	void OnFail_FFB5A2F744ED733411CE04AFF2A1E005(const class FString& CacheVideoName);
-	void OnSuccess_FFB5A2F744ED733411CE04AFF2A1E005(const class FString& CacheVideoName);
 	void RebootVideo();
+	void OnSuccess_FFB5A2F744ED733411CE04AFF2A1E005(const class FString& CacheVideoName);
+	void OnFail_FFB5A2F744ED733411CE04AFF2A1E005(const class FString& CacheVideoName);
+	void OnCarouselUnpaused();
+	void OnCarouselPaused();
+	void ExecuteUbergraph_ASAUI_NewsCarouselTemplate_Entry_News_Video_Half(int32 EntryPoint);
+	void EntryFocusTick(float DeltaTime, bool bIsHighlighted);
+	void EntryFocusStart(bool bInstigatedByAutoRollover);
+	void EntryFocusEnd(bool bInstigatedByAutoRollover);
+	void EntryDoSecondaryUnhovered(const class FName& SecondaryZoneUnhovered);
+	void EntryDoSecondaryHovered(const class FName& SecondaryZoneHovered);
+	void EntryDoSecondaryClickAction(const class FName& SecondaryZoneClicked, bool bIsFromGamepad);
+	void BlueprintInit(const class FString& RawExtraData);
+	bool AllowAutoscrollNavFrom();
 
 public:
 	static class UClass* StaticClass()

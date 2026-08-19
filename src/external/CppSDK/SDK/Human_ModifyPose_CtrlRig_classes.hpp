@@ -10,20 +10,25 @@
 
 #include "Basic.hpp"
 
+#include "RigVM_structs.hpp"
+#include "RigVM_classes.hpp"
 #include "CoreUObject_structs.hpp"
+#include "ControlRig_structs.hpp"
 #include "ControlRig_classes.hpp"
+#include "AnimationCore_structs.hpp"
 
 
 SDK_NAMESPACE_START
 
 // RigVMBlueprintGeneratedClass Human_ModifyPose_CtrlRig.Human_ModifyPose_CtrlRig_C
-// 0x0050 (0x0B20 - 0x0AD0)
+// 0x0058 (0x0450 - 0x03F8)
 class UHuman_ModifyPose_CtrlRig_C final : public UControlRig
 {
 public:
-	struct FQuat                                  LHand_Rotation;                                    // 0x0AD0(0x0020)(Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FQuat                                  RHand_Rotation;                                    // 0x0AF0(0x0020)(Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        RaiseArmsDegrees;                                  // 0x0B10(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_3F8[0x8];                                      // 0x03F8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FQuat                                  LHand_Rotation;                                    // 0x0400(0x0020)(Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FQuat                                  RHand_Rotation;                                    // 0x0420(0x0020)(Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        RaiseArmsDegrees;                                  // 0x0440(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	static class UClass* StaticClass()
@@ -40,5 +45,84 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UHuman_ModifyPose_CtrlRig_C;
+
+// RigVMMemoryStorageGeneratorClass Human_ModifyPose_CtrlRig.RigVMMemory_Literal
+// 0x0060 (0x0088 - 0x0028)
+class Human_ModifyPose_CtrlRig::URigVMMemory_Literal final : public URigVMMemoryStorage
+{
+public:
+	struct FRigElementKey                         RigVMModel___RigUnit_GetTransform_2_Item__Const;   // 0x0028(0x000C)(Edit, EditConst, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	ERigVMTransformSpace                          RigVMModel___RigUnit_GetTransform_2_Space__Const;  // 0x0034(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	bool                                          RigVMModel___RigUnit_GetTransform_2_bInitial__Const; // 0x0035(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_36[0x2];                                       // 0x0036(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FRigElementKey                         RigVMModel___RigUnit_GetTransform_3_Item__Const;   // 0x0038(0x000C)(Edit, EditConst, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	struct FRigElementKey                         RigVMModel___RigUnit_SetRotation_1_Item__Const;    // 0x0044(0x000C)(Edit, EditConst, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	ERigVMTransformSpace                          RigVMModel___RigUnit_SetRotation_1_Space__Const;   // 0x0050(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_51[0x7];                                       // 0x0051(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                RigVMModel___RigVMFunction_MathQuaternionFromEuler_Euler__Const; // 0x0058(0x0018)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	EEulerRotationOrder                           RigVMModel___RigVMFunction_MathQuaternionFromEuler_RotationOrder__Const; // 0x0070(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_71[0x3];                                       // 0x0071(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         RigVMModel___RigUnit_SetRotation_1_Weight__Const;  // 0x0074(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	bool                                          RigVMModel___RigUnit_SetRotation_1_bPropagateToChildren__Const; // 0x0078(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_79[0x3];                                       // 0x0079(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FRigElementKey                         RigVMModel___RigUnit_SetRotation_Item__Const;      // 0x007C(0x000C)(Edit, EditConst, NonTransactional, NoDestructor, HasGetValueTypeHash)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL_FULLNAME("RigVMMemoryStorageGeneratorClass Human_ModifyPose_CtrlRig.RigVMMemory_Literal")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"RigVMMemory_Literal")
+	}
+	static class Human_ModifyPose_CtrlRig::URigVMMemory_Literal* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<Human_ModifyPose_CtrlRig::URigVMMemory_Literal>();
+	}
+};
+DUMPER7_ASSERTS_Human_ModifyPose_CtrlRig__URigVMMemory_Literal;
+
+// RigVMMemoryStorageGeneratorClass Human_ModifyPose_CtrlRig.RigVMMemory_Work
+// 0x02C8 (0x02F0 - 0x0028)
+class Human_ModifyPose_CtrlRig::URigVMMemory_Work final : public URigVMMemoryStorage
+{
+public:
+	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FTransform                             RigVMModel___RigUnit_GetTransform_2_Transform;     // 0x0030(0x0060)(Edit, EditConst, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	TArray<struct FCachedRigElement>              RigVMModel___RigUnit_GetTransform_2_CachedIndex;   // 0x0090(0x0010)(Edit, EditConst, NonTransactional)
+	struct FTransform                             RigVMModel___RigUnit_GetTransform_3_Transform;     // 0x00A0(0x0060)(Edit, EditConst, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	TArray<struct FCachedRigElement>              RigVMModel___RigUnit_GetTransform_3_CachedIndex;   // 0x0100(0x0010)(Edit, EditConst, NonTransactional)
+	struct FQuat                                  RigVMModel___Multiply_Result;                      // 0x0110(0x0020)(Edit, EditConst, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	struct FTransform                             RigVMModel___RigUnit_GetTransform_Transform;       // 0x0130(0x0060)(Edit, EditConst, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	TArray<struct FCachedRigElement>              RigVMModel___RigUnit_GetTransform_CachedIndex;     // 0x0190(0x0010)(Edit, EditConst, NonTransactional)
+	struct FQuat                                  RigVMModel___Multiply_A;                           // 0x01A0(0x0020)(Edit, EditConst, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	struct FQuat                                  RigVMModel___RigVMFunction_MathQuaternionFromEuler_Result; // 0x01C0(0x0020)(Edit, EditConst, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	struct FVector                                RigVMModel___RigVMFunction_MathQuaternionFromEuler_Euler__IO; // 0x01E0(0x0018)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	TArray<struct FCachedRigElement>              RigVMModel___RigUnit_SetRotation_1_CachedIndex;    // 0x01F8(0x0010)(Edit, EditConst, NonTransactional)
+	TArray<struct FCachedRigElement>              RigVMModel___RigUnit_SetRotation_3_CachedIndex;    // 0x0208(0x0010)(Edit, EditConst, NonTransactional)
+	uint8                                         Pad_218[0x8];                                      // 0x0218(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FQuat                                  RigVMModel___Multiply_1_Result;                    // 0x0220(0x0020)(Edit, EditConst, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	struct FTransform                             RigVMModel___RigUnit_GetTransform_1_Transform;     // 0x0240(0x0060)(Edit, EditConst, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	TArray<struct FCachedRigElement>              RigVMModel___RigUnit_GetTransform_1_CachedIndex;   // 0x02A0(0x0010)(Edit, EditConst, NonTransactional)
+	struct FQuat                                  RigVMModel___Multiply_1_A;                         // 0x02B0(0x0020)(Edit, EditConst, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	TArray<struct FCachedRigElement>              RigVMModel___RigUnit_SetRotation_CachedIndex;      // 0x02D0(0x0010)(Edit, EditConst, NonTransactional)
+	TArray<struct FCachedRigElement>              RigVMModel___RigUnit_SetRotation_2_CachedIndex;    // 0x02E0(0x0010)(Edit, EditConst, NonTransactional)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL_FULLNAME("RigVMMemoryStorageGeneratorClass Human_ModifyPose_CtrlRig.RigVMMemory_Work")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"RigVMMemory_Work")
+	}
+	static class Human_ModifyPose_CtrlRig::URigVMMemory_Work* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<Human_ModifyPose_CtrlRig::URigVMMemory_Work>();
+	}
+};
+DUMPER7_ASSERTS_Human_ModifyPose_CtrlRig__URigVMMemory_Work;
 
 SDK_NAMESPACE_END

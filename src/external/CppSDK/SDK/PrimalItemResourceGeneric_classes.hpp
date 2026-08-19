@@ -16,9 +16,8 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemResourceGeneric.PrimalItemResourceGeneric_C
-// 0x0000 (0x0B90 - 0x0B90)
-#pragma pack(push, 0x1)
-class SDK_ALIGN(0x10) UPrimalItemResourceGeneric_C : public UPrimalItem_Base_C
+// 0x0000 (0x1170 - 0x1170)
+class UPrimalItemResourceGeneric_C : public UPrimalItem_Base_C
 {
 public:
 	static class UClass* StaticClass()
@@ -34,7 +33,6 @@ public:
 		return GetDefaultObjImpl<UPrimalItemResourceGeneric_C>();
 	}
 };
-#pragma pack(pop)
 DUMPER7_ASSERTS_UPrimalItemResourceGeneric_C;
 
 SDK_NAMESPACE_END

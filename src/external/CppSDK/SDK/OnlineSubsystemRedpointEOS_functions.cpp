@@ -16,25 +16,6 @@
 
 SDK_NAMESPACE_START
 
-// Function OnlineSubsystemRedpointEOS.EOSUserInterface_EnterDevicePinCode_Context.CancelLogin
-// (Native, Public, BlueprintCallable)
-
-void UEOSUserInterface_EnterDevicePinCode_Context::CancelLogin()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EOSUserInterface_EnterDevicePinCode_Context", "CancelLogin");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function OnlineSubsystemRedpointEOS.EOSUserInterface_EnterDevicePinCode.SetupUserInterface
 // (Event, Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -79,6 +60,25 @@ void UEOSUserInterface_LinkEOSAccountsAgainstCrossPlatform_Context::SelectedCand
 	Func->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function OnlineSubsystemRedpointEOS.EOSUserInterface_EnterDevicePinCode_Context.CancelLogin
+// (Native, Public, BlueprintCallable)
+
+void UEOSUserInterface_EnterDevicePinCode_Context::CancelLogin()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("EOSUserInterface_EnterDevicePinCode_Context", "CancelLogin");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }

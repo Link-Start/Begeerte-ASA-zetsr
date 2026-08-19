@@ -16,25 +16,19 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalPlayerDataBP_Base.PrimalPlayerDataBP_Base_C
-// 0x0058 (0x07E8 - 0x0790)
-class UPrimalPlayerDataBP_Base_C final : public UPrimalPlayerData
+// 0x0048 (0x0670 - 0x0628)
+class UPrimalPlayerDataBP_Base_C : public UPrimalPlayerData
 {
 public:
-	int32                                         NumAscensions;                                     // 0x0790(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_794[0x4];                                      // 0x0794(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<double>                                AscensionData;                                     // 0x0798(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance, SaveGame, NativeAccessSpecifierPublic)
-	TArray<class FName>                           BossDinoNameTagAscensionDataMap;                   // 0x07A8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	int32                                         SavedPlayerDataVersion;                            // 0x07B8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         CurrentPlayerDataVersion;                          // 0x07BC(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         HexagonCount;                                      // 0x07C0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         NumChibiLevelUpsData;                              // 0x07C4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<class FName>                           GeneralizedUnlockedAchievementTags;                // 0x07C8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance, SaveGame, NativeAccessSpecifierPublic)
-	uint8                                         SigilCountProgressionForExplorerNotes_Crimson;     // 0x07D8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         SigilCountProgressionForExplorerNotes_Abb;         // 0x07D9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_7DA[0x2];                                      // 0x07DA(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         Sigil_Count_Needed_For_Progressing_Explorer_Notes; // 0x07DC(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         Sigil_Unlocked_Explorer_Note_Index_Start;          // 0x07E0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         Sigil_Unlocked_Explorer_Note_Index_End;            // 0x07E4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         NumAscensions;                                     // 0x0628(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_62C[0x4];                                      // 0x062C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<double>                                AscensionData;                                     // 0x0630(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance, SaveGame, NativeAccessSpecifierPublic)
+	TArray<class FName>                           BossDinoNameTagAscensionDataMap;                   // 0x0640(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	int32                                         SavedPlayerDataVersion;                            // 0x0650(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         CurrentPlayerDataVersion;                          // 0x0654(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         HexagonCount;                                      // 0x0658(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         NumChibiLevelUpsData;                              // 0x065C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<class FName>                           GeneralizedUnlockedAchievementTags;                // 0x0660(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance, SaveGame, NativeAccessSpecifierPublic)
 
 public:
 	void BPCreatedNewPlayerData();
@@ -45,11 +39,8 @@ public:
 	int32 GetPlayerHexagonCount();
 	void GrantGeneralizedAchievementTag(class FName ObtainedAchievementTag, class AShooterPlayerController* ForPC);
 	bool HasGeneralizedAchievementTag(class FName Tag);
-	void Interface_PlayerData_Progress_Abb_Sigil_Count(uint8 Newly_Added_Sigil_Count, class AShooterPlayerController* Player_Controller, bool* success);
-	void Interface_PlayerData_Progress_Crimson_Sigil_Count(uint8 Newly_Added_Sigil_Count, class AShooterPlayerController* Player_Controller, bool* success);
 	void SetChibiLevels(int32 NewLevels, class AShooterPlayerController* ForPC);
 	bool SetPlayerHexagonCount(int32 NewHexagonCount);
-	void Shared_Adding_Sigil_Count_Function(uint8 newly_added_sigils, class AShooterPlayerController* Controller, uint8 sigil_count, bool is_crimson, bool is_abb, uint8* Count_After);
 
 public:
 	static class UClass* StaticClass()

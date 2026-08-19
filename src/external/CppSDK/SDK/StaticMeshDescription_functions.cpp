@@ -17,7 +17,7 @@
 SDK_NAMESPACE_START
 
 // Function StaticMeshDescription.StaticMeshDescription.CreateCube
-// (Final, RequiredAPI, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector&                   Center                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector&                   HalfExtents                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -70,7 +70,7 @@ void UStaticMeshDescription::CreateCube(const struct FVector& Center, const stru
 
 
 // Function StaticMeshDescription.StaticMeshDescription.SetPolygonGroupMaterialSlotName
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // const struct FPolygonGroupID&           PolygonGroupID                                         (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FName&                      SlotName                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -97,7 +97,7 @@ void UStaticMeshDescription::SetPolygonGroupMaterialSlotName(const struct FPolyg
 
 
 // Function StaticMeshDescription.StaticMeshDescription.SetVertexInstanceUV
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVertexInstanceID&         VertexInstanceID                                       (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 UV                                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -126,7 +126,7 @@ void UStaticMeshDescription::SetVertexInstanceUV(const struct FVertexInstanceID&
 
 
 // Function StaticMeshDescription.StaticMeshDescription.GetVertexInstanceUV
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // const struct FVertexInstanceID&         VertexInstanceID                                       (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   UVIndex                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)

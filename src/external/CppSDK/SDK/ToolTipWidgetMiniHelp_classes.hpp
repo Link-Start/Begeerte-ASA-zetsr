@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // WidgetBlueprintGeneratedClass ToolTipWidgetMiniHelp.ToolTipWidgetMiniHelp_C
-// 0x0000 (0x0400 - 0x0400)
+// 0x0000 (0x03B8 - 0x03B8)
 class UToolTipWidgetMiniHelp_C final : public UTooltipSmartLayoutWidget
 {
 public:

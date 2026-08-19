@@ -231,7 +231,7 @@ void UFL_VFX_Spawn_Ground_Effect_C::Set_Niagara_Parameters(class UNiagaraCompone
 
 
 // Function FL_VFX_Spawn_Ground_Effect.FL_VFX_Spawn_Ground_Effect_C.Spawn Ground VFX
-// (Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
+// (Static, Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // class UNiagaraSystem*                   NS                                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // const struct FVector&                   Location                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
@@ -241,9 +241,8 @@ void UFL_VFX_Spawn_Ground_Effect_C::Set_Niagara_Parameters(class UNiagaraCompone
 // double                                  Velocity_Mult                                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // const struct FRotator&                  NS_Rotate                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
 // class UObject*                          __WorldContext                                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// class UNiagaraComponent**               Niagara_                                               (Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 
-void UFL_VFX_Spawn_Ground_Effect_C::Spawn_Ground_VFX(class UNiagaraSystem* NS, const struct FVector& Location, const struct FVector& Trace_Offset, double Size_Mult, double Amount_Mult, double Velocity_Mult, const struct FRotator& NS_Rotate, class UObject* __WorldContext, class UNiagaraComponent** Niagara_)
+void UFL_VFX_Spawn_Ground_Effect_C::Spawn_Ground_VFX(class UNiagaraSystem* NS, const struct FVector& Location, const struct FVector& Trace_Offset, double Size_Mult, double Amount_Mult, double Velocity_Mult, const struct FRotator& NS_Rotate, class UObject* __WorldContext)
 {
 	static class UFunction* Func = nullptr;
 
@@ -262,9 +261,6 @@ void UFL_VFX_Spawn_Ground_Effect_C::Spawn_Ground_VFX(class UNiagaraSystem* NS, c
 	Parms.__WorldContext = __WorldContext;
 
 	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	if (Niagara_ != nullptr)
-		*Niagara_ = Parms.Niagara_;
 }
 
 

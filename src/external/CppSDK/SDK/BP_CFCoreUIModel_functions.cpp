@@ -16,35 +16,6 @@
 
 SDK_NAMESPACE_START
 
-// Function BP_CFCoreUIModel.BP_CFCoreUIModel_C.OnEventReceived_LibraryProgress
-// (Event, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// const EGameModsEvent&                   evt                                                    (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// const struct FLibraryProgress&          progress                                               (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
-// TArray<struct FInstallProgressMod>*     OutModsList                                            (Parm, OutParm, ContainsInstancedReference)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-bool UBP_CFCoreUIModel_C::OnEventReceived_LibraryProgress(const EGameModsEvent& evt, const struct FLibraryProgress& progress, TArray<struct FInstallProgressMod>* OutModsList)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_CFCoreUIModel_C", "OnEventReceived_LibraryProgress");
-
-	Params::BP_CFCoreUIModel_C_OnEventReceived_LibraryProgress Parms{};
-
-	Parms.evt = evt;
-	Parms.progress = std::move(progress);
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	if (OutModsList != nullptr)
-		*OutModsList = std::move(Parms.OutModsList);
-
-	return Parms.ReturnValue;
-}
-
-
 // Function BP_CFCoreUIModel.BP_CFCoreUIModel_C.OnEventReceived
 // (Event, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -64,6 +35,35 @@ bool UBP_CFCoreUIModel_C::OnEventReceived(const EGameModsEvent& evt, const TArra
 
 	Parms.evt = evt;
 	Parms.InModsList = std::move(InModsList);
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (OutModsList != nullptr)
+		*OutModsList = std::move(Parms.OutModsList);
+
+	return Parms.ReturnValue;
+}
+
+
+// Function BP_CFCoreUIModel.BP_CFCoreUIModel_C.OnEventReceived_LibraryProgress
+// (Event, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// const EGameModsEvent&                   evt                                                    (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// const struct FLibraryProgress&          progress                                               (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+// TArray<struct FInstallProgressMod>*     OutModsList                                            (Parm, OutParm, ContainsInstancedReference)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+bool UBP_CFCoreUIModel_C::OnEventReceived_LibraryProgress(const EGameModsEvent& evt, const struct FLibraryProgress& progress, TArray<struct FInstallProgressMod>* OutModsList)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_CFCoreUIModel_C", "OnEventReceived_LibraryProgress");
+
+	Params::BP_CFCoreUIModel_C_OnEventReceived_LibraryProgress Parms{};
+
+	Parms.evt = evt;
+	Parms.progress = std::move(progress);
 
 	UObject::ProcessEvent(Func, &Parms);
 

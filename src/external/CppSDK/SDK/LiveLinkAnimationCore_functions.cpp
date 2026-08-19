@@ -16,31 +16,6 @@
 
 SDK_NAMESPACE_START
 
-// Function LiveLinkAnimationCore.LiveLinkInstance.EnableLiveLinkEvaluation
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bDoEnable                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void ULiveLinkInstance::EnableLiveLinkEvaluation(bool bDoEnable)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("LiveLinkInstance", "EnableLiveLinkEvaluation");
-
-	Params::LiveLinkInstance_EnableLiveLinkEvaluation Parms{};
-
-	Parms.bDoEnable = bDoEnable;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function LiveLinkAnimationCore.LiveLinkInstance.SetRetargetAsset
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -92,7 +67,7 @@ void ULiveLinkInstance::SetSubject(const struct FLiveLinkSubjectName& SubjectNam
 
 
 // Function LiveLinkAnimationCore.LiveLinkRemapAsset.GetRemappedBoneName
-// (RequiredAPI, Native, Event, Public, BlueprintEvent, Const)
+// (Native, Event, Public, BlueprintEvent, Const)
 // Parameters:
 // class FName                             BoneName                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -120,7 +95,7 @@ class FName ULiveLinkRemapAsset::GetRemappedBoneName(class FName BoneName) const
 
 
 // Function LiveLinkAnimationCore.LiveLinkRemapAsset.GetRemappedCurveName
-// (RequiredAPI, Native, Event, Public, BlueprintEvent, Const)
+// (Native, Event, Public, BlueprintEvent, Const)
 // Parameters:
 // class FName                             CurveName                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -148,7 +123,7 @@ class FName ULiveLinkRemapAsset::GetRemappedCurveName(class FName CurveName) con
 
 
 // Function LiveLinkAnimationCore.LiveLinkRemapAsset.RemapCurveElements
-// (RequiredAPI, Native, Event, Public, HasOutParams, BlueprintEvent, Const)
+// (Native, Event, Public, HasOutParams, BlueprintEvent, Const)
 // Parameters:
 // TMap<class FName, float>&               CurveItems                                             (Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 

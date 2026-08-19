@@ -131,15 +131,6 @@ public:
 };
 DUMPER7_ASSERTS_GeometryCacheComponent_GetDuration;
 
-// Function GeometryCache.GeometryCacheComponent.GetElapsedTime
-// 0x0004 (0x0004 - 0x0000)
-struct GeometryCacheComponent_GetElapsedTime final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCacheComponent_GetElapsedTime;
-
 // Function GeometryCache.GeometryCacheComponent.GetMotionVectorScale
 // 0x0004 (0x0004 - 0x0000)
 struct GeometryCacheComponent_GetMotionVectorScale final
@@ -157,15 +148,6 @@ public:
 	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_GeometryCacheComponent_GetNumberOfFrames;
-
-// Function GeometryCache.GeometryCacheComponent.GetNumberOfTracks
-// 0x0004 (0x0004 - 0x0000)
-struct GeometryCacheComponent_GetNumberOfTracks final
-{
-public:
-	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCacheComponent_GetNumberOfTracks;
 
 // Function GeometryCache.GeometryCacheComponent.GetOverrideWireframeColor
 // 0x0001 (0x0001 - 0x0000)

@@ -12,84 +12,75 @@
 
 #include "Engine_structs.hpp"
 #include "ShooterGame_classes.hpp"
-#include "Enum_VoiceCollectionLine_structs.hpp"
 
 
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PlayerPawnTest.PlayerPawnTest_C
-// 0x01D0 (0x28E0 - 0x2710)
-class APlayerPawnTest_C final : public AShooterCharacter
+// 0x01C0 (0x2DF0 - 0x2C30)
+#pragma pack(push, 0x1)
+class SDK_ALIGN(0x10) APlayerPawnTest_C : public AShooterCharacter
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x2710(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	class UAC_FaceCustomization_C*                AC_FaceCustomization;                              // 0x2718(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class USkeletalMeshComponent*                 SecondaryImplantTPVSkeletalMesh;                   // 0x2720(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class USkeletalMeshComponent*                 ImplantTPVSkeletalMesh;                            // 0x2728(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_RightFoot_FI;    // 0x2730(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_LeftFoot_FI;     // 0x2738(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_Torso_FI;        // 0x2740(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_RightFoot;       // 0x2748(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_LeftFoot;        // 0x2750(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_RightArm;        // 0x2758(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base1_Head;           // 0x2760(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base1_LeftArm;        // 0x2768(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_Torso;           // 0x2770(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UNS_DinoFootprint_BP_C*                 NS_DinoFootprint_BP;                               // 0x2778(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_HandR_FPV;       // 0x2780(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_HandL_FPV;       // 0x2788(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_TorsoFPV;        // 0x2790(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class USkeletalMeshComponent*                 SecondaryMesh1P;                                   // 0x2798(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class USphereComponent*                       StasisComponent;                                   // 0x27A0(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	class UPrimalInventoryComponent*              PrimalInventory1;                                  // 0x27A8(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	int32                                         NumAscensions;                                     // 0x27B0(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, Transient, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_27B4[0x4];                                     // 0x27B4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<TSoftObjectPtr<class USkeletalMesh>>   AscensionMeshesFPV;                                // 0x27B8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	TArray<TSoftObjectPtr<class UStaticMesh>>     AscensionMeshesTPV;                                // 0x27C8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	TArray<class UClass*>                         AlphaAscensionEngrams;                             // 0x27D8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	int32                                         NumAscensionsAb;                                   // 0x27E8(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, Transient, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_27EC[0x4];                                     // 0x27EC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<TSoftObjectPtr<class UStaticMesh>>     AscensionMeshesTPV_Ab;                             // 0x27F0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	TArray<TSoftObjectPtr<class USkeletalMesh>>   AscensionMeshesFPV_Ab;                             // 0x2800(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	class FName                                   TestAscensionBossNameTag;                          // 0x2810(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	TArray<TSoftObjectPtr<class UStaticMesh>>     AscensionMeshesTPV_Ext;                            // 0x2818(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	TArray<TSoftObjectPtr<class USkeletalMesh>>   AscensionMeshesFPV_Ext;                            // 0x2828(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	int32                                         NumAscensionsExt;                                  // 0x2838(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, Transient, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_283C[0x4];                                     // 0x283C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class AActor*                                 CurrentDome;                                       // 0x2840(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	class FString                                 Current_Cruise_Missile_Message;                    // 0x2848(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
-	int32                                         NumChibiLevelUps;                                  // 0x2858(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, Transient, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         NumAscensionsGenesis;                              // 0x285C(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, Transient, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         NumAscensionsGen2;                                 // 0x2860(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, Transient, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUnlockedAllExplorerNotes;                         // 0x2864(0x0001)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bHasSetupMeshes;                                   // 0x2865(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_2866[0x2];                                     // 0x2866(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<int32>                                 RestrictedLevelsBasedOnUnobtainedGeneralizedAchievementTags; // 0x2868(0x0010)(Edit, BlueprintVisible, Net, DisableEditOnInstance)
-	TArray<class FName>                           GeneralizedUnlockedAchievementTags;                // 0x2878(0x0010)(Edit, BlueprintVisible, Net, Transient, DisableEditOnInstance, SaveGame)
-	int32                                         NumAscensionsScorched;                             // 0x2888(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, Transient, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_288C[0x4];                                     // 0x288C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<TSoftObjectPtr<class USkeletalMesh>>   AscensionSkeletalMeshesTPV;                        // 0x2890(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	TArray<TSoftObjectPtr<class USkeletalMesh>>   AscensionSkeletalMeshesTPV_Ext;                    // 0x28A0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	TArray<TSoftObjectPtr<class USkeletalMesh>>   AscensionSkeletalMeshesTPV_AB;                     // 0x28B0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	bool                                          bIsCheatAscending;                                 // 0x28C0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_28C1[0x3];                                     // 0x28C1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         LastAscendIndex;                                   // 0x28C4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bLastAscendWasImmediate;                           // 0x28C8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bUnlockedAllBTT1ExplorerNotes;                     // 0x28C9(0x0001)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bUnlockedAllBTT2ExplorerNotes;                     // 0x28CA(0x0001)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bUnlockedAllBTT3ExplorerNotes;                     // 0x28CB(0x0001)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_28CC[0x4];                                     // 0x28CC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class USkeletalMeshComponent*                 CurrentMeshToCustomization;                        // 0x28D0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	int32                                         NumAscensionsLostColony;                           // 0x28D8(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, Transient, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bUnlockedAllBTT4ExplorerNotes;                     // 0x28DC(0x0001)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x2C30(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	class USkeletalMeshComponent*                 SecondaryImplantTPVSkeletalMesh;                   // 0x2C38(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class USkeletalMeshComponent*                 ImplantTPVSkeletalMesh;                            // 0x2C40(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_RightFoot_FI;    // 0x2C48(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_LeftFoot_FI;     // 0x2C50(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_Torso_FI;        // 0x2C58(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_RightFoot;       // 0x2C60(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_LeftFoot;        // 0x2C68(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_RightArm;        // 0x2C70(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base1_Head;           // 0x2C78(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base1_LeftArm;        // 0x2C80(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_Torso;           // 0x2C88(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UNS_DinoFootprint_BP_C*                 NS_DinoFootprint_BP;                               // 0x2C90(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_HandR_FPV;       // 0x2C98(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_HandL_FPV;       // 0x2CA0(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UBP_PrimalWindSourceComponent_Base_C*   BP_PrimalWindSourceComponent_Base_TorsoFPV;        // 0x2CA8(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class USkeletalMeshComponent*                 SecondaryMesh1P;                                   // 0x2CB0(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class USphereComponent*                       StasisComponent;                                   // 0x2CB8(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	class UPrimalInventoryComponent*              PrimalInventory1;                                  // 0x2CC0(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	int32                                         NumAscensions;                                     // 0x2CC8(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, Transient, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2CCC[0x4];                                     // 0x2CCC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<TSoftObjectPtr<class USkeletalMesh>>   AscensionMeshesFPV;                                // 0x2CD0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	TArray<TSoftObjectPtr<class UStaticMesh>>     AscensionMeshesTPV;                                // 0x2CE0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	TArray<class UClass*>                         AlphaAscensionEngrams;                             // 0x2CF0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	int32                                         NumAscensionsAb;                                   // 0x2D00(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, Transient, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2D04[0x4];                                     // 0x2D04(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<TSoftObjectPtr<class UStaticMesh>>     AscensionMeshesTPV_Ab;                             // 0x2D08(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	TArray<TSoftObjectPtr<class USkeletalMesh>>   AscensionMeshesFPV_Ab;                             // 0x2D18(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	class FName                                   TestAscensionBossNameTag;                          // 0x2D28(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	TArray<TSoftObjectPtr<class UStaticMesh>>     AscensionMeshesTPV_Ext;                            // 0x2D30(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	TArray<TSoftObjectPtr<class USkeletalMesh>>   AscensionMeshesFPV_Ext;                            // 0x2D40(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	int32                                         NumAscensionsExt;                                  // 0x2D50(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, Transient, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2D54[0x4];                                     // 0x2D54(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class AActor*                                 CurrentDome;                                       // 0x2D58(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	class FString                                 Current_Cruise_Missile_Message;                    // 0x2D60(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
+	int32                                         NumChibiLevelUps;                                  // 0x2D70(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, Transient, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         NumAscensionsGenesis;                              // 0x2D74(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, Transient, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         NumAscensionsGen2;                                 // 0x2D78(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, Transient, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUnlockedAllExplorerNotes;                         // 0x2D7C(0x0001)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bHasSetupMeshes;                                   // 0x2D7D(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_2D7E[0x2];                                     // 0x2D7E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<int32>                                 RestrictedLevelsBasedOnUnobtainedGeneralizedAchievementTags; // 0x2D80(0x0010)(Edit, BlueprintVisible, Net, DisableEditOnInstance)
+	TArray<class FName>                           GeneralizedUnlockedAchievementTags;                // 0x2D90(0x0010)(Edit, BlueprintVisible, Net, Transient, DisableEditOnInstance, SaveGame)
+	int32                                         NumAscensionsScorched;                             // 0x2DA0(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, Transient, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_2DA4[0x4];                                     // 0x2DA4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<TSoftObjectPtr<class USkeletalMesh>>   AscensionSkeletalMeshesTPV;                        // 0x2DA8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	TArray<TSoftObjectPtr<class USkeletalMesh>>   AscensionSkeletalMeshesTPV_Ext;                    // 0x2DB8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	TArray<TSoftObjectPtr<class USkeletalMesh>>   AscensionSkeletalMeshesTPV_AB;                     // 0x2DC8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	bool                                          bIsCheatAscending;                                 // 0x2DD8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_2DD9[0x3];                                     // 0x2DD9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         LastAscendIndex;                                   // 0x2DDC(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bLastAscendWasImmediate;                           // 0x2DE0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bUnlockedAllBTT1ExplorerNotes;                     // 0x2DE1(0x0001)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bUnlockedAllBTT2ExplorerNotes;                     // 0x2DE2(0x0001)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bUnlockedAllBTT3ExplorerNotes;                     // 0x2DE3(0x0001)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void AscensionCheck();
 	void AssignAssetsFromVoiceCollection();
-	void BPApplyBodyColors(class USkeletalMeshComponent* toMesh);
-	void BPApplyPreviewData(class USkeletalMeshComponent* toMesh);
-	bool BPCustomRequest(class FName RequestName, int32* OutIndex, int32 InIndex, class AActor* FromActor);
-	bool BPGetCustomBlueprintData(class FName DataName, const struct FBPNetExecParams& InData, struct FBPNetExecParams* OutData);
 	void BPGetOverrideCameraInterpSpeed(float DefaultTPVCameraSpeedInterpolationMultiplier, float DefaultTPVOffsetInterpSpeed, float* TPVCameraSpeedInterpolationMultiplier, float* TPVOffsetInterpSpeed);
 	int32 BPGetPlayerHexagonCount();
 	void BPGetShowDebugAnimationComponents(TArray<class USkeletalMeshComponent*>* SkelMeshComponents);
@@ -103,7 +94,7 @@ public:
 	bool BPSetPlayerHexagonCount(int32 NewHexagonCount);
 	void BPSetupFirstPersonHandsMesh();
 	void BPSpawnAttackerDamageImpactFX(class FName SocketName, class APrimalCharacter* VictimChar);
-	void BPUnlockedAllBTTExplorerNotes(int32 exp);
+	void BPUnlockedAllBTTExplorerNotes(int32 Exp);
 	void BPUnlockedAllExplorerNotes();
 	void ClientShowHUDNotification(const class FString& Text, const struct FLinearColor& Color, double LifetimeSeconds, double DisplayScale, class USoundCue* SoundToPlay);
 	void DefeatedBoss(class APrimalDinoCharacter* BossCharacter, class FName BossTag, int32 BossDifficulty);
@@ -111,7 +102,6 @@ public:
 	void DontCreateAnyMoreSpawnUIs();
 	void EnableFluidInteraction();
 	void ExecuteUbergraph_PlayerPawnTest(int32 EntryPoint);
-	void GetFaceCustomization(class UAC_FaceCustomization_C** FaceCustomization);
 	struct FLinearColor GetFXBloodColor();
 	void GetShooterHud(class AShooterHUD** ShooterHUD);
 	void GetTheNumChibiLevelUps(int32* OutVal);
@@ -119,9 +109,6 @@ public:
 	void InterceptInputEvent(const class FString& InputName);
 	void NetClientAscend(int32 AscendIndex, bool bImmediateAscend, bool bIsCheatAscend);
 	void NetClientPreLoadAcension();
-	void OnBossfightTeleport(class FName DataName);
-	void OnJumped();
-	void OnLanded(const struct FHitResult& Hit);
 	class FString PlayerCommand(const class FString& TheCommand);
 	void ReceiveBeginPlay();
 	void ServerAscend(int32 DifficultyIndex, bool bImmediateAscend, bool bSuppressAchievements, bool bIsCheatAscend);
@@ -131,11 +118,7 @@ public:
 	void ShowHUDNotification(const class FString& Text, const struct FLinearColor& Color, double LifetimeSeconds, double DisplayScale, class USoundCue* SoundToPlay);
 	void TrySpawnMound();
 	void TrySpawnMoundEx(double Angle, double Range);
-	void UpdateFace();
 	void UserConstructionScript();
-
-	void PlayVOLine(Enum_VoiceCollectionLine Voiceline, double VolumeMultiplier) const;
-	void SelectVOSound(class UPDA_VoiceCollection_C* VoiceCollection, Enum_VoiceCollectionLine VoiceLineSelection, class USoundBase** VoiceSoundReference) const;
 
 public:
 	static class UClass* StaticClass()
@@ -151,6 +134,7 @@ public:
 		return GetDefaultObjImpl<APlayerPawnTest_C>();
 	}
 };
+#pragma pack(pop)
 DUMPER7_ASSERTS_APlayerPawnTest_C;
 
 SDK_NAMESPACE_END

@@ -144,21 +144,21 @@ public:
 DUMPER7_ASSERTS_FRigUnit_FullbodyIK_WorkData;
 
 // ScriptStruct FullBodyIK.RigUnit_FullbodyIK
-// 0x0280 (0x0470 - 0x01F0)
+// 0x0280 (0x03B0 - 0x0130)
 struct FRigUnit_FullbodyIK final : public FRigUnit_HighlevelBaseMutable
 {
 public:
-	struct FRigElementKey                         Root;                                              // 0x01F0(0x000C)(Edit, BlueprintVisible, EditConst, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1FC[0x4];                                      // 0x01FC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FFBIKEndEffector>               Effectors;                                         // 0x0200(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FFBIKConstraintOption>          Constraints;                                       // 0x0210(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	struct FSolverInput                           SolverProperty;                                    // 0x0220(0x0024)(Edit, BlueprintVisible, EditConst, NoDestructor, NativeAccessSpecifierPublic)
-	struct FMotionProcessInput                    MotionProperty;                                    // 0x0244(0x0002)(Edit, BlueprintVisible, EditConst, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          bPropagateToChildren;                              // 0x0246(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_247[0x9];                                      // 0x0247(0x0009)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FFBIKDebugOption                       DebugOption;                                       // 0x0250(0x0080)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-	struct FRigUnit_FullbodyIK_WorkData           WorkData;                                          // 0x02D0(0x0198)(Transient, NativeAccessSpecifierPublic)
-	uint8                                         Pad_468[0x8];                                      // 0x0468(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FRigElementKey                         Root;                                              // 0x0130(0x000C)(Edit, BlueprintVisible, EditConst, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_13C[0x4];                                      // 0x013C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FFBIKEndEffector>               Effectors;                                         // 0x0140(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FFBIKConstraintOption>          Constraints;                                       // 0x0150(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	struct FSolverInput                           SolverProperty;                                    // 0x0160(0x0024)(Edit, BlueprintVisible, EditConst, NoDestructor, NativeAccessSpecifierPublic)
+	struct FMotionProcessInput                    MotionProperty;                                    // 0x0184(0x0002)(Edit, BlueprintVisible, EditConst, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          bPropagateToChildren;                              // 0x0186(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_187[0x9];                                      // 0x0187(0x0009)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FFBIKDebugOption                       DebugOption;                                       // 0x0190(0x0080)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	struct FRigUnit_FullbodyIK_WorkData           WorkData;                                          // 0x0210(0x0198)(Transient, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3A8[0x8];                                      // 0x03A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FRigUnit_FullbodyIK;
 

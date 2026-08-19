@@ -939,20 +939,6 @@ void ABuff_TekArmor_C::SpawnFX(class UParticleSystem* EmitterTemplate, struct FT
 }
 
 
-// Function Buff_TekArmor.Buff_TekArmor_C.UpdateColorsFromItem
-// (Public, BlueprintCallable, BlueprintEvent)
-
-void ABuff_TekArmor_C::UpdateColorsFromItem()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Buff_TekArmor_C", "UpdateColorsFromItem");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
 // Function Buff_TekArmor.Buff_TekArmor_C.UpdatePlayerFOV
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:

@@ -16,25 +16,6 @@
 
 SDK_NAMESPACE_START
 
-// Function GLTFExporter.GLTFExportOptions.ResetToDefault
-// (Final, Native, Public, BlueprintCallable)
-
-void UGLTFExportOptions::ResetToDefault()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("GLTFExportOptions", "ResetToDefault");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function GLTFExporter.GLTFExporter.ExportToGLTF
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
@@ -70,6 +51,25 @@ bool UGLTFExporter::ExportToGLTF(class UObject* Object, const class FString& Fil
 		*OutMessages = std::move(Parms.OutMessages);
 
 	return Parms.ReturnValue;
+}
+
+
+// Function GLTFExporter.GLTFExportOptions.ResetToDefault
+// (Final, Native, Public, BlueprintCallable)
+
+void UGLTFExportOptions::ResetToDefault()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("GLTFExportOptions", "ResetToDefault");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
 }
 
 

@@ -38,7 +38,6 @@ public:
 	static bool IsDLSSRREnabled();
 	static bool IsDLSSRRSupported();
 	static bool IsDLSSSupported();
-	static bool IsRayTracingAvailable();
 	static EUDLSSSupport QueryDLSSRRSupport();
 	static EUDLSSSupport QueryDLSSSupport();
 	static void SetDLSSMode(class UObject* WorldContextObject, EUDLSSMode DLSSMode);

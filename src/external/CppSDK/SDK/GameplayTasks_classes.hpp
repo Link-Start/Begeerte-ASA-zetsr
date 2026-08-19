@@ -27,7 +27,7 @@ public:
 	uint8                                         Pad_38[0x2];                                       // 0x0038(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
 	ETaskResourceOverlapPolicy                    ResourceOverlapPolicy;                             // 0x003A(0x0001)(ZeroConstructor, Config, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	uint8                                         Pad_3B[0x25];                                      // 0x003B(0x0025)(Fixing Size After Last Property [ Dumper-7 ])
-	class UGameplayTask*                          ChildTask;                                         // 0x0060(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UGameplayTask*                          ChildTask;                                         // 0x0060(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 
 public:
 	void EndTask();
@@ -106,17 +106,20 @@ public:
 DUMPER7_ASSERTS_UGameplayTaskResource;
 
 // Class GameplayTasks.GameplayTasksComponent
-// 0x0078 (0x0148 - 0x00D0)
-class UGameplayTasksComponent : public UActorComponent
+// 0x0078 (0x0130 - 0x00B8)
+class UGameplayTasksComponent final : public UActorComponent
 {
 public:
-	uint8                                         Pad_D0[0x18];                                      // 0x00D0(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UGameplayTask*>                  TaskPriorityQueue;                                 // 0x00E8(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_F8[0x10];                                      // 0x00F8(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UGameplayTask*>                  TickingTasks;                                      // 0x0108(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	TArray<class UGameplayTask*>                  KnownTasks;                                        // 0x0118(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	TMulticastInlineDelegate<void(const struct FGameplayResourceSet& NewlyClaimed, const struct FGameplayResourceSet& FreshlyReleased)> OnClaimedResourcesChange; // 0x0128(0x0010)(BlueprintVisible, ZeroConstructor, InstancedReference, NativeAccessSpecifierPublic)
-	TArray<class UGameplayTask*>                  SimulatedTasks;                                    // 0x0138(0x0010)(Net, ZeroConstructor, RepNotify, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	uint8                                         Pad_B8[0x14];                                      // 0x00B8(0x0014)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         BitPad_CC_0 : 1;                                   // 0x00CC(0x0001)(Fixing Bit-Field Size Between Bits [ Dumper-7 ])
+	uint8                                         bIsNetDirty : 1;                                   // 0x00CC(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_CD[0x3];                                       // 0x00CD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class UGameplayTask*>                  TaskPriorityQueue;                                 // 0x00D0(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	uint8                                         Pad_E0[0x10];                                      // 0x00E0(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class UGameplayTask*>                  TickingTasks;                                      // 0x00F0(0x0010)(ZeroConstructor, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	TArray<class UGameplayTask*>                  KnownTasks;                                        // 0x0100(0x0010)(ZeroConstructor, Transient, Protected, UObjectWrapper, NativeAccessSpecifierProtected)
+	TMulticastInlineDelegate<void(const struct FGameplayResourceSet& NewlyClaimed, const struct FGameplayResourceSet& FreshlyReleased)> OnClaimedResourcesChange; // 0x0110(0x0010)(BlueprintVisible, ZeroConstructor, InstancedReference, NativeAccessSpecifierPublic)
+	TArray<class UGameplayTask*>                  SimulatedTasks;                                    // 0x0120(0x0010)(Net, ZeroConstructor, RepNotify, UObjectWrapper, NativeAccessSpecifierPrivate)
 
 public:
 	static EGameplayTaskRunResult K2_RunGameplayTask(TScriptInterface<class IGameplayTaskOwnerInterface> TaskOwner, class UGameplayTask* Task, uint8 Priority, const TArray<TSubclassOf<class UGameplayTaskResource>>& AdditionalRequiredResources, const TArray<TSubclassOf<class UGameplayTaskResource>>& AdditionalClaimedResources);
@@ -168,7 +171,7 @@ DUMPER7_ASSERTS_UGameplayTask_ClaimResource;
 class UGameplayTask_SpawnActor final : public UGameplayTask
 {
 public:
-	TMulticastInlineDelegate<void(class AActor* SpawnedActor)> success;                              // 0x0068(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	TMulticastInlineDelegate<void(class AActor* SpawnedActor)> Success;                              // 0x0068(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	TMulticastInlineDelegate<void(class AActor* SpawnedActor)> DidNotSpawn;                          // 0x0078(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	uint8                                         Pad_88[0x30];                                      // 0x0088(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
 	TSubclassOf<class AActor>                     ClassToSpawn;                                      // 0x00B8(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)

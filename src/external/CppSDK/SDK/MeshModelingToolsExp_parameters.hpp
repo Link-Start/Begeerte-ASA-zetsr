@@ -50,24 +50,6 @@ public:
 };
 DUMPER7_ASSERTS_BakeMultiTexture2DProperties_GetUVLayerNamesFunc;
 
-// Function MeshModelingToolsExp.MeshConstraintProperties.IsPreventNormalFlipsEnabled
-// 0x0001 (0x0001 - 0x0000)
-struct MeshConstraintProperties_IsPreventNormalFlipsEnabled final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_MeshConstraintProperties_IsPreventNormalFlipsEnabled;
-
-// Function MeshModelingToolsExp.MeshConstraintProperties.IsPreventTinyTrianglesEnabled
-// 0x0001 (0x0001 - 0x0000)
-struct MeshConstraintProperties_IsPreventTinyTrianglesEnabled final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_MeshConstraintProperties_IsPreventTinyTrianglesEnabled;
-
 // Function MeshModelingToolsExp.BakeMeshAttributeMapsToolProperties.GetMapPreviewNamesFunc
 // 0x0010 (0x0010 - 0x0000)
 struct BakeMeshAttributeMapsToolProperties_GetMapPreviewNamesFunc final
@@ -95,14 +77,41 @@ public:
 };
 DUMPER7_ASSERTS_BakeMultiMeshInputToolProperties_GetTargetUVLayerNamesFunc;
 
-// Function MeshModelingToolsExp.ConvertToPolygonsToolProperties.GetGroupOptionsList
+// Function MeshModelingToolsExp.BakeRenderCaptureToolProperties.GetMapPreviewNamesFunc
 // 0x0010 (0x0010 - 0x0000)
-struct ConvertToPolygonsToolProperties_GetGroupOptionsList final
+struct BakeRenderCaptureToolProperties_GetMapPreviewNamesFunc final
+{
+public:
+	TArray<class FString>                         ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_BakeRenderCaptureToolProperties_GetMapPreviewNamesFunc;
+
+// Function MeshModelingToolsExp.BakeRenderCaptureInputToolProperties.GetTargetUVLayerIndex
+// 0x0004 (0x0004 - 0x0000)
+struct BakeRenderCaptureInputToolProperties_GetTargetUVLayerIndex final
+{
+public:
+	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_BakeRenderCaptureInputToolProperties_GetTargetUVLayerIndex;
+
+// Function MeshModelingToolsExp.BakeRenderCaptureInputToolProperties.GetTargetUVLayerNamesFunc
+// 0x0010 (0x0010 - 0x0000)
+struct BakeRenderCaptureInputToolProperties_GetTargetUVLayerNamesFunc final
+{
+public:
+	TArray<class FString>                         ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_BakeRenderCaptureInputToolProperties_GetTargetUVLayerNamesFunc;
+
+// Function MeshModelingToolsExp.OutputPolygroupLayerProperties.GetGroupOptionsList
+// 0x0010 (0x0010 - 0x0000)
+struct OutputPolygroupLayerProperties_GetGroupOptionsList final
 {
 public:
 	TArray<class FString>                         ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_ConvertToPolygonsToolProperties_GetGroupOptionsList;
+DUMPER7_ASSERTS_OutputPolygroupLayerProperties_GetGroupOptionsList;
 
 // Function MeshModelingToolsExp.DisplaceMeshCommonProperties.GetWeightMapsFunc
 // 0x0010 (0x0010 - 0x0000)
@@ -139,24 +148,6 @@ public:
 	TArray<class FString>                         ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_MeshInspectorMaterialProperties_GetUVChannelNamesFunc;
-
-// Function MeshModelingToolsExp.MeshVertexPaintToolUtilityActions.GetWeightMapsFunc
-// 0x0010 (0x0010 - 0x0000)
-struct MeshVertexPaintToolUtilityActions_GetWeightMapsFunc final
-{
-public:
-	TArray<class FString>                         ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_MeshVertexPaintToolUtilityActions_GetWeightMapsFunc;
-
-// Function MeshModelingToolsExp.MeshVertexPaintToolUtilityActions.GetLODNamesFunc
-// 0x0010 (0x0010 - 0x0000)
-struct MeshVertexPaintToolUtilityActions_GetLODNamesFunc final
-{
-public:
-	TArray<class FString>                         ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_MeshVertexPaintToolUtilityActions_GetLODNamesFunc;
 
 // Function MeshModelingToolsExp.TransferMeshToolProperties.GetSourceLODNamesFunc
 // 0x0010 (0x0010 - 0x0000)

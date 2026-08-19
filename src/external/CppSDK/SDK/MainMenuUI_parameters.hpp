@@ -17,49 +17,21 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function MainMenuUI.MainMenuUI_C.ExecuteUbergraph_MainMenuUI
-// 0x0D10 (0x0D10 - 0x0000)
-struct MainMenuUI_C_ExecuteUbergraph_MainMenuUI final
+// Function MainMenuUI.MainMenuUI_C.UpdateLeftTextPosition
+// 0x0040 (0x0040 - 0x0000)
+struct MainMenuUI_C_UpdateLeftTextPosition final
 {
 public:
-	int32                                         EntryPoint;                                        // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class AGameModeBase*                          CallFunc_GetGameMode_ReturnValue;                  // 0x0008(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class AShooterGame_Menu*                      K2Node_DynamicCast_AsShooter_Game_Menu;            // 0x0010(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	bool                                          K2Node_DynamicCast_bSuccess;                       // 0x0018(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UTexture2D*                             CallFunc_GetMainMenuBackgroundTexture_ReturnValue; // 0x0020(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0028(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_29[0x3];                                       // 0x0029(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         CallFunc_GetUpsellIndex_ReturnValue;               // 0x002C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Greater_IntInt_ReturnValue;               // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_31[0xF];                                       // 0x0031(0x000F)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSlateBrush                            CallFunc_MakeBrushFromTexture_ReturnValue;         // 0x0040(0x00B0)()
-	int32                                         CallFunc_GetUpsellIndex_ReturnValue_1;             // 0x00F0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_F4[0xC];                                       // 0x00F4(0x000C)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FButtonStyle                           K2Node_MakeStruct_ButtonStyle;                     // 0x0100(0x0370)()
-	bool                                          K2Node_SwitchInteger_CmpSuccess;                   // 0x0470(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_471[0xF];                                      // 0x0471(0x000F)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSlateBrush                            CallFunc_MakeBrushFromTexture_ReturnValue_1;       // 0x0480(0x00B0)()
-	struct FButtonStyle                           K2Node_MakeStruct_ButtonStyle_1;                   // 0x0530(0x0370)()
-	struct FSlateBrush                            CallFunc_MakeBrushFromTexture_ReturnValue_2;       // 0x08A0(0x00B0)()
-	struct FButtonStyle                           K2Node_MakeStruct_ButtonStyle_2;                   // 0x0950(0x0370)()
-	int32                                         CallFunc_GetUpsellIndex_ReturnValue_2;             // 0x0CC0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          K2Node_SwitchInteger_CmpSuccess_1;                 // 0x0CC4(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_CC5[0x3];                                      // 0x0CC5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector2D                              CallFunc_GetViewportSize_ReturnValue;              // 0x0CC8(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_IsValid_ReturnValue_1;                    // 0x0CD8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_CD9[0x7];                                      // 0x0CD9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        CallFunc_BreakVector2D_X;                          // 0x0CE0(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        CallFunc_BreakVector2D_Y;                          // 0x0CE8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Greater_DoubleDouble_ReturnValue;         // 0x0CF0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_OpenUrl_ReturnValue;                      // 0x0CF1(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_OpenUrl_ReturnValue_1;                    // 0x0CF2(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_CF3[0x5];                                      // 0x0CF3(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	class UCreditsUI_C*                           CallFunc_Create_ReturnValue;                       // 0x0CF8(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Play_ReturnValue;                         // 0x0D00(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          isCTAVisible;                                      // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          Temp_bool_Variable;                                // 0x0001(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_2[0x2];                                        // 0x0002(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FMargin                                K2Node_MakeStruct_Margin;                          // 0x0004(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FMargin                                K2Node_MakeStruct_Margin_1;                        // 0x0014(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	struct FMargin                                K2Node_Select_Default;                             // 0x0024(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor)
+	uint8                                         Pad_34[0x4];                                       // 0x0034(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UCanvasPanelSlot*                       CallFunc_SlotAsCanvasSlot_ReturnValue;             // 0x0038(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 };
-DUMPER7_ASSERTS_MainMenuUI_C_ExecuteUbergraph_MainMenuUI;
+DUMPER7_ASSERTS_MainMenuUI_C_UpdateLeftTextPosition;
 
 // Function MainMenuUI.MainMenuUI_C.OverrideBGImage
 // 0x0068 (0x0068 - 0x0000)
@@ -91,21 +63,49 @@ public:
 };
 DUMPER7_ASSERTS_MainMenuUI_C_OverrideBGImage;
 
-// Function MainMenuUI.MainMenuUI_C.UpdateLeftTextPosition
-// 0x0040 (0x0040 - 0x0000)
-struct MainMenuUI_C_UpdateLeftTextPosition final
+// Function MainMenuUI.MainMenuUI_C.ExecuteUbergraph_MainMenuUI
+// 0x0EF0 (0x0EF0 - 0x0000)
+struct MainMenuUI_C_ExecuteUbergraph_MainMenuUI final
 {
 public:
-	bool                                          isCTAVisible;                                      // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          Temp_bool_Variable;                                // 0x0001(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_2[0x2];                                        // 0x0002(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FMargin                                K2Node_MakeStruct_Margin;                          // 0x0004(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	struct FMargin                                K2Node_MakeStruct_Margin_1;                        // 0x0014(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	struct FMargin                                K2Node_Select_Default;                             // 0x0024(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor)
-	uint8                                         Pad_34[0x4];                                       // 0x0034(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UCanvasPanelSlot*                       CallFunc_SlotAsCanvasSlot_ReturnValue;             // 0x0038(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	int32                                         EntryPoint;                                        // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class AGameModeBase*                          CallFunc_GetGameMode_ReturnValue;                  // 0x0008(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class AShooterGame_Menu*                      K2Node_DynamicCast_AsShooter_Game_Menu;            // 0x0010(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	bool                                          K2Node_DynamicCast_bSuccess;                       // 0x0018(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UTexture2D*                             CallFunc_GetMainMenuBackgroundTexture_ReturnValue; // 0x0020(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0028(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_29[0x3];                                       // 0x0029(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CallFunc_GetUpsellIndex_ReturnValue;               // 0x002C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Greater_IntInt_ReturnValue;               // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_31[0xF];                                       // 0x0031(0x000F)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FSlateBrush                            CallFunc_MakeBrushFromTexture_ReturnValue;         // 0x0040(0x00D0)()
+	int32                                         CallFunc_GetUpsellIndex_ReturnValue_1;             // 0x0110(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_114[0xC];                                      // 0x0114(0x000C)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FButtonStyle                           K2Node_MakeStruct_ButtonStyle;                     // 0x0120(0x03F0)()
+	bool                                          K2Node_SwitchInteger_CmpSuccess;                   // 0x0510(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_511[0xF];                                      // 0x0511(0x000F)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FSlateBrush                            CallFunc_MakeBrushFromTexture_ReturnValue_1;       // 0x0520(0x00D0)()
+	struct FButtonStyle                           K2Node_MakeStruct_ButtonStyle_1;                   // 0x05F0(0x03F0)()
+	struct FSlateBrush                            CallFunc_MakeBrushFromTexture_ReturnValue_2;       // 0x09E0(0x00D0)()
+	struct FButtonStyle                           K2Node_MakeStruct_ButtonStyle_2;                   // 0x0AB0(0x03F0)()
+	int32                                         CallFunc_GetUpsellIndex_ReturnValue_2;             // 0x0EA0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          K2Node_SwitchInteger_CmpSuccess_1;                 // 0x0EA4(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_EA5[0x3];                                      // 0x0EA5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector2D                              CallFunc_GetViewportSize_ReturnValue;              // 0x0EA8(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValid_ReturnValue_1;                    // 0x0EB8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_EB9[0x7];                                      // 0x0EB9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        CallFunc_BreakVector2D_X;                          // 0x0EC0(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        CallFunc_BreakVector2D_Y;                          // 0x0EC8(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Greater_DoubleDouble_ReturnValue;         // 0x0ED0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_OpenUrl_ReturnValue;                      // 0x0ED1(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_OpenUrl_ReturnValue_1;                    // 0x0ED2(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_ED3[0x5];                                      // 0x0ED3(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	class UCreditsUI_C*                           CallFunc_Create_ReturnValue;                       // 0x0ED8(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Play_ReturnValue;                         // 0x0EE0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
-DUMPER7_ASSERTS_MainMenuUI_C_UpdateLeftTextPosition;
+DUMPER7_ASSERTS_MainMenuUI_C_ExecuteUbergraph_MainMenuUI;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

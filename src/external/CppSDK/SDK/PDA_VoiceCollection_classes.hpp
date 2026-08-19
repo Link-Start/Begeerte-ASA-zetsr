@@ -17,7 +17,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PDA_VoiceCollection.PDA_VoiceCollection_C
-// 0x0208 (0x0238 - 0x0030)
+// 0x0200 (0x0230 - 0x0030)
 class UPDA_VoiceCollection_C final : public UPrimaryDataAsset
 {
 public:
@@ -75,7 +75,6 @@ public:
 	class USoundBase*                             StayAll;                                           // 0x01D0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	class USoundBase*                             VoiceDemo;                                         // 0x01D8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	TMap<class FName, class USoundBase*>          Custom_SoundAssets;                                // 0x01E0(0x0050)(Edit, BlueprintVisible)
-	class USoundBase*                             Equipped;                                          // 0x0230(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 
 public:
 	static class UClass* StaticClass()

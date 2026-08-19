@@ -67,12 +67,10 @@ public:
 	float                                         Scale;                                             // 0x00B0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_B4[0x4];                                       // 0x00B4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FVector2D                              Translation;                                       // 0x00B8(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bPreserveScale;                                    // 0x00C8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bPreserveRotation;                                 // 0x00C9(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAllowFlips;                                       // 0x00CA(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEnableUDIMLayout;                                 // 0x00CB(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUDIMCVAREnabled;                                  // 0x00CC(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_CD[0x3];                                       // 0x00CD(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bAllowFlips;                                       // 0x00C8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnableUDIMLayout;                                 // 0x00C9(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUDIMCVAREnabled;                                  // 0x00CA(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_CB[0x5];                                       // 0x00CB(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -96,7 +94,7 @@ class alignas(0x10) URecomputeUVsOpFactory final : public UObject
 {
 public:
 	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class URecomputeUVsToolProperties*            Settings;                                          // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class URecomputeUVsToolProperties*            Settings;                                          // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_38[0x108];                                     // 0x0038(0x0108)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -115,70 +113,14 @@ public:
 };
 DUMPER7_ASSERTS_URecomputeUVsOpFactory;
 
-// Class ModelingOperators.UVEditorTexelDensitySettings
-// 0x0018 (0x00C0 - 0x00A8)
-class UUVEditorTexelDensitySettings final : public UInteractiveToolPropertySet
-{
-public:
-	ETexelDensityToolMode                         TexelDensityMode;                                  // 0x00A8(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         TargetWorldUnits;                                  // 0x00AC(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         TargetPixelCount;                                  // 0x00B0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         TextureResolution;                                 // 0x00B4(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEnableUDIMLayout;                                 // 0x00B8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_B9[0x7];                                       // 0x00B9(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	bool InSamplingMode() const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("UVEditorTexelDensitySettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"UVEditorTexelDensitySettings")
-	}
-	static class UUVEditorTexelDensitySettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UUVEditorTexelDensitySettings>();
-	}
-};
-DUMPER7_ASSERTS_UUVEditorTexelDensitySettings;
-
-// Class ModelingOperators.UVTexelDensityOperatorFactory
-// 0x0168 (0x0190 - 0x0028)
-class alignas(0x10) UUVTexelDensityOperatorFactory final : public UObject
-{
-public:
-	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UUVEditorTexelDensitySettings*          Settings;                                          // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_38[0x158];                                     // 0x0038(0x0158)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("UVTexelDensityOperatorFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"UVTexelDensityOperatorFactory")
-	}
-	static class UUVTexelDensityOperatorFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UUVTexelDensityOperatorFactory>();
-	}
-};
-DUMPER7_ASSERTS_UUVTexelDensityOperatorFactory;
-
 // Class ModelingOperators.UVLayoutOperatorFactory
-// 0x0168 (0x0190 - 0x0028)
+// 0x0118 (0x0140 - 0x0028)
 class alignas(0x10) UUVLayoutOperatorFactory final : public UObject
 {
 public:
 	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	class UUVLayoutProperties*                    Settings;                                          // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_38[0x158];                                     // 0x0038(0x0158)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UUVLayoutProperties*                    Settings;                                          // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_38[0x108];                                     // 0x0038(0x0108)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

@@ -14,6 +14,15 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
+// Function ImgMedia.ImgMediaSource.AddGlobalCamera
+// 0x0008 (0x0008 - 0x0000)
+struct ImgMediaSource_AddGlobalCamera final
+{
+public:
+	class AActor*                                 InActor;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ImgMediaSource_AddGlobalCamera;
+
 // Function ImgMedia.ImgMediaSource.AddTargetObject
 // 0x0008 (0x0008 - 0x0000)
 struct ImgMediaSource_AddTargetObject final
@@ -23,6 +32,15 @@ public:
 };
 DUMPER7_ASSERTS_ImgMediaSource_AddTargetObject;
 
+// Function ImgMedia.ImgMediaSource.RemoveGlobalCamera
+// 0x0008 (0x0008 - 0x0000)
+struct ImgMediaSource_RemoveGlobalCamera final
+{
+public:
+	class AActor*                                 InActor;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ImgMediaSource_RemoveGlobalCamera;
+
 // Function ImgMedia.ImgMediaSource.RemoveTargetObject
 // 0x0008 (0x0008 - 0x0000)
 struct ImgMediaSource_RemoveTargetObject final
@@ -31,6 +49,15 @@ public:
 	class AActor*                                 InActor;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_ImgMediaSource_RemoveTargetObject;
+
+// Function ImgMedia.ImgMediaSource.SetMipLevelDistance
+// 0x0004 (0x0004 - 0x0000)
+struct ImgMediaSource_SetMipLevelDistance final
+{
+public:
+	float                                         Distance;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ImgMediaSource_SetMipLevelDistance;
 
 // Function ImgMedia.ImgMediaSource.SetSequencePath
 // 0x0010 (0x0010 - 0x0000)

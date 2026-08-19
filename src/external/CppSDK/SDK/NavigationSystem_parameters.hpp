@@ -17,80 +17,6 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function NavigationSystem.NavigationPath.EnableDebugDrawing
-// 0x0014 (0x0014 - 0x0000)
-struct NavigationPath_EnableDebugDrawing final
-{
-public:
-	bool                                          bShouldDrawDebugData;                              // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FLinearColor                           PathColor;                                         // 0x0004(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_NavigationPath_EnableDebugDrawing;
-
-// Function NavigationSystem.NavigationPath.EnableRecalculationOnInvalidation
-// 0x0001 (0x0001 - 0x0000)
-struct NavigationPath_EnableRecalculationOnInvalidation final
-{
-public:
-	ENavigationOptionFlag                         DoRecalculation;                                   // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_NavigationPath_EnableRecalculationOnInvalidation;
-
-// Function NavigationSystem.NavigationPath.GetDebugString
-// 0x0010 (0x0010 - 0x0000)
-struct NavigationPath_GetDebugString final
-{
-public:
-	class FString                                 ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_NavigationPath_GetDebugString;
-
-// Function NavigationSystem.NavigationPath.GetPathCost
-// 0x0008 (0x0008 - 0x0000)
-struct NavigationPath_GetPathCost final
-{
-public:
-	double                                        ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_NavigationPath_GetPathCost;
-
-// Function NavigationSystem.NavigationPath.GetPathLength
-// 0x0008 (0x0008 - 0x0000)
-struct NavigationPath_GetPathLength final
-{
-public:
-	double                                        ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_NavigationPath_GetPathLength;
-
-// Function NavigationSystem.NavigationPath.IsPartial
-// 0x0001 (0x0001 - 0x0000)
-struct NavigationPath_IsPartial final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_NavigationPath_IsPartial;
-
-// Function NavigationSystem.NavigationPath.IsStringPulled
-// 0x0001 (0x0001 - 0x0000)
-struct NavigationPath_IsStringPulled final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_NavigationPath_IsStringPulled;
-
-// Function NavigationSystem.NavigationPath.IsValid
-// 0x0001 (0x0001 - 0x0000)
-struct NavigationPath_IsValid final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_NavigationPath_IsValid;
-
 // Function NavigationSystem.NavigationSystemV1.FindPathToActorSynchronously
 // 0x0048 (0x0048 - 0x0000)
 struct NavigationSystemV1_FindPathToActorSynchronously final
@@ -370,6 +296,15 @@ public:
 };
 DUMPER7_ASSERTS_NavRelevantComponent_SetNavigationRelevancy;
 
+// Function NavigationSystem.NavModifierComponent.SetAreaClass
+// 0x0008 (0x0008 - 0x0000)
+struct NavModifierComponent_SetAreaClass final
+{
+public:
+	TSubclassOf<class UNavArea>                   NewAreaClass;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_NavModifierComponent_SetAreaClass;
+
 // Function NavigationSystem.RecastNavMesh.K2_ReplaceAreaInTileBounds
 // 0x0050 (0x0050 - 0x0000)
 struct RecastNavMesh_K2_ReplaceAreaInTileBounds final
@@ -384,23 +319,79 @@ public:
 };
 DUMPER7_ASSERTS_RecastNavMesh_K2_ReplaceAreaInTileBounds;
 
-// Function NavigationSystem.NavModifierComponent.SetAreaClass
-// 0x0008 (0x0008 - 0x0000)
-struct NavModifierComponent_SetAreaClass final
+// Function NavigationSystem.NavigationPath.EnableDebugDrawing
+// 0x0014 (0x0014 - 0x0000)
+struct NavigationPath_EnableDebugDrawing final
 {
 public:
-	TSubclassOf<class UNavArea>                   NewAreaClass;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bShouldDrawDebugData;                              // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FLinearColor                           PathColor;                                         // 0x0004(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_NavModifierComponent_SetAreaClass;
+DUMPER7_ASSERTS_NavigationPath_EnableDebugDrawing;
 
-// Function NavigationSystem.NavModifierComponent.SetAreaClassToReplace
-// 0x0008 (0x0008 - 0x0000)
-struct NavModifierComponent_SetAreaClassToReplace final
+// Function NavigationSystem.NavigationPath.EnableRecalculationOnInvalidation
+// 0x0001 (0x0001 - 0x0000)
+struct NavigationPath_EnableRecalculationOnInvalidation final
 {
 public:
-	TSubclassOf<class UNavArea>                   NewAreaClassToReplace;                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	ENavigationOptionFlag                         DoRecalculation;                                   // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_NavModifierComponent_SetAreaClassToReplace;
+DUMPER7_ASSERTS_NavigationPath_EnableRecalculationOnInvalidation;
+
+// Function NavigationSystem.NavigationPath.GetDebugString
+// 0x0010 (0x0010 - 0x0000)
+struct NavigationPath_GetDebugString final
+{
+public:
+	class FString                                 ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_NavigationPath_GetDebugString;
+
+// Function NavigationSystem.NavigationPath.GetPathCost
+// 0x0008 (0x0008 - 0x0000)
+struct NavigationPath_GetPathCost final
+{
+public:
+	double                                        ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_NavigationPath_GetPathCost;
+
+// Function NavigationSystem.NavigationPath.GetPathLength
+// 0x0008 (0x0008 - 0x0000)
+struct NavigationPath_GetPathLength final
+{
+public:
+	double                                        ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_NavigationPath_GetPathLength;
+
+// Function NavigationSystem.NavigationPath.IsPartial
+// 0x0001 (0x0001 - 0x0000)
+struct NavigationPath_IsPartial final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_NavigationPath_IsPartial;
+
+// Function NavigationSystem.NavigationPath.IsStringPulled
+// 0x0001 (0x0001 - 0x0000)
+struct NavigationPath_IsStringPulled final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_NavigationPath_IsStringPulled;
+
+// Function NavigationSystem.NavigationPath.IsValid
+// 0x0001 (0x0001 - 0x0000)
+struct NavigationPath_IsValid final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_NavigationPath_IsValid;
 
 // Function NavigationSystem.NavModifierVolume.SetAreaClass
 // 0x0008 (0x0008 - 0x0000)
@@ -410,15 +401,6 @@ public:
 	TSubclassOf<class UNavArea>                   NewAreaClass;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_NavModifierVolume_SetAreaClass;
-
-// Function NavigationSystem.NavModifierVolume.SetAreaClassToReplace
-// 0x0008 (0x0008 - 0x0000)
-struct NavModifierVolume_SetAreaClassToReplace final
-{
-public:
-	TSubclassOf<class UNavArea>                   NewAreaClassToReplace;                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_NavModifierVolume_SetAreaClassToReplace;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

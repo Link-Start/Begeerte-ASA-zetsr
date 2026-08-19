@@ -10,103 +10,12 @@
 
 #include "Basic.hpp"
 
-#include "AnimationCore_structs.hpp"
-#include "CineCameraRigs_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "CineCameraRigs_structs.hpp"
 
 
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
-
-// Function CineCameraRigs.CineCameraAttachMount.GetConstraint
-// 0x0008 (0x0008 - 0x0000)
-struct CineCameraAttachMount_GetConstraint final
-{
-public:
-	class UTickableParentConstraint*              ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CineCameraAttachMount_GetConstraint;
-
-// Function CineCameraRigs.CineCameraAttachMount.SetEnableLocationLag
-// 0x0001 (0x0001 - 0x0000)
-struct CineCameraAttachMount_SetEnableLocationLag final
-{
-public:
-	bool                                          bEnabled;                                          // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CineCameraAttachMount_SetEnableLocationLag;
-
-// Function CineCameraRigs.CineCameraAttachMount.SetEnableRotationLag
-// 0x0001 (0x0001 - 0x0000)
-struct CineCameraAttachMount_SetEnableRotationLag final
-{
-public:
-	bool                                          bEnabled;                                          // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CineCameraAttachMount_SetEnableRotationLag;
-
-// Function CineCameraRigs.CineCameraAttachMount.SetLocationLagSpeed
-// 0x0004 (0x0004 - 0x0000)
-struct CineCameraAttachMount_SetLocationLagSpeed final
-{
-public:
-	float                                         Speed;                                             // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CineCameraAttachMount_SetLocationLagSpeed;
-
-// Function CineCameraRigs.CineCameraAttachMount.SetRotationLagSpeed
-// 0x0004 (0x0004 - 0x0000)
-struct CineCameraAttachMount_SetRotationLagSpeed final
-{
-public:
-	float                                         Speed;                                             // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CineCameraAttachMount_SetRotationLagSpeed;
-
-// Function CineCameraRigs.CineCameraAttachMount.SetTransformFilter
-// 0x0009 (0x0009 - 0x0000)
-struct CineCameraAttachMount_SetTransformFilter final
-{
-public:
-	struct FTransformFilter                       InFilter;                                          // 0x0000(0x0009)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CineCameraAttachMount_SetTransformFilter;
-
-// Function CineCameraRigs.CineCameraRigRail.IsSequencerDriven
-// 0x0001 (0x0001 - 0x0000)
-struct CineCameraRigRail_IsSequencerDriven final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CineCameraRigRail_IsSequencerDriven;
-
-// Function CineCameraRigs.CineCameraRigRail.SetAbsolutePositionOnRail
-// 0x0004 (0x0004 - 0x0000)
-struct CineCameraRigRail_SetAbsolutePositionOnRail final
-{
-public:
-	float                                         Value;                                             // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CineCameraRigRail_SetAbsolutePositionOnRail;
-
-// Function CineCameraRigs.CineCameraRigRail.SetDisplaySpeedHeatmap
-// 0x0001 (0x0001 - 0x0000)
-struct CineCameraRigRail_SetDisplaySpeedHeatmap final
-{
-public:
-	bool                                          bEnable;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CineCameraRigRail_SetDisplaySpeedHeatmap;
-
-// Function CineCameraRigs.CineCameraRigRail.SetDriveMode
-// 0x0001 (0x0001 - 0x0000)
-struct CineCameraRigRail_SetDriveMode final
-{
-public:
-	ECineCameraRigRailDriveMode                   InMode;                                            // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CineCameraRigRail_SetDriveMode;
 
 // Function CineCameraRigs.CineCameraRigRail.SetSplineMeshMaterial
 // 0x0008 (0x0008 - 0x0000)

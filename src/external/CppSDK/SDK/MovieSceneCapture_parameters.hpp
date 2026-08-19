@@ -150,7 +150,7 @@ DUMPER7_ASSERTS_UserDefinedCaptureProtocol_ResolveBuffer;
 struct UserDefinedCaptureProtocol_StartCapturingFinalPixels final
 {
 public:
-	struct FCapturedPixelsID                      StreamId;                                          // 0x0000(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FCapturedPixelsID                      StreamID;                                          // 0x0000(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_UserDefinedCaptureProtocol_StartCapturingFinalPixels;
 
@@ -188,7 +188,7 @@ struct UserDefinedImageCaptureProtocol_GenerateFilenameForBuffer final
 {
 public:
 	class UTexture*                               Buffer;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FCapturedPixelsID                      StreamId;                                          // 0x0008(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FCapturedPixelsID                      StreamID;                                          // 0x0008(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 	class FString                                 ReturnValue;                                       // 0x0058(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_UserDefinedImageCaptureProtocol_GenerateFilenameForBuffer;
@@ -208,7 +208,7 @@ struct UserDefinedImageCaptureProtocol_WriteImageToDisk final
 {
 public:
 	struct FCapturedPixels                        PixelData;                                         // 0x0000(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FCapturedPixelsID                      StreamId;                                          // 0x0010(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FCapturedPixelsID                      StreamID;                                          // 0x0010(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 	struct FFrameMetrics                          FrameMetrics;                                      // 0x0060(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 	bool                                          bCopyImageData;                                    // 0x0070(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_71[0x7];                                       // 0x0071(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])

@@ -722,15 +722,6 @@ public:
 };
 DUMPER7_ASSERTS_Buff_TekArmor_C_SpawnFX;
 
-// Function Buff_TekArmor.Buff_TekArmor_C.UpdateColorsFromItem
-// 0x0008 (0x0008 - 0x0000)
-struct Buff_TekArmor_C_UpdateColorsFromItem final
-{
-public:
-	class USkeletalMeshComponent*                 CallFunc_GetWeaponMesh_OutMesh;                    // 0x0000(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_Buff_TekArmor_C_UpdateColorsFromItem;
-
 // Function Buff_TekArmor.Buff_TekArmor_C.UpdatePlayerFOV
 // 0x00C8 (0x00C8 - 0x0000)
 struct Buff_TekArmor_C_UpdatePlayerFOV final

@@ -16,9 +16,8 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemConsumableGeneric.PrimalItemConsumableGeneric_C
-// 0x0000 (0x0B90 - 0x0B90)
-#pragma pack(push, 0x1)
-class SDK_ALIGN(0x10) UPrimalItemConsumableGeneric_C : public UPrimalItem_Base_C
+// 0x0000 (0x1170 - 0x1170)
+class UPrimalItemConsumableGeneric_C : public UPrimalItem_Base_C
 {
 public:
 	static class UClass* StaticClass()
@@ -34,7 +33,6 @@ public:
 		return GetDefaultObjImpl<UPrimalItemConsumableGeneric_C>();
 	}
 };
-#pragma pack(pop)
 DUMPER7_ASSERTS_UPrimalItemConsumableGeneric_C;
 
 SDK_NAMESPACE_END

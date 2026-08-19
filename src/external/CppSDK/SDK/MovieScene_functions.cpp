@@ -16,231 +16,8 @@
 
 SDK_NAMESPACE_START
 
-// Function MovieScene.MovieSceneBoundObjectProxy.BP_GetBoundObjectForSequencer
-// (RequiredAPI, Event, Public, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class UObject*                          ResolvedObject                                         (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UObject*                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UObject* IMovieSceneBoundObjectProxy::BP_GetBoundObjectForSequencer(class UObject* ResolvedObject)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = AsUObject()->Class->GetFunction("MovieSceneBoundObjectProxy", "BP_GetBoundObjectForSequencer");
-
-	Params::MovieSceneBoundObjectProxy_BP_GetBoundObjectForSequencer Parms{};
-
-	Parms.ResolvedObject = ResolvedObject;
-
-	AsUObject()->ProcessEvent(Func, &Parms);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function MovieScene.MovieSceneBindingEventReceiverInterface.OnObjectBoundBySequencer
-// (Native, Event, Public, BlueprintEvent)
-// Parameters:
-// class UMovieSceneSequencePlayer*        Player                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FMovieSceneObjectBindingID&BindingID                                              (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void IMovieSceneBindingEventReceiverInterface::OnObjectBoundBySequencer(class UMovieSceneSequencePlayer* Player, const struct FMovieSceneObjectBindingID& BindingID)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = AsUObject()->Class->GetFunction("MovieSceneBindingEventReceiverInterface", "OnObjectBoundBySequencer");
-
-	Params::MovieSceneBindingEventReceiverInterface_OnObjectBoundBySequencer Parms{};
-
-	Parms.Player = Player;
-	Parms.BindingID = std::move(BindingID);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	AsUObject()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function MovieScene.MovieSceneBindingEventReceiverInterface.OnObjectUnboundBySequencer
-// (Native, Event, Public, BlueprintEvent)
-// Parameters:
-// class UMovieSceneSequencePlayer*        Player                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FMovieSceneObjectBindingID&BindingID                                              (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void IMovieSceneBindingEventReceiverInterface::OnObjectUnboundBySequencer(class UMovieSceneSequencePlayer* Player, const struct FMovieSceneObjectBindingID& BindingID)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = AsUObject()->Class->GetFunction("MovieSceneBindingEventReceiverInterface", "OnObjectUnboundBySequencer");
-
-	Params::MovieSceneBindingEventReceiverInterface_OnObjectUnboundBySequencer Parms{};
-
-	Parms.Player = Player;
-	Parms.BindingID = std::move(BindingID);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	AsUObject()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function MovieScene.MovieSceneCondition.BP_EvaluateCondition
-// (Event, Protected, HasOutParams, BlueprintEvent, Const)
-// Parameters:
-// const struct FMovieSceneConditionContext&ConditionContext                                       (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UMovieSceneCondition::BP_EvaluateCondition(const struct FMovieSceneConditionContext& ConditionContext) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MovieSceneCondition", "BP_EvaluateCondition");
-
-	Params::MovieSceneCondition_BP_EvaluateCondition Parms{};
-
-	Parms.ConditionContext = std::move(ConditionContext);
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function MovieScene.MovieSceneCondition.BP_GetCheckFrequency
-// (Native, Event, Protected, BlueprintEvent, Const)
-// Parameters:
-// EMovieSceneConditionCheckFrequency      ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-EMovieSceneConditionCheckFrequency UMovieSceneCondition::BP_GetCheckFrequency() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MovieSceneCondition", "BP_GetCheckFrequency");
-
-	Params::MovieSceneCondition_BP_GetCheckFrequency Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function MovieScene.MovieSceneCondition.BP_GetScope
-// (Native, Event, Protected, BlueprintEvent, Const)
-// Parameters:
-// EMovieSceneConditionScope               ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-EMovieSceneConditionScope UMovieSceneCondition::BP_GetScope() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MovieSceneCondition", "BP_GetScope");
-
-	Params::MovieSceneCondition_BP_GetScope Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function MovieScene.MovieSceneCustomBinding.GetBaseCustomPriority
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 UMovieSceneCustomBinding::GetBaseCustomPriority()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("MovieSceneCustomBinding", "GetBaseCustomPriority");
-
-	Params::MovieSceneCustomBinding_GetBaseCustomPriority Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function MovieScene.MovieSceneCustomBinding.GetBaseEnginePriority
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 UMovieSceneCustomBinding::GetBaseEnginePriority()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("MovieSceneCustomBinding", "GetBaseEnginePriority");
-
-	Params::MovieSceneCustomBinding_GetBaseEnginePriority Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function MovieScene.MovieSceneEasingFunction.OnEvaluate
-// (RequiredAPI, Event, Protected, BlueprintCallable, BlueprintEvent, BlueprintPure, Const)
-// Parameters:
-// float                                   Interp                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float IMovieSceneEasingFunction::OnEvaluate(float Interp) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = AsUObject()->Class->GetFunction("MovieSceneEasingFunction", "OnEvaluate");
-
-	Params::MovieSceneEasingFunction_OnEvaluate Parms{};
-
-	Parms.Interp = Interp;
-
-	AsUObject()->ProcessEvent(Func, &Parms);
-
-	return Parms.ReturnValue;
-}
-
-
 // Function MovieScene.MovieSceneSection.SetBlendType
-// (Native, Public, BlueprintCallable)
+// (RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
 // EMovieSceneBlendType                    InBlendType                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -689,158 +466,21 @@ bool UMovieSceneSection::IsLocked() const
 }
 
 
-// Function MovieScene.MovieSceneCustomClockSource.OnRequestCurrentTime
-// (Native, Public, HasOutParams)
+// Function MovieScene.MovieSceneSubSection.SetSequence
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// const struct FQualifiedFrameTime&       InCurrentTime                                          (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-// float                                   InPlayRate                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FFrameTime                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
+// class UMovieSceneSequence*              Sequence                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FFrameTime IMovieSceneCustomClockSource::OnRequestCurrentTime(const struct FQualifiedFrameTime& InCurrentTime, float InPlayRate)
+void UMovieSceneSubSection::SetSequence(class UMovieSceneSequence* Sequence)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = AsUObject()->Class->GetFunction("MovieSceneCustomClockSource", "OnRequestCurrentTime");
+		Func = Class->GetFunction("MovieSceneSubSection", "SetSequence");
 
-	Params::MovieSceneCustomClockSource_OnRequestCurrentTime Parms{};
+	Params::MovieSceneSubSection_SetSequence Parms{};
 
-	Parms.InCurrentTime = std::move(InCurrentTime);
-	Parms.InPlayRate = InPlayRate;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	AsUObject()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function MovieScene.MovieSceneCustomClockSource.OnStartPlaying
-// (Native, Public, HasOutParams)
-// Parameters:
-// const struct FQualifiedFrameTime&       InStartTime                                            (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-
-void IMovieSceneCustomClockSource::OnStartPlaying(const struct FQualifiedFrameTime& InStartTime)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = AsUObject()->Class->GetFunction("MovieSceneCustomClockSource", "OnStartPlaying");
-
-	Params::MovieSceneCustomClockSource_OnStartPlaying Parms{};
-
-	Parms.InStartTime = std::move(InStartTime);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	AsUObject()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function MovieScene.MovieSceneCustomClockSource.OnStopPlaying
-// (Native, Public, HasOutParams)
-// Parameters:
-// const struct FQualifiedFrameTime&       InStopTime                                             (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-
-void IMovieSceneCustomClockSource::OnStopPlaying(const struct FQualifiedFrameTime& InStopTime)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = AsUObject()->Class->GetFunction("MovieSceneCustomClockSource", "OnStopPlaying");
-
-	Params::MovieSceneCustomClockSource_OnStopPlaying Parms{};
-
-	Parms.InStopTime = std::move(InStopTime);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	AsUObject()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function MovieScene.MovieSceneCustomClockSource.OnTick
-// (Native, Public)
-// Parameters:
-// float                                   DeltaSeconds                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   InPlayRate                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void IMovieSceneCustomClockSource::OnTick(float DeltaSeconds, float InPlayRate)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = AsUObject()->Class->GetFunction("MovieSceneCustomClockSource", "OnTick");
-
-	Params::MovieSceneCustomClockSource_OnTick Parms{};
-
-	Parms.DeltaSeconds = DeltaSeconds;
-	Parms.InPlayRate = InPlayRate;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	AsUObject()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function MovieScene.BuiltInDynamicBindingResolverLibrary.ResolveToPlayerPawn
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   PlayerControllerIndex                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FMovieSceneDynamicBindingResolveResultReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
-
-struct FMovieSceneDynamicBindingResolveResult UBuiltInDynamicBindingResolverLibrary::ResolveToPlayerPawn(class UObject* WorldContextObject, int32 PlayerControllerIndex)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("BuiltInDynamicBindingResolverLibrary", "ResolveToPlayerPawn");
-
-	Params::BuiltInDynamicBindingResolverLibrary_ResolveToPlayerPawn Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.PlayerControllerIndex = PlayerControllerIndex;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function MovieScene.MovieSceneMetaData.SetAuthor
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    InAuthor                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UMovieSceneMetaData::SetAuthor(const class FString& InAuthor)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MovieSceneMetaData", "SetAuthor");
-
-	Params::MovieSceneMetaData_SetAuthor Parms{};
-
-	Parms.InAuthor = std::move(InAuthor);
+	Parms.Sequence = Sequence;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -851,119 +491,19 @@ void UMovieSceneMetaData::SetAuthor(const class FString& InAuthor)
 }
 
 
-// Function MovieScene.MovieSceneMetaData.SetCreated
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// Function MovieScene.MovieSceneSubSection.GetSequence
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// const struct FDateTime&                 InCreated                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UMovieSceneSequence*              ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMovieSceneMetaData::SetCreated(const struct FDateTime& InCreated)
+class UMovieSceneSequence* UMovieSceneSubSection::GetSequence() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MovieSceneMetaData", "SetCreated");
+		Func = Class->GetFunction("MovieSceneSubSection", "GetSequence");
 
-	Params::MovieSceneMetaData_SetCreated Parms{};
-
-	Parms.InCreated = std::move(InCreated);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function MovieScene.MovieSceneMetaData.SetNotes
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    InNotes                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UMovieSceneMetaData::SetNotes(const class FString& InNotes)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MovieSceneMetaData", "SetNotes");
-
-	Params::MovieSceneMetaData_SetNotes Parms{};
-
-	Parms.InNotes = std::move(InNotes);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function MovieScene.MovieSceneMetaData.GetAuthor
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class FString UMovieSceneMetaData::GetAuthor() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MovieSceneMetaData", "GetAuthor");
-
-	Params::MovieSceneMetaData_GetAuthor Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function MovieScene.MovieSceneMetaData.GetCreated
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// struct FDateTime                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-struct FDateTime UMovieSceneMetaData::GetCreated() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MovieSceneMetaData", "GetCreated");
-
-	Params::MovieSceneMetaData_GetCreated Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function MovieScene.MovieSceneMetaData.GetNotes
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class FString UMovieSceneMetaData::GetNotes() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MovieSceneMetaData", "GetNotes");
-
-	Params::MovieSceneMetaData_GetNotes Parms{};
+	Params::MovieSceneSubSection_GetSequence Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1058,7 +598,7 @@ struct FMovieSceneTimecodeSource UMovieSceneSequence::GetEarliestTimecodeSource(
 
 
 // Function MovieScene.MovieSceneSequencePlayer.ChangePlaybackDirection
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UMovieSceneSequencePlayer::ChangePlaybackDirection()
 {
@@ -1077,7 +617,7 @@ void UMovieSceneSequencePlayer::ChangePlaybackDirection()
 
 
 // Function MovieScene.MovieSceneSequencePlayer.GetBoundObjects
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMovieSceneObjectBindingID&ObjectBinding                                          (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<class UObject*>                  ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
@@ -1130,7 +670,7 @@ bool UMovieSceneSequencePlayer::GetDisableCameraCuts()
 
 
 // Function MovieScene.MovieSceneSequencePlayer.GetObjectBindings
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UObject*                          InObject                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<struct FMovieSceneObjectBindingID>ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
@@ -1158,7 +698,7 @@ TArray<struct FMovieSceneObjectBindingID> UMovieSceneSequencePlayer::GetObjectBi
 
 
 // Function MovieScene.MovieSceneSequencePlayer.GoToEndAndStop
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UMovieSceneSequencePlayer::GoToEndAndStop()
 {
@@ -1176,8 +716,86 @@ void UMovieSceneSequencePlayer::GoToEndAndStop()
 }
 
 
+// Function MovieScene.MovieSceneSequencePlayer.JumpToFrame
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const struct FFrameTime&                NewPosition                                            (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UMovieSceneSequencePlayer::JumpToFrame(const struct FFrameTime& NewPosition)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MovieSceneSequencePlayer", "JumpToFrame");
+
+	Params::MovieSceneSequencePlayer_JumpToFrame Parms{};
+
+	Parms.NewPosition = std::move(NewPosition);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function MovieScene.MovieSceneSequencePlayer.JumpToMarkedFrame
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const class FString&                    InLabel                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UMovieSceneSequencePlayer::JumpToMarkedFrame(const class FString& InLabel)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MovieSceneSequencePlayer", "JumpToMarkedFrame");
+
+	Params::MovieSceneSequencePlayer_JumpToMarkedFrame Parms{};
+
+	Parms.InLabel = std::move(InLabel);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function MovieScene.MovieSceneSequencePlayer.JumpToSeconds
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   TimeInSeconds                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UMovieSceneSequencePlayer::JumpToSeconds(float TimeInSeconds)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MovieSceneSequencePlayer", "JumpToSeconds");
+
+	Params::MovieSceneSequencePlayer_JumpToSeconds Parms{};
+
+	Parms.TimeInSeconds = TimeInSeconds;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function MovieScene.MovieSceneSequencePlayer.Pause
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UMovieSceneSequencePlayer::Pause()
 {
@@ -1196,7 +814,7 @@ void UMovieSceneSequencePlayer::Pause()
 
 
 // Function MovieScene.MovieSceneSequencePlayer.Play
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UMovieSceneSequencePlayer::Play()
 {
@@ -1215,7 +833,7 @@ void UMovieSceneSequencePlayer::Play()
 
 
 // Function MovieScene.MovieSceneSequencePlayer.PlayLooping
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   NumLoops                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1240,7 +858,7 @@ void UMovieSceneSequencePlayer::PlayLooping(int32 NumLoops)
 
 
 // Function MovieScene.MovieSceneSequencePlayer.PlayReverse
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UMovieSceneSequencePlayer::PlayReverse()
 {
@@ -1259,7 +877,7 @@ void UMovieSceneSequencePlayer::PlayReverse()
 
 
 // Function MovieScene.MovieSceneSequencePlayer.PlayTo
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMovieSceneSequencePlaybackParams&PlaybackParams                                         (Parm, NativeAccessSpecifierPublic)
 // const struct FMovieSceneSequencePlayToParams&PlayToParams                                           (Parm, NoDestructor, NativeAccessSpecifierPublic)
@@ -1285,8 +903,86 @@ void UMovieSceneSequencePlayer::PlayTo(const struct FMovieSceneSequencePlaybackP
 }
 
 
+// Function MovieScene.MovieSceneSequencePlayer.PlayToFrame
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const struct FFrameTime&                NewPosition                                            (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UMovieSceneSequencePlayer::PlayToFrame(const struct FFrameTime& NewPosition)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MovieSceneSequencePlayer", "PlayToFrame");
+
+	Params::MovieSceneSequencePlayer_PlayToFrame Parms{};
+
+	Parms.NewPosition = std::move(NewPosition);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function MovieScene.MovieSceneSequencePlayer.PlayToMarkedFrame
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const class FString&                    InLabel                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UMovieSceneSequencePlayer::PlayToMarkedFrame(const class FString& InLabel)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MovieSceneSequencePlayer", "PlayToMarkedFrame");
+
+	Params::MovieSceneSequencePlayer_PlayToMarkedFrame Parms{};
+
+	Parms.InLabel = std::move(InLabel);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function MovieScene.MovieSceneSequencePlayer.PlayToSeconds
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   TimeInSeconds                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UMovieSceneSequencePlayer::PlayToSeconds(float TimeInSeconds)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MovieSceneSequencePlayer", "PlayToSeconds");
+
+	Params::MovieSceneSequencePlayer_PlayToSeconds Parms{};
+
+	Parms.TimeInSeconds = TimeInSeconds;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function MovieScene.MovieSceneSequencePlayer.RemoveWeight
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UMovieSceneSequencePlayer::RemoveWeight()
 {
@@ -1304,33 +1000,8 @@ void UMovieSceneSequencePlayer::RemoveWeight()
 }
 
 
-// Function MovieScene.MovieSceneSequencePlayer.RequestInvalidateBinding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const struct FMovieSceneObjectBindingID&ObjectBinding                                          (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UMovieSceneSequencePlayer::RequestInvalidateBinding(const struct FMovieSceneObjectBindingID& ObjectBinding)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MovieSceneSequencePlayer", "RequestInvalidateBinding");
-
-	Params::MovieSceneSequencePlayer_RequestInvalidateBinding Parms{};
-
-	Parms.ObjectBinding = std::move(ObjectBinding);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function MovieScene.MovieSceneSequencePlayer.RestoreState
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UMovieSceneSequencePlayer::RestoreState()
 {
@@ -1349,13 +1020,12 @@ void UMovieSceneSequencePlayer::RestoreState()
 
 
 // Function MovieScene.MovieSceneSequencePlayer.RPC_ExplicitServerUpdateEvent
-// (Final, RequiredAPI, Net, NetReliable, Native, Event, NetMulticast, Private)
+// (Final, Net, NetReliable, Native, Event, NetMulticast, Private)
 // Parameters:
 // EUpdatePositionMethod                   Method                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FFrameTime&                RelevantTime                                           (Parm, ZeroConstructor, NoDestructor, NativeAccessSpecifierPublic)
-// int32                                   NewSerialNumber                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FFrameTime&                RelevantTime                                           (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMovieSceneSequencePlayer::RPC_ExplicitServerUpdateEvent(EUpdatePositionMethod Method, const struct FFrameTime& RelevantTime, int32 NewSerialNumber)
+void UMovieSceneSequencePlayer::RPC_ExplicitServerUpdateEvent(EUpdatePositionMethod Method, const struct FFrameTime& RelevantTime)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1366,7 +1036,6 @@ void UMovieSceneSequencePlayer::RPC_ExplicitServerUpdateEvent(EUpdatePositionMet
 
 	Parms.Method = Method;
 	Parms.RelevantTime = std::move(RelevantTime);
-	Parms.NewSerialNumber = NewSerialNumber;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1378,12 +1047,11 @@ void UMovieSceneSequencePlayer::RPC_ExplicitServerUpdateEvent(EUpdatePositionMet
 
 
 // Function MovieScene.MovieSceneSequencePlayer.RPC_OnFinishPlaybackEvent
-// (Final, RequiredAPI, Net, NetReliable, Native, Event, NetMulticast, Private)
+// (Final, Net, NetReliable, Native, Event, NetMulticast, Private)
 // Parameters:
-// const struct FFrameTime&                StoppedTime                                            (Parm, ZeroConstructor, NoDestructor, NativeAccessSpecifierPublic)
-// int32                                   NewSerialNumber                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FFrameTime&                StoppedTime                                            (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMovieSceneSequencePlayer::RPC_OnFinishPlaybackEvent(const struct FFrameTime& StoppedTime, int32 NewSerialNumber)
+void UMovieSceneSequencePlayer::RPC_OnFinishPlaybackEvent(const struct FFrameTime& StoppedTime)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1393,7 +1061,6 @@ void UMovieSceneSequencePlayer::RPC_OnFinishPlaybackEvent(const struct FFrameTim
 	Params::MovieSceneSequencePlayer_RPC_OnFinishPlaybackEvent Parms{};
 
 	Parms.StoppedTime = std::move(StoppedTime);
-	Parms.NewSerialNumber = NewSerialNumber;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1405,12 +1072,11 @@ void UMovieSceneSequencePlayer::RPC_OnFinishPlaybackEvent(const struct FFrameTim
 
 
 // Function MovieScene.MovieSceneSequencePlayer.RPC_OnStopEvent
-// (Final, RequiredAPI, Net, NetReliable, Native, Event, NetMulticast, Private)
+// (Final, Net, NetReliable, Native, Event, NetMulticast, Private)
 // Parameters:
-// const struct FFrameTime&                StoppedTime                                            (Parm, ZeroConstructor, NoDestructor, NativeAccessSpecifierPublic)
-// int32                                   NewSerialNumber                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FFrameTime&                StoppedTime                                            (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMovieSceneSequencePlayer::RPC_OnStopEvent(const struct FFrameTime& StoppedTime, int32 NewSerialNumber)
+void UMovieSceneSequencePlayer::RPC_OnStopEvent(const struct FFrameTime& StoppedTime)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1420,7 +1086,6 @@ void UMovieSceneSequencePlayer::RPC_OnStopEvent(const struct FFrameTime& Stopped
 	Params::MovieSceneSequencePlayer_RPC_OnStopEvent Parms{};
 
 	Parms.StoppedTime = std::move(StoppedTime);
-	Parms.NewSerialNumber = NewSerialNumber;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1432,7 +1097,7 @@ void UMovieSceneSequencePlayer::RPC_OnStopEvent(const struct FFrameTime& Stopped
 
 
 // Function MovieScene.MovieSceneSequencePlayer.Scrub
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UMovieSceneSequencePlayer::Scrub()
 {
@@ -1450,21 +1115,74 @@ void UMovieSceneSequencePlayer::Scrub()
 }
 
 
-// Function MovieScene.MovieSceneSequencePlayer.SetCompletionModeOverride
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Function MovieScene.MovieSceneSequencePlayer.ScrubToFrame
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// EMovieSceneCompletionModeOverride       CompletionModeOverride                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FFrameTime&                NewPosition                                            (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMovieSceneSequencePlayer::SetCompletionModeOverride(EMovieSceneCompletionModeOverride CompletionModeOverride)
+void UMovieSceneSequencePlayer::ScrubToFrame(const struct FFrameTime& NewPosition)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MovieSceneSequencePlayer", "SetCompletionModeOverride");
+		Func = Class->GetFunction("MovieSceneSequencePlayer", "ScrubToFrame");
 
-	Params::MovieSceneSequencePlayer_SetCompletionModeOverride Parms{};
+	Params::MovieSceneSequencePlayer_ScrubToFrame Parms{};
 
-	Parms.CompletionModeOverride = CompletionModeOverride;
+	Parms.NewPosition = std::move(NewPosition);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function MovieScene.MovieSceneSequencePlayer.ScrubToMarkedFrame
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const class FString&                    InLabel                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UMovieSceneSequencePlayer::ScrubToMarkedFrame(const class FString& InLabel)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MovieSceneSequencePlayer", "ScrubToMarkedFrame");
+
+	Params::MovieSceneSequencePlayer_ScrubToMarkedFrame Parms{};
+
+	Parms.InLabel = std::move(InLabel);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function MovieScene.MovieSceneSequencePlayer.ScrubToSeconds
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   TimeInSeconds                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UMovieSceneSequencePlayer::ScrubToSeconds(float TimeInSeconds)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MovieSceneSequencePlayer", "ScrubToSeconds");
+
+	Params::MovieSceneSequencePlayer_ScrubToSeconds Parms{};
+
+	Parms.TimeInSeconds = TimeInSeconds;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1501,7 +1219,7 @@ void UMovieSceneSequencePlayer::SetDisableCameraCuts(bool bInDisableCameraCuts)
 
 
 // Function MovieScene.MovieSceneSequencePlayer.SetFrameRange
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   StartFrame                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   Duration                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1530,9 +1248,9 @@ void UMovieSceneSequencePlayer::SetFrameRange(int32 StartFrame, int32 Duration, 
 
 
 // Function MovieScene.MovieSceneSequencePlayer.SetFrameRate
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// const struct FFrameRate&                FrameRate                                              (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FFrameRate&                FrameRate                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 void UMovieSceneSequencePlayer::SetFrameRate(const struct FFrameRate& FrameRate)
 {
@@ -1554,33 +1272,8 @@ void UMovieSceneSequencePlayer::SetFrameRate(const struct FFrameRate& FrameRate)
 }
 
 
-// Function MovieScene.MovieSceneSequencePlayer.SetHideHud
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    HideHud                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UMovieSceneSequencePlayer::SetHideHud(bool HideHud)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MovieSceneSequencePlayer", "SetHideHud");
-
-	Params::MovieSceneSequencePlayer_SetHideHud Parms{};
-
-	Parms.HideHud = HideHud;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function MovieScene.MovieSceneSequencePlayer.SetPlaybackPosition
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMovieSceneSequencePlaybackParams&PlaybackParams                                         (Parm, NativeAccessSpecifierPublic)
 
@@ -1605,7 +1298,7 @@ void UMovieSceneSequencePlayer::SetPlaybackPosition(const struct FMovieSceneSequ
 
 
 // Function MovieScene.MovieSceneSequencePlayer.SetPlayRate
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   PlayRate                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1630,7 +1323,7 @@ void UMovieSceneSequencePlayer::SetPlayRate(float PlayRate)
 
 
 // Function MovieScene.MovieSceneSequencePlayer.SetTimeRange
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   StartTime_0                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Duration                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1657,7 +1350,7 @@ void UMovieSceneSequencePlayer::SetTimeRange(float StartTime_0, float Duration)
 
 
 // Function MovieScene.MovieSceneSequencePlayer.SetWeight
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // double                                  InWeight                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1682,7 +1375,7 @@ void UMovieSceneSequencePlayer::SetWeight(double InWeight)
 
 
 // Function MovieScene.MovieSceneSequencePlayer.Stop
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UMovieSceneSequencePlayer::Stop()
 {
@@ -1701,7 +1394,7 @@ void UMovieSceneSequencePlayer::Stop()
 
 
 // Function MovieScene.MovieSceneSequencePlayer.StopAtCurrentTime
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UMovieSceneSequencePlayer::StopAtCurrentTime()
 {
@@ -1719,35 +1412,10 @@ void UMovieSceneSequencePlayer::StopAtCurrentTime()
 }
 
 
-// Function MovieScene.MovieSceneSequencePlayer.GetCompletionModeOverride
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// EMovieSceneCompletionModeOverride       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-EMovieSceneCompletionModeOverride UMovieSceneSequencePlayer::GetCompletionModeOverride() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MovieSceneSequencePlayer", "GetCompletionModeOverride");
-
-	Params::MovieSceneSequencePlayer_GetCompletionModeOverride Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function MovieScene.MovieSceneSequencePlayer.GetCurrentTime
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// struct FQualifiedFrameTime              ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
+// struct FQualifiedFrameTime              ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 struct FQualifiedFrameTime UMovieSceneSequencePlayer::GetCurrentTime() const
 {
@@ -1770,9 +1438,9 @@ struct FQualifiedFrameTime UMovieSceneSequencePlayer::GetCurrentTime() const
 
 
 // Function MovieScene.MovieSceneSequencePlayer.GetDuration
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// struct FQualifiedFrameTime              ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
+// struct FQualifiedFrameTime              ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 struct FQualifiedFrameTime UMovieSceneSequencePlayer::GetDuration() const
 {
@@ -1797,7 +1465,7 @@ struct FQualifiedFrameTime UMovieSceneSequencePlayer::GetDuration() const
 // Function MovieScene.MovieSceneSequencePlayer.GetEndTime
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// struct FQualifiedFrameTime              ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
+// struct FQualifiedFrameTime              ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 struct FQualifiedFrameTime UMovieSceneSequencePlayer::GetEndTime() const
 {
@@ -1820,7 +1488,7 @@ struct FQualifiedFrameTime UMovieSceneSequencePlayer::GetEndTime() const
 
 
 // Function MovieScene.MovieSceneSequencePlayer.GetFrameDuration
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1847,7 +1515,7 @@ int32 UMovieSceneSequencePlayer::GetFrameDuration() const
 // Function MovieScene.MovieSceneSequencePlayer.GetFrameRate
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// struct FFrameRate                       ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FFrameRate                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 struct FFrameRate UMovieSceneSequencePlayer::GetFrameRate() const
 {
@@ -1869,33 +1537,8 @@ struct FFrameRate UMovieSceneSequencePlayer::GetFrameRate() const
 }
 
 
-// Function MovieScene.MovieSceneSequencePlayer.GetHideHud
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UMovieSceneSequencePlayer::GetHideHud() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MovieSceneSequencePlayer", "GetHideHud");
-
-	Params::MovieSceneSequencePlayer_GetHideHud Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function MovieScene.MovieSceneSequencePlayer.GetPlayRate
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1945,7 +1588,7 @@ class UMovieSceneSequence* UMovieSceneSequencePlayer::GetSequence() const
 
 
 // Function MovieScene.MovieSceneSequencePlayer.GetSequenceName
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    bAddClientInfo                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1975,7 +1618,7 @@ class FString UMovieSceneSequencePlayer::GetSequenceName(bool bAddClientInfo) co
 // Function MovieScene.MovieSceneSequencePlayer.GetStartTime
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// struct FQualifiedFrameTime              ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
+// struct FQualifiedFrameTime              ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 struct FQualifiedFrameTime UMovieSceneSequencePlayer::GetStartTime() const
 {
@@ -1998,7 +1641,7 @@ struct FQualifiedFrameTime UMovieSceneSequencePlayer::GetStartTime() const
 
 
 // Function MovieScene.MovieSceneSequencePlayer.IsPaused
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -2023,7 +1666,7 @@ bool UMovieSceneSequencePlayer::IsPaused() const
 
 
 // Function MovieScene.MovieSceneSequencePlayer.IsPlaying
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -2048,7 +1691,7 @@ bool UMovieSceneSequencePlayer::IsPlaying() const
 
 
 // Function MovieScene.MovieSceneSequencePlayer.IsReversed
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -2072,53 +1715,133 @@ bool UMovieSceneSequencePlayer::IsReversed() const
 }
 
 
-// Function MovieScene.MovieSceneSubSection.SetSequence
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Function MovieScene.MovieSceneEasingFunction.OnEvaluate
+// (Event, Protected, BlueprintCallable, BlueprintEvent, BlueprintPure, Const)
 // Parameters:
-// class UMovieSceneSequence*              Sequence                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Interp                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMovieSceneSubSection::SetSequence(class UMovieSceneSequence* Sequence)
+float IMovieSceneEasingFunction::OnEvaluate(float Interp) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MovieSceneSubSection", "SetSequence");
+		Func = AsUObject()->Class->GetFunction("MovieSceneEasingFunction", "OnEvaluate");
 
-	Params::MovieSceneSubSection_SetSequence Parms{};
+	Params::MovieSceneEasingFunction_OnEvaluate Parms{};
 
-	Parms.Sequence = Sequence;
+	Parms.Interp = Interp;
+
+	AsUObject()->ProcessEvent(Func, &Parms);
+
+	return Parms.ReturnValue;
+}
+
+
+// Function MovieScene.MovieSceneCustomClockSource.OnRequestCurrentTime
+// (Native, Public, HasOutParams)
+// Parameters:
+// const struct FQualifiedFrameTime&       InCurrentTime                                          (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   InPlayRate                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FFrameTime                       ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+struct FFrameTime IMovieSceneCustomClockSource::OnRequestCurrentTime(const struct FQualifiedFrameTime& InCurrentTime, float InPlayRate)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = AsUObject()->Class->GetFunction("MovieSceneCustomClockSource", "OnRequestCurrentTime");
+
+	Params::MovieSceneCustomClockSource_OnRequestCurrentTime Parms{};
+
+	Parms.InCurrentTime = std::move(InCurrentTime);
+	Parms.InPlayRate = InPlayRate;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
+	AsUObject()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function MovieScene.MovieSceneCustomClockSource.OnStartPlaying
+// (Native, Public, HasOutParams)
+// Parameters:
+// const struct FQualifiedFrameTime&       InStartTime                                            (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void IMovieSceneCustomClockSource::OnStartPlaying(const struct FQualifiedFrameTime& InStartTime)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = AsUObject()->Class->GetFunction("MovieSceneCustomClockSource", "OnStartPlaying");
+
+	Params::MovieSceneCustomClockSource_OnStartPlaying Parms{};
+
+	Parms.InStartTime = std::move(InStartTime);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	AsUObject()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 }
 
 
-// Function MovieScene.MovieSceneSubSection.GetSequence
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Function MovieScene.MovieSceneCustomClockSource.OnStopPlaying
+// (Native, Public, HasOutParams)
 // Parameters:
-// class UMovieSceneSequence*              ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FQualifiedFrameTime&       InStopTime                                             (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UMovieSceneSequence* UMovieSceneSubSection::GetSequence() const
+void IMovieSceneCustomClockSource::OnStopPlaying(const struct FQualifiedFrameTime& InStopTime)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MovieSceneSubSection", "GetSequence");
+		Func = AsUObject()->Class->GetFunction("MovieSceneCustomClockSource", "OnStopPlaying");
 
-	Params::MovieSceneSubSection_GetSequence Parms{};
+	Params::MovieSceneCustomClockSource_OnStopPlaying Parms{};
+
+	Parms.InStopTime = std::move(InStopTime);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
+	AsUObject()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+}
 
-	return Parms.ReturnValue;
+
+// Function MovieScene.MovieSceneCustomClockSource.OnTick
+// (Native, Public)
+// Parameters:
+// float                                   DeltaSeconds                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   InPlayRate                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void IMovieSceneCustomClockSource::OnTick(float DeltaSeconds, float InPlayRate)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = AsUObject()->Class->GetFunction("MovieSceneCustomClockSource", "OnTick");
+
+	Params::MovieSceneCustomClockSource_OnTick Parms{};
+
+	Parms.DeltaSeconds = DeltaSeconds;
+	Parms.InPlayRate = InPlayRate;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	AsUObject()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
 }
 
 

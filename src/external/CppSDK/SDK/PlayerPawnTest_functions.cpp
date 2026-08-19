@@ -44,106 +44,6 @@ void APlayerPawnTest_C::AssignAssetsFromVoiceCollection()
 }
 
 
-// Function PlayerPawnTest.PlayerPawnTest_C.BPApplyBodyColors
-// (Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class USkeletalMeshComponent*           toMesh                                                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-
-void APlayerPawnTest_C::BPApplyBodyColors(class USkeletalMeshComponent* toMesh)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PlayerPawnTest_C", "BPApplyBodyColors");
-
-	Params::PlayerPawnTest_C_BPApplyBodyColors Parms{};
-
-	Parms.toMesh = toMesh;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function PlayerPawnTest.PlayerPawnTest_C.BPApplyPreviewData
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// class USkeletalMeshComponent*           toMesh                                                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-
-void APlayerPawnTest_C::BPApplyPreviewData(class USkeletalMeshComponent* toMesh)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PlayerPawnTest_C", "BPApplyPreviewData");
-
-	Params::PlayerPawnTest_C_BPApplyPreviewData Parms{};
-
-	Parms.toMesh = toMesh;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function PlayerPawnTest.PlayerPawnTest_C.BPCustomRequest
-// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class FName                             RequestName                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// int32*                                  OutIndex                                               (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// int32                                   InIndex                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// class AActor*                           FromActor                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-bool APlayerPawnTest_C::BPCustomRequest(class FName RequestName, int32* OutIndex, int32 InIndex, class AActor* FromActor)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PlayerPawnTest_C", "BPCustomRequest");
-
-	Params::PlayerPawnTest_C_BPCustomRequest Parms{};
-
-	Parms.RequestName = RequestName;
-	Parms.InIndex = InIndex;
-	Parms.FromActor = FromActor;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	if (OutIndex != nullptr)
-		*OutIndex = Parms.OutIndex;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function PlayerPawnTest.PlayerPawnTest_C.BPGetCustomBlueprintData
-// (Event, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class FName                             DataName                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// const struct FBPNetExecParams&          InData                                                 (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
-// struct FBPNetExecParams*                OutData                                                (Parm, OutParm)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-bool APlayerPawnTest_C::BPGetCustomBlueprintData(class FName DataName, const struct FBPNetExecParams& InData, struct FBPNetExecParams* OutData)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PlayerPawnTest_C", "BPGetCustomBlueprintData");
-
-	Params::PlayerPawnTest_C_BPGetCustomBlueprintData Parms{};
-
-	Parms.DataName = DataName;
-	Parms.InData = std::move(InData);
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	if (OutData != nullptr)
-		*OutData = std::move(Parms.OutData);
-
-	return Parms.ReturnValue;
-}
-
-
 // Function PlayerPawnTest.PlayerPawnTest_C.BPGetOverrideCameraInterpSpeed
 // (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -475,9 +375,9 @@ void APlayerPawnTest_C::BPSpawnAttackerDamageImpactFX(class FName SocketName, cl
 // Function PlayerPawnTest.PlayerPawnTest_C.BPUnlockedAllBTTExplorerNotes
 // (Event, Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// int32                                   exp                                                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// int32                                   Exp                                                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void APlayerPawnTest_C::BPUnlockedAllBTTExplorerNotes(int32 exp)
+void APlayerPawnTest_C::BPUnlockedAllBTTExplorerNotes(int32 Exp)
 {
 	static class UFunction* Func = nullptr;
 
@@ -486,7 +386,7 @@ void APlayerPawnTest_C::BPUnlockedAllBTTExplorerNotes(int32 exp)
 
 	Params::PlayerPawnTest_C_BPUnlockedAllBTTExplorerNotes Parms{};
 
-	Parms.exp = exp;
+	Parms.Exp = Exp;
 
 	UObject::ProcessEvent(Func, &Parms);
 }
@@ -617,27 +517,6 @@ void APlayerPawnTest_C::ExecuteUbergraph_PlayerPawnTest(int32 EntryPoint)
 	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function PlayerPawnTest.PlayerPawnTest_C.GetFaceCustomization
-// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class UAC_FaceCustomization_C**         FaceCustomization                                      (Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-
-void APlayerPawnTest_C::GetFaceCustomization(class UAC_FaceCustomization_C** FaceCustomization)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PlayerPawnTest_C", "GetFaceCustomization");
-
-	Params::PlayerPawnTest_C_GetFaceCustomization Parms{};
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	if (FaceCustomization != nullptr)
-		*FaceCustomization = Parms.FaceCustomization;
 }
 
 
@@ -779,60 +658,6 @@ void APlayerPawnTest_C::NetClientPreLoadAcension()
 		Func = Class->GetFunction("PlayerPawnTest_C", "NetClientPreLoadAcension");
 
 	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function PlayerPawnTest.PlayerPawnTest_C.OnBossfightTeleport
-// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class FName                             DataName                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void APlayerPawnTest_C::OnBossfightTeleport(class FName DataName)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PlayerPawnTest_C", "OnBossfightTeleport");
-
-	Params::PlayerPawnTest_C_OnBossfightTeleport Parms{};
-
-	Parms.DataName = DataName;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function PlayerPawnTest.PlayerPawnTest_C.OnJumped
-// (Event, Public, BlueprintEvent)
-
-void APlayerPawnTest_C::OnJumped()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PlayerPawnTest_C", "OnJumped");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function PlayerPawnTest.PlayerPawnTest_C.OnLanded
-// (Event, Public, HasOutParams, BlueprintEvent)
-// Parameters:
-// const struct FHitResult&                Hit                                                    (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference)
-
-void APlayerPawnTest_C::OnLanded(const struct FHitResult& Hit)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PlayerPawnTest_C", "OnLanded");
-
-	Params::PlayerPawnTest_C_OnLanded Parms{};
-
-	Parms.Hit = std::move(Hit);
-
-	UObject::ProcessEvent(Func, &Parms);
 }
 
 
@@ -1025,20 +850,6 @@ void APlayerPawnTest_C::TrySpawnMoundEx(double Angle, double Range)
 }
 
 
-// Function PlayerPawnTest.PlayerPawnTest_C.UpdateFace
-// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
-
-void APlayerPawnTest_C::UpdateFace()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PlayerPawnTest_C", "UpdateFace");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
 // Function PlayerPawnTest.PlayerPawnTest_C.UserConstructionScript
 // (Event, Public, BlueprintCallable, BlueprintEvent)
 
@@ -1050,54 +861,6 @@ void APlayerPawnTest_C::UserConstructionScript()
 		Func = Class->GetFunction("PlayerPawnTest_C", "UserConstructionScript");
 
 	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function PlayerPawnTest.PlayerPawnTest_C.PlayVOLine
-// (Public, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
-// Parameters:
-// Enum_VoiceCollectionLine                Voiceline                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// double                                  VolumeMultiplier                                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void APlayerPawnTest_C::PlayVOLine(Enum_VoiceCollectionLine Voiceline, double VolumeMultiplier) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PlayerPawnTest_C", "PlayVOLine");
-
-	Params::PlayerPawnTest_C_PlayVOLine Parms{};
-
-	Parms.Voiceline = Voiceline;
-	Parms.VolumeMultiplier = VolumeMultiplier;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function PlayerPawnTest.PlayerPawnTest_C.SelectVOSound
-// (Public, HasOutParams, BlueprintCallable, BlueprintEvent, Const)
-// Parameters:
-// class UPDA_VoiceCollection_C*           VoiceCollection                                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// Enum_VoiceCollectionLine                VoiceLineSelection                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// class USoundBase**                      VoiceSoundReference                                    (Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-
-void APlayerPawnTest_C::SelectVOSound(class UPDA_VoiceCollection_C* VoiceCollection, Enum_VoiceCollectionLine VoiceLineSelection, class USoundBase** VoiceSoundReference) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PlayerPawnTest_C", "SelectVOSound");
-
-	Params::PlayerPawnTest_C_SelectVOSound Parms{};
-
-	Parms.VoiceCollection = VoiceCollection;
-	Parms.VoiceLineSelection = VoiceLineSelection;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	if (VoiceSoundReference != nullptr)
-		*VoiceSoundReference = Parms.VoiceSoundReference;
 }
 
 

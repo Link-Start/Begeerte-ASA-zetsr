@@ -10,12 +10,256 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
 #include "RigVM_structs.hpp"
+#include "CoreUObject_structs.hpp"
 
 
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
+
+// Function RigVM.RigVMHost.FindRigVMHosts
+// 0x0020 (0x0020 - 0x0000)
+struct RigVMHost_FindRigVMHosts final
+{
+public:
+	class UObject*                                Outer_0;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class URigVMHost>                 OptionalClass;                                     // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<class URigVMHost*>                     ReturnValue;                                       // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMHost_FindRigVMHosts;
+
+// Function RigVM.RigVMHost.Execute
+// 0x000C (0x000C - 0x0000)
+struct RigVMHost_Execute final
+{
+public:
+	class FName                                   InEventName;                                       // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_RigVMHost_Execute;
+
+// Function RigVM.RigVMHost.ExecuteEvent
+// 0x000C (0x000C - 0x0000)
+struct RigVMHost_ExecuteEvent final
+{
+public:
+	class FName                                   InEventName;                                       // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_RigVMHost_ExecuteEvent;
+
+// Function RigVM.RigVMHost.GetVM
+// 0x0008 (0x0008 - 0x0000)
+struct RigVMHost_GetVM final
+{
+public:
+	class URigVM*                                 ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMHost_GetVM;
+
+// Function RigVM.RigVMHost.RemoveRunOnceEvent
+// 0x000C (0x000C - 0x0000)
+struct RigVMHost_RemoveRunOnceEvent final
+{
+public:
+	class FName                                   InEventName;                                       // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_RigVMHost_RemoveRunOnceEvent;
+
+// Function RigVM.RigVMHost.RequestRunOnceEvent
+// 0x000C (0x000C - 0x0000)
+struct RigVMHost_RequestRunOnceEvent final
+{
+public:
+	class FName                                   InEventName;                                       // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         InEventIndex;                                      // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMHost_RequestRunOnceEvent;
+
+// Function RigVM.RigVMHost.SetAbsoluteAndDeltaTime
+// 0x0008 (0x0008 - 0x0000)
+struct RigVMHost_SetAbsoluteAndDeltaTime final
+{
+public:
+	float                                         InAbsoluteTime;                                    // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         InDeltaTime;                                       // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMHost_SetAbsoluteAndDeltaTime;
+
+// Function RigVM.RigVMHost.SetAbsoluteTime
+// 0x0008 (0x0008 - 0x0000)
+struct RigVMHost_SetAbsoluteTime final
+{
+public:
+	float                                         InAbsoluteTime;                                    // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          InSetDeltaTimeZero;                                // 0x0004(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_RigVMHost_SetAbsoluteTime;
+
+// Function RigVM.RigVMHost.SetDeltaTime
+// 0x0004 (0x0004 - 0x0000)
+struct RigVMHost_SetDeltaTime final
+{
+public:
+	float                                         InDeltaTime;                                       // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMHost_SetDeltaTime;
+
+// Function RigVM.RigVMHost.SetFramesPerSecond
+// 0x0004 (0x0004 - 0x0000)
+struct RigVMHost_SetFramesPerSecond final
+{
+public:
+	float                                         InFramesPerSecond;                                 // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMHost_SetFramesPerSecond;
+
+// Function RigVM.RigVMHost.SetVariableFromString
+// 0x0020 (0x0020 - 0x0000)
+struct RigVMHost_SetVariableFromString final
+{
+public:
+	class FName                                   InVariableName;                                    // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 InValue;                                           // 0x0008(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_RigVMHost_SetVariableFromString;
+
+// Function RigVM.RigVMHost.CanExecute
+// 0x0001 (0x0001 - 0x0000)
+struct RigVMHost_CanExecute final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMHost_CanExecute;
+
+// Function RigVM.RigVMHost.GetAbsoluteTime
+// 0x0004 (0x0004 - 0x0000)
+struct RigVMHost_GetAbsoluteTime final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMHost_GetAbsoluteTime;
+
+// Function RigVM.RigVMHost.GetCurrentFramesPerSecond
+// 0x0004 (0x0004 - 0x0000)
+struct RigVMHost_GetCurrentFramesPerSecond final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMHost_GetCurrentFramesPerSecond;
+
+// Function RigVM.RigVMHost.GetDeltaTime
+// 0x0004 (0x0004 - 0x0000)
+struct RigVMHost_GetDeltaTime final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMHost_GetDeltaTime;
+
+// Function RigVM.RigVMHost.GetScriptAccessibleVariables
+// 0x0010 (0x0010 - 0x0000)
+struct RigVMHost_GetScriptAccessibleVariables final
+{
+public:
+	TArray<class FName>                           ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMHost_GetScriptAccessibleVariables;
+
+// Function RigVM.RigVMHost.GetSupportedEvents
+// 0x0010 (0x0010 - 0x0000)
+struct RigVMHost_GetSupportedEvents final
+{
+public:
+	TArray<class FName>                           ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMHost_GetSupportedEvents;
+
+// Function RigVM.RigVMHost.GetVariableAsString
+// 0x0018 (0x0018 - 0x0000)
+struct RigVMHost_GetVariableAsString final
+{
+public:
+	class FName                                   InVariableName;                                    // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 ReturnValue;                                       // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMHost_GetVariableAsString;
+
+// Function RigVM.RigVMHost.GetVariableType
+// 0x0010 (0x0010 - 0x0000)
+struct RigVMHost_GetVariableType final
+{
+public:
+	class FName                                   InVariableName;                                    // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMHost_GetVariableType;
+
+// Function RigVM.RigVMHost.SupportsEvent
+// 0x000C (0x000C - 0x0000)
+struct RigVMHost_SupportsEvent final
+{
+public:
+	class FName                                   InEventName;                                       // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_RigVMHost_SupportsEvent;
+
+// Function RigVM.RigVMUserWorkflowOptions.ReportError
+// 0x0010 (0x0010 - 0x0000)
+struct RigVMUserWorkflowOptions_ReportError final
+{
+public:
+	class FString                                 InMessage;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMUserWorkflowOptions_ReportError;
+
+// Function RigVM.RigVMUserWorkflowOptions.ReportInfo
+// 0x0010 (0x0010 - 0x0000)
+struct RigVMUserWorkflowOptions_ReportInfo final
+{
+public:
+	class FString                                 InMessage;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMUserWorkflowOptions_ReportInfo;
+
+// Function RigVM.RigVMUserWorkflowOptions.ReportWarning
+// 0x0010 (0x0010 - 0x0000)
+struct RigVMUserWorkflowOptions_ReportWarning final
+{
+public:
+	class FString                                 InMessage;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMUserWorkflowOptions_ReportWarning;
+
+// Function RigVM.RigVMUserWorkflowOptions.IsValid
+// 0x0001 (0x0001 - 0x0000)
+struct RigVMUserWorkflowOptions_IsValid final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMUserWorkflowOptions_IsValid;
+
+// Function RigVM.RigVMUserWorkflowOptions.RequiresDialog
+// 0x0001 (0x0001 - 0x0000)
+struct RigVMUserWorkflowOptions_RequiresDialog final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RigVMUserWorkflowOptions_RequiresDialog;
 
 // Function RigVM.RigVM.AddRigVMFunction
 // 0x0018 (0x0018 - 0x0000)
@@ -30,14 +274,13 @@ public:
 DUMPER7_ASSERTS_RigVM_AddRigVMFunction;
 
 // Function RigVM.RigVM.Execute
-// 0x0238 (0x0238 - 0x0000)
+// 0x000C (0x000C - 0x0000)
 struct RigVM_Execute final
 {
 public:
-	struct FRigVMExtendedExecuteContext           Context;                                           // 0x0000(0x0228)(Parm, OutParm, NativeAccessSpecifierPublic)
-	class FName                                   InEntryName;                                       // 0x0228(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0230(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_231[0x7];                                      // 0x0231(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class FName                                   InEntryName;                                       // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_RigVM_Execute;
 
@@ -296,296 +539,6 @@ public:
 	struct FRigVMStatistics                       ReturnValue;                                       // 0x0000(0x0038)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_RigVM_GetStatistics;
-
-// Function RigVM.DataAssetLink.SetDataAsset
-// 0x0028 (0x0028 - 0x0000)
-struct DataAssetLink_SetDataAsset final
-{
-public:
-	TSoftObjectPtr<class UDataAsset>              InDataAsset;                                       // 0x0000(0x0028)(Parm, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_DataAssetLink_SetDataAsset;
-
-// Function RigVM.DataAssetLink.GetDataAsset
-// 0x0028 (0x0028 - 0x0000)
-struct DataAssetLink_GetDataAsset final
-{
-public:
-	TSoftObjectPtr<class UDataAsset>              ReturnValue;                                       // 0x0000(0x0028)(Parm, OutParm, ReturnParm, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_DataAssetLink_GetDataAsset;
-
-// Function RigVM.RigVMUserWorkflowOptions.ReportError
-// 0x0010 (0x0010 - 0x0000)
-struct RigVMUserWorkflowOptions_ReportError final
-{
-public:
-	class FString                                 InMessage;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMUserWorkflowOptions_ReportError;
-
-// Function RigVM.RigVMUserWorkflowOptions.ReportInfo
-// 0x0010 (0x0010 - 0x0000)
-struct RigVMUserWorkflowOptions_ReportInfo final
-{
-public:
-	class FString                                 InMessage;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMUserWorkflowOptions_ReportInfo;
-
-// Function RigVM.RigVMUserWorkflowOptions.ReportWarning
-// 0x0010 (0x0010 - 0x0000)
-struct RigVMUserWorkflowOptions_ReportWarning final
-{
-public:
-	class FString                                 InMessage;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMUserWorkflowOptions_ReportWarning;
-
-// Function RigVM.RigVMUserWorkflowOptions.IsValid
-// 0x0001 (0x0001 - 0x0000)
-struct RigVMUserWorkflowOptions_IsValid final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMUserWorkflowOptions_IsValid;
-
-// Function RigVM.RigVMUserWorkflowOptions.RequiresDialog
-// 0x0001 (0x0001 - 0x0000)
-struct RigVMUserWorkflowOptions_RequiresDialog final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMUserWorkflowOptions_RequiresDialog;
-
-// Function RigVM.RigVMHost.FindRigVMHosts
-// 0x0020 (0x0020 - 0x0000)
-struct RigVMHost_FindRigVMHosts final
-{
-public:
-	class UObject*                                Outer_0;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class URigVMHost>                 OptionalClass;                                     // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<class URigVMHost*>                     ReturnValue;                                       // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMHost_FindRigVMHosts;
-
-// Function RigVM.RigVMHost.Execute
-// 0x000C (0x000C - 0x0000)
-struct RigVMHost_Execute final
-{
-public:
-	class FName                                   InEventName;                                       // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_RigVMHost_Execute;
-
-// Function RigVM.RigVMHost.ExecuteEvent
-// 0x000C (0x000C - 0x0000)
-struct RigVMHost_ExecuteEvent final
-{
-public:
-	class FName                                   InEventName;                                       // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_RigVMHost_ExecuteEvent;
-
-// Function RigVM.RigVMHost.GetExtendedExecuteContext
-// 0x0228 (0x0228 - 0x0000)
-struct RigVMHost_GetExtendedExecuteContext final
-{
-public:
-	struct FRigVMExtendedExecuteContext           ReturnValue;                                       // 0x0000(0x0228)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMHost_GetExtendedExecuteContext;
-
-// Function RigVM.RigVMHost.GetVM
-// 0x0008 (0x0008 - 0x0000)
-struct RigVMHost_GetVM final
-{
-public:
-	class URigVM*                                 ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMHost_GetVM;
-
-// Function RigVM.RigVMHost.RemoveRunOnceEvent
-// 0x000C (0x000C - 0x0000)
-struct RigVMHost_RemoveRunOnceEvent final
-{
-public:
-	class FName                                   InEventName;                                       // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_RigVMHost_RemoveRunOnceEvent;
-
-// Function RigVM.RigVMHost.RequestRunOnceEvent
-// 0x000C (0x000C - 0x0000)
-struct RigVMHost_RequestRunOnceEvent final
-{
-public:
-	class FName                                   InEventName;                                       // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         InEventIndex;                                      // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMHost_RequestRunOnceEvent;
-
-// Function RigVM.RigVMHost.SetAbsoluteAndDeltaTime
-// 0x0008 (0x0008 - 0x0000)
-struct RigVMHost_SetAbsoluteAndDeltaTime final
-{
-public:
-	float                                         InAbsoluteTime;                                    // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         InDeltaTime;                                       // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMHost_SetAbsoluteAndDeltaTime;
-
-// Function RigVM.RigVMHost.SetAbsoluteTime
-// 0x0008 (0x0008 - 0x0000)
-struct RigVMHost_SetAbsoluteTime final
-{
-public:
-	float                                         InAbsoluteTime;                                    // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          InSetDeltaTimeZero;                                // 0x0004(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_RigVMHost_SetAbsoluteTime;
-
-// Function RigVM.RigVMHost.SetDeltaTime
-// 0x0004 (0x0004 - 0x0000)
-struct RigVMHost_SetDeltaTime final
-{
-public:
-	float                                         InDeltaTime;                                       // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMHost_SetDeltaTime;
-
-// Function RigVM.RigVMHost.SetFramesPerSecond
-// 0x0004 (0x0004 - 0x0000)
-struct RigVMHost_SetFramesPerSecond final
-{
-public:
-	float                                         InFramesPerSecond;                                 // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMHost_SetFramesPerSecond;
-
-// Function RigVM.RigVMHost.SetVariableFromString
-// 0x0020 (0x0020 - 0x0000)
-struct RigVMHost_SetVariableFromString final
-{
-public:
-	class FName                                   InVariableName;                                    // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 InValue;                                           // 0x0008(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_RigVMHost_SetVariableFromString;
-
-// Function RigVM.RigVMHost.CanExecute
-// 0x0001 (0x0001 - 0x0000)
-struct RigVMHost_CanExecute final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMHost_CanExecute;
-
-// Function RigVM.RigVMHost.GetAbsoluteTime
-// 0x0004 (0x0004 - 0x0000)
-struct RigVMHost_GetAbsoluteTime final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMHost_GetAbsoluteTime;
-
-// Function RigVM.RigVMHost.GetCurrentFramesPerSecond
-// 0x0004 (0x0004 - 0x0000)
-struct RigVMHost_GetCurrentFramesPerSecond final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMHost_GetCurrentFramesPerSecond;
-
-// Function RigVM.RigVMHost.GetDeltaTime
-// 0x0004 (0x0004 - 0x0000)
-struct RigVMHost_GetDeltaTime final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMHost_GetDeltaTime;
-
-// Function RigVM.RigVMHost.GetScriptAccessibleVariables
-// 0x0010 (0x0010 - 0x0000)
-struct RigVMHost_GetScriptAccessibleVariables final
-{
-public:
-	TArray<class FName>                           ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMHost_GetScriptAccessibleVariables;
-
-// Function RigVM.RigVMHost.GetSupportedEvents
-// 0x0010 (0x0010 - 0x0000)
-struct RigVMHost_GetSupportedEvents final
-{
-public:
-	TArray<class FName>                           ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMHost_GetSupportedEvents;
-
-// Function RigVM.RigVMHost.GetVariableAsString
-// 0x0018 (0x0018 - 0x0000)
-struct RigVMHost_GetVariableAsString final
-{
-public:
-	class FName                                   InVariableName;                                    // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 ReturnValue;                                       // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMHost_GetVariableAsString;
-
-// Function RigVM.RigVMHost.GetVariableType
-// 0x0010 (0x0010 - 0x0000)
-struct RigVMHost_GetVariableType final
-{
-public:
-	class FName                                   InVariableName;                                    // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMHost_GetVariableType;
-
-// Function RigVM.RigVMHost.IsInitRequired
-// 0x0001 (0x0001 - 0x0000)
-struct RigVMHost_IsInitRequired final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMHost_IsInitRequired;
-
-// Function RigVM.RigVMHost.SupportsEvent
-// 0x000C (0x000C - 0x0000)
-struct RigVMHost_SupportsEvent final
-{
-public:
-	class FName                                   InEventName;                                       // 0x0000(0x0008)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_RigVMHost_SupportsEvent;
-
-// Function RigVM.RigVMProjectSettings.GetTag
-// 0x0048 (0x0048 - 0x0000)
-struct RigVMProjectSettings_GetTag final
-{
-public:
-	class FName                                   InTagName;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FRigVMTag                              ReturnValue;                                       // 0x0008(0x0040)(Parm, OutParm, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RigVMProjectSettings_GetTag;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

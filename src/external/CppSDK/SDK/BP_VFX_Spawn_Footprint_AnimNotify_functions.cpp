@@ -16,54 +16,6 @@
 
 SDK_NAMESPACE_START
 
-// Function BP_VFX_Spawn_Footprint_AnimNotify.BP_VFX_Spawn_Footprint_AnimNotify_C.LR_FB Offset
-// (Public, HasOutParams, BlueprintCallable, BlueprintEvent, Const)
-// Parameters:
-// const struct FVector&                   Front_Offset                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// const struct FVector&                   Back_Offset                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// struct FVector*                         Offset                                                 (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UBP_VFX_Spawn_Footprint_AnimNotify_C::LR_FB_Offset(const struct FVector& Front_Offset, const struct FVector& Back_Offset, struct FVector* Offset) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_VFX_Spawn_Footprint_AnimNotify_C", "LR_FB Offset");
-
-	Params::BP_VFX_Spawn_Footprint_AnimNotify_C_LR_FB_Offset Parms{};
-
-	Parms.Front_Offset = std::move(Front_Offset);
-	Parms.Back_Offset = std::move(Back_Offset);
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	if (Offset != nullptr)
-		*Offset = std::move(Parms.Offset);
-}
-
-
-// Function BP_VFX_Spawn_Footprint_AnimNotify.BP_VFX_Spawn_Footprint_AnimNotify_C.NewFunction_0
-// (Public, BlueprintCallable, BlueprintEvent, Const)
-// Parameters:
-// bool                                    Condition                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// bool                                    Condition2                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UBP_VFX_Spawn_Footprint_AnimNotify_C::NewFunction_0(bool Condition, bool Condition2) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_VFX_Spawn_Footprint_AnimNotify_C", "NewFunction_0");
-
-	Params::BP_VFX_Spawn_Footprint_AnimNotify_C_NewFunction_0 Parms{};
-
-	Parms.Condition = Condition;
-	Parms.Condition2 = Condition2;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
 // Function BP_VFX_Spawn_Footprint_AnimNotify.BP_VFX_Spawn_Footprint_AnimNotify_C.Do Trace
 // (Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
@@ -110,45 +62,71 @@ void UBP_VFX_Spawn_Footprint_AnimNotify_C::Do_Trace(class USkeletalMeshComponent
 }
 
 
-// Function BP_VFX_Spawn_Footprint_AnimNotify.BP_VFX_Spawn_Footprint_AnimNotify_C.Spawn_Sound
-// (Public, BlueprintCallable, BlueprintEvent, Const)
+// Function BP_VFX_Spawn_Footprint_AnimNotify.BP_VFX_Spawn_Footprint_AnimNotify_C.GetNotifyName
+// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
-// class USceneComponent*                  Actor                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-// const struct FVector&                   Location                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// double                                  Size                                                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// const struct FAudio_Ground_Collection&  StepSounds                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// bool                                    IsPlayer                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash)
 
-void UBP_VFX_Spawn_Footprint_AnimNotify_C::Spawn_Sound(class USceneComponent* Actor, const struct FVector& Location, double Size, const struct FAudio_Ground_Collection& StepSounds, bool IsPlayer) const
+class FString UBP_VFX_Spawn_Footprint_AnimNotify_C::GetNotifyName() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("BP_VFX_Spawn_Footprint_AnimNotify_C", "Spawn_Sound");
+		Func = Class->GetFunction("BP_VFX_Spawn_Footprint_AnimNotify_C", "GetNotifyName");
 
-	Params::BP_VFX_Spawn_Footprint_AnimNotify_C_Spawn_Sound Parms{};
-
-	Parms.Actor = Actor;
-	Parms.Location = std::move(Location);
-	Parms.Size = Size;
-	Parms.StepSounds = std::move(StepSounds);
-	Parms.IsPlayer = IsPlayer;
+	Params::BP_VFX_Spawn_Footprint_AnimNotify_C_GetNotifyName Parms{};
 
 	UObject::ProcessEvent(Func, &Parms);
+
+	return Parms.ReturnValue;
 }
 
 
-// Function BP_VFX_Spawn_Footprint_AnimNotify.BP_VFX_Spawn_Footprint_AnimNotify_C.Spawn_Anim_Notify
-// (Public, BlueprintCallable, BlueprintEvent, Const)
+// Function BP_VFX_Spawn_Footprint_AnimNotify.BP_VFX_Spawn_Footprint_AnimNotify_C.LR_FB Offset
+// (Public, HasOutParams, BlueprintCallable, BlueprintEvent, Const)
+// Parameters:
+// const struct FVector&                   Front_Offset                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// const struct FVector&                   Back_Offset                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// struct FVector*                         Offset                                                 (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UBP_VFX_Spawn_Footprint_AnimNotify_C::Spawn_Anim_Notify() const
+void UBP_VFX_Spawn_Footprint_AnimNotify_C::LR_FB_Offset(const struct FVector& Front_Offset, const struct FVector& Back_Offset, struct FVector* Offset) const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("BP_VFX_Spawn_Footprint_AnimNotify_C", "Spawn_Anim_Notify");
+		Func = Class->GetFunction("BP_VFX_Spawn_Footprint_AnimNotify_C", "LR_FB Offset");
 
-	UObject::ProcessEvent(Func, nullptr);
+	Params::BP_VFX_Spawn_Footprint_AnimNotify_C_LR_FB_Offset Parms{};
+
+	Parms.Front_Offset = std::move(Front_Offset);
+	Parms.Back_Offset = std::move(Back_Offset);
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (Offset != nullptr)
+		*Offset = std::move(Parms.Offset);
+}
+
+
+// Function BP_VFX_Spawn_Footprint_AnimNotify.BP_VFX_Spawn_Footprint_AnimNotify_C.NewFunction_0
+// (Public, BlueprintCallable, BlueprintEvent, Const)
+// Parameters:
+// bool                                    Condition                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool                                    Condition2                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UBP_VFX_Spawn_Footprint_AnimNotify_C::NewFunction_0(bool Condition, bool Condition2) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_VFX_Spawn_Footprint_AnimNotify_C", "NewFunction_0");
+
+	Params::BP_VFX_Spawn_Footprint_AnimNotify_C_NewFunction_0 Parms{};
+
+	Parms.Condition = Condition;
+	Parms.Condition2 = Condition2;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 
@@ -208,26 +186,6 @@ bool UBP_VFX_Spawn_Footprint_AnimNotify_C::Received_NotifyEnd(class USkeletalMes
 }
 
 
-// Function BP_VFX_Spawn_Footprint_AnimNotify.BP_VFX_Spawn_Footprint_AnimNotify_C.GetNotifyName
-// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent, Const)
-// Parameters:
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash)
-
-class FString UBP_VFX_Spawn_Footprint_AnimNotify_C::GetNotifyName() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_VFX_Spawn_Footprint_AnimNotify_C", "GetNotifyName");
-
-	Params::BP_VFX_Spawn_Footprint_AnimNotify_C_GetNotifyName Parms{};
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	return Parms.ReturnValue;
-}
-
-
 // Function BP_VFX_Spawn_Footprint_AnimNotify.BP_VFX_Spawn_Footprint_AnimNotify_C.Received_NotifyTick
 // (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
@@ -254,6 +212,48 @@ bool UBP_VFX_Spawn_Footprint_AnimNotify_C::Received_NotifyTick(class USkeletalMe
 	UObject::ProcessEvent(Func, &Parms);
 
 	return Parms.ReturnValue;
+}
+
+
+// Function BP_VFX_Spawn_Footprint_AnimNotify.BP_VFX_Spawn_Footprint_AnimNotify_C.Spawn_Anim_Notify
+// (Public, BlueprintCallable, BlueprintEvent, Const)
+
+void UBP_VFX_Spawn_Footprint_AnimNotify_C::Spawn_Anim_Notify() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_VFX_Spawn_Footprint_AnimNotify_C", "Spawn_Anim_Notify");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function BP_VFX_Spawn_Footprint_AnimNotify.BP_VFX_Spawn_Footprint_AnimNotify_C.Spawn_Sound
+// (Public, BlueprintCallable, BlueprintEvent, Const)
+// Parameters:
+// class USceneComponent*                  Actor                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+// const struct FVector&                   Location                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// double                                  Size                                                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// const struct FAudio_Ground_Collection&  StepSounds                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// bool                                    IsPlayer                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UBP_VFX_Spawn_Footprint_AnimNotify_C::Spawn_Sound(class USceneComponent* Actor, const struct FVector& Location, double Size, const struct FAudio_Ground_Collection& StepSounds, bool IsPlayer) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_VFX_Spawn_Footprint_AnimNotify_C", "Spawn_Sound");
+
+	Params::BP_VFX_Spawn_Footprint_AnimNotify_C_Spawn_Sound Parms{};
+
+	Parms.Actor = Actor;
+	Parms.Location = std::move(Location);
+	Parms.Size = Size;
+	Parms.StepSounds = std::move(StepSounds);
+	Parms.IsPlayer = IsPlayer;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 

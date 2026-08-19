@@ -228,7 +228,7 @@ namespace g_Util {
 
         if (BestMeat) {
             // 使用针对龙的 RPC
-            PC->ServerRequestInventoryUseItem(Inv, BestMeat->ItemID, BestMeat->SlotIndex);
+            PC->ServerRequestInventoryUseItem(Inv, BestMeat->ItemID);
         }
     }
 

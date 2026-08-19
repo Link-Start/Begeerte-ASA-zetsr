@@ -97,14 +97,14 @@ struct FConcertRequestData : public FConcertMessageData
 DUMPER7_ASSERTS_FConcertRequestData;
 
 // ScriptStruct ConcertTransport.ConcertResponseData
-// 0x0028 (0x0058 - 0x0030)
+// 0x0030 (0x0060 - 0x0030)
 struct FConcertResponseData : public FConcertMessageData
 {
 public:
 	struct FGuid                                  RequestMessageId;                                  // 0x0030(0x0010)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EConcertResponseCode                          ResponseCode;                                      // 0x0040(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_41[0x7];                                       // 0x0041(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FText                                   Reason;                                            // 0x0048(0x0010)(Edit, EditConst, AdvancedDisplay, NativeAccessSpecifierPublic)
+	class FText                                   Reason;                                            // 0x0048(0x0018)(Edit, EditConst, AdvancedDisplay, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertResponseData;
 

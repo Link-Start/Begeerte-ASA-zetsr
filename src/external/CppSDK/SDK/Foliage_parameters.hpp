@@ -17,36 +17,6 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function Foliage.FoliageType.GetResponseToChannel
-// 0x0002 (0x0002 - 0x0000)
-struct FoliageType_GetResponseToChannel final
-{
-public:
-	ECollisionChannel                             Channel;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ECollisionResponse                            ReturnValue;                                       // 0x0001(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FoliageType_GetResponseToChannel;
-
-// Function Foliage.InstancedFoliageActor.BPGetInstancedFoliageActorForCurrentLevel
-// 0x0010 (0x0010 - 0x0000)
-struct InstancedFoliageActor_BPGetInstancedFoliageActorForCurrentLevel final
-{
-public:
-	class UWorld*                                 World;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AInstancedFoliageActor*                 ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_InstancedFoliageActor_BPGetInstancedFoliageActorForCurrentLevel;
-
-// Function Foliage.InstancedFoliageActor.BPConvertStaticMeshActorsToFoliage
-// 0x0020 (0x0020 - 0x0000)
-struct InstancedFoliageActor_BPConvertStaticMeshActorsToFoliage final
-{
-public:
-	TArray<class AStaticMeshActor*>               Actors;                                            // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	TArray<class AStaticMeshActor*>               ConvertedActors;                                   // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_InstancedFoliageActor_BPConvertStaticMeshActorsToFoliage;
-
 // Function Foliage.FoliageStatistics.FoliageOverlappingBoxCount
 // 0x0050 (0x0050 - 0x0000)
 struct FoliageStatistics_FoliageOverlappingBoxCount final
@@ -85,8 +55,38 @@ public:
 };
 DUMPER7_ASSERTS_FoliageStatistics_FoliageOverlappingSphereCount;
 
+// Function Foliage.FoliageType.GetResponseToChannel
+// 0x0002 (0x0002 - 0x0000)
+struct FoliageType_GetResponseToChannel final
+{
+public:
+	ECollisionChannel                             Channel;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	ECollisionResponse                            ReturnValue;                                       // 0x0001(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FoliageType_GetResponseToChannel;
+
+// Function Foliage.InstancedFoliageActor.BPGetInstancedFoliageActorForCurrentLevel
+// 0x0010 (0x0010 - 0x0000)
+struct InstancedFoliageActor_BPGetInstancedFoliageActorForCurrentLevel final
+{
+public:
+	class UWorld*                                 World;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AInstancedFoliageActor*                 ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_InstancedFoliageActor_BPGetInstancedFoliageActorForCurrentLevel;
+
+// Function Foliage.InstancedFoliageActor.BPConvertStaticMeshActorsToFoliage
+// 0x0020 (0x0020 - 0x0000)
+struct InstancedFoliageActor_BPConvertStaticMeshActorsToFoliage final
+{
+public:
+	TArray<class AStaticMeshActor*>               Actors;                                            // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+	TArray<class AStaticMeshActor*>               ConvertedActors;                                   // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_InstancedFoliageActor_BPConvertStaticMeshActorsToFoliage;
+
 // Function Foliage.InteractiveFoliageActor.CapsuleTouched
-// 0x0128 (0x0128 - 0x0000)
+// 0x0110 (0x0110 - 0x0000)
 struct InteractiveFoliageActor_CapsuleTouched final
 {
 public:
@@ -96,7 +96,7 @@ public:
 	int32                                         OtherBodyIndex;                                    // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bFromSweep;                                        // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FHitResult                             OverlapInfo;                                       // 0x0020(0x0108)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	struct FHitResult                             OverlapInfo;                                       // 0x0020(0x00F0)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_InteractiveFoliageActor_CapsuleTouched;
 

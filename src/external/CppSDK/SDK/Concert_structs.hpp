@@ -39,14 +39,13 @@ enum class EConcertConnectionResult : uint8
 };
 
 // Enum Concert.EConcertClientStatus
-// NumValues: 0x0005
+// NumValues: 0x0004
 enum class EConcertClientStatus : uint8
 {
 	Connected                                = 0,
 	Disconnected                             = 1,
 	Updated                                  = 2,
-	Count                                    = 3,
-	EConcertClientStatus_MAX                 = 4,
+	EConcertClientStatus_MAX                 = 3,
 };
 
 // Enum Concert.EConcertSendReceiveState
@@ -216,12 +215,12 @@ public:
 DUMPER7_ASSERTS_FConcertAdmin_MountSessionRepositoryRequest;
 
 // ScriptStruct Concert.ConcertAdmin_MountSessionRepositoryResponse
-// 0x0008 (0x0060 - 0x0058)
+// 0x0008 (0x0068 - 0x0060)
 struct FConcertAdmin_MountSessionRepositoryResponse final : public FConcertResponseData
 {
 public:
-	EConcertSessionRepositoryMountResponseCode    MountStatus;                                       // 0x0058(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_59[0x7];                                       // 0x0059(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	EConcertSessionRepositoryMountResponseCode    MountStatus;                                       // 0x0060(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_61[0x7];                                       // 0x0061(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FConcertAdmin_MountSessionRepositoryResponse;
 
@@ -233,11 +232,11 @@ struct FConcertAdmin_GetSessionRepositoriesRequest final : public FConcertReques
 DUMPER7_ASSERTS_FConcertAdmin_GetSessionRepositoriesRequest;
 
 // ScriptStruct Concert.ConcertAdmin_GetSessionRepositoriesResponse
-// 0x0010 (0x0068 - 0x0058)
+// 0x0010 (0x0070 - 0x0060)
 struct FConcertAdmin_GetSessionRepositoriesResponse final : public FConcertResponseData
 {
 public:
-	TArray<struct FConcertSessionRepositoryInfo>  SessionRepositories;                               // 0x0058(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
+	TArray<struct FConcertSessionRepositoryInfo>  SessionRepositories;                               // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertAdmin_GetSessionRepositoriesResponse;
 
@@ -251,11 +250,11 @@ public:
 DUMPER7_ASSERTS_FConcertAdmin_DropSessionRepositoriesRequest;
 
 // ScriptStruct Concert.ConcertAdmin_DropSessionRepositoriesResponse
-// 0x0010 (0x0068 - 0x0058)
+// 0x0010 (0x0070 - 0x0060)
 struct FConcertAdmin_DropSessionRepositoriesResponse final : public FConcertResponseData
 {
 public:
-	TArray<struct FGuid>                          DroppedRepositoryIds;                              // 0x0058(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
+	TArray<struct FGuid>                          DroppedRepositoryIds;                              // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertAdmin_DropSessionRepositoriesResponse;
 
@@ -265,6 +264,18 @@ struct FConcertAdmin_GetAllSessionsRequest final : public FConcertRequestData
 {
 };
 DUMPER7_ASSERTS_FConcertAdmin_GetAllSessionsRequest;
+
+// ScriptStruct Concert.ConcertSessionSettings
+// 0x0028 (0x0028 - 0x0000)
+struct FConcertSessionSettings final
+{
+public:
+	class FString                                 ProjectName;                                       // 0x0000(0x0010)(Edit, ZeroConstructor, Config, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint32                                        BaseRevision;                                      // 0x0010(0x0004)(Edit, ZeroConstructor, Config, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 ArchiveNameOverride;                               // 0x0018(0x0010)(Edit, ZeroConstructor, Config, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertSessionSettings;
 
 // ScriptStruct Concert.ConcertFileVersionInfo
 // 0x000C (0x000C - 0x0000)
@@ -312,18 +323,6 @@ public:
 };
 DUMPER7_ASSERTS_FConcertSessionVersionInfo;
 
-// ScriptStruct Concert.ConcertSessionSettings
-// 0x0028 (0x0028 - 0x0000)
-struct FConcertSessionSettings final
-{
-public:
-	class FString                                 ProjectName;                                       // 0x0000(0x0010)(Edit, ZeroConstructor, Config, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint32                                        BaseRevision;                                      // 0x0010(0x0004)(Edit, ZeroConstructor, Config, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 ArchiveNameOverride;                               // 0x0018(0x0010)(Edit, ZeroConstructor, Config, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertSessionSettings;
-
 // ScriptStruct Concert.ConcertSessionInfo
 // 0x00B8 (0x00B8 - 0x0000)
 struct FConcertSessionInfo final
@@ -345,12 +344,12 @@ public:
 DUMPER7_ASSERTS_FConcertSessionInfo;
 
 // ScriptStruct Concert.ConcertAdmin_GetAllSessionsResponse
-// 0x0020 (0x0078 - 0x0058)
+// 0x0020 (0x0080 - 0x0060)
 struct FConcertAdmin_GetAllSessionsResponse final : public FConcertResponseData
 {
 public:
-	TArray<struct FConcertSessionInfo>            LiveSessions;                                      // 0x0058(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
-	TArray<struct FConcertSessionInfo>            ArchivedSessions;                                  // 0x0068(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
+	TArray<struct FConcertSessionInfo>            LiveSessions;                                      // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
+	TArray<struct FConcertSessionInfo>            ArchivedSessions;                                  // 0x0070(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertAdmin_GetAllSessionsResponse;
 
@@ -369,11 +368,11 @@ struct FConcertAdmin_GetArchivedSessionsRequest final : public FConcertRequestDa
 DUMPER7_ASSERTS_FConcertAdmin_GetArchivedSessionsRequest;
 
 // ScriptStruct Concert.ConcertAdmin_GetSessionsResponse
-// 0x0010 (0x0068 - 0x0058)
+// 0x0010 (0x0070 - 0x0060)
 struct FConcertAdmin_GetSessionsResponse final : public FConcertResponseData
 {
 public:
-	TArray<struct FConcertSessionInfo>            Sessions;                                          // 0x0058(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
+	TArray<struct FConcertSessionInfo>            Sessions;                                          // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertAdmin_GetSessionsResponse;
 
@@ -385,7 +384,7 @@ public:
 	struct FConcertInstanceInfo                   InstanceInfo;                                      // 0x0000(0x0030)(Edit, EditConst, NativeAccessSpecifierPublic)
 	class FString                                 DeviceName;                                        // 0x0030(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 PlatformName;                                      // 0x0040(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Username;                                          // 0x0050(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 username;                                          // 0x0050(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 DisplayName;                                       // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FLinearColor                           AvatarColor;                                       // 0x0070(0x0010)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 DesktopAvatarActorClass;                           // 0x0080(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -453,11 +452,11 @@ public:
 DUMPER7_ASSERTS_FConcertAdmin_CopySessionRequest;
 
 // ScriptStruct Concert.ConcertAdmin_SessionInfoResponse
-// 0x00B8 (0x0110 - 0x0058)
+// 0x00B8 (0x0118 - 0x0060)
 struct FConcertAdmin_SessionInfoResponse final : public FConcertResponseData
 {
 public:
-	struct FConcertSessionInfo                    SessionInfo;                                       // 0x0058(0x00B8)(Edit, EditConst, NativeAccessSpecifierPublic)
+	struct FConcertSessionInfo                    SessionInfo;                                       // 0x0060(0x00B8)(Edit, EditConst, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertAdmin_SessionInfoResponse;
 
@@ -468,21 +467,21 @@ struct FConcertAdmin_ArchiveSessionRequest final : public FConcertRequestData
 public:
 	struct FGuid                                  SessionId;                                         // 0x0030(0x0010)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 ArchiveNameOverride;                               // 0x0040(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Username;                                          // 0x0050(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 username;                                          // 0x0050(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 DeviceName;                                        // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FConcertSessionFilter                  SessionFilter;                                     // 0x0070(0x0038)(Edit, EditConst, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertAdmin_ArchiveSessionRequest;
 
 // ScriptStruct Concert.ConcertAdmin_ArchiveSessionResponse
-// 0x0040 (0x0098 - 0x0058)
+// 0x0040 (0x00A0 - 0x0060)
 struct FConcertAdmin_ArchiveSessionResponse final : public FConcertResponseData
 {
 public:
-	struct FGuid                                  SessionId;                                         // 0x0058(0x0010)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 SessionName;                                       // 0x0068(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGuid                                  ArchiveId;                                         // 0x0078(0x0010)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 ArchiveName;                                       // 0x0088(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGuid                                  SessionId;                                         // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 SessionName;                                       // 0x0070(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGuid                                  ArchiveId;                                         // 0x0080(0x0010)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 ArchiveName;                                       // 0x0090(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertAdmin_ArchiveSessionResponse;
 
@@ -493,18 +492,18 @@ struct FConcertAdmin_RenameSessionRequest final : public FConcertRequestData
 public:
 	struct FGuid                                  SessionId;                                         // 0x0030(0x0010)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 NewName;                                           // 0x0040(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Username;                                          // 0x0050(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 username;                                          // 0x0050(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 DeviceName;                                        // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertAdmin_RenameSessionRequest;
 
 // ScriptStruct Concert.ConcertAdmin_RenameSessionResponse
-// 0x0020 (0x0078 - 0x0058)
+// 0x0020 (0x0080 - 0x0060)
 struct FConcertAdmin_RenameSessionResponse final : public FConcertResponseData
 {
 public:
-	struct FGuid                                  SessionId;                                         // 0x0058(0x0010)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 OldName;                                           // 0x0068(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGuid                                  SessionId;                                         // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 OldName;                                           // 0x0070(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertAdmin_RenameSessionResponse;
 
@@ -514,18 +513,18 @@ struct FConcertAdmin_DeleteSessionRequest final : public FConcertRequestData
 {
 public:
 	struct FGuid                                  SessionId;                                         // 0x0030(0x0010)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Username;                                          // 0x0040(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 username;                                          // 0x0040(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 DeviceName;                                        // 0x0050(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertAdmin_DeleteSessionRequest;
 
 // ScriptStruct Concert.ConcertAdmin_DeleteSessionResponse
-// 0x0020 (0x0078 - 0x0058)
+// 0x0020 (0x0080 - 0x0060)
 struct FConcertAdmin_DeleteSessionResponse final : public FConcertResponseData
 {
 public:
-	struct FGuid                                  SessionId;                                         // 0x0058(0x0010)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 SessionName;                                       // 0x0068(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGuid                                  SessionId;                                         // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 SessionName;                                       // 0x0070(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertAdmin_DeleteSessionResponse;
 
@@ -537,7 +536,7 @@ public:
 	TSet<struct FGuid>                            SessionIds;                                        // 0x0030(0x0050)(Edit, EditConst, NativeAccessSpecifierPublic)
 	EBatchSessionDeletionFlags                    Flags;                                             // 0x0080(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_84[0x4];                                       // 0x0084(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 Username;                                          // 0x0088(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 username;                                          // 0x0088(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 DeviceName;                                        // 0x0098(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertAdmin_BatchDeleteSessionRequest;
@@ -553,12 +552,12 @@ public:
 DUMPER7_ASSERTS_FDeletedSessionInfo;
 
 // ScriptStruct Concert.ConcertAdmin_BatchDeleteSessionResponse
-// 0x0020 (0x0078 - 0x0058)
+// 0x0020 (0x0080 - 0x0060)
 struct FConcertAdmin_BatchDeleteSessionResponse final : public FConcertResponseData
 {
 public:
-	TArray<struct FDeletedSessionInfo>            DeletedItems;                                      // 0x0058(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
-	TArray<struct FDeletedSessionInfo>            NotOwnedByClient;                                  // 0x0068(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
+	TArray<struct FDeletedSessionInfo>            DeletedItems;                                      // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
+	TArray<struct FDeletedSessionInfo>            NotOwnedByClient;                                  // 0x0070(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertAdmin_BatchDeleteSessionResponse;
 
@@ -582,11 +581,11 @@ public:
 DUMPER7_ASSERTS_FConcertSessionClientInfo;
 
 // ScriptStruct Concert.ConcertAdmin_GetSessionClientsResponse
-// 0x0010 (0x0068 - 0x0058)
+// 0x0010 (0x0070 - 0x0060)
 struct FConcertAdmin_GetSessionClientsResponse final : public FConcertResponseData
 {
 public:
-	TArray<struct FConcertSessionClientInfo>      SessionClients;                                    // 0x0058(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
+	TArray<struct FConcertSessionClientInfo>      SessionClients;                                    // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertAdmin_GetSessionClientsResponse;
 
@@ -627,12 +626,12 @@ public:
 DUMPER7_ASSERTS_FConcertSessionSerializedPayload;
 
 // ScriptStruct Concert.ConcertAdmin_GetSessionActivitiesResponse
-// 0x0060 (0x00B8 - 0x0058)
+// 0x0060 (0x00C0 - 0x0060)
 struct FConcertAdmin_GetSessionActivitiesResponse final : public FConcertResponseData
 {
 public:
-	TArray<struct FConcertSessionSerializedPayload> Activities;                                      // 0x0058(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
-	TMap<struct FGuid, struct FConcertClientInfo> EndpointClientInfoMap;                             // 0x0068(0x0050)(Edit, EditConst, NativeAccessSpecifierPublic)
+	TArray<struct FConcertSessionSerializedPayload> Activities;                                      // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, NativeAccessSpecifierPublic)
+	TMap<struct FGuid, struct FConcertClientInfo> EndpointClientInfoMap;                             // 0x0070(0x0050)(Edit, EditConst, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertAdmin_GetSessionActivitiesResponse;
 
@@ -717,11 +716,11 @@ public:
 DUMPER7_ASSERTS_FConcertSession_CustomRequest;
 
 // ScriptStruct Concert.ConcertSession_CustomResponse
-// 0x0020 (0x0078 - 0x0058)
+// 0x0020 (0x0080 - 0x0060)
 struct FConcertSession_CustomResponse final : public FConcertResponseData
 {
 public:
-	struct FConcertSessionSerializedPayload       SerializedPayload;                                 // 0x0058(0x0020)(Edit, EditConst, NativeAccessSpecifierPublic)
+	struct FConcertSessionSerializedPayload       SerializedPayload;                                 // 0x0060(0x0020)(Edit, EditConst, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertSession_CustomResponse;
 

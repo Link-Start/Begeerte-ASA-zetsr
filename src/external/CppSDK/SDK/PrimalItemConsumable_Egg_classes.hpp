@@ -10,21 +10,19 @@
 
 #include "Basic.hpp"
 
-#include "PrimalItemConsumableEatable_classes.hpp"
 #include "CoreUObject_structs.hpp"
+#include "PrimalItemConsumableEatable_classes.hpp"
 
 
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemConsumable_Egg.PrimalItemConsumable_Egg_C
-// 0x0030 (0x0BC0 - 0x0B90)
+// 0x0030 (0x11A0 - 0x1170)
 class UPrimalItemConsumable_Egg_C : public UPrimalItemConsumableEatable_C
 {
 public:
-	uint8                                         Pad_B84[0x4];                                      // 0x0B84(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                IncubatorDisplay3DScale;                           // 0x0B88(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FVector                                IncubatorLocationOffset;                           // 0x0BA0(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bIsHatching;                                       // 0x0BB8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FVector                                IncubatorDisplay3DScale;                           // 0x1170(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FVector                                IncubatorLocationOffset;                           // 0x1188(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	bool BPAllowRemoteAddToInventory(class UPrimalInventoryComponent* invComp, class AShooterPlayerController* ByPC, bool bRequestedByPlayer);

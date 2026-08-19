@@ -19,7 +19,7 @@ SDK_NAMESPACE_START
 // Function GameplayStateTreeModule.StateTreeComponent.SendStateTreeEvent
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// const struct FStateTreeEvent&           Event                                                  (ConstParm, Parm, OutParm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FStateTreeEvent&           Event                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
 void UStateTreeComponent::SendStateTreeEvent(const struct FStateTreeEvent& Event)
 {

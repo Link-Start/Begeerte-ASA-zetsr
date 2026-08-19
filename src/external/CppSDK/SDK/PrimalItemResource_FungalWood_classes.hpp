@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemResource_FungalWood.PrimalItemResource_FungalWood_C
-// 0x0000 (0x0B90 - 0x0B90)
+// 0x0000 (0x1170 - 0x1170)
 class UPrimalItemResource_FungalWood_C final : public UPrimalItemResource_Wood_C
 {
 public:

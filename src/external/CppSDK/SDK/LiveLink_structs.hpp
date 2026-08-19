@@ -10,21 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "LiveLinkInterface_structs.hpp"
-#include "CoreUObject_structs.hpp"
-
 
 SDK_NAMESPACE_START
-
-// Enum LiveLink.EBoneTransformResolution
-// NumValues: 0x0004
-enum class EBoneTransformResolution : uint32
-{
-	KeepParent                               = 0,
-	KeepChild                                = 1,
-	Combine                                  = 2,
-	EBoneTransformResolution_MAX             = 3,
-};
 
 // Enum LiveLink.ELiveLinkTimecodeProviderEvaluationType
 // NumValues: 0x0004
@@ -58,23 +45,8 @@ public:
 };
 DUMPER7_ASSERTS_FLiveLinkRetargetAssetReference;
 
-// ScriptStruct LiveLink.LiveLinkVirtualSubjectBoneAttachment
-// 0x0060 (0x0060 - 0x0000)
-struct FLiveLinkVirtualSubjectBoneAttachment final
-{
-public:
-	struct FLiveLinkSubjectName                   ParentSubject;                                     // 0x0000(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ParentBone;                                        // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FLiveLinkSubjectName                   ChildSubject;                                      // 0x0010(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ChildBone;                                         // 0x0018(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                LocationOffset;                                    // 0x0020(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FRotator                               RotationOffset;                                    // 0x0038(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_50[0x10];                                      // 0x0050(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FLiveLinkVirtualSubjectBoneAttachment;
-
 // ScriptStruct LiveLink.ProviderPollResult
-// 0x0090 (0x0090 - 0x0000)
+// 0x0040 (0x0040 - 0x0000)
 struct FProviderPollResult final
 {
 public:
@@ -83,7 +55,7 @@ public:
 	class FString                                 MachineName;                                       // 0x0020(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	double                                        MachineTimeOffset;                                 // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bIsValidProvider;                                  // 0x0038(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_39[0x57];                                      // 0x0039(0x0057)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FProviderPollResult;
 

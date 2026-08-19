@@ -11,8 +11,8 @@
 #include "Basic.hpp"
 
 #include "DeveloperSettings_classes.hpp"
-#include "Engine_classes.hpp"
 #include "OpenColorIO_structs.hpp"
+#include "Engine_classes.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 
@@ -69,20 +69,21 @@ public:
 DUMPER7_ASSERTS_UOpenColorIOBlueprintLibrary;
 
 // Class OpenColorIO.OpenColorIOColorTransform
-// 0x00E0 (0x0108 - 0x0028)
+// 0x0140 (0x0168 - 0x0028)
 class UOpenColorIOColorTransform final : public UObject
 {
 public:
-	bool                                          bIsDisplayViewType;                                // 0x0028(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 SourceColorSpace;                                  // 0x0030(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 DestinationColorSpace;                             // 0x0040(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Display;                                           // 0x0050(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 View;                                              // 0x0060(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EOpenColorIOViewTransformDirection            DisplayViewDirection;                              // 0x0070(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_71[0x7];                                       // 0x0071(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TMap<int32, class UTexture*>                  Textures;                                          // 0x0078(0x0050)(UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	uint8                                         Pad_C8[0x40];                                      // 0x00C8(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UOpenColorIOConfiguration*              ConfigurationOwner;                                // 0x0028(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsDisplayViewType;                                // 0x0030(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 SourceColorSpace;                                  // 0x0038(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 DestinationColorSpace;                             // 0x0048(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Display;                                           // 0x0058(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 View;                                              // 0x0068(0x0010)(Edit, ZeroConstructor, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EOpenColorIOViewTransformDirection            DisplayViewDirection;                              // 0x0078(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_79[0x7];                                       // 0x0079(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TMap<int32, class UTexture*>                  Textures;                                          // 0x0080(0x0050)(Transient, UObjectWrapper, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_D0[0x98];                                      // 0x00D0(0x0098)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -101,20 +102,18 @@ public:
 DUMPER7_ASSERTS_UOpenColorIOColorTransform;
 
 // Class OpenColorIO.OpenColorIOConfiguration
-// 0x00D0 (0x00F8 - 0x0028)
+// 0x0070 (0x0098 - 0x0028)
 class UOpenColorIOConfiguration final : public UObject
 {
 public:
 	struct FFilePath                              ConfigurationFile;                                 // 0x0028(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<struct FOpenColorIOColorSpace>         DesiredColorSpaces;                                // 0x0038(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
 	TArray<struct FOpenColorIODisplayView>        DesiredDisplayViews;                               // 0x0048(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	TMap<class FString, class FString>            Context;                                           // 0x0058(0x0050)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	TArray<class UOpenColorIOColorTransform*>     ColorTransforms;                                   // 0x00A8(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	uint8                                         Pad_B8[0x30];                                      // 0x00B8(0x0030)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 ConfigHash;                                        // 0x00E8(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	TArray<class UOpenColorIOColorTransform*>     ColorTransforms;                                   // 0x0058(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_68[0x30];                                      // 0x0068(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
-	void ReloadExistingColorspaces(bool bForce);
+	void ReloadExistingColorspaces();
 
 public:
 	static class UClass* StaticClass()

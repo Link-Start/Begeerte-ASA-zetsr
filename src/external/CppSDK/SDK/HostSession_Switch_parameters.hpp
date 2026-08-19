@@ -10,34 +10,130 @@
 
 #include "Basic.hpp"
 
+#include "ShooterGame_structs.hpp"
 #include "cfcore_structs.hpp"
 #include "SlateCore_structs.hpp"
-#include "ShooterGame_structs.hpp"
 
 
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function HostSession_Switch.HostSession_Switch_C.BPPopulateMods
-// 0x0010 (0x0010 - 0x0000)
-struct HostSession_Switch_C_BPPopulateMods final
+// Function HostSession_Switch.HostSession_Switch_C.Tick
+// 0x003C (0x003C - 0x0000)
+struct HostSession_Switch_C_Tick final
 {
 public:
-	TArray<struct FInstalledMod>                  ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm)
+	struct FGeometry                              MyGeometry;                                        // 0x0000(0x0038)(BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor)
+	float                                         InDeltaTime;                                       // 0x0038(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
-DUMPER7_ASSERTS_HostSession_Switch_C_BPPopulateMods;
+DUMPER7_ASSERTS_HostSession_Switch_C_Tick;
 
-// Function HostSession_Switch.HostSession_Switch_C.DoSettingsMatchAnyDefaults
-// 0x0004 (0x0004 - 0x0000)
-struct HostSession_Switch_C_DoSettingsMatchAnyDefaults final
+// Function HostSession_Switch.HostSession_Switch_C.SetupMapSelectEntries
+// 0x0030 (0x0030 - 0x0000)
+struct HostSession_Switch_C_SetupMapSelectEntries final
 {
 public:
-	bool                                          Matches;                                           // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_DoesSettingsMatchSettingsDataAsset_ReturnValue; // 0x0001(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_DoesSettingsMatchSettingsDataAsset_ReturnValue_1; // 0x0002(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_DoesSettingsMatchSettingsDataAsset_ReturnValue_2; // 0x0003(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         Temp_int_Array_Index_Variable;                     // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         Temp_int_Loop_Counter_Variable;                    // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue;            // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	TArray<class UMapSelect_Entry_C*>             CallFunc_GetMapSelectEntries_MapSelectEntries;     // 0x0010(0x0010)(ReferenceParm, ContainsInstancedReference)
+	class UMapSelect_Entry_C*                     CallFunc_Array_Get_Item;                           // 0x0020(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0028(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x002C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
-DUMPER7_ASSERTS_HostSession_Switch_C_DoSettingsMatchAnyDefaults;
+DUMPER7_ASSERTS_HostSession_Switch_C_SetupMapSelectEntries;
+
+// Function HostSession_Switch.HostSession_Switch_C.SetSelectedMapIndex
+// 0x0004 (0x0004 - 0x0000)
+struct HostSession_Switch_C_SetSelectedMapIndex final
+{
+public:
+	int32                                         Index_0;                                           // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_HostSession_Switch_C_SetSelectedMapIndex;
+
+// Function HostSession_Switch.HostSession_Switch_C.SetMainMapSelectEntry
+// 0x0088 (0x0088 - 0x0000)
+struct HostSession_Switch_C_SetMainMapSelectEntry final
+{
+public:
+	int32                                         MapIndex;                                          // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         SelectedIndex;                                     // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         Temp_int_Array_Index_Variable;                     // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_HasDLCforMapIndex_ReturnValue;            // 0x000C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Not_PreBool_ReturnValue;                  // 0x000D(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_E[0x2];                                        // 0x000E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         Temp_int_Loop_Counter_Variable;                    // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	TArray<class UMapSelect_Entry_C*>             CallFunc_GetMapSelectEntries_MapSelectEntries;     // 0x0018(0x0010)(ReferenceParm, ContainsInstancedReference)
+	class UMapSelect_Entry_C*                     CallFunc_Array_Get_Item;                           // 0x0028(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0030(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0034(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue;            // 0x0035(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_36[0x2];                                       // 0x0036(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	class FText                                   CallFunc_GetMapInfo_OutMapName;                    // 0x0038(0x0018)()
+	struct FMapDescription                        CallFunc_GetMapInfo_OutDescription;                // 0x0050(0x0028)()
+	class FString                                 CallFunc_Conv_TextToString_ReturnValue;            // 0x0078(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_HostSession_Switch_C_SetMainMapSelectEntry;
+
+// Function HostSession_Switch.HostSession_Switch_C.PreConstruct
+// 0x0001 (0x0001 - 0x0000)
+struct HostSession_Switch_C_PreConstruct final
+{
+public:
+	bool                                          IsDesignTime;                                      // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_HostSession_Switch_C_PreConstruct;
+
+// Function HostSession_Switch.HostSession_Switch_C.OnIsAuthenticated
+// 0x0001 (0x0001 - 0x0000)
+struct HostSession_Switch_C_OnIsAuthenticated final
+{
+public:
+	bool                                          is_authenticated;                                  // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_HostSession_Switch_C_OnIsAuthenticated;
+
+// Function HostSession_Switch.HostSession_Switch_C.OnGetInstalledMods
+// 0x0010 (0x0010 - 0x0000)
+struct HostSession_Switch_C_OnGetInstalledMods final
+{
+public:
+	TArray<struct FInstalledMod>                  installed_mods;                                    // 0x0000(0x0010)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+};
+DUMPER7_ASSERTS_HostSession_Switch_C_OnGetInstalledMods;
+
+// Function HostSession_Switch.HostSession_Switch_C.IsInMapSelectView
+// 0x0002 (0x0002 - 0x0000)
+struct HostSession_Switch_C_IsInMapSelectView final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsVisible_ReturnValue;                    // 0x0001(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_HostSession_Switch_C_IsInMapSelectView;
+
+// Function HostSession_Switch.HostSession_Switch_C.GetSelectedMapIndex
+// 0x0008 (0x0008 - 0x0000)
+struct HostSession_Switch_C_GetSelectedMapIndex final
+{
+public:
+	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_GetSelectedMapIndex_index;                // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_HostSession_Switch_C_GetSelectedMapIndex;
+
+// Function HostSession_Switch.HostSession_Switch_C.GetMapSelectScrollBox
+// 0x0008 (0x0008 - 0x0000)
+struct HostSession_Switch_C_GetMapSelectScrollBox final
+{
+public:
+	class UScrollBox*                             ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash)
+};
+DUMPER7_ASSERTS_HostSession_Switch_C_GetMapSelectScrollBox;
 
 // Function HostSession_Switch.HostSession_Switch_C.ExecuteUbergraph_HostSession_Switch
 // 0x00E8 (0x00E8 - 0x0000)
@@ -81,122 +177,26 @@ public:
 };
 DUMPER7_ASSERTS_HostSession_Switch_C_ExecuteUbergraph_HostSession_Switch;
 
-// Function HostSession_Switch.HostSession_Switch_C.GetMapSelectScrollBox
-// 0x0008 (0x0008 - 0x0000)
-struct HostSession_Switch_C_GetMapSelectScrollBox final
-{
-public:
-	class UScrollBox*                             ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_HostSession_Switch_C_GetMapSelectScrollBox;
-
-// Function HostSession_Switch.HostSession_Switch_C.GetSelectedMapIndex
-// 0x0008 (0x0008 - 0x0000)
-struct HostSession_Switch_C_GetSelectedMapIndex final
-{
-public:
-	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_GetSelectedMapIndex_index;                // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_HostSession_Switch_C_GetSelectedMapIndex;
-
-// Function HostSession_Switch.HostSession_Switch_C.IsInMapSelectView
-// 0x0002 (0x0002 - 0x0000)
-struct HostSession_Switch_C_IsInMapSelectView final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_IsVisible_ReturnValue;                    // 0x0001(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_HostSession_Switch_C_IsInMapSelectView;
-
-// Function HostSession_Switch.HostSession_Switch_C.OnGetInstalledMods
-// 0x0010 (0x0010 - 0x0000)
-struct HostSession_Switch_C_OnGetInstalledMods final
-{
-public:
-	TArray<struct FInstalledMod>                  installed_mods;                                    // 0x0000(0x0010)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
-};
-DUMPER7_ASSERTS_HostSession_Switch_C_OnGetInstalledMods;
-
-// Function HostSession_Switch.HostSession_Switch_C.OnIsAuthenticated
-// 0x0001 (0x0001 - 0x0000)
-struct HostSession_Switch_C_OnIsAuthenticated final
-{
-public:
-	bool                                          is_authenticated;                                  // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_HostSession_Switch_C_OnIsAuthenticated;
-
-// Function HostSession_Switch.HostSession_Switch_C.PreConstruct
-// 0x0001 (0x0001 - 0x0000)
-struct HostSession_Switch_C_PreConstruct final
-{
-public:
-	bool                                          IsDesignTime;                                      // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_HostSession_Switch_C_PreConstruct;
-
-// Function HostSession_Switch.HostSession_Switch_C.SetMainMapSelectEntry
-// 0x0078 (0x0078 - 0x0000)
-struct HostSession_Switch_C_SetMainMapSelectEntry final
-{
-public:
-	int32                                         MapIndex;                                          // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         SelectedIndex;                                     // 0x0004(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         Temp_int_Array_Index_Variable;                     // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_HasDLCforMapIndex_ReturnValue;            // 0x000C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Not_PreBool_ReturnValue;                  // 0x000D(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_E[0x2];                                        // 0x000E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         Temp_int_Loop_Counter_Variable;                    // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	TArray<class UMapSelect_Entry_C*>             CallFunc_GetMapSelectEntries_MapSelectEntries;     // 0x0018(0x0010)(ReferenceParm, ContainsInstancedReference)
-	class UMapSelect_Entry_C*                     CallFunc_Array_Get_Item;                           // 0x0028(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0030(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0034(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue;            // 0x0035(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_36[0x2];                                       // 0x0036(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	class FText                                   CallFunc_GetMapInfo_OutMapName;                    // 0x0038(0x0010)()
-	struct FMapDescription                        CallFunc_GetMapInfo_OutDescription;                // 0x0048(0x0020)()
-	class FString                                 CallFunc_Conv_TextToString_ReturnValue;            // 0x0068(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_HostSession_Switch_C_SetMainMapSelectEntry;
-
-// Function HostSession_Switch.HostSession_Switch_C.SetSelectedMapIndex
+// Function HostSession_Switch.HostSession_Switch_C.DoSettingsMatchAnyDefaults
 // 0x0004 (0x0004 - 0x0000)
-struct HostSession_Switch_C_SetSelectedMapIndex final
+struct HostSession_Switch_C_DoSettingsMatchAnyDefaults final
 {
 public:
-	int32                                         Index_0;                                           // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          Matches;                                           // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_DoesSettingsMatchSettingsDataAsset_ReturnValue; // 0x0001(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_DoesSettingsMatchSettingsDataAsset_ReturnValue_1; // 0x0002(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_DoesSettingsMatchSettingsDataAsset_ReturnValue_2; // 0x0003(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
-DUMPER7_ASSERTS_HostSession_Switch_C_SetSelectedMapIndex;
+DUMPER7_ASSERTS_HostSession_Switch_C_DoSettingsMatchAnyDefaults;
 
-// Function HostSession_Switch.HostSession_Switch_C.SetupMapSelectEntries
-// 0x0030 (0x0030 - 0x0000)
-struct HostSession_Switch_C_SetupMapSelectEntries final
+// Function HostSession_Switch.HostSession_Switch_C.BPPopulateMods
+// 0x0010 (0x0010 - 0x0000)
+struct HostSession_Switch_C_BPPopulateMods final
 {
 public:
-	int32                                         Temp_int_Array_Index_Variable;                     // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         Temp_int_Loop_Counter_Variable;                    // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue;            // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	TArray<class UMapSelect_Entry_C*>             CallFunc_GetMapSelectEntries_MapSelectEntries;     // 0x0010(0x0010)(ReferenceParm, ContainsInstancedReference)
-	class UMapSelect_Entry_C*                     CallFunc_Array_Get_Item;                           // 0x0020(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0028(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x002C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	TArray<struct FInstalledMod>                  ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm)
 };
-DUMPER7_ASSERTS_HostSession_Switch_C_SetupMapSelectEntries;
-
-// Function HostSession_Switch.HostSession_Switch_C.Tick
-// 0x003C (0x003C - 0x0000)
-struct HostSession_Switch_C_Tick final
-{
-public:
-	struct FGeometry                              MyGeometry;                                        // 0x0000(0x0038)(BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor)
-	float                                         InDeltaTime;                                       // 0x0038(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-};
-DUMPER7_ASSERTS_HostSession_Switch_C_Tick;
+DUMPER7_ASSERTS_HostSession_Switch_C_BPPopulateMods;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

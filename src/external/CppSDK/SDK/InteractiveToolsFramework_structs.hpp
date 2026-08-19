@@ -11,7 +11,6 @@
 #include "Basic.hpp"
 
 #include "CoreUObject_structs.hpp"
-#include "InputCore_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -79,7 +78,7 @@ enum class EStandardToolContextMaterials : uint8
 
 // Enum InteractiveToolsFramework.EToolContextCoordinateSystem
 // NumValues: 0x0003
-enum class EToolContextCoordinateSystem : uint8
+enum class EToolContextCoordinateSystem : uint32
 {
 	World                                    = 0,
 	Local                                    = 1,
@@ -174,7 +173,7 @@ enum class EInputCaptureState : uint8
 
 // Enum InteractiveToolsFramework.EInputDevices
 // NumValues: 0x0009
-enum class EInputDevices : uint32
+enum class EInputDevices : uint16
 {
 	None                                     = 0,
 	Keyboard                                 = 1,
@@ -249,17 +248,6 @@ enum class EToolChangeTrackingMode : uint8
 	EToolChangeTrackingMode_MAX              = 4,
 };
 
-// Enum InteractiveToolsFramework.EToolManagerToolSwitchMode
-// NumValues: 0x0005
-enum class EToolManagerToolSwitchMode : uint8
-{
-	AcceptIfAble                             = 0,
-	CancelIfAble                             = 1,
-	CustomizableAcceptIfAble                 = 2,
-	CustomizableCancelIfAble                 = 3,
-	EToolManagerToolSwitchMode_MAX           = 4,
-};
-
 // Enum InteractiveToolsFramework.ESceneSnapQueryType
 // NumValues: 0x0003
 enum class ESceneSnapQueryType : uint8
@@ -281,30 +269,15 @@ enum class ESceneSnapQueryTargetType : uint8
 	ESceneSnapQueryTargetType_MAX            = 8,
 };
 
-// ScriptStruct InteractiveToolsFramework.DeviceButtonState
+// ScriptStruct InteractiveToolsFramework.GizmoVec2ParameterChange
 // 0x0020 (0x0020 - 0x0000)
-struct FDeviceButtonState final
+struct FGizmoVec2ParameterChange final
 {
 public:
-	struct FKey                                   Button;                                            // 0x0000(0x0018)(BlueprintVisible, Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bPressed;                                          // 0x0018(0x0001)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDown;                                             // 0x0019(0x0001)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bReleased;                                         // 0x001A(0x0001)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDoubleClicked;                                    // 0x001B(0x0001)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FVector2D                              InitialValue;                                      // 0x0000(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              CurrentValue;                                      // 0x0010(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FDeviceButtonState;
-
-// ScriptStruct InteractiveToolsFramework.GizmoElementMaterialAttribute
-// 0x000C (0x000C - 0x0000)
-struct FGizmoElementMaterialAttribute final
-{
-public:
-	TWeakObjectPtr<class UMaterialInterface>      Value;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOverridesChildState;                              // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FGizmoElementMaterialAttribute;
+DUMPER7_ASSERTS_FGizmoVec2ParameterChange;
 
 // ScriptStruct InteractiveToolsFramework.GizmoElementColorAttribute
 // 0x0014 (0x0014 - 0x0000)
@@ -317,6 +290,17 @@ public:
 	uint8                                         Pad_12[0x2];                                       // 0x0012(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FGizmoElementColorAttribute;
+
+// ScriptStruct InteractiveToolsFramework.GizmoElementMaterialAttribute
+// 0x000C (0x000C - 0x0000)
+struct FGizmoElementMaterialAttribute final
+{
+public:
+	TWeakObjectPtr<class UMaterialInterface>      Value;                                             // 0x0000(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOverridesChildState;                              // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FGizmoElementMaterialAttribute;
 
 // ScriptStruct InteractiveToolsFramework.GizmoElementMeshRenderStateAttributes
 // 0x0060 (0x0060 - 0x0000)
@@ -331,85 +315,6 @@ public:
 	struct FGizmoElementColorAttribute            InteractVertexColor;                               // 0x004C(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FGizmoElementMeshRenderStateAttributes;
-
-// ScriptStruct InteractiveToolsFramework.InputRayHit
-// 0x0040 (0x0040 - 0x0000)
-struct FInputRayHit final
-{
-public:
-	bool                                          bHit;                                              // 0x0000(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        HitDepth;                                          // 0x0008(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                HitNormal;                                         // 0x0010(0x0018)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bHasHitNormal;                                     // 0x0028(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_29[0x3];                                       // 0x0029(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         HitIdentifier;                                     // 0x002C(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_30[0x8];                                       // 0x0030(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TWeakObjectPtr<class UObject>                 HitObject;                                         // 0x0038(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FInputRayHit;
-
-// ScriptStruct InteractiveToolsFramework.InputDeviceRay
-// 0x0048 (0x0048 - 0x0000)
-struct FInputDeviceRay final
-{
-public:
-	struct FRay                                   WorldRay;                                          // 0x0000(0x0030)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          bHas2D;                                            // 0x0030(0x0001)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector2D                              ScreenPosition;                                    // 0x0038(0x0010)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FInputDeviceRay;
-
-// ScriptStruct InteractiveToolsFramework.KeyboardInputDeviceState
-// 0x0020 (0x0020 - 0x0000)
-struct FKeyboardInputDeviceState final
-{
-public:
-	struct FDeviceButtonState                     ActiveKey;                                         // 0x0000(0x0020)(BlueprintVisible, Transient, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FKeyboardInputDeviceState;
-
-// ScriptStruct InteractiveToolsFramework.MouseInputDeviceState
-// 0x00B8 (0x00B8 - 0x0000)
-struct FMouseInputDeviceState final
-{
-public:
-	struct FDeviceButtonState                     Left;                                              // 0x0000(0x0020)(BlueprintVisible, Transient, NativeAccessSpecifierPublic)
-	struct FDeviceButtonState                     Middle;                                            // 0x0020(0x0020)(BlueprintVisible, Transient, NativeAccessSpecifierPublic)
-	struct FDeviceButtonState                     Right;                                             // 0x0040(0x0020)(BlueprintVisible, Transient, NativeAccessSpecifierPublic)
-	float                                         WheelDelta;                                        // 0x0060(0x0004)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_64[0x4];                                       // 0x0064(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector2D                              Position2D;                                        // 0x0068(0x0010)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              Delta2D;                                           // 0x0078(0x0010)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FRay                                   WorldRay;                                          // 0x0088(0x0030)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FMouseInputDeviceState;
-
-// ScriptStruct InteractiveToolsFramework.InputDeviceState
-// 0x00E0 (0x00E0 - 0x0000)
-struct FInputDeviceState final
-{
-public:
-	EInputDevices                                 InputDevice;                                       // 0x0000(0x0004)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bShiftKeyDown;                                     // 0x0004(0x0001)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAltKeyDown;                                       // 0x0005(0x0001)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bCtrlKeyDown;                                      // 0x0006(0x0001)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bCmdKeyDown;                                       // 0x0007(0x0001)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FKeyboardInputDeviceState              Keyboard;                                          // 0x0008(0x0020)(BlueprintVisible, Transient, NativeAccessSpecifierPublic)
-	struct FMouseInputDeviceState                 Mouse;                                             // 0x0028(0x00B8)(BlueprintVisible, Transient, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FInputDeviceState;
-
-// ScriptStruct InteractiveToolsFramework.GizmoVec2ParameterChange
-// 0x0020 (0x0020 - 0x0000)
-struct FGizmoVec2ParameterChange final
-{
-public:
-	struct FVector2D                              InitialValue;                                      // 0x0000(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              CurrentValue;                                      // 0x0010(0x0010)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FGizmoVec2ParameterChange;
 
 // ScriptStruct InteractiveToolsFramework.GizmoElementLineRenderStateAttributes
 // 0x003C (0x003C - 0x0000)
@@ -433,11 +338,11 @@ public:
 DUMPER7_ASSERTS_FGizmoFloatParameterChange;
 
 // ScriptStruct InteractiveToolsFramework.BrushStampData
-// 0x0148 (0x0148 - 0x0000)
+// 0x0130 (0x0130 - 0x0000)
 struct alignas(0x08) FBrushStampData final
 {
 public:
-	uint8                                         Pad_0[0x148];                                      // 0x0000(0x0148)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_0[0x130];                                      // 0x0000(0x0130)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FBrushStampData;
 
@@ -446,17 +351,46 @@ DUMPER7_ASSERTS_FBrushStampData;
 struct FBehaviorInfo final
 {
 public:
-	class UInputBehavior*                         Behavior;                                          // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UInputBehavior*                         Behavior;                                          // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_8[0x18];                                       // 0x0008(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FBehaviorInfo;
+
+// ScriptStruct InteractiveToolsFramework.InputRayHit
+// 0x0040 (0x0040 - 0x0000)
+struct FInputRayHit final
+{
+public:
+	bool                                          bHit;                                              // 0x0000(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        HitDepth;                                          // 0x0008(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                HitNormal;                                         // 0x0010(0x0018)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bHasHitNormal;                                     // 0x0028(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_29[0x3];                                       // 0x0029(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         HitIdentifier;                                     // 0x002C(0x0004)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_30[0x8];                                       // 0x0030(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	TWeakObjectPtr<class UObject>                 HitObject;                                         // 0x0038(0x0008)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FInputRayHit;
+
+// ScriptStruct InteractiveToolsFramework.InputDeviceRay
+// 0x0048 (0x0048 - 0x0000)
+struct FInputDeviceRay final
+{
+public:
+	struct FRay                                   WorldRay;                                          // 0x0000(0x0030)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          bHas2D;                                            // 0x0030(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector2D                              ScreenPosition;                                    // 0x0038(0x0010)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FInputDeviceRay;
 
 // ScriptStruct InteractiveToolsFramework.ActiveGizmo
 // 0x0030 (0x0030 - 0x0000)
 struct FActiveGizmo final
 {
 public:
-	class UInteractiveGizmo*                      Gizmo;                                             // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UInteractiveGizmo*                      Gizmo;                                             // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_8[0x28];                                       // 0x0008(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FActiveGizmo;

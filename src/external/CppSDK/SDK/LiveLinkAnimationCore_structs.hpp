@@ -17,26 +17,24 @@
 SDK_NAMESPACE_START
 
 // ScriptStruct LiveLinkAnimationCore.AnimNode_LiveLinkPose
-// 0x0058 (0x0068 - 0x0010)
+// 0x0038 (0x0048 - 0x0010)
 struct FAnimNode_LiveLinkPose final : public FAnimNode_Base
 {
 public:
 	struct FPoseLink                              InputPose;                                         // 0x0010(0x0010)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
 	struct FLiveLinkSubjectName                   LiveLinkSubjectName;                               // 0x0020(0x0008)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDoLiveLinkEvaluation;                             // 0x0028(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TSubclassOf<class ULiveLinkRetargetAsset>     RetargetAsset;                                     // 0x0030(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoClear, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class ULiveLinkRetargetAsset*                 CurrentRetargetAsset;                              // 0x0038(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_40[0x28];                                      // 0x0040(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TSubclassOf<class ULiveLinkRetargetAsset>     RetargetAsset;                                     // 0x0028(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoClear, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class ULiveLinkRetargetAsset*                 CurrentRetargetAsset;                              // 0x0030(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_38[0x10];                                      // 0x0038(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FAnimNode_LiveLinkPose;
 
 // ScriptStruct LiveLinkAnimationCore.LiveLinkInstanceProxy
-// 0x0060 (0x0800 - 0x07A0)
+// 0x0040 (0x08C0 - 0x0880)
 struct FLiveLinkInstanceProxy final : public FAnimInstanceProxy
 {
 public:
-	struct FAnimNode_LiveLinkPose                 PoseNode;                                          // 0x0798(0x0068)(Edit, NativeAccessSpecifierPublic)
+	struct FAnimNode_LiveLinkPose                 PoseNode;                                          // 0x0878(0x0048)(Edit, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FLiveLinkInstanceProxy;
 

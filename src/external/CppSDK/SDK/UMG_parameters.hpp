@@ -14,7 +14,6 @@
 #include "CoreUObject_structs.hpp"
 #include "SlateCore_structs.hpp"
 #include "Engine_structs.hpp"
-#include "FieldNotification_structs.hpp"
 #include "Slate_structs.hpp"
 #include "InputCore_structs.hpp"
 
@@ -22,42 +21,23 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function UMG.AsyncTaskDownloadBinkMovieCached.DownloadVideo
-// 0x0018 (0x0018 - 0x0000)
-struct AsyncTaskDownloadBinkMovieCached_DownloadVideo final
-{
-public:
-	class FString                                 URL;                                               // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UAsyncTaskDownloadBinkMovieCached*      ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AsyncTaskDownloadBinkMovieCached_DownloadVideo;
-
-// Function UMG.AsyncTaskDownloadBinkMovieCached.GetCachedFullFilename
-// 0x0010 (0x0010 - 0x0000)
-struct AsyncTaskDownloadBinkMovieCached_GetCachedFullFilename final
-{
-public:
-	class FString                                 ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AsyncTaskDownloadBinkMovieCached_GetCachedFullFilename;
-
-// Function UMG.AsyncTaskDownloadBinkMovieCached.GetDownloadedSize
+// Function UMG.UMGSequencePlayer.SetUserTag
 // 0x0008 (0x0008 - 0x0000)
-struct AsyncTaskDownloadBinkMovieCached_GetDownloadedSize final
+struct UMGSequencePlayer_SetUserTag final
 {
 public:
-	int64                                         ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   InUserTag;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_AsyncTaskDownloadBinkMovieCached_GetDownloadedSize;
+DUMPER7_ASSERTS_UMGSequencePlayer_SetUserTag;
 
-// Function UMG.AsyncTaskDownloadBinkMovieCached.GetDownloadState
-// 0x0001 (0x0001 - 0x0000)
-struct AsyncTaskDownloadBinkMovieCached_GetDownloadState final
+// Function UMG.UMGSequencePlayer.GetUserTag
+// 0x0008 (0x0008 - 0x0000)
+struct UMGSequencePlayer_GetUserTag final
 {
 public:
-	ECachedBinkDownloadState                      ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_AsyncTaskDownloadBinkMovieCached_GetDownloadState;
+DUMPER7_ASSERTS_UMGSequencePlayer_GetUserTag;
 
 // Function UMG.Widget.ForceVolatile
 // 0x0001 (0x0001 - 0x0000)
@@ -263,11 +243,11 @@ public:
 DUMPER7_ASSERTS_Widget_SetToolTip;
 
 // Function UMG.Widget.SetToolTipText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct Widget_SetToolTipText final
 {
 public:
-	class FText                                   InToolTipText;                                     // 0x0000(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class FText                                   InToolTipText;                                     // 0x0000(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_Widget_SetToolTipText;
 
@@ -290,20 +270,20 @@ public:
 DUMPER7_ASSERTS_Widget_SetVisibility;
 
 // Function UMG.Widget.GetAccessibleSummaryText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct Widget_GetAccessibleSummaryText final
 {
 public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	class FText                                   ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_Widget_GetAccessibleSummaryText;
 
 // Function UMG.Widget.GetAccessibleText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct Widget_GetAccessibleText final
 {
 public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	class FText                                   ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_Widget_GetAccessibleText;
 
@@ -539,548 +519,21 @@ public:
 };
 DUMPER7_ASSERTS_Widget_IsVisible;
 
-// Function UMG.SpinBox.SetAlwaysUsesDeltaSnap
-// 0x0001 (0x0001 - 0x0000)
-struct SpinBox_SetAlwaysUsesDeltaSnap final
-{
-public:
-	bool                                          bNewValue;                                         // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_SetAlwaysUsesDeltaSnap;
-
-// Function UMG.SpinBox.SetDelta
-// 0x0004 (0x0004 - 0x0000)
-struct SpinBox_SetDelta final
-{
-public:
-	float                                         NewValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_SetDelta;
-
-// Function UMG.SpinBox.SetForegroundColor
-// 0x0014 (0x0014 - 0x0000)
-struct SpinBox_SetForegroundColor final
-{
-public:
-	struct FSlateColor                            InForegroundColor;                                 // 0x0000(0x0014)(Parm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_SetForegroundColor;
-
-// Function UMG.SpinBox.SetMaxFractionalDigits
-// 0x0004 (0x0004 - 0x0000)
-struct SpinBox_SetMaxFractionalDigits final
-{
-public:
-	int32                                         NewValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_SetMaxFractionalDigits;
-
-// Function UMG.SpinBox.SetMaxSliderValue
-// 0x0004 (0x0004 - 0x0000)
-struct SpinBox_SetMaxSliderValue final
-{
-public:
-	float                                         NewValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_SetMaxSliderValue;
-
-// Function UMG.SpinBox.SetMaxValue
-// 0x0004 (0x0004 - 0x0000)
-struct SpinBox_SetMaxValue final
-{
-public:
-	float                                         NewValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_SetMaxValue;
-
-// Function UMG.SpinBox.SetMinFractionalDigits
-// 0x0004 (0x0004 - 0x0000)
-struct SpinBox_SetMinFractionalDigits final
-{
-public:
-	int32                                         NewValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_SetMinFractionalDigits;
-
-// Function UMG.SpinBox.SetMinSliderValue
-// 0x0004 (0x0004 - 0x0000)
-struct SpinBox_SetMinSliderValue final
-{
-public:
-	float                                         NewValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_SetMinSliderValue;
-
-// Function UMG.SpinBox.SetMinValue
-// 0x0004 (0x0004 - 0x0000)
-struct SpinBox_SetMinValue final
-{
-public:
-	float                                         NewValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_SetMinValue;
-
-// Function UMG.SpinBox.SetValue
-// 0x0004 (0x0004 - 0x0000)
-struct SpinBox_SetValue final
-{
-public:
-	float                                         NewValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_SetValue;
-
-// Function UMG.SpinBox.GetAlwaysUsesDeltaSnap
-// 0x0001 (0x0001 - 0x0000)
-struct SpinBox_GetAlwaysUsesDeltaSnap final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_GetAlwaysUsesDeltaSnap;
-
-// Function UMG.SpinBox.GetDelta
-// 0x0004 (0x0004 - 0x0000)
-struct SpinBox_GetDelta final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_GetDelta;
-
-// Function UMG.SpinBox.GetMaxFractionalDigits
-// 0x0004 (0x0004 - 0x0000)
-struct SpinBox_GetMaxFractionalDigits final
-{
-public:
-	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_GetMaxFractionalDigits;
-
-// Function UMG.SpinBox.GetMaxSliderValue
-// 0x0004 (0x0004 - 0x0000)
-struct SpinBox_GetMaxSliderValue final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_GetMaxSliderValue;
-
-// Function UMG.SpinBox.GetMaxValue
-// 0x0004 (0x0004 - 0x0000)
-struct SpinBox_GetMaxValue final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_GetMaxValue;
-
-// Function UMG.SpinBox.GetMinFractionalDigits
-// 0x0004 (0x0004 - 0x0000)
-struct SpinBox_GetMinFractionalDigits final
-{
-public:
-	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_GetMinFractionalDigits;
-
-// Function UMG.SpinBox.GetMinSliderValue
-// 0x0004 (0x0004 - 0x0000)
-struct SpinBox_GetMinSliderValue final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_GetMinSliderValue;
-
-// Function UMG.SpinBox.GetMinValue
-// 0x0004 (0x0004 - 0x0000)
-struct SpinBox_GetMinValue final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_GetMinValue;
-
-// Function UMG.SpinBox.GetValue
-// 0x0004 (0x0004 - 0x0000)
-struct SpinBox_GetValue final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SpinBox_GetValue;
-
-// Function UMG.ListViewBase.SetIsGamepadScrollingEnabled
-// 0x0001 (0x0001 - 0x0000)
-struct ListViewBase_SetIsGamepadScrollingEnabled final
-{
-public:
-	bool                                          bInIsGamepadScrollingEnabled;                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListViewBase_SetIsGamepadScrollingEnabled;
-
-// Function UMG.ListViewBase.SetIsPointerScrollingEnabled
-// 0x0001 (0x0001 - 0x0000)
-struct ListViewBase_SetIsPointerScrollingEnabled final
-{
-public:
-	bool                                          bInIsPointerScrollingEnabled;                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListViewBase_SetIsPointerScrollingEnabled;
-
-// Function UMG.ListViewBase.SetScrollbarVisibility
-// 0x0001 (0x0001 - 0x0000)
-struct ListViewBase_SetScrollbarVisibility final
-{
-public:
-	ESlateVisibility                              InVisibility;                                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListViewBase_SetScrollbarVisibility;
-
-// Function UMG.ListViewBase.SetScrollOffset
-// 0x0004 (0x0004 - 0x0000)
-struct ListViewBase_SetScrollOffset final
-{
-public:
-	float                                         InScrollOffset;                                    // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListViewBase_SetScrollOffset;
-
-// Function UMG.ListViewBase.SetWheelScrollMultiplier
-// 0x0004 (0x0004 - 0x0000)
-struct ListViewBase_SetWheelScrollMultiplier final
-{
-public:
-	float                                         NewWheelScrollMultiplier;                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListViewBase_SetWheelScrollMultiplier;
-
-// Function UMG.ListViewBase.GetDisplayedEntryWidgets
+// Function UMG.Spacer.SetSize
 // 0x0010 (0x0010 - 0x0000)
-struct ListViewBase_GetDisplayedEntryWidgets final
+struct Spacer_SetSize final
 {
 public:
-	TArray<class UUserWidget*>                    ReturnValue;                                       // 0x0000(0x0010)(ConstParm, ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	struct FVector2D                              InSize;                                            // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_ListViewBase_GetDisplayedEntryWidgets;
-
-// Function UMG.ListViewBase.GetScrollOffset
-// 0x0004 (0x0004 - 0x0000)
-struct ListViewBase_GetScrollOffset final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListViewBase_GetScrollOffset;
-
-// Function UMG.PanelSlot.GetContent
-// 0x0008 (0x0008 - 0x0000)
-struct PanelSlot_GetContent final
-{
-public:
-	class UWidget*                                ReturnValue;                                       // 0x0000(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_PanelSlot_GetContent;
-
-// Function UMG.VerticalBoxSlot.SetHorizontalAlignment
-// 0x0001 (0x0001 - 0x0000)
-struct VerticalBoxSlot_SetHorizontalAlignment final
-{
-public:
-	EHorizontalAlignment                          InHorizontalAlignment;                             // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_VerticalBoxSlot_SetHorizontalAlignment;
-
-// Function UMG.VerticalBoxSlot.SetPadding
-// 0x0010 (0x0010 - 0x0000)
-struct VerticalBoxSlot_SetPadding final
-{
-public:
-	struct FMargin                                InPadding;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_VerticalBoxSlot_SetPadding;
-
-// Function UMG.VerticalBoxSlot.SetSize
-// 0x0008 (0x0008 - 0x0000)
-struct VerticalBoxSlot_SetSize final
-{
-public:
-	struct FSlateChildSize                        InSize;                                            // 0x0000(0x0008)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_VerticalBoxSlot_SetSize;
-
-// Function UMG.VerticalBoxSlot.SetVerticalAlignment
-// 0x0001 (0x0001 - 0x0000)
-struct VerticalBoxSlot_SetVerticalAlignment final
-{
-public:
-	EVerticalAlignment                            InVerticalAlignment;                               // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_VerticalBoxSlot_SetVerticalAlignment;
-
-// Function UMG.ListView.AddItem
-// 0x0008 (0x0008 - 0x0000)
-struct ListView_AddItem final
-{
-public:
-	class UObject*                                Item;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_AddItem;
-
-// Function UMG.ListView.BP_NavigateToItem
-// 0x0008 (0x0008 - 0x0000)
-struct ListView_BP_NavigateToItem final
-{
-public:
-	class UObject*                                Item;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_BP_NavigateToItem;
-
-// Function UMG.ListView.BP_ScrollItemIntoView
-// 0x0008 (0x0008 - 0x0000)
-struct ListView_BP_ScrollItemIntoView final
-{
-public:
-	class UObject*                                Item;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_BP_ScrollItemIntoView;
-
-// Function UMG.ListView.BP_SetItemSelection
-// 0x0010 (0x0010 - 0x0000)
-struct ListView_BP_SetItemSelection final
-{
-public:
-	class UObject*                                Item;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bSelected;                                         // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_ListView_BP_SetItemSelection;
-
-// Function UMG.ListView.BP_SetListItems
-// 0x0010 (0x0010 - 0x0000)
-struct ListView_BP_SetListItems final
-{
-public:
-	TArray<class UObject*>                        InListItems;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_BP_SetListItems;
-
-// Function UMG.ListView.BP_SetSelectedItem
-// 0x0008 (0x0008 - 0x0000)
-struct ListView_BP_SetSelectedItem final
-{
-public:
-	class UObject*                                Item;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_BP_SetSelectedItem;
-
-// Function UMG.ListView.NavigateToIndex
-// 0x0004 (0x0004 - 0x0000)
-struct ListView_NavigateToIndex final
-{
-public:
-	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_NavigateToIndex;
-
-// Function UMG.ListView.OnListItemEndPlayed
-// 0x0010 (0x0010 - 0x0000)
-struct ListView_OnListItemEndPlayed final
-{
-public:
-	class AActor*                                 Item;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EEndPlayReason                                EndPlayReason;                                     // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_ListView_OnListItemEndPlayed;
-
-// Function UMG.ListView.OnListItemOuterEndPlayed
-// 0x0010 (0x0010 - 0x0000)
-struct ListView_OnListItemOuterEndPlayed final
-{
-public:
-	class AActor*                                 ItemOuter;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EEndPlayReason                                EndPlayReason;                                     // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_ListView_OnListItemOuterEndPlayed;
-
-// Function UMG.ListView.RemoveItem
-// 0x0008 (0x0008 - 0x0000)
-struct ListView_RemoveItem final
-{
-public:
-	class UObject*                                Item;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_RemoveItem;
-
-// Function UMG.ListView.ScrollIndexIntoView
-// 0x0004 (0x0004 - 0x0000)
-struct ListView_ScrollIndexIntoView final
-{
-public:
-	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_ScrollIndexIntoView;
-
-// Function UMG.ListView.SetScrollBarPadding
-// 0x0010 (0x0010 - 0x0000)
-struct ListView_SetScrollBarPadding final
-{
-public:
-	struct FMargin                                InScrollBarPadding;                                // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_SetScrollBarPadding;
-
-// Function UMG.ListView.SetScrollIntoViewAlignment
-// 0x0001 (0x0001 - 0x0000)
-struct ListView_SetScrollIntoViewAlignment final
-{
-public:
-	EScrollIntoViewAlignment                      NewScrollIntoViewAlignment;                        // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_SetScrollIntoViewAlignment;
-
-// Function UMG.ListView.SetSelectedIndex
-// 0x0004 (0x0004 - 0x0000)
-struct ListView_SetSelectedIndex final
-{
-public:
-	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_SetSelectedIndex;
-
-// Function UMG.ListView.SetSelectionMode
-// 0x0001 (0x0001 - 0x0000)
-struct ListView_SetSelectionMode final
-{
-public:
-	ESelectionMode                                SelectionMode_0;                                   // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_SetSelectionMode;
-
-// Function UMG.ListView.BP_GetNumItemsSelected
-// 0x0004 (0x0004 - 0x0000)
-struct ListView_BP_GetNumItemsSelected final
-{
-public:
-	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_BP_GetNumItemsSelected;
-
-// Function UMG.ListView.BP_GetSelectedItem
-// 0x0008 (0x0008 - 0x0000)
-struct ListView_BP_GetSelectedItem final
-{
-public:
-	class UObject*                                ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_BP_GetSelectedItem;
-
-// Function UMG.ListView.BP_GetSelectedItems
-// 0x0018 (0x0018 - 0x0000)
-struct ListView_BP_GetSelectedItems final
-{
-public:
-	TArray<class UObject*>                        Items;                                             // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_ListView_BP_GetSelectedItems;
-
-// Function UMG.ListView.BP_IsItemVisible
-// 0x0010 (0x0010 - 0x0000)
-struct ListView_BP_IsItemVisible final
-{
-public:
-	class UObject*                                Item;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_ListView_BP_IsItemVisible;
-
-// Function UMG.ListView.GetHorizontalEntrySpacing
-// 0x0004 (0x0004 - 0x0000)
-struct ListView_GetHorizontalEntrySpacing final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_GetHorizontalEntrySpacing;
-
-// Function UMG.ListView.GetIndexForItem
-// 0x0010 (0x0010 - 0x0000)
-struct ListView_GetIndexForItem final
-{
-public:
-	const class UObject*                          Item;                                              // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_ListView_GetIndexForItem;
-
-// Function UMG.ListView.GetItemAt
-// 0x0010 (0x0010 - 0x0000)
-struct ListView_GetItemAt final
-{
-public:
-	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UObject*                                ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_GetItemAt;
-
-// Function UMG.ListView.GetListItems
-// 0x0010 (0x0010 - 0x0000)
-struct ListView_GetListItems final
-{
-public:
-	TArray<class UObject*>                        ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_GetListItems;
-
-// Function UMG.ListView.GetNumItems
-// 0x0004 (0x0004 - 0x0000)
-struct ListView_GetNumItems final
-{
-public:
-	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_GetNumItems;
-
-// Function UMG.ListView.GetScrollBarPadding
-// 0x0010 (0x0010 - 0x0000)
-struct ListView_GetScrollBarPadding final
-{
-public:
-	struct FMargin                                ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_GetScrollBarPadding;
-
-// Function UMG.ListView.GetVerticalEntrySpacing
-// 0x0004 (0x0004 - 0x0000)
-struct ListView_GetVerticalEntrySpacing final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_GetVerticalEntrySpacing;
-
-// Function UMG.ListView.IsRefreshPending
-// 0x0001 (0x0001 - 0x0000)
-struct ListView_IsRefreshPending final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ListView_IsRefreshPending;
+DUMPER7_ASSERTS_Spacer_SetSize;
 
 // Function UMG.PanelWidget.AddChild
 // 0x0010 (0x0010 - 0x0000)
 struct PanelWidget_AddChild final
 {
 public:
-	class UWidget*                                Content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UWidget*                                content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UPanelSlot*                             ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PanelWidget_AddChild;
@@ -1090,7 +543,7 @@ DUMPER7_ASSERTS_PanelWidget_AddChild;
 struct PanelWidget_RemoveChild final
 {
 public:
-	class UWidget*                                Content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UWidget*                                content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -1132,7 +585,7 @@ DUMPER7_ASSERTS_PanelWidget_GetChildAt;
 struct PanelWidget_GetChildIndex final
 {
 public:
-	const class UWidget*                          Content;                                           // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UWidget*                          content;                                           // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -1161,18 +614,27 @@ DUMPER7_ASSERTS_PanelWidget_HasAnyChildren;
 struct PanelWidget_HasChild final
 {
 public:
-	class UWidget*                                Content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UWidget*                                content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_PanelWidget_HasChild;
+
+// Function UMG.TextLayoutWidget.SetJustification
+// 0x0001 (0x0001 - 0x0000)
+struct TextLayoutWidget_SetJustification final
+{
+public:
+	ETextJustify                                  InJustification;                                   // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_TextLayoutWidget_SetJustification;
 
 // Function UMG.ContentWidget.SetContent
 // 0x0010 (0x0010 - 0x0000)
 struct ContentWidget_SetContent final
 {
 public:
-	class UWidget*                                Content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UWidget*                                content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UPanelSlot*                             ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_ContentWidget_SetContent;
@@ -1195,169 +657,77 @@ public:
 };
 DUMPER7_ASSERTS_ContentWidget_GetContentSlot;
 
-// Function UMG.Button.MimickClicked
+// Function UMG.BackgroundBlur.SetApplyAlphaToBlur
 // 0x0001 (0x0001 - 0x0000)
-struct Button_MimickClicked final
+struct BackgroundBlur_SetApplyAlphaToBlur final
 {
 public:
-	bool                                          bFromGamepad;                                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bInApplyAlphaToBlur;                               // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_Button_MimickClicked;
+DUMPER7_ASSERTS_BackgroundBlur_SetApplyAlphaToBlur;
 
-// Function UMG.Button.SetBackgroundColor
-// 0x0010 (0x0010 - 0x0000)
-struct Button_SetBackgroundColor final
-{
-public:
-	struct FLinearColor                           InBackgroundColor;                                 // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Button_SetBackgroundColor;
-
-// Function UMG.Button.SetClickMethod
-// 0x0001 (0x0001 - 0x0000)
-struct Button_SetClickMethod final
-{
-public:
-	EButtonClickMethod                            InClickMethod;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Button_SetClickMethod;
-
-// Function UMG.Button.SetColorAndOpacity
-// 0x0010 (0x0010 - 0x0000)
-struct Button_SetColorAndOpacity final
-{
-public:
-	struct FLinearColor                           InColorAndOpacity;                                 // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Button_SetColorAndOpacity;
-
-// Function UMG.Button.SetPressMethod
-// 0x0001 (0x0001 - 0x0000)
-struct Button_SetPressMethod final
-{
-public:
-	EButtonPressMethod                            InPressMethod;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Button_SetPressMethod;
-
-// Function UMG.Button.SetStyle
-// 0x0370 (0x0370 - 0x0000)
-struct Button_SetStyle final
-{
-public:
-	struct FButtonStyle                           InStyle;                                           // 0x0000(0x0370)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Button_SetStyle;
-
-// Function UMG.Button.SetTouchMethod
-// 0x0001 (0x0001 - 0x0000)
-struct Button_SetTouchMethod final
-{
-public:
-	EButtonTouchMethod                            InTouchMethod;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Button_SetTouchMethod;
-
-// Function UMG.Button.IsPressed
-// 0x0001 (0x0001 - 0x0000)
-struct Button_IsPressed final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Button_IsPressed;
-
-// Function UMG.WidgetSwitcher.SetActiveWidget
-// 0x0008 (0x0008 - 0x0000)
-struct WidgetSwitcher_SetActiveWidget final
-{
-public:
-	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WidgetSwitcher_SetActiveWidget;
-
-// Function UMG.WidgetSwitcher.SetActiveWidgetIndex
+// Function UMG.BackgroundBlur.SetBlurRadius
 // 0x0004 (0x0004 - 0x0000)
-struct WidgetSwitcher_SetActiveWidgetIndex final
+struct BackgroundBlur_SetBlurRadius final
 {
 public:
-	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         InBlurRadius;                                      // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_WidgetSwitcher_SetActiveWidgetIndex;
+DUMPER7_ASSERTS_BackgroundBlur_SetBlurRadius;
 
-// Function UMG.WidgetSwitcher.GetActiveWidget
-// 0x0008 (0x0008 - 0x0000)
-struct WidgetSwitcher_GetActiveWidget final
-{
-public:
-	class UWidget*                                ReturnValue;                                       // 0x0000(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WidgetSwitcher_GetActiveWidget;
-
-// Function UMG.WidgetSwitcher.GetActiveWidgetIndex
+// Function UMG.BackgroundBlur.SetBlurStrength
 // 0x0004 (0x0004 - 0x0000)
-struct WidgetSwitcher_GetActiveWidgetIndex final
+struct BackgroundBlur_SetBlurStrength final
 {
 public:
-	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         InStrength;                                        // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_WidgetSwitcher_GetActiveWidgetIndex;
+DUMPER7_ASSERTS_BackgroundBlur_SetBlurStrength;
 
-// Function UMG.WidgetSwitcher.GetNumWidgets
-// 0x0004 (0x0004 - 0x0000)
-struct WidgetSwitcher_GetNumWidgets final
+// Function UMG.BackgroundBlur.SetCornerRadius
+// 0x0020 (0x0020 - 0x0000)
+struct BackgroundBlur_SetCornerRadius final
 {
 public:
-	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector4                               InCornerRadius;                                    // 0x0000(0x0020)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_WidgetSwitcher_GetNumWidgets;
+DUMPER7_ASSERTS_BackgroundBlur_SetCornerRadius;
 
-// Function UMG.WidgetSwitcher.GetWidgetAtIndex
-// 0x0010 (0x0010 - 0x0000)
-struct WidgetSwitcher_GetWidgetAtIndex final
-{
-public:
-	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UWidget*                                ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WidgetSwitcher_GetWidgetAtIndex;
-
-// Function UMG.UniformGridSlot.SetColumn
-// 0x0004 (0x0004 - 0x0000)
-struct UniformGridSlot_SetColumn final
-{
-public:
-	int32                                         InColumn;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_UniformGridSlot_SetColumn;
-
-// Function UMG.UniformGridSlot.SetHorizontalAlignment
+// Function UMG.BackgroundBlur.SetHorizontalAlignment
 // 0x0001 (0x0001 - 0x0000)
-struct UniformGridSlot_SetHorizontalAlignment final
+struct BackgroundBlur_SetHorizontalAlignment final
 {
 public:
 	EHorizontalAlignment                          InHorizontalAlignment;                             // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_UniformGridSlot_SetHorizontalAlignment;
+DUMPER7_ASSERTS_BackgroundBlur_SetHorizontalAlignment;
 
-// Function UMG.UniformGridSlot.SetRow
-// 0x0004 (0x0004 - 0x0000)
-struct UniformGridSlot_SetRow final
+// Function UMG.BackgroundBlur.SetLowQualityFallbackBrush
+// 0x00D0 (0x00D0 - 0x0000)
+struct BackgroundBlur_SetLowQualityFallbackBrush final
 {
 public:
-	int32                                         InRow;                                             // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FSlateBrush                            InBrush;                                           // 0x0000(0x00D0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_UniformGridSlot_SetRow;
+DUMPER7_ASSERTS_BackgroundBlur_SetLowQualityFallbackBrush;
 
-// Function UMG.UniformGridSlot.SetVerticalAlignment
+// Function UMG.BackgroundBlur.SetPadding
+// 0x0010 (0x0010 - 0x0000)
+struct BackgroundBlur_SetPadding final
+{
+public:
+	struct FMargin                                InPadding;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_BackgroundBlur_SetPadding;
+
+// Function UMG.BackgroundBlur.SetVerticalAlignment
 // 0x0001 (0x0001 - 0x0000)
-struct UniformGridSlot_SetVerticalAlignment final
+struct BackgroundBlur_SetVerticalAlignment final
 {
 public:
 	EVerticalAlignment                            InVerticalAlignment;                               // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_UniformGridSlot_SetVerticalAlignment;
+DUMPER7_ASSERTS_BackgroundBlur_SetVerticalAlignment;
 
 // Function UMG.UserWidget.AddExtension
 // 0x0010 (0x0010 - 0x0000)
@@ -1867,83 +1237,6 @@ public:
 };
 DUMPER7_ASSERTS_UserWidget_PreConstruct;
 
-// Function UMG.UserWidget.QueuePauseAnimation
-// 0x0010 (0x0010 - 0x0000)
-struct UserWidget_QueuePauseAnimation final
-{
-public:
-	const class UWidgetAnimation*                 InAnimation;                                       // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_UserWidget_QueuePauseAnimation;
-
-// Function UMG.UserWidget.QueuePlayAnimation
-// 0x0020 (0x0020 - 0x0000)
-struct UserWidget_QueuePlayAnimation final
-{
-public:
-	class UWidgetAnimation*                       InAnimation;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         StartAtTime;                                       // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         NumLoopsToPlay;                                    // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EUMGSequencePlayMode                          PlayMode;                                          // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         PlaybackSpeed;                                     // 0x0014(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bRestoreState;                                     // 0x0018(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_UserWidget_QueuePlayAnimation;
-
-// Function UMG.UserWidget.QueuePlayAnimationForward
-// 0x0010 (0x0010 - 0x0000)
-struct UserWidget_QueuePlayAnimationForward final
-{
-public:
-	class UWidgetAnimation*                       InAnimation;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         PlaybackSpeed;                                     // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bRestoreState;                                     // 0x000C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_D[0x3];                                        // 0x000D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_UserWidget_QueuePlayAnimationForward;
-
-// Function UMG.UserWidget.QueuePlayAnimationReverse
-// 0x0010 (0x0010 - 0x0000)
-struct UserWidget_QueuePlayAnimationReverse final
-{
-public:
-	class UWidgetAnimation*                       InAnimation;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         PlaybackSpeed;                                     // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bRestoreState;                                     // 0x000C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_D[0x3];                                        // 0x000D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_UserWidget_QueuePlayAnimationReverse;
-
-// Function UMG.UserWidget.QueuePlayAnimationTimeRange
-// 0x0020 (0x0020 - 0x0000)
-struct UserWidget_QueuePlayAnimationTimeRange final
-{
-public:
-	class UWidgetAnimation*                       InAnimation;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         StartAtTime;                                       // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         EndAtTime;                                         // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         NumLoopsToPlay;                                    // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EUMGSequencePlayMode                          PlayMode;                                          // 0x0014(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_15[0x3];                                       // 0x0015(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         PlaybackSpeed;                                     // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bRestoreState;                                     // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D[0x3];                                       // 0x001D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_UserWidget_QueuePlayAnimationTimeRange;
-
-// Function UMG.UserWidget.QueueStopAnimation
-// 0x0008 (0x0008 - 0x0000)
-struct UserWidget_QueueStopAnimation final
-{
-public:
-	const class UWidgetAnimation*                 InAnimation;                                       // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_UserWidget_QueueStopAnimation;
-
 // Function UMG.UserWidget.RemoveExtension
 // 0x0008 (0x0008 - 0x0000)
 struct UserWidget_RemoveExtension final
@@ -2298,131 +1591,44 @@ public:
 };
 DUMPER7_ASSERTS_UserWidget_OnPaint;
 
-// Function UMG.CheckBox.SetCheckedState
-// 0x0001 (0x0001 - 0x0000)
-struct CheckBox_SetCheckedState final
+// Function UMG.UserListEntryLibrary.GetOwningListView
+// 0x0018 (0x0018 - 0x0000)
+struct UserListEntryLibrary_GetOwningListView final
 {
 public:
-	ECheckBoxState                                InCheckedState;                                    // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TScriptInterface<class IUserListEntry>        UserListEntry;                                     // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UListViewBase*                          ReturnValue;                                       // 0x0010(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_CheckBox_SetCheckedState;
+DUMPER7_ASSERTS_UserListEntryLibrary_GetOwningListView;
 
-// Function UMG.CheckBox.SetClickMethod
-// 0x0001 (0x0001 - 0x0000)
-struct CheckBox_SetClickMethod final
+// Function UMG.UserListEntryLibrary.IsListItemExpanded
+// 0x0018 (0x0018 - 0x0000)
+struct UserListEntryLibrary_IsListItemExpanded final
 {
 public:
-	EButtonClickMethod                            InClickMethod;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TScriptInterface<class IUserListEntry>        UserListEntry;                                     // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_CheckBox_SetClickMethod;
+DUMPER7_ASSERTS_UserListEntryLibrary_IsListItemExpanded;
 
-// Function UMG.CheckBox.SetIsChecked
-// 0x0001 (0x0001 - 0x0000)
-struct CheckBox_SetIsChecked final
+// Function UMG.UserListEntryLibrary.IsListItemSelected
+// 0x0018 (0x0018 - 0x0000)
+struct UserListEntryLibrary_IsListItemSelected final
 {
 public:
-	bool                                          InIsChecked;                                       // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TScriptInterface<class IUserListEntry>        UserListEntry;                                     // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_CheckBox_SetIsChecked;
-
-// Function UMG.CheckBox.SetPressMethod
-// 0x0001 (0x0001 - 0x0000)
-struct CheckBox_SetPressMethod final
-{
-public:
-	EButtonPressMethod                            InPressMethod;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CheckBox_SetPressMethod;
-
-// Function UMG.CheckBox.SetTouchMethod
-// 0x0001 (0x0001 - 0x0000)
-struct CheckBox_SetTouchMethod final
-{
-public:
-	EButtonTouchMethod                            InTouchMethod;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CheckBox_SetTouchMethod;
-
-// Function UMG.CheckBox.GetCheckedState
-// 0x0001 (0x0001 - 0x0000)
-struct CheckBox_GetCheckedState final
-{
-public:
-	ECheckBoxState                                ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CheckBox_GetCheckedState;
-
-// Function UMG.CheckBox.IsChecked
-// 0x0001 (0x0001 - 0x0000)
-struct CheckBox_IsChecked final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CheckBox_IsChecked;
-
-// Function UMG.CheckBox.IsPressed
-// 0x0001 (0x0001 - 0x0000)
-struct CheckBox_IsPressed final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CheckBox_IsPressed;
-
-// Function UMG.ComboBoxKey.AddOption
-// 0x0008 (0x0008 - 0x0000)
-struct ComboBoxKey_AddOption final
-{
-public:
-	class FName                                   Option;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ComboBoxKey_AddOption;
-
-// Function UMG.ComboBoxKey.RemoveOption
-// 0x000C (0x000C - 0x0000)
-struct ComboBoxKey_RemoveOption final
-{
-public:
-	class FName                                   Option;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_ComboBoxKey_RemoveOption;
-
-// Function UMG.ComboBoxKey.SetSelectedOption
-// 0x0008 (0x0008 - 0x0000)
-struct ComboBoxKey_SetSelectedOption final
-{
-public:
-	class FName                                   Option;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ComboBoxKey_SetSelectedOption;
-
-// Function UMG.ComboBoxKey.GetSelectedOption
-// 0x0008 (0x0008 - 0x0000)
-struct ComboBoxKey_GetSelectedOption final
-{
-public:
-	class FName                                   ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ComboBoxKey_GetSelectedOption;
-
-// Function UMG.ComboBoxKey.IsOpen
-// 0x0001 (0x0001 - 0x0000)
-struct ComboBoxKey_IsOpen final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ComboBoxKey_IsOpen;
+DUMPER7_ASSERTS_UserListEntryLibrary_IsListItemSelected;
 
 // Function UMG.CanvasPanel.AddChildToCanvas
 // 0x0010 (0x0010 - 0x0000)
 struct CanvasPanel_AddChildToCanvas final
 {
 public:
-	class UWidget*                                Content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UWidget*                                content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UCanvasPanelSlot*                       ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CanvasPanel_AddChildToCanvas;
@@ -2436,249 +1642,1139 @@ public:
 };
 DUMPER7_ASSERTS_CanvasPanel_SetColorAndOpacity;
 
-// Function UMG.WidgetLayoutLibrary.GetMousePositionOnPlatform
+// Function UMG.EditableText.SetFont
+// 0x0058 (0x0058 - 0x0000)
+struct EditableText_SetFont final
+{
+public:
+	struct FSlateFontInfo                         InFontInfo;                                        // 0x0000(0x0058)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_EditableText_SetFont;
+
+// Function UMG.EditableText.SetFontMaterial
+// 0x0008 (0x0008 - 0x0000)
+struct EditableText_SetFontMaterial final
+{
+public:
+	class UMaterialInterface*                     InMaterial;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_EditableText_SetFontMaterial;
+
+// Function UMG.EditableText.SetFontOutlineMaterial
+// 0x0008 (0x0008 - 0x0000)
+struct EditableText_SetFontOutlineMaterial final
+{
+public:
+	class UMaterialInterface*                     InMaterial;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_EditableText_SetFontOutlineMaterial;
+
+// Function UMG.EditableText.SetHintText
+// 0x0018 (0x0018 - 0x0000)
+struct EditableText_SetHintText final
+{
+public:
+	class FText                                   InHintText;                                        // 0x0000(0x0018)(Parm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_EditableText_SetHintText;
+
+// Function UMG.EditableText.SetIsPassword
+// 0x0001 (0x0001 - 0x0000)
+struct EditableText_SetIsPassword final
+{
+public:
+	bool                                          InbIsPassword;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_EditableText_SetIsPassword;
+
+// Function UMG.EditableText.SetIsReadOnly
+// 0x0001 (0x0001 - 0x0000)
+struct EditableText_SetIsReadOnly final
+{
+public:
+	bool                                          InbIsReadyOnly;                                    // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_EditableText_SetIsReadOnly;
+
+// Function UMG.EditableText.SetJustification
+// 0x0001 (0x0001 - 0x0000)
+struct EditableText_SetJustification final
+{
+public:
+	ETextJustify                                  InJustification;                                   // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_EditableText_SetJustification;
+
+// Function UMG.EditableText.SetMinimumDesiredWidth
+// 0x0004 (0x0004 - 0x0000)
+struct EditableText_SetMinimumDesiredWidth final
+{
+public:
+	float                                         InMinDesiredWidth;                                 // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_EditableText_SetMinimumDesiredWidth;
+
+// Function UMG.EditableText.SetText
+// 0x0018 (0x0018 - 0x0000)
+struct EditableText_SetText final
+{
+public:
+	class FText                                   InText;                                            // 0x0000(0x0018)(Parm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_EditableText_SetText;
+
+// Function UMG.EditableText.SetTextOverflowPolicy
+// 0x0001 (0x0001 - 0x0000)
+struct EditableText_SetTextOverflowPolicy final
+{
+public:
+	ETextOverflowPolicy                           InOverflowPolicy;                                  // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_EditableText_SetTextOverflowPolicy;
+
+// Function UMG.EditableText.GetFont
+// 0x0058 (0x0058 - 0x0000)
+struct EditableText_GetFont final
+{
+public:
+	struct FSlateFontInfo                         ReturnValue;                                       // 0x0000(0x0058)(ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_EditableText_GetFont;
+
+// Function UMG.EditableText.GetHintText
+// 0x0018 (0x0018 - 0x0000)
+struct EditableText_GetHintText final
+{
+public:
+	class FText                                   ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_EditableText_GetHintText;
+
+// Function UMG.EditableText.GetJustification
+// 0x0001 (0x0001 - 0x0000)
+struct EditableText_GetJustification final
+{
+public:
+	ETextJustify                                  ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_EditableText_GetJustification;
+
+// Function UMG.EditableText.GetText
+// 0x0018 (0x0018 - 0x0000)
+struct EditableText_GetText final
+{
+public:
+	class FText                                   ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_EditableText_GetText;
+
+// Function UMG.Image.GetDynamicMaterial
+// 0x0008 (0x0008 - 0x0000)
+struct Image_GetDynamicMaterial final
+{
+public:
+	class UMaterialInstanceDynamic*               ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Image_GetDynamicMaterial;
+
+// Function UMG.Image.SetBrush
+// 0x00D0 (0x00D0 - 0x0000)
+struct Image_SetBrush final
+{
+public:
+	struct FSlateBrush                            InBrush;                                           // 0x0000(0x00D0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Image_SetBrush;
+
+// Function UMG.Image.SetBrushFromAsset
+// 0x0008 (0x0008 - 0x0000)
+struct Image_SetBrushFromAsset final
+{
+public:
+	class USlateBrushAsset*                       Asset;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Image_SetBrushFromAsset;
+
+// Function UMG.Image.SetBrushFromAtlasInterface
+// 0x0018 (0x0018 - 0x0000)
+struct Image_SetBrushFromAtlasInterface final
+{
+public:
+	TScriptInterface<class ISlateTextureAtlasInterface> AtlasRegion;                                 // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bMatchSize;                                        // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_Image_SetBrushFromAtlasInterface;
+
+// Function UMG.Image.SetBrushFromMaterial
+// 0x0008 (0x0008 - 0x0000)
+struct Image_SetBrushFromMaterial final
+{
+public:
+	class UMaterialInterface*                     Material;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Image_SetBrushFromMaterial;
+
+// Function UMG.Image.SetBrushFromSoftMaterial
+// 0x0030 (0x0030 - 0x0000)
+struct Image_SetBrushFromSoftMaterial final
+{
+public:
+	TSoftObjectPtr<class UMaterialInterface>      SoftMaterial;                                      // 0x0000(0x0030)(Parm, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Image_SetBrushFromSoftMaterial;
+
+// Function UMG.Image.SetBrushFromSoftTexture
+// 0x0038 (0x0038 - 0x0000)
+struct Image_SetBrushFromSoftTexture final
+{
+public:
+	TSoftObjectPtr<class UTexture2D>              SoftTexture;                                       // 0x0000(0x0030)(Parm, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bMatchSize;                                        // 0x0030(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_Image_SetBrushFromSoftTexture;
+
+// Function UMG.Image.SetBrushFromTexture
 // 0x0010 (0x0010 - 0x0000)
-struct WidgetLayoutLibrary_GetMousePositionOnPlatform final
+struct Image_SetBrushFromTexture final
+{
+public:
+	class UTexture2D*                             Texture;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bMatchSize;                                        // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_Image_SetBrushFromTexture;
+
+// Function UMG.Image.SetBrushFromTextureDynamic
+// 0x0010 (0x0010 - 0x0000)
+struct Image_SetBrushFromTextureDynamic final
+{
+public:
+	class UTexture2DDynamic*                      Texture;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bMatchSize;                                        // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_Image_SetBrushFromTextureDynamic;
+
+// Function UMG.Image.SetBrushResourceObject
+// 0x0008 (0x0008 - 0x0000)
+struct Image_SetBrushResourceObject final
+{
+public:
+	class UObject*                                ResourceObject;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Image_SetBrushResourceObject;
+
+// Function UMG.Image.SetBrushTintColor
+// 0x0014 (0x0014 - 0x0000)
+struct Image_SetBrushTintColor final
+{
+public:
+	struct FSlateColor                            TintColor;                                         // 0x0000(0x0014)(Parm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Image_SetBrushTintColor;
+
+// Function UMG.Image.SetColorAndOpacity
+// 0x0010 (0x0010 - 0x0000)
+struct Image_SetColorAndOpacity final
+{
+public:
+	struct FLinearColor                           InColorAndOpacity;                                 // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Image_SetColorAndOpacity;
+
+// Function UMG.Image.SetDesiredSizeOverride
+// 0x0010 (0x0010 - 0x0000)
+struct Image_SetDesiredSizeOverride final
+{
+public:
+	struct FVector2D                              DesiredSize;                                       // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Image_SetDesiredSizeOverride;
+
+// Function UMG.Image.SetOpacity
+// 0x0004 (0x0004 - 0x0000)
+struct Image_SetOpacity final
+{
+public:
+	float                                         InOpacity;                                         // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Image_SetOpacity;
+
+// Function UMG.RichTextBlock.GetDecoratorByClass
+// 0x0010 (0x0010 - 0x0000)
+struct RichTextBlock_GetDecoratorByClass final
+{
+public:
+	TSubclassOf<class URichTextBlockDecorator>    DecoratorClass;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class URichTextBlockDecorator*                ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_GetDecoratorByClass;
+
+// Function UMG.RichTextBlock.GetDefaultDynamicMaterial
+// 0x0008 (0x0008 - 0x0000)
+struct RichTextBlock_GetDefaultDynamicMaterial final
+{
+public:
+	class UMaterialInstanceDynamic*               ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_GetDefaultDynamicMaterial;
+
+// Function UMG.RichTextBlock.SetAutoWrapText
+// 0x0001 (0x0001 - 0x0000)
+struct RichTextBlock_SetAutoWrapText final
+{
+public:
+	bool                                          InAutoTextWrap;                                    // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_SetAutoWrapText;
+
+// Function UMG.RichTextBlock.SetDecorators
+// 0x0010 (0x0010 - 0x0000)
+struct RichTextBlock_SetDecorators final
+{
+public:
+	TArray<TSubclassOf<class URichTextBlockDecorator>> InDecoratorClasses;                           // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, UObjectWrapper, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_SetDecorators;
+
+// Function UMG.RichTextBlock.SetDefaultColorAndOpacity
+// 0x0014 (0x0014 - 0x0000)
+struct RichTextBlock_SetDefaultColorAndOpacity final
+{
+public:
+	struct FSlateColor                            InColorAndOpacity;                                 // 0x0000(0x0014)(Parm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_SetDefaultColorAndOpacity;
+
+// Function UMG.RichTextBlock.SetDefaultFont
+// 0x0058 (0x0058 - 0x0000)
+struct RichTextBlock_SetDefaultFont final
+{
+public:
+	struct FSlateFontInfo                         InFontInfo;                                        // 0x0000(0x0058)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_SetDefaultFont;
+
+// Function UMG.RichTextBlock.SetDefaultMaterial
+// 0x0008 (0x0008 - 0x0000)
+struct RichTextBlock_SetDefaultMaterial final
+{
+public:
+	class UMaterialInterface*                     InMaterial;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_SetDefaultMaterial;
+
+// Function UMG.RichTextBlock.SetDefaultShadowColorAndOpacity
+// 0x0010 (0x0010 - 0x0000)
+struct RichTextBlock_SetDefaultShadowColorAndOpacity final
+{
+public:
+	struct FLinearColor                           InShadowColorAndOpacity;                           // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_SetDefaultShadowColorAndOpacity;
+
+// Function UMG.RichTextBlock.SetDefaultShadowOffset
+// 0x0010 (0x0010 - 0x0000)
+struct RichTextBlock_SetDefaultShadowOffset final
+{
+public:
+	struct FVector2D                              InShadowOffset;                                    // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_SetDefaultShadowOffset;
+
+// Function UMG.RichTextBlock.SetDefaultStrikeBrush
+// 0x00D0 (0x00D0 - 0x0000)
+struct RichTextBlock_SetDefaultStrikeBrush final
+{
+public:
+	struct FSlateBrush                            InStrikeBrush;                                     // 0x0000(0x00D0)(Parm, OutParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_SetDefaultStrikeBrush;
+
+// Function UMG.RichTextBlock.SetDefaultTextStyle
+// 0x0340 (0x0340 - 0x0000)
+struct RichTextBlock_SetDefaultTextStyle final
+{
+public:
+	struct FTextBlockStyle                        InDefaultTextStyle;                                // 0x0000(0x0340)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_SetDefaultTextStyle;
+
+// Function UMG.RichTextBlock.SetMinDesiredWidth
+// 0x0004 (0x0004 - 0x0000)
+struct RichTextBlock_SetMinDesiredWidth final
+{
+public:
+	float                                         InMinDesiredWidth;                                 // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_SetMinDesiredWidth;
+
+// Function UMG.RichTextBlock.SetText
+// 0x0018 (0x0018 - 0x0000)
+struct RichTextBlock_SetText final
+{
+public:
+	class FText                                   InText;                                            // 0x0000(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_SetText;
+
+// Function UMG.RichTextBlock.SetTextOverflowPolicy
+// 0x0001 (0x0001 - 0x0000)
+struct RichTextBlock_SetTextOverflowPolicy final
+{
+public:
+	ETextOverflowPolicy                           InOverflowPolicy;                                  // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_SetTextOverflowPolicy;
+
+// Function UMG.RichTextBlock.SetTextStyleSet
+// 0x0008 (0x0008 - 0x0000)
+struct RichTextBlock_SetTextStyleSet final
+{
+public:
+	class UDataTable*                             NewTextStyleSet;                                   // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_SetTextStyleSet;
+
+// Function UMG.RichTextBlock.SetTextTransformPolicy
+// 0x0001 (0x0001 - 0x0000)
+struct RichTextBlock_SetTextTransformPolicy final
+{
+public:
+	ETextTransformPolicy                          InTransformPolicy;                                 // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_SetTextTransformPolicy;
+
+// Function UMG.RichTextBlock.GetText
+// 0x0018 (0x0018 - 0x0000)
+struct RichTextBlock_GetText final
+{
+public:
+	class FText                                   ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_GetText;
+
+// Function UMG.RichTextBlock.GetTextStyleSet
+// 0x0008 (0x0008 - 0x0000)
+struct RichTextBlock_GetTextStyleSet final
+{
+public:
+	class UDataTable*                             ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_RichTextBlock_GetTextStyleSet;
+
+// Function UMG.ListViewBase.SetScrollBarVisibility
+// 0x0001 (0x0001 - 0x0000)
+struct ListViewBase_SetScrollBarVisibility final
+{
+public:
+	ESlateVisibility                              InVisibility;                                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListViewBase_SetScrollBarVisibility;
+
+// Function UMG.ListViewBase.SetScrollOffset
+// 0x0004 (0x0004 - 0x0000)
+struct ListViewBase_SetScrollOffset final
+{
+public:
+	float                                         InScrollOffset;                                    // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListViewBase_SetScrollOffset;
+
+// Function UMG.ListViewBase.SetWheelScrollMultiplier
+// 0x0004 (0x0004 - 0x0000)
+struct ListViewBase_SetWheelScrollMultiplier final
+{
+public:
+	float                                         NewWheelScrollMultiplier;                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListViewBase_SetWheelScrollMultiplier;
+
+// Function UMG.ListViewBase.GetDisplayedEntryWidgets
+// 0x0010 (0x0010 - 0x0000)
+struct ListViewBase_GetDisplayedEntryWidgets final
+{
+public:
+	TArray<class UUserWidget*>                    ReturnValue;                                       // 0x0000(0x0010)(ConstParm, ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListViewBase_GetDisplayedEntryWidgets;
+
+// Function UMG.ListViewBase.GetScrollOffset
+// 0x0004 (0x0004 - 0x0000)
+struct ListViewBase_GetScrollOffset final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListViewBase_GetScrollOffset;
+
+// Function UMG.ListView.AddItem
+// 0x0008 (0x0008 - 0x0000)
+struct ListView_AddItem final
+{
+public:
+	class UObject*                                Item;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListView_AddItem;
+
+// Function UMG.ListView.BP_NavigateToItem
+// 0x0008 (0x0008 - 0x0000)
+struct ListView_BP_NavigateToItem final
+{
+public:
+	class UObject*                                Item;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListView_BP_NavigateToItem;
+
+// Function UMG.ListView.BP_ScrollItemIntoView
+// 0x0008 (0x0008 - 0x0000)
+struct ListView_BP_ScrollItemIntoView final
+{
+public:
+	class UObject*                                Item;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListView_BP_ScrollItemIntoView;
+
+// Function UMG.ListView.BP_SetItemSelection
+// 0x0010 (0x0010 - 0x0000)
+struct ListView_BP_SetItemSelection final
+{
+public:
+	class UObject*                                Item;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bSelected;                                         // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_ListView_BP_SetItemSelection;
+
+// Function UMG.ListView.BP_SetListItems
+// 0x0010 (0x0010 - 0x0000)
+struct ListView_BP_SetListItems final
+{
+public:
+	TArray<class UObject*>                        InListItems;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListView_BP_SetListItems;
+
+// Function UMG.ListView.BP_SetSelectedItem
+// 0x0008 (0x0008 - 0x0000)
+struct ListView_BP_SetSelectedItem final
+{
+public:
+	class UObject*                                Item;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListView_BP_SetSelectedItem;
+
+// Function UMG.ListView.NavigateToIndex
+// 0x0004 (0x0004 - 0x0000)
+struct ListView_NavigateToIndex final
+{
+public:
+	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListView_NavigateToIndex;
+
+// Function UMG.ListView.OnListItemEndPlayed
+// 0x0010 (0x0010 - 0x0000)
+struct ListView_OnListItemEndPlayed final
+{
+public:
+	class AActor*                                 Item;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EEndPlayReason                                EndPlayReason;                                     // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_ListView_OnListItemEndPlayed;
+
+// Function UMG.ListView.OnListItemOuterEndPlayed
+// 0x0010 (0x0010 - 0x0000)
+struct ListView_OnListItemOuterEndPlayed final
+{
+public:
+	class AActor*                                 ItemOuter;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EEndPlayReason                                EndPlayReason;                                     // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_ListView_OnListItemOuterEndPlayed;
+
+// Function UMG.ListView.RemoveItem
+// 0x0008 (0x0008 - 0x0000)
+struct ListView_RemoveItem final
+{
+public:
+	class UObject*                                Item;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListView_RemoveItem;
+
+// Function UMG.ListView.ScrollIndexIntoView
+// 0x0004 (0x0004 - 0x0000)
+struct ListView_ScrollIndexIntoView final
+{
+public:
+	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListView_ScrollIndexIntoView;
+
+// Function UMG.ListView.SetSelectedIndex
+// 0x0004 (0x0004 - 0x0000)
+struct ListView_SetSelectedIndex final
+{
+public:
+	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListView_SetSelectedIndex;
+
+// Function UMG.ListView.SetSelectionMode
+// 0x0001 (0x0001 - 0x0000)
+struct ListView_SetSelectionMode final
+{
+public:
+	ESelectionMode                                SelectionMode_0;                                   // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListView_SetSelectionMode;
+
+// Function UMG.ListView.BP_GetNumItemsSelected
+// 0x0004 (0x0004 - 0x0000)
+struct ListView_BP_GetNumItemsSelected final
+{
+public:
+	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListView_BP_GetNumItemsSelected;
+
+// Function UMG.ListView.BP_GetSelectedItem
+// 0x0008 (0x0008 - 0x0000)
+struct ListView_BP_GetSelectedItem final
+{
+public:
+	class UObject*                                ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListView_BP_GetSelectedItem;
+
+// Function UMG.ListView.BP_GetSelectedItems
+// 0x0018 (0x0018 - 0x0000)
+struct ListView_BP_GetSelectedItems final
+{
+public:
+	TArray<class UObject*>                        Items;                                             // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_ListView_BP_GetSelectedItems;
+
+// Function UMG.ListView.BP_IsItemVisible
+// 0x0010 (0x0010 - 0x0000)
+struct ListView_BP_IsItemVisible final
+{
+public:
+	class UObject*                                Item;                                              // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_ListView_BP_IsItemVisible;
+
+// Function UMG.ListView.GetIndexForItem
+// 0x0010 (0x0010 - 0x0000)
+struct ListView_GetIndexForItem final
+{
+public:
+	const class UObject*                          Item;                                              // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_ListView_GetIndexForItem;
+
+// Function UMG.ListView.GetItemAt
+// 0x0010 (0x0010 - 0x0000)
+struct ListView_GetItemAt final
+{
+public:
+	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UObject*                                ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListView_GetItemAt;
+
+// Function UMG.ListView.GetListItems
+// 0x0010 (0x0010 - 0x0000)
+struct ListView_GetListItems final
+{
+public:
+	TArray<class UObject*>                        ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListView_GetListItems;
+
+// Function UMG.ListView.GetNumItems
+// 0x0004 (0x0004 - 0x0000)
+struct ListView_GetNumItems final
+{
+public:
+	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListView_GetNumItems;
+
+// Function UMG.ListView.IsRefreshPending
+// 0x0001 (0x0001 - 0x0000)
+struct ListView_IsRefreshPending final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ListView_IsRefreshPending;
+
+// Function UMG.MultiLineEditableText.SetFont
+// 0x0058 (0x0058 - 0x0000)
+struct MultiLineEditableText_SetFont final
+{
+public:
+	struct FSlateFontInfo                         InFontInfo;                                        // 0x0000(0x0058)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_MultiLineEditableText_SetFont;
+
+// Function UMG.MultiLineEditableText.SetFontMaterial
+// 0x0008 (0x0008 - 0x0000)
+struct MultiLineEditableText_SetFontMaterial final
+{
+public:
+	class UMaterialInterface*                     InMaterial;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_MultiLineEditableText_SetFontMaterial;
+
+// Function UMG.MultiLineEditableText.SetFontOutlineMaterial
+// 0x0008 (0x0008 - 0x0000)
+struct MultiLineEditableText_SetFontOutlineMaterial final
+{
+public:
+	class UMaterialInterface*                     InMaterial;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_MultiLineEditableText_SetFontOutlineMaterial;
+
+// Function UMG.MultiLineEditableText.SetHintText
+// 0x0018 (0x0018 - 0x0000)
+struct MultiLineEditableText_SetHintText final
+{
+public:
+	class FText                                   InHintText;                                        // 0x0000(0x0018)(Parm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_MultiLineEditableText_SetHintText;
+
+// Function UMG.MultiLineEditableText.SetIsReadOnly
+// 0x0001 (0x0001 - 0x0000)
+struct MultiLineEditableText_SetIsReadOnly final
+{
+public:
+	bool                                          bReadOnly;                                         // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_MultiLineEditableText_SetIsReadOnly;
+
+// Function UMG.MultiLineEditableText.SetText
+// 0x0018 (0x0018 - 0x0000)
+struct MultiLineEditableText_SetText final
+{
+public:
+	class FText                                   InText;                                            // 0x0000(0x0018)(Parm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_MultiLineEditableText_SetText;
+
+// Function UMG.MultiLineEditableText.SetWidgetStyle
+// 0x0340 (0x0340 - 0x0000)
+struct MultiLineEditableText_SetWidgetStyle final
+{
+public:
+	struct FTextBlockStyle                        InWidgetStyle;                                     // 0x0000(0x0340)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_MultiLineEditableText_SetWidgetStyle;
+
+// Function UMG.MultiLineEditableText.GetFont
+// 0x0058 (0x0058 - 0x0000)
+struct MultiLineEditableText_GetFont final
+{
+public:
+	struct FSlateFontInfo                         ReturnValue;                                       // 0x0000(0x0058)(ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_MultiLineEditableText_GetFont;
+
+// Function UMG.MultiLineEditableText.GetHintText
+// 0x0018 (0x0018 - 0x0000)
+struct MultiLineEditableText_GetHintText final
+{
+public:
+	class FText                                   ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_MultiLineEditableText_GetHintText;
+
+// Function UMG.MultiLineEditableText.GetText
+// 0x0018 (0x0018 - 0x0000)
+struct MultiLineEditableText_GetText final
+{
+public:
+	class FText                                   ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_MultiLineEditableText_GetText;
+
+// Function UMG.Button.MimickClicked
+// 0x0001 (0x0001 - 0x0000)
+struct Button_MimickClicked final
+{
+public:
+	bool                                          bFromGamepad;                                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Button_MimickClicked;
+
+// Function UMG.Button.SetBackgroundColor
+// 0x0010 (0x0010 - 0x0000)
+struct Button_SetBackgroundColor final
+{
+public:
+	struct FLinearColor                           InBackgroundColor;                                 // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Button_SetBackgroundColor;
+
+// Function UMG.Button.SetClickMethod
+// 0x0001 (0x0001 - 0x0000)
+struct Button_SetClickMethod final
+{
+public:
+	EButtonClickMethod                            InClickMethod;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Button_SetClickMethod;
+
+// Function UMG.Button.SetColorAndOpacity
+// 0x0010 (0x0010 - 0x0000)
+struct Button_SetColorAndOpacity final
+{
+public:
+	struct FLinearColor                           InColorAndOpacity;                                 // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Button_SetColorAndOpacity;
+
+// Function UMG.Button.SetPressMethod
+// 0x0001 (0x0001 - 0x0000)
+struct Button_SetPressMethod final
+{
+public:
+	EButtonPressMethod                            InPressMethod;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Button_SetPressMethod;
+
+// Function UMG.Button.SetStyle
+// 0x03F0 (0x03F0 - 0x0000)
+struct Button_SetStyle final
+{
+public:
+	struct FButtonStyle                           InStyle;                                           // 0x0000(0x03F0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Button_SetStyle;
+
+// Function UMG.Button.SetTouchMethod
+// 0x0001 (0x0001 - 0x0000)
+struct Button_SetTouchMethod final
+{
+public:
+	EButtonTouchMethod                            InTouchMethod;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Button_SetTouchMethod;
+
+// Function UMG.Button.IsPressed
+// 0x0001 (0x0001 - 0x0000)
+struct Button_IsPressed final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Button_IsPressed;
+
+// Function UMG.ScrollBox.GetPhysicalScrollOffset
+// 0x0004 (0x0004 - 0x0000)
+struct ScrollBox_GetPhysicalScrollOffset final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ScrollBox_GetPhysicalScrollOffset;
+
+// Function UMG.ScrollBox.GetScrollContentSize
+// 0x0010 (0x0010 - 0x0000)
+struct ScrollBox_GetScrollContentSize final
 {
 public:
 	struct FVector2D                              ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_WidgetLayoutLibrary_GetMousePositionOnPlatform;
+DUMPER7_ASSERTS_ScrollBox_GetScrollContentSize;
 
-// Function UMG.WidgetLayoutLibrary.GetMousePositionOnViewport
-// 0x0018 (0x0018 - 0x0000)
-struct WidgetLayoutLibrary_GetMousePositionOnViewport final
+// Function UMG.ScrollBox.GetScrollMax
+// 0x0004 (0x0004 - 0x0000)
+struct ScrollBox_GetScrollMax final
 {
 public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              ReturnValue;                                       // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_WidgetLayoutLibrary_GetMousePositionOnViewport;
+DUMPER7_ASSERTS_ScrollBox_GetScrollMax;
 
-// Function UMG.WidgetLayoutLibrary.GetMousePositionScaledByDPI
-// 0x0018 (0x0018 - 0x0000)
-struct WidgetLayoutLibrary_GetMousePositionScaledByDPI final
-{
-public:
-	class APlayerController*                      Player;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         LocationX;                                         // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         LocationY;                                         // 0x000C(0x0004)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_WidgetLayoutLibrary_GetMousePositionScaledByDPI;
-
-// Function UMG.WidgetLayoutLibrary.GetPlayerScreenWidgetGeometry
-// 0x0040 (0x0040 - 0x0000)
-struct WidgetLayoutLibrary_GetPlayerScreenWidgetGeometry final
-{
-public:
-	class APlayerController*                      PlayerController;                                  // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGeometry                              ReturnValue;                                       // 0x0008(0x0038)(Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WidgetLayoutLibrary_GetPlayerScreenWidgetGeometry;
-
-// Function UMG.WidgetLayoutLibrary.GetViewportScale
+// Function UMG.ScrollBox.ScrollWidgetIntoView
 // 0x0010 (0x0010 - 0x0000)
-struct WidgetLayoutLibrary_GetViewportScale final
+struct ScrollBox_ScrollWidgetIntoView final
 {
 public:
-	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UWidget*                                WidgetToFind;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          AnimateScroll;                                     // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EDescendantScrollDestination                  ScrollDestination;                                 // 0x0009(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A[0x2];                                        // 0x000A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         Padding;                                           // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_WidgetLayoutLibrary_GetViewportScale;
+DUMPER7_ASSERTS_ScrollBox_ScrollWidgetIntoView;
 
-// Function UMG.WidgetLayoutLibrary.GetViewportSize
-// 0x0018 (0x0018 - 0x0000)
-struct WidgetLayoutLibrary_GetViewportSize final
+// Function UMG.ScrollBox.SetAllowOverscroll
+// 0x0001 (0x0001 - 0x0000)
+struct ScrollBox_SetAllowOverscroll final
 {
 public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              ReturnValue;                                       // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          NewAllowOverscroll;                                // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_WidgetLayoutLibrary_GetViewportSize;
+DUMPER7_ASSERTS_ScrollBox_SetAllowOverscroll;
 
-// Function UMG.WidgetLayoutLibrary.GetViewportWidgetGeometry
-// 0x0040 (0x0040 - 0x0000)
-struct WidgetLayoutLibrary_GetViewportWidgetGeometry final
+// Function UMG.ScrollBox.SetAlwaysShowScrollbar
+// 0x0001 (0x0001 - 0x0000)
+struct ScrollBox_SetAlwaysShowScrollbar final
 {
 public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGeometry                              ReturnValue;                                       // 0x0008(0x0038)(Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          NewAlwaysShowScrollbar;                            // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_WidgetLayoutLibrary_GetViewportWidgetGeometry;
+DUMPER7_ASSERTS_ScrollBox_SetAlwaysShowScrollbar;
 
-// Function UMG.WidgetLayoutLibrary.ProjectWorldLocationToWidgetPosition
-// 0x0038 (0x0038 - 0x0000)
-struct WidgetLayoutLibrary_ProjectWorldLocationToWidgetPosition final
+// Function UMG.ScrollBox.SetAnimateWheelScrolling
+// 0x0001 (0x0001 - 0x0000)
+struct ScrollBox_SetAnimateWheelScrolling final
 {
 public:
-	class APlayerController*                      PlayerController;                                  // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                WorldLocation;                                     // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              ScreenPosition;                                    // 0x0020(0x0010)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bPlayerViewportRelative;                           // 0x0030(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0031(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_32[0x6];                                       // 0x0032(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bShouldAnimateWheelScrolling;                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_WidgetLayoutLibrary_ProjectWorldLocationToWidgetPosition;
+DUMPER7_ASSERTS_ScrollBox_SetAnimateWheelScrolling;
 
-// Function UMG.WidgetLayoutLibrary.RemoveAllWidgets
+// Function UMG.ScrollBox.SetConsumeMouseWheel
+// 0x0001 (0x0001 - 0x0000)
+struct ScrollBox_SetConsumeMouseWheel final
+{
+public:
+	EConsumeMouseWheel                            NewConsumeMouseWheel;                              // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ScrollBox_SetConsumeMouseWheel;
+
+// Function UMG.ScrollBox.SetNavigationDestination
+// 0x0001 (0x0001 - 0x0000)
+struct ScrollBox_SetNavigationDestination final
+{
+public:
+	EDescendantScrollDestination                  NewNavigationDestination;                          // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ScrollBox_SetNavigationDestination;
+
+// Function UMG.ScrollBox.SetOrientation
+// 0x0001 (0x0001 - 0x0000)
+struct ScrollBox_SetOrientation final
+{
+public:
+	EOrientation                                  NewOrientation;                                    // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ScrollBox_SetOrientation;
+
+// Function UMG.ScrollBox.SetScrollbarPadding
+// 0x0010 (0x0010 - 0x0000)
+struct ScrollBox_SetScrollbarPadding final
+{
+public:
+	struct FMargin                                NewScrollbarPadding;                               // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ScrollBox_SetScrollbarPadding;
+
+// Function UMG.ScrollBox.SetScrollbarThickness
+// 0x0010 (0x0010 - 0x0000)
+struct ScrollBox_SetScrollbarThickness final
+{
+public:
+	struct FVector2D                              NewScrollbarThickness;                             // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ScrollBox_SetScrollbarThickness;
+
+// Function UMG.ScrollBox.SetScrollBarVisibility
+// 0x0001 (0x0001 - 0x0000)
+struct ScrollBox_SetScrollBarVisibility final
+{
+public:
+	ESlateVisibility                              NewScrollBarVisibility;                            // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ScrollBox_SetScrollBarVisibility;
+
+// Function UMG.ScrollBox.SetScrollOffset
+// 0x0004 (0x0004 - 0x0000)
+struct ScrollBox_SetScrollOffset final
+{
+public:
+	float                                         NewScrollOffset;                                   // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ScrollBox_SetScrollOffset;
+
+// Function UMG.ScrollBox.SetScrollWhenFocusChanges
+// 0x0001 (0x0001 - 0x0000)
+struct ScrollBox_SetScrollWhenFocusChanges final
+{
+public:
+	EScrollWhenFocusChanges                       NewScrollWhenFocusChanges;                         // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ScrollBox_SetScrollWhenFocusChanges;
+
+// Function UMG.ScrollBox.SetWheelScrollMultiplier
+// 0x0004 (0x0004 - 0x0000)
+struct ScrollBox_SetWheelScrollMultiplier final
+{
+public:
+	float                                         NewWheelScrollMultiplier;                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ScrollBox_SetWheelScrollMultiplier;
+
+// Function UMG.ScrollBox.GetScrollOffset
+// 0x0004 (0x0004 - 0x0000)
+struct ScrollBox_GetScrollOffset final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ScrollBox_GetScrollOffset;
+
+// Function UMG.ScrollBox.GetScrollOffsetOfEnd
+// 0x0004 (0x0004 - 0x0000)
+struct ScrollBox_GetScrollOffsetOfEnd final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ScrollBox_GetScrollOffsetOfEnd;
+
+// Function UMG.ScrollBox.GetViewFraction
+// 0x0004 (0x0004 - 0x0000)
+struct ScrollBox_GetViewFraction final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ScrollBox_GetViewFraction;
+
+// Function UMG.ScrollBox.GetViewOffsetFraction
+// 0x0004 (0x0004 - 0x0000)
+struct ScrollBox_GetViewOffsetFraction final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ScrollBox_GetViewOffsetFraction;
+
+// Function UMG.Border.GetDynamicMaterial
 // 0x0008 (0x0008 - 0x0000)
-struct WidgetLayoutLibrary_RemoveAllWidgets final
+struct Border_GetDynamicMaterial final
 {
 public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UMaterialInstanceDynamic*               ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_WidgetLayoutLibrary_RemoveAllWidgets;
+DUMPER7_ASSERTS_Border_GetDynamicMaterial;
 
-// Function UMG.WidgetLayoutLibrary.SlotAsBorderSlot
+// Function UMG.Border.SetBrush
+// 0x00D0 (0x00D0 - 0x0000)
+struct Border_SetBrush final
+{
+public:
+	struct FSlateBrush                            InBrush;                                           // 0x0000(0x00D0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Border_SetBrush;
+
+// Function UMG.Border.SetBrushColor
 // 0x0010 (0x0010 - 0x0000)
-struct WidgetLayoutLibrary_SlotAsBorderSlot final
+struct Border_SetBrushColor final
 {
 public:
-	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UBorderSlot*                            ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FLinearColor                           InBrushColor;                                      // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsBorderSlot;
+DUMPER7_ASSERTS_Border_SetBrushColor;
 
-// Function UMG.WidgetLayoutLibrary.SlotAsCanvasSlot
-// 0x0010 (0x0010 - 0x0000)
-struct WidgetLayoutLibrary_SlotAsCanvasSlot final
-{
-public:
-	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UCanvasPanelSlot*                       ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsCanvasSlot;
-
-// Function UMG.WidgetLayoutLibrary.SlotAsGridSlot
-// 0x0010 (0x0010 - 0x0000)
-struct WidgetLayoutLibrary_SlotAsGridSlot final
-{
-public:
-	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UGridSlot*                              ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsGridSlot;
-
-// Function UMG.WidgetLayoutLibrary.SlotAsHorizontalBoxSlot
-// 0x0010 (0x0010 - 0x0000)
-struct WidgetLayoutLibrary_SlotAsHorizontalBoxSlot final
-{
-public:
-	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UHorizontalBoxSlot*                     ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsHorizontalBoxSlot;
-
-// Function UMG.WidgetLayoutLibrary.SlotAsOverlaySlot
-// 0x0010 (0x0010 - 0x0000)
-struct WidgetLayoutLibrary_SlotAsOverlaySlot final
-{
-public:
-	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UOverlaySlot*                           ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsOverlaySlot;
-
-// Function UMG.WidgetLayoutLibrary.SlotAsSafeBoxSlot
-// 0x0010 (0x0010 - 0x0000)
-struct WidgetLayoutLibrary_SlotAsSafeBoxSlot final
-{
-public:
-	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class USafeZoneSlot*                          ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsSafeBoxSlot;
-
-// Function UMG.WidgetLayoutLibrary.SlotAsScaleBoxSlot
-// 0x0010 (0x0010 - 0x0000)
-struct WidgetLayoutLibrary_SlotAsScaleBoxSlot final
-{
-public:
-	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UScaleBoxSlot*                          ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsScaleBoxSlot;
-
-// Function UMG.WidgetLayoutLibrary.SlotAsScrollBoxSlot
-// 0x0010 (0x0010 - 0x0000)
-struct WidgetLayoutLibrary_SlotAsScrollBoxSlot final
-{
-public:
-	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UScrollBoxSlot*                         ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsScrollBoxSlot;
-
-// Function UMG.WidgetLayoutLibrary.SlotAsSizeBoxSlot
-// 0x0010 (0x0010 - 0x0000)
-struct WidgetLayoutLibrary_SlotAsSizeBoxSlot final
-{
-public:
-	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class USizeBoxSlot*                           ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsSizeBoxSlot;
-
-// Function UMG.WidgetLayoutLibrary.SlotAsUniformGridSlot
-// 0x0010 (0x0010 - 0x0000)
-struct WidgetLayoutLibrary_SlotAsUniformGridSlot final
-{
-public:
-	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UUniformGridSlot*                       ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsUniformGridSlot;
-
-// Function UMG.WidgetLayoutLibrary.SlotAsVerticalBoxSlot
-// 0x0010 (0x0010 - 0x0000)
-struct WidgetLayoutLibrary_SlotAsVerticalBoxSlot final
-{
-public:
-	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UVerticalBoxSlot*                       ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsVerticalBoxSlot;
-
-// Function UMG.WidgetLayoutLibrary.SlotAsWidgetSwitcherSlot
-// 0x0010 (0x0010 - 0x0000)
-struct WidgetLayoutLibrary_SlotAsWidgetSwitcherSlot final
-{
-public:
-	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UWidgetSwitcherSlot*                    ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsWidgetSwitcherSlot;
-
-// Function UMG.WidgetLayoutLibrary.SlotAsWrapBoxSlot
-// 0x0010 (0x0010 - 0x0000)
-struct WidgetLayoutLibrary_SlotAsWrapBoxSlot final
-{
-public:
-	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UWrapBoxSlot*                           ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsWrapBoxSlot;
-
-// Function UMG.UMGSequencePlayer.SetUserTag
+// Function UMG.Border.SetBrushFromAsset
 // 0x0008 (0x0008 - 0x0000)
-struct UMGSequencePlayer_SetUserTag final
+struct Border_SetBrushFromAsset final
 {
 public:
-	class FName                                   InUserTag;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class USlateBrushAsset*                       Asset;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_UMGSequencePlayer_SetUserTag;
+DUMPER7_ASSERTS_Border_SetBrushFromAsset;
 
-// Function UMG.UMGSequencePlayer.GetUserTag
+// Function UMG.Border.SetBrushFromMaterial
 // 0x0008 (0x0008 - 0x0000)
-struct UMGSequencePlayer_GetUserTag final
+struct Border_SetBrushFromMaterial final
 {
 public:
-	class FName                                   ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UMaterialInterface*                     Material;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_UMGSequencePlayer_GetUserTag;
+DUMPER7_ASSERTS_Border_SetBrushFromMaterial;
+
+// Function UMG.Border.SetBrushFromTexture
+// 0x0008 (0x0008 - 0x0000)
+struct Border_SetBrushFromTexture final
+{
+public:
+	class UTexture2D*                             Texture;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Border_SetBrushFromTexture;
+
+// Function UMG.Border.SetContentColorAndOpacity
+// 0x0010 (0x0010 - 0x0000)
+struct Border_SetContentColorAndOpacity final
+{
+public:
+	struct FLinearColor                           InContentColorAndOpacity;                          // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Border_SetContentColorAndOpacity;
+
+// Function UMG.Border.SetDesiredSizeScale
+// 0x0010 (0x0010 - 0x0000)
+struct Border_SetDesiredSizeScale final
+{
+public:
+	struct FVector2D                              InScale;                                           // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Border_SetDesiredSizeScale;
+
+// Function UMG.Border.SetHorizontalAlignment
+// 0x0001 (0x0001 - 0x0000)
+struct Border_SetHorizontalAlignment final
+{
+public:
+	EHorizontalAlignment                          InHorizontalAlignment;                             // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Border_SetHorizontalAlignment;
+
+// Function UMG.Border.SetPadding
+// 0x0010 (0x0010 - 0x0000)
+struct Border_SetPadding final
+{
+public:
+	struct FMargin                                InPadding;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Border_SetPadding;
+
+// Function UMG.Border.SetShowEffectWhenDisabled
+// 0x0001 (0x0001 - 0x0000)
+struct Border_SetShowEffectWhenDisabled final
+{
+public:
+	bool                                          bInShowEffectWhenDisabled;                         // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Border_SetShowEffectWhenDisabled;
+
+// Function UMG.Border.SetVerticalAlignment
+// 0x0001 (0x0001 - 0x0000)
+struct Border_SetVerticalAlignment final
+{
+public:
+	EVerticalAlignment                            InVerticalAlignment;                               // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_Border_SetVerticalAlignment;
 
 // Function UMG.WidgetAnimation.BindToAnimationFinished
 // 0x0018 (0x0018 - 0x0000)
@@ -2801,21 +2897,12 @@ public:
 };
 DUMPER7_ASSERTS_BoolBinding_GetValue;
 
-// Function UMG.WidgetBinding.GetValue
-// 0x0008 (0x0008 - 0x0000)
-struct WidgetBinding_GetValue final
-{
-public:
-	class UWidget*                                ReturnValue;                                       // 0x0000(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_WidgetBinding_GetValue;
-
 // Function UMG.BrushBinding.GetValue
-// 0x00B0 (0x00B0 - 0x0000)
+// 0x00D0 (0x00D0 - 0x0000)
 struct BrushBinding_GetValue final
 {
 public:
-	struct FSlateBrush                            ReturnValue;                                       // 0x0000(0x00B0)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	struct FSlateBrush                            ReturnValue;                                       // 0x0000(0x00D0)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_BrushBinding_GetValue;
 
@@ -2883,11 +2970,11 @@ public:
 DUMPER7_ASSERTS_TextBinding_GetStringValue;
 
 // Function UMG.TextBinding.GetTextValue
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct TextBinding_GetTextValue final
 {
 public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	class FText                                   ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_TextBinding_GetTextValue;
 
@@ -2899,6 +2986,52 @@ public:
 	ESlateVisibility                              ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_VisibilityBinding_GetValue;
+
+// Function UMG.WidgetBinding.GetValue
+// 0x0008 (0x0008 - 0x0000)
+struct WidgetBinding_GetValue final
+{
+public:
+	class UWidget*                                ReturnValue;                                       // 0x0000(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetBinding_GetValue;
+
+// Function UMG.AsyncTaskDownloadBinkMovieCached.DownloadVideo
+// 0x0018 (0x0018 - 0x0000)
+struct AsyncTaskDownloadBinkMovieCached_DownloadVideo final
+{
+public:
+	class FString                                 URL;                                               // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UAsyncTaskDownloadBinkMovieCached*      ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_AsyncTaskDownloadBinkMovieCached_DownloadVideo;
+
+// Function UMG.AsyncTaskDownloadBinkMovieCached.GetCachedFullFilename
+// 0x0010 (0x0010 - 0x0000)
+struct AsyncTaskDownloadBinkMovieCached_GetCachedFullFilename final
+{
+public:
+	class FString                                 ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_AsyncTaskDownloadBinkMovieCached_GetCachedFullFilename;
+
+// Function UMG.AsyncTaskDownloadBinkMovieCached.GetDownloadedSize
+// 0x0008 (0x0008 - 0x0000)
+struct AsyncTaskDownloadBinkMovieCached_GetDownloadedSize final
+{
+public:
+	int64                                         ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_AsyncTaskDownloadBinkMovieCached_GetDownloadedSize;
+
+// Function UMG.AsyncTaskDownloadBinkMovieCached.GetDownloadState
+// 0x0001 (0x0001 - 0x0000)
+struct AsyncTaskDownloadBinkMovieCached_GetDownloadState final
+{
+public:
+	ECachedBinkDownloadState                      ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_AsyncTaskDownloadBinkMovieCached_GetDownloadState;
 
 // Function UMG.AsyncTaskDownloadImage.DownloadImage
 // 0x0018 (0x0018 - 0x0000)
@@ -2936,27 +3069,23 @@ public:
 DUMPER7_ASSERTS_GameViewportSubsystem_SetWidgetSlotPosition;
 
 // Function UMG.GameViewportSubsystem.AddWidget
-// 0x0058 (0x0058 - 0x0000)
+// 0x0050 (0x0050 - 0x0000)
 struct GameViewportSubsystem_AddWidget final
 {
 public:
 	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FGameViewportWidgetSlot                Slot;                                              // 0x0008(0x0048)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0050(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_51[0x7];                                       // 0x0051(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_GameViewportSubsystem_AddWidget;
 
 // Function UMG.GameViewportSubsystem.AddWidgetForPlayer
-// 0x0060 (0x0060 - 0x0000)
+// 0x0058 (0x0058 - 0x0000)
 struct GameViewportSubsystem_AddWidgetForPlayer final
 {
 public:
 	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class ULocalPlayer*                           Player;                                            // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FGameViewportWidgetSlot                Slot;                                              // 0x0010(0x0048)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0058(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_59[0x7];                                       // 0x0059(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_GameViewportSubsystem_AddWidgetForPlayer;
 
@@ -3018,38 +3147,6 @@ public:
 };
 DUMPER7_ASSERTS_UserListEntry_BP_OnItemSelectionChanged;
 
-// Function UMG.UserListEntryLibrary.GetOwningListView
-// 0x0018 (0x0018 - 0x0000)
-struct UserListEntryLibrary_GetOwningListView final
-{
-public:
-	TScriptInterface<class IUserListEntry>        UserListEntry;                                     // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UListViewBase*                          ReturnValue;                                       // 0x0010(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_UserListEntryLibrary_GetOwningListView;
-
-// Function UMG.UserListEntryLibrary.IsListItemExpanded
-// 0x0018 (0x0018 - 0x0000)
-struct UserListEntryLibrary_IsListItemExpanded final
-{
-public:
-	TScriptInterface<class IUserListEntry>        UserListEntry;                                     // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_UserListEntryLibrary_IsListItemExpanded;
-
-// Function UMG.UserListEntryLibrary.IsListItemSelected
-// 0x0018 (0x0018 - 0x0000)
-struct UserListEntryLibrary_IsListItemSelected final
-{
-public:
-	TScriptInterface<class IUserListEntry>        UserListEntry;                                     // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_UserListEntryLibrary_IsListItemSelected;
-
 // Function UMG.UserObjectListEntry.OnListItemObjectSet
 // 0x0008 (0x0008 - 0x0000)
 struct UserObjectListEntry_OnListItemObjectSet final
@@ -3068,78 +3165,6 @@ public:
 	class UObject*                                ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_UserObjectListEntryLibrary_GetListItemObject;
-
-// Function UMG.BackgroundBlur.SetApplyAlphaToBlur
-// 0x0001 (0x0001 - 0x0000)
-struct BackgroundBlur_SetApplyAlphaToBlur final
-{
-public:
-	bool                                          bInApplyAlphaToBlur;                               // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BackgroundBlur_SetApplyAlphaToBlur;
-
-// Function UMG.BackgroundBlur.SetBlurRadius
-// 0x0004 (0x0004 - 0x0000)
-struct BackgroundBlur_SetBlurRadius final
-{
-public:
-	int32                                         InBlurRadius;                                      // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BackgroundBlur_SetBlurRadius;
-
-// Function UMG.BackgroundBlur.SetBlurStrength
-// 0x0004 (0x0004 - 0x0000)
-struct BackgroundBlur_SetBlurStrength final
-{
-public:
-	float                                         InStrength;                                        // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BackgroundBlur_SetBlurStrength;
-
-// Function UMG.BackgroundBlur.SetCornerRadius
-// 0x0020 (0x0020 - 0x0000)
-struct BackgroundBlur_SetCornerRadius final
-{
-public:
-	struct FVector4                               InCornerRadius;                                    // 0x0000(0x0020)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BackgroundBlur_SetCornerRadius;
-
-// Function UMG.BackgroundBlur.SetHorizontalAlignment
-// 0x0001 (0x0001 - 0x0000)
-struct BackgroundBlur_SetHorizontalAlignment final
-{
-public:
-	EHorizontalAlignment                          InHorizontalAlignment;                             // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BackgroundBlur_SetHorizontalAlignment;
-
-// Function UMG.BackgroundBlur.SetLowQualityFallbackBrush
-// 0x00B0 (0x00B0 - 0x0000)
-struct BackgroundBlur_SetLowQualityFallbackBrush final
-{
-public:
-	struct FSlateBrush                            InBrush;                                           // 0x0000(0x00B0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BackgroundBlur_SetLowQualityFallbackBrush;
-
-// Function UMG.BackgroundBlur.SetPadding
-// 0x0010 (0x0010 - 0x0000)
-struct BackgroundBlur_SetPadding final
-{
-public:
-	struct FMargin                                InPadding;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BackgroundBlur_SetPadding;
-
-// Function UMG.BackgroundBlur.SetVerticalAlignment
-// 0x0001 (0x0001 - 0x0000)
-struct BackgroundBlur_SetVerticalAlignment final
-{
-public:
-	EVerticalAlignment                            InVerticalAlignment;                               // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BackgroundBlur_SetVerticalAlignment;
 
 // Function UMG.BackgroundBlurSlot.SetHorizontalAlignment
 // 0x0001 (0x0001 - 0x0000)
@@ -3167,114 +3192,6 @@ public:
 	EVerticalAlignment                            InVerticalAlignment;                               // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_BackgroundBlurSlot_SetVerticalAlignment;
-
-// Function UMG.Border.GetDynamicMaterial
-// 0x0008 (0x0008 - 0x0000)
-struct Border_GetDynamicMaterial final
-{
-public:
-	class UMaterialInstanceDynamic*               ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Border_GetDynamicMaterial;
-
-// Function UMG.Border.SetBrush
-// 0x00B0 (0x00B0 - 0x0000)
-struct Border_SetBrush final
-{
-public:
-	struct FSlateBrush                            InBrush;                                           // 0x0000(0x00B0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Border_SetBrush;
-
-// Function UMG.Border.SetBrushColor
-// 0x0010 (0x0010 - 0x0000)
-struct Border_SetBrushColor final
-{
-public:
-	struct FLinearColor                           InBrushColor;                                      // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Border_SetBrushColor;
-
-// Function UMG.Border.SetBrushFromAsset
-// 0x0008 (0x0008 - 0x0000)
-struct Border_SetBrushFromAsset final
-{
-public:
-	class USlateBrushAsset*                       Asset;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Border_SetBrushFromAsset;
-
-// Function UMG.Border.SetBrushFromMaterial
-// 0x0008 (0x0008 - 0x0000)
-struct Border_SetBrushFromMaterial final
-{
-public:
-	class UMaterialInterface*                     Material;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Border_SetBrushFromMaterial;
-
-// Function UMG.Border.SetBrushFromTexture
-// 0x0008 (0x0008 - 0x0000)
-struct Border_SetBrushFromTexture final
-{
-public:
-	class UTexture2D*                             Texture;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Border_SetBrushFromTexture;
-
-// Function UMG.Border.SetContentColorAndOpacity
-// 0x0010 (0x0010 - 0x0000)
-struct Border_SetContentColorAndOpacity final
-{
-public:
-	struct FLinearColor                           InContentColorAndOpacity;                          // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Border_SetContentColorAndOpacity;
-
-// Function UMG.Border.SetDesiredSizeScale
-// 0x0010 (0x0010 - 0x0000)
-struct Border_SetDesiredSizeScale final
-{
-public:
-	struct FVector2D                              InScale;                                           // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Border_SetDesiredSizeScale;
-
-// Function UMG.Border.SetHorizontalAlignment
-// 0x0001 (0x0001 - 0x0000)
-struct Border_SetHorizontalAlignment final
-{
-public:
-	EHorizontalAlignment                          InHorizontalAlignment;                             // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Border_SetHorizontalAlignment;
-
-// Function UMG.Border.SetPadding
-// 0x0010 (0x0010 - 0x0000)
-struct Border_SetPadding final
-{
-public:
-	struct FMargin                                InPadding;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Border_SetPadding;
-
-// Function UMG.Border.SetShowEffectWhenDisabled
-// 0x0001 (0x0001 - 0x0000)
-struct Border_SetShowEffectWhenDisabled final
-{
-public:
-	bool                                          bInShowEffectWhenDisabled;                         // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Border_SetShowEffectWhenDisabled;
-
-// Function UMG.Border.SetVerticalAlignment
-// 0x0001 (0x0001 - 0x0000)
-struct Border_SetVerticalAlignment final
-{
-public:
-	EVerticalAlignment                            InVerticalAlignment;                               // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Border_SetVerticalAlignment;
 
 // Function UMG.BorderSlot.SetHorizontalAlignment
 // 0x0001 (0x0001 - 0x0000)
@@ -3492,6 +3409,78 @@ public:
 };
 DUMPER7_ASSERTS_CanvasPanelSlot_GetZOrder;
 
+// Function UMG.CheckBox.SetCheckedState
+// 0x0001 (0x0001 - 0x0000)
+struct CheckBox_SetCheckedState final
+{
+public:
+	ECheckBoxState                                InCheckedState;                                    // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_CheckBox_SetCheckedState;
+
+// Function UMG.CheckBox.SetClickMethod
+// 0x0001 (0x0001 - 0x0000)
+struct CheckBox_SetClickMethod final
+{
+public:
+	EButtonClickMethod                            InClickMethod;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_CheckBox_SetClickMethod;
+
+// Function UMG.CheckBox.SetIsChecked
+// 0x0001 (0x0001 - 0x0000)
+struct CheckBox_SetIsChecked final
+{
+public:
+	bool                                          InIsChecked;                                       // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_CheckBox_SetIsChecked;
+
+// Function UMG.CheckBox.SetPressMethod
+// 0x0001 (0x0001 - 0x0000)
+struct CheckBox_SetPressMethod final
+{
+public:
+	EButtonPressMethod                            InPressMethod;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_CheckBox_SetPressMethod;
+
+// Function UMG.CheckBox.SetTouchMethod
+// 0x0001 (0x0001 - 0x0000)
+struct CheckBox_SetTouchMethod final
+{
+public:
+	EButtonTouchMethod                            InTouchMethod;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_CheckBox_SetTouchMethod;
+
+// Function UMG.CheckBox.GetCheckedState
+// 0x0001 (0x0001 - 0x0000)
+struct CheckBox_GetCheckedState final
+{
+public:
+	ECheckBoxState                                ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_CheckBox_GetCheckedState;
+
+// Function UMG.CheckBox.IsChecked
+// 0x0001 (0x0001 - 0x0000)
+struct CheckBox_IsChecked final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_CheckBox_IsChecked;
+
+// Function UMG.CheckBox.IsPressed
+// 0x0001 (0x0001 - 0x0000)
+struct CheckBox_IsPressed final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_CheckBox_IsPressed;
+
 // Function UMG.CircularThrobber.SetNumberOfPieces
 // 0x0004 (0x0004 - 0x0000)
 struct CircularThrobber_SetNumberOfPieces final
@@ -3518,6 +3507,53 @@ public:
 	float                                         InRadius;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CircularThrobber_SetRadius;
+
+// Function UMG.ComboBoxKey.AddOption
+// 0x0008 (0x0008 - 0x0000)
+struct ComboBoxKey_AddOption final
+{
+public:
+	class FName                                   Option;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ComboBoxKey_AddOption;
+
+// Function UMG.ComboBoxKey.RemoveOption
+// 0x000C (0x000C - 0x0000)
+struct ComboBoxKey_RemoveOption final
+{
+public:
+	class FName                                   Option;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0008(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x3];                                        // 0x0009(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_ComboBoxKey_RemoveOption;
+
+// Function UMG.ComboBoxKey.SetSelectedOption
+// 0x0008 (0x0008 - 0x0000)
+struct ComboBoxKey_SetSelectedOption final
+{
+public:
+	class FName                                   Option;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ComboBoxKey_SetSelectedOption;
+
+// Function UMG.ComboBoxKey.GetSelectedOption
+// 0x0008 (0x0008 - 0x0000)
+struct ComboBoxKey_GetSelectedOption final
+{
+public:
+	class FName                                   ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ComboBoxKey_GetSelectedOption;
+
+// Function UMG.ComboBoxKey.IsOpen
+// 0x0001 (0x0001 - 0x0000)
+struct ComboBoxKey_IsOpen final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_ComboBoxKey_IsOpen;
 
 // Function UMG.ComboBoxString.AddOption
 // 0x0010 (0x0010 - 0x0000)
@@ -3617,17 +3653,6 @@ public:
 };
 DUMPER7_ASSERTS_ComboBoxString_IsOpen;
 
-// Function UMG.ComboBoxString.SetOptionAtIndex
-// 0x0018 (0x0018 - 0x0000)
-struct ComboBoxString_SetOptionAtIndex final
-{
-public:
-	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 Option;                                            // 0x0008(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ComboBoxString_SetOptionAtIndex;
-
 // Function UMG.DynamicEntryBoxBase.SetEntrySpacing
 // 0x0010 (0x0010 - 0x0000)
 struct DynamicEntryBoxBase_SetEntrySpacing final
@@ -3701,138 +3726,12 @@ public:
 };
 DUMPER7_ASSERTS_DynamicEntryBox_Reset;
 
-// Function UMG.EditableText.SetFont
-// 0x0060 (0x0060 - 0x0000)
-struct EditableText_SetFont final
-{
-public:
-	struct FSlateFontInfo                         InFontInfo;                                        // 0x0000(0x0060)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_EditableText_SetFont;
-
-// Function UMG.EditableText.SetFontMaterial
-// 0x0008 (0x0008 - 0x0000)
-struct EditableText_SetFontMaterial final
-{
-public:
-	class UMaterialInterface*                     InMaterial;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_EditableText_SetFontMaterial;
-
-// Function UMG.EditableText.SetFontOutlineMaterial
-// 0x0008 (0x0008 - 0x0000)
-struct EditableText_SetFontOutlineMaterial final
-{
-public:
-	class UMaterialInterface*                     InMaterial;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_EditableText_SetFontOutlineMaterial;
-
-// Function UMG.EditableText.SetHintText
-// 0x0010 (0x0010 - 0x0000)
-struct EditableText_SetHintText final
-{
-public:
-	class FText                                   InHintText;                                        // 0x0000(0x0010)(Parm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_EditableText_SetHintText;
-
-// Function UMG.EditableText.SetIsPassword
-// 0x0001 (0x0001 - 0x0000)
-struct EditableText_SetIsPassword final
-{
-public:
-	bool                                          InbIsPassword;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_EditableText_SetIsPassword;
-
-// Function UMG.EditableText.SetIsReadOnly
-// 0x0001 (0x0001 - 0x0000)
-struct EditableText_SetIsReadOnly final
-{
-public:
-	bool                                          InbIsReadyOnly;                                    // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_EditableText_SetIsReadOnly;
-
-// Function UMG.EditableText.SetJustification
-// 0x0001 (0x0001 - 0x0000)
-struct EditableText_SetJustification final
-{
-public:
-	ETextJustify                                  InJustification;                                   // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_EditableText_SetJustification;
-
-// Function UMG.EditableText.SetMinimumDesiredWidth
-// 0x0004 (0x0004 - 0x0000)
-struct EditableText_SetMinimumDesiredWidth final
-{
-public:
-	float                                         InMinDesiredWidth;                                 // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_EditableText_SetMinimumDesiredWidth;
-
-// Function UMG.EditableText.SetText
-// 0x0010 (0x0010 - 0x0000)
-struct EditableText_SetText final
-{
-public:
-	class FText                                   InText;                                            // 0x0000(0x0010)(Parm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_EditableText_SetText;
-
-// Function UMG.EditableText.SetTextOverflowPolicy
-// 0x0001 (0x0001 - 0x0000)
-struct EditableText_SetTextOverflowPolicy final
-{
-public:
-	ETextOverflowPolicy                           InOverflowPolicy;                                  // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_EditableText_SetTextOverflowPolicy;
-
-// Function UMG.EditableText.GetFont
-// 0x0060 (0x0060 - 0x0000)
-struct EditableText_GetFont final
-{
-public:
-	struct FSlateFontInfo                         ReturnValue;                                       // 0x0000(0x0060)(ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_EditableText_GetFont;
-
-// Function UMG.EditableText.GetHintText
-// 0x0010 (0x0010 - 0x0000)
-struct EditableText_GetHintText final
-{
-public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_EditableText_GetHintText;
-
-// Function UMG.EditableText.GetJustification
-// 0x0001 (0x0001 - 0x0000)
-struct EditableText_GetJustification final
-{
-public:
-	ETextJustify                                  ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_EditableText_GetJustification;
-
-// Function UMG.EditableText.GetText
-// 0x0010 (0x0010 - 0x0000)
-struct EditableText_GetText final
-{
-public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_EditableText_GetText;
-
 // Function UMG.EditableTextBox.SetError
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct EditableTextBox_SetError final
 {
 public:
-	class FText                                   InError;                                           // 0x0000(0x0010)(Parm, NativeAccessSpecifierPublic)
+	class FText                                   InError;                                           // 0x0000(0x0018)(Parm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_EditableTextBox_SetError;
 
@@ -3846,11 +3745,11 @@ public:
 DUMPER7_ASSERTS_EditableTextBox_SetForegroundColor;
 
 // Function UMG.EditableTextBox.SetHintText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct EditableTextBox_SetHintText final
 {
 public:
-	class FText                                   InText;                                            // 0x0000(0x0010)(Parm, NativeAccessSpecifierPublic)
+	class FText                                   InText;                                            // 0x0000(0x0018)(Parm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_EditableTextBox_SetHintText;
 
@@ -3882,11 +3781,11 @@ public:
 DUMPER7_ASSERTS_EditableTextBox_SetJustification;
 
 // Function UMG.EditableTextBox.SetText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct EditableTextBox_SetText final
 {
 public:
-	class FText                                   InText;                                            // 0x0000(0x0010)(Parm, NativeAccessSpecifierPublic)
+	class FText                                   InText;                                            // 0x0000(0x0018)(Parm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_EditableTextBox_SetText;
 
@@ -3900,11 +3799,11 @@ public:
 DUMPER7_ASSERTS_EditableTextBox_SetTextOverflowPolicy;
 
 // Function UMG.EditableTextBox.GetText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct EditableTextBox_GetText final
 {
 public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	class FText                                   ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_EditableTextBox_GetText;
 
@@ -3949,7 +3848,7 @@ DUMPER7_ASSERTS_ExpandableArea_GetIsExpanded;
 struct GridPanel_AddChildToGrid final
 {
 public:
-	class UWidget*                                Content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UWidget*                                content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         InRow;                                             // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         InColumn;                                          // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UGridSlot*                              ReturnValue;                                       // 0x0010(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -4062,7 +3961,7 @@ DUMPER7_ASSERTS_GridSlot_SetVerticalAlignment;
 struct HorizontalBox_AddChildToHorizontalBox final
 {
 public:
-	class UWidget*                                Content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UWidget*                                content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UHorizontalBoxSlot*                     ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_HorizontalBox_AddChildToHorizontalBox;
@@ -4103,140 +4002,6 @@ public:
 };
 DUMPER7_ASSERTS_HorizontalBoxSlot_SetVerticalAlignment;
 
-// Function UMG.Image.GetDynamicMaterial
-// 0x0008 (0x0008 - 0x0000)
-struct Image_GetDynamicMaterial final
-{
-public:
-	class UMaterialInstanceDynamic*               ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Image_GetDynamicMaterial;
-
-// Function UMG.Image.SetBrush
-// 0x00B0 (0x00B0 - 0x0000)
-struct Image_SetBrush final
-{
-public:
-	struct FSlateBrush                            InBrush;                                           // 0x0000(0x00B0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Image_SetBrush;
-
-// Function UMG.Image.SetBrushFromAsset
-// 0x0008 (0x0008 - 0x0000)
-struct Image_SetBrushFromAsset final
-{
-public:
-	class USlateBrushAsset*                       Asset;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Image_SetBrushFromAsset;
-
-// Function UMG.Image.SetBrushFromAtlasInterface
-// 0x0018 (0x0018 - 0x0000)
-struct Image_SetBrushFromAtlasInterface final
-{
-public:
-	TScriptInterface<class ISlateTextureAtlasInterface> AtlasRegion;                                 // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bMatchSize;                                        // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_Image_SetBrushFromAtlasInterface;
-
-// Function UMG.Image.SetBrushFromMaterial
-// 0x0008 (0x0008 - 0x0000)
-struct Image_SetBrushFromMaterial final
-{
-public:
-	class UMaterialInterface*                     Material;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Image_SetBrushFromMaterial;
-
-// Function UMG.Image.SetBrushFromSoftMaterial
-// 0x0028 (0x0028 - 0x0000)
-struct Image_SetBrushFromSoftMaterial final
-{
-public:
-	TSoftObjectPtr<class UMaterialInterface>      SoftMaterial;                                      // 0x0000(0x0028)(Parm, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Image_SetBrushFromSoftMaterial;
-
-// Function UMG.Image.SetBrushFromSoftTexture
-// 0x0030 (0x0030 - 0x0000)
-struct Image_SetBrushFromSoftTexture final
-{
-public:
-	TSoftObjectPtr<class UTexture2D>              SoftTexture;                                       // 0x0000(0x0028)(Parm, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bMatchSize;                                        // 0x0028(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_Image_SetBrushFromSoftTexture;
-
-// Function UMG.Image.SetBrushFromTexture
-// 0x0010 (0x0010 - 0x0000)
-struct Image_SetBrushFromTexture final
-{
-public:
-	class UTexture2D*                             Texture;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bMatchSize;                                        // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_Image_SetBrushFromTexture;
-
-// Function UMG.Image.SetBrushFromTextureDynamic
-// 0x0010 (0x0010 - 0x0000)
-struct Image_SetBrushFromTextureDynamic final
-{
-public:
-	class UTexture2DDynamic*                      Texture;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bMatchSize;                                        // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_Image_SetBrushFromTextureDynamic;
-
-// Function UMG.Image.SetBrushResourceObject
-// 0x0008 (0x0008 - 0x0000)
-struct Image_SetBrushResourceObject final
-{
-public:
-	class UObject*                                ResourceObject;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Image_SetBrushResourceObject;
-
-// Function UMG.Image.SetBrushTintColor
-// 0x0014 (0x0014 - 0x0000)
-struct Image_SetBrushTintColor final
-{
-public:
-	struct FSlateColor                            TintColor;                                         // 0x0000(0x0014)(Parm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Image_SetBrushTintColor;
-
-// Function UMG.Image.SetColorAndOpacity
-// 0x0010 (0x0010 - 0x0000)
-struct Image_SetColorAndOpacity final
-{
-public:
-	struct FLinearColor                           InColorAndOpacity;                                 // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Image_SetColorAndOpacity;
-
-// Function UMG.Image.SetDesiredSizeOverride
-// 0x0010 (0x0010 - 0x0000)
-struct Image_SetDesiredSizeOverride final
-{
-public:
-	struct FVector2D                              DesiredSize;                                       // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Image_SetDesiredSizeOverride;
-
-// Function UMG.Image.SetOpacity
-// 0x0004 (0x0004 - 0x0000)
-struct Image_SetOpacity final
-{
-public:
-	float                                         InOpacity;                                         // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_Image_SetOpacity;
-
 // Function UMG.InputKeySelector.SetAllowGamepadKeys
 // 0x0001 (0x0001 - 0x0000)
 struct InputKeySelector_SetAllowGamepadKeys final
@@ -4265,20 +4030,20 @@ public:
 DUMPER7_ASSERTS_InputKeySelector_SetEscapeKeys;
 
 // Function UMG.InputKeySelector.SetKeySelectionText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct InputKeySelector_SetKeySelectionText final
 {
 public:
-	class FText                                   InKeySelectionText;                                // 0x0000(0x0010)(Parm, NativeAccessSpecifierPublic)
+	class FText                                   InKeySelectionText;                                // 0x0000(0x0018)(Parm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_InputKeySelector_SetKeySelectionText;
 
 // Function UMG.InputKeySelector.SetNoKeySpecifiedText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct InputKeySelector_SetNoKeySpecifiedText final
 {
 public:
-	class FText                                   InNoKeySpecifiedText;                              // 0x0000(0x0010)(Parm, NativeAccessSpecifierPublic)
+	class FText                                   InNoKeySpecifiedText;                              // 0x0000(0x0018)(Parm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_InputKeySelector_SetNoKeySpecifiedText;
 
@@ -4426,111 +4191,12 @@ public:
 };
 DUMPER7_ASSERTS_MenuAnchor_ShouldOpenDueToClick;
 
-// Function UMG.TextLayoutWidget.SetJustification
-// 0x0001 (0x0001 - 0x0000)
-struct TextLayoutWidget_SetJustification final
-{
-public:
-	ETextJustify                                  InJustification;                                   // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_TextLayoutWidget_SetJustification;
-
-// Function UMG.MultiLineEditableText.SetFont
-// 0x0060 (0x0060 - 0x0000)
-struct MultiLineEditableText_SetFont final
-{
-public:
-	struct FSlateFontInfo                         InFontInfo;                                        // 0x0000(0x0060)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_MultiLineEditableText_SetFont;
-
-// Function UMG.MultiLineEditableText.SetFontMaterial
-// 0x0008 (0x0008 - 0x0000)
-struct MultiLineEditableText_SetFontMaterial final
-{
-public:
-	class UMaterialInterface*                     InMaterial;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_MultiLineEditableText_SetFontMaterial;
-
-// Function UMG.MultiLineEditableText.SetFontOutlineMaterial
-// 0x0008 (0x0008 - 0x0000)
-struct MultiLineEditableText_SetFontOutlineMaterial final
-{
-public:
-	class UMaterialInterface*                     InMaterial;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_MultiLineEditableText_SetFontOutlineMaterial;
-
-// Function UMG.MultiLineEditableText.SetHintText
-// 0x0010 (0x0010 - 0x0000)
-struct MultiLineEditableText_SetHintText final
-{
-public:
-	class FText                                   InHintText;                                        // 0x0000(0x0010)(Parm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_MultiLineEditableText_SetHintText;
-
-// Function UMG.MultiLineEditableText.SetIsReadOnly
-// 0x0001 (0x0001 - 0x0000)
-struct MultiLineEditableText_SetIsReadOnly final
-{
-public:
-	bool                                          bReadOnly;                                         // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_MultiLineEditableText_SetIsReadOnly;
-
-// Function UMG.MultiLineEditableText.SetText
-// 0x0010 (0x0010 - 0x0000)
-struct MultiLineEditableText_SetText final
-{
-public:
-	class FText                                   InText;                                            // 0x0000(0x0010)(Parm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_MultiLineEditableText_SetText;
-
-// Function UMG.MultiLineEditableText.SetWidgetStyle
-// 0x02E0 (0x02E0 - 0x0000)
-struct MultiLineEditableText_SetWidgetStyle final
-{
-public:
-	struct FTextBlockStyle                        InWidgetStyle;                                     // 0x0000(0x02E0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_MultiLineEditableText_SetWidgetStyle;
-
-// Function UMG.MultiLineEditableText.GetFont
-// 0x0060 (0x0060 - 0x0000)
-struct MultiLineEditableText_GetFont final
-{
-public:
-	struct FSlateFontInfo                         ReturnValue;                                       // 0x0000(0x0060)(ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_MultiLineEditableText_GetFont;
-
-// Function UMG.MultiLineEditableText.GetHintText
-// 0x0010 (0x0010 - 0x0000)
-struct MultiLineEditableText_GetHintText final
-{
-public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_MultiLineEditableText_GetHintText;
-
-// Function UMG.MultiLineEditableText.GetText
-// 0x0010 (0x0010 - 0x0000)
-struct MultiLineEditableText_GetText final
-{
-public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_MultiLineEditableText_GetText;
-
 // Function UMG.MultiLineEditableTextBox.SetError
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct MultiLineEditableTextBox_SetError final
 {
 public:
-	class FText                                   InError;                                           // 0x0000(0x0010)(Parm, NativeAccessSpecifierPublic)
+	class FText                                   InError;                                           // 0x0000(0x0018)(Parm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_MultiLineEditableTextBox_SetError;
 
@@ -4544,11 +4210,11 @@ public:
 DUMPER7_ASSERTS_MultiLineEditableTextBox_SetForegroundColor;
 
 // Function UMG.MultiLineEditableTextBox.SetHintText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct MultiLineEditableTextBox_SetHintText final
 {
 public:
-	class FText                                   InHintText;                                        // 0x0000(0x0010)(Parm, NativeAccessSpecifierPublic)
+	class FText                                   InHintText;                                        // 0x0000(0x0018)(Parm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_MultiLineEditableTextBox_SetHintText;
 
@@ -4562,38 +4228,38 @@ public:
 DUMPER7_ASSERTS_MultiLineEditableTextBox_SetIsReadOnly;
 
 // Function UMG.MultiLineEditableTextBox.SetText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct MultiLineEditableTextBox_SetText final
 {
 public:
-	class FText                                   InText;                                            // 0x0000(0x0010)(Parm, NativeAccessSpecifierPublic)
+	class FText                                   InText;                                            // 0x0000(0x0018)(Parm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_MultiLineEditableTextBox_SetText;
 
 // Function UMG.MultiLineEditableTextBox.SetTextStyle
-// 0x02E0 (0x02E0 - 0x0000)
+// 0x0340 (0x0340 - 0x0000)
 struct MultiLineEditableTextBox_SetTextStyle final
 {
 public:
-	struct FTextBlockStyle                        InTextStyle;                                       // 0x0000(0x02E0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FTextBlockStyle                        InTextStyle;                                       // 0x0000(0x0340)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_MultiLineEditableTextBox_SetTextStyle;
 
 // Function UMG.MultiLineEditableTextBox.GetHintText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct MultiLineEditableTextBox_GetHintText final
 {
 public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	class FText                                   ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_MultiLineEditableTextBox_GetHintText;
 
 // Function UMG.MultiLineEditableTextBox.GetText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct MultiLineEditableTextBox_GetText final
 {
 public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	class FText                                   ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_MultiLineEditableTextBox_GetText;
 
@@ -4602,7 +4268,7 @@ DUMPER7_ASSERTS_MultiLineEditableTextBox_GetText;
 struct Overlay_AddChildToOverlay final
 {
 public:
-	class UWidget*                                Content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UWidget*                                content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UOverlaySlot*                           ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_Overlay_AddChildToOverlay;
@@ -4614,7 +4280,7 @@ struct Overlay_ReplaceOverlayChildAt final
 public:
 	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UWidget*                                Content;                                           // 0x0008(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UWidget*                                content;                                           // 0x0008(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -4739,169 +4405,6 @@ public:
 };
 DUMPER7_ASSERTS_RetainerBox_GetEffectMaterial;
 
-// Function UMG.RichTextBlock.GetDecoratorByClass
-// 0x0010 (0x0010 - 0x0000)
-struct RichTextBlock_GetDecoratorByClass final
-{
-public:
-	TSubclassOf<class URichTextBlockDecorator>    DecoratorClass;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class URichTextBlockDecorator*                ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_GetDecoratorByClass;
-
-// Function UMG.RichTextBlock.GetDefaultDynamicMaterial
-// 0x0008 (0x0008 - 0x0000)
-struct RichTextBlock_GetDefaultDynamicMaterial final
-{
-public:
-	class UMaterialInstanceDynamic*               ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_GetDefaultDynamicMaterial;
-
-// Function UMG.RichTextBlock.SetAutoWrapText
-// 0x0001 (0x0001 - 0x0000)
-struct RichTextBlock_SetAutoWrapText final
-{
-public:
-	bool                                          InAutoTextWrap;                                    // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_SetAutoWrapText;
-
-// Function UMG.RichTextBlock.SetDecorators
-// 0x0010 (0x0010 - 0x0000)
-struct RichTextBlock_SetDecorators final
-{
-public:
-	TArray<TSubclassOf<class URichTextBlockDecorator>> InDecoratorClasses;                           // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, UObjectWrapper, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_SetDecorators;
-
-// Function UMG.RichTextBlock.SetDefaultColorAndOpacity
-// 0x0014 (0x0014 - 0x0000)
-struct RichTextBlock_SetDefaultColorAndOpacity final
-{
-public:
-	struct FSlateColor                            InColorAndOpacity;                                 // 0x0000(0x0014)(Parm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_SetDefaultColorAndOpacity;
-
-// Function UMG.RichTextBlock.SetDefaultFont
-// 0x0060 (0x0060 - 0x0000)
-struct RichTextBlock_SetDefaultFont final
-{
-public:
-	struct FSlateFontInfo                         InFontInfo;                                        // 0x0000(0x0060)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_SetDefaultFont;
-
-// Function UMG.RichTextBlock.SetDefaultMaterial
-// 0x0008 (0x0008 - 0x0000)
-struct RichTextBlock_SetDefaultMaterial final
-{
-public:
-	class UMaterialInterface*                     InMaterial;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_SetDefaultMaterial;
-
-// Function UMG.RichTextBlock.SetDefaultShadowColorAndOpacity
-// 0x0010 (0x0010 - 0x0000)
-struct RichTextBlock_SetDefaultShadowColorAndOpacity final
-{
-public:
-	struct FLinearColor                           InShadowColorAndOpacity;                           // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_SetDefaultShadowColorAndOpacity;
-
-// Function UMG.RichTextBlock.SetDefaultShadowOffset
-// 0x0010 (0x0010 - 0x0000)
-struct RichTextBlock_SetDefaultShadowOffset final
-{
-public:
-	struct FVector2D                              InShadowOffset;                                    // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_SetDefaultShadowOffset;
-
-// Function UMG.RichTextBlock.SetDefaultStrikeBrush
-// 0x00B0 (0x00B0 - 0x0000)
-struct RichTextBlock_SetDefaultStrikeBrush final
-{
-public:
-	struct FSlateBrush                            InStrikeBrush;                                     // 0x0000(0x00B0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_SetDefaultStrikeBrush;
-
-// Function UMG.RichTextBlock.SetDefaultTextStyle
-// 0x02E0 (0x02E0 - 0x0000)
-struct RichTextBlock_SetDefaultTextStyle final
-{
-public:
-	struct FTextBlockStyle                        InDefaultTextStyle;                                // 0x0000(0x02E0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_SetDefaultTextStyle;
-
-// Function UMG.RichTextBlock.SetMinDesiredWidth
-// 0x0004 (0x0004 - 0x0000)
-struct RichTextBlock_SetMinDesiredWidth final
-{
-public:
-	float                                         InMinDesiredWidth;                                 // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_SetMinDesiredWidth;
-
-// Function UMG.RichTextBlock.SetText
-// 0x0010 (0x0010 - 0x0000)
-struct RichTextBlock_SetText final
-{
-public:
-	class FText                                   InText;                                            // 0x0000(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_SetText;
-
-// Function UMG.RichTextBlock.SetTextOverflowPolicy
-// 0x0001 (0x0001 - 0x0000)
-struct RichTextBlock_SetTextOverflowPolicy final
-{
-public:
-	ETextOverflowPolicy                           InOverflowPolicy;                                  // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_SetTextOverflowPolicy;
-
-// Function UMG.RichTextBlock.SetTextStyleSet
-// 0x0008 (0x0008 - 0x0000)
-struct RichTextBlock_SetTextStyleSet final
-{
-public:
-	class UDataTable*                             NewTextStyleSet;                                   // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_SetTextStyleSet;
-
-// Function UMG.RichTextBlock.SetTextTransformPolicy
-// 0x0001 (0x0001 - 0x0000)
-struct RichTextBlock_SetTextTransformPolicy final
-{
-public:
-	ETextTransformPolicy                          InTransformPolicy;                                 // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_SetTextTransformPolicy;
-
-// Function UMG.RichTextBlock.GetText
-// 0x0010 (0x0010 - 0x0000)
-struct RichTextBlock_GetText final
-{
-public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_GetText;
-
-// Function UMG.RichTextBlock.GetTextStyleSet
-// 0x0008 (0x0008 - 0x0000)
-struct RichTextBlock_GetTextStyleSet final
-{
-public:
-	class UDataTable*                             ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_RichTextBlock_GetTextStyleSet;
-
 // Function UMG.SafeZone.SetSidesToPad
 // 0x0004 (0x0004 - 0x0000)
 struct SafeZone_SetSidesToPad final
@@ -4986,208 +4489,6 @@ public:
 	float                                         InThumbSizeFraction;                               // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_ScrollBar_SetState;
-
-// Function UMG.ScrollBox.GetPhysicalScrollOffset
-// 0x0004 (0x0004 - 0x0000)
-struct ScrollBox_GetPhysicalScrollOffset final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_GetPhysicalScrollOffset;
-
-// Function UMG.ScrollBox.GetScrollContentSize
-// 0x0010 (0x0010 - 0x0000)
-struct ScrollBox_GetScrollContentSize final
-{
-public:
-	struct FVector2D                              ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_GetScrollContentSize;
-
-// Function UMG.ScrollBox.GetScrollMax
-// 0x0004 (0x0004 - 0x0000)
-struct ScrollBox_GetScrollMax final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_GetScrollMax;
-
-// Function UMG.ScrollBox.ScrollWidgetIntoView
-// 0x0010 (0x0010 - 0x0000)
-struct ScrollBox_ScrollWidgetIntoView final
-{
-public:
-	class UWidget*                                WidgetToFind;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          AnimateScroll;                                     // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EDescendantScrollDestination                  ScrollDestination;                                 // 0x0009(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_A[0x2];                                        // 0x000A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         Padding;                                           // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_ScrollWidgetIntoView;
-
-// Function UMG.ScrollBox.SetAllowOverscroll
-// 0x0001 (0x0001 - 0x0000)
-struct ScrollBox_SetAllowOverscroll final
-{
-public:
-	bool                                          NewAllowOverscroll;                                // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_SetAllowOverscroll;
-
-// Function UMG.ScrollBox.SetAlwaysShowScrollbar
-// 0x0001 (0x0001 - 0x0000)
-struct ScrollBox_SetAlwaysShowScrollbar final
-{
-public:
-	bool                                          NewAlwaysShowScrollbar;                            // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_SetAlwaysShowScrollbar;
-
-// Function UMG.ScrollBox.SetAnimateWheelScrolling
-// 0x0001 (0x0001 - 0x0000)
-struct ScrollBox_SetAnimateWheelScrolling final
-{
-public:
-	bool                                          bShouldAnimateWheelScrolling;                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_SetAnimateWheelScrolling;
-
-// Function UMG.ScrollBox.SetConsumeMouseWheel
-// 0x0001 (0x0001 - 0x0000)
-struct ScrollBox_SetConsumeMouseWheel final
-{
-public:
-	EConsumeMouseWheel                            NewConsumeMouseWheel;                              // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_SetConsumeMouseWheel;
-
-// Function UMG.ScrollBox.SetIsTouchScrollingEnabled
-// 0x0001 (0x0001 - 0x0000)
-struct ScrollBox_SetIsTouchScrollingEnabled final
-{
-public:
-	bool                                          bInEnableTouchScrolling;                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_SetIsTouchScrollingEnabled;
-
-// Function UMG.ScrollBox.SetNavigationDestination
-// 0x0001 (0x0001 - 0x0000)
-struct ScrollBox_SetNavigationDestination final
-{
-public:
-	EDescendantScrollDestination                  NewNavigationDestination;                          // 0x0000(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_SetNavigationDestination;
-
-// Function UMG.ScrollBox.SetOrientation
-// 0x0001 (0x0001 - 0x0000)
-struct ScrollBox_SetOrientation final
-{
-public:
-	EOrientation                                  NewOrientation;                                    // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_SetOrientation;
-
-// Function UMG.ScrollBox.SetScrollAnimationInterpolationSpeed
-// 0x0004 (0x0004 - 0x0000)
-struct ScrollBox_SetScrollAnimationInterpolationSpeed final
-{
-public:
-	float                                         NewScrollAnimationInterpolationSpeed;              // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_SetScrollAnimationInterpolationSpeed;
-
-// Function UMG.ScrollBox.SetScrollBarPadding
-// 0x0010 (0x0010 - 0x0000)
-struct ScrollBox_SetScrollBarPadding final
-{
-public:
-	struct FMargin                                NewScrollbarPadding;                               // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_SetScrollBarPadding;
-
-// Function UMG.ScrollBox.SetScrollbarThickness
-// 0x0010 (0x0010 - 0x0000)
-struct ScrollBox_SetScrollbarThickness final
-{
-public:
-	struct FVector2D                              NewScrollbarThickness;                             // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_SetScrollbarThickness;
-
-// Function UMG.ScrollBox.SetScrollbarVisibility
-// 0x0001 (0x0001 - 0x0000)
-struct ScrollBox_SetScrollbarVisibility final
-{
-public:
-	ESlateVisibility                              NewScrollBarVisibility;                            // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_SetScrollbarVisibility;
-
-// Function UMG.ScrollBox.SetScrollOffset
-// 0x0004 (0x0004 - 0x0000)
-struct ScrollBox_SetScrollOffset final
-{
-public:
-	float                                         NewScrollOffset;                                   // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_SetScrollOffset;
-
-// Function UMG.ScrollBox.SetScrollWhenFocusChanges
-// 0x0001 (0x0001 - 0x0000)
-struct ScrollBox_SetScrollWhenFocusChanges final
-{
-public:
-	EScrollWhenFocusChanges                       NewScrollWhenFocusChanges;                         // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_SetScrollWhenFocusChanges;
-
-// Function UMG.ScrollBox.SetWheelScrollMultiplier
-// 0x0004 (0x0004 - 0x0000)
-struct ScrollBox_SetWheelScrollMultiplier final
-{
-public:
-	float                                         NewWheelScrollMultiplier;                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_SetWheelScrollMultiplier;
-
-// Function UMG.ScrollBox.GetScrollOffset
-// 0x0004 (0x0004 - 0x0000)
-struct ScrollBox_GetScrollOffset final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_GetScrollOffset;
-
-// Function UMG.ScrollBox.GetScrollOffsetOfEnd
-// 0x0004 (0x0004 - 0x0000)
-struct ScrollBox_GetScrollOffsetOfEnd final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_GetScrollOffsetOfEnd;
-
-// Function UMG.ScrollBox.GetViewFraction
-// 0x0004 (0x0004 - 0x0000)
-struct ScrollBox_GetViewFraction final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_GetViewFraction;
-
-// Function UMG.ScrollBox.GetViewOffsetFraction
-// 0x0004 (0x0004 - 0x0000)
-struct ScrollBox_GetViewOffsetFraction final
-{
-public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ScrollBox_GetViewOffsetFraction;
 
 // Function UMG.ScrollBoxSlot.SetHorizontalAlignment
 // 0x0001 (0x0001 - 0x0000)
@@ -5405,21 +4706,183 @@ public:
 };
 DUMPER7_ASSERTS_Slider_GetValue;
 
-// Function UMG.Spacer.SetSize
-// 0x0010 (0x0010 - 0x0000)
-struct Spacer_SetSize final
+// Function UMG.SpinBox.SetAlwaysUsesDeltaSnap
+// 0x0001 (0x0001 - 0x0000)
+struct SpinBox_SetAlwaysUsesDeltaSnap final
 {
 public:
-	struct FVector2D                              InSize;                                            // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bNewValue;                                         // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_Spacer_SetSize;
+DUMPER7_ASSERTS_SpinBox_SetAlwaysUsesDeltaSnap;
+
+// Function UMG.SpinBox.SetDelta
+// 0x0004 (0x0004 - 0x0000)
+struct SpinBox_SetDelta final
+{
+public:
+	float                                         NewValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_SetDelta;
+
+// Function UMG.SpinBox.SetForegroundColor
+// 0x0014 (0x0014 - 0x0000)
+struct SpinBox_SetForegroundColor final
+{
+public:
+	struct FSlateColor                            InForegroundColor;                                 // 0x0000(0x0014)(Parm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_SetForegroundColor;
+
+// Function UMG.SpinBox.SetMaxFractionalDigits
+// 0x0004 (0x0004 - 0x0000)
+struct SpinBox_SetMaxFractionalDigits final
+{
+public:
+	int32                                         NewValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_SetMaxFractionalDigits;
+
+// Function UMG.SpinBox.SetMaxSliderValue
+// 0x0004 (0x0004 - 0x0000)
+struct SpinBox_SetMaxSliderValue final
+{
+public:
+	float                                         NewValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_SetMaxSliderValue;
+
+// Function UMG.SpinBox.SetMaxValue
+// 0x0004 (0x0004 - 0x0000)
+struct SpinBox_SetMaxValue final
+{
+public:
+	float                                         NewValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_SetMaxValue;
+
+// Function UMG.SpinBox.SetMinFractionalDigits
+// 0x0004 (0x0004 - 0x0000)
+struct SpinBox_SetMinFractionalDigits final
+{
+public:
+	int32                                         NewValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_SetMinFractionalDigits;
+
+// Function UMG.SpinBox.SetMinSliderValue
+// 0x0004 (0x0004 - 0x0000)
+struct SpinBox_SetMinSliderValue final
+{
+public:
+	float                                         NewValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_SetMinSliderValue;
+
+// Function UMG.SpinBox.SetMinValue
+// 0x0004 (0x0004 - 0x0000)
+struct SpinBox_SetMinValue final
+{
+public:
+	float                                         NewValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_SetMinValue;
+
+// Function UMG.SpinBox.SetValue
+// 0x0004 (0x0004 - 0x0000)
+struct SpinBox_SetValue final
+{
+public:
+	float                                         NewValue;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_SetValue;
+
+// Function UMG.SpinBox.GetAlwaysUsesDeltaSnap
+// 0x0001 (0x0001 - 0x0000)
+struct SpinBox_GetAlwaysUsesDeltaSnap final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_GetAlwaysUsesDeltaSnap;
+
+// Function UMG.SpinBox.GetDelta
+// 0x0004 (0x0004 - 0x0000)
+struct SpinBox_GetDelta final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_GetDelta;
+
+// Function UMG.SpinBox.GetMaxFractionalDigits
+// 0x0004 (0x0004 - 0x0000)
+struct SpinBox_GetMaxFractionalDigits final
+{
+public:
+	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_GetMaxFractionalDigits;
+
+// Function UMG.SpinBox.GetMaxSliderValue
+// 0x0004 (0x0004 - 0x0000)
+struct SpinBox_GetMaxSliderValue final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_GetMaxSliderValue;
+
+// Function UMG.SpinBox.GetMaxValue
+// 0x0004 (0x0004 - 0x0000)
+struct SpinBox_GetMaxValue final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_GetMaxValue;
+
+// Function UMG.SpinBox.GetMinFractionalDigits
+// 0x0004 (0x0004 - 0x0000)
+struct SpinBox_GetMinFractionalDigits final
+{
+public:
+	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_GetMinFractionalDigits;
+
+// Function UMG.SpinBox.GetMinSliderValue
+// 0x0004 (0x0004 - 0x0000)
+struct SpinBox_GetMinSliderValue final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_GetMinSliderValue;
+
+// Function UMG.SpinBox.GetMinValue
+// 0x0004 (0x0004 - 0x0000)
+struct SpinBox_GetMinValue final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_GetMinValue;
+
+// Function UMG.SpinBox.GetValue
+// 0x0004 (0x0004 - 0x0000)
+struct SpinBox_GetValue final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SpinBox_GetValue;
 
 // Function UMG.StackBox.AddChildToStackBox
 // 0x0010 (0x0010 - 0x0000)
 struct StackBox_AddChildToStackBox final
 {
 public:
-	class UWidget*                                Content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UWidget*                                content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UStackBoxSlot*                          ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_StackBox_AddChildToStackBox;
@@ -5431,7 +4894,7 @@ struct StackBox_ReplaceStackBoxChildAt final
 public:
 	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UWidget*                                Content;                                           // 0x0008(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UWidget*                                content;                                           // 0x0008(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -5474,11 +4937,11 @@ public:
 DUMPER7_ASSERTS_TextBlock_SetColorAndOpacity;
 
 // Function UMG.TextBlock.SetFont
-// 0x0060 (0x0060 - 0x0000)
+// 0x0058 (0x0058 - 0x0000)
 struct TextBlock_SetFont final
 {
 public:
-	struct FSlateFontInfo                         InFontInfo;                                        // 0x0000(0x0060)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FSlateFontInfo                         InFontInfo;                                        // 0x0000(0x0058)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_TextBlock_SetFont;
 
@@ -5537,11 +5000,11 @@ public:
 DUMPER7_ASSERTS_TextBlock_SetShadowOffset;
 
 // Function UMG.TextBlock.SetStrikeBrush
-// 0x00B0 (0x00B0 - 0x0000)
+// 0x00D0 (0x00D0 - 0x0000)
 struct TextBlock_SetStrikeBrush final
 {
 public:
-	struct FSlateBrush                            InStrikeBrush;                                     // 0x0000(0x00B0)(Parm, NativeAccessSpecifierPublic)
+	struct FSlateBrush                            InStrikeBrush;                                     // 0x0000(0x00D0)(Parm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_TextBlock_SetStrikeBrush;
 
@@ -5555,11 +5018,11 @@ public:
 DUMPER7_ASSERTS_TextBlock_SetString;
 
 // Function UMG.TextBlock.SetText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct TextBlock_SetText final
 {
 public:
-	class FText                                   InText;                                            // 0x0000(0x0010)(Parm, NativeAccessSpecifierPublic)
+	class FText                                   InText;                                            // 0x0000(0x0018)(Parm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_TextBlock_SetText;
 
@@ -5582,11 +5045,11 @@ public:
 DUMPER7_ASSERTS_TextBlock_SetTextTransformPolicy;
 
 // Function UMG.TextBlock.GetText
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct TextBlock_GetText final
 {
 public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	class FText                                   ReturnValue;                                       // 0x0000(0x0018)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_TextBlock_GetText;
 
@@ -5662,15 +5125,6 @@ public:
 };
 DUMPER7_ASSERTS_TileView_GetEntryWidth;
 
-// Function UMG.TileView.IsAligned
-// 0x0001 (0x0001 - 0x0000)
-struct TileView_IsAligned final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_TileView_IsAligned;
-
 // Function UMG.TreeView.SetItemExpansion
 // 0x0010 (0x0010 - 0x0000)
 struct TreeView_SetItemExpansion final
@@ -5687,7 +5141,7 @@ DUMPER7_ASSERTS_TreeView_SetItemExpansion;
 struct UniformGridPanel_AddChildToUniformGrid final
 {
 public:
-	class UWidget*                                Content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UWidget*                                content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         InRow;                                             // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         InColumn;                                          // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UUniformGridSlot*                       ReturnValue;                                       // 0x0010(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -5721,53 +5175,87 @@ public:
 };
 DUMPER7_ASSERTS_UniformGridPanel_SetSlotPadding;
 
+// Function UMG.UniformGridSlot.SetColumn
+// 0x0004 (0x0004 - 0x0000)
+struct UniformGridSlot_SetColumn final
+{
+public:
+	int32                                         InColumn;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_UniformGridSlot_SetColumn;
+
+// Function UMG.UniformGridSlot.SetHorizontalAlignment
+// 0x0001 (0x0001 - 0x0000)
+struct UniformGridSlot_SetHorizontalAlignment final
+{
+public:
+	EHorizontalAlignment                          InHorizontalAlignment;                             // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_UniformGridSlot_SetHorizontalAlignment;
+
+// Function UMG.UniformGridSlot.SetRow
+// 0x0004 (0x0004 - 0x0000)
+struct UniformGridSlot_SetRow final
+{
+public:
+	int32                                         InRow;                                             // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_UniformGridSlot_SetRow;
+
+// Function UMG.UniformGridSlot.SetVerticalAlignment
+// 0x0001 (0x0001 - 0x0000)
+struct UniformGridSlot_SetVerticalAlignment final
+{
+public:
+	EVerticalAlignment                            InVerticalAlignment;                               // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_UniformGridSlot_SetVerticalAlignment;
+
 // Function UMG.VerticalBox.AddChildToVerticalBox
 // 0x0010 (0x0010 - 0x0000)
 struct VerticalBox_AddChildToVerticalBox final
 {
 public:
-	class UWidget*                                Content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UWidget*                                content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UVerticalBoxSlot*                       ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_VerticalBox_AddChildToVerticalBox;
 
-// Function UMG.Viewport.SetEnableAdvancedFeatures
+// Function UMG.VerticalBoxSlot.SetHorizontalAlignment
 // 0x0001 (0x0001 - 0x0000)
-struct Viewport_SetEnableAdvancedFeatures final
+struct VerticalBoxSlot_SetHorizontalAlignment final
 {
 public:
-	bool                                          InEnableAdvancedFeatures;                          // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EHorizontalAlignment                          InHorizontalAlignment;                             // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_Viewport_SetEnableAdvancedFeatures;
+DUMPER7_ASSERTS_VerticalBoxSlot_SetHorizontalAlignment;
 
-// Function UMG.Viewport.SetLightIntensity
-// 0x0004 (0x0004 - 0x0000)
-struct Viewport_SetLightIntensity final
+// Function UMG.VerticalBoxSlot.SetPadding
+// 0x0010 (0x0010 - 0x0000)
+struct VerticalBoxSlot_SetPadding final
 {
 public:
-	float                                         LightIntensity;                                    // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FMargin                                InPadding;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_Viewport_SetLightIntensity;
+DUMPER7_ASSERTS_VerticalBoxSlot_SetPadding;
 
-// Function UMG.Viewport.SetShowFlag
-// 0x0018 (0x0018 - 0x0000)
-struct Viewport_SetShowFlag final
+// Function UMG.VerticalBoxSlot.SetSize
+// 0x0008 (0x0008 - 0x0000)
+struct VerticalBoxSlot_SetSize final
 {
 public:
-	class FString                                 InShowFlagName;                                    // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          InValue;                                           // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FSlateChildSize                        InSize;                                            // 0x0000(0x0008)(Parm, NoDestructor, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_Viewport_SetShowFlag;
+DUMPER7_ASSERTS_VerticalBoxSlot_SetSize;
 
-// Function UMG.Viewport.SetSkyIntensity
-// 0x0004 (0x0004 - 0x0000)
-struct Viewport_SetSkyIntensity final
+// Function UMG.VerticalBoxSlot.SetVerticalAlignment
+// 0x0001 (0x0001 - 0x0000)
+struct VerticalBoxSlot_SetVerticalAlignment final
 {
 public:
-	float                                         LightIntensity;                                    // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EVerticalAlignment                            InVerticalAlignment;                               // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_Viewport_SetSkyIntensity;
+DUMPER7_ASSERTS_VerticalBoxSlot_SetVerticalAlignment;
 
 // Function UMG.Viewport.SetViewLocation
 // 0x0018 (0x0018 - 0x0000)
@@ -5834,11 +5322,11 @@ public:
 DUMPER7_ASSERTS_WidgetComponent_SetBackgroundColor;
 
 // Function UMG.WidgetComponent.SetCylinderArcAngle
-// 0x0008 (0x0008 - 0x0000)
+// 0x0004 (0x0004 - 0x0000)
 struct WidgetComponent_SetCylinderArcAngle final
 {
 public:
-	double                                        InCylinderArcAngle;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         InCylinderArcAngle;                                // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_WidgetComponent_SetCylinderArcAngle;
 
@@ -5987,11 +5475,11 @@ public:
 DUMPER7_ASSERTS_WidgetComponent_GetCurrentDrawSize;
 
 // Function UMG.WidgetComponent.GetCylinderArcAngle
-// 0x0008 (0x0008 - 0x0000)
+// 0x0004 (0x0004 - 0x0000)
 struct WidgetComponent_GetCylinderArcAngle final
 {
 public:
-	double                                        ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_WidgetComponent_GetCylinderArcAngle;
 
@@ -6222,11 +5710,11 @@ public:
 DUMPER7_ASSERTS_WidgetInteractionComponent_SendKeyChar;
 
 // Function UMG.WidgetInteractionComponent.SetCustomHitResult
-// 0x0108 (0x0108 - 0x0000)
+// 0x00F0 (0x00F0 - 0x0000)
 struct WidgetInteractionComponent_SetCustomHitResult final
 {
 public:
-	struct FHitResult                             HitResult;                                         // 0x0000(0x0108)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	struct FHitResult                             HitResult;                                         // 0x0000(0x00F0)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_WidgetInteractionComponent_SetCustomHitResult;
 
@@ -6258,11 +5746,11 @@ public:
 DUMPER7_ASSERTS_WidgetInteractionComponent_GetHoveredWidgetComponent;
 
 // Function UMG.WidgetInteractionComponent.GetLastHitResult
-// 0x0108 (0x0108 - 0x0000)
+// 0x00F0 (0x00F0 - 0x0000)
 struct WidgetInteractionComponent_GetLastHitResult final
 {
 public:
-	struct FHitResult                             ReturnValue;                                       // 0x0000(0x0108)(ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	struct FHitResult                             ReturnValue;                                       // 0x0000(0x00F0)(ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_WidgetInteractionComponent_GetLastHitResult;
 
@@ -6292,6 +5780,62 @@ public:
 	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_WidgetInteractionComponent_IsOverInteractableWidget;
+
+// Function UMG.WidgetSwitcher.SetActiveWidget
+// 0x0008 (0x0008 - 0x0000)
+struct WidgetSwitcher_SetActiveWidget final
+{
+public:
+	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetSwitcher_SetActiveWidget;
+
+// Function UMG.WidgetSwitcher.SetActiveWidgetIndex
+// 0x0004 (0x0004 - 0x0000)
+struct WidgetSwitcher_SetActiveWidgetIndex final
+{
+public:
+	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetSwitcher_SetActiveWidgetIndex;
+
+// Function UMG.WidgetSwitcher.GetActiveWidget
+// 0x0008 (0x0008 - 0x0000)
+struct WidgetSwitcher_GetActiveWidget final
+{
+public:
+	class UWidget*                                ReturnValue;                                       // 0x0000(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetSwitcher_GetActiveWidget;
+
+// Function UMG.WidgetSwitcher.GetActiveWidgetIndex
+// 0x0004 (0x0004 - 0x0000)
+struct WidgetSwitcher_GetActiveWidgetIndex final
+{
+public:
+	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetSwitcher_GetActiveWidgetIndex;
+
+// Function UMG.WidgetSwitcher.GetNumWidgets
+// 0x0004 (0x0004 - 0x0000)
+struct WidgetSwitcher_GetNumWidgets final
+{
+public:
+	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetSwitcher_GetNumWidgets;
+
+// Function UMG.WidgetSwitcher.GetWidgetAtIndex
+// 0x0010 (0x0010 - 0x0000)
+struct WidgetSwitcher_GetWidgetAtIndex final
+{
+public:
+	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UWidget*                                ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetSwitcher_GetWidgetAtIndex;
 
 // Function UMG.WidgetSwitcherSlot.SetHorizontalAlignment
 // 0x0001 (0x0001 - 0x0000)
@@ -6379,7 +5923,7 @@ DUMPER7_ASSERTS_WindowTitleBarAreaSlot_SetVerticalAlignment;
 struct WrapBox_AddChildToWrapBox final
 {
 public:
-	class UWidget*                                Content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UWidget*                                content;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class UWrapBoxSlot*                           ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_WrapBox_AddChildToWrapBox;
@@ -6507,14 +6051,14 @@ public:
 DUMPER7_ASSERTS_SlateBlueprintLibrary_AbsoluteToViewport;
 
 // Function UMG.SlateBlueprintLibrary.EqualEqual_SlateBrush
-// 0x0170 (0x0170 - 0x0000)
+// 0x01B0 (0x01B0 - 0x0000)
 struct SlateBlueprintLibrary_EqualEqual_SlateBrush final
 {
 public:
-	struct FSlateBrush                            A;                                                 // 0x0000(0x00B0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FSlateBrush                            B;                                                 // 0x00B0(0x00B0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0160(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_161[0xF];                                      // 0x0161(0x000F)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FSlateBrush                            A;                                                 // 0x0000(0x00D0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FSlateBrush                            B;                                                 // 0x00D0(0x00D0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x01A0(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1A1[0xF];                                      // 0x01A1(0x000F)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_SlateBlueprintLibrary_EqualEqual_SlateBrush;
 
@@ -6819,18 +6363,18 @@ public:
 DUMPER7_ASSERTS_WidgetBlueprintLibrary_DrawText;
 
 // Function UMG.WidgetBlueprintLibrary.DrawTextFormatted
-// 0x0078 (0x0078 - 0x0000)
+// 0x0080 (0x0080 - 0x0000)
 struct WidgetBlueprintLibrary_DrawTextFormatted final
 {
 public:
 	struct FPaintContext                          Context;                                           // 0x0000(0x0030)(Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	class FText                                   Text;                                              // 0x0030(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FVector2D                              position;                                          // 0x0040(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UFont*                                  Font;                                              // 0x0050(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         FontSize;                                          // 0x0058(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   FontTypeFace;                                      // 0x005C(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FLinearColor                           Tint;                                              // 0x0064(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_74[0x4];                                       // 0x0074(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class FText                                   Text;                                              // 0x0030(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FVector2D                              position;                                          // 0x0048(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UFont*                                  Font;                                              // 0x0058(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         FontSize;                                          // 0x0060(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   FontTypeFace;                                      // 0x0064(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FLinearColor                           Tint;                                              // 0x006C(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_7C[0x4];                                       // 0x007C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_WidgetBlueprintLibrary_DrawTextFormatted;
 
@@ -6872,35 +6416,35 @@ public:
 DUMPER7_ASSERTS_WidgetBlueprintLibrary_GetAllWidgetsWithInterface;
 
 // Function UMG.WidgetBlueprintLibrary.GetBrushResource
-// 0x00C0 (0x00C0 - 0x0000)
+// 0x00E0 (0x00E0 - 0x0000)
 struct WidgetBlueprintLibrary_GetBrushResource final
 {
 public:
-	struct FSlateBrush                            Brush;                                             // 0x0000(0x00B0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class UObject*                                ReturnValue;                                       // 0x00B0(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_B8[0x8];                                       // 0x00B8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FSlateBrush                            Brush;                                             // 0x0000(0x00D0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class UObject*                                ReturnValue;                                       // 0x00D0(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_D8[0x8];                                       // 0x00D8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_WidgetBlueprintLibrary_GetBrushResource;
 
 // Function UMG.WidgetBlueprintLibrary.GetBrushResourceAsMaterial
-// 0x00C0 (0x00C0 - 0x0000)
+// 0x00E0 (0x00E0 - 0x0000)
 struct WidgetBlueprintLibrary_GetBrushResourceAsMaterial final
 {
 public:
-	struct FSlateBrush                            Brush;                                             // 0x0000(0x00B0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class UMaterialInterface*                     ReturnValue;                                       // 0x00B0(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_B8[0x8];                                       // 0x00B8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FSlateBrush                            Brush;                                             // 0x0000(0x00D0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class UMaterialInterface*                     ReturnValue;                                       // 0x00D0(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_D8[0x8];                                       // 0x00D8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_WidgetBlueprintLibrary_GetBrushResourceAsMaterial;
 
 // Function UMG.WidgetBlueprintLibrary.GetBrushResourceAsTexture2D
-// 0x00C0 (0x00C0 - 0x0000)
+// 0x00E0 (0x00E0 - 0x0000)
 struct WidgetBlueprintLibrary_GetBrushResourceAsTexture2D final
 {
 public:
-	struct FSlateBrush                            Brush;                                             // 0x0000(0x00B0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class UTexture2D*                             ReturnValue;                                       // 0x00B0(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_B8[0x8];                                       // 0x00B8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FSlateBrush                            Brush;                                             // 0x0000(0x00D0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class UTexture2D*                             ReturnValue;                                       // 0x00D0(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_D8[0x8];                                       // 0x00D8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_WidgetBlueprintLibrary_GetBrushResourceAsTexture2D;
 
@@ -6914,13 +6458,13 @@ public:
 DUMPER7_ASSERTS_WidgetBlueprintLibrary_GetDragDroppingContent;
 
 // Function UMG.WidgetBlueprintLibrary.GetDynamicMaterial
-// 0x00C0 (0x00C0 - 0x0000)
+// 0x00E0 (0x00E0 - 0x0000)
 struct WidgetBlueprintLibrary_GetDynamicMaterial final
 {
 public:
-	struct FSlateBrush                            Brush;                                             // 0x0000(0x00B0)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class UMaterialInstanceDynamic*               ReturnValue;                                       // 0x00B0(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_B8[0x8];                                       // 0x00B8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FSlateBrush                            Brush;                                             // 0x0000(0x00D0)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class UMaterialInstanceDynamic*               ReturnValue;                                       // 0x00D0(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_D8[0x8];                                       // 0x00D8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_WidgetBlueprintLibrary_GetDynamicMaterial;
 
@@ -7017,46 +6561,46 @@ public:
 DUMPER7_ASSERTS_WidgetBlueprintLibrary_LockMouse;
 
 // Function UMG.WidgetBlueprintLibrary.MakeBrushFromAsset
-// 0x00C0 (0x00C0 - 0x0000)
+// 0x00E0 (0x00E0 - 0x0000)
 struct WidgetBlueprintLibrary_MakeBrushFromAsset final
 {
 public:
 	class USlateBrushAsset*                       BrushAsset;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FSlateBrush                            ReturnValue;                                       // 0x0010(0x00B0)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	struct FSlateBrush                            ReturnValue;                                       // 0x0010(0x00D0)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_WidgetBlueprintLibrary_MakeBrushFromAsset;
 
 // Function UMG.WidgetBlueprintLibrary.MakeBrushFromMaterial
-// 0x00C0 (0x00C0 - 0x0000)
+// 0x00E0 (0x00E0 - 0x0000)
 struct WidgetBlueprintLibrary_MakeBrushFromMaterial final
 {
 public:
 	class UMaterialInterface*                     Material;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         Width;                                             // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         Height;                                            // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FSlateBrush                            ReturnValue;                                       // 0x0010(0x00B0)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	struct FSlateBrush                            ReturnValue;                                       // 0x0010(0x00D0)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_WidgetBlueprintLibrary_MakeBrushFromMaterial;
 
 // Function UMG.WidgetBlueprintLibrary.MakeBrushFromTexture
-// 0x00C0 (0x00C0 - 0x0000)
+// 0x00E0 (0x00E0 - 0x0000)
 struct WidgetBlueprintLibrary_MakeBrushFromTexture final
 {
 public:
 	class UTexture2D*                             Texture;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         Width;                                             // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         Height;                                            // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FSlateBrush                            ReturnValue;                                       // 0x0010(0x00B0)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	struct FSlateBrush                            ReturnValue;                                       // 0x0010(0x00D0)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_WidgetBlueprintLibrary_MakeBrushFromTexture;
 
 // Function UMG.WidgetBlueprintLibrary.NoResourceBrush
-// 0x00B0 (0x00B0 - 0x0000)
+// 0x00D0 (0x00D0 - 0x0000)
 struct WidgetBlueprintLibrary_NoResourceBrush final
 {
 public:
-	struct FSlateBrush                            ReturnValue;                                       // 0x0000(0x00B0)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	struct FSlateBrush                            ReturnValue;                                       // 0x0000(0x00D0)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_WidgetBlueprintLibrary_NoResourceBrush;
 
@@ -7083,24 +6627,24 @@ public:
 DUMPER7_ASSERTS_WidgetBlueprintLibrary_ReleaseMouseCapture;
 
 // Function UMG.WidgetBlueprintLibrary.SetBrushResourceToMaterial
-// 0x00C0 (0x00C0 - 0x0000)
+// 0x00E0 (0x00E0 - 0x0000)
 struct WidgetBlueprintLibrary_SetBrushResourceToMaterial final
 {
 public:
-	struct FSlateBrush                            Brush;                                             // 0x0000(0x00B0)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class UMaterialInterface*                     Material;                                          // 0x00B0(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_B8[0x8];                                       // 0x00B8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FSlateBrush                            Brush;                                             // 0x0000(0x00D0)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class UMaterialInterface*                     Material;                                          // 0x00D0(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_D8[0x8];                                       // 0x00D8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_WidgetBlueprintLibrary_SetBrushResourceToMaterial;
 
 // Function UMG.WidgetBlueprintLibrary.SetBrushResourceToTexture
-// 0x00C0 (0x00C0 - 0x0000)
+// 0x00E0 (0x00E0 - 0x0000)
 struct WidgetBlueprintLibrary_SetBrushResourceToTexture final
 {
 public:
-	struct FSlateBrush                            Brush;                                             // 0x0000(0x00B0)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class UTexture2D*                             Texture;                                           // 0x00B0(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_B8[0x8];                                       // 0x00B8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FSlateBrush                            Brush;                                             // 0x0000(0x00D0)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class UTexture2D*                             Texture;                                           // 0x00D0(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_D8[0x8];                                       // 0x00D8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_WidgetBlueprintLibrary_SetBrushResourceToTexture;
 
@@ -7246,6 +6790,232 @@ public:
 	struct FEventReply                            ReturnValue;                                       // 0x00B8(0x00B8)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_WidgetBlueprintLibrary_UnlockMouse;
+
+// Function UMG.WidgetLayoutLibrary.GetMousePositionOnPlatform
+// 0x0010 (0x0010 - 0x0000)
+struct WidgetLayoutLibrary_GetMousePositionOnPlatform final
+{
+public:
+	struct FVector2D                              ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_GetMousePositionOnPlatform;
+
+// Function UMG.WidgetLayoutLibrary.GetMousePositionOnViewport
+// 0x0018 (0x0018 - 0x0000)
+struct WidgetLayoutLibrary_GetMousePositionOnViewport final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              ReturnValue;                                       // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_GetMousePositionOnViewport;
+
+// Function UMG.WidgetLayoutLibrary.GetMousePositionScaledByDPI
+// 0x0018 (0x0018 - 0x0000)
+struct WidgetLayoutLibrary_GetMousePositionScaledByDPI final
+{
+public:
+	class APlayerController*                      Player;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         LocationX;                                         // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         LocationY;                                         // 0x000C(0x0004)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_GetMousePositionScaledByDPI;
+
+// Function UMG.WidgetLayoutLibrary.GetPlayerScreenWidgetGeometry
+// 0x0040 (0x0040 - 0x0000)
+struct WidgetLayoutLibrary_GetPlayerScreenWidgetGeometry final
+{
+public:
+	class APlayerController*                      PlayerController;                                  // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGeometry                              ReturnValue;                                       // 0x0008(0x0038)(Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_GetPlayerScreenWidgetGeometry;
+
+// Function UMG.WidgetLayoutLibrary.GetViewportScale
+// 0x0010 (0x0010 - 0x0000)
+struct WidgetLayoutLibrary_GetViewportScale final
+{
+public:
+	const class UObject*                          WorldContextObject;                                // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_GetViewportScale;
+
+// Function UMG.WidgetLayoutLibrary.GetViewportSize
+// 0x0018 (0x0018 - 0x0000)
+struct WidgetLayoutLibrary_GetViewportSize final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              ReturnValue;                                       // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_GetViewportSize;
+
+// Function UMG.WidgetLayoutLibrary.GetViewportWidgetGeometry
+// 0x0040 (0x0040 - 0x0000)
+struct WidgetLayoutLibrary_GetViewportWidgetGeometry final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGeometry                              ReturnValue;                                       // 0x0008(0x0038)(Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_GetViewportWidgetGeometry;
+
+// Function UMG.WidgetLayoutLibrary.ProjectWorldLocationToWidgetPosition
+// 0x0038 (0x0038 - 0x0000)
+struct WidgetLayoutLibrary_ProjectWorldLocationToWidgetPosition final
+{
+public:
+	class APlayerController*                      PlayerController;                                  // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                WorldLocation;                                     // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              ScreenPosition;                                    // 0x0020(0x0010)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bPlayerViewportRelative;                           // 0x0030(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0031(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_32[0x6];                                       // 0x0032(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_ProjectWorldLocationToWidgetPosition;
+
+// Function UMG.WidgetLayoutLibrary.RemoveAllWidgets
+// 0x0008 (0x0008 - 0x0000)
+struct WidgetLayoutLibrary_RemoveAllWidgets final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_RemoveAllWidgets;
+
+// Function UMG.WidgetLayoutLibrary.SlotAsBorderSlot
+// 0x0010 (0x0010 - 0x0000)
+struct WidgetLayoutLibrary_SlotAsBorderSlot final
+{
+public:
+	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UBorderSlot*                            ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsBorderSlot;
+
+// Function UMG.WidgetLayoutLibrary.SlotAsCanvasSlot
+// 0x0010 (0x0010 - 0x0000)
+struct WidgetLayoutLibrary_SlotAsCanvasSlot final
+{
+public:
+	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UCanvasPanelSlot*                       ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsCanvasSlot;
+
+// Function UMG.WidgetLayoutLibrary.SlotAsGridSlot
+// 0x0010 (0x0010 - 0x0000)
+struct WidgetLayoutLibrary_SlotAsGridSlot final
+{
+public:
+	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UGridSlot*                              ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsGridSlot;
+
+// Function UMG.WidgetLayoutLibrary.SlotAsHorizontalBoxSlot
+// 0x0010 (0x0010 - 0x0000)
+struct WidgetLayoutLibrary_SlotAsHorizontalBoxSlot final
+{
+public:
+	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UHorizontalBoxSlot*                     ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsHorizontalBoxSlot;
+
+// Function UMG.WidgetLayoutLibrary.SlotAsOverlaySlot
+// 0x0010 (0x0010 - 0x0000)
+struct WidgetLayoutLibrary_SlotAsOverlaySlot final
+{
+public:
+	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UOverlaySlot*                           ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsOverlaySlot;
+
+// Function UMG.WidgetLayoutLibrary.SlotAsSafeBoxSlot
+// 0x0010 (0x0010 - 0x0000)
+struct WidgetLayoutLibrary_SlotAsSafeBoxSlot final
+{
+public:
+	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class USafeZoneSlot*                          ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsSafeBoxSlot;
+
+// Function UMG.WidgetLayoutLibrary.SlotAsScaleBoxSlot
+// 0x0010 (0x0010 - 0x0000)
+struct WidgetLayoutLibrary_SlotAsScaleBoxSlot final
+{
+public:
+	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UScaleBoxSlot*                          ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsScaleBoxSlot;
+
+// Function UMG.WidgetLayoutLibrary.SlotAsScrollBoxSlot
+// 0x0010 (0x0010 - 0x0000)
+struct WidgetLayoutLibrary_SlotAsScrollBoxSlot final
+{
+public:
+	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UScrollBoxSlot*                         ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsScrollBoxSlot;
+
+// Function UMG.WidgetLayoutLibrary.SlotAsSizeBoxSlot
+// 0x0010 (0x0010 - 0x0000)
+struct WidgetLayoutLibrary_SlotAsSizeBoxSlot final
+{
+public:
+	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class USizeBoxSlot*                           ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsSizeBoxSlot;
+
+// Function UMG.WidgetLayoutLibrary.SlotAsUniformGridSlot
+// 0x0010 (0x0010 - 0x0000)
+struct WidgetLayoutLibrary_SlotAsUniformGridSlot final
+{
+public:
+	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UUniformGridSlot*                       ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsUniformGridSlot;
+
+// Function UMG.WidgetLayoutLibrary.SlotAsVerticalBoxSlot
+// 0x0010 (0x0010 - 0x0000)
+struct WidgetLayoutLibrary_SlotAsVerticalBoxSlot final
+{
+public:
+	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UVerticalBoxSlot*                       ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsVerticalBoxSlot;
+
+// Function UMG.WidgetLayoutLibrary.SlotAsWidgetSwitcherSlot
+// 0x0010 (0x0010 - 0x0000)
+struct WidgetLayoutLibrary_SlotAsWidgetSwitcherSlot final
+{
+public:
+	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UWidgetSwitcherSlot*                    ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsWidgetSwitcherSlot;
+
+// Function UMG.WidgetLayoutLibrary.SlotAsWrapBoxSlot
+// 0x0010 (0x0010 - 0x0000)
+struct WidgetLayoutLibrary_SlotAsWrapBoxSlot final
+{
+public:
+	class UWidget*                                Widget;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UWrapBoxSlot*                           ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_WidgetLayoutLibrary_SlotAsWrapBoxSlot;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

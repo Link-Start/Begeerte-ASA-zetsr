@@ -16,8 +16,9 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemArmor_BaseBoots.PrimalItemArmor_BaseBoots_C
-// 0x0000 (0x0B90 - 0x0B90)
-class UPrimalItemArmor_BaseBoots_C : public UPrimalItemArmorGeneric_C
+// 0x0000 (0x1180 - 0x1180)
+#pragma pack(push, 0x1)
+class SDK_ALIGN(0x10) UPrimalItemArmor_BaseBoots_C : public UPrimalItemArmorGeneric_C
 {
 public:
 	static class UClass* StaticClass()
@@ -33,6 +34,7 @@ public:
 		return GetDefaultObjImpl<UPrimalItemArmor_BaseBoots_C>();
 	}
 };
+#pragma pack(pop)
 DUMPER7_ASSERTS_UPrimalItemArmor_BaseBoots_C;
 
 SDK_NAMESPACE_END

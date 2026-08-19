@@ -51,20 +51,19 @@ public:
 DUMPER7_ASSERTS_UKismetProceduralMeshLibrary;
 
 // Class ProceduralMeshComponent.ProceduralMeshComponent
-// 0x0080 (0x06E0 - 0x0660)
-#pragma pack(push, 0x1)
-class SDK_ALIGN(0x10) UProceduralMeshComponent : public UMeshComponent
+// 0x0080 (0x0750 - 0x06D0)
+class UProceduralMeshComponent final : public UMeshComponent
 {
 public:
-	uint8                                         Pad_658[0x8];                                      // 0x0658(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bUseComplexAsSimpleCollision;                      // 0x0660(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUseAsyncCooking;                                  // 0x0661(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_662[0x6];                                      // 0x0662(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class UBodySetup*                             ProcMeshBodySetup;                                 // 0x0668(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TArray<struct FProcMeshSection>               ProcMeshSections;                                  // 0x0670(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
-	TArray<struct FKConvexElem>                   CollisionConvexElems;                              // 0x0680(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
-	struct FBoxSphereBounds                       LocalBounds;                                       // 0x0690(0x0038)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPrivate)
-	TArray<class UBodySetup*>                     AsyncBodySetupQueue;                               // 0x06C8(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	uint8                                         Pad_6D0[0x8];                                      // 0x06D0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bUseComplexAsSimpleCollision;                      // 0x06D8(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUseAsyncCooking;                                  // 0x06D9(0x0001)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6DA[0x6];                                      // 0x06DA(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	class UBodySetup*                             ProcMeshBodySetup;                                 // 0x06E0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<struct FProcMeshSection>               ProcMeshSections;                                  // 0x06E8(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
+	TArray<struct FKConvexElem>                   CollisionConvexElems;                              // 0x06F8(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
+	struct FBoxSphereBounds                       LocalBounds;                                       // 0x0708(0x0038)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPrivate)
+	TArray<class UBodySetup*>                     AsyncBodySetupQueue;                               // 0x0740(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPrivate)
 
 public:
 	void AddCollisionConvexMesh(const TArray<struct FVector>& ConvexVerts);
@@ -94,7 +93,6 @@ public:
 		return GetDefaultObjImpl<UProceduralMeshComponent>();
 	}
 };
-#pragma pack(pop)
 DUMPER7_ASSERTS_UProceduralMeshComponent;
 
 SDK_NAMESPACE_END

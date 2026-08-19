@@ -11,8 +11,8 @@
 #include "Basic.hpp"
 
 #include "CoreUObject_structs.hpp"
-#include "Engine_structs.hpp"
 #include "PhysicsCore_structs.hpp"
+#include "Engine_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -53,35 +53,6 @@ enum class EBakeTextureSamplesPerPixel : uint32
 	Sample64                                 = 64,
 	Sample256                                = 256,
 	EBakeTextureSamplesPerPixel_MAX          = 257,
-};
-
-// Enum ModelingComponents.EGeometrySelectionElementType
-// NumValues: 0x0004
-enum class EGeometrySelectionElementType : uint8
-{
-	Vertex                                   = 1,
-	Edge                                     = 2,
-	Face                                     = 4,
-	EGeometrySelectionElementType_MAX        = 5,
-};
-
-// Enum ModelingComponents.EGeometrySelectionTopologyType
-// NumValues: 0x0003
-enum class EGeometrySelectionTopologyType : uint8
-{
-	Triangle                                 = 1,
-	Polygroup                                = 2,
-	EGeometrySelectionTopologyType_MAX       = 3,
-};
-
-// Enum ModelingComponents.EMarqueeSelectionUpdateType
-// NumValues: 0x0004
-enum class EMarqueeSelectionUpdateType : uint32
-{
-	OnDrag                                   = 0,
-	OnTickAndRelease                         = 1,
-	OnRelease                                = 2,
-	EMarqueeSelectionUpdateType_MAX          = 3,
 };
 
 // Enum ModelingComponents.EBaseCreateFromSelectedTargetType
@@ -142,7 +113,7 @@ enum class EModelingComponentsPlaneVisualizationMode : uint8
 };
 
 // Enum ModelingComponents.ECreateModelingObjectResult
-// NumValues: 0x000B
+// NumValues: 0x000A
 enum class ECreateModelingObjectResult : uint8
 {
 	Ok                                       = 0,
@@ -154,8 +125,7 @@ enum class ECreateModelingObjectResult : uint8
 	Failed_InvalidTexture                    = 6,
 	Failed_AssetCreationFailed               = 7,
 	Failed_ActorCreationFailed               = 8,
-	Failed_InvalidMaterial                   = 9,
-	ECreateModelingObjectResult_MAX          = 10,
+	ECreateModelingObjectResult_MAX          = 9,
 };
 
 // Enum ModelingComponents.ECreateMeshObjectSourceMeshType
@@ -210,18 +180,6 @@ public:
 };
 DUMPER7_ASSERTS_FModelingToolsAxisFilter;
 
-// ScriptStruct ModelingComponents.ModelingToolsColorChannelFilter
-// 0x0004 (0x0004 - 0x0000)
-struct FModelingToolsColorChannelFilter final
-{
-public:
-	bool                                          bRed;                                              // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bGreen;                                            // 0x0001(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bBlue;                                             // 0x0002(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAlpha;                                            // 0x0003(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FModelingToolsColorChannelFilter;
-
 // ScriptStruct ModelingComponents.RenderableTriangleVertex
 // 0x0048 (0x0048 - 0x0000)
 struct FRenderableTriangleVertex final
@@ -235,26 +193,12 @@ public:
 };
 DUMPER7_ASSERTS_FRenderableTriangleVertex;
 
-// ScriptStruct ModelingComponents.CreateActorParams
-// 0x0090 (0x0090 - 0x0000)
-struct FCreateActorParams final
-{
-public:
-	class UWorld*                                 TargetWorld;                                       // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class FString                                 BaseName;                                          // 0x0008(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_18[0x8];                                       // 0x0018(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FTransform                             Transform;                                         // 0x0020(0x0060)(Edit, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AActor*                                 TemplateActor;                                     // 0x0080(0x0008)(ZeroConstructor, Deprecated, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UObject*                                TemplateAsset;                                     // 0x0088(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FCreateActorParams;
-
 // ScriptStruct ModelingComponents.RenderableTriangle
 // 0x00E0 (0x00E0 - 0x0000)
 struct FRenderableTriangle final
 {
 public:
-	class UMaterialInterface*                     Material;                                          // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UMaterialInterface*                     Material;                                          // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FRenderableTriangleVertex              Vertex0;                                           // 0x0008(0x0048)(NoDestructor, NativeAccessSpecifierPublic)
 	struct FRenderableTriangleVertex              Vertex1;                                           // 0x0050(0x0048)(NoDestructor, NativeAccessSpecifierPublic)
 	struct FRenderableTriangleVertex              Vertex2;                                           // 0x0098(0x0048)(NoDestructor, NativeAccessSpecifierPublic)
@@ -262,35 +206,33 @@ public:
 DUMPER7_ASSERTS_FRenderableTriangle;
 
 // ScriptStruct ModelingComponents.CreateMeshObjectParams
-// 0x0670 (0x0670 - 0x0000)
+// 0x0600 (0x0600 - 0x0000)
 struct FCreateMeshObjectParams final
 {
 public:
-	class UPrimitiveComponent*                    SourceComponent;                                   // 0x0000(0x0008)(Edit, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPrimitiveComponent*                    SourceComponent;                                   // 0x0000(0x0008)(Edit, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ECreateObjectTypeHint                         TypeHint;                                          // 0x0008(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TSubclassOf<class UObject>                    TypeHintClass;                                     // 0x0010(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TSubclassOf<class UObject>                    TypeHintClass;                                     // 0x0010(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         TypeHintExtended;                                  // 0x0018(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UWorld*                                 TargetWorld;                                       // 0x0020(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UWorld*                                 TargetWorld;                                       // 0x0020(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FTransform                             Transform;                                         // 0x0030(0x0060)(Edit, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 BaseName;                                          // 0x0090(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<class UMaterialInterface*>             Materials;                                         // 0x00A0(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TArray<class UMaterialInterface*>             AssetMaterials;                                    // 0x00B0(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TArray<class UMaterialInterface*>             Materials;                                         // 0x00A0(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
+	TArray<class UMaterialInterface*>             AssetMaterials;                                    // 0x00B0(0x0010)(Edit, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
 	bool                                          bEnableCollision;                                  // 0x00C0(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	ECollisionTraceFlag                           CollisionMode;                                     // 0x00C1(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C2[0x5E];                                      // 0x00C2(0x005E)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bEnableRaytracingSupport;                          // 0x0120(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bGenerateLightmapUVs;                              // 0x0121(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEnableRecomputeNormals;                           // 0x0122(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEnableRecomputeTangents;                          // 0x0123(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEnableNanite;                                     // 0x0124(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_125[0x3];                                      // 0x0125(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         NaniteProxyTrianglePercent;                        // 0x0128(0x0004)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_12C[0x4];                                      // 0x012C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FMeshNaniteSettings                    NaniteSettings;                                    // 0x0130(0x0040)(Edit, NativeAccessSpecifierPublic)
-	uint8                                         Pad_170[0x500];                                    // 0x0170(0x0500)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bEnableRaytracingSupport;                          // 0x00C2(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnableRecomputeNormals;                           // 0x00C3(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnableRecomputeTangents;                          // 0x00C4(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEnableNanite;                                     // 0x00C5(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C6[0x2];                                       // 0x00C6(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         NaniteProxyTrianglePercent;                        // 0x00C8(0x0004)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_CC[0x4];                                       // 0x00CC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FMeshNaniteSettings                    NaniteSettings;                                    // 0x00D0(0x0038)(Edit, NativeAccessSpecifierPublic)
+	uint8                                         Pad_108[0x4F8];                                    // 0x0108(0x04F8)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FCreateMeshObjectParams;
 
@@ -301,24 +243,23 @@ struct FCreateMeshObjectResult final
 public:
 	ECreateModelingObjectResult                   ResultCode;                                        // 0x0000(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class AActor*                                 NewActor;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPrimitiveComponent*                    NewComponent;                                      // 0x0010(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UObject*                                NewAsset;                                          // 0x0018(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class AActor*                                 NewActor;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    NewComponent;                                      // 0x0010(0x0008)(Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                NewAsset;                                          // 0x0018(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FCreateMeshObjectResult;
 
 // ScriptStruct ModelingComponents.CreateTextureObjectParams
-// 0x0040 (0x0040 - 0x0000)
+// 0x0030 (0x0030 - 0x0000)
 struct FCreateTextureObjectParams final
 {
 public:
 	int32                                         TypeHintExtended;                                  // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UWorld*                                 TargetWorld;                                       // 0x0008(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UObject*                                StoreRelativeToObject;                             // 0x0010(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UWorld*                                 TargetWorld;                                       // 0x0008(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UObject*                                StoreRelativeToObject;                             // 0x0010(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 BaseName;                                          // 0x0018(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UTexture2D*                             GeneratedTransientTexture;                         // 0x0028(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class FString                                 FullAssetPath;                                     // 0x0030(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UTexture2D*                             GeneratedTransientTexture;                         // 0x0028(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FCreateTextureObjectParams;
 
@@ -329,52 +270,8 @@ struct FCreateTextureObjectResult final
 public:
 	ECreateModelingObjectResult                   ResultCode;                                        // 0x0000(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UObject*                                NewAsset;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UObject*                                NewAsset;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FCreateTextureObjectResult;
-
-// ScriptStruct ModelingComponents.CreateMaterialObjectParams
-// 0x0028 (0x0028 - 0x0000)
-struct FCreateMaterialObjectParams final
-{
-public:
-	class UWorld*                                 TargetWorld;                                       // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UObject*                                StoreRelativeToObject;                             // 0x0008(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class FString                                 BaseName;                                          // 0x0010(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UMaterialInterface*                     MaterialToDuplicate;                               // 0x0020(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FCreateMaterialObjectParams;
-
-// ScriptStruct ModelingComponents.CreateMaterialObjectResult
-// 0x0010 (0x0010 - 0x0000)
-struct FCreateMaterialObjectResult final
-{
-public:
-	ECreateModelingObjectResult                   ResultCode;                                        // 0x0000(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UObject*                                NewAsset;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FCreateMaterialObjectResult;
-
-// ScriptStruct ModelingComponents.CreateActorResult
-// 0x0010 (0x0010 - 0x0000)
-struct FCreateActorResult final
-{
-public:
-	ECreateModelingObjectResult                   ResultCode;                                        // 0x0000(0x0001)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class AActor*                                 NewActor;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FCreateActorResult;
-
-// ScriptStruct ModelingComponents.MeshElementSelectionParams
-// 0x0048 (0x0048 - 0x0000)
-struct FMeshElementSelectionParams final
-{
-public:
-	uint8                                         Pad_0[0x40];                                       // 0x0000(0x0040)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMaterialInstanceDynamic*               SelectionFillColor;                                // 0x0040(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FMeshElementSelectionParams;
 
 SDK_NAMESPACE_END

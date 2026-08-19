@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
 #include "IKRig_structs.hpp"
+#include "CoreUObject_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -64,59 +64,57 @@ public:
 DUMPER7_ASSERTS_IKRigComponent_SetIKRigGoalTransform;
 
 // Function IKRig.IKRetargeter.GetChainSettingsFromRetargetAsset
-// 0x00C8 (0x00C8 - 0x0000)
+// 0x00C0 (0x00C0 - 0x0000)
 struct IKRetargeter_GetChainSettingsFromRetargetAsset final
 {
 public:
 	const class UIKRetargeter*                    RetargetAsset;                                     // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FName                                   TargetChainName;                                   // 0x0008(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FName                                   OptionalProfileName;                               // 0x0010(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FTargetChainSettings                   ReturnValue;                                       // 0x0018(0x00B0)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
+	struct FTargetChainSettings                   ReturnValue;                                       // 0x0018(0x00A8)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_IKRetargeter_GetChainSettingsFromRetargetAsset;
 
 // Function IKRig.IKRetargeter.GetChainSettingsFromRetargetProfile
-// 0x01C0 (0x01C0 - 0x0000)
+// 0x01B8 (0x01B8 - 0x0000)
 struct IKRetargeter_GetChainSettingsFromRetargetProfile final
 {
 public:
 	struct FRetargetProfile                       RetargetProfile;                                   // 0x0000(0x0108)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 	class FName                                   TargetChainName;                                   // 0x0108(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FTargetChainSettings                   ReturnValue;                                       // 0x0110(0x00B0)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
+	struct FTargetChainSettings                   ReturnValue;                                       // 0x0110(0x00A8)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_IKRetargeter_GetChainSettingsFromRetargetProfile;
 
 // Function IKRig.IKRetargeter.GetChainUsingGoalFromRetargetAsset
-// 0x00C0 (0x00C0 - 0x0000)
+// 0x00B8 (0x00B8 - 0x0000)
 struct IKRetargeter_GetChainUsingGoalFromRetargetAsset final
 {
 public:
 	const class UIKRetargeter*                    RetargetAsset;                                     // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FName                                   IKGoalName;                                        // 0x0008(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FTargetChainSettings                   ReturnValue;                                       // 0x0010(0x00B0)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
+	struct FTargetChainSettings                   ReturnValue;                                       // 0x0010(0x00A8)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_IKRetargeter_GetChainUsingGoalFromRetargetAsset;
 
 // Function IKRig.IKRetargeter.GetGlobalSettingsFromRetargetAsset
-// 0x0038 (0x0038 - 0x0000)
+// 0x0030 (0x0030 - 0x0000)
 struct IKRetargeter_GetGlobalSettingsFromRetargetAsset final
 {
 public:
 	const class UIKRetargeter*                    RetargetAsset;                                     // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FName                                   OptionalProfileName;                               // 0x0008(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FRetargetGlobalSettings                OutSettings;                                       // 0x0010(0x0024)(Parm, OutParm, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_34[0x4];                                       // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FRetargetGlobalSettings                OutSettings;                                       // 0x0010(0x0020)(Parm, OutParm, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_IKRetargeter_GetGlobalSettingsFromRetargetAsset;
 
 // Function IKRig.IKRetargeter.GetGlobalSettingsFromRetargetProfile
-// 0x0130 (0x0130 - 0x0000)
+// 0x0128 (0x0128 - 0x0000)
 struct IKRetargeter_GetGlobalSettingsFromRetargetProfile final
 {
 public:
 	struct FRetargetProfile                       RetargetProfile;                                   // 0x0000(0x0108)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FRetargetGlobalSettings                ReturnValue;                                       // 0x0108(0x0024)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_12C[0x4];                                      // 0x012C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FRetargetGlobalSettings                ReturnValue;                                       // 0x0108(0x0020)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_IKRetargeter_GetGlobalSettingsFromRetargetProfile;
 
@@ -142,14 +140,13 @@ public:
 DUMPER7_ASSERTS_IKRetargeter_GetRootSettingsFromRetargetProfile;
 
 // Function IKRig.IKRetargeter.SetChainFKSettingsInRetargetProfile
-// 0x0130 (0x0130 - 0x0000)
+// 0x0128 (0x0128 - 0x0000)
 struct IKRetargeter_SetChainFKSettingsInRetargetProfile final
 {
 public:
 	struct FRetargetProfile                       RetargetProfile;                                   // 0x0000(0x0108)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FTargetChainFKSettings                 FKSettings;                                        // 0x0108(0x001C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	class FName                                   TargetChainName;                                   // 0x0124(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_12C[0x4];                                      // 0x012C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTargetChainFKSettings                 FKSettings;                                        // 0x0108(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	class FName                                   TargetChainName;                                   // 0x0120(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_IKRetargeter_SetChainFKSettingsInRetargetProfile;
 
@@ -165,13 +162,13 @@ public:
 DUMPER7_ASSERTS_IKRetargeter_SetChainIKSettingsInRetargetProfile;
 
 // Function IKRig.IKRetargeter.SetChainSettingsInRetargetProfile
-// 0x01C0 (0x01C0 - 0x0000)
+// 0x01B8 (0x01B8 - 0x0000)
 struct IKRetargeter_SetChainSettingsInRetargetProfile final
 {
 public:
 	struct FRetargetProfile                       RetargetProfile;                                   // 0x0000(0x0108)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FTargetChainSettings                   ChainSettings_0;                                   // 0x0108(0x00B0)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	class FName                                   TargetChainName;                                   // 0x01B8(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FTargetChainSettings                   ChainSettings_0;                                   // 0x0108(0x00A8)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	class FName                                   TargetChainName;                                   // 0x01B0(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_IKRetargeter_SetChainSettingsInRetargetProfile;
 
@@ -187,13 +184,12 @@ public:
 DUMPER7_ASSERTS_IKRetargeter_SetChainSpeedPlantSettingsInRetargetProfile;
 
 // Function IKRig.IKRetargeter.SetGlobalSettingsInRetargetProfile
-// 0x0130 (0x0130 - 0x0000)
+// 0x0128 (0x0128 - 0x0000)
 struct IKRetargeter_SetGlobalSettingsInRetargetProfile final
 {
 public:
 	struct FRetargetProfile                       RetargetProfile;                                   // 0x0000(0x0108)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FRetargetGlobalSettings                GlobalSettings_0;                                  // 0x0108(0x0024)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_12C[0x4];                                      // 0x012C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FRetargetGlobalSettings                GlobalSettings_0;                                  // 0x0108(0x0020)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_IKRetargeter_SetGlobalSettingsInRetargetProfile;
 
@@ -206,42 +202,6 @@ public:
 	struct FTargetRootSettings                    RootSettings_0;                                    // 0x0108(0x0068)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_IKRetargeter_SetRootSettingsInRetargetProfile;
-
-// Function IKRig.IKRetargeter.HasSourceIKRig
-// 0x0001 (0x0001 - 0x0000)
-struct IKRetargeter_HasSourceIKRig final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_IKRetargeter_HasSourceIKRig;
-
-// Function IKRig.IKRetargeter.HasTargetIKRig
-// 0x0001 (0x0001 - 0x0000)
-struct IKRetargeter_HasTargetIKRig final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_IKRetargeter_HasTargetIKRig;
-
-// Function IKRig.IKRigFBIKSolver.GetBoneSettings
-// 0x0010 (0x0010 - 0x0000)
-struct IKRigFBIKSolver_GetBoneSettings final
-{
-public:
-	TArray<class UIKRig_FBIKBoneSettings*>        ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_IKRigFBIKSolver_GetBoneSettings;
-
-// Function IKRig.IKRigFBIKSolver.GetEffectors
-// 0x0010 (0x0010 - 0x0000)
-struct IKRigFBIKSolver_GetEffectors final
-{
-public:
-	TArray<class UIKRig_FBIKEffector*>            ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_IKRigFBIKSolver_GetEffectors;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

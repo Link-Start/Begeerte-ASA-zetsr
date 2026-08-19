@@ -16,16 +16,6 @@
 
 SDK_NAMESPACE_START
 
-// Enum CineCameraRigs.ECineCameraRigRailDriveMode
-// NumValues: 0x0004
-enum class ECineCameraRigRailDriveMode : uint8
-{
-	Manual                                   = 0,
-	Duration                                 = 1,
-	Speed                                    = 2,
-	ECineCameraRigRailDriveMode_MAX          = 3,
-};
-
 // ScriptStruct CineCameraRigs.CineSplinePointData
 // 0x0040 (0x0040 - 0x0000)
 struct FCineSplinePointData final
@@ -54,11 +44,11 @@ public:
 DUMPER7_ASSERTS_FCineSplineCurveDefaults;
 
 // ScriptStruct CineCameraRigs.CineSplineInstanceData
-// 0x0008 (0x01A0 - 0x0198)
+// 0x0008 (0x01A8 - 0x01A0)
 struct FCineSplineInstanceData final : public FSplineInstanceData
 {
 public:
-	class UCineSplineMetadata*                    CineSplineMetadata;                                // 0x0198(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UCineSplineMetadata*                    CineSplineMetadata;                                // 0x01A0(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FCineSplineInstanceData;
 

@@ -124,16 +124,16 @@ public:
 DUMPER7_ASSERTS_MotionWarpingUtilities_GetMotionWarpingWindowsFromAnimation;
 
 // Function MotionWarping.MotionWarpingComponent.AddOrUpdateWarpTarget
-// 0x0080 (0x0080 - 0x0000)
+// 0x0050 (0x0050 - 0x0000)
 struct MotionWarpingComponent_AddOrUpdateWarpTarget final
 {
 public:
-	struct FMotionWarpingTarget                   WarpTarget;                                        // 0x0000(0x0080)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	struct FMotionWarpingTarget                   WarpTarget;                                        // 0x0000(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_MotionWarpingComponent_AddOrUpdateWarpTarget;
 
 // Function MotionWarping.MotionWarpingComponent.AddOrUpdateWarpTargetFromComponent
-// 0x0050 (0x0050 - 0x0000)
+// 0x0020 (0x0020 - 0x0000)
 struct MotionWarpingComponent_AddOrUpdateWarpTargetFromComponent final
 {
 public:
@@ -141,9 +141,7 @@ public:
 	const class USceneComponent*                  Component;                                         // 0x0008(0x0008)(ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FName                                   BoneName;                                          // 0x0010(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bFollowComponent;                                  // 0x0018(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                LocationOffset;                                    // 0x0020(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FRotator                               RotationOffset;                                    // 0x0038(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_MotionWarpingComponent_AddOrUpdateWarpTargetFromComponent;
 
@@ -179,15 +177,6 @@ public:
 };
 DUMPER7_ASSERTS_MotionWarpingComponent_AddOrUpdateWarpTargetFromTransform;
 
-// Function MotionWarping.MotionWarpingComponent.RemoveAllWarpTargets
-// 0x0004 (0x0004 - 0x0000)
-struct MotionWarpingComponent_RemoveAllWarpTargets final
-{
-public:
-	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_MotionWarpingComponent_RemoveAllWarpTargets;
-
 // Function MotionWarping.MotionWarpingComponent.RemoveWarpTarget
 // 0x000C (0x000C - 0x0000)
 struct MotionWarpingComponent_RemoveWarpTarget final
@@ -197,17 +186,6 @@ public:
 	int32                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_MotionWarpingComponent_RemoveWarpTarget;
-
-// Function MotionWarping.MotionWarpingComponent.RemoveWarpTargets
-// 0x0018 (0x0018 - 0x0000)
-struct MotionWarpingComponent_RemoveWarpTargets final
-{
-public:
-	TArray<class FName>                           WarpTargetNames;                                   // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	int32                                         ReturnValue;                                       // 0x0010(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_MotionWarpingComponent_RemoveWarpTargets;
 
 // Function MotionWarping.RootMotionModifier_Scale.AddRootMotionModifierScale
 // 0x0038 (0x0038 - 0x0000)
@@ -241,11 +219,9 @@ public:
 	bool                                          bInIgnoreZAxis;                                    // 0x0099(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bInWarpRotation;                                   // 0x009A(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EMotionWarpRotationType                       InRotationType;                                    // 0x009B(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EMotionWarpRotationMethod                     InRotationMethod;                                  // 0x009C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9D[0x3];                                       // 0x009D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         InWarpRotationTimeMultiplier;                      // 0x00A0(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         InWarpMaxRotationRate;                             // 0x00A4(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class URootMotionModifier_SkewWarp*           ReturnValue;                                       // 0x00A8(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         InWarpRotationTimeMultiplier;                      // 0x009C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class URootMotionModifier_SkewWarp*           ReturnValue;                                       // 0x00A0(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A8[0x8];                                       // 0x00A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_RootMotionModifier_SkewWarp_AddRootMotionModifierSkewWarp;
 

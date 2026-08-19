@@ -17,7 +17,7 @@
 SDK_NAMESPACE_START
 
 // Function InteractiveToolsFramework.GizmoBaseComponent.UpdateHoverState
-// (Native, Public)
+// (Final, Native, Public)
 // Parameters:
 // bool                                    bHoveringIn                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -42,7 +42,7 @@ void UGizmoBaseComponent::UpdateHoverState(bool bHoveringIn)
 
 
 // Function InteractiveToolsFramework.GizmoBaseComponent.UpdateWorldLocalState
-// (Native, Public)
+// (Final, Native, Public)
 // Parameters:
 // bool                                    bWorldIn                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 

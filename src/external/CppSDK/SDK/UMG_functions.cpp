@@ -16,66 +16,21 @@
 
 SDK_NAMESPACE_START
 
-// Function UMG.AsyncTaskDownloadBinkMovieCached.DownloadVideo
-// (Final, Native, Static, Public, BlueprintCallable)
+// Function UMG.UMGSequencePlayer.SetUserTag
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// const class FString&                    URL                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UAsyncTaskDownloadBinkMovieCached*ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FName                             InUserTag                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UAsyncTaskDownloadBinkMovieCached* UAsyncTaskDownloadBinkMovieCached::DownloadVideo(const class FString& URL)
+void UUMGSequencePlayer::SetUserTag(class FName InUserTag)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("AsyncTaskDownloadBinkMovieCached", "DownloadVideo");
+		Func = Class->GetFunction("UMGSequencePlayer", "SetUserTag");
 
-	Params::AsyncTaskDownloadBinkMovieCached_DownloadVideo Parms{};
+	Params::UMGSequencePlayer_SetUserTag Parms{};
 
-	Parms.URL = std::move(URL);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.AsyncTaskDownloadBinkMovieCached.TickCacheBinkDownloads
-// (Final, Native, Static, Public, BlueprintCallable)
-
-void UAsyncTaskDownloadBinkMovieCached::TickCacheBinkDownloads()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("AsyncTaskDownloadBinkMovieCached", "TickCacheBinkDownloads");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.AsyncTaskDownloadBinkMovieCached.GetCachedFullFilename
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class FString UAsyncTaskDownloadBinkMovieCached::GetCachedFullFilename()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("AsyncTaskDownloadBinkMovieCached", "GetCachedFullFilename");
-
-	Params::AsyncTaskDownloadBinkMovieCached_GetCachedFullFilename Parms{};
+	Parms.InUserTag = InUserTag;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -83,49 +38,22 @@ class FString UAsyncTaskDownloadBinkMovieCached::GetCachedFullFilename()
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
-// Function UMG.AsyncTaskDownloadBinkMovieCached.GetDownloadedSize
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// Function UMG.UMGSequencePlayer.GetUserTag
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// int64                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-int64 UAsyncTaskDownloadBinkMovieCached::GetDownloadedSize()
+class FName UUMGSequencePlayer::GetUserTag() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("AsyncTaskDownloadBinkMovieCached", "GetDownloadedSize");
+		Func = Class->GetFunction("UMGSequencePlayer", "GetUserTag");
 
-	Params::AsyncTaskDownloadBinkMovieCached_GetDownloadedSize Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.AsyncTaskDownloadBinkMovieCached.GetDownloadState
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// ECachedBinkDownloadState                ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-ECachedBinkDownloadState UAsyncTaskDownloadBinkMovieCached::GetDownloadState()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("AsyncTaskDownloadBinkMovieCached", "GetDownloadState");
-
-	Params::AsyncTaskDownloadBinkMovieCached_GetDownloadState Parms{};
+	Params::UMGSequencePlayer_GetUserTag Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -139,7 +67,7 @@ ECachedBinkDownloadState UAsyncTaskDownloadBinkMovieCached::GetDownloadState()
 
 
 // Function UMG.Widget.ForceLayoutPrepass
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UWidget::ForceLayoutPrepass()
 {
@@ -158,7 +86,7 @@ void UWidget::ForceLayoutPrepass()
 
 
 // Function UMG.Widget.ForceVolatile
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bForce                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -183,7 +111,7 @@ void UWidget::ForceVolatile(bool bForce)
 
 
 // Function UMG.Widget.InvalidateLayoutAndVolatility
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UWidget::InvalidateLayoutAndVolatility()
 {
@@ -202,7 +130,7 @@ void UWidget::InvalidateLayoutAndVolatility()
 
 
 // Function UMG.Widget.K2_AddFieldValueChangedDelegate
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FFieldNotificationId&      FieldId                                                (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TDelegate<void(class UObject* Object, const struct FFieldNotificationId& Field)>Delegate                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -229,7 +157,7 @@ void UWidget::K2_AddFieldValueChangedDelegate(const struct FFieldNotificationId&
 
 
 // Function UMG.Widget.K2_BroadcastFieldValueChanged
-// (Final, RequiredAPI, Native, Protected, BlueprintCallable)
+// (Final, Native, Protected, BlueprintCallable)
 // Parameters:
 // const struct FFieldNotificationId&      FieldId                                                (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -254,7 +182,7 @@ void UWidget::K2_BroadcastFieldValueChanged(const struct FFieldNotificationId& F
 
 
 // Function UMG.Widget.K2_RemoveFieldValueChangedDelegate
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FFieldNotificationId&      FieldId                                                (Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TDelegate<void(class UObject* Object, const struct FFieldNotificationId& Field)>Delegate                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -281,7 +209,7 @@ void UWidget::K2_RemoveFieldValueChangedDelegate(const struct FFieldNotification
 
 
 // Function UMG.Widget.RemoveFromParent
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 
 void UWidget::RemoveFromParent()
 {
@@ -300,7 +228,7 @@ void UWidget::RemoveFromParent()
 
 
 // Function UMG.Widget.ResetCursor
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UWidget::ResetCursor()
 {
@@ -319,7 +247,7 @@ void UWidget::ResetCursor()
 
 
 // Function UMG.Widget.SetAllNavigationRules
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EUINavigationRule                       Rule                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FName                             WidgetToFocus                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -346,7 +274,7 @@ void UWidget::SetAllNavigationRules(EUINavigationRule Rule, class FName WidgetTo
 
 
 // Function UMG.Widget.SetClipping
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EWidgetClipping                         InClipping                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -371,7 +299,7 @@ void UWidget::SetClipping(EWidgetClipping InClipping)
 
 
 // Function UMG.Widget.SetCursor
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EMouseCursor                            InCursor                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -396,7 +324,7 @@ void UWidget::SetCursor(EMouseCursor InCursor)
 
 
 // Function UMG.Widget.SetFocus
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UWidget::SetFocus()
 {
@@ -415,7 +343,7 @@ void UWidget::SetFocus()
 
 
 // Function UMG.Widget.SetIsEnabled
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bInIsEnabled                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -440,7 +368,7 @@ void UWidget::SetIsEnabled(bool bInIsEnabled)
 
 
 // Function UMG.Widget.SetKeyboardFocus
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UWidget::SetKeyboardFocus()
 {
@@ -459,7 +387,7 @@ void UWidget::SetKeyboardFocus()
 
 
 // Function UMG.Widget.SetNavigationRule
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EUINavigation                           Direction                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EUINavigationRule                       Rule                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -488,7 +416,7 @@ void UWidget::SetNavigationRule(EUINavigation Direction, EUINavigationRule Rule,
 
 
 // Function UMG.Widget.SetNavigationRuleBase
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EUINavigation                           Direction                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EUINavigationRule                       Rule                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -515,7 +443,7 @@ void UWidget::SetNavigationRuleBase(EUINavigation Direction, EUINavigationRule R
 
 
 // Function UMG.Widget.SetNavigationRuleCustom
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EUINavigation                           Direction                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TDelegate<void(EUINavigation Navigation)>InCustomDelegate                                       (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -542,7 +470,7 @@ void UWidget::SetNavigationRuleCustom(EUINavigation Direction, TDelegate<void(EU
 
 
 // Function UMG.Widget.SetNavigationRuleCustomBoundary
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EUINavigation                           Direction                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TDelegate<void(EUINavigation Navigation)>InCustomDelegate                                       (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -569,7 +497,7 @@ void UWidget::SetNavigationRuleCustomBoundary(EUINavigation Direction, TDelegate
 
 
 // Function UMG.Widget.SetNavigationRuleExplicit
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EUINavigation                           Direction                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UWidget*                          InWidget                                               (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -596,7 +524,7 @@ void UWidget::SetNavigationRuleExplicit(EUINavigation Direction, class UWidget* 
 
 
 // Function UMG.Widget.SetRenderOpacity
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InOpacity                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -621,7 +549,7 @@ void UWidget::SetRenderOpacity(float InOpacity)
 
 
 // Function UMG.Widget.SetRenderScale
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector2D&                 Scale                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -646,7 +574,7 @@ void UWidget::SetRenderScale(const struct FVector2D& Scale)
 
 
 // Function UMG.Widget.SetRenderShear
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector2D&                 Shear                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -671,7 +599,7 @@ void UWidget::SetRenderShear(const struct FVector2D& Shear)
 
 
 // Function UMG.Widget.SetRenderTransform
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FWidgetTransform&          InTransform                                            (Parm, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -696,7 +624,7 @@ void UWidget::SetRenderTransform(const struct FWidgetTransform& InTransform)
 
 
 // Function UMG.Widget.SetRenderTransformAngle
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   Angle                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -721,7 +649,7 @@ void UWidget::SetRenderTransformAngle(float Angle)
 
 
 // Function UMG.Widget.SetRenderTransformPivot
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector2D&                 Pivot                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -746,7 +674,7 @@ void UWidget::SetRenderTransformPivot(const struct FVector2D& Pivot)
 
 
 // Function UMG.Widget.SetRenderTranslation
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector2D&                 Translation                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -771,7 +699,7 @@ void UWidget::SetRenderTranslation(const struct FVector2D& Translation)
 
 
 // Function UMG.Widget.SetToolTip
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -796,7 +724,7 @@ void UWidget::SetToolTip(class UWidget* Widget)
 
 
 // Function UMG.Widget.SetToolTipText
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // const class FText&                      InToolTipText                                          (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
@@ -821,7 +749,7 @@ void UWidget::SetToolTipText(const class FText& InToolTipText)
 
 
 // Function UMG.Widget.SetUserFocus
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class APlayerController*                PlayerController                                       (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -846,7 +774,7 @@ void UWidget::SetUserFocus(class APlayerController* PlayerController)
 
 
 // Function UMG.Widget.SetVisibility
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 // Parameters:
 // ESlateVisibility                        InVisibility                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -871,7 +799,7 @@ void UWidget::SetVisibility(ESlateVisibility InVisibility)
 
 
 // Function UMG.Widget.GetAccessibleSummaryText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
@@ -896,7 +824,7 @@ class FText UWidget::GetAccessibleSummaryText() const
 
 
 // Function UMG.Widget.GetAccessibleText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
@@ -921,7 +849,7 @@ class FText UWidget::GetAccessibleText() const
 
 
 // Function UMG.Widget.GetCachedGeometry
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // const struct FGeometry                  ReturnValue                                            (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -946,7 +874,7 @@ const struct FGeometry UWidget::GetCachedGeometry() const
 
 
 // Function UMG.Widget.GetClipping
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // EWidgetClipping                         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -971,7 +899,7 @@ EWidgetClipping UWidget::GetClipping() const
 
 
 // Function UMG.Widget.GetDesiredSize
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -996,7 +924,7 @@ struct FVector2D UWidget::GetDesiredSize() const
 
 
 // Function UMG.Widget.GetGameInstance
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class UGameInstance*                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1021,7 +949,7 @@ class UGameInstance* UWidget::GetGameInstance() const
 
 
 // Function UMG.Widget.GetIsEnabled
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1046,7 +974,7 @@ bool UWidget::GetIsEnabled() const
 
 
 // Function UMG.Widget.GetIsThisAndParentsEnabled
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1071,7 +999,7 @@ bool UWidget::GetIsThisAndParentsEnabled() const
 
 
 // Function UMG.Widget.GetOwningLocalPlayer
-// (RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class ULocalPlayer*                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1096,7 +1024,7 @@ class ULocalPlayer* UWidget::GetOwningLocalPlayer() const
 
 
 // Function UMG.Widget.GetOwningPlayer
-// (RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class APlayerController*                ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1121,7 +1049,7 @@ class APlayerController* UWidget::GetOwningPlayer() const
 
 
 // Function UMG.Widget.GetPaintSpaceGeometry
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // const struct FGeometry                  ReturnValue                                            (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -1146,7 +1074,7 @@ const struct FGeometry UWidget::GetPaintSpaceGeometry() const
 
 
 // Function UMG.Widget.GetParent
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class UPanelWidget*                     ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1171,7 +1099,7 @@ class UPanelWidget* UWidget::GetParent() const
 
 
 // Function UMG.Widget.GetRenderOpacity
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1196,7 +1124,7 @@ float UWidget::GetRenderOpacity() const
 
 
 // Function UMG.Widget.GetRenderTransformAngle
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1221,7 +1149,7 @@ float UWidget::GetRenderTransformAngle() const
 
 
 // Function UMG.Widget.GetTickSpaceGeometry
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // const struct FGeometry                  ReturnValue                                            (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -1246,7 +1174,7 @@ const struct FGeometry UWidget::GetTickSpaceGeometry() const
 
 
 // Function UMG.Widget.GetVisibility
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // ESlateVisibility                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1271,7 +1199,7 @@ ESlateVisibility UWidget::GetVisibility() const
 
 
 // Function UMG.Widget.HasAnyUserFocus
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1296,7 +1224,7 @@ bool UWidget::HasAnyUserFocus() const
 
 
 // Function UMG.Widget.HasFocusedDescendants
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1321,7 +1249,7 @@ bool UWidget::HasFocusedDescendants() const
 
 
 // Function UMG.Widget.HasKeyboardFocus
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1346,7 +1274,7 @@ bool UWidget::HasKeyboardFocus() const
 
 
 // Function UMG.Widget.HasMouseCapture
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1371,7 +1299,7 @@ bool UWidget::HasMouseCapture() const
 
 
 // Function UMG.Widget.HasMouseCaptureByUser
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // int32                                   UserIndex                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   PointerIndex                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1401,7 +1329,7 @@ bool UWidget::HasMouseCaptureByUser(int32 UserIndex, int32 PointerIndex) const
 
 
 // Function UMG.Widget.HasUserFocus
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class APlayerController*                PlayerController                                       (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1429,7 +1357,7 @@ bool UWidget::HasUserFocus(class APlayerController* PlayerController) const
 
 
 // Function UMG.Widget.HasUserFocusedDescendants
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class APlayerController*                PlayerController                                       (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1457,7 +1385,7 @@ bool UWidget::HasUserFocusedDescendants(class APlayerController* PlayerControlle
 
 
 // Function UMG.Widget.IsHovered
-// (RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1482,7 +1410,7 @@ bool UWidget::IsHovered() const
 
 
 // Function UMG.Widget.IsInViewport
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1507,7 +1435,7 @@ bool UWidget::IsInViewport() const
 
 
 // Function UMG.Widget.IsRendered
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1532,7 +1460,7 @@ bool UWidget::IsRendered() const
 
 
 // Function UMG.Widget.IsVisible
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -1556,915 +1484,19 @@ bool UWidget::IsVisible() const
 }
 
 
-// Function UMG.SpinBox.ClearMaxSliderValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void USpinBox::ClearMaxSliderValue()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "ClearMaxSliderValue");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.SpinBox.ClearMaxValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void USpinBox::ClearMaxValue()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "ClearMaxValue");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.SpinBox.ClearMinSliderValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void USpinBox::ClearMinSliderValue()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "ClearMinSliderValue");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.SpinBox.ClearMinValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void USpinBox::ClearMinValue()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "ClearMinValue");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.SpinBox.SetAlwaysUsesDeltaSnap
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Function UMG.Spacer.SetSize
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// bool                                    bNewValue                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector2D&                 InSize                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void USpinBox::SetAlwaysUsesDeltaSnap(bool bNewValue)
+void USpacer::SetSize(const struct FVector2D& InSize)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "SetAlwaysUsesDeltaSnap");
+		Func = Class->GetFunction("Spacer", "SetSize");
 
-	Params::SpinBox_SetAlwaysUsesDeltaSnap Parms{};
-
-	Parms.bNewValue = bNewValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.SpinBox.SetDelta
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USpinBox::SetDelta(float NewValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "SetDelta");
-
-	Params::SpinBox_SetDelta Parms{};
-
-	Parms.NewValue = NewValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.SpinBox.SetForegroundColor
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const struct FSlateColor&               InForegroundColor                                      (Parm, NativeAccessSpecifierPublic)
-
-void USpinBox::SetForegroundColor(const struct FSlateColor& InForegroundColor)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "SetForegroundColor");
-
-	Params::SpinBox_SetForegroundColor Parms{};
-
-	Parms.InForegroundColor = std::move(InForegroundColor);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.SpinBox.SetMaxFractionalDigits
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// int32                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USpinBox::SetMaxFractionalDigits(int32 NewValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "SetMaxFractionalDigits");
-
-	Params::SpinBox_SetMaxFractionalDigits Parms{};
-
-	Parms.NewValue = NewValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.SpinBox.SetMaxSliderValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USpinBox::SetMaxSliderValue(float NewValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "SetMaxSliderValue");
-
-	Params::SpinBox_SetMaxSliderValue Parms{};
-
-	Parms.NewValue = NewValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.SpinBox.SetMaxValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USpinBox::SetMaxValue(float NewValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "SetMaxValue");
-
-	Params::SpinBox_SetMaxValue Parms{};
-
-	Parms.NewValue = NewValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.SpinBox.SetMinFractionalDigits
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// int32                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USpinBox::SetMinFractionalDigits(int32 NewValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "SetMinFractionalDigits");
-
-	Params::SpinBox_SetMinFractionalDigits Parms{};
-
-	Parms.NewValue = NewValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.SpinBox.SetMinSliderValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USpinBox::SetMinSliderValue(float NewValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "SetMinSliderValue");
-
-	Params::SpinBox_SetMinSliderValue Parms{};
-
-	Parms.NewValue = NewValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.SpinBox.SetMinValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USpinBox::SetMinValue(float NewValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "SetMinValue");
-
-	Params::SpinBox_SetMinValue Parms{};
-
-	Parms.NewValue = NewValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.SpinBox.SetValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void USpinBox::SetValue(float NewValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "SetValue");
-
-	Params::SpinBox_SetValue Parms{};
-
-	Parms.NewValue = NewValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.SpinBox.GetAlwaysUsesDeltaSnap
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool USpinBox::GetAlwaysUsesDeltaSnap() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "GetAlwaysUsesDeltaSnap");
-
-	Params::SpinBox_GetAlwaysUsesDeltaSnap Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.SpinBox.GetDelta
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float USpinBox::GetDelta() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "GetDelta");
-
-	Params::SpinBox_GetDelta Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.SpinBox.GetMaxFractionalDigits
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 USpinBox::GetMaxFractionalDigits() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "GetMaxFractionalDigits");
-
-	Params::SpinBox_GetMaxFractionalDigits Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.SpinBox.GetMaxSliderValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float USpinBox::GetMaxSliderValue() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "GetMaxSliderValue");
-
-	Params::SpinBox_GetMaxSliderValue Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.SpinBox.GetMaxValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float USpinBox::GetMaxValue() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "GetMaxValue");
-
-	Params::SpinBox_GetMaxValue Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.SpinBox.GetMinFractionalDigits
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 USpinBox::GetMinFractionalDigits() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "GetMinFractionalDigits");
-
-	Params::SpinBox_GetMinFractionalDigits Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.SpinBox.GetMinSliderValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float USpinBox::GetMinSliderValue() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "GetMinSliderValue");
-
-	Params::SpinBox_GetMinSliderValue Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.SpinBox.GetMinValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float USpinBox::GetMinValue() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "GetMinValue");
-
-	Params::SpinBox_GetMinValue Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.SpinBox.GetValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float USpinBox::GetValue() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("SpinBox", "GetValue");
-
-	Params::SpinBox_GetValue Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ListViewBase.EndInertialScrolling
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void UListViewBase::EndInertialScrolling()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListViewBase", "EndInertialScrolling");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListViewBase.RegenerateAllEntries
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void UListViewBase::RegenerateAllEntries()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListViewBase", "RegenerateAllEntries");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListViewBase.RequestRefresh
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void UListViewBase::RequestRefresh()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListViewBase", "RequestRefresh");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListViewBase.ScrollToBottom
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void UListViewBase::ScrollToBottom()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListViewBase", "ScrollToBottom");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListViewBase.ScrollToTop
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void UListViewBase::ScrollToTop()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListViewBase", "ScrollToTop");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListViewBase.SetIsGamepadScrollingEnabled
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bInIsGamepadScrollingEnabled                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListViewBase::SetIsGamepadScrollingEnabled(bool bInIsGamepadScrollingEnabled)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListViewBase", "SetIsGamepadScrollingEnabled");
-
-	Params::ListViewBase_SetIsGamepadScrollingEnabled Parms{};
-
-	Parms.bInIsGamepadScrollingEnabled = bInIsGamepadScrollingEnabled;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListViewBase.SetIsPointerScrollingEnabled
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bInIsPointerScrollingEnabled                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListViewBase::SetIsPointerScrollingEnabled(bool bInIsPointerScrollingEnabled)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListViewBase", "SetIsPointerScrollingEnabled");
-
-	Params::ListViewBase_SetIsPointerScrollingEnabled Parms{};
-
-	Parms.bInIsPointerScrollingEnabled = bInIsPointerScrollingEnabled;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListViewBase.SetScrollbarVisibility
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// ESlateVisibility                        InVisibility                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListViewBase::SetScrollbarVisibility(ESlateVisibility InVisibility)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListViewBase", "SetScrollbarVisibility");
-
-	Params::ListViewBase_SetScrollbarVisibility Parms{};
-
-	Parms.InVisibility = InVisibility;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListViewBase.SetScrollOffset
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const float                             InScrollOffset                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListViewBase::SetScrollOffset(const float InScrollOffset)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListViewBase", "SetScrollOffset");
-
-	Params::ListViewBase_SetScrollOffset Parms{};
-
-	Parms.InScrollOffset = InScrollOffset;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListViewBase.SetWheelScrollMultiplier
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   NewWheelScrollMultiplier                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListViewBase::SetWheelScrollMultiplier(float NewWheelScrollMultiplier)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListViewBase", "SetWheelScrollMultiplier");
-
-	Params::ListViewBase_SetWheelScrollMultiplier Parms{};
-
-	Parms.NewWheelScrollMultiplier = NewWheelScrollMultiplier;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListViewBase.GetDisplayedEntryWidgets
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const TArray<class UUserWidget*>        ReturnValue                                            (ConstParm, ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-
-const TArray<class UUserWidget*> UListViewBase::GetDisplayedEntryWidgets() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListViewBase", "GetDisplayedEntryWidgets");
-
-	Params::ListViewBase_GetDisplayedEntryWidgets Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ListViewBase.GetScrollOffset
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UListViewBase::GetScrollOffset() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListViewBase", "GetScrollOffset");
-
-	Params::ListViewBase_GetScrollOffset Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.PanelSlot.GetContent
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class UWidget*                          ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UWidget* UPanelSlot::GetContent() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PanelSlot", "GetContent");
-
-	Params::PanelSlot_GetContent Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.VerticalBoxSlot.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UVerticalBoxSlot::SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignment)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("VerticalBoxSlot", "SetHorizontalAlignment");
-
-	Params::VerticalBoxSlot_SetHorizontalAlignment Parms{};
-
-	Parms.InHorizontalAlignment = InHorizontalAlignment;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.VerticalBoxSlot.SetPadding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-
-void UVerticalBoxSlot::SetPadding(const struct FMargin& InPadding)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("VerticalBoxSlot", "SetPadding");
-
-	Params::VerticalBoxSlot_SetPadding Parms{};
-
-	Parms.InPadding = std::move(InPadding);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.VerticalBoxSlot.SetSize
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const struct FSlateChildSize&           InSize                                                 (Parm, NoDestructor, NativeAccessSpecifierPublic)
-
-void UVerticalBoxSlot::SetSize(const struct FSlateChildSize& InSize)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("VerticalBoxSlot", "SetSize");
-
-	Params::VerticalBoxSlot_SetSize Parms{};
+	Params::Spacer_SetSize Parms{};
 
 	Parms.InSize = std::move(InSize);
 
@@ -2477,789 +1509,13 @@ void UVerticalBoxSlot::SetSize(const struct FSlateChildSize& InSize)
 }
 
 
-// Function UMG.VerticalBoxSlot.SetVerticalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UVerticalBoxSlot::SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("VerticalBoxSlot", "SetVerticalAlignment");
-
-	Params::VerticalBoxSlot_SetVerticalAlignment Parms{};
-
-	Parms.InVerticalAlignment = InVerticalAlignment;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.AddItem
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          Item                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListView::AddItem(class UObject* Item)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "AddItem");
-
-	Params::ListView_AddItem Parms{};
-
-	Parms.Item = Item;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.BP_CancelScrollIntoView
-// (Final, RequiredAPI, Native, Private, BlueprintCallable)
-
-void UListView::BP_CancelScrollIntoView()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "BP_CancelScrollIntoView");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.BP_ClearSelection
-// (Final, RequiredAPI, Native, Private, BlueprintCallable)
-
-void UListView::BP_ClearSelection()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "BP_ClearSelection");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.BP_NavigateToItem
-// (Final, RequiredAPI, Native, Private, BlueprintCallable)
-// Parameters:
-// class UObject*                          Item                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListView::BP_NavigateToItem(class UObject* Item)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "BP_NavigateToItem");
-
-	Params::ListView_BP_NavigateToItem Parms{};
-
-	Parms.Item = Item;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.BP_ScrollItemIntoView
-// (Final, RequiredAPI, Native, Private, BlueprintCallable)
-// Parameters:
-// class UObject*                          Item                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListView::BP_ScrollItemIntoView(class UObject* Item)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "BP_ScrollItemIntoView");
-
-	Params::ListView_BP_ScrollItemIntoView Parms{};
-
-	Parms.Item = Item;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.BP_SetItemSelection
-// (Final, RequiredAPI, Native, Private, BlueprintCallable)
-// Parameters:
-// class UObject*                          Item                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bSelected                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListView::BP_SetItemSelection(class UObject* Item, bool bSelected)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "BP_SetItemSelection");
-
-	Params::ListView_BP_SetItemSelection Parms{};
-
-	Parms.Item = Item;
-	Parms.bSelected = bSelected;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.BP_SetListItems
-// (Final, RequiredAPI, Native, Private, HasOutParams, BlueprintCallable)
-// Parameters:
-// const TArray<class UObject*>&           InListItems                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-
-void UListView::BP_SetListItems(const TArray<class UObject*>& InListItems)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "BP_SetListItems");
-
-	Params::ListView_BP_SetListItems Parms{};
-
-	Parms.InListItems = std::move(InListItems);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.BP_SetSelectedItem
-// (Final, RequiredAPI, Native, Private, BlueprintCallable)
-// Parameters:
-// class UObject*                          Item                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListView::BP_SetSelectedItem(class UObject* Item)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "BP_SetSelectedItem");
-
-	Params::ListView_BP_SetSelectedItem Parms{};
-
-	Parms.Item = Item;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.ClearListItems
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void UListView::ClearListItems()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "ClearListItems");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.NavigateToIndex
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListView::NavigateToIndex(int32 Index_0)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "NavigateToIndex");
-
-	Params::ListView_NavigateToIndex Parms{};
-
-	Parms.Index_0 = Index_0;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.OnListItemEndPlayed
-// (Final, RequiredAPI, Native, Protected)
-// Parameters:
-// class AActor*                           Item                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EEndPlayReason                          EndPlayReason                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListView::OnListItemEndPlayed(class AActor* Item, EEndPlayReason EndPlayReason)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "OnListItemEndPlayed");
-
-	Params::ListView_OnListItemEndPlayed Parms{};
-
-	Parms.Item = Item;
-	Parms.EndPlayReason = EndPlayReason;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.OnListItemOuterEndPlayed
-// (Final, RequiredAPI, Native, Protected)
-// Parameters:
-// class AActor*                           ItemOuter                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EEndPlayReason                          EndPlayReason                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListView::OnListItemOuterEndPlayed(class AActor* ItemOuter, EEndPlayReason EndPlayReason)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "OnListItemOuterEndPlayed");
-
-	Params::ListView_OnListItemOuterEndPlayed Parms{};
-
-	Parms.ItemOuter = ItemOuter;
-	Parms.EndPlayReason = EndPlayReason;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.RemoveItem
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          Item                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListView::RemoveItem(class UObject* Item)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "RemoveItem");
-
-	Params::ListView_RemoveItem Parms{};
-
-	Parms.Item = Item;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.ScrollIndexIntoView
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListView::ScrollIndexIntoView(int32 Index_0)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "ScrollIndexIntoView");
-
-	Params::ListView_ScrollIndexIntoView Parms{};
-
-	Parms.Index_0 = Index_0;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.SetScrollBarPadding
-// (Final, RequiredAPI, Native, Public, HasOutParams)
-// Parameters:
-// const struct FMargin&                   InScrollBarPadding                                     (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-
-void UListView::SetScrollBarPadding(const struct FMargin& InScrollBarPadding)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "SetScrollBarPadding");
-
-	Params::ListView_SetScrollBarPadding Parms{};
-
-	Parms.InScrollBarPadding = std::move(InScrollBarPadding);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.SetScrollIntoViewAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// EScrollIntoViewAlignment                NewScrollIntoViewAlignment                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListView::SetScrollIntoViewAlignment(EScrollIntoViewAlignment NewScrollIntoViewAlignment)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "SetScrollIntoViewAlignment");
-
-	Params::ListView_SetScrollIntoViewAlignment Parms{};
-
-	Parms.NewScrollIntoViewAlignment = NewScrollIntoViewAlignment;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.SetSelectedIndex
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListView::SetSelectedIndex(int32 Index_0)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "SetSelectedIndex");
-
-	Params::ListView_SetSelectedIndex Parms{};
-
-	Parms.Index_0 = Index_0;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.SetSelectionMode
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// ESelectionMode                          SelectionMode_0                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UListView::SetSelectionMode(ESelectionMode SelectionMode_0)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "SetSelectionMode");
-
-	Params::ListView_SetSelectionMode Parms{};
-
-	Parms.SelectionMode_0 = SelectionMode_0;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ListView.BP_GetNumItemsSelected
-// (Final, RequiredAPI, Native, Private, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 UListView::BP_GetNumItemsSelected() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "BP_GetNumItemsSelected");
-
-	Params::ListView_BP_GetNumItemsSelected Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ListView.BP_GetSelectedItem
-// (Final, RequiredAPI, Native, Private, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class UObject*                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UObject* UListView::BP_GetSelectedItem() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "BP_GetSelectedItem");
-
-	Params::ListView_BP_GetSelectedItem Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ListView.BP_GetSelectedItems
-// (Final, RequiredAPI, Native, Private, HasOutParams, BlueprintCallable, Const)
-// Parameters:
-// TArray<class UObject*>*                 Items                                                  (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UListView::BP_GetSelectedItems(TArray<class UObject*>* Items) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "BP_GetSelectedItems");
-
-	Params::ListView_BP_GetSelectedItems Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (Items != nullptr)
-		*Items = std::move(Parms.Items);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ListView.BP_IsItemVisible
-// (Final, RequiredAPI, Native, Private, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class UObject*                          Item                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UListView::BP_IsItemVisible(class UObject* Item) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "BP_IsItemVisible");
-
-	Params::ListView_BP_IsItemVisible Parms{};
-
-	Parms.Item = Item;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ListView.GetHorizontalEntrySpacing
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UListView::GetHorizontalEntrySpacing() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "GetHorizontalEntrySpacing");
-
-	Params::ListView_GetHorizontalEntrySpacing Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ListView.GetIndexForItem
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const class UObject*                    Item                                                   (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 UListView::GetIndexForItem(const class UObject* Item) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "GetIndexForItem");
-
-	Params::ListView_GetIndexForItem Parms{};
-
-	Parms.Item = Item;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ListView.GetItemAt
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UObject*                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UObject* UListView::GetItemAt(int32 Index_0) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "GetItemAt");
-
-	Params::ListView_GetItemAt Parms{};
-
-	Parms.Index_0 = Index_0;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ListView.GetListItems
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const TArray<class UObject*>            ReturnValue                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-const TArray<class UObject*> UListView::GetListItems() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "GetListItems");
-
-	Params::ListView_GetListItems Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ListView.GetNumItems
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 UListView::GetNumItems() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "GetNumItems");
-
-	Params::ListView_GetNumItems Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ListView.GetScrollBarPadding
-// (Final, Native, Public, Const)
-// Parameters:
-// struct FMargin                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-
-struct FMargin UListView::GetScrollBarPadding() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "GetScrollBarPadding");
-
-	Params::ListView_GetScrollBarPadding Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ListView.GetVerticalEntrySpacing
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UListView::GetVerticalEntrySpacing() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "GetVerticalEntrySpacing");
-
-	Params::ListView_GetVerticalEntrySpacing Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ListView.IsRefreshPending
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UListView::IsRefreshPending() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ListView", "IsRefreshPending");
-
-	Params::ListView_IsRefreshPending Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function UMG.PanelWidget.AddChild
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class UWidget*                          Content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UWidget*                          content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UPanelSlot*                       ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UPanelSlot* UPanelWidget::AddChild(class UWidget* Content)
+class UPanelSlot* UPanelWidget::AddChild(class UWidget* content)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3268,7 +1524,7 @@ class UPanelSlot* UPanelWidget::AddChild(class UWidget* Content)
 
 	Params::PanelWidget_AddChild Parms{};
 
-	Parms.Content = Content;
+	Parms.content = content;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3282,7 +1538,7 @@ class UPanelSlot* UPanelWidget::AddChild(class UWidget* Content)
 
 
 // Function UMG.PanelWidget.ClearChildren
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 
 void UPanelWidget::ClearChildren()
 {
@@ -3301,12 +1557,12 @@ void UPanelWidget::ClearChildren()
 
 
 // Function UMG.PanelWidget.RemoveChild
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class UWidget*                          Content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UWidget*                          content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UPanelWidget::RemoveChild(class UWidget* Content)
+bool UPanelWidget::RemoveChild(class UWidget* content)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3315,7 +1571,7 @@ bool UPanelWidget::RemoveChild(class UWidget* Content)
 
 	Params::PanelWidget_RemoveChild Parms{};
 
-	Parms.Content = Content;
+	Parms.content = content;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3329,7 +1585,7 @@ bool UPanelWidget::RemoveChild(class UWidget* Content)
 
 
 // Function UMG.PanelWidget.RemoveChildAt
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -3357,7 +1613,7 @@ bool UPanelWidget::RemoveChildAt(int32 Index_0)
 
 
 // Function UMG.PanelWidget.GetAllChildren
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // TArray<class UWidget*>                  ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
@@ -3382,7 +1638,7 @@ TArray<class UWidget*> UPanelWidget::GetAllChildren() const
 
 
 // Function UMG.PanelWidget.GetChildAt
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UWidget*                          ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -3410,12 +1666,12 @@ class UWidget* UPanelWidget::GetChildAt(int32 Index_0) const
 
 
 // Function UMG.PanelWidget.GetChildIndex
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// const class UWidget*                    Content                                                (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const class UWidget*                    content                                                (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-int32 UPanelWidget::GetChildIndex(const class UWidget* Content) const
+int32 UPanelWidget::GetChildIndex(const class UWidget* content) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -3424,7 +1680,7 @@ int32 UPanelWidget::GetChildIndex(const class UWidget* Content) const
 
 	Params::PanelWidget_GetChildIndex Parms{};
 
-	Parms.Content = Content;
+	Parms.content = content;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3438,7 +1694,7 @@ int32 UPanelWidget::GetChildIndex(const class UWidget* Content) const
 
 
 // Function UMG.PanelWidget.GetChildrenCount
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -3463,7 +1719,7 @@ int32 UPanelWidget::GetChildrenCount() const
 
 
 // Function UMG.PanelWidget.HasAnyChildren
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -3488,12 +1744,12 @@ bool UPanelWidget::HasAnyChildren() const
 
 
 // Function UMG.PanelWidget.HasChild
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// class UWidget*                          Content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UWidget*                          content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UPanelWidget::HasChild(class UWidget* Content) const
+bool UPanelWidget::HasChild(class UWidget* content) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -3502,7 +1758,7 @@ bool UPanelWidget::HasChild(class UWidget* Content) const
 
 	Params::PanelWidget_HasChild Parms{};
 
-	Parms.Content = Content;
+	Parms.content = content;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3515,13 +1771,38 @@ bool UPanelWidget::HasChild(class UWidget* Content) const
 }
 
 
-// Function UMG.ContentWidget.SetContent
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Function UMG.TextLayoutWidget.SetJustification
+// (Native, Public, BlueprintCallable)
 // Parameters:
-// class UWidget*                          Content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// ETextJustify                            InJustification                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UTextLayoutWidget::SetJustification(ETextJustify InJustification)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("TextLayoutWidget", "SetJustification");
+
+	Params::TextLayoutWidget_SetJustification Parms{};
+
+	Parms.InJustification = InJustification;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ContentWidget.SetContent
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UWidget*                          content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UPanelSlot*                       ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UPanelSlot* UContentWidget::SetContent(class UWidget* Content)
+class UPanelSlot* UContentWidget::SetContent(class UWidget* content)
 {
 	static class UFunction* Func = nullptr;
 
@@ -3530,7 +1811,7 @@ class UPanelSlot* UContentWidget::SetContent(class UWidget* Content)
 
 	Params::ContentWidget_SetContent Parms{};
 
-	Parms.Content = Content;
+	Parms.content = content;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3544,7 +1825,7 @@ class UPanelSlot* UContentWidget::SetContent(class UWidget* Content)
 
 
 // Function UMG.ContentWidget.GetContent
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class UWidget*                          ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -3569,7 +1850,7 @@ class UWidget* UContentWidget::GetContent() const
 
 
 // Function UMG.ContentWidget.GetContentSlot
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class UPanelSlot*                       ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -3593,21 +1874,21 @@ class UPanelSlot* UContentWidget::GetContentSlot() const
 }
 
 
-// Function UMG.Button.MimickClicked
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Function UMG.BackgroundBlur.SetApplyAlphaToBlur
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// bool                                    bFromGamepad                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bInApplyAlphaToBlur                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UButton::MimickClicked(bool bFromGamepad)
+void UBackgroundBlur::SetApplyAlphaToBlur(bool bInApplyAlphaToBlur)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Button", "MimickClicked");
+		Func = Class->GetFunction("BackgroundBlur", "SetApplyAlphaToBlur");
 
-	Params::Button_MimickClicked Parms{};
+	Params::BackgroundBlur_SetApplyAlphaToBlur Parms{};
 
-	Parms.bFromGamepad = bFromGamepad;
+	Parms.bInApplyAlphaToBlur = bInApplyAlphaToBlur;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3618,21 +1899,21 @@ void UButton::MimickClicked(bool bFromGamepad)
 }
 
 
-// Function UMG.Button.SetBackgroundColor
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// Function UMG.BackgroundBlur.SetBlurRadius
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// const struct FLinearColor&              InBackgroundColor                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   InBlurRadius                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UButton::SetBackgroundColor(const struct FLinearColor& InBackgroundColor)
+void UBackgroundBlur::SetBlurRadius(int32 InBlurRadius)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Button", "SetBackgroundColor");
+		Func = Class->GetFunction("BackgroundBlur", "SetBlurRadius");
 
-	Params::Button_SetBackgroundColor Parms{};
+	Params::BackgroundBlur_SetBlurRadius Parms{};
 
-	Parms.InBackgroundColor = std::move(InBackgroundColor);
+	Parms.InBlurRadius = InBlurRadius;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3643,21 +1924,21 @@ void UButton::SetBackgroundColor(const struct FLinearColor& InBackgroundColor)
 }
 
 
-// Function UMG.Button.SetClickMethod
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Function UMG.BackgroundBlur.SetBlurStrength
+// (Native, Public, BlueprintCallable)
 // Parameters:
-// EButtonClickMethod                      InClickMethod                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   InStrength                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UButton::SetClickMethod(EButtonClickMethod InClickMethod)
+void UBackgroundBlur::SetBlurStrength(float InStrength)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Button", "SetClickMethod");
+		Func = Class->GetFunction("BackgroundBlur", "SetBlurStrength");
 
-	Params::Button_SetClickMethod Parms{};
+	Params::BackgroundBlur_SetBlurStrength Parms{};
 
-	Parms.InClickMethod = InClickMethod;
+	Parms.InStrength = InStrength;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3668,21 +1949,21 @@ void UButton::SetClickMethod(EButtonClickMethod InClickMethod)
 }
 
 
-// Function UMG.Button.SetColorAndOpacity
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// Function UMG.BackgroundBlur.SetCornerRadius
+// (Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
-// const struct FLinearColor&              InColorAndOpacity                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector4&                  InCornerRadius                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UButton::SetColorAndOpacity(const struct FLinearColor& InColorAndOpacity)
+void UBackgroundBlur::SetCornerRadius(const struct FVector4& InCornerRadius)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Button", "SetColorAndOpacity");
+		Func = Class->GetFunction("BackgroundBlur", "SetCornerRadius");
 
-	Params::Button_SetColorAndOpacity Parms{};
+	Params::BackgroundBlur_SetCornerRadius Parms{};
 
-	Parms.InColorAndOpacity = std::move(InColorAndOpacity);
+	Parms.InCornerRadius = std::move(InCornerRadius);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -3693,297 +1974,19 @@ void UButton::SetColorAndOpacity(const struct FLinearColor& InColorAndOpacity)
 }
 
 
-// Function UMG.Button.SetPressMethod
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// EButtonPressMethod                      InPressMethod                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UButton::SetPressMethod(EButtonPressMethod InPressMethod)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Button", "SetPressMethod");
-
-	Params::Button_SetPressMethod Parms{};
-
-	Parms.InPressMethod = InPressMethod;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Button.SetStyle
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const struct FButtonStyle&              InStyle                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void UButton::SetStyle(const struct FButtonStyle& InStyle)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Button", "SetStyle");
-
-	Params::Button_SetStyle Parms{};
-
-	Parms.InStyle = std::move(InStyle);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Button.SetTouchMethod
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// EButtonTouchMethod                      InTouchMethod                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UButton::SetTouchMethod(EButtonTouchMethod InTouchMethod)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Button", "SetTouchMethod");
-
-	Params::Button_SetTouchMethod Parms{};
-
-	Parms.InTouchMethod = InTouchMethod;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Button.IsPressed
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UButton::IsPressed() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Button", "IsPressed");
-
-	Params::Button_IsPressed Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetSwitcher.SetActiveWidget
-// (RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UWidgetSwitcher::SetActiveWidget(class UWidget* Widget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WidgetSwitcher", "SetActiveWidget");
-
-	Params::WidgetSwitcher_SetActiveWidget Parms{};
-
-	Parms.Widget = Widget;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.WidgetSwitcher.SetActiveWidgetIndex
-// (RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UWidgetSwitcher::SetActiveWidgetIndex(int32 Index_0)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WidgetSwitcher", "SetActiveWidgetIndex");
-
-	Params::WidgetSwitcher_SetActiveWidgetIndex Parms{};
-
-	Parms.Index_0 = Index_0;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.WidgetSwitcher.GetActiveWidget
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class UWidget*                          ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UWidget* UWidgetSwitcher::GetActiveWidget() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WidgetSwitcher", "GetActiveWidget");
-
-	Params::WidgetSwitcher_GetActiveWidget Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetSwitcher.GetActiveWidgetIndex
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 UWidgetSwitcher::GetActiveWidgetIndex() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WidgetSwitcher", "GetActiveWidgetIndex");
-
-	Params::WidgetSwitcher_GetActiveWidgetIndex Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetSwitcher.GetNumWidgets
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 UWidgetSwitcher::GetNumWidgets() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WidgetSwitcher", "GetNumWidgets");
-
-	Params::WidgetSwitcher_GetNumWidgets Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetSwitcher.GetWidgetAtIndex
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UWidget*                          ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UWidget* UWidgetSwitcher::GetWidgetAtIndex(int32 Index_0) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WidgetSwitcher", "GetWidgetAtIndex");
-
-	Params::WidgetSwitcher_GetWidgetAtIndex Parms{};
-
-	Parms.Index_0 = Index_0;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.UniformGridSlot.SetColumn
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// int32                                   InColumn                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UUniformGridSlot::SetColumn(int32 InColumn)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UniformGridSlot", "SetColumn");
-
-	Params::UniformGridSlot_SetColumn Parms{};
-
-	Parms.InColumn = InColumn;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.UniformGridSlot.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Function UMG.BackgroundBlur.SetHorizontalAlignment
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UUniformGridSlot::SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignment)
+void UBackgroundBlur::SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignment)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UniformGridSlot", "SetHorizontalAlignment");
+		Func = Class->GetFunction("BackgroundBlur", "SetHorizontalAlignment");
 
-	Params::UniformGridSlot_SetHorizontalAlignment Parms{};
+	Params::BackgroundBlur_SetHorizontalAlignment Parms{};
 
 	Parms.InHorizontalAlignment = InHorizontalAlignment;
 
@@ -3996,21 +1999,21 @@ void UUniformGridSlot::SetHorizontalAlignment(EHorizontalAlignment InHorizontalA
 }
 
 
-// Function UMG.UniformGridSlot.SetRow
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Function UMG.BackgroundBlur.SetLowQualityFallbackBrush
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// int32                                   InRow                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FSlateBrush&               InBrush                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
-void UUniformGridSlot::SetRow(int32 InRow)
+void UBackgroundBlur::SetLowQualityFallbackBrush(const struct FSlateBrush& InBrush)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UniformGridSlot", "SetRow");
+		Func = Class->GetFunction("BackgroundBlur", "SetLowQualityFallbackBrush");
 
-	Params::UniformGridSlot_SetRow Parms{};
+	Params::BackgroundBlur_SetLowQualityFallbackBrush Parms{};
 
-	Parms.InRow = InRow;
+	Parms.InBrush = std::move(InBrush);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -4021,19 +2024,44 @@ void UUniformGridSlot::SetRow(int32 InRow)
 }
 
 
-// Function UMG.UniformGridSlot.SetVerticalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Function UMG.BackgroundBlur.SetPadding
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UUniformGridSlot::SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
+void UBackgroundBlur::SetPadding(const struct FMargin& InPadding)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UniformGridSlot", "SetVerticalAlignment");
+		Func = Class->GetFunction("BackgroundBlur", "SetPadding");
 
-	Params::UniformGridSlot_SetVerticalAlignment Parms{};
+	Params::BackgroundBlur_SetPadding Parms{};
+
+	Parms.InPadding = std::move(InPadding);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.BackgroundBlur.SetVerticalAlignment
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UBackgroundBlur::SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BackgroundBlur", "SetVerticalAlignment");
+
+	Params::BackgroundBlur_SetVerticalAlignment Parms{};
 
 	Parms.InVerticalAlignment = InVerticalAlignment;
 
@@ -4047,7 +2075,7 @@ void UUniformGridSlot::SetVerticalAlignment(EVerticalAlignment InVerticalAlignme
 
 
 // Function UMG.UserWidget.AddExtension
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // TSubclassOf<class UUserWidgetExtension> InExtensionType                                        (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UUserWidgetExtension*             ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -4075,7 +2103,7 @@ class UUserWidgetExtension* UUserWidget::AddExtension(TSubclassOf<class UUserWid
 
 
 // Function UMG.UserWidget.AddToPlayerScreen
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   ZOrder                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -4103,7 +2131,7 @@ bool UUserWidget::AddToPlayerScreen(int32 ZOrder)
 
 
 // Function UMG.UserWidget.AddToViewport
-// (RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   ZOrder                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -4128,7 +2156,7 @@ void UUserWidget::AddToViewport(int32 ZOrder)
 
 
 // Function UMG.UserWidget.BindToAnimationEvent
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UWidgetAnimation*                 Animation                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TDelegate<void()>                       Delegate                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -4159,7 +2187,7 @@ void UUserWidget::BindToAnimationEvent(class UWidgetAnimation* Animation, TDeleg
 
 
 // Function UMG.UserWidget.BindToAnimationFinished
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UWidgetAnimation*                 Animation                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TDelegate<void()>                       Delegate                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -4186,7 +2214,7 @@ void UUserWidget::BindToAnimationFinished(class UWidgetAnimation* Animation, TDe
 
 
 // Function UMG.UserWidget.BindToAnimationStarted
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UWidgetAnimation*                 Animation                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TDelegate<void()>                       Delegate                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -4213,7 +2241,7 @@ void UUserWidget::BindToAnimationStarted(class UWidgetAnimation* Animation, TDel
 
 
 // Function UMG.UserWidget.CancelLatentActions
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UUserWidget::CancelLatentActions()
 {
@@ -4232,7 +2260,7 @@ void UUserWidget::CancelLatentActions()
 
 
 // Function UMG.UserWidget.Construct
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 
 void UUserWidget::Construct()
 {
@@ -4246,7 +2274,7 @@ void UUserWidget::Construct()
 
 
 // Function UMG.UserWidget.Destruct
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 
 void UUserWidget::Destruct()
 {
@@ -4260,7 +2288,7 @@ void UUserWidget::Destruct()
 
 
 // Function UMG.UserWidget.FlushAnimations
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 
 void UUserWidget::FlushAnimations()
 {
@@ -4279,7 +2307,7 @@ void UUserWidget::FlushAnimations()
 
 
 // Function UMG.UserWidget.IsAnimationPlayingForward
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // const class UWidgetAnimation*           InAnimation                                            (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -4307,7 +2335,7 @@ bool UUserWidget::IsAnimationPlayingForward(const class UWidgetAnimation* InAnim
 
 
 // Function UMG.UserWidget.ListenForInputAction
-// (Final, RequiredAPI, Native, Protected, BlueprintCallable)
+// (Final, Native, Protected, BlueprintCallable)
 // Parameters:
 // class FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EInputEvent                             EventType                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -4338,7 +2366,7 @@ void UUserWidget::ListenForInputAction(class FName ActionName, EInputEvent Event
 
 
 // Function UMG.UserWidget.OnAddedToFocusPath
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
 // const struct FFocusEvent&               InFocusEvent                                           (Parm, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -4358,7 +2386,7 @@ void UUserWidget::OnAddedToFocusPath(const struct FFocusEvent& InFocusEvent)
 
 
 // Function UMG.UserWidget.OnAnalogValueChanged
-// (RequiredAPI, Event, Public, BlueprintEvent)
+// (Event, Public, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FAnalogInputEvent&         InAnalogInputEvent                                     (Parm, NativeAccessSpecifierPublic)
@@ -4383,7 +2411,7 @@ struct FEventReply UUserWidget::OnAnalogValueChanged(const struct FGeometry& MyG
 
 
 // Function UMG.UserWidget.OnAnimationFinished
-// (RequiredAPI, BlueprintCosmetic, Native, Event, Protected, BlueprintEvent)
+// (BlueprintCosmetic, Native, Event, Protected, BlueprintEvent)
 // Parameters:
 // const class UWidgetAnimation*           Animation                                              (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -4408,7 +2436,7 @@ void UUserWidget::OnAnimationFinished(const class UWidgetAnimation* Animation)
 
 
 // Function UMG.UserWidget.OnAnimationStarted
-// (RequiredAPI, BlueprintCosmetic, Native, Event, Protected, BlueprintEvent)
+// (BlueprintCosmetic, Native, Event, Protected, BlueprintEvent)
 // Parameters:
 // const class UWidgetAnimation*           Animation                                              (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -4433,7 +2461,7 @@ void UUserWidget::OnAnimationStarted(const class UWidgetAnimation* Animation)
 
 
 // Function UMG.UserWidget.OnDragCancelled
-// (RequiredAPI, BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FPointerEvent&             PointerEvent                                           (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // class UDragDropOperation*               Operation                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -4455,7 +2483,7 @@ void UUserWidget::OnDragCancelled(const struct FPointerEvent& PointerEvent, clas
 
 
 // Function UMG.UserWidget.OnDragDetected
-// (RequiredAPI, BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FPointerEvent&             PointerEvent                                           (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
@@ -4481,7 +2509,7 @@ void UUserWidget::OnDragDetected(const struct FGeometry& MyGeometry, const struc
 
 
 // Function UMG.UserWidget.OnDragEnter
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FPointerEvent&             PointerEvent                                           (Parm, NativeAccessSpecifierPublic)
@@ -4505,7 +2533,7 @@ void UUserWidget::OnDragEnter(const struct FGeometry& MyGeometry, const struct F
 
 
 // Function UMG.UserWidget.OnDragLeave
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
 // const struct FPointerEvent&             PointerEvent                                           (Parm, NativeAccessSpecifierPublic)
 // class UDragDropOperation*               Operation                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -4527,7 +2555,7 @@ void UUserWidget::OnDragLeave(const struct FPointerEvent& PointerEvent, class UD
 
 
 // Function UMG.UserWidget.OnDragOver
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FPointerEvent&             PointerEvent                                           (Parm, NativeAccessSpecifierPublic)
@@ -4554,7 +2582,7 @@ bool UUserWidget::OnDragOver(const struct FGeometry& MyGeometry, const struct FP
 
 
 // Function UMG.UserWidget.OnDrop
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FPointerEvent&             PointerEvent                                           (Parm, NativeAccessSpecifierPublic)
@@ -4581,7 +2609,7 @@ bool UUserWidget::OnDrop(const struct FGeometry& MyGeometry, const struct FPoint
 
 
 // Function UMG.UserWidget.OnFocusLost
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
 // const struct FFocusEvent&               InFocusEvent                                           (Parm, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -4601,7 +2629,7 @@ void UUserWidget::OnFocusLost(const struct FFocusEvent& InFocusEvent)
 
 
 // Function UMG.UserWidget.OnFocusReceived
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FFocusEvent&               InFocusEvent                                           (Parm, NoDestructor, NativeAccessSpecifierPublic)
@@ -4626,7 +2654,7 @@ struct FEventReply UUserWidget::OnFocusReceived(const struct FGeometry& MyGeomet
 
 
 // Function UMG.UserWidget.OnInitialized
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 
 void UUserWidget::OnInitialized()
 {
@@ -4640,7 +2668,7 @@ void UUserWidget::OnInitialized()
 
 
 // Function UMG.UserWidget.OnKeyChar
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FCharacterEvent&           InCharacterEvent                                       (Parm, NativeAccessSpecifierPublic)
@@ -4665,7 +2693,7 @@ struct FEventReply UUserWidget::OnKeyChar(const struct FGeometry& MyGeometry, co
 
 
 // Function UMG.UserWidget.OnKeyDown
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FKeyEvent&                 InKeyEvent                                             (Parm, NativeAccessSpecifierPublic)
@@ -4690,7 +2718,7 @@ struct FEventReply UUserWidget::OnKeyDown(const struct FGeometry& MyGeometry, co
 
 
 // Function UMG.UserWidget.OnKeyUp
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FKeyEvent&                 InKeyEvent                                             (Parm, NativeAccessSpecifierPublic)
@@ -4715,7 +2743,7 @@ struct FEventReply UUserWidget::OnKeyUp(const struct FGeometry& MyGeometry, cons
 
 
 // Function UMG.UserWidget.OnMotionDetected
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FMotionEvent&              InMotionEvent                                          (Parm, NativeAccessSpecifierPublic)
@@ -4740,7 +2768,7 @@ struct FEventReply UUserWidget::OnMotionDetected(const struct FGeometry& MyGeome
 
 
 // Function UMG.UserWidget.OnMouseButtonDoubleClick
-// (RequiredAPI, BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 InMyGeometry                                           (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FPointerEvent&             InMouseEvent                                           (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
@@ -4765,7 +2793,7 @@ struct FEventReply UUserWidget::OnMouseButtonDoubleClick(const struct FGeometry&
 
 
 // Function UMG.UserWidget.OnMouseButtonDown
-// (RequiredAPI, BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FPointerEvent&             MouseEvent                                             (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
@@ -4790,7 +2818,7 @@ struct FEventReply UUserWidget::OnMouseButtonDown(const struct FGeometry& MyGeom
 
 
 // Function UMG.UserWidget.OnMouseButtonUp
-// (RequiredAPI, BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FPointerEvent&             MouseEvent                                             (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
@@ -4815,7 +2843,7 @@ struct FEventReply UUserWidget::OnMouseButtonUp(const struct FGeometry& MyGeomet
 
 
 // Function UMG.UserWidget.OnMouseCaptureLost
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 
 void UUserWidget::OnMouseCaptureLost()
 {
@@ -4829,7 +2857,7 @@ void UUserWidget::OnMouseCaptureLost()
 
 
 // Function UMG.UserWidget.OnMouseEnter
-// (RequiredAPI, BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FPointerEvent&             MouseEvent                                             (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
@@ -4851,7 +2879,7 @@ void UUserWidget::OnMouseEnter(const struct FGeometry& MyGeometry, const struct 
 
 
 // Function UMG.UserWidget.OnMouseLeave
-// (RequiredAPI, BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FPointerEvent&             MouseEvent                                             (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
@@ -4871,7 +2899,7 @@ void UUserWidget::OnMouseLeave(const struct FPointerEvent& MouseEvent)
 
 
 // Function UMG.UserWidget.OnMouseMove
-// (RequiredAPI, BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FPointerEvent&             MouseEvent                                             (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
@@ -4896,7 +2924,7 @@ struct FEventReply UUserWidget::OnMouseMove(const struct FGeometry& MyGeometry, 
 
 
 // Function UMG.UserWidget.OnMouseWheel
-// (RequiredAPI, BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FPointerEvent&             MouseEvent                                             (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
@@ -4921,7 +2949,7 @@ struct FEventReply UUserWidget::OnMouseWheel(const struct FGeometry& MyGeometry,
 
 
 // Function UMG.UserWidget.OnPreviewKeyDown
-// (RequiredAPI, Event, Public, BlueprintEvent)
+// (Event, Public, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FKeyEvent&                 InKeyEvent                                             (Parm, NativeAccessSpecifierPublic)
@@ -4946,7 +2974,7 @@ struct FEventReply UUserWidget::OnPreviewKeyDown(const struct FGeometry& MyGeome
 
 
 // Function UMG.UserWidget.OnPreviewMouseButtonDown
-// (RequiredAPI, BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FPointerEvent&             MouseEvent                                             (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
@@ -4971,7 +2999,7 @@ struct FEventReply UUserWidget::OnPreviewMouseButtonDown(const struct FGeometry&
 
 
 // Function UMG.UserWidget.OnRemovedFromFocusPath
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
 // const struct FFocusEvent&               InFocusEvent                                           (Parm, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -4991,7 +3019,7 @@ void UUserWidget::OnRemovedFromFocusPath(const struct FFocusEvent& InFocusEvent)
 
 
 // Function UMG.UserWidget.OnTouchEnded
-// (RequiredAPI, BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FPointerEvent&             InTouchEvent                                           (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
@@ -5016,7 +3044,7 @@ struct FEventReply UUserWidget::OnTouchEnded(const struct FGeometry& MyGeometry,
 
 
 // Function UMG.UserWidget.OnTouchForceChanged
-// (RequiredAPI, BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FPointerEvent&             InTouchEvent                                           (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
@@ -5041,7 +3069,7 @@ struct FEventReply UUserWidget::OnTouchForceChanged(const struct FGeometry& MyGe
 
 
 // Function UMG.UserWidget.OnTouchGesture
-// (RequiredAPI, BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FPointerEvent&             GestureEvent                                           (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
@@ -5066,7 +3094,7 @@ struct FEventReply UUserWidget::OnTouchGesture(const struct FGeometry& MyGeometr
 
 
 // Function UMG.UserWidget.OnTouchMoved
-// (RequiredAPI, BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FPointerEvent&             InTouchEvent                                           (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
@@ -5091,7 +3119,7 @@ struct FEventReply UUserWidget::OnTouchMoved(const struct FGeometry& MyGeometry,
 
 
 // Function UMG.UserWidget.OnTouchStarted
-// (RequiredAPI, BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FPointerEvent&             InTouchEvent                                           (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
@@ -5116,7 +3144,7 @@ struct FEventReply UUserWidget::OnTouchStarted(const struct FGeometry& MyGeometr
 
 
 // Function UMG.UserWidget.PauseAnimation
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // const class UWidgetAnimation*           InAnimation                                            (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -5144,7 +3172,7 @@ float UUserWidget::PauseAnimation(const class UWidgetAnimation* InAnimation)
 
 
 // Function UMG.UserWidget.PlayAnimation
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // class UWidgetAnimation*                 InAnimation                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   StartAtTime                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -5182,7 +3210,7 @@ class UUMGSequencePlayer* UUserWidget::PlayAnimation(class UWidgetAnimation* InA
 
 
 // Function UMG.UserWidget.PlayAnimationForward
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // class UWidgetAnimation*                 InAnimation                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   PlaybackSpeed                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -5214,7 +3242,7 @@ class UUMGSequencePlayer* UUserWidget::PlayAnimationForward(class UWidgetAnimati
 
 
 // Function UMG.UserWidget.PlayAnimationReverse
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // class UWidgetAnimation*                 InAnimation                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   PlaybackSpeed                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -5246,7 +3274,7 @@ class UUMGSequencePlayer* UUserWidget::PlayAnimationReverse(class UWidgetAnimati
 
 
 // Function UMG.UserWidget.PlayAnimationTimeRange
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // class UWidgetAnimation*                 InAnimation                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   StartAtTime                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -5286,7 +3314,7 @@ class UUMGSequencePlayer* UUserWidget::PlayAnimationTimeRange(class UWidgetAnima
 
 
 // Function UMG.UserWidget.PlaySound
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // class USoundBase*                       SoundToPlay                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -5311,7 +3339,7 @@ void UUserWidget::PlaySound(class USoundBase* SoundToPlay)
 
 
 // Function UMG.UserWidget.PreConstruct
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
 // bool                                    IsDesignTime                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -5330,210 +3358,8 @@ void UUserWidget::PreConstruct(bool IsDesignTime)
 }
 
 
-// Function UMG.UserWidget.QueuePauseAnimation
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
-// Parameters:
-// const class UWidgetAnimation*           InAnimation                                            (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UUserWidget::QueuePauseAnimation(const class UWidgetAnimation* InAnimation)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UserWidget", "QueuePauseAnimation");
-
-	Params::UserWidget_QueuePauseAnimation Parms{};
-
-	Parms.InAnimation = InAnimation;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.UserWidget.QueuePlayAnimation
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
-// Parameters:
-// class UWidgetAnimation*                 InAnimation                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   StartAtTime                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   NumLoopsToPlay                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EUMGSequencePlayMode                    PlayMode                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   PlaybackSpeed                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bRestoreState                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UUserWidget::QueuePlayAnimation(class UWidgetAnimation* InAnimation, float StartAtTime, int32 NumLoopsToPlay, EUMGSequencePlayMode PlayMode, float PlaybackSpeed, bool bRestoreState)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UserWidget", "QueuePlayAnimation");
-
-	Params::UserWidget_QueuePlayAnimation Parms{};
-
-	Parms.InAnimation = InAnimation;
-	Parms.StartAtTime = StartAtTime;
-	Parms.NumLoopsToPlay = NumLoopsToPlay;
-	Parms.PlayMode = PlayMode;
-	Parms.PlaybackSpeed = PlaybackSpeed;
-	Parms.bRestoreState = bRestoreState;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.UserWidget.QueuePlayAnimationForward
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
-// Parameters:
-// class UWidgetAnimation*                 InAnimation                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   PlaybackSpeed                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bRestoreState                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UUserWidget::QueuePlayAnimationForward(class UWidgetAnimation* InAnimation, float PlaybackSpeed, bool bRestoreState)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UserWidget", "QueuePlayAnimationForward");
-
-	Params::UserWidget_QueuePlayAnimationForward Parms{};
-
-	Parms.InAnimation = InAnimation;
-	Parms.PlaybackSpeed = PlaybackSpeed;
-	Parms.bRestoreState = bRestoreState;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.UserWidget.QueuePlayAnimationReverse
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
-// Parameters:
-// class UWidgetAnimation*                 InAnimation                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   PlaybackSpeed                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bRestoreState                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UUserWidget::QueuePlayAnimationReverse(class UWidgetAnimation* InAnimation, float PlaybackSpeed, bool bRestoreState)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UserWidget", "QueuePlayAnimationReverse");
-
-	Params::UserWidget_QueuePlayAnimationReverse Parms{};
-
-	Parms.InAnimation = InAnimation;
-	Parms.PlaybackSpeed = PlaybackSpeed;
-	Parms.bRestoreState = bRestoreState;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.UserWidget.QueuePlayAnimationTimeRange
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
-// Parameters:
-// class UWidgetAnimation*                 InAnimation                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   StartAtTime                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   EndAtTime                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// int32                                   NumLoopsToPlay                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EUMGSequencePlayMode                    PlayMode                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   PlaybackSpeed                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bRestoreState                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UUserWidget::QueuePlayAnimationTimeRange(class UWidgetAnimation* InAnimation, float StartAtTime, float EndAtTime, int32 NumLoopsToPlay, EUMGSequencePlayMode PlayMode, float PlaybackSpeed, bool bRestoreState)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UserWidget", "QueuePlayAnimationTimeRange");
-
-	Params::UserWidget_QueuePlayAnimationTimeRange Parms{};
-
-	Parms.InAnimation = InAnimation;
-	Parms.StartAtTime = StartAtTime;
-	Parms.EndAtTime = EndAtTime;
-	Parms.NumLoopsToPlay = NumLoopsToPlay;
-	Parms.PlayMode = PlayMode;
-	Parms.PlaybackSpeed = PlaybackSpeed;
-	Parms.bRestoreState = bRestoreState;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.UserWidget.QueueStopAllAnimations
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void UUserWidget::QueueStopAllAnimations()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UserWidget", "QueueStopAllAnimations");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.UserWidget.QueueStopAnimation
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const class UWidgetAnimation*           InAnimation                                            (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UUserWidget::QueueStopAnimation(const class UWidgetAnimation* InAnimation)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UserWidget", "QueueStopAnimation");
-
-	Params::UserWidget_QueueStopAnimation Parms{};
-
-	Parms.InAnimation = InAnimation;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function UMG.UserWidget.RegisterInputComponent
-// (Final, RequiredAPI, Native, Protected, BlueprintCallable)
+// (Final, Native, Protected, BlueprintCallable)
 
 void UUserWidget::RegisterInputComponent()
 {
@@ -5552,7 +3378,7 @@ void UUserWidget::RegisterInputComponent()
 
 
 // Function UMG.UserWidget.RemoveExtension
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UUserWidgetExtension*             InExtension                                            (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -5577,7 +3403,7 @@ void UUserWidget::RemoveExtension(class UUserWidgetExtension* InExtension)
 
 
 // Function UMG.UserWidget.RemoveExtensions
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // TSubclassOf<class UUserWidgetExtension> InExtensionType                                        (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -5602,7 +3428,7 @@ void UUserWidget::RemoveExtensions(TSubclassOf<class UUserWidgetExtension> InExt
 
 
 // Function UMG.UserWidget.RemoveFromViewport
-// (RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (BlueprintCosmetic, Native, Public, BlueprintCallable)
 
 void UUserWidget::RemoveFromViewport()
 {
@@ -5621,7 +3447,7 @@ void UUserWidget::RemoveFromViewport()
 
 
 // Function UMG.UserWidget.ReverseAnimation
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // const class UWidgetAnimation*           InAnimation                                            (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -5646,7 +3472,7 @@ void UUserWidget::ReverseAnimation(const class UWidgetAnimation* InAnimation)
 
 
 // Function UMG.UserWidget.SetAlignmentInViewport
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector2D&                 Alignment                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -5671,7 +3497,7 @@ void UUserWidget::SetAlignmentInViewport(const struct FVector2D& Alignment)
 
 
 // Function UMG.UserWidget.SetAnchorsInViewport
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FAnchors&                  Anchors                                                (Parm, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -5696,7 +3522,7 @@ void UUserWidget::SetAnchorsInViewport(const struct FAnchors& Anchors)
 
 
 // Function UMG.UserWidget.SetAnimationCurrentTime
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // const class UWidgetAnimation*           InAnimation                                            (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   InTime                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -5723,7 +3549,7 @@ void UUserWidget::SetAnimationCurrentTime(const class UWidgetAnimation* InAnimat
 
 
 // Function UMG.UserWidget.SetColorAndOpacity
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FLinearColor&              InColorAndOpacity                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -5748,7 +3574,7 @@ void UUserWidget::SetColorAndOpacity(const struct FLinearColor& InColorAndOpacit
 
 
 // Function UMG.UserWidget.SetDesiredSizeInViewport
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector2D&                 Size                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -5773,7 +3599,7 @@ void UUserWidget::SetDesiredSizeInViewport(const struct FVector2D& Size)
 
 
 // Function UMG.UserWidget.SetForegroundColor
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FSlateColor&               InForegroundColor                                      (Parm, NativeAccessSpecifierPublic)
 
@@ -5798,7 +3624,7 @@ void UUserWidget::SetForegroundColor(const struct FSlateColor& InForegroundColor
 
 
 // Function UMG.UserWidget.SetInputActionBlocking
-// (Final, RequiredAPI, Native, Protected, BlueprintCallable)
+// (Final, Native, Protected, BlueprintCallable)
 // Parameters:
 // bool                                    bShouldBlock                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -5823,7 +3649,7 @@ void UUserWidget::SetInputActionBlocking(bool bShouldBlock)
 
 
 // Function UMG.UserWidget.SetInputActionPriority
-// (Final, RequiredAPI, Native, Protected, BlueprintCallable)
+// (Final, Native, Protected, BlueprintCallable)
 // Parameters:
 // int32                                   NewPriority                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -5848,7 +3674,7 @@ void UUserWidget::SetInputActionPriority(int32 NewPriority)
 
 
 // Function UMG.UserWidget.SetNumLoopsToPlay
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // const class UWidgetAnimation*           InAnimation                                            (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   NumLoopsToPlay                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -5875,7 +3701,7 @@ void UUserWidget::SetNumLoopsToPlay(const class UWidgetAnimation* InAnimation, i
 
 
 // Function UMG.UserWidget.SetOwningPlayer
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // class APlayerController*                LocalPlayerController                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -5900,7 +3726,7 @@ void UUserWidget::SetOwningPlayer(class APlayerController* LocalPlayerController
 
 
 // Function UMG.UserWidget.SetPadding
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -5925,7 +3751,7 @@ void UUserWidget::SetPadding(const struct FMargin& InPadding)
 
 
 // Function UMG.UserWidget.SetPlaybackSpeed
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // const class UWidgetAnimation*           InAnimation                                            (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   PlaybackSpeed                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -5952,7 +3778,7 @@ void UUserWidget::SetPlaybackSpeed(const class UWidgetAnimation* InAnimation, fl
 
 
 // Function UMG.UserWidget.SetPositionInViewport
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bRemoveDPIScale                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -5979,7 +3805,7 @@ void UUserWidget::SetPositionInViewport(const struct FVector2D& position, bool b
 
 
 // Function UMG.UserWidget.StopAllAnimations
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UUserWidget::StopAllAnimations()
 {
@@ -5998,7 +3824,7 @@ void UUserWidget::StopAllAnimations()
 
 
 // Function UMG.UserWidget.StopAnimation
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const class UWidgetAnimation*           InAnimation                                            (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -6023,7 +3849,7 @@ void UUserWidget::StopAnimation(const class UWidgetAnimation* InAnimation)
 
 
 // Function UMG.UserWidget.StopAnimationsAndLatentActions
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UUserWidget::StopAnimationsAndLatentActions()
 {
@@ -6042,7 +3868,7 @@ void UUserWidget::StopAnimationsAndLatentActions()
 
 
 // Function UMG.UserWidget.StopListeningForAllInputActions
-// (Final, RequiredAPI, Native, Protected, BlueprintCallable)
+// (Final, Native, Protected, BlueprintCallable)
 
 void UUserWidget::StopListeningForAllInputActions()
 {
@@ -6061,7 +3887,7 @@ void UUserWidget::StopListeningForAllInputActions()
 
 
 // Function UMG.UserWidget.StopListeningForInputAction
-// (Final, RequiredAPI, Native, Protected, BlueprintCallable)
+// (Final, Native, Protected, BlueprintCallable)
 // Parameters:
 // class FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EInputEvent                             EventType                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -6088,7 +3914,7 @@ void UUserWidget::StopListeningForInputAction(class FName ActionName, EInputEven
 
 
 // Function UMG.UserWidget.Tick
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
 // const struct FGeometry&                 MyGeometry                                             (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // float                                   InDeltaTime                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -6110,7 +3936,7 @@ void UUserWidget::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
 
 
 // Function UMG.UserWidget.UnbindAllFromAnimationFinished
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UWidgetAnimation*                 Animation                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -6135,7 +3961,7 @@ void UUserWidget::UnbindAllFromAnimationFinished(class UWidgetAnimation* Animati
 
 
 // Function UMG.UserWidget.UnbindAllFromAnimationStarted
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UWidgetAnimation*                 Animation                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -6160,7 +3986,7 @@ void UUserWidget::UnbindAllFromAnimationStarted(class UWidgetAnimation* Animatio
 
 
 // Function UMG.UserWidget.UnbindFromAnimationFinished
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UWidgetAnimation*                 Animation                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TDelegate<void()>                       Delegate                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -6187,7 +4013,7 @@ void UUserWidget::UnbindFromAnimationFinished(class UWidgetAnimation* Animation,
 
 
 // Function UMG.UserWidget.UnbindFromAnimationStarted
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UWidgetAnimation*                 Animation                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TDelegate<void()>                       Delegate                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -6214,7 +4040,7 @@ void UUserWidget::UnbindFromAnimationStarted(class UWidgetAnimation* Animation, 
 
 
 // Function UMG.UserWidget.UnregisterInputComponent
-// (Final, RequiredAPI, Native, Protected, BlueprintCallable)
+// (Final, Native, Protected, BlueprintCallable)
 
 void UUserWidget::UnregisterInputComponent()
 {
@@ -6233,7 +4059,7 @@ void UUserWidget::UnregisterInputComponent()
 
 
 // Function UMG.UserWidget.GetAlignmentInViewport
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// (Final, BlueprintCosmetic, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -6258,7 +4084,7 @@ struct FVector2D UUserWidget::GetAlignmentInViewport() const
 
 
 // Function UMG.UserWidget.GetAnchorsInViewport
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // struct FAnchors                         ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -6283,7 +4109,7 @@ struct FAnchors UUserWidget::GetAnchorsInViewport() const
 
 
 // Function UMG.UserWidget.GetAnimationCurrentTime
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // const class UWidgetAnimation*           InAnimation                                            (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -6311,7 +4137,7 @@ float UUserWidget::GetAnimationCurrentTime(const class UWidgetAnimation* InAnima
 
 
 // Function UMG.UserWidget.GetExtension
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // TSubclassOf<class UUserWidgetExtension> ExtensionType                                          (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UUserWidgetExtension*             ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -6339,7 +4165,7 @@ class UUserWidgetExtension* UUserWidget::GetExtension(TSubclassOf<class UUserWid
 
 
 // Function UMG.UserWidget.GetExtensions
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // TSubclassOf<class UUserWidgetExtension> ExtensionType                                          (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<class UUserWidgetExtension*>     ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
@@ -6367,7 +4193,7 @@ TArray<class UUserWidgetExtension*> UUserWidget::GetExtensions(TSubclassOf<class
 
 
 // Function UMG.UserWidget.GetIsVisible
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -6392,7 +4218,7 @@ bool UUserWidget::GetIsVisible() const
 
 
 // Function UMG.UserWidget.GetOwningPlayerCameraManager
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class APlayerCameraManager*             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -6417,7 +4243,7 @@ class APlayerCameraManager* UUserWidget::GetOwningPlayerCameraManager() const
 
 
 // Function UMG.UserWidget.GetOwningPlayerPawn
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class APawn*                            ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -6442,7 +4268,7 @@ class APawn* UUserWidget::GetOwningPlayerPawn() const
 
 
 // Function UMG.UserWidget.IsAnimationPlaying
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // const class UWidgetAnimation*           InAnimation                                            (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -6470,7 +4296,7 @@ bool UUserWidget::IsAnimationPlaying(const class UWidgetAnimation* InAnimation) 
 
 
 // Function UMG.UserWidget.IsAnyAnimationPlaying
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -6495,7 +4321,7 @@ bool UUserWidget::IsAnyAnimationPlaying() const
 
 
 // Function UMG.UserWidget.IsInteractable
-// (RequiredAPI, BlueprintCosmetic, Event, Public, BlueprintEvent, Const)
+// (BlueprintCosmetic, Event, Public, BlueprintEvent, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -6515,7 +4341,7 @@ bool UUserWidget::IsInteractable() const
 
 
 // Function UMG.UserWidget.IsListeningForInputAction
-// (Final, RequiredAPI, Native, Protected, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Protected, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class FName                             ActionName                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -6568,7 +4394,7 @@ bool UUserWidget::IsPlayingAnimation() const
 
 
 // Function UMG.UserWidget.OnPaint
-// (RequiredAPI, BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent, Const)
+// (BlueprintCosmetic, Event, Public, HasOutParams, BlueprintEvent, Const)
 // Parameters:
 // struct FPaintContext&                   Context                                                (Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -6589,149 +4415,27 @@ void UUserWidget::OnPaint(struct FPaintContext& Context) const
 }
 
 
-// Function UMG.CheckBox.SetCheckedState
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Function UMG.UserListEntryLibrary.GetOwningListView
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// ECheckBoxState                          InCheckedState                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TScriptInterface<class IUserListEntry>  UserListEntry                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UListViewBase*                    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UCheckBox::SetCheckedState(ECheckBoxState InCheckedState)
+class UListViewBase* UUserListEntryLibrary::GetOwningListView(TScriptInterface<class IUserListEntry> UserListEntry)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CheckBox", "SetCheckedState");
+		Func = StaticClass()->GetFunction("UserListEntryLibrary", "GetOwningListView");
 
-	Params::CheckBox_SetCheckedState Parms{};
+	Params::UserListEntryLibrary_GetOwningListView Parms{};
 
-	Parms.InCheckedState = InCheckedState;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.CheckBox.SetClickMethod
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// EButtonClickMethod                      InClickMethod                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCheckBox::SetClickMethod(EButtonClickMethod InClickMethod)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CheckBox", "SetClickMethod");
-
-	Params::CheckBox_SetClickMethod Parms{};
-
-	Parms.InClickMethod = InClickMethod;
+	Parms.UserListEntry = UserListEntry;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.CheckBox.SetIsChecked
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    InIsChecked                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCheckBox::SetIsChecked(bool InIsChecked)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CheckBox", "SetIsChecked");
-
-	Params::CheckBox_SetIsChecked Parms{};
-
-	Parms.InIsChecked = InIsChecked;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.CheckBox.SetPressMethod
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// EButtonPressMethod                      InPressMethod                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCheckBox::SetPressMethod(EButtonPressMethod InPressMethod)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CheckBox", "SetPressMethod");
-
-	Params::CheckBox_SetPressMethod Parms{};
-
-	Parms.InPressMethod = InPressMethod;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.CheckBox.SetTouchMethod
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// EButtonTouchMethod                      InTouchMethod                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCheckBox::SetTouchMethod(EButtonTouchMethod InTouchMethod)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CheckBox", "SetTouchMethod");
-
-	Params::CheckBox_SetTouchMethod Parms{};
-
-	Parms.InTouchMethod = InTouchMethod;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.CheckBox.GetCheckedState
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// ECheckBoxState                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-ECheckBoxState UCheckBox::GetCheckedState() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CheckBox", "GetCheckedState");
-
-	Params::CheckBox_GetCheckedState Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 
@@ -6739,24 +4443,27 @@ ECheckBoxState UCheckBox::GetCheckedState() const
 }
 
 
-// Function UMG.CheckBox.IsChecked
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Function UMG.UserListEntryLibrary.IsListItemExpanded
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
+// TScriptInterface<class IUserListEntry>  UserListEntry                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UCheckBox::IsChecked() const
+bool UUserListEntryLibrary::IsListItemExpanded(TScriptInterface<class IUserListEntry> UserListEntry)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CheckBox", "IsChecked");
+		Func = StaticClass()->GetFunction("UserListEntryLibrary", "IsListItemExpanded");
 
-	Params::CheckBox_IsChecked Parms{};
+	Params::UserListEntryLibrary_IsListItemExpanded Parms{};
+
+	Parms.UserListEntry = UserListEntry;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 
@@ -6764,190 +4471,27 @@ bool UCheckBox::IsChecked() const
 }
 
 
-// Function UMG.CheckBox.IsPressed
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Function UMG.UserListEntryLibrary.IsListItemSelected
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
+// TScriptInterface<class IUserListEntry>  UserListEntry                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UCheckBox::IsPressed() const
+bool UUserListEntryLibrary::IsListItemSelected(TScriptInterface<class IUserListEntry> UserListEntry)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("CheckBox", "IsPressed");
+		Func = StaticClass()->GetFunction("UserListEntryLibrary", "IsListItemSelected");
 
-	Params::CheckBox_IsPressed Parms{};
+	Params::UserListEntryLibrary_IsListItemSelected Parms{};
 
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ComboBoxKey.AddOption
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class FName                             Option                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UComboBoxKey::AddOption(class FName Option)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ComboBoxKey", "AddOption");
-
-	Params::ComboBoxKey_AddOption Parms{};
-
-	Parms.Option = Option;
+	Parms.UserListEntry = UserListEntry;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ComboBoxKey.ClearOptions
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void UComboBoxKey::ClearOptions()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ComboBoxKey", "ClearOptions");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ComboBoxKey.ClearSelection
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void UComboBoxKey::ClearSelection()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ComboBoxKey", "ClearSelection");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ComboBoxKey.RemoveOption
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class FName                             Option                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UComboBoxKey::RemoveOption(class FName Option)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ComboBoxKey", "RemoveOption");
-
-	Params::ComboBoxKey_RemoveOption Parms{};
-
-	Parms.Option = Option;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ComboBoxKey.SetSelectedOption
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class FName                             Option                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UComboBoxKey::SetSelectedOption(class FName Option)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ComboBoxKey", "SetSelectedOption");
-
-	Params::ComboBoxKey_SetSelectedOption Parms{};
-
-	Parms.Option = Option;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ComboBoxKey.GetSelectedOption
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class FName UComboBoxKey::GetSelectedOption() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ComboBoxKey", "GetSelectedOption");
-
-	Params::ComboBoxKey_GetSelectedOption Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ComboBoxKey.IsOpen
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UComboBoxKey::IsOpen() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ComboBoxKey", "IsOpen");
-
-	Params::ComboBoxKey_IsOpen Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
 
@@ -6956,12 +4500,12 @@ bool UComboBoxKey::IsOpen() const
 
 
 // Function UMG.CanvasPanel.AddChildToCanvas
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class UWidget*                          Content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UWidget*                          content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UCanvasPanelSlot*                 ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UCanvasPanelSlot* UCanvasPanel::AddChildToCanvas(class UWidget* Content)
+class UCanvasPanelSlot* UCanvasPanel::AddChildToCanvas(class UWidget* content)
 {
 	static class UFunction* Func = nullptr;
 
@@ -6970,7 +4514,7 @@ class UCanvasPanelSlot* UCanvasPanel::AddChildToCanvas(class UWidget* Content)
 
 	Params::CanvasPanel_AddChildToCanvas Parms{};
 
-	Parms.Content = Content;
+	Parms.content = content;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -6984,7 +4528,7 @@ class UCanvasPanelSlot* UCanvasPanel::AddChildToCanvas(class UWidget* Content)
 
 
 // Function UMG.CanvasPanel.SetColorAndOpacity
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FLinearColor&              InColorAndOpacity                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -7008,647 +4552,21 @@ void UCanvasPanel::SetColorAndOpacity(const struct FLinearColor& InColorAndOpaci
 }
 
 
-// Function UMG.WidgetLayoutLibrary.GetMousePositionOnPlatform
-// (Final, RequiredAPI, Native, Static, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-struct FVector2D UWidgetLayoutLibrary::GetMousePositionOnPlatform()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "GetMousePositionOnPlatform");
-
-	Params::WidgetLayoutLibrary_GetMousePositionOnPlatform Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.GetMousePositionOnViewport
-// (Final, RequiredAPI, Native, Static, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-struct FVector2D UWidgetLayoutLibrary::GetMousePositionOnViewport(class UObject* WorldContextObject)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "GetMousePositionOnViewport");
-
-	Params::WidgetLayoutLibrary_GetMousePositionOnViewport Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.GetMousePositionScaledByDPI
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class APlayerController*                Player                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float*                                  LocationX                                              (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float*                                  LocationY                                              (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UWidgetLayoutLibrary::GetMousePositionScaledByDPI(class APlayerController* Player, float* LocationX, float* LocationY)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "GetMousePositionScaledByDPI");
-
-	Params::WidgetLayoutLibrary_GetMousePositionScaledByDPI Parms{};
-
-	Parms.Player = Player;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (LocationX != nullptr)
-		*LocationX = Parms.LocationX;
-
-	if (LocationY != nullptr)
-		*LocationY = Parms.LocationY;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.GetPlayerScreenWidgetGeometry
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class APlayerController*                PlayerController                                       (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FGeometry                        ReturnValue                                            (Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-
-struct FGeometry UWidgetLayoutLibrary::GetPlayerScreenWidgetGeometry(class APlayerController* PlayerController)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "GetPlayerScreenWidgetGeometry");
-
-	Params::WidgetLayoutLibrary_GetPlayerScreenWidgetGeometry Parms{};
-
-	Parms.PlayerController = PlayerController;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.GetViewportScale
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const class UObject*                    WorldContextObject                                     (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UWidgetLayoutLibrary::GetViewportScale(const class UObject* WorldContextObject)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "GetViewportScale");
-
-	Params::WidgetLayoutLibrary_GetViewportScale Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.GetViewportSize
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Static, Public, HasDefaults, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-struct FVector2D UWidgetLayoutLibrary::GetViewportSize(class UObject* WorldContextObject)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "GetViewportSize");
-
-	Params::WidgetLayoutLibrary_GetViewportSize Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.GetViewportWidgetGeometry
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FGeometry                        ReturnValue                                            (Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-
-struct FGeometry UWidgetLayoutLibrary::GetViewportWidgetGeometry(class UObject* WorldContextObject)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "GetViewportWidgetGeometry");
-
-	Params::WidgetLayoutLibrary_GetViewportWidgetGeometry Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.ProjectWorldLocationToWidgetPosition
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class APlayerController*                PlayerController                                       (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FVector&                   WorldLocation                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FVector2D*                       ScreenPosition                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bPlayerViewportRelative                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UWidgetLayoutLibrary::ProjectWorldLocationToWidgetPosition(class APlayerController* PlayerController, const struct FVector& WorldLocation, struct FVector2D* ScreenPosition, bool bPlayerViewportRelative)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "ProjectWorldLocationToWidgetPosition");
-
-	Params::WidgetLayoutLibrary_ProjectWorldLocationToWidgetPosition Parms{};
-
-	Parms.PlayerController = PlayerController;
-	Parms.WorldLocation = std::move(WorldLocation);
-	Parms.bPlayerViewportRelative = bPlayerViewportRelative;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (ScreenPosition != nullptr)
-		*ScreenPosition = std::move(Parms.ScreenPosition);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.RemoveAllWidgets
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UWidgetLayoutLibrary::RemoveAllWidgets(class UObject* WorldContextObject)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "RemoveAllWidgets");
-
-	Params::WidgetLayoutLibrary_RemoveAllWidgets Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.SlotAsBorderSlot
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UBorderSlot*                      ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UBorderSlot* UWidgetLayoutLibrary::SlotAsBorderSlot(class UWidget* Widget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsBorderSlot");
-
-	Params::WidgetLayoutLibrary_SlotAsBorderSlot Parms{};
-
-	Parms.Widget = Widget;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.SlotAsCanvasSlot
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UCanvasPanelSlot*                 ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UCanvasPanelSlot* UWidgetLayoutLibrary::SlotAsCanvasSlot(class UWidget* Widget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsCanvasSlot");
-
-	Params::WidgetLayoutLibrary_SlotAsCanvasSlot Parms{};
-
-	Parms.Widget = Widget;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.SlotAsGridSlot
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UGridSlot*                        ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UGridSlot* UWidgetLayoutLibrary::SlotAsGridSlot(class UWidget* Widget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsGridSlot");
-
-	Params::WidgetLayoutLibrary_SlotAsGridSlot Parms{};
-
-	Parms.Widget = Widget;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.SlotAsHorizontalBoxSlot
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UHorizontalBoxSlot*               ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UHorizontalBoxSlot* UWidgetLayoutLibrary::SlotAsHorizontalBoxSlot(class UWidget* Widget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsHorizontalBoxSlot");
-
-	Params::WidgetLayoutLibrary_SlotAsHorizontalBoxSlot Parms{};
-
-	Parms.Widget = Widget;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.SlotAsOverlaySlot
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UOverlaySlot*                     ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UOverlaySlot* UWidgetLayoutLibrary::SlotAsOverlaySlot(class UWidget* Widget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsOverlaySlot");
-
-	Params::WidgetLayoutLibrary_SlotAsOverlaySlot Parms{};
-
-	Parms.Widget = Widget;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.SlotAsSafeBoxSlot
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class USafeZoneSlot*                    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class USafeZoneSlot* UWidgetLayoutLibrary::SlotAsSafeBoxSlot(class UWidget* Widget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsSafeBoxSlot");
-
-	Params::WidgetLayoutLibrary_SlotAsSafeBoxSlot Parms{};
-
-	Parms.Widget = Widget;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.SlotAsScaleBoxSlot
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UScaleBoxSlot*                    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UScaleBoxSlot* UWidgetLayoutLibrary::SlotAsScaleBoxSlot(class UWidget* Widget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsScaleBoxSlot");
-
-	Params::WidgetLayoutLibrary_SlotAsScaleBoxSlot Parms{};
-
-	Parms.Widget = Widget;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.SlotAsScrollBoxSlot
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UScrollBoxSlot*                   ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UScrollBoxSlot* UWidgetLayoutLibrary::SlotAsScrollBoxSlot(class UWidget* Widget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsScrollBoxSlot");
-
-	Params::WidgetLayoutLibrary_SlotAsScrollBoxSlot Parms{};
-
-	Parms.Widget = Widget;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.SlotAsSizeBoxSlot
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class USizeBoxSlot*                     ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class USizeBoxSlot* UWidgetLayoutLibrary::SlotAsSizeBoxSlot(class UWidget* Widget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsSizeBoxSlot");
-
-	Params::WidgetLayoutLibrary_SlotAsSizeBoxSlot Parms{};
-
-	Parms.Widget = Widget;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.SlotAsUniformGridSlot
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UUniformGridSlot*                 ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UUniformGridSlot* UWidgetLayoutLibrary::SlotAsUniformGridSlot(class UWidget* Widget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsUniformGridSlot");
-
-	Params::WidgetLayoutLibrary_SlotAsUniformGridSlot Parms{};
-
-	Parms.Widget = Widget;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.SlotAsVerticalBoxSlot
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UVerticalBoxSlot*                 ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UVerticalBoxSlot* UWidgetLayoutLibrary::SlotAsVerticalBoxSlot(class UWidget* Widget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsVerticalBoxSlot");
-
-	Params::WidgetLayoutLibrary_SlotAsVerticalBoxSlot Parms{};
-
-	Parms.Widget = Widget;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.SlotAsWidgetSwitcherSlot
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UWidgetSwitcherSlot*              ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UWidgetSwitcherSlot* UWidgetLayoutLibrary::SlotAsWidgetSwitcherSlot(class UWidget* Widget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsWidgetSwitcherSlot");
-
-	Params::WidgetLayoutLibrary_SlotAsWidgetSwitcherSlot Parms{};
-
-	Parms.Widget = Widget;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.WidgetLayoutLibrary.SlotAsWrapBoxSlot
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UWrapBoxSlot*                     ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UWrapBoxSlot* UWidgetLayoutLibrary::SlotAsWrapBoxSlot(class UWidget* Widget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsWrapBoxSlot");
-
-	Params::WidgetLayoutLibrary_SlotAsWrapBoxSlot Parms{};
-
-	Parms.Widget = Widget;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.UMGSequencePlayer.SetUserTag
+// Function UMG.EditableText.SetFont
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             InUserTag                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FSlateFontInfo&            InFontInfo                                             (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UUMGSequencePlayer::SetUserTag(class FName InUserTag)
+void UEditableText::SetFont(const struct FSlateFontInfo& InFontInfo)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UMGSequencePlayer", "SetUserTag");
+		Func = Class->GetFunction("EditableText", "SetFont");
 
-	Params::UMGSequencePlayer_SetUserTag Parms{};
+	Params::EditableText_SetFont Parms{};
 
-	Parms.InUserTag = InUserTag;
+	Parms.InFontInfo = std::move(InFontInfo);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -7659,19 +4577,244 @@ void UUMGSequencePlayer::SetUserTag(class FName InUserTag)
 }
 
 
-// Function UMG.UMGSequencePlayer.GetUserTag
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Function UMG.EditableText.SetFontMaterial
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UMaterialInterface*               InMaterial                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class FName UUMGSequencePlayer::GetUserTag() const
+void UEditableText::SetFontMaterial(class UMaterialInterface* InMaterial)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UMGSequencePlayer", "GetUserTag");
+		Func = Class->GetFunction("EditableText", "SetFontMaterial");
 
-	Params::UMGSequencePlayer_GetUserTag Parms{};
+	Params::EditableText_SetFontMaterial Parms{};
+
+	Parms.InMaterial = InMaterial;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.EditableText.SetFontOutlineMaterial
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UMaterialInterface*               InMaterial                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UEditableText::SetFontOutlineMaterial(class UMaterialInterface* InMaterial)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("EditableText", "SetFontOutlineMaterial");
+
+	Params::EditableText_SetFontOutlineMaterial Parms{};
+
+	Parms.InMaterial = InMaterial;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.EditableText.SetHintText
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const class FText&                      InHintText                                             (Parm, NativeAccessSpecifierPublic)
+
+void UEditableText::SetHintText(const class FText& InHintText)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("EditableText", "SetHintText");
+
+	Params::EditableText_SetHintText Parms{};
+
+	Parms.InHintText = std::move(InHintText);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.EditableText.SetIsPassword
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    InbIsPassword                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UEditableText::SetIsPassword(bool InbIsPassword)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("EditableText", "SetIsPassword");
+
+	Params::EditableText_SetIsPassword Parms{};
+
+	Parms.InbIsPassword = InbIsPassword;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.EditableText.SetIsReadOnly
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    InbIsReadyOnly                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UEditableText::SetIsReadOnly(bool InbIsReadyOnly)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("EditableText", "SetIsReadOnly");
+
+	Params::EditableText_SetIsReadOnly Parms{};
+
+	Parms.InbIsReadyOnly = InbIsReadyOnly;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.EditableText.SetJustification
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// ETextJustify                            InJustification                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UEditableText::SetJustification(ETextJustify InJustification)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("EditableText", "SetJustification");
+
+	Params::EditableText_SetJustification Parms{};
+
+	Parms.InJustification = InJustification;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.EditableText.SetMinimumDesiredWidth
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   InMinDesiredWidth                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UEditableText::SetMinimumDesiredWidth(float InMinDesiredWidth)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("EditableText", "SetMinimumDesiredWidth");
+
+	Params::EditableText_SetMinimumDesiredWidth Parms{};
+
+	Parms.InMinDesiredWidth = InMinDesiredWidth;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.EditableText.SetText
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const class FText&                      InText                                                 (Parm, NativeAccessSpecifierPublic)
+
+void UEditableText::SetText(const class FText& InText)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("EditableText", "SetText");
+
+	Params::EditableText_SetText Parms{};
+
+	Parms.InText = std::move(InText);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.EditableText.SetTextOverflowPolicy
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// ETextOverflowPolicy                     InOverflowPolicy                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UEditableText::SetTextOverflowPolicy(ETextOverflowPolicy InOverflowPolicy)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("EditableText", "SetTextOverflowPolicy");
+
+	Params::EditableText_SetTextOverflowPolicy Parms{};
+
+	Parms.InOverflowPolicy = InOverflowPolicy;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.EditableText.GetFont
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// const struct FSlateFontInfo             ReturnValue                                            (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+const struct FSlateFontInfo UEditableText::GetFont() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("EditableText", "GetFont");
+
+	Params::EditableText_GetFont Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -7681,6 +4824,3071 @@ class FName UUMGSequencePlayer::GetUserTag() const
 	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
+}
+
+
+// Function UMG.EditableText.GetHintText
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+
+class FText UEditableText::GetHintText() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("EditableText", "GetHintText");
+
+	Params::EditableText_GetHintText Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.EditableText.GetJustification
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// ETextJustify                            ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+ETextJustify UEditableText::GetJustification() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("EditableText", "GetJustification");
+
+	Params::EditableText_GetJustification Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.EditableText.GetText
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+
+class FText UEditableText::GetText() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("EditableText", "GetText");
+
+	Params::EditableText_GetText Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.Image.GetDynamicMaterial
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UMaterialInstanceDynamic*         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UMaterialInstanceDynamic* UImage::GetDynamicMaterial()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Image", "GetDynamicMaterial");
+
+	Params::Image_GetDynamicMaterial Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.Image.SetBrush
+// (Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const struct FSlateBrush&               InBrush                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void UImage::SetBrush(const struct FSlateBrush& InBrush)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Image", "SetBrush");
+
+	Params::Image_SetBrush Parms{};
+
+	Parms.InBrush = std::move(InBrush);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Image.SetBrushFromAsset
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// class USlateBrushAsset*                 Asset                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UImage::SetBrushFromAsset(class USlateBrushAsset* Asset)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Image", "SetBrushFromAsset");
+
+	Params::Image_SetBrushFromAsset Parms{};
+
+	Parms.Asset = Asset;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Image.SetBrushFromAtlasInterface
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// TScriptInterface<class ISlateTextureAtlasInterface>AtlasRegion                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bMatchSize                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UImage::SetBrushFromAtlasInterface(TScriptInterface<class ISlateTextureAtlasInterface> AtlasRegion, bool bMatchSize)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Image", "SetBrushFromAtlasInterface");
+
+	Params::Image_SetBrushFromAtlasInterface Parms{};
+
+	Parms.AtlasRegion = AtlasRegion;
+	Parms.bMatchSize = bMatchSize;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Image.SetBrushFromMaterial
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// class UMaterialInterface*               Material                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UImage::SetBrushFromMaterial(class UMaterialInterface* Material)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Image", "SetBrushFromMaterial");
+
+	Params::Image_SetBrushFromMaterial Parms{};
+
+	Parms.Material = Material;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Image.SetBrushFromSoftMaterial
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// TSoftObjectPtr<class UMaterialInterface>SoftMaterial                                           (Parm, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UImage::SetBrushFromSoftMaterial(TSoftObjectPtr<class UMaterialInterface> SoftMaterial)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Image", "SetBrushFromSoftMaterial");
+
+	Params::Image_SetBrushFromSoftMaterial Parms{};
+
+	Parms.SoftMaterial = SoftMaterial;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Image.SetBrushFromSoftTexture
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// TSoftObjectPtr<class UTexture2D>        SoftTexture                                            (Parm, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bMatchSize                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UImage::SetBrushFromSoftTexture(TSoftObjectPtr<class UTexture2D> SoftTexture, bool bMatchSize)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Image", "SetBrushFromSoftTexture");
+
+	Params::Image_SetBrushFromSoftTexture Parms{};
+
+	Parms.SoftTexture = SoftTexture;
+	Parms.bMatchSize = bMatchSize;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Image.SetBrushFromTexture
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// class UTexture2D*                       Texture                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bMatchSize                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UImage::SetBrushFromTexture(class UTexture2D* Texture, bool bMatchSize)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Image", "SetBrushFromTexture");
+
+	Params::Image_SetBrushFromTexture Parms{};
+
+	Parms.Texture = Texture;
+	Parms.bMatchSize = bMatchSize;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Image.SetBrushFromTextureDynamic
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// class UTexture2DDynamic*                Texture                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bMatchSize                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UImage::SetBrushFromTextureDynamic(class UTexture2DDynamic* Texture, bool bMatchSize)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Image", "SetBrushFromTextureDynamic");
+
+	Params::Image_SetBrushFromTextureDynamic Parms{};
+
+	Parms.Texture = Texture;
+	Parms.bMatchSize = bMatchSize;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Image.SetBrushResourceObject
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          ResourceObject                                         (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UImage::SetBrushResourceObject(class UObject* ResourceObject)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Image", "SetBrushResourceObject");
+
+	Params::Image_SetBrushResourceObject Parms{};
+
+	Parms.ResourceObject = ResourceObject;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Image.SetBrushTintColor
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const struct FSlateColor&               TintColor                                              (Parm, NativeAccessSpecifierPublic)
+
+void UImage::SetBrushTintColor(const struct FSlateColor& TintColor)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Image", "SetBrushTintColor");
+
+	Params::Image_SetBrushTintColor Parms{};
+
+	Parms.TintColor = std::move(TintColor);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Image.SetColorAndOpacity
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// const struct FLinearColor&              InColorAndOpacity                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UImage::SetColorAndOpacity(const struct FLinearColor& InColorAndOpacity)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Image", "SetColorAndOpacity");
+
+	Params::Image_SetColorAndOpacity Parms{};
+
+	Parms.InColorAndOpacity = std::move(InColorAndOpacity);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Image.SetDesiredSizeOverride
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// const struct FVector2D&                 DesiredSize                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UImage::SetDesiredSizeOverride(const struct FVector2D& DesiredSize)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Image", "SetDesiredSizeOverride");
+
+	Params::Image_SetDesiredSizeOverride Parms{};
+
+	Parms.DesiredSize = std::move(DesiredSize);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Image.SetOpacity
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   InOpacity                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UImage::SetOpacity(float InOpacity)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Image", "SetOpacity");
+
+	Params::Image_SetOpacity Parms{};
+
+	Parms.InOpacity = InOpacity;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.RichTextBlock.ClearAllDefaultStyleOverrides
+// (Final, Native, Public)
+
+void URichTextBlock::ClearAllDefaultStyleOverrides()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "ClearAllDefaultStyleOverrides");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.RichTextBlock.GetDecoratorByClass
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// TSubclassOf<class URichTextBlockDecorator>DecoratorClass                                         (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class URichTextBlockDecorator*          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class URichTextBlockDecorator* URichTextBlock::GetDecoratorByClass(TSubclassOf<class URichTextBlockDecorator> DecoratorClass)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "GetDecoratorByClass");
+
+	Params::RichTextBlock_GetDecoratorByClass Parms{};
+
+	Parms.DecoratorClass = DecoratorClass;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.RichTextBlock.GetDefaultDynamicMaterial
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UMaterialInstanceDynamic*         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UMaterialInstanceDynamic* URichTextBlock::GetDefaultDynamicMaterial()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "GetDefaultDynamicMaterial");
+
+	Params::RichTextBlock_GetDefaultDynamicMaterial Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.RichTextBlock.RefreshTextLayout
+// (Final, Native, Public, BlueprintCallable)
+
+void URichTextBlock::RefreshTextLayout()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "RefreshTextLayout");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.RichTextBlock.SetAutoWrapText
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    InAutoTextWrap                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void URichTextBlock::SetAutoWrapText(bool InAutoTextWrap)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "SetAutoWrapText");
+
+	Params::RichTextBlock_SetAutoWrapText Parms{};
+
+	Parms.InAutoTextWrap = InAutoTextWrap;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.RichTextBlock.SetDecorators
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const TArray<TSubclassOf<class URichTextBlockDecorator>>&InDecoratorClasses                                     (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, UObjectWrapper, NativeAccessSpecifierPublic)
+
+void URichTextBlock::SetDecorators(const TArray<TSubclassOf<class URichTextBlockDecorator>>& InDecoratorClasses)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "SetDecorators");
+
+	Params::RichTextBlock_SetDecorators Parms{};
+
+	Parms.InDecoratorClasses = std::move(InDecoratorClasses);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.RichTextBlock.SetDefaultColorAndOpacity
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const struct FSlateColor&               InColorAndOpacity                                      (Parm, NativeAccessSpecifierPublic)
+
+void URichTextBlock::SetDefaultColorAndOpacity(const struct FSlateColor& InColorAndOpacity)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "SetDefaultColorAndOpacity");
+
+	Params::RichTextBlock_SetDefaultColorAndOpacity Parms{};
+
+	Parms.InColorAndOpacity = std::move(InColorAndOpacity);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.RichTextBlock.SetDefaultFont
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const struct FSlateFontInfo&            InFontInfo                                             (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void URichTextBlock::SetDefaultFont(const struct FSlateFontInfo& InFontInfo)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "SetDefaultFont");
+
+	Params::RichTextBlock_SetDefaultFont Parms{};
+
+	Parms.InFontInfo = std::move(InFontInfo);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.RichTextBlock.SetDefaultMaterial
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UMaterialInterface*               InMaterial                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void URichTextBlock::SetDefaultMaterial(class UMaterialInterface* InMaterial)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "SetDefaultMaterial");
+
+	Params::RichTextBlock_SetDefaultMaterial Parms{};
+
+	Parms.InMaterial = InMaterial;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.RichTextBlock.SetDefaultShadowColorAndOpacity
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// const struct FLinearColor&              InShadowColorAndOpacity                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void URichTextBlock::SetDefaultShadowColorAndOpacity(const struct FLinearColor& InShadowColorAndOpacity)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "SetDefaultShadowColorAndOpacity");
+
+	Params::RichTextBlock_SetDefaultShadowColorAndOpacity Parms{};
+
+	Parms.InShadowColorAndOpacity = std::move(InShadowColorAndOpacity);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.RichTextBlock.SetDefaultShadowOffset
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// const struct FVector2D&                 InShadowOffset                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void URichTextBlock::SetDefaultShadowOffset(const struct FVector2D& InShadowOffset)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "SetDefaultShadowOffset");
+
+	Params::RichTextBlock_SetDefaultShadowOffset Parms{};
+
+	Parms.InShadowOffset = std::move(InShadowOffset);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.RichTextBlock.SetDefaultStrikeBrush
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// struct FSlateBrush*                     InStrikeBrush                                          (Parm, OutParm, NativeAccessSpecifierPublic)
+
+void URichTextBlock::SetDefaultStrikeBrush(struct FSlateBrush* InStrikeBrush)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "SetDefaultStrikeBrush");
+
+	Params::RichTextBlock_SetDefaultStrikeBrush Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (InStrikeBrush != nullptr)
+		*InStrikeBrush = std::move(Parms.InStrikeBrush);
+}
+
+
+// Function UMG.RichTextBlock.SetDefaultTextStyle
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const struct FTextBlockStyle&           InDefaultTextStyle                                     (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void URichTextBlock::SetDefaultTextStyle(const struct FTextBlockStyle& InDefaultTextStyle)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "SetDefaultTextStyle");
+
+	Params::RichTextBlock_SetDefaultTextStyle Parms{};
+
+	Parms.InDefaultTextStyle = std::move(InDefaultTextStyle);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.RichTextBlock.SetMinDesiredWidth
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   InMinDesiredWidth                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void URichTextBlock::SetMinDesiredWidth(float InMinDesiredWidth)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "SetMinDesiredWidth");
+
+	Params::RichTextBlock_SetMinDesiredWidth Parms{};
+
+	Parms.InMinDesiredWidth = InMinDesiredWidth;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.RichTextBlock.SetText
+// (Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const class FText&                      InText                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void URichTextBlock::SetText(const class FText& InText)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "SetText");
+
+	Params::RichTextBlock_SetText Parms{};
+
+	Parms.InText = std::move(InText);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.RichTextBlock.SetTextOverflowPolicy
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// ETextOverflowPolicy                     InOverflowPolicy                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void URichTextBlock::SetTextOverflowPolicy(ETextOverflowPolicy InOverflowPolicy)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "SetTextOverflowPolicy");
+
+	Params::RichTextBlock_SetTextOverflowPolicy Parms{};
+
+	Parms.InOverflowPolicy = InOverflowPolicy;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.RichTextBlock.SetTextStyleSet
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UDataTable*                       NewTextStyleSet                                        (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void URichTextBlock::SetTextStyleSet(class UDataTable* NewTextStyleSet)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "SetTextStyleSet");
+
+	Params::RichTextBlock_SetTextStyleSet Parms{};
+
+	Parms.NewTextStyleSet = NewTextStyleSet;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.RichTextBlock.SetTextTransformPolicy
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// ETextTransformPolicy                    InTransformPolicy                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void URichTextBlock::SetTextTransformPolicy(ETextTransformPolicy InTransformPolicy)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "SetTextTransformPolicy");
+
+	Params::RichTextBlock_SetTextTransformPolicy Parms{};
+
+	Parms.InTransformPolicy = InTransformPolicy;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.RichTextBlock.GetText
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+
+class FText URichTextBlock::GetText() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "GetText");
+
+	Params::RichTextBlock_GetText Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.RichTextBlock.GetTextStyleSet
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class UDataTable*                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UDataTable* URichTextBlock::GetTextStyleSet() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("RichTextBlock", "GetTextStyleSet");
+
+	Params::RichTextBlock_GetTextStyleSet Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ListViewBase.RegenerateAllEntries
+// (Final, Native, Public, BlueprintCallable)
+
+void UListViewBase::RegenerateAllEntries()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListViewBase", "RegenerateAllEntries");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListViewBase.RequestRefresh
+// (Final, Native, Public, BlueprintCallable)
+
+void UListViewBase::RequestRefresh()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListViewBase", "RequestRefresh");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListViewBase.ScrollToBottom
+// (Final, Native, Public, BlueprintCallable)
+
+void UListViewBase::ScrollToBottom()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListViewBase", "ScrollToBottom");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListViewBase.ScrollToTop
+// (Final, Native, Public, BlueprintCallable)
+
+void UListViewBase::ScrollToTop()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListViewBase", "ScrollToTop");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListViewBase.SetScrollBarVisibility
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// ESlateVisibility                        InVisibility                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UListViewBase::SetScrollBarVisibility(ESlateVisibility InVisibility)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListViewBase", "SetScrollBarVisibility");
+
+	Params::ListViewBase_SetScrollBarVisibility Parms{};
+
+	Parms.InVisibility = InVisibility;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListViewBase.SetScrollOffset
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const float                             InScrollOffset                                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UListViewBase::SetScrollOffset(const float InScrollOffset)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListViewBase", "SetScrollOffset");
+
+	Params::ListViewBase_SetScrollOffset Parms{};
+
+	Parms.InScrollOffset = InScrollOffset;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListViewBase.SetWheelScrollMultiplier
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   NewWheelScrollMultiplier                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UListViewBase::SetWheelScrollMultiplier(float NewWheelScrollMultiplier)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListViewBase", "SetWheelScrollMultiplier");
+
+	Params::ListViewBase_SetWheelScrollMultiplier Parms{};
+
+	Parms.NewWheelScrollMultiplier = NewWheelScrollMultiplier;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListViewBase.GetDisplayedEntryWidgets
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// const TArray<class UUserWidget*>        ReturnValue                                            (ConstParm, ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+const TArray<class UUserWidget*> UListViewBase::GetDisplayedEntryWidgets() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListViewBase", "GetDisplayedEntryWidgets");
+
+	Params::ListViewBase_GetDisplayedEntryWidgets Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ListViewBase.GetScrollOffset
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float UListViewBase::GetScrollOffset() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListViewBase", "GetScrollOffset");
+
+	Params::ListViewBase_GetScrollOffset Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ListView.AddItem
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          Item                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UListView::AddItem(class UObject* Item)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "AddItem");
+
+	Params::ListView_AddItem Parms{};
+
+	Parms.Item = Item;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListView.BP_CancelScrollIntoView
+// (Final, Native, Private, BlueprintCallable)
+
+void UListView::BP_CancelScrollIntoView()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "BP_CancelScrollIntoView");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListView.BP_ClearSelection
+// (Final, Native, Private, BlueprintCallable)
+
+void UListView::BP_ClearSelection()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "BP_ClearSelection");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListView.BP_NavigateToItem
+// (Final, Native, Private, BlueprintCallable)
+// Parameters:
+// class UObject*                          Item                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UListView::BP_NavigateToItem(class UObject* Item)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "BP_NavigateToItem");
+
+	Params::ListView_BP_NavigateToItem Parms{};
+
+	Parms.Item = Item;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListView.BP_ScrollItemIntoView
+// (Final, Native, Private, BlueprintCallable)
+// Parameters:
+// class UObject*                          Item                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UListView::BP_ScrollItemIntoView(class UObject* Item)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "BP_ScrollItemIntoView");
+
+	Params::ListView_BP_ScrollItemIntoView Parms{};
+
+	Parms.Item = Item;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListView.BP_SetItemSelection
+// (Final, Native, Private, BlueprintCallable)
+// Parameters:
+// class UObject*                          Item                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bSelected                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UListView::BP_SetItemSelection(class UObject* Item, bool bSelected)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "BP_SetItemSelection");
+
+	Params::ListView_BP_SetItemSelection Parms{};
+
+	Parms.Item = Item;
+	Parms.bSelected = bSelected;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListView.BP_SetListItems
+// (Final, Native, Private, HasOutParams, BlueprintCallable)
+// Parameters:
+// const TArray<class UObject*>&           InListItems                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+
+void UListView::BP_SetListItems(const TArray<class UObject*>& InListItems)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "BP_SetListItems");
+
+	Params::ListView_BP_SetListItems Parms{};
+
+	Parms.InListItems = std::move(InListItems);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListView.BP_SetSelectedItem
+// (Final, Native, Private, BlueprintCallable)
+// Parameters:
+// class UObject*                          Item                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UListView::BP_SetSelectedItem(class UObject* Item)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "BP_SetSelectedItem");
+
+	Params::ListView_BP_SetSelectedItem Parms{};
+
+	Parms.Item = Item;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListView.ClearListItems
+// (Final, Native, Public, BlueprintCallable)
+
+void UListView::ClearListItems()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "ClearListItems");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListView.NavigateToIndex
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UListView::NavigateToIndex(int32 Index_0)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "NavigateToIndex");
+
+	Params::ListView_NavigateToIndex Parms{};
+
+	Parms.Index_0 = Index_0;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListView.OnListItemEndPlayed
+// (Final, Native, Protected)
+// Parameters:
+// class AActor*                           Item                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EEndPlayReason                          EndPlayReason                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UListView::OnListItemEndPlayed(class AActor* Item, EEndPlayReason EndPlayReason)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "OnListItemEndPlayed");
+
+	Params::ListView_OnListItemEndPlayed Parms{};
+
+	Parms.Item = Item;
+	Parms.EndPlayReason = EndPlayReason;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListView.OnListItemOuterEndPlayed
+// (Final, Native, Protected)
+// Parameters:
+// class AActor*                           ItemOuter                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EEndPlayReason                          EndPlayReason                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UListView::OnListItemOuterEndPlayed(class AActor* ItemOuter, EEndPlayReason EndPlayReason)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "OnListItemOuterEndPlayed");
+
+	Params::ListView_OnListItemOuterEndPlayed Parms{};
+
+	Parms.ItemOuter = ItemOuter;
+	Parms.EndPlayReason = EndPlayReason;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListView.RemoveItem
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          Item                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UListView::RemoveItem(class UObject* Item)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "RemoveItem");
+
+	Params::ListView_RemoveItem Parms{};
+
+	Parms.Item = Item;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListView.ScrollIndexIntoView
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UListView::ScrollIndexIntoView(int32 Index_0)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "ScrollIndexIntoView");
+
+	Params::ListView_ScrollIndexIntoView Parms{};
+
+	Parms.Index_0 = Index_0;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListView.SetSelectedIndex
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UListView::SetSelectedIndex(int32 Index_0)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "SetSelectedIndex");
+
+	Params::ListView_SetSelectedIndex Parms{};
+
+	Parms.Index_0 = Index_0;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListView.SetSelectionMode
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// ESelectionMode                          SelectionMode_0                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UListView::SetSelectionMode(ESelectionMode SelectionMode_0)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "SetSelectionMode");
+
+	Params::ListView_SetSelectionMode Parms{};
+
+	Parms.SelectionMode_0 = SelectionMode_0;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ListView.BP_GetNumItemsSelected
+// (Final, Native, Private, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+int32 UListView::BP_GetNumItemsSelected() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "BP_GetNumItemsSelected");
+
+	Params::ListView_BP_GetNumItemsSelected Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ListView.BP_GetSelectedItem
+// (Final, Native, Private, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class UObject*                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UObject* UListView::BP_GetSelectedItem() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "BP_GetSelectedItem");
+
+	Params::ListView_BP_GetSelectedItem Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ListView.BP_GetSelectedItems
+// (Final, Native, Private, HasOutParams, BlueprintCallable, Const)
+// Parameters:
+// TArray<class UObject*>*                 Items                                                  (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UListView::BP_GetSelectedItems(TArray<class UObject*>* Items) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "BP_GetSelectedItems");
+
+	Params::ListView_BP_GetSelectedItems Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (Items != nullptr)
+		*Items = std::move(Parms.Items);
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ListView.BP_IsItemVisible
+// (Final, Native, Private, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class UObject*                          Item                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UListView::BP_IsItemVisible(class UObject* Item) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "BP_IsItemVisible");
+
+	Params::ListView_BP_IsItemVisible Parms{};
+
+	Parms.Item = Item;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ListView.GetIndexForItem
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// const class UObject*                    Item                                                   (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+int32 UListView::GetIndexForItem(const class UObject* Item) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "GetIndexForItem");
+
+	Params::ListView_GetIndexForItem Parms{};
+
+	Parms.Item = Item;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ListView.GetItemAt
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UObject*                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UObject* UListView::GetItemAt(int32 Index_0) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "GetItemAt");
+
+	Params::ListView_GetItemAt Parms{};
+
+	Parms.Index_0 = Index_0;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ListView.GetListItems
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// const TArray<class UObject*>            ReturnValue                                            (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
+
+const TArray<class UObject*> UListView::GetListItems() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "GetListItems");
+
+	Params::ListView_GetListItems Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ListView.GetNumItems
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+int32 UListView::GetNumItems() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "GetNumItems");
+
+	Params::ListView_GetNumItems Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ListView.IsRefreshPending
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UListView::IsRefreshPending() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ListView", "IsRefreshPending");
+
+	Params::ListView_IsRefreshPending Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.MultiLineEditableText.SetFont
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const struct FSlateFontInfo&            InFontInfo                                             (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UMultiLineEditableText::SetFont(const struct FSlateFontInfo& InFontInfo)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MultiLineEditableText", "SetFont");
+
+	Params::MultiLineEditableText_SetFont Parms{};
+
+	Parms.InFontInfo = std::move(InFontInfo);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.MultiLineEditableText.SetFontMaterial
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UMaterialInterface*               InMaterial                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UMultiLineEditableText::SetFontMaterial(class UMaterialInterface* InMaterial)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MultiLineEditableText", "SetFontMaterial");
+
+	Params::MultiLineEditableText_SetFontMaterial Parms{};
+
+	Parms.InMaterial = InMaterial;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.MultiLineEditableText.SetFontOutlineMaterial
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UMaterialInterface*               InMaterial                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UMultiLineEditableText::SetFontOutlineMaterial(class UMaterialInterface* InMaterial)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MultiLineEditableText", "SetFontOutlineMaterial");
+
+	Params::MultiLineEditableText_SetFontOutlineMaterial Parms{};
+
+	Parms.InMaterial = InMaterial;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.MultiLineEditableText.SetHintText
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const class FText&                      InHintText                                             (Parm, NativeAccessSpecifierPublic)
+
+void UMultiLineEditableText::SetHintText(const class FText& InHintText)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MultiLineEditableText", "SetHintText");
+
+	Params::MultiLineEditableText_SetHintText Parms{};
+
+	Parms.InHintText = std::move(InHintText);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.MultiLineEditableText.SetIsReadOnly
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    bReadOnly                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UMultiLineEditableText::SetIsReadOnly(bool bReadOnly)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MultiLineEditableText", "SetIsReadOnly");
+
+	Params::MultiLineEditableText_SetIsReadOnly Parms{};
+
+	Parms.bReadOnly = bReadOnly;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.MultiLineEditableText.SetText
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const class FText&                      InText                                                 (Parm, NativeAccessSpecifierPublic)
+
+void UMultiLineEditableText::SetText(const class FText& InText)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MultiLineEditableText", "SetText");
+
+	Params::MultiLineEditableText_SetText Parms{};
+
+	Parms.InText = std::move(InText);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.MultiLineEditableText.SetWidgetStyle
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const struct FTextBlockStyle&           InWidgetStyle                                          (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void UMultiLineEditableText::SetWidgetStyle(const struct FTextBlockStyle& InWidgetStyle)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MultiLineEditableText", "SetWidgetStyle");
+
+	Params::MultiLineEditableText_SetWidgetStyle Parms{};
+
+	Parms.InWidgetStyle = std::move(InWidgetStyle);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.MultiLineEditableText.GetFont
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// const struct FSlateFontInfo             ReturnValue                                            (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+const struct FSlateFontInfo UMultiLineEditableText::GetFont() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MultiLineEditableText", "GetFont");
+
+	Params::MultiLineEditableText_GetFont Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.MultiLineEditableText.GetHintText
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+
+class FText UMultiLineEditableText::GetHintText() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MultiLineEditableText", "GetHintText");
+
+	Params::MultiLineEditableText_GetHintText Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.MultiLineEditableText.GetText
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+
+class FText UMultiLineEditableText::GetText() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MultiLineEditableText", "GetText");
+
+	Params::MultiLineEditableText_GetText Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.Button.MimickClicked
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    bFromGamepad                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UButton::MimickClicked(bool bFromGamepad)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Button", "MimickClicked");
+
+	Params::Button_MimickClicked Parms{};
+
+	Parms.bFromGamepad = bFromGamepad;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Button.SetBackgroundColor
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// const struct FLinearColor&              InBackgroundColor                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UButton::SetBackgroundColor(const struct FLinearColor& InBackgroundColor)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Button", "SetBackgroundColor");
+
+	Params::Button_SetBackgroundColor Parms{};
+
+	Parms.InBackgroundColor = std::move(InBackgroundColor);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Button.SetClickMethod
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// EButtonClickMethod                      InClickMethod                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UButton::SetClickMethod(EButtonClickMethod InClickMethod)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Button", "SetClickMethod");
+
+	Params::Button_SetClickMethod Parms{};
+
+	Parms.InClickMethod = InClickMethod;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Button.SetColorAndOpacity
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// const struct FLinearColor&              InColorAndOpacity                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UButton::SetColorAndOpacity(const struct FLinearColor& InColorAndOpacity)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Button", "SetColorAndOpacity");
+
+	Params::Button_SetColorAndOpacity Parms{};
+
+	Parms.InColorAndOpacity = std::move(InColorAndOpacity);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Button.SetPressMethod
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// EButtonPressMethod                      InPressMethod                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UButton::SetPressMethod(EButtonPressMethod InPressMethod)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Button", "SetPressMethod");
+
+	Params::Button_SetPressMethod Parms{};
+
+	Parms.InPressMethod = InPressMethod;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Button.SetStyle
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const struct FButtonStyle&              InStyle                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void UButton::SetStyle(const struct FButtonStyle& InStyle)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Button", "SetStyle");
+
+	Params::Button_SetStyle Parms{};
+
+	Parms.InStyle = std::move(InStyle);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Button.SetTouchMethod
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// EButtonTouchMethod                      InTouchMethod                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UButton::SetTouchMethod(EButtonTouchMethod InTouchMethod)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Button", "SetTouchMethod");
+
+	Params::Button_SetTouchMethod Parms{};
+
+	Parms.InTouchMethod = InTouchMethod;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Button.IsPressed
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UButton::IsPressed() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Button", "IsPressed");
+
+	Params::Button_IsPressed Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ScrollBox.EndInertialScrolling
+// (Final, Native, Public, BlueprintCallable)
+
+void UScrollBox::EndInertialScrolling()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "EndInertialScrolling");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ScrollBox.GetPhysicalScrollOffset
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float UScrollBox::GetPhysicalScrollOffset()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "GetPhysicalScrollOffset");
+
+	Params::ScrollBox_GetPhysicalScrollOffset Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ScrollBox.GetScrollContentSize
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+struct FVector2D UScrollBox::GetScrollContentSize()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "GetScrollContentSize");
+
+	Params::ScrollBox_GetScrollContentSize Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ScrollBox.GetScrollMax
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float UScrollBox::GetScrollMax()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "GetScrollMax");
+
+	Params::ScrollBox_GetScrollMax Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ScrollBox.ScrollToEnd
+// (Final, Native, Public, BlueprintCallable)
+
+void UScrollBox::ScrollToEnd()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "ScrollToEnd");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ScrollBox.ScrollToStart
+// (Final, Native, Public, BlueprintCallable)
+
+void UScrollBox::ScrollToStart()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "ScrollToStart");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ScrollBox.ScrollWidgetIntoView
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UWidget*                          WidgetToFind                                           (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    AnimateScroll                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EDescendantScrollDestination            ScrollDestination                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Padding                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UScrollBox::ScrollWidgetIntoView(class UWidget* WidgetToFind, bool AnimateScroll, EDescendantScrollDestination ScrollDestination, float Padding)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "ScrollWidgetIntoView");
+
+	Params::ScrollBox_ScrollWidgetIntoView Parms{};
+
+	Parms.WidgetToFind = WidgetToFind;
+	Parms.AnimateScroll = AnimateScroll;
+	Parms.ScrollDestination = ScrollDestination;
+	Parms.Padding = Padding;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ScrollBox.SetAllowOverscroll
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    NewAllowOverscroll                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UScrollBox::SetAllowOverscroll(bool NewAllowOverscroll)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "SetAllowOverscroll");
+
+	Params::ScrollBox_SetAllowOverscroll Parms{};
+
+	Parms.NewAllowOverscroll = NewAllowOverscroll;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ScrollBox.SetAlwaysShowScrollbar
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    NewAlwaysShowScrollbar                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UScrollBox::SetAlwaysShowScrollbar(bool NewAlwaysShowScrollbar)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "SetAlwaysShowScrollbar");
+
+	Params::ScrollBox_SetAlwaysShowScrollbar Parms{};
+
+	Parms.NewAlwaysShowScrollbar = NewAlwaysShowScrollbar;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ScrollBox.SetAnimateWheelScrolling
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    bShouldAnimateWheelScrolling                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UScrollBox::SetAnimateWheelScrolling(bool bShouldAnimateWheelScrolling)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "SetAnimateWheelScrolling");
+
+	Params::ScrollBox_SetAnimateWheelScrolling Parms{};
+
+	Parms.bShouldAnimateWheelScrolling = bShouldAnimateWheelScrolling;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ScrollBox.SetConsumeMouseWheel
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// EConsumeMouseWheel                      NewConsumeMouseWheel                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UScrollBox::SetConsumeMouseWheel(EConsumeMouseWheel NewConsumeMouseWheel)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "SetConsumeMouseWheel");
+
+	Params::ScrollBox_SetConsumeMouseWheel Parms{};
+
+	Parms.NewConsumeMouseWheel = NewConsumeMouseWheel;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ScrollBox.SetNavigationDestination
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const EDescendantScrollDestination      NewNavigationDestination                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UScrollBox::SetNavigationDestination(const EDescendantScrollDestination NewNavigationDestination)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "SetNavigationDestination");
+
+	Params::ScrollBox_SetNavigationDestination Parms{};
+
+	Parms.NewNavigationDestination = NewNavigationDestination;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ScrollBox.SetOrientation
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// EOrientation                            NewOrientation                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UScrollBox::SetOrientation(EOrientation NewOrientation)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "SetOrientation");
+
+	Params::ScrollBox_SetOrientation Parms{};
+
+	Parms.NewOrientation = NewOrientation;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ScrollBox.SetScrollbarPadding
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const struct FMargin&                   NewScrollbarPadding                                    (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+
+void UScrollBox::SetScrollbarPadding(const struct FMargin& NewScrollbarPadding)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "SetScrollbarPadding");
+
+	Params::ScrollBox_SetScrollbarPadding Parms{};
+
+	Parms.NewScrollbarPadding = std::move(NewScrollbarPadding);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ScrollBox.SetScrollbarThickness
+// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// Parameters:
+// const struct FVector2D&                 NewScrollbarThickness                                  (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UScrollBox::SetScrollbarThickness(const struct FVector2D& NewScrollbarThickness)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "SetScrollbarThickness");
+
+	Params::ScrollBox_SetScrollbarThickness Parms{};
+
+	Parms.NewScrollbarThickness = std::move(NewScrollbarThickness);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ScrollBox.SetScrollBarVisibility
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// ESlateVisibility                        NewScrollBarVisibility                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UScrollBox::SetScrollBarVisibility(ESlateVisibility NewScrollBarVisibility)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "SetScrollBarVisibility");
+
+	Params::ScrollBox_SetScrollBarVisibility Parms{};
+
+	Parms.NewScrollBarVisibility = NewScrollBarVisibility;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ScrollBox.SetScrollOffset
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   NewScrollOffset                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UScrollBox::SetScrollOffset(float NewScrollOffset)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "SetScrollOffset");
+
+	Params::ScrollBox_SetScrollOffset Parms{};
+
+	Parms.NewScrollOffset = NewScrollOffset;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ScrollBox.SetScrollWhenFocusChanges
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// EScrollWhenFocusChanges                 NewScrollWhenFocusChanges                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UScrollBox::SetScrollWhenFocusChanges(EScrollWhenFocusChanges NewScrollWhenFocusChanges)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "SetScrollWhenFocusChanges");
+
+	Params::ScrollBox_SetScrollWhenFocusChanges Parms{};
+
+	Parms.NewScrollWhenFocusChanges = NewScrollWhenFocusChanges;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ScrollBox.SetWheelScrollMultiplier
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   NewWheelScrollMultiplier                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UScrollBox::SetWheelScrollMultiplier(float NewWheelScrollMultiplier)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "SetWheelScrollMultiplier");
+
+	Params::ScrollBox_SetWheelScrollMultiplier Parms{};
+
+	Parms.NewWheelScrollMultiplier = NewWheelScrollMultiplier;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ScrollBox.GetScrollOffset
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float UScrollBox::GetScrollOffset() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "GetScrollOffset");
+
+	Params::ScrollBox_GetScrollOffset Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ScrollBox.GetScrollOffsetOfEnd
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float UScrollBox::GetScrollOffsetOfEnd() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "GetScrollOffsetOfEnd");
+
+	Params::ScrollBox_GetScrollOffsetOfEnd Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ScrollBox.GetViewFraction
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float UScrollBox::GetViewFraction() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "GetViewFraction");
+
+	Params::ScrollBox_GetViewFraction Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ScrollBox.GetViewOffsetFraction
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float UScrollBox::GetViewOffsetFraction() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ScrollBox", "GetViewOffsetFraction");
+
+	Params::ScrollBox_GetViewOffsetFraction Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.Border.GetDynamicMaterial
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UMaterialInstanceDynamic*         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UMaterialInstanceDynamic* UBorder::GetDynamicMaterial()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Border", "GetDynamicMaterial");
+
+	Params::Border_GetDynamicMaterial Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.Border.SetBrush
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const struct FSlateBrush&               InBrush                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void UBorder::SetBrush(const struct FSlateBrush& InBrush)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Border", "SetBrush");
+
+	Params::Border_SetBrush Parms{};
+
+	Parms.InBrush = std::move(InBrush);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Border.SetBrushColor
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// const struct FLinearColor&              InBrushColor                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UBorder::SetBrushColor(const struct FLinearColor& InBrushColor)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Border", "SetBrushColor");
+
+	Params::Border_SetBrushColor Parms{};
+
+	Parms.InBrushColor = std::move(InBrushColor);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Border.SetBrushFromAsset
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class USlateBrushAsset*                 Asset                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UBorder::SetBrushFromAsset(class USlateBrushAsset* Asset)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Border", "SetBrushFromAsset");
+
+	Params::Border_SetBrushFromAsset Parms{};
+
+	Parms.Asset = Asset;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Border.SetBrushFromMaterial
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UMaterialInterface*               Material                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UBorder::SetBrushFromMaterial(class UMaterialInterface* Material)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Border", "SetBrushFromMaterial");
+
+	Params::Border_SetBrushFromMaterial Parms{};
+
+	Parms.Material = Material;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Border.SetBrushFromTexture
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UTexture2D*                       Texture                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UBorder::SetBrushFromTexture(class UTexture2D* Texture)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Border", "SetBrushFromTexture");
+
+	Params::Border_SetBrushFromTexture Parms{};
+
+	Parms.Texture = Texture;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Border.SetContentColorAndOpacity
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// const struct FLinearColor&              InContentColorAndOpacity                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UBorder::SetContentColorAndOpacity(const struct FLinearColor& InContentColorAndOpacity)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Border", "SetContentColorAndOpacity");
+
+	Params::Border_SetContentColorAndOpacity Parms{};
+
+	Parms.InContentColorAndOpacity = std::move(InContentColorAndOpacity);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Border.SetDesiredSizeScale
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// const struct FVector2D&                 InScale                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UBorder::SetDesiredSizeScale(const struct FVector2D& InScale)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Border", "SetDesiredSizeScale");
+
+	Params::Border_SetDesiredSizeScale Parms{};
+
+	Parms.InScale = std::move(InScale);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Border.SetHorizontalAlignment
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UBorder::SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignment)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Border", "SetHorizontalAlignment");
+
+	Params::Border_SetHorizontalAlignment Parms{};
+
+	Parms.InHorizontalAlignment = InHorizontalAlignment;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Border.SetPadding
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+
+void UBorder::SetPadding(const struct FMargin& InPadding)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Border", "SetPadding");
+
+	Params::Border_SetPadding Parms{};
+
+	Parms.InPadding = std::move(InPadding);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Border.SetShowEffectWhenDisabled
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    bInShowEffectWhenDisabled                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UBorder::SetShowEffectWhenDisabled(bool bInShowEffectWhenDisabled)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Border", "SetShowEffectWhenDisabled");
+
+	Params::Border_SetShowEffectWhenDisabled Parms{};
+
+	Parms.bInShowEffectWhenDisabled = bInShowEffectWhenDisabled;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.Border.SetVerticalAlignment
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UBorder::SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("Border", "SetVerticalAlignment");
+
+	Params::Border_SetVerticalAlignment Parms{};
+
+	Parms.InVerticalAlignment = InVerticalAlignment;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
 }
 
 
@@ -7979,7 +8187,7 @@ class UWidgetAnimationPlayCallbackProxy* UWidgetAnimationPlayCallbackProxy::Crea
 
 
 // Function UMG.BoolBinding.GetValue
-// (Final, RequiredAPI, Native, Public, Const)
+// (Final, Native, Public, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -8003,33 +8211,8 @@ bool UBoolBinding::GetValue() const
 }
 
 
-// Function UMG.WidgetBinding.GetValue
-// (Final, RequiredAPI, Native, Public, Const)
-// Parameters:
-// class UWidget*                          ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UWidget* UWidgetBinding::GetValue() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("WidgetBinding", "GetValue");
-
-	Params::WidgetBinding_GetValue Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function UMG.BrushBinding.GetValue
-// (Final, RequiredAPI, Native, Public, Const)
+// (Final, Native, Public, Const)
 // Parameters:
 // struct FSlateBrush                      ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
@@ -8054,7 +8237,7 @@ struct FSlateBrush UBrushBinding::GetValue() const
 
 
 // Function UMG.CheckedStateBinding.GetValue
-// (Final, RequiredAPI, Native, Public, Const)
+// (Final, Native, Public, Const)
 // Parameters:
 // ECheckBoxState                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -8079,7 +8262,7 @@ ECheckBoxState UCheckedStateBinding::GetValue() const
 
 
 // Function UMG.ColorBinding.GetLinearValue
-// (Final, RequiredAPI, Native, Public, HasDefaults, Const)
+// (Final, Native, Public, HasDefaults, Const)
 // Parameters:
 // struct FLinearColor                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -8104,7 +8287,7 @@ struct FLinearColor UColorBinding::GetLinearValue() const
 
 
 // Function UMG.ColorBinding.GetSlateValue
-// (Final, RequiredAPI, Native, Public, Const)
+// (Final, Native, Public, Const)
 // Parameters:
 // struct FSlateColor                      ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
@@ -8129,7 +8312,7 @@ struct FSlateColor UColorBinding::GetSlateValue() const
 
 
 // Function UMG.FloatBinding.GetValue
-// (Final, RequiredAPI, Native, Public, Const)
+// (Final, Native, Public, Const)
 // Parameters:
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -8154,7 +8337,7 @@ float UFloatBinding::GetValue() const
 
 
 // Function UMG.Int32Binding.GetValue
-// (Final, RequiredAPI, Native, Public, Const)
+// (Final, Native, Public, Const)
 // Parameters:
 // int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -8179,7 +8362,7 @@ int32 UInt32Binding::GetValue() const
 
 
 // Function UMG.MouseCursorBinding.GetValue
-// (Final, RequiredAPI, Native, Public, Const)
+// (Final, Native, Public, Const)
 // Parameters:
 // EMouseCursor                            ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -8204,7 +8387,7 @@ EMouseCursor UMouseCursorBinding::GetValue() const
 
 
 // Function UMG.TextBinding.GetStringValue
-// (Final, RequiredAPI, Native, Public, Const)
+// (Final, Native, Public, Const)
 // Parameters:
 // class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -8229,7 +8412,7 @@ class FString UTextBinding::GetStringValue() const
 
 
 // Function UMG.TextBinding.GetTextValue
-// (Final, RequiredAPI, Native, Public, Const)
+// (Final, Native, Public, Const)
 // Parameters:
 // class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
@@ -8254,7 +8437,7 @@ class FText UTextBinding::GetTextValue() const
 
 
 // Function UMG.VisibilityBinding.GetValue
-// (Final, RequiredAPI, Native, Public, Const)
+// (Final, Native, Public, Const)
 // Parameters:
 // ESlateVisibility                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -8278,8 +8461,155 @@ ESlateVisibility UVisibilityBinding::GetValue() const
 }
 
 
+// Function UMG.WidgetBinding.GetValue
+// (Final, Native, Public, Const)
+// Parameters:
+// class UWidget*                          ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UWidget* UWidgetBinding::GetValue() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WidgetBinding", "GetValue");
+
+	Params::WidgetBinding_GetValue Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.AsyncTaskDownloadBinkMovieCached.DownloadVideo
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// const class FString&                    URL                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UAsyncTaskDownloadBinkMovieCached*ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UAsyncTaskDownloadBinkMovieCached* UAsyncTaskDownloadBinkMovieCached::DownloadVideo(const class FString& URL)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("AsyncTaskDownloadBinkMovieCached", "DownloadVideo");
+
+	Params::AsyncTaskDownloadBinkMovieCached_DownloadVideo Parms{};
+
+	Parms.URL = std::move(URL);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.AsyncTaskDownloadBinkMovieCached.TickCacheBinkDownloads
+// (Final, Native, Static, Public, BlueprintCallable)
+
+void UAsyncTaskDownloadBinkMovieCached::TickCacheBinkDownloads()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("AsyncTaskDownloadBinkMovieCached", "TickCacheBinkDownloads");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.AsyncTaskDownloadBinkMovieCached.GetCachedFullFilename
+// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class FString UAsyncTaskDownloadBinkMovieCached::GetCachedFullFilename()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("AsyncTaskDownloadBinkMovieCached", "GetCachedFullFilename");
+
+	Params::AsyncTaskDownloadBinkMovieCached_GetCachedFullFilename Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.AsyncTaskDownloadBinkMovieCached.GetDownloadedSize
+// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// int64                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+int64 UAsyncTaskDownloadBinkMovieCached::GetDownloadedSize()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("AsyncTaskDownloadBinkMovieCached", "GetDownloadedSize");
+
+	Params::AsyncTaskDownloadBinkMovieCached_GetDownloadedSize Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.AsyncTaskDownloadBinkMovieCached.GetDownloadState
+// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// ECachedBinkDownloadState                ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+ECachedBinkDownloadState UAsyncTaskDownloadBinkMovieCached::GetDownloadState()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("AsyncTaskDownloadBinkMovieCached", "GetDownloadState");
+
+	Params::AsyncTaskDownloadBinkMovieCached_GetDownloadState Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function UMG.AsyncTaskDownloadImage.DownloadImage
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // const class FString&                    URL                                                    (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UAsyncTaskDownloadImage*          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -8307,7 +8637,7 @@ class UAsyncTaskDownloadImage* UAsyncTaskDownloadImage::DownloadImage(const clas
 
 
 // Function UMG.GameViewportSubsystem.SetWidgetSlotDesiredSize
-// (Final, RequiredAPI, Native, Static, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FGameViewportWidgetSlot&   Slot                                                   (Parm, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 Size                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -8337,7 +8667,7 @@ struct FGameViewportWidgetSlot UGameViewportSubsystem::SetWidgetSlotDesiredSize(
 
 
 // Function UMG.GameViewportSubsystem.SetWidgetSlotPosition
-// (Final, RequiredAPI, Native, Static, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FGameViewportWidgetSlot&   Slot                                                   (Parm, NoDestructor, NativeAccessSpecifierPublic)
 // const class UWidget*                    Widget                                                 (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -8371,13 +8701,12 @@ struct FGameViewportWidgetSlot UGameViewportSubsystem::SetWidgetSlotPosition(con
 
 
 // Function UMG.GameViewportSubsystem.AddWidget
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FGameViewportWidgetSlot&   Slot                                                   (Parm, NoDestructor, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UGameViewportSubsystem::AddWidget(class UWidget* Widget, const struct FGameViewportWidgetSlot& Slot)
+void UGameViewportSubsystem::AddWidget(class UWidget* Widget, const struct FGameViewportWidgetSlot& Slot)
 {
 	static class UFunction* Func = nullptr;
 
@@ -8395,20 +8724,17 @@ bool UGameViewportSubsystem::AddWidget(class UWidget* Widget, const struct FGame
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
 // Function UMG.GameViewportSubsystem.AddWidgetForPlayer
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class ULocalPlayer*                     Player                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FGameViewportWidgetSlot&   Slot                                                   (Parm, NoDestructor, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UGameViewportSubsystem::AddWidgetForPlayer(class UWidget* Widget, class ULocalPlayer* Player, const struct FGameViewportWidgetSlot& Slot)
+void UGameViewportSubsystem::AddWidgetForPlayer(class UWidget* Widget, class ULocalPlayer* Player, const struct FGameViewportWidgetSlot& Slot)
 {
 	static class UFunction* Func = nullptr;
 
@@ -8427,13 +8753,11 @@ bool UGameViewportSubsystem::AddWidgetForPlayer(class UWidget* Widget, class ULo
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 
 // Function UMG.GameViewportSubsystem.RemoveWidget
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -8458,7 +8782,7 @@ void UGameViewportSubsystem::RemoveWidget(class UWidget* Widget)
 
 
 // Function UMG.GameViewportSubsystem.SetWidgetSlot
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable)
 // Parameters:
 // class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FGameViewportWidgetSlot&   Slot                                                   (Parm, NoDestructor, NativeAccessSpecifierPublic)
@@ -8485,7 +8809,7 @@ void UGameViewportSubsystem::SetWidgetSlot(class UWidget* Widget, const struct F
 
 
 // Function UMG.GameViewportSubsystem.GetWidgetSlot
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // const class UWidget*                    Widget                                                 (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FGameViewportWidgetSlot          ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
@@ -8513,7 +8837,7 @@ struct FGameViewportWidgetSlot UGameViewportSubsystem::GetWidgetSlot(const class
 
 
 // Function UMG.GameViewportSubsystem.IsWidgetAdded
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, BlueprintCosmetic, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // const class UWidget*                    Widget                                                 (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -8541,7 +8865,7 @@ bool UGameViewportSubsystem::IsWidgetAdded(const class UWidget* Widget) const
 
 
 // Function UMG.UserListEntry.BP_OnEntryReleased
-// (RequiredAPI, Event, Protected, BlueprintEvent)
+// (Event, Protected, BlueprintEvent)
 
 void IUserListEntry::BP_OnEntryReleased()
 {
@@ -8555,7 +8879,7 @@ void IUserListEntry::BP_OnEntryReleased()
 
 
 // Function UMG.UserListEntry.BP_OnItemExpansionChanged
-// (RequiredAPI, Event, Protected, BlueprintEvent)
+// (Event, Protected, BlueprintEvent)
 // Parameters:
 // bool                                    bIsExpanded                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -8575,7 +8899,7 @@ void IUserListEntry::BP_OnItemExpansionChanged(bool bIsExpanded)
 
 
 // Function UMG.UserListEntry.BP_OnItemSelectionChanged
-// (RequiredAPI, Event, Protected, BlueprintEvent)
+// (Event, Protected, BlueprintEvent)
 // Parameters:
 // bool                                    bIsSelected                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -8594,92 +8918,8 @@ void IUserListEntry::BP_OnItemSelectionChanged(bool bIsSelected)
 }
 
 
-// Function UMG.UserListEntryLibrary.GetOwningListView
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// TScriptInterface<class IUserListEntry>  UserListEntry                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UListViewBase*                    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UListViewBase* UUserListEntryLibrary::GetOwningListView(TScriptInterface<class IUserListEntry> UserListEntry)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("UserListEntryLibrary", "GetOwningListView");
-
-	Params::UserListEntryLibrary_GetOwningListView Parms{};
-
-	Parms.UserListEntry = UserListEntry;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.UserListEntryLibrary.IsListItemExpanded
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// TScriptInterface<class IUserListEntry>  UserListEntry                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UUserListEntryLibrary::IsListItemExpanded(TScriptInterface<class IUserListEntry> UserListEntry)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("UserListEntryLibrary", "IsListItemExpanded");
-
-	Params::UserListEntryLibrary_IsListItemExpanded Parms{};
-
-	Parms.UserListEntry = UserListEntry;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.UserListEntryLibrary.IsListItemSelected
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// TScriptInterface<class IUserListEntry>  UserListEntry                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UUserListEntryLibrary::IsListItemSelected(TScriptInterface<class IUserListEntry> UserListEntry)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("UserListEntryLibrary", "IsListItemSelected");
-
-	Params::UserListEntryLibrary_IsListItemSelected Parms{};
-
-	Parms.UserListEntry = UserListEntry;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function UMG.UserObjectListEntry.OnListItemObjectSet
-// (RequiredAPI, Event, Protected, BlueprintEvent)
+// (Event, Protected, BlueprintEvent)
 // Parameters:
 // class UObject*                          ListItemObject                                         (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -8699,7 +8939,7 @@ void IUserObjectListEntry::OnListItemObjectSet(class UObject* ListItemObject)
 
 
 // Function UMG.UserObjectListEntryLibrary.GetListItemObject
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // TScriptInterface<class IUserObjectListEntry>UserObjectListEntry                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UObject*                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -8726,208 +8966,8 @@ class UObject* UUserObjectListEntryLibrary::GetListItemObject(TScriptInterface<c
 }
 
 
-// Function UMG.BackgroundBlur.SetApplyAlphaToBlur
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bInApplyAlphaToBlur                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UBackgroundBlur::SetApplyAlphaToBlur(bool bInApplyAlphaToBlur)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BackgroundBlur", "SetApplyAlphaToBlur");
-
-	Params::BackgroundBlur_SetApplyAlphaToBlur Parms{};
-
-	Parms.bInApplyAlphaToBlur = bInApplyAlphaToBlur;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.BackgroundBlur.SetBlurRadius
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// int32                                   InBlurRadius                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UBackgroundBlur::SetBlurRadius(int32 InBlurRadius)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BackgroundBlur", "SetBlurRadius");
-
-	Params::BackgroundBlur_SetBlurRadius Parms{};
-
-	Parms.InBlurRadius = InBlurRadius;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.BackgroundBlur.SetBlurStrength
-// (RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   InStrength                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UBackgroundBlur::SetBlurStrength(float InStrength)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BackgroundBlur", "SetBlurStrength");
-
-	Params::BackgroundBlur_SetBlurStrength Parms{};
-
-	Parms.InStrength = InStrength;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.BackgroundBlur.SetCornerRadius
-// (RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// const struct FVector4&                  InCornerRadius                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UBackgroundBlur::SetCornerRadius(const struct FVector4& InCornerRadius)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BackgroundBlur", "SetCornerRadius");
-
-	Params::BackgroundBlur_SetCornerRadius Parms{};
-
-	Parms.InCornerRadius = std::move(InCornerRadius);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.BackgroundBlur.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UBackgroundBlur::SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignment)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BackgroundBlur", "SetHorizontalAlignment");
-
-	Params::BackgroundBlur_SetHorizontalAlignment Parms{};
-
-	Parms.InHorizontalAlignment = InHorizontalAlignment;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.BackgroundBlur.SetLowQualityFallbackBrush
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const struct FSlateBrush&               InBrush                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void UBackgroundBlur::SetLowQualityFallbackBrush(const struct FSlateBrush& InBrush)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BackgroundBlur", "SetLowQualityFallbackBrush");
-
-	Params::BackgroundBlur_SetLowQualityFallbackBrush Parms{};
-
-	Parms.InBrush = std::move(InBrush);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.BackgroundBlur.SetPadding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-
-void UBackgroundBlur::SetPadding(const struct FMargin& InPadding)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BackgroundBlur", "SetPadding");
-
-	Params::BackgroundBlur_SetPadding Parms{};
-
-	Parms.InPadding = std::move(InPadding);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.BackgroundBlur.SetVerticalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UBackgroundBlur::SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BackgroundBlur", "SetVerticalAlignment");
-
-	Params::BackgroundBlur_SetVerticalAlignment Parms{};
-
-	Parms.InVerticalAlignment = InVerticalAlignment;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function UMG.BackgroundBlurSlot.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -8952,7 +8992,7 @@ void UBackgroundBlurSlot::SetHorizontalAlignment(EHorizontalAlignment InHorizont
 
 
 // Function UMG.BackgroundBlurSlot.SetPadding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -8977,7 +9017,7 @@ void UBackgroundBlurSlot::SetPadding(const struct FMargin& InPadding)
 
 
 // Function UMG.BackgroundBlurSlot.SetVerticalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9001,308 +9041,8 @@ void UBackgroundBlurSlot::SetVerticalAlignment(EVerticalAlignment InVerticalAlig
 }
 
 
-// Function UMG.Border.GetDynamicMaterial
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UMaterialInstanceDynamic*         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UMaterialInstanceDynamic* UBorder::GetDynamicMaterial()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Border", "GetDynamicMaterial");
-
-	Params::Border_GetDynamicMaterial Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.Border.SetBrush
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const struct FSlateBrush&               InBrush                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void UBorder::SetBrush(const struct FSlateBrush& InBrush)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Border", "SetBrush");
-
-	Params::Border_SetBrush Parms{};
-
-	Parms.InBrush = std::move(InBrush);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Border.SetBrushColor
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// const struct FLinearColor&              InBrushColor                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UBorder::SetBrushColor(const struct FLinearColor& InBrushColor)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Border", "SetBrushColor");
-
-	Params::Border_SetBrushColor Parms{};
-
-	Parms.InBrushColor = std::move(InBrushColor);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Border.SetBrushFromAsset
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class USlateBrushAsset*                 Asset                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UBorder::SetBrushFromAsset(class USlateBrushAsset* Asset)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Border", "SetBrushFromAsset");
-
-	Params::Border_SetBrushFromAsset Parms{};
-
-	Parms.Asset = Asset;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Border.SetBrushFromMaterial
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UMaterialInterface*               Material                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UBorder::SetBrushFromMaterial(class UMaterialInterface* Material)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Border", "SetBrushFromMaterial");
-
-	Params::Border_SetBrushFromMaterial Parms{};
-
-	Parms.Material = Material;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Border.SetBrushFromTexture
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UTexture2D*                       Texture                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UBorder::SetBrushFromTexture(class UTexture2D* Texture)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Border", "SetBrushFromTexture");
-
-	Params::Border_SetBrushFromTexture Parms{};
-
-	Parms.Texture = Texture;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Border.SetContentColorAndOpacity
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// const struct FLinearColor&              InContentColorAndOpacity                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UBorder::SetContentColorAndOpacity(const struct FLinearColor& InContentColorAndOpacity)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Border", "SetContentColorAndOpacity");
-
-	Params::Border_SetContentColorAndOpacity Parms{};
-
-	Parms.InContentColorAndOpacity = std::move(InContentColorAndOpacity);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Border.SetDesiredSizeScale
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// const struct FVector2D&                 InScale                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UBorder::SetDesiredSizeScale(const struct FVector2D& InScale)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Border", "SetDesiredSizeScale");
-
-	Params::Border_SetDesiredSizeScale Parms{};
-
-	Parms.InScale = std::move(InScale);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Border.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UBorder::SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignment)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Border", "SetHorizontalAlignment");
-
-	Params::Border_SetHorizontalAlignment Parms{};
-
-	Parms.InHorizontalAlignment = InHorizontalAlignment;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Border.SetPadding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-
-void UBorder::SetPadding(const struct FMargin& InPadding)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Border", "SetPadding");
-
-	Params::Border_SetPadding Parms{};
-
-	Parms.InPadding = std::move(InPadding);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Border.SetShowEffectWhenDisabled
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bInShowEffectWhenDisabled                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UBorder::SetShowEffectWhenDisabled(bool bInShowEffectWhenDisabled)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Border", "SetShowEffectWhenDisabled");
-
-	Params::Border_SetShowEffectWhenDisabled Parms{};
-
-	Parms.bInShowEffectWhenDisabled = bInShowEffectWhenDisabled;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Border.SetVerticalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UBorder::SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Border", "SetVerticalAlignment");
-
-	Params::Border_SetVerticalAlignment Parms{};
-
-	Parms.InVerticalAlignment = InVerticalAlignment;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function UMG.BorderSlot.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9327,7 +9067,7 @@ void UBorderSlot::SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignm
 
 
 // Function UMG.BorderSlot.SetPadding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -9352,7 +9092,7 @@ void UBorderSlot::SetPadding(const struct FMargin& InPadding)
 
 
 // Function UMG.BorderSlot.SetVerticalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9377,7 +9117,7 @@ void UBorderSlot::SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
 
 
 // Function UMG.ButtonSlot.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9402,7 +9142,7 @@ void UButtonSlot::SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignm
 
 
 // Function UMG.ButtonSlot.SetPadding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -9427,7 +9167,7 @@ void UButtonSlot::SetPadding(const struct FMargin& InPadding)
 
 
 // Function UMG.ButtonSlot.SetVerticalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9452,7 +9192,7 @@ void UButtonSlot::SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
 
 
 // Function UMG.CanvasPanelSlot.SetAlignment
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector2D&                 InAlignment                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9477,7 +9217,7 @@ void UCanvasPanelSlot::SetAlignment(const struct FVector2D& InAlignment)
 
 
 // Function UMG.CanvasPanelSlot.SetAnchors
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FAnchors&                  InAnchors                                              (Parm, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -9502,7 +9242,7 @@ void UCanvasPanelSlot::SetAnchors(const struct FAnchors& InAnchors)
 
 
 // Function UMG.CanvasPanelSlot.SetAutoSize
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    InbAutoSize                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9527,7 +9267,7 @@ void UCanvasPanelSlot::SetAutoSize(bool InbAutoSize)
 
 
 // Function UMG.CanvasPanelSlot.SetLayout
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // const struct FAnchorData&               InLayoutData                                           (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -9552,7 +9292,7 @@ void UCanvasPanelSlot::SetLayout(const struct FAnchorData& InLayoutData)
 
 
 // Function UMG.CanvasPanelSlot.SetMaximum
-// (Final, RequiredAPI, Native, Public, HasDefaults)
+// (Final, Native, Public, HasDefaults)
 // Parameters:
 // const struct FVector2D&                 InMaximumAnchors                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9577,7 +9317,7 @@ void UCanvasPanelSlot::SetMaximum(const struct FVector2D& InMaximumAnchors)
 
 
 // Function UMG.CanvasPanelSlot.SetMinimum
-// (Final, RequiredAPI, Native, Public, HasDefaults)
+// (Final, Native, Public, HasDefaults)
 // Parameters:
 // const struct FVector2D&                 InMinimumAnchors                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9602,7 +9342,7 @@ void UCanvasPanelSlot::SetMinimum(const struct FVector2D& InMinimumAnchors)
 
 
 // Function UMG.CanvasPanelSlot.SetOffsets
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMargin&                   InOffset                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -9627,7 +9367,7 @@ void UCanvasPanelSlot::SetOffsets(const struct FMargin& InOffset)
 
 
 // Function UMG.CanvasPanelSlot.SetPosition
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector2D&                 InPosition                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9652,7 +9392,7 @@ void UCanvasPanelSlot::SetPosition(const struct FVector2D& InPosition)
 
 
 // Function UMG.CanvasPanelSlot.SetSize
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector2D&                 InSize                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9677,7 +9417,7 @@ void UCanvasPanelSlot::SetSize(const struct FVector2D& InSize)
 
 
 // Function UMG.CanvasPanelSlot.SetZOrder
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   InZOrder                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9702,7 +9442,7 @@ void UCanvasPanelSlot::SetZOrder(int32 InZOrder)
 
 
 // Function UMG.CanvasPanelSlot.GetAlignment
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9727,7 +9467,7 @@ struct FVector2D UCanvasPanelSlot::GetAlignment() const
 
 
 // Function UMG.CanvasPanelSlot.GetAnchors
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // struct FAnchors                         ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -9752,7 +9492,7 @@ struct FAnchors UCanvasPanelSlot::GetAnchors() const
 
 
 // Function UMG.CanvasPanelSlot.GetAutoSize
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9777,7 +9517,7 @@ bool UCanvasPanelSlot::GetAutoSize() const
 
 
 // Function UMG.CanvasPanelSlot.GetLayout
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // struct FAnchorData                      ReturnValue                                            (Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -9802,7 +9542,7 @@ struct FAnchorData UCanvasPanelSlot::GetLayout() const
 
 
 // Function UMG.CanvasPanelSlot.GetOffsets
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // struct FMargin                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -9827,7 +9567,7 @@ struct FMargin UCanvasPanelSlot::GetOffsets() const
 
 
 // Function UMG.CanvasPanelSlot.GetPosition
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9852,7 +9592,7 @@ struct FVector2D UCanvasPanelSlot::GetPosition() const
 
 
 // Function UMG.CanvasPanelSlot.GetSize
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9877,7 +9617,7 @@ struct FVector2D UCanvasPanelSlot::GetSize() const
 
 
 // Function UMG.CanvasPanelSlot.GetZOrder
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9901,8 +9641,208 @@ int32 UCanvasPanelSlot::GetZOrder() const
 }
 
 
+// Function UMG.CheckBox.SetCheckedState
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// ECheckBoxState                          InCheckedState                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCheckBox::SetCheckedState(ECheckBoxState InCheckedState)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CheckBox", "SetCheckedState");
+
+	Params::CheckBox_SetCheckedState Parms{};
+
+	Parms.InCheckedState = InCheckedState;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.CheckBox.SetClickMethod
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// EButtonClickMethod                      InClickMethod                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCheckBox::SetClickMethod(EButtonClickMethod InClickMethod)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CheckBox", "SetClickMethod");
+
+	Params::CheckBox_SetClickMethod Parms{};
+
+	Parms.InClickMethod = InClickMethod;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.CheckBox.SetIsChecked
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    InIsChecked                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCheckBox::SetIsChecked(bool InIsChecked)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CheckBox", "SetIsChecked");
+
+	Params::CheckBox_SetIsChecked Parms{};
+
+	Parms.InIsChecked = InIsChecked;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.CheckBox.SetPressMethod
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// EButtonPressMethod                      InPressMethod                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCheckBox::SetPressMethod(EButtonPressMethod InPressMethod)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CheckBox", "SetPressMethod");
+
+	Params::CheckBox_SetPressMethod Parms{};
+
+	Parms.InPressMethod = InPressMethod;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.CheckBox.SetTouchMethod
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// EButtonTouchMethod                      InTouchMethod                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCheckBox::SetTouchMethod(EButtonTouchMethod InTouchMethod)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CheckBox", "SetTouchMethod");
+
+	Params::CheckBox_SetTouchMethod Parms{};
+
+	Parms.InTouchMethod = InTouchMethod;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.CheckBox.GetCheckedState
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// ECheckBoxState                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+ECheckBoxState UCheckBox::GetCheckedState() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CheckBox", "GetCheckedState");
+
+	Params::CheckBox_GetCheckedState Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.CheckBox.IsChecked
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UCheckBox::IsChecked() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CheckBox", "IsChecked");
+
+	Params::CheckBox_IsChecked Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.CheckBox.IsPressed
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UCheckBox::IsPressed() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CheckBox", "IsPressed");
+
+	Params::CheckBox_IsPressed Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function UMG.CircularThrobber.SetNumberOfPieces
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   InNumberOfPieces                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9927,7 +9867,7 @@ void UCircularThrobber::SetNumberOfPieces(int32 InNumberOfPieces)
 
 
 // Function UMG.CircularThrobber.SetPeriod
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InPeriod                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9952,7 +9892,7 @@ void UCircularThrobber::SetPeriod(float InPeriod)
 
 
 // Function UMG.CircularThrobber.SetRadius
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InRadius                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -9976,8 +9916,174 @@ void UCircularThrobber::SetRadius(float InRadius)
 }
 
 
+// Function UMG.ComboBoxKey.AddOption
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class FName                             Option                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UComboBoxKey::AddOption(class FName Option)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ComboBoxKey", "AddOption");
+
+	Params::ComboBoxKey_AddOption Parms{};
+
+	Parms.Option = Option;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ComboBoxKey.ClearOptions
+// (Final, Native, Public, BlueprintCallable)
+
+void UComboBoxKey::ClearOptions()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ComboBoxKey", "ClearOptions");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ComboBoxKey.ClearSelection
+// (Final, Native, Public, BlueprintCallable)
+
+void UComboBoxKey::ClearSelection()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ComboBoxKey", "ClearSelection");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ComboBoxKey.RemoveOption
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class FName                             Option                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UComboBoxKey::RemoveOption(class FName Option)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ComboBoxKey", "RemoveOption");
+
+	Params::ComboBoxKey_RemoveOption Parms{};
+
+	Parms.Option = Option;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ComboBoxKey.SetSelectedOption
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class FName                             Option                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UComboBoxKey::SetSelectedOption(class FName Option)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ComboBoxKey", "SetSelectedOption");
+
+	Params::ComboBoxKey_SetSelectedOption Parms{};
+
+	Parms.Option = Option;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.ComboBoxKey.GetSelectedOption
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class FName                             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class FName UComboBoxKey::GetSelectedOption() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ComboBoxKey", "GetSelectedOption");
+
+	Params::ComboBoxKey_GetSelectedOption Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.ComboBoxKey.IsOpen
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UComboBoxKey::IsOpen() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ComboBoxKey", "IsOpen");
+
+	Params::ComboBoxKey_IsOpen Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function UMG.ComboBoxString.AddOption
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const class FString&                    Option                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -10002,7 +10108,7 @@ void UComboBoxString::AddOption(const class FString& Option)
 
 
 // Function UMG.ComboBoxString.ClearOptions
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UComboBoxString::ClearOptions()
 {
@@ -10021,7 +10127,7 @@ void UComboBoxString::ClearOptions()
 
 
 // Function UMG.ComboBoxString.ClearSelection
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UComboBoxString::ClearSelection()
 {
@@ -10040,7 +10146,7 @@ void UComboBoxString::ClearSelection()
 
 
 // Function UMG.ComboBoxString.RefreshOptions
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UComboBoxString::RefreshOptions()
 {
@@ -10059,7 +10165,7 @@ void UComboBoxString::RefreshOptions()
 
 
 // Function UMG.ComboBoxString.RemoveOption
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const class FString&                    Option                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -10087,7 +10193,7 @@ bool UComboBoxString::RemoveOption(const class FString& Option)
 
 
 // Function UMG.ComboBoxString.SetSelectedIndex
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const int32                             Index_0                                                (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // ESelectInfo                             SelectInfo                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -10114,7 +10220,7 @@ void UComboBoxString::SetSelectedIndex(const int32 Index_0, ESelectInfo SelectIn
 
 
 // Function UMG.ComboBoxString.SetSelectedOption
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const class FString&                    Option                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -10139,7 +10245,7 @@ void UComboBoxString::SetSelectedOption(const class FString& Option)
 
 
 // Function UMG.ComboBoxString.FindOptionIndex
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // const class FString&                    Option                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -10167,7 +10273,7 @@ int32 UComboBoxString::FindOptionIndex(const class FString& Option) const
 
 
 // Function UMG.ComboBoxString.GetOptionAtIndex
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -10195,7 +10301,7 @@ class FString UComboBoxString::GetOptionAtIndex(int32 Index_0) const
 
 
 // Function UMG.ComboBoxString.GetOptionCount
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -10220,7 +10326,7 @@ int32 UComboBoxString::GetOptionCount() const
 
 
 // Function UMG.ComboBoxString.GetSelectedIndex
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -10245,7 +10351,7 @@ int32 UComboBoxString::GetSelectedIndex() const
 
 
 // Function UMG.ComboBoxString.GetSelectedOption
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -10270,7 +10376,7 @@ class FString UComboBoxString::GetSelectedOption() const
 
 
 // Function UMG.ComboBoxString.IsOpen
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -10294,35 +10400,8 @@ bool UComboBoxString::IsOpen() const
 }
 
 
-// Function UMG.ComboBoxString.SetOptionAtIndex
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, Const)
-// Parameters:
-// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const class FString&                    Option                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UComboBoxString::SetOptionAtIndex(int32 Index_0, const class FString& Option) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ComboBoxString", "SetOptionAtIndex");
-
-	Params::ComboBoxString_SetOptionAtIndex Parms{};
-
-	Parms.Index_0 = Index_0;
-	Parms.Option = std::move(Option);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function UMG.DynamicEntryBoxBase.SetEntrySpacing
-// (Final, RequiredAPI, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector2D&                 InEntrySpacing                                         (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -10347,7 +10426,7 @@ void UDynamicEntryBoxBase::SetEntrySpacing(const struct FVector2D& InEntrySpacin
 
 
 // Function UMG.DynamicEntryBoxBase.SetRadialSettings
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // const struct FRadialBoxSettings&        InSettings                                             (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -10372,7 +10451,7 @@ void UDynamicEntryBoxBase::SetRadialSettings(const struct FRadialBoxSettings& In
 
 
 // Function UMG.DynamicEntryBoxBase.GetAllEntries
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // const TArray<class UUserWidget*>        ReturnValue                                            (ConstParm, ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
@@ -10397,7 +10476,7 @@ const TArray<class UUserWidget*> UDynamicEntryBoxBase::GetAllEntries() const
 
 
 // Function UMG.DynamicEntryBoxBase.GetNumEntries
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -10422,7 +10501,7 @@ int32 UDynamicEntryBoxBase::GetNumEntries() const
 
 
 // Function UMG.DynamicEntryBox.BP_CreateEntry
-// (Final, RequiredAPI, Native, Private, BlueprintCallable)
+// (Final, Native, Private, BlueprintCallable)
 // Parameters:
 // class UUserWidget*                      ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -10447,7 +10526,7 @@ class UUserWidget* UDynamicEntryBox::BP_CreateEntry()
 
 
 // Function UMG.DynamicEntryBox.BP_CreateEntryOfClass
-// (Final, RequiredAPI, Native, Private, BlueprintCallable)
+// (Final, Native, Private, BlueprintCallable)
 // Parameters:
 // TSubclassOf<class UUserWidget>          EntryClass                                             (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UUserWidget*                      ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -10475,7 +10554,7 @@ class UUserWidget* UDynamicEntryBox::BP_CreateEntryOfClass(TSubclassOf<class UUs
 
 
 // Function UMG.DynamicEntryBox.RemoveEntry
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UUserWidget*                      EntryWidget                                            (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -10500,7 +10579,7 @@ void UDynamicEntryBox::RemoveEntry(class UUserWidget* EntryWidget)
 
 
 // Function UMG.DynamicEntryBox.Reset
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bDeleteWidgets                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -10524,358 +10603,8 @@ void UDynamicEntryBox::Reset(bool bDeleteWidgets)
 }
 
 
-// Function UMG.EditableText.SetFont
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const struct FSlateFontInfo&            InFontInfo                                             (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UEditableText::SetFont(const struct FSlateFontInfo& InFontInfo)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EditableText", "SetFont");
-
-	Params::EditableText_SetFont Parms{};
-
-	Parms.InFontInfo = std::move(InFontInfo);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.EditableText.SetFontMaterial
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UMaterialInterface*               InMaterial                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UEditableText::SetFontMaterial(class UMaterialInterface* InMaterial)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EditableText", "SetFontMaterial");
-
-	Params::EditableText_SetFontMaterial Parms{};
-
-	Parms.InMaterial = InMaterial;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.EditableText.SetFontOutlineMaterial
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UMaterialInterface*               InMaterial                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UEditableText::SetFontOutlineMaterial(class UMaterialInterface* InMaterial)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EditableText", "SetFontOutlineMaterial");
-
-	Params::EditableText_SetFontOutlineMaterial Parms{};
-
-	Parms.InMaterial = InMaterial;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.EditableText.SetHintText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FText&                      InHintText                                             (Parm, NativeAccessSpecifierPublic)
-
-void UEditableText::SetHintText(const class FText& InHintText)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EditableText", "SetHintText");
-
-	Params::EditableText_SetHintText Parms{};
-
-	Parms.InHintText = std::move(InHintText);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.EditableText.SetIsPassword
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    InbIsPassword                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UEditableText::SetIsPassword(bool InbIsPassword)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EditableText", "SetIsPassword");
-
-	Params::EditableText_SetIsPassword Parms{};
-
-	Parms.InbIsPassword = InbIsPassword;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.EditableText.SetIsReadOnly
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    InbIsReadyOnly                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UEditableText::SetIsReadOnly(bool InbIsReadyOnly)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EditableText", "SetIsReadOnly");
-
-	Params::EditableText_SetIsReadOnly Parms{};
-
-	Parms.InbIsReadyOnly = InbIsReadyOnly;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.EditableText.SetJustification
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// ETextJustify                            InJustification                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UEditableText::SetJustification(ETextJustify InJustification)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EditableText", "SetJustification");
-
-	Params::EditableText_SetJustification Parms{};
-
-	Parms.InJustification = InJustification;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.EditableText.SetMinimumDesiredWidth
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   InMinDesiredWidth                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UEditableText::SetMinimumDesiredWidth(float InMinDesiredWidth)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EditableText", "SetMinimumDesiredWidth");
-
-	Params::EditableText_SetMinimumDesiredWidth Parms{};
-
-	Parms.InMinDesiredWidth = InMinDesiredWidth;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.EditableText.SetText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FText&                      InText                                                 (Parm, NativeAccessSpecifierPublic)
-
-void UEditableText::SetText(const class FText& InText)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EditableText", "SetText");
-
-	Params::EditableText_SetText Parms{};
-
-	Parms.InText = std::move(InText);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.EditableText.SetTextOverflowPolicy
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// ETextOverflowPolicy                     InOverflowPolicy                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UEditableText::SetTextOverflowPolicy(ETextOverflowPolicy InOverflowPolicy)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EditableText", "SetTextOverflowPolicy");
-
-	Params::EditableText_SetTextOverflowPolicy Parms{};
-
-	Parms.InOverflowPolicy = InOverflowPolicy;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.EditableText.GetFont
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const struct FSlateFontInfo             ReturnValue                                            (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-const struct FSlateFontInfo UEditableText::GetFont() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EditableText", "GetFont");
-
-	Params::EditableText_GetFont Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.EditableText.GetHintText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-class FText UEditableText::GetHintText() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EditableText", "GetHintText");
-
-	Params::EditableText_GetHintText Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.EditableText.GetJustification
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// ETextJustify                            ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-ETextJustify UEditableText::GetJustification() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EditableText", "GetJustification");
-
-	Params::EditableText_GetJustification Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.EditableText.GetText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-class FText UEditableText::GetText() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("EditableText", "GetText");
-
-	Params::EditableText_GetText Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function UMG.EditableTextBox.ClearError
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UEditableTextBox::ClearError()
 {
@@ -10894,7 +10623,7 @@ void UEditableTextBox::ClearError()
 
 
 // Function UMG.EditableTextBox.SetError
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const class FText&                      InError                                                (Parm, NativeAccessSpecifierPublic)
 
@@ -10919,7 +10648,7 @@ void UEditableTextBox::SetError(const class FText& InError)
 
 
 // Function UMG.EditableTextBox.SetForegroundColor
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FLinearColor&              Color                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -10944,7 +10673,7 @@ void UEditableTextBox::SetForegroundColor(const struct FLinearColor& Color)
 
 
 // Function UMG.EditableTextBox.SetHintText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const class FText&                      InText                                                 (Parm, NativeAccessSpecifierPublic)
 
@@ -10969,7 +10698,7 @@ void UEditableTextBox::SetHintText(const class FText& InText)
 
 
 // Function UMG.EditableTextBox.SetIsPassword
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bIsPassword                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -10994,7 +10723,7 @@ void UEditableTextBox::SetIsPassword(bool bIsPassword)
 
 
 // Function UMG.EditableTextBox.SetIsReadOnly
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bReadOnly                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -11019,7 +10748,7 @@ void UEditableTextBox::SetIsReadOnly(bool bReadOnly)
 
 
 // Function UMG.EditableTextBox.SetJustification
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // ETextJustify                            InJustification                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -11044,7 +10773,7 @@ void UEditableTextBox::SetJustification(ETextJustify InJustification)
 
 
 // Function UMG.EditableTextBox.SetText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const class FText&                      InText                                                 (Parm, NativeAccessSpecifierPublic)
 
@@ -11069,7 +10798,7 @@ void UEditableTextBox::SetText(const class FText& InText)
 
 
 // Function UMG.EditableTextBox.SetTextOverflowPolicy
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // ETextOverflowPolicy                     InOverflowPolicy                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -11094,7 +10823,7 @@ void UEditableTextBox::SetTextOverflowPolicy(ETextOverflowPolicy InOverflowPolic
 
 
 // Function UMG.EditableTextBox.GetText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
@@ -11119,7 +10848,7 @@ class FText UEditableTextBox::GetText() const
 
 
 // Function UMG.EditableTextBox.HasError
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -11144,7 +10873,7 @@ bool UEditableTextBox::HasError() const
 
 
 // Function UMG.ExpandableArea.SetIsExpanded
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    IsExpanded                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -11169,7 +10898,7 @@ void UExpandableArea::SetIsExpanded(bool IsExpanded)
 
 
 // Function UMG.ExpandableArea.SetIsExpanded_Animated
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    IsExpanded                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -11194,7 +10923,7 @@ void UExpandableArea::SetIsExpanded_Animated(bool IsExpanded)
 
 
 // Function UMG.ExpandableArea.GetIsExpanded
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -11219,14 +10948,14 @@ bool UExpandableArea::GetIsExpanded() const
 
 
 // Function UMG.GridPanel.AddChildToGrid
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class UWidget*                          Content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UWidget*                          content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   InRow                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   InColumn                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UGridSlot*                        ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UGridSlot* UGridPanel::AddChildToGrid(class UWidget* Content, int32 InRow, int32 InColumn)
+class UGridSlot* UGridPanel::AddChildToGrid(class UWidget* content, int32 InRow, int32 InColumn)
 {
 	static class UFunction* Func = nullptr;
 
@@ -11235,7 +10964,7 @@ class UGridSlot* UGridPanel::AddChildToGrid(class UWidget* Content, int32 InRow,
 
 	Params::GridPanel_AddChildToGrid Parms{};
 
-	Parms.Content = Content;
+	Parms.content = content;
 	Parms.InRow = InRow;
 	Parms.InColumn = InColumn;
 
@@ -11251,7 +10980,7 @@ class UGridSlot* UGridPanel::AddChildToGrid(class UWidget* Content, int32 InRow,
 
 
 // Function UMG.GridPanel.SetColumnFill
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   ColumnIndex                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Coefficient                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -11278,7 +11007,7 @@ void UGridPanel::SetColumnFill(int32 ColumnIndex, float Coefficient)
 
 
 // Function UMG.GridPanel.SetRowFill
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   RowIndex                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Coefficient                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -11305,7 +11034,7 @@ void UGridPanel::SetRowFill(int32 RowIndex, float Coefficient)
 
 
 // Function UMG.GridSlot.SetColumn
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   InColumn                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -11330,7 +11059,7 @@ void UGridSlot::SetColumn(int32 InColumn)
 
 
 // Function UMG.GridSlot.SetColumnSpan
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   InColumnSpan                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -11355,7 +11084,7 @@ void UGridSlot::SetColumnSpan(int32 InColumnSpan)
 
 
 // Function UMG.GridSlot.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -11380,7 +11109,7 @@ void UGridSlot::SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignmen
 
 
 // Function UMG.GridSlot.SetLayer
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   InLayer                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -11405,7 +11134,7 @@ void UGridSlot::SetLayer(int32 InLayer)
 
 
 // Function UMG.GridSlot.SetNudge
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector2D&                 InNudge                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -11430,7 +11159,7 @@ void UGridSlot::SetNudge(const struct FVector2D& InNudge)
 
 
 // Function UMG.GridSlot.SetPadding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -11455,7 +11184,7 @@ void UGridSlot::SetPadding(const struct FMargin& InPadding)
 
 
 // Function UMG.GridSlot.SetRow
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   InRow                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -11480,7 +11209,7 @@ void UGridSlot::SetRow(int32 InRow)
 
 
 // Function UMG.GridSlot.SetRowSpan
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   InRowSpan                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -11505,7 +11234,7 @@ void UGridSlot::SetRowSpan(int32 InRowSpan)
 
 
 // Function UMG.GridSlot.SetVerticalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -11530,12 +11259,12 @@ void UGridSlot::SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
 
 
 // Function UMG.HorizontalBox.AddChildToHorizontalBox
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class UWidget*                          Content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UWidget*                          content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UHorizontalBoxSlot*               ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UHorizontalBoxSlot* UHorizontalBox::AddChildToHorizontalBox(class UWidget* Content)
+class UHorizontalBoxSlot* UHorizontalBox::AddChildToHorizontalBox(class UWidget* content)
 {
 	static class UFunction* Func = nullptr;
 
@@ -11544,7 +11273,7 @@ class UHorizontalBoxSlot* UHorizontalBox::AddChildToHorizontalBox(class UWidget*
 
 	Params::HorizontalBox_AddChildToHorizontalBox Parms{};
 
-	Parms.Content = Content;
+	Parms.content = content;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -11558,7 +11287,7 @@ class UHorizontalBoxSlot* UHorizontalBox::AddChildToHorizontalBox(class UWidget*
 
 
 // Function UMG.HorizontalBoxSlot.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -11583,7 +11312,7 @@ void UHorizontalBoxSlot::SetHorizontalAlignment(EHorizontalAlignment InHorizonta
 
 
 // Function UMG.HorizontalBoxSlot.SetPadding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -11608,7 +11337,7 @@ void UHorizontalBoxSlot::SetPadding(const struct FMargin& InPadding)
 
 
 // Function UMG.HorizontalBoxSlot.SetSize
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FSlateChildSize&           InSize                                                 (Parm, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -11633,7 +11362,7 @@ void UHorizontalBoxSlot::SetSize(const struct FSlateChildSize& InSize)
 
 
 // Function UMG.HorizontalBoxSlot.SetVerticalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -11657,366 +11386,8 @@ void UHorizontalBoxSlot::SetVerticalAlignment(EVerticalAlignment InVerticalAlign
 }
 
 
-// Function UMG.Image.GetDynamicMaterial
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UMaterialInstanceDynamic*         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UMaterialInstanceDynamic* UImage::GetDynamicMaterial()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Image", "GetDynamicMaterial");
-
-	Params::Image_GetDynamicMaterial Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.Image.SetBrush
-// (RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const struct FSlateBrush&               InBrush                                                (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void UImage::SetBrush(const struct FSlateBrush& InBrush)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Image", "SetBrush");
-
-	Params::Image_SetBrush Parms{};
-
-	Parms.InBrush = std::move(InBrush);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Image.SetBrushFromAsset
-// (RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class USlateBrushAsset*                 Asset                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UImage::SetBrushFromAsset(class USlateBrushAsset* Asset)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Image", "SetBrushFromAsset");
-
-	Params::Image_SetBrushFromAsset Parms{};
-
-	Parms.Asset = Asset;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Image.SetBrushFromAtlasInterface
-// (RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// TScriptInterface<class ISlateTextureAtlasInterface>AtlasRegion                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bMatchSize                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UImage::SetBrushFromAtlasInterface(TScriptInterface<class ISlateTextureAtlasInterface> AtlasRegion, bool bMatchSize)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Image", "SetBrushFromAtlasInterface");
-
-	Params::Image_SetBrushFromAtlasInterface Parms{};
-
-	Parms.AtlasRegion = AtlasRegion;
-	Parms.bMatchSize = bMatchSize;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Image.SetBrushFromMaterial
-// (RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UMaterialInterface*               Material                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UImage::SetBrushFromMaterial(class UMaterialInterface* Material)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Image", "SetBrushFromMaterial");
-
-	Params::Image_SetBrushFromMaterial Parms{};
-
-	Parms.Material = Material;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Image.SetBrushFromSoftMaterial
-// (RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// TSoftObjectPtr<class UMaterialInterface>SoftMaterial                                           (Parm, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UImage::SetBrushFromSoftMaterial(TSoftObjectPtr<class UMaterialInterface> SoftMaterial)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Image", "SetBrushFromSoftMaterial");
-
-	Params::Image_SetBrushFromSoftMaterial Parms{};
-
-	Parms.SoftMaterial = SoftMaterial;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Image.SetBrushFromSoftTexture
-// (RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// TSoftObjectPtr<class UTexture2D>        SoftTexture                                            (Parm, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bMatchSize                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UImage::SetBrushFromSoftTexture(TSoftObjectPtr<class UTexture2D> SoftTexture, bool bMatchSize)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Image", "SetBrushFromSoftTexture");
-
-	Params::Image_SetBrushFromSoftTexture Parms{};
-
-	Parms.SoftTexture = SoftTexture;
-	Parms.bMatchSize = bMatchSize;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Image.SetBrushFromTexture
-// (RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UTexture2D*                       Texture                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bMatchSize                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UImage::SetBrushFromTexture(class UTexture2D* Texture, bool bMatchSize)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Image", "SetBrushFromTexture");
-
-	Params::Image_SetBrushFromTexture Parms{};
-
-	Parms.Texture = Texture;
-	Parms.bMatchSize = bMatchSize;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Image.SetBrushFromTextureDynamic
-// (RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UTexture2DDynamic*                Texture                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bMatchSize                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UImage::SetBrushFromTextureDynamic(class UTexture2DDynamic* Texture, bool bMatchSize)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Image", "SetBrushFromTextureDynamic");
-
-	Params::Image_SetBrushFromTextureDynamic Parms{};
-
-	Parms.Texture = Texture;
-	Parms.bMatchSize = bMatchSize;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Image.SetBrushResourceObject
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                          ResourceObject                                         (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UImage::SetBrushResourceObject(class UObject* ResourceObject)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Image", "SetBrushResourceObject");
-
-	Params::Image_SetBrushResourceObject Parms{};
-
-	Parms.ResourceObject = ResourceObject;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Image.SetBrushTintColor
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const struct FSlateColor&               TintColor                                              (Parm, NativeAccessSpecifierPublic)
-
-void UImage::SetBrushTintColor(const struct FSlateColor& TintColor)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Image", "SetBrushTintColor");
-
-	Params::Image_SetBrushTintColor Parms{};
-
-	Parms.TintColor = std::move(TintColor);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Image.SetColorAndOpacity
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// const struct FLinearColor&              InColorAndOpacity                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UImage::SetColorAndOpacity(const struct FLinearColor& InColorAndOpacity)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Image", "SetColorAndOpacity");
-
-	Params::Image_SetColorAndOpacity Parms{};
-
-	Parms.InColorAndOpacity = std::move(InColorAndOpacity);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Image.SetDesiredSizeOverride
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// const struct FVector2D&                 DesiredSize                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UImage::SetDesiredSizeOverride(const struct FVector2D& DesiredSize)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Image", "SetDesiredSizeOverride");
-
-	Params::Image_SetDesiredSizeOverride Parms{};
-
-	Parms.DesiredSize = std::move(DesiredSize);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.Image.SetOpacity
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   InOpacity                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UImage::SetOpacity(float InOpacity)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("Image", "SetOpacity");
-
-	Params::Image_SetOpacity Parms{};
-
-	Parms.InOpacity = InOpacity;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function UMG.InputKeySelector.SetAllowGamepadKeys
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bInAllowGamepadKeys                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12041,7 +11412,7 @@ void UInputKeySelector::SetAllowGamepadKeys(bool bInAllowGamepadKeys)
 
 
 // Function UMG.InputKeySelector.SetAllowModifierKeys
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bInAllowModifierKeys                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12066,7 +11437,7 @@ void UInputKeySelector::SetAllowModifierKeys(bool bInAllowModifierKeys)
 
 
 // Function UMG.InputKeySelector.SetEscapeKeys
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // const TArray<struct FKey>&              InKeys                                                 (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 
@@ -12091,7 +11462,7 @@ void UInputKeySelector::SetEscapeKeys(const TArray<struct FKey>& InKeys)
 
 
 // Function UMG.InputKeySelector.SetKeySelectionText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const class FText&                      InKeySelectionText                                     (Parm, NativeAccessSpecifierPublic)
 
@@ -12116,7 +11487,7 @@ void UInputKeySelector::SetKeySelectionText(const class FText& InKeySelectionTex
 
 
 // Function UMG.InputKeySelector.SetNoKeySpecifiedText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const class FText&                      InNoKeySpecifiedText                                   (Parm, NativeAccessSpecifierPublic)
 
@@ -12141,7 +11512,7 @@ void UInputKeySelector::SetNoKeySpecifiedText(const class FText& InNoKeySpecifie
 
 
 // Function UMG.InputKeySelector.SetSelectedKey
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // const struct FInputChord&               InSelectedKey                                          (ConstParm, Parm, OutParm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12166,7 +11537,7 @@ void UInputKeySelector::SetSelectedKey(const struct FInputChord& InSelectedKey)
 
 
 // Function UMG.InputKeySelector.SetTextBlockVisibility
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const ESlateVisibility                  InVisibility                                           (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12191,7 +11562,7 @@ void UInputKeySelector::SetTextBlockVisibility(const ESlateVisibility InVisibili
 
 
 // Function UMG.InputKeySelector.GetIsSelectingKey
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12216,7 +11587,7 @@ bool UInputKeySelector::GetIsSelectingKey() const
 
 
 // Function UMG.InvalidationBox.InvalidateCache
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UInvalidationBox::InvalidateCache()
 {
@@ -12235,7 +11606,7 @@ void UInvalidationBox::InvalidateCache()
 
 
 // Function UMG.InvalidationBox.SetCanCache
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    CanCache                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12260,7 +11631,7 @@ void UInvalidationBox::SetCanCache(bool CanCache)
 
 
 // Function UMG.InvalidationBox.GetCanCache
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12285,7 +11656,7 @@ bool UInvalidationBox::GetCanCache() const
 
 
 // Function UMG.MenuAnchor.Close
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UMenuAnchor::Close()
 {
@@ -12304,7 +11675,7 @@ void UMenuAnchor::Close()
 
 
 // Function UMG.MenuAnchor.FitInWindow
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bFit                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12329,7 +11700,7 @@ void UMenuAnchor::FitInWindow(bool bFit)
 
 
 // Function UMG.MenuAnchor.GetIsMenuAnchorOpen
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12354,7 +11725,7 @@ bool UMenuAnchor::GetIsMenuAnchorOpen()
 
 
 // Function UMG.MenuAnchor.Open
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bFocusMenu                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12379,7 +11750,7 @@ void UMenuAnchor::Open(bool bFocusMenu)
 
 
 // Function UMG.MenuAnchor.SetIgnoreClicksOutside
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    Ignore                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12404,7 +11775,7 @@ void UMenuAnchor::SetIgnoreClicksOutside(bool Ignore)
 
 
 // Function UMG.MenuAnchor.SetPlacement
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EMenuPlacement                          InPlacement                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12429,7 +11800,7 @@ void UMenuAnchor::SetPlacement(EMenuPlacement InPlacement)
 
 
 // Function UMG.MenuAnchor.ToggleOpen
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bFocusOnOpen                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12454,7 +11825,7 @@ void UMenuAnchor::ToggleOpen(bool bFocusOnOpen)
 
 
 // Function UMG.MenuAnchor.GetIgnoreClicksOutside
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12479,7 +11850,7 @@ bool UMenuAnchor::GetIgnoreClicksOutside() const
 
 
 // Function UMG.MenuAnchor.GetMenuPosition
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12504,7 +11875,7 @@ struct FVector2D UMenuAnchor::GetMenuPosition() const
 
 
 // Function UMG.MenuAnchor.HasOpenSubMenus
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12529,7 +11900,7 @@ bool UMenuAnchor::HasOpenSubMenus() const
 
 
 // Function UMG.MenuAnchor.IsOpen
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12554,7 +11925,7 @@ bool UMenuAnchor::IsOpen() const
 
 
 // Function UMG.MenuAnchor.ShouldOpenDueToClick
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12578,283 +11949,8 @@ bool UMenuAnchor::ShouldOpenDueToClick() const
 }
 
 
-// Function UMG.TextLayoutWidget.SetJustification
-// (RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// ETextJustify                            InJustification                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UTextLayoutWidget::SetJustification(ETextJustify InJustification)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("TextLayoutWidget", "SetJustification");
-
-	Params::TextLayoutWidget_SetJustification Parms{};
-
-	Parms.InJustification = InJustification;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.MultiLineEditableText.SetFont
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const struct FSlateFontInfo&            InFontInfo                                             (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UMultiLineEditableText::SetFont(const struct FSlateFontInfo& InFontInfo)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MultiLineEditableText", "SetFont");
-
-	Params::MultiLineEditableText_SetFont Parms{};
-
-	Parms.InFontInfo = std::move(InFontInfo);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.MultiLineEditableText.SetFontMaterial
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UMaterialInterface*               InMaterial                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UMultiLineEditableText::SetFontMaterial(class UMaterialInterface* InMaterial)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MultiLineEditableText", "SetFontMaterial");
-
-	Params::MultiLineEditableText_SetFontMaterial Parms{};
-
-	Parms.InMaterial = InMaterial;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.MultiLineEditableText.SetFontOutlineMaterial
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UMaterialInterface*               InMaterial                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UMultiLineEditableText::SetFontOutlineMaterial(class UMaterialInterface* InMaterial)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MultiLineEditableText", "SetFontOutlineMaterial");
-
-	Params::MultiLineEditableText_SetFontOutlineMaterial Parms{};
-
-	Parms.InMaterial = InMaterial;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.MultiLineEditableText.SetHintText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FText&                      InHintText                                             (Parm, NativeAccessSpecifierPublic)
-
-void UMultiLineEditableText::SetHintText(const class FText& InHintText)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MultiLineEditableText", "SetHintText");
-
-	Params::MultiLineEditableText_SetHintText Parms{};
-
-	Parms.InHintText = std::move(InHintText);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.MultiLineEditableText.SetIsReadOnly
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bReadOnly                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UMultiLineEditableText::SetIsReadOnly(bool bReadOnly)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MultiLineEditableText", "SetIsReadOnly");
-
-	Params::MultiLineEditableText_SetIsReadOnly Parms{};
-
-	Parms.bReadOnly = bReadOnly;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.MultiLineEditableText.SetText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FText&                      InText                                                 (Parm, NativeAccessSpecifierPublic)
-
-void UMultiLineEditableText::SetText(const class FText& InText)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MultiLineEditableText", "SetText");
-
-	Params::MultiLineEditableText_SetText Parms{};
-
-	Parms.InText = std::move(InText);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.MultiLineEditableText.SetWidgetStyle
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const struct FTextBlockStyle&           InWidgetStyle                                          (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void UMultiLineEditableText::SetWidgetStyle(const struct FTextBlockStyle& InWidgetStyle)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MultiLineEditableText", "SetWidgetStyle");
-
-	Params::MultiLineEditableText_SetWidgetStyle Parms{};
-
-	Parms.InWidgetStyle = std::move(InWidgetStyle);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.MultiLineEditableText.GetFont
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// const struct FSlateFontInfo             ReturnValue                                            (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-const struct FSlateFontInfo UMultiLineEditableText::GetFont() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MultiLineEditableText", "GetFont");
-
-	Params::MultiLineEditableText_GetFont Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.MultiLineEditableText.GetHintText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-class FText UMultiLineEditableText::GetHintText() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MultiLineEditableText", "GetHintText");
-
-	Params::MultiLineEditableText_GetHintText Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.MultiLineEditableText.GetText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-class FText UMultiLineEditableText::GetText() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MultiLineEditableText", "GetText");
-
-	Params::MultiLineEditableText_GetText Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function UMG.MultiLineEditableTextBox.SetError
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const class FText&                      InError                                                (Parm, NativeAccessSpecifierPublic)
 
@@ -12879,7 +11975,7 @@ void UMultiLineEditableTextBox::SetError(const class FText& InError)
 
 
 // Function UMG.MultiLineEditableTextBox.SetForegroundColor
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FLinearColor&              Color                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12904,7 +12000,7 @@ void UMultiLineEditableTextBox::SetForegroundColor(const struct FLinearColor& Co
 
 
 // Function UMG.MultiLineEditableTextBox.SetHintText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const class FText&                      InHintText                                             (Parm, NativeAccessSpecifierPublic)
 
@@ -12929,7 +12025,7 @@ void UMultiLineEditableTextBox::SetHintText(const class FText& InHintText)
 
 
 // Function UMG.MultiLineEditableTextBox.SetIsReadOnly
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bReadOnly                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -12954,7 +12050,7 @@ void UMultiLineEditableTextBox::SetIsReadOnly(bool bReadOnly)
 
 
 // Function UMG.MultiLineEditableTextBox.SetText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const class FText&                      InText                                                 (Parm, NativeAccessSpecifierPublic)
 
@@ -12979,7 +12075,7 @@ void UMultiLineEditableTextBox::SetText(const class FText& InText)
 
 
 // Function UMG.MultiLineEditableTextBox.SetTextStyle
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // const struct FTextBlockStyle&           InTextStyle                                            (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
@@ -13004,7 +12100,7 @@ void UMultiLineEditableTextBox::SetTextStyle(const struct FTextBlockStyle& InTex
 
 
 // Function UMG.MultiLineEditableTextBox.GetHintText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
@@ -13029,7 +12125,7 @@ class FText UMultiLineEditableTextBox::GetHintText() const
 
 
 // Function UMG.MultiLineEditableTextBox.GetText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
@@ -13054,12 +12150,12 @@ class FText UMultiLineEditableTextBox::GetText() const
 
 
 // Function UMG.Overlay.AddChildToOverlay
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class UWidget*                          Content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UWidget*                          content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UOverlaySlot*                     ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UOverlaySlot* UOverlay::AddChildToOverlay(class UWidget* Content)
+class UOverlaySlot* UOverlay::AddChildToOverlay(class UWidget* content)
 {
 	static class UFunction* Func = nullptr;
 
@@ -13068,7 +12164,7 @@ class UOverlaySlot* UOverlay::AddChildToOverlay(class UWidget* Content)
 
 	Params::Overlay_AddChildToOverlay Parms{};
 
-	Parms.Content = Content;
+	Parms.content = content;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -13082,13 +12178,13 @@ class UOverlaySlot* UOverlay::AddChildToOverlay(class UWidget* Content)
 
 
 // Function UMG.Overlay.ReplaceOverlayChildAt
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UWidget*                          Content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UWidget*                          content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UOverlay::ReplaceOverlayChildAt(int32 Index_0, class UWidget* Content)
+bool UOverlay::ReplaceOverlayChildAt(int32 Index_0, class UWidget* content)
 {
 	static class UFunction* Func = nullptr;
 
@@ -13098,7 +12194,7 @@ bool UOverlay::ReplaceOverlayChildAt(int32 Index_0, class UWidget* Content)
 	Params::Overlay_ReplaceOverlayChildAt Parms{};
 
 	Parms.Index_0 = Index_0;
-	Parms.Content = Content;
+	Parms.content = content;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -13112,7 +12208,7 @@ bool UOverlay::ReplaceOverlayChildAt(int32 Index_0, class UWidget* Content)
 
 
 // Function UMG.OverlaySlot.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -13137,7 +12233,7 @@ void UOverlaySlot::SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlign
 
 
 // Function UMG.OverlaySlot.SetPadding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -13162,7 +12258,7 @@ void UOverlaySlot::SetPadding(const struct FMargin& InPadding)
 
 
 // Function UMG.OverlaySlot.SetVerticalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -13212,7 +12308,7 @@ void UProgressBar::SetEnginePercent(float InPercent)
 
 
 // Function UMG.ProgressBar.SetFillColorAndOpacity
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FLinearColor&              InColor                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -13237,7 +12333,7 @@ void UProgressBar::SetFillColorAndOpacity(const struct FLinearColor& InColor)
 
 
 // Function UMG.ProgressBar.SetIsMarquee
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    InbIsMarquee                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -13262,7 +12358,7 @@ void UProgressBar::SetIsMarquee(bool InbIsMarquee)
 
 
 // Function UMG.ProgressBar.SetPercent
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InPercent                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   InterpKey                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -13314,7 +12410,7 @@ void UProgressBar::SetPercentInterpolationKey(int32 InterpKey)
 
 
 // Function UMG.RetainerBox.RequestRender
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void URetainerBox::RequestRender()
 {
@@ -13333,7 +12429,7 @@ void URetainerBox::RequestRender()
 
 
 // Function UMG.RetainerBox.SetEffectMaterial
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UMaterialInterface*               EffectMaterial_0                                       (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -13358,7 +12454,7 @@ void URetainerBox::SetEffectMaterial(class UMaterialInterface* EffectMaterial_0)
 
 
 // Function UMG.RetainerBox.SetRenderingPhase
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   RenderPhase                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   TotalPhases                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -13385,7 +12481,7 @@ void URetainerBox::SetRenderingPhase(int32 RenderPhase, int32 TotalPhases)
 
 
 // Function UMG.RetainerBox.SetRetainRendering
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bInRetainRendering                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -13410,7 +12506,7 @@ void URetainerBox::SetRetainRendering(bool bInRetainRendering)
 
 
 // Function UMG.RetainerBox.SetTextureParameter
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class FName                             TextureParameter_0                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -13435,7 +12531,7 @@ void URetainerBox::SetTextureParameter(class FName TextureParameter_0)
 
 
 // Function UMG.RetainerBox.GetEffectMaterial
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class UMaterialInstanceDynamic*         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -13459,499 +12555,8 @@ class UMaterialInstanceDynamic* URetainerBox::GetEffectMaterial() const
 }
 
 
-// Function UMG.RichTextBlock.ClearAllDefaultStyleOverrides
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void URichTextBlock::ClearAllDefaultStyleOverrides()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "ClearAllDefaultStyleOverrides");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.RichTextBlock.GetDecoratorByClass
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// TSubclassOf<class URichTextBlockDecorator>DecoratorClass                                         (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class URichTextBlockDecorator*          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class URichTextBlockDecorator* URichTextBlock::GetDecoratorByClass(TSubclassOf<class URichTextBlockDecorator> DecoratorClass)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "GetDecoratorByClass");
-
-	Params::RichTextBlock_GetDecoratorByClass Parms{};
-
-	Parms.DecoratorClass = DecoratorClass;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.RichTextBlock.GetDefaultDynamicMaterial
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UMaterialInstanceDynamic*         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UMaterialInstanceDynamic* URichTextBlock::GetDefaultDynamicMaterial()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "GetDefaultDynamicMaterial");
-
-	Params::RichTextBlock_GetDefaultDynamicMaterial Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.RichTextBlock.RefreshTextLayout
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void URichTextBlock::RefreshTextLayout()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "RefreshTextLayout");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.RichTextBlock.SetAutoWrapText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    InAutoTextWrap                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void URichTextBlock::SetAutoWrapText(bool InAutoTextWrap)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "SetAutoWrapText");
-
-	Params::RichTextBlock_SetAutoWrapText Parms{};
-
-	Parms.InAutoTextWrap = InAutoTextWrap;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.RichTextBlock.SetDecorators
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const TArray<TSubclassOf<class URichTextBlockDecorator>>&InDecoratorClasses                                     (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, UObjectWrapper, NativeAccessSpecifierPublic)
-
-void URichTextBlock::SetDecorators(const TArray<TSubclassOf<class URichTextBlockDecorator>>& InDecoratorClasses)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "SetDecorators");
-
-	Params::RichTextBlock_SetDecorators Parms{};
-
-	Parms.InDecoratorClasses = std::move(InDecoratorClasses);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.RichTextBlock.SetDefaultColorAndOpacity
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const struct FSlateColor&               InColorAndOpacity                                      (Parm, NativeAccessSpecifierPublic)
-
-void URichTextBlock::SetDefaultColorAndOpacity(const struct FSlateColor& InColorAndOpacity)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "SetDefaultColorAndOpacity");
-
-	Params::RichTextBlock_SetDefaultColorAndOpacity Parms{};
-
-	Parms.InColorAndOpacity = std::move(InColorAndOpacity);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.RichTextBlock.SetDefaultFont
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const struct FSlateFontInfo&            InFontInfo                                             (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void URichTextBlock::SetDefaultFont(const struct FSlateFontInfo& InFontInfo)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "SetDefaultFont");
-
-	Params::RichTextBlock_SetDefaultFont Parms{};
-
-	Parms.InFontInfo = std::move(InFontInfo);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.RichTextBlock.SetDefaultMaterial
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UMaterialInterface*               InMaterial                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void URichTextBlock::SetDefaultMaterial(class UMaterialInterface* InMaterial)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "SetDefaultMaterial");
-
-	Params::RichTextBlock_SetDefaultMaterial Parms{};
-
-	Parms.InMaterial = InMaterial;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.RichTextBlock.SetDefaultShadowColorAndOpacity
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// const struct FLinearColor&              InShadowColorAndOpacity                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void URichTextBlock::SetDefaultShadowColorAndOpacity(const struct FLinearColor& InShadowColorAndOpacity)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "SetDefaultShadowColorAndOpacity");
-
-	Params::RichTextBlock_SetDefaultShadowColorAndOpacity Parms{};
-
-	Parms.InShadowColorAndOpacity = std::move(InShadowColorAndOpacity);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.RichTextBlock.SetDefaultShadowOffset
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// const struct FVector2D&                 InShadowOffset                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void URichTextBlock::SetDefaultShadowOffset(const struct FVector2D& InShadowOffset)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "SetDefaultShadowOffset");
-
-	Params::RichTextBlock_SetDefaultShadowOffset Parms{};
-
-	Parms.InShadowOffset = std::move(InShadowOffset);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.RichTextBlock.SetDefaultStrikeBrush
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const struct FSlateBrush&               InStrikeBrush                                          (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void URichTextBlock::SetDefaultStrikeBrush(const struct FSlateBrush& InStrikeBrush)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "SetDefaultStrikeBrush");
-
-	Params::RichTextBlock_SetDefaultStrikeBrush Parms{};
-
-	Parms.InStrikeBrush = std::move(InStrikeBrush);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.RichTextBlock.SetDefaultTextStyle
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const struct FTextBlockStyle&           InDefaultTextStyle                                     (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void URichTextBlock::SetDefaultTextStyle(const struct FTextBlockStyle& InDefaultTextStyle)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "SetDefaultTextStyle");
-
-	Params::RichTextBlock_SetDefaultTextStyle Parms{};
-
-	Parms.InDefaultTextStyle = std::move(InDefaultTextStyle);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.RichTextBlock.SetMinDesiredWidth
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   InMinDesiredWidth                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void URichTextBlock::SetMinDesiredWidth(float InMinDesiredWidth)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "SetMinDesiredWidth");
-
-	Params::RichTextBlock_SetMinDesiredWidth Parms{};
-
-	Parms.InMinDesiredWidth = InMinDesiredWidth;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.RichTextBlock.SetText
-// (RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const class FText&                      InText                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void URichTextBlock::SetText(const class FText& InText)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "SetText");
-
-	Params::RichTextBlock_SetText Parms{};
-
-	Parms.InText = std::move(InText);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.RichTextBlock.SetTextOverflowPolicy
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// ETextOverflowPolicy                     InOverflowPolicy                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void URichTextBlock::SetTextOverflowPolicy(ETextOverflowPolicy InOverflowPolicy)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "SetTextOverflowPolicy");
-
-	Params::RichTextBlock_SetTextOverflowPolicy Parms{};
-
-	Parms.InOverflowPolicy = InOverflowPolicy;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.RichTextBlock.SetTextStyleSet
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UDataTable*                       NewTextStyleSet                                        (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void URichTextBlock::SetTextStyleSet(class UDataTable* NewTextStyleSet)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "SetTextStyleSet");
-
-	Params::RichTextBlock_SetTextStyleSet Parms{};
-
-	Parms.NewTextStyleSet = NewTextStyleSet;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.RichTextBlock.SetTextTransformPolicy
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// ETextTransformPolicy                    InTransformPolicy                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void URichTextBlock::SetTextTransformPolicy(ETextTransformPolicy InTransformPolicy)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "SetTextTransformPolicy");
-
-	Params::RichTextBlock_SetTextTransformPolicy Parms{};
-
-	Parms.InTransformPolicy = InTransformPolicy;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.RichTextBlock.GetText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-class FText URichTextBlock::GetText() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "GetText");
-
-	Params::RichTextBlock_GetText Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.RichTextBlock.GetTextStyleSet
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class UDataTable*                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UDataTable* URichTextBlock::GetTextStyleSet() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("RichTextBlock", "GetTextStyleSet");
-
-	Params::RichTextBlock_GetTextStyleSet Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function UMG.SafeZone.SetSidesToPad
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    InPadLeft                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    InPadRight                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -13982,7 +12587,7 @@ void USafeZone::SetSidesToPad(bool InPadLeft, bool InPadRight, bool InPadTop, bo
 
 
 // Function UMG.ScaleBox.SetIgnoreInheritedScale
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bInIgnoreInheritedScale                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -14007,7 +12612,7 @@ void UScaleBox::SetIgnoreInheritedScale(bool bInIgnoreInheritedScale)
 
 
 // Function UMG.ScaleBox.SetStretch
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EStretch                                InStretch                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -14032,7 +12637,7 @@ void UScaleBox::SetStretch(EStretch InStretch)
 
 
 // Function UMG.ScaleBox.SetStretchDirection
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EStretchDirection                       InStretchDirection                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -14057,7 +12662,7 @@ void UScaleBox::SetStretchDirection(EStretchDirection InStretchDirection)
 
 
 // Function UMG.ScaleBox.SetUserSpecifiedScale
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InUserSpecifiedScale                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -14082,7 +12687,7 @@ void UScaleBox::SetUserSpecifiedScale(float InUserSpecifiedScale)
 
 
 // Function UMG.ScaleBoxSlot.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -14107,7 +12712,7 @@ void UScaleBoxSlot::SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlig
 
 
 // Function UMG.ScaleBoxSlot.SetPadding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -14132,7 +12737,7 @@ void UScaleBoxSlot::SetPadding(const struct FMargin& InPadding)
 
 
 // Function UMG.ScaleBoxSlot.SetVerticalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -14157,7 +12762,7 @@ void UScaleBoxSlot::SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
 
 
 // Function UMG.ScrollBar.SetState
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InOffsetFraction                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   InThumbSizeFraction                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -14183,621 +12788,8 @@ void UScrollBar::SetState(float InOffsetFraction, float InThumbSizeFraction)
 }
 
 
-// Function UMG.ScrollBox.EndInertialScrolling
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void UScrollBox::EndInertialScrolling()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "EndInertialScrolling");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.GetPhysicalScrollOffset
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UScrollBox::GetPhysicalScrollOffset()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "GetPhysicalScrollOffset");
-
-	Params::ScrollBox_GetPhysicalScrollOffset Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ScrollBox.GetScrollContentSize
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-struct FVector2D UScrollBox::GetScrollContentSize()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "GetScrollContentSize");
-
-	Params::ScrollBox_GetScrollContentSize Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ScrollBox.GetScrollMax
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UScrollBox::GetScrollMax()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "GetScrollMax");
-
-	Params::ScrollBox_GetScrollMax Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ScrollBox.ScrollToEnd
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void UScrollBox::ScrollToEnd()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "ScrollToEnd");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.ScrollToStart
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-
-void UScrollBox::ScrollToStart()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "ScrollToStart");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.ScrollWidgetIntoView
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// class UWidget*                          WidgetToFind                                           (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    AnimateScroll                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EDescendantScrollDestination            ScrollDestination                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   Padding                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UScrollBox::ScrollWidgetIntoView(class UWidget* WidgetToFind, bool AnimateScroll, EDescendantScrollDestination ScrollDestination, float Padding)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "ScrollWidgetIntoView");
-
-	Params::ScrollBox_ScrollWidgetIntoView Parms{};
-
-	Parms.WidgetToFind = WidgetToFind;
-	Parms.AnimateScroll = AnimateScroll;
-	Parms.ScrollDestination = ScrollDestination;
-	Parms.Padding = Padding;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.SetAllowOverscroll
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    NewAllowOverscroll                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UScrollBox::SetAllowOverscroll(bool NewAllowOverscroll)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "SetAllowOverscroll");
-
-	Params::ScrollBox_SetAllowOverscroll Parms{};
-
-	Parms.NewAllowOverscroll = NewAllowOverscroll;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.SetAlwaysShowScrollbar
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    NewAlwaysShowScrollbar                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UScrollBox::SetAlwaysShowScrollbar(bool NewAlwaysShowScrollbar)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "SetAlwaysShowScrollbar");
-
-	Params::ScrollBox_SetAlwaysShowScrollbar Parms{};
-
-	Parms.NewAlwaysShowScrollbar = NewAlwaysShowScrollbar;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.SetAnimateWheelScrolling
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bShouldAnimateWheelScrolling                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UScrollBox::SetAnimateWheelScrolling(bool bShouldAnimateWheelScrolling)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "SetAnimateWheelScrolling");
-
-	Params::ScrollBox_SetAnimateWheelScrolling Parms{};
-
-	Parms.bShouldAnimateWheelScrolling = bShouldAnimateWheelScrolling;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.SetConsumeMouseWheel
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// EConsumeMouseWheel                      NewConsumeMouseWheel                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UScrollBox::SetConsumeMouseWheel(EConsumeMouseWheel NewConsumeMouseWheel)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "SetConsumeMouseWheel");
-
-	Params::ScrollBox_SetConsumeMouseWheel Parms{};
-
-	Parms.NewConsumeMouseWheel = NewConsumeMouseWheel;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.SetIsTouchScrollingEnabled
-// (Final, RequiredAPI, Native, Public)
-// Parameters:
-// bool                                    bInEnableTouchScrolling                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UScrollBox::SetIsTouchScrollingEnabled(bool bInEnableTouchScrolling)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "SetIsTouchScrollingEnabled");
-
-	Params::ScrollBox_SetIsTouchScrollingEnabled Parms{};
-
-	Parms.bInEnableTouchScrolling = bInEnableTouchScrolling;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.SetNavigationDestination
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// const EDescendantScrollDestination      NewNavigationDestination                               (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UScrollBox::SetNavigationDestination(const EDescendantScrollDestination NewNavigationDestination)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "SetNavigationDestination");
-
-	Params::ScrollBox_SetNavigationDestination Parms{};
-
-	Parms.NewNavigationDestination = NewNavigationDestination;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.SetOrientation
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// EOrientation                            NewOrientation                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UScrollBox::SetOrientation(EOrientation NewOrientation)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "SetOrientation");
-
-	Params::ScrollBox_SetOrientation Parms{};
-
-	Parms.NewOrientation = NewOrientation;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.SetScrollAnimationInterpolationSpeed
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   NewScrollAnimationInterpolationSpeed                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UScrollBox::SetScrollAnimationInterpolationSpeed(float NewScrollAnimationInterpolationSpeed)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "SetScrollAnimationInterpolationSpeed");
-
-	Params::ScrollBox_SetScrollAnimationInterpolationSpeed Parms{};
-
-	Parms.NewScrollAnimationInterpolationSpeed = NewScrollAnimationInterpolationSpeed;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.SetScrollBarPadding
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const struct FMargin&                   NewScrollbarPadding                                    (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-
-void UScrollBox::SetScrollBarPadding(const struct FMargin& NewScrollbarPadding)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "SetScrollBarPadding");
-
-	Params::ScrollBox_SetScrollBarPadding Parms{};
-
-	Parms.NewScrollbarPadding = std::move(NewScrollbarPadding);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.SetScrollbarThickness
-// (Final, RequiredAPI, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
-// Parameters:
-// const struct FVector2D&                 NewScrollbarThickness                                  (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UScrollBox::SetScrollbarThickness(const struct FVector2D& NewScrollbarThickness)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "SetScrollbarThickness");
-
-	Params::ScrollBox_SetScrollbarThickness Parms{};
-
-	Parms.NewScrollbarThickness = std::move(NewScrollbarThickness);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.SetScrollbarVisibility
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// ESlateVisibility                        NewScrollBarVisibility                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UScrollBox::SetScrollbarVisibility(ESlateVisibility NewScrollBarVisibility)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "SetScrollbarVisibility");
-
-	Params::ScrollBox_SetScrollbarVisibility Parms{};
-
-	Parms.NewScrollBarVisibility = NewScrollBarVisibility;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.SetScrollOffset
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   NewScrollOffset                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UScrollBox::SetScrollOffset(float NewScrollOffset)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "SetScrollOffset");
-
-	Params::ScrollBox_SetScrollOffset Parms{};
-
-	Parms.NewScrollOffset = NewScrollOffset;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.SetScrollWhenFocusChanges
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// EScrollWhenFocusChanges                 NewScrollWhenFocusChanges                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UScrollBox::SetScrollWhenFocusChanges(EScrollWhenFocusChanges NewScrollWhenFocusChanges)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "SetScrollWhenFocusChanges");
-
-	Params::ScrollBox_SetScrollWhenFocusChanges Parms{};
-
-	Parms.NewScrollWhenFocusChanges = NewScrollWhenFocusChanges;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.SetWheelScrollMultiplier
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   NewWheelScrollMultiplier                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UScrollBox::SetWheelScrollMultiplier(float NewWheelScrollMultiplier)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "SetWheelScrollMultiplier");
-
-	Params::ScrollBox_SetWheelScrollMultiplier Parms{};
-
-	Parms.NewWheelScrollMultiplier = NewWheelScrollMultiplier;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function UMG.ScrollBox.GetScrollOffset
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UScrollBox::GetScrollOffset() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "GetScrollOffset");
-
-	Params::ScrollBox_GetScrollOffset Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ScrollBox.GetScrollOffsetOfEnd
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UScrollBox::GetScrollOffsetOfEnd() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "GetScrollOffsetOfEnd");
-
-	Params::ScrollBox_GetScrollOffsetOfEnd Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ScrollBox.GetViewFraction
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UScrollBox::GetViewFraction() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "GetViewFraction");
-
-	Params::ScrollBox_GetViewFraction Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UMG.ScrollBox.GetViewOffsetFraction
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UScrollBox::GetViewOffsetFraction() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ScrollBox", "GetViewOffsetFraction");
-
-	Params::ScrollBox_GetViewOffsetFraction Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function UMG.ScrollBoxSlot.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -14822,7 +12814,7 @@ void UScrollBoxSlot::SetHorizontalAlignment(EHorizontalAlignment InHorizontalAli
 
 
 // Function UMG.ScrollBoxSlot.SetPadding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -14847,7 +12839,7 @@ void UScrollBoxSlot::SetPadding(const struct FMargin& InPadding)
 
 
 // Function UMG.ScrollBoxSlot.SetVerticalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -14872,7 +12864,7 @@ void UScrollBoxSlot::SetVerticalAlignment(EVerticalAlignment InVerticalAlignment
 
 
 // Function UMG.SizeBox.ClearHeightOverride
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void USizeBox::ClearHeightOverride()
 {
@@ -14891,7 +12883,7 @@ void USizeBox::ClearHeightOverride()
 
 
 // Function UMG.SizeBox.ClearMaxAspectRatio
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void USizeBox::ClearMaxAspectRatio()
 {
@@ -14910,7 +12902,7 @@ void USizeBox::ClearMaxAspectRatio()
 
 
 // Function UMG.SizeBox.ClearMaxDesiredHeight
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void USizeBox::ClearMaxDesiredHeight()
 {
@@ -14929,7 +12921,7 @@ void USizeBox::ClearMaxDesiredHeight()
 
 
 // Function UMG.SizeBox.ClearMaxDesiredWidth
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void USizeBox::ClearMaxDesiredWidth()
 {
@@ -14948,7 +12940,7 @@ void USizeBox::ClearMaxDesiredWidth()
 
 
 // Function UMG.SizeBox.ClearMinAspectRatio
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void USizeBox::ClearMinAspectRatio()
 {
@@ -14967,7 +12959,7 @@ void USizeBox::ClearMinAspectRatio()
 
 
 // Function UMG.SizeBox.ClearMinDesiredHeight
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void USizeBox::ClearMinDesiredHeight()
 {
@@ -14986,7 +12978,7 @@ void USizeBox::ClearMinDesiredHeight()
 
 
 // Function UMG.SizeBox.ClearMinDesiredWidth
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void USizeBox::ClearMinDesiredWidth()
 {
@@ -15005,7 +12997,7 @@ void USizeBox::ClearMinDesiredWidth()
 
 
 // Function UMG.SizeBox.ClearWidthOverride
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void USizeBox::ClearWidthOverride()
 {
@@ -15024,7 +13016,7 @@ void USizeBox::ClearWidthOverride()
 
 
 // Function UMG.SizeBox.SetHeightOverride
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InHeightOverride                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15049,7 +13041,7 @@ void USizeBox::SetHeightOverride(float InHeightOverride)
 
 
 // Function UMG.SizeBox.SetMaxAspectRatio
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InMaxAspectRatio                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15074,7 +13066,7 @@ void USizeBox::SetMaxAspectRatio(float InMaxAspectRatio)
 
 
 // Function UMG.SizeBox.SetMaxDesiredHeight
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InMaxDesiredHeight                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15099,7 +13091,7 @@ void USizeBox::SetMaxDesiredHeight(float InMaxDesiredHeight)
 
 
 // Function UMG.SizeBox.SetMaxDesiredWidth
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InMaxDesiredWidth                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15124,7 +13116,7 @@ void USizeBox::SetMaxDesiredWidth(float InMaxDesiredWidth)
 
 
 // Function UMG.SizeBox.SetMinAspectRatio
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InMinAspectRatio                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15149,7 +13141,7 @@ void USizeBox::SetMinAspectRatio(float InMinAspectRatio)
 
 
 // Function UMG.SizeBox.SetMinDesiredHeight
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InMinDesiredHeight                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15174,7 +13166,7 @@ void USizeBox::SetMinDesiredHeight(float InMinDesiredHeight)
 
 
 // Function UMG.SizeBox.SetMinDesiredWidth
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InMinDesiredWidth                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15199,7 +13191,7 @@ void USizeBox::SetMinDesiredWidth(float InMinDesiredWidth)
 
 
 // Function UMG.SizeBox.SetWidthOverride
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InWidthOverride                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15224,7 +13216,7 @@ void USizeBox::SetWidthOverride(float InWidthOverride)
 
 
 // Function UMG.SizeBoxSlot.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15249,7 +13241,7 @@ void USizeBoxSlot::SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlign
 
 
 // Function UMG.SizeBoxSlot.SetPadding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -15274,7 +13266,7 @@ void USizeBoxSlot::SetPadding(const struct FMargin& InPadding)
 
 
 // Function UMG.SizeBoxSlot.SetVerticalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15299,7 +13291,7 @@ void USizeBoxSlot::SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
 
 
 // Function UMG.Slider.SetIndentHandle
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15324,7 +13316,7 @@ void USlider::SetIndentHandle(bool InValue)
 
 
 // Function UMG.Slider.SetLocked
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15349,7 +13341,7 @@ void USlider::SetLocked(bool InValue)
 
 
 // Function UMG.Slider.SetMaxValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15374,7 +13366,7 @@ void USlider::SetMaxValue(float InValue)
 
 
 // Function UMG.Slider.SetMinValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15399,7 +13391,7 @@ void USlider::SetMinValue(float InValue)
 
 
 // Function UMG.Slider.SetSliderBarColor
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FLinearColor&              InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15424,7 +13416,7 @@ void USlider::SetSliderBarColor(const struct FLinearColor& InValue)
 
 
 // Function UMG.Slider.SetSliderHandleColor
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FLinearColor&              InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15449,7 +13441,7 @@ void USlider::SetSliderHandleColor(const struct FLinearColor& InValue)
 
 
 // Function UMG.Slider.SetStepSize
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15474,7 +13466,7 @@ void USlider::SetStepSize(float InValue)
 
 
 // Function UMG.Slider.SetValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15499,7 +13491,7 @@ void USlider::SetValue(float InValue)
 
 
 // Function UMG.Slider.GetNormalizedValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15524,7 +13516,7 @@ float USlider::GetNormalizedValue() const
 
 
 // Function UMG.Slider.GetValue
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15548,21 +13540,97 @@ float USlider::GetValue() const
 }
 
 
-// Function UMG.Spacer.SetSize
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// const struct FVector2D&                 InSize                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// Function UMG.SpinBox.ClearMaxSliderValue
+// (Final, Native, Public, BlueprintCallable)
 
-void USpacer::SetSize(const struct FVector2D& InSize)
+void USpinBox::ClearMaxSliderValue()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Spacer", "SetSize");
+		Func = Class->GetFunction("SpinBox", "ClearMaxSliderValue");
 
-	Params::Spacer_SetSize Parms{};
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
 
-	Parms.InSize = std::move(InSize);
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.SpinBox.ClearMaxValue
+// (Final, Native, Public, BlueprintCallable)
+
+void USpinBox::ClearMaxValue()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "ClearMaxValue");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.SpinBox.ClearMinSliderValue
+// (Final, Native, Public, BlueprintCallable)
+
+void USpinBox::ClearMinSliderValue()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "ClearMinSliderValue");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.SpinBox.ClearMinValue
+// (Final, Native, Public, BlueprintCallable)
+
+void USpinBox::ClearMinValue()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "ClearMinValue");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.SpinBox.SetAlwaysUsesDeltaSnap
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    bNewValue                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void USpinBox::SetAlwaysUsesDeltaSnap(bool bNewValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "SetAlwaysUsesDeltaSnap");
+
+	Params::SpinBox_SetAlwaysUsesDeltaSnap Parms{};
+
+	Parms.bNewValue = bNewValue;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -15573,13 +13641,463 @@ void USpacer::SetSize(const struct FVector2D& InSize)
 }
 
 
-// Function UMG.StackBox.AddChildToStackBox
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Function UMG.SpinBox.SetDelta
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class UWidget*                          Content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void USpinBox::SetDelta(float NewValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "SetDelta");
+
+	Params::SpinBox_SetDelta Parms{};
+
+	Parms.NewValue = NewValue;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.SpinBox.SetForegroundColor
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const struct FSlateColor&               InForegroundColor                                      (Parm, NativeAccessSpecifierPublic)
+
+void USpinBox::SetForegroundColor(const struct FSlateColor& InForegroundColor)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "SetForegroundColor");
+
+	Params::SpinBox_SetForegroundColor Parms{};
+
+	Parms.InForegroundColor = std::move(InForegroundColor);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.SpinBox.SetMaxFractionalDigits
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// int32                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void USpinBox::SetMaxFractionalDigits(int32 NewValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "SetMaxFractionalDigits");
+
+	Params::SpinBox_SetMaxFractionalDigits Parms{};
+
+	Parms.NewValue = NewValue;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.SpinBox.SetMaxSliderValue
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void USpinBox::SetMaxSliderValue(float NewValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "SetMaxSliderValue");
+
+	Params::SpinBox_SetMaxSliderValue Parms{};
+
+	Parms.NewValue = NewValue;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.SpinBox.SetMaxValue
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void USpinBox::SetMaxValue(float NewValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "SetMaxValue");
+
+	Params::SpinBox_SetMaxValue Parms{};
+
+	Parms.NewValue = NewValue;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.SpinBox.SetMinFractionalDigits
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// int32                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void USpinBox::SetMinFractionalDigits(int32 NewValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "SetMinFractionalDigits");
+
+	Params::SpinBox_SetMinFractionalDigits Parms{};
+
+	Parms.NewValue = NewValue;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.SpinBox.SetMinSliderValue
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void USpinBox::SetMinSliderValue(float NewValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "SetMinSliderValue");
+
+	Params::SpinBox_SetMinSliderValue Parms{};
+
+	Parms.NewValue = NewValue;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.SpinBox.SetMinValue
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void USpinBox::SetMinValue(float NewValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "SetMinValue");
+
+	Params::SpinBox_SetMinValue Parms{};
+
+	Parms.NewValue = NewValue;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.SpinBox.SetValue
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   NewValue                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void USpinBox::SetValue(float NewValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "SetValue");
+
+	Params::SpinBox_SetValue Parms{};
+
+	Parms.NewValue = NewValue;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.SpinBox.GetAlwaysUsesDeltaSnap
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool USpinBox::GetAlwaysUsesDeltaSnap() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "GetAlwaysUsesDeltaSnap");
+
+	Params::SpinBox_GetAlwaysUsesDeltaSnap Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.SpinBox.GetDelta
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float USpinBox::GetDelta() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "GetDelta");
+
+	Params::SpinBox_GetDelta Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.SpinBox.GetMaxFractionalDigits
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+int32 USpinBox::GetMaxFractionalDigits() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "GetMaxFractionalDigits");
+
+	Params::SpinBox_GetMaxFractionalDigits Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.SpinBox.GetMaxSliderValue
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float USpinBox::GetMaxSliderValue() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "GetMaxSliderValue");
+
+	Params::SpinBox_GetMaxSliderValue Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.SpinBox.GetMaxValue
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float USpinBox::GetMaxValue() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "GetMaxValue");
+
+	Params::SpinBox_GetMaxValue Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.SpinBox.GetMinFractionalDigits
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+int32 USpinBox::GetMinFractionalDigits() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "GetMinFractionalDigits");
+
+	Params::SpinBox_GetMinFractionalDigits Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.SpinBox.GetMinSliderValue
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float USpinBox::GetMinSliderValue() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "GetMinSliderValue");
+
+	Params::SpinBox_GetMinSliderValue Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.SpinBox.GetMinValue
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float USpinBox::GetMinValue() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "GetMinValue");
+
+	Params::SpinBox_GetMinValue Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.SpinBox.GetValue
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float USpinBox::GetValue() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("SpinBox", "GetValue");
+
+	Params::SpinBox_GetValue Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.StackBox.AddChildToStackBox
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UWidget*                          content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UStackBoxSlot*                    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UStackBoxSlot* UStackBox::AddChildToStackBox(class UWidget* Content)
+class UStackBoxSlot* UStackBox::AddChildToStackBox(class UWidget* content)
 {
 	static class UFunction* Func = nullptr;
 
@@ -15588,7 +14106,7 @@ class UStackBoxSlot* UStackBox::AddChildToStackBox(class UWidget* Content)
 
 	Params::StackBox_AddChildToStackBox Parms{};
 
-	Parms.Content = Content;
+	Parms.content = content;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -15602,13 +14120,13 @@ class UStackBoxSlot* UStackBox::AddChildToStackBox(class UWidget* Content)
 
 
 // Function UMG.StackBox.ReplaceStackBoxChildAt
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UWidget*                          Content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UWidget*                          content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UStackBox::ReplaceStackBoxChildAt(int32 Index_0, class UWidget* Content)
+bool UStackBox::ReplaceStackBoxChildAt(int32 Index_0, class UWidget* content)
 {
 	static class UFunction* Func = nullptr;
 
@@ -15618,7 +14136,7 @@ bool UStackBox::ReplaceStackBoxChildAt(int32 Index_0, class UWidget* Content)
 	Params::StackBox_ReplaceStackBoxChildAt Parms{};
 
 	Parms.Index_0 = Index_0;
-	Parms.Content = Content;
+	Parms.content = content;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -15632,7 +14150,7 @@ bool UStackBox::ReplaceStackBoxChildAt(int32 Index_0, class UWidget* Content)
 
 
 // Function UMG.TextBlock.GetDynamicFontMaterial
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UMaterialInstanceDynamic*         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15657,7 +14175,7 @@ class UMaterialInstanceDynamic* UTextBlock::GetDynamicFontMaterial()
 
 
 // Function UMG.TextBlock.GetDynamicOutlineMaterial
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UMaterialInstanceDynamic*         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15682,7 +14200,7 @@ class UMaterialInstanceDynamic* UTextBlock::GetDynamicOutlineMaterial()
 
 
 // Function UMG.TextBlock.SetAutoWrapText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    InAutoTextWrap                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15707,7 +14225,7 @@ void UTextBlock::SetAutoWrapText(bool InAutoTextWrap)
 
 
 // Function UMG.TextBlock.SetColorAndOpacity
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FSlateColor&               InColorAndOpacity                                      (Parm, NativeAccessSpecifierPublic)
 
@@ -15732,7 +14250,7 @@ void UTextBlock::SetColorAndOpacity(const struct FSlateColor& InColorAndOpacity)
 
 
 // Function UMG.TextBlock.SetFont
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FSlateFontInfo&            InFontInfo                                             (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15757,7 +14275,7 @@ void UTextBlock::SetFont(const struct FSlateFontInfo& InFontInfo)
 
 
 // Function UMG.TextBlock.SetFontMaterial
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UMaterialInterface*               InMaterial                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15782,7 +14300,7 @@ void UTextBlock::SetFontMaterial(class UMaterialInterface* InMaterial)
 
 
 // Function UMG.TextBlock.SetFontOutlineMaterial
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UMaterialInterface*               InMaterial                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15807,7 +14325,7 @@ void UTextBlock::SetFontOutlineMaterial(class UMaterialInterface* InMaterial)
 
 
 // Function UMG.TextBlock.SetMinDesiredWidth
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InMinDesiredWidth                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15832,7 +14350,7 @@ void UTextBlock::SetMinDesiredWidth(float InMinDesiredWidth)
 
 
 // Function UMG.TextBlock.SetOpacity
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InOpacity                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15857,7 +14375,7 @@ void UTextBlock::SetOpacity(float InOpacity)
 
 
 // Function UMG.TextBlock.SetShadowColorAndOpacity
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FLinearColor&              InShadowColorAndOpacity                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15882,7 +14400,7 @@ void UTextBlock::SetShadowColorAndOpacity(const struct FLinearColor& InShadowCol
 
 
 // Function UMG.TextBlock.SetShadowOffset
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector2D&                 InShadowOffset                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -15907,7 +14425,7 @@ void UTextBlock::SetShadowOffset(const struct FVector2D& InShadowOffset)
 
 
 // Function UMG.TextBlock.SetStrikeBrush
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FSlateBrush&               InStrikeBrush                                          (Parm, NativeAccessSpecifierPublic)
 
@@ -15957,7 +14475,7 @@ void UTextBlock::SetString(const class FString& InString)
 
 
 // Function UMG.TextBlock.SetText
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 // Parameters:
 // const class FText&                      InText                                                 (Parm, NativeAccessSpecifierPublic)
 
@@ -15982,7 +14500,7 @@ void UTextBlock::SetText(const class FText& InText)
 
 
 // Function UMG.TextBlock.SetTextOverflowPolicy
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // ETextOverflowPolicy                     InOverflowPolicy                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -16007,7 +14525,7 @@ void UTextBlock::SetTextOverflowPolicy(ETextOverflowPolicy InOverflowPolicy)
 
 
 // Function UMG.TextBlock.SetTextTransformPolicy
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // ETextTransformPolicy                    InTransformPolicy                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -16032,7 +14550,7 @@ void UTextBlock::SetTextTransformPolicy(ETextTransformPolicy InTransformPolicy)
 
 
 // Function UMG.TextBlock.GetText
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
@@ -16057,7 +14575,7 @@ class FText UTextBlock::GetText() const
 
 
 // Function UMG.Throbber.SetAnimateHorizontally
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bInAnimateHorizontally                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -16082,7 +14600,7 @@ void UThrobber::SetAnimateHorizontally(bool bInAnimateHorizontally)
 
 
 // Function UMG.Throbber.SetAnimateOpacity
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bInAnimateOpacity                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -16107,7 +14625,7 @@ void UThrobber::SetAnimateOpacity(bool bInAnimateOpacity)
 
 
 // Function UMG.Throbber.SetAnimateVertically
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bInAnimateVertically                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -16132,7 +14650,7 @@ void UThrobber::SetAnimateVertically(bool bInAnimateVertically)
 
 
 // Function UMG.Throbber.SetNumberOfPieces
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // int32                                   InNumberOfPieces                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -16157,7 +14675,7 @@ void UThrobber::SetNumberOfPieces(int32 InNumberOfPieces)
 
 
 // Function UMG.TileView.SetEntryHeight
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   NewHeight                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -16182,7 +14700,7 @@ void UTileView::SetEntryHeight(float NewHeight)
 
 
 // Function UMG.TileView.SetEntryWidth
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   NewWidth                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -16256,33 +14774,8 @@ float UTileView::GetEntryWidth() const
 }
 
 
-// Function UMG.TileView.IsAligned
-// (Final, RequiredAPI, Native, Private, Const)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UTileView::IsAligned() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("TileView", "IsAligned");
-
-	Params::TileView_IsAligned Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function UMG.TreeView.CollapseAll
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UTreeView::CollapseAll()
 {
@@ -16301,7 +14794,7 @@ void UTreeView::CollapseAll()
 
 
 // Function UMG.TreeView.ExpandAll
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 
 void UTreeView::ExpandAll()
 {
@@ -16320,7 +14813,7 @@ void UTreeView::ExpandAll()
 
 
 // Function UMG.TreeView.SetItemExpansion
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UObject*                          Item                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bExpandItem                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -16347,14 +14840,14 @@ void UTreeView::SetItemExpansion(class UObject* Item, bool bExpandItem)
 
 
 // Function UMG.UniformGridPanel.AddChildToUniformGrid
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class UWidget*                          Content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UWidget*                          content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   InRow                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   InColumn                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UUniformGridSlot*                 ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UUniformGridSlot* UUniformGridPanel::AddChildToUniformGrid(class UWidget* Content, int32 InRow, int32 InColumn)
+class UUniformGridSlot* UUniformGridPanel::AddChildToUniformGrid(class UWidget* content, int32 InRow, int32 InColumn)
 {
 	static class UFunction* Func = nullptr;
 
@@ -16363,7 +14856,7 @@ class UUniformGridSlot* UUniformGridPanel::AddChildToUniformGrid(class UWidget* 
 
 	Params::UniformGridPanel_AddChildToUniformGrid Parms{};
 
-	Parms.Content = Content;
+	Parms.content = content;
 	Parms.InRow = InRow;
 	Parms.InColumn = InColumn;
 
@@ -16379,7 +14872,7 @@ class UUniformGridSlot* UUniformGridPanel::AddChildToUniformGrid(class UWidget* 
 
 
 // Function UMG.UniformGridPanel.SetMinDesiredSlotHeight
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InMinDesiredSlotHeight                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -16404,7 +14897,7 @@ void UUniformGridPanel::SetMinDesiredSlotHeight(float InMinDesiredSlotHeight)
 
 
 // Function UMG.UniformGridPanel.SetMinDesiredSlotWidth
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InMinDesiredSlotWidth                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -16429,7 +14922,7 @@ void UUniformGridPanel::SetMinDesiredSlotWidth(float InMinDesiredSlotWidth)
 
 
 // Function UMG.UniformGridPanel.SetSlotPadding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMargin&                   InSlotPadding                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -16453,13 +14946,113 @@ void UUniformGridPanel::SetSlotPadding(const struct FMargin& InSlotPadding)
 }
 
 
-// Function UMG.VerticalBox.AddChildToVerticalBox
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Function UMG.UniformGridSlot.SetColumn
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class UWidget*                          Content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   InColumn                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UUniformGridSlot::SetColumn(int32 InColumn)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UniformGridSlot", "SetColumn");
+
+	Params::UniformGridSlot_SetColumn Parms{};
+
+	Parms.InColumn = InColumn;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.UniformGridSlot.SetHorizontalAlignment
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UUniformGridSlot::SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignment)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UniformGridSlot", "SetHorizontalAlignment");
+
+	Params::UniformGridSlot_SetHorizontalAlignment Parms{};
+
+	Parms.InHorizontalAlignment = InHorizontalAlignment;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.UniformGridSlot.SetRow
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// int32                                   InRow                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UUniformGridSlot::SetRow(int32 InRow)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UniformGridSlot", "SetRow");
+
+	Params::UniformGridSlot_SetRow Parms{};
+
+	Parms.InRow = InRow;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.UniformGridSlot.SetVerticalAlignment
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UUniformGridSlot::SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UniformGridSlot", "SetVerticalAlignment");
+
+	Params::UniformGridSlot_SetVerticalAlignment Parms{};
+
+	Parms.InVerticalAlignment = InVerticalAlignment;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.VerticalBox.AddChildToVerticalBox
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UWidget*                          content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UVerticalBoxSlot*                 ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UVerticalBoxSlot* UVerticalBox::AddChildToVerticalBox(class UWidget* Content)
+class UVerticalBoxSlot* UVerticalBox::AddChildToVerticalBox(class UWidget* content)
 {
 	static class UFunction* Func = nullptr;
 
@@ -16468,7 +15061,7 @@ class UVerticalBoxSlot* UVerticalBox::AddChildToVerticalBox(class UWidget* Conte
 
 	Params::VerticalBox_AddChildToVerticalBox Parms{};
 
-	Parms.Content = Content;
+	Parms.content = content;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -16481,21 +15074,21 @@ class UVerticalBoxSlot* UVerticalBox::AddChildToVerticalBox(class UWidget* Conte
 }
 
 
-// Function UMG.Viewport.SetEnableAdvancedFeatures
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Function UMG.VerticalBoxSlot.SetHorizontalAlignment
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// bool                                    InEnableAdvancedFeatures                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UViewport::SetEnableAdvancedFeatures(bool InEnableAdvancedFeatures)
+void UVerticalBoxSlot::SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignment)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Viewport", "SetEnableAdvancedFeatures");
+		Func = Class->GetFunction("VerticalBoxSlot", "SetHorizontalAlignment");
 
-	Params::Viewport_SetEnableAdvancedFeatures Parms{};
+	Params::VerticalBoxSlot_SetHorizontalAlignment Parms{};
 
-	Parms.InEnableAdvancedFeatures = InEnableAdvancedFeatures;
+	Parms.InHorizontalAlignment = InHorizontalAlignment;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -16506,21 +15099,21 @@ void UViewport::SetEnableAdvancedFeatures(bool InEnableAdvancedFeatures)
 }
 
 
-// Function UMG.Viewport.SetLightIntensity
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Function UMG.VerticalBoxSlot.SetPadding
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// float                                   LightIntensity                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
-void UViewport::SetLightIntensity(float LightIntensity)
+void UVerticalBoxSlot::SetPadding(const struct FMargin& InPadding)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Viewport", "SetLightIntensity");
+		Func = Class->GetFunction("VerticalBoxSlot", "SetPadding");
 
-	Params::Viewport_SetLightIntensity Parms{};
+	Params::VerticalBoxSlot_SetPadding Parms{};
 
-	Parms.LightIntensity = LightIntensity;
+	Parms.InPadding = std::move(InPadding);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -16531,23 +15124,21 @@ void UViewport::SetLightIntensity(float LightIntensity)
 }
 
 
-// Function UMG.Viewport.SetShowFlag
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Function UMG.VerticalBoxSlot.SetSize
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// const class FString&                    InShowFlagName                                         (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    InValue                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FSlateChildSize&           InSize                                                 (Parm, NoDestructor, NativeAccessSpecifierPublic)
 
-void UViewport::SetShowFlag(const class FString& InShowFlagName, bool InValue)
+void UVerticalBoxSlot::SetSize(const struct FSlateChildSize& InSize)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Viewport", "SetShowFlag");
+		Func = Class->GetFunction("VerticalBoxSlot", "SetSize");
 
-	Params::Viewport_SetShowFlag Parms{};
+	Params::VerticalBoxSlot_SetSize Parms{};
 
-	Parms.InShowFlagName = std::move(InShowFlagName);
-	Parms.InValue = InValue;
+	Parms.InSize = std::move(InSize);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -16558,21 +15149,21 @@ void UViewport::SetShowFlag(const class FString& InShowFlagName, bool InValue)
 }
 
 
-// Function UMG.Viewport.SetSkyIntensity
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Function UMG.VerticalBoxSlot.SetVerticalAlignment
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// float                                   LightIntensity                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UViewport::SetSkyIntensity(float LightIntensity)
+void UVerticalBoxSlot::SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("Viewport", "SetSkyIntensity");
+		Func = Class->GetFunction("VerticalBoxSlot", "SetVerticalAlignment");
 
-	Params::Viewport_SetSkyIntensity Parms{};
+	Params::VerticalBoxSlot_SetVerticalAlignment Parms{};
 
-	Parms.LightIntensity = LightIntensity;
+	Parms.InVerticalAlignment = InVerticalAlignment;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -16584,7 +15175,7 @@ void UViewport::SetSkyIntensity(float LightIntensity)
 
 
 // Function UMG.Viewport.SetViewLocation
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector&                   Location                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -16609,7 +15200,7 @@ void UViewport::SetViewLocation(const struct FVector& Location)
 
 
 // Function UMG.Viewport.SetViewRotation
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FRotator&                  Rotation                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -16634,7 +15225,7 @@ void UViewport::SetViewRotation(const struct FRotator& Rotation)
 
 
 // Function UMG.Viewport.Spawn
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // TSubclassOf<class AActor>               ActorClass                                             (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class AActor*                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -16662,7 +15253,7 @@ class AActor* UViewport::Spawn(TSubclassOf<class AActor> ActorClass)
 
 
 // Function UMG.Viewport.GetViewLocation
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // struct FVector                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -16687,7 +15278,7 @@ struct FVector UViewport::GetViewLocation() const
 
 
 // Function UMG.Viewport.GetViewportWorld
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class UWorld*                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -16712,7 +15303,7 @@ class UWorld* UViewport::GetViewportWorld() const
 
 
 // Function UMG.Viewport.GetViewRotation
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // struct FRotator                         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -16737,7 +15328,7 @@ struct FRotator UViewport::GetViewRotation() const
 
 
 // Function UMG.WidgetComponent.RequestRedraw
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 
 void UWidgetComponent::RequestRedraw()
 {
@@ -16756,7 +15347,7 @@ void UWidgetComponent::RequestRedraw()
 
 
 // Function UMG.WidgetComponent.RequestRenderUpdate
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 
 void UWidgetComponent::RequestRenderUpdate()
 {
@@ -16775,7 +15366,7 @@ void UWidgetComponent::RequestRenderUpdate()
 
 
 // Function UMG.WidgetComponent.SetBackgroundColor
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FLinearColor&              NewBackgroundColor                                     (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -16802,9 +15393,9 @@ void UWidgetComponent::SetBackgroundColor(const struct FLinearColor& NewBackgrou
 // Function UMG.WidgetComponent.SetCylinderArcAngle
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// const double                            InCylinderArcAngle                                     (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const float                             InCylinderArcAngle                                     (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UWidgetComponent::SetCylinderArcAngle(const double InCylinderArcAngle)
+void UWidgetComponent::SetCylinderArcAngle(const float InCylinderArcAngle)
 {
 	static class UFunction* Func = nullptr;
 
@@ -16850,7 +15441,7 @@ void UWidgetComponent::SetDrawAtDesiredSize(bool bInDrawAtDesiredSize)
 
 
 // Function UMG.WidgetComponent.SetDrawSize
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector2D&                 Size                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -16900,7 +15491,7 @@ void UWidgetComponent::SetGeometryMode(EWidgetGeometryMode InGeometryMode)
 
 
 // Function UMG.WidgetComponent.SetManuallyRedraw
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bUseManualRedraw                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -16925,7 +15516,7 @@ void UWidgetComponent::SetManuallyRedraw(bool bUseManualRedraw)
 
 
 // Function UMG.WidgetComponent.SetOwnerPlayer
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class ULocalPlayer*                     LocalPlayer                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17000,7 +15591,7 @@ void UWidgetComponent::SetRedrawTime(float InRedrawTime)
 
 
 // Function UMG.WidgetComponent.SetTickMode
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // ETickMode                               InTickMode                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17050,7 +15641,7 @@ void UWidgetComponent::SetTickWhenOffscreen(const bool bWantTickWhenOffscreen)
 
 
 // Function UMG.WidgetComponent.SetTintColorAndOpacity
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FLinearColor&              NewTintColorAndOpacity                                 (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17075,7 +15666,7 @@ void UWidgetComponent::SetTintColorAndOpacity(const struct FLinearColor& NewTint
 
 
 // Function UMG.WidgetComponent.SetTwoSided
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const bool                              bWantTwoSided                                          (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17100,7 +15691,7 @@ void UWidgetComponent::SetTwoSided(const bool bWantTwoSided)
 
 
 // Function UMG.WidgetComponent.SetWidget
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 // Parameters:
 // class UUserWidget*                      Widget_0                                               (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17150,7 +15741,7 @@ void UWidgetComponent::SetWidgetSpace(EWidgetSpace NewSpace)
 
 
 // Function UMG.WidgetComponent.SetWindowFocusable
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bInWindowFocusable                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17175,7 +15766,7 @@ void UWidgetComponent::SetWindowFocusable(bool bInWindowFocusable)
 
 
 // Function UMG.WidgetComponent.SetWindowVisibility
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EWindowVisibility                       InVisibility                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17200,7 +15791,7 @@ void UWidgetComponent::SetWindowVisibility(EWindowVisibility InVisibility)
 
 
 // Function UMG.WidgetComponent.GetCurrentDrawSize
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17227,9 +15818,9 @@ struct FVector2D UWidgetComponent::GetCurrentDrawSize() const
 // Function UMG.WidgetComponent.GetCylinderArcAngle
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// double                                  ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-double UWidgetComponent::GetCylinderArcAngle() const
+float UWidgetComponent::GetCylinderArcAngle() const
 {
 	static class UFunction* Func = nullptr;
 
@@ -17275,7 +15866,7 @@ bool UWidgetComponent::GetDrawAtDesiredSize() const
 
 
 // Function UMG.WidgetComponent.GetDrawSize
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17350,7 +15941,7 @@ bool UWidgetComponent::GetManuallyRedraw() const
 
 
 // Function UMG.WidgetComponent.GetMaterialInstance
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class UMaterialInstanceDynamic*         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17375,7 +15966,7 @@ class UMaterialInstanceDynamic* UWidgetComponent::GetMaterialInstance() const
 
 
 // Function UMG.WidgetComponent.GetOwnerPlayer
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class ULocalPlayer*                     ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17450,7 +16041,7 @@ float UWidgetComponent::GetRedrawTime() const
 
 
 // Function UMG.WidgetComponent.GetRenderTarget
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class UTextureRenderTarget2D*           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17525,7 +16116,7 @@ bool UWidgetComponent::GetTwoSided() const
 
 
 // Function UMG.WidgetComponent.GetUserWidgetObject
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class UUserWidget*                      ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17550,7 +16141,7 @@ class UUserWidget* UWidgetComponent::GetUserWidgetObject() const
 
 
 // Function UMG.WidgetComponent.GetWidget
-// (RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class UUserWidget*                      ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17650,7 +16241,7 @@ EWindowVisibility UWidgetComponent::GetWindowVisiblility() const
 
 
 // Function UMG.WidgetComponent.IsWidgetVisible
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17675,7 +16266,7 @@ bool UWidgetComponent::IsWidgetVisible() const
 
 
 // Function UMG.WidgetInteractionComponent.PressAndReleaseKey
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FKey&                      Key                                                    (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -17703,7 +16294,7 @@ bool UWidgetInteractionComponent::PressAndReleaseKey(const struct FKey& Key)
 
 
 // Function UMG.WidgetInteractionComponent.PressKey
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FKey&                      Key                                                    (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bRepeat                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -17733,7 +16324,7 @@ bool UWidgetInteractionComponent::PressKey(const struct FKey& Key, bool bRepeat)
 
 
 // Function UMG.WidgetInteractionComponent.PressPointerKey
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FKey&                      Key                                                    (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17758,7 +16349,7 @@ void UWidgetInteractionComponent::PressPointerKey(const struct FKey& Key)
 
 
 // Function UMG.WidgetInteractionComponent.ReleaseKey
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FKey&                      Key                                                    (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -17786,7 +16377,7 @@ bool UWidgetInteractionComponent::ReleaseKey(const struct FKey& Key)
 
 
 // Function UMG.WidgetInteractionComponent.ReleasePointerKey
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FKey&                      Key                                                    (Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17811,7 +16402,7 @@ void UWidgetInteractionComponent::ReleasePointerKey(const struct FKey& Key)
 
 
 // Function UMG.WidgetInteractionComponent.ScrollWheel
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   ScrollDelta                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17836,7 +16427,7 @@ void UWidgetInteractionComponent::ScrollWheel(float ScrollDelta)
 
 
 // Function UMG.WidgetInteractionComponent.SendKeyChar
-// (RequiredAPI, Native, Public, BlueprintCallable)
+// (Native, Public, BlueprintCallable)
 // Parameters:
 // const class FString&                    Characters                                             (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bRepeat                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -17866,7 +16457,7 @@ bool UWidgetInteractionComponent::SendKeyChar(const class FString& Characters, b
 
 
 // Function UMG.WidgetInteractionComponent.SetCustomHitResult
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // const struct FHitResult&                HitResult                                              (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
@@ -17891,7 +16482,7 @@ void UWidgetInteractionComponent::SetCustomHitResult(const struct FHitResult& Hi
 
 
 // Function UMG.WidgetInteractionComponent.SetFocus
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UWidget*                          FocusWidget                                            (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17916,7 +16507,7 @@ void UWidgetInteractionComponent::SetFocus(class UWidget* FocusWidget)
 
 
 // Function UMG.WidgetInteractionComponent.Get2DHitLocation
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17941,7 +16532,7 @@ struct FVector2D UWidgetInteractionComponent::Get2DHitLocation() const
 
 
 // Function UMG.WidgetInteractionComponent.GetHoveredWidgetComponent
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // class UWidgetComponent*                 ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -17966,7 +16557,7 @@ class UWidgetComponent* UWidgetInteractionComponent::GetHoveredWidgetComponent()
 
 
 // Function UMG.WidgetInteractionComponent.GetLastHitResult
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // const struct FHitResult                 ReturnValue                                            (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 
@@ -17991,7 +16582,7 @@ const struct FHitResult UWidgetInteractionComponent::GetLastHitResult() const
 
 
 // Function UMG.WidgetInteractionComponent.IsOverFocusableWidget
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -18016,7 +16607,7 @@ bool UWidgetInteractionComponent::IsOverFocusableWidget() const
 
 
 // Function UMG.WidgetInteractionComponent.IsOverHitTestVisibleWidget
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -18041,7 +16632,7 @@ bool UWidgetInteractionComponent::IsOverHitTestVisibleWidget() const
 
 
 // Function UMG.WidgetInteractionComponent.IsOverInteractableWidget
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -18065,8 +16656,161 @@ bool UWidgetInteractionComponent::IsOverInteractableWidget() const
 }
 
 
+// Function UMG.WidgetSwitcher.SetActiveWidget
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UWidgetSwitcher::SetActiveWidget(class UWidget* Widget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WidgetSwitcher", "SetActiveWidget");
+
+	Params::WidgetSwitcher_SetActiveWidget Parms{};
+
+	Parms.Widget = Widget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.WidgetSwitcher.SetActiveWidgetIndex
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UWidgetSwitcher::SetActiveWidgetIndex(int32 Index_0)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WidgetSwitcher", "SetActiveWidgetIndex");
+
+	Params::WidgetSwitcher_SetActiveWidgetIndex Parms{};
+
+	Parms.Index_0 = Index_0;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.WidgetSwitcher.GetActiveWidget
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class UWidget*                          ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UWidget* UWidgetSwitcher::GetActiveWidget() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WidgetSwitcher", "GetActiveWidget");
+
+	Params::WidgetSwitcher_GetActiveWidget Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetSwitcher.GetActiveWidgetIndex
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+int32 UWidgetSwitcher::GetActiveWidgetIndex() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WidgetSwitcher", "GetActiveWidgetIndex");
+
+	Params::WidgetSwitcher_GetActiveWidgetIndex Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetSwitcher.GetNumWidgets
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+int32 UWidgetSwitcher::GetNumWidgets() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WidgetSwitcher", "GetNumWidgets");
+
+	Params::WidgetSwitcher_GetNumWidgets Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetSwitcher.GetWidgetAtIndex
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// int32                                   Index_0                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UWidget*                          ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UWidget* UWidgetSwitcher::GetWidgetAtIndex(int32 Index_0) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WidgetSwitcher", "GetWidgetAtIndex");
+
+	Params::WidgetSwitcher_GetWidgetAtIndex Parms{};
+
+	Parms.Index_0 = Index_0;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function UMG.WidgetSwitcherSlot.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -18091,7 +16835,7 @@ void UWidgetSwitcherSlot::SetHorizontalAlignment(EHorizontalAlignment InHorizont
 
 
 // Function UMG.WidgetSwitcherSlot.SetPadding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -18116,7 +16860,7 @@ void UWidgetSwitcherSlot::SetPadding(const struct FMargin& InPadding)
 
 
 // Function UMG.WidgetSwitcherSlot.SetVerticalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -18141,7 +16885,7 @@ void UWidgetSwitcherSlot::SetVerticalAlignment(EVerticalAlignment InVerticalAlig
 
 
 // Function UMG.WindowTitleBarArea.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -18166,7 +16910,7 @@ void UWindowTitleBarArea::SetHorizontalAlignment(EHorizontalAlignment InHorizont
 
 
 // Function UMG.WindowTitleBarArea.SetPadding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -18191,7 +16935,7 @@ void UWindowTitleBarArea::SetPadding(const struct FMargin& InPadding)
 
 
 // Function UMG.WindowTitleBarArea.SetVerticalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -18216,7 +16960,7 @@ void UWindowTitleBarArea::SetVerticalAlignment(EVerticalAlignment InVerticalAlig
 
 
 // Function UMG.WindowTitleBarAreaSlot.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -18241,7 +16985,7 @@ void UWindowTitleBarAreaSlot::SetHorizontalAlignment(EHorizontalAlignment InHori
 
 
 // Function UMG.WindowTitleBarAreaSlot.SetPadding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -18266,7 +17010,7 @@ void UWindowTitleBarAreaSlot::SetPadding(const struct FMargin& InPadding)
 
 
 // Function UMG.WindowTitleBarAreaSlot.SetVerticalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -18291,12 +17035,12 @@ void UWindowTitleBarAreaSlot::SetVerticalAlignment(EVerticalAlignment InVertical
 
 
 // Function UMG.WrapBox.AddChildToWrapBox
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class UWidget*                          Content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UWidget*                          content                                                (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UWrapBoxSlot*                     ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UWrapBoxSlot* UWrapBox::AddChildToWrapBox(class UWidget* Content)
+class UWrapBoxSlot* UWrapBox::AddChildToWrapBox(class UWidget* content)
 {
 	static class UFunction* Func = nullptr;
 
@@ -18305,7 +17049,7 @@ class UWrapBoxSlot* UWrapBox::AddChildToWrapBox(class UWidget* Content)
 
 	Params::WrapBox_AddChildToWrapBox Parms{};
 
-	Parms.Content = Content;
+	Parms.content = content;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -18319,7 +17063,7 @@ class UWrapBoxSlot* UWrapBox::AddChildToWrapBox(class UWidget* Content)
 
 
 // Function UMG.WrapBox.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -18344,7 +17088,7 @@ void UWrapBox::SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignment
 
 
 // Function UMG.WrapBox.SetInnerSlotPadding
-// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // const struct FVector2D&                 InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -18369,7 +17113,7 @@ void UWrapBox::SetInnerSlotPadding(const struct FVector2D& InPadding)
 
 
 // Function UMG.WrapBoxSlot.SetFillEmptySpace
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    InbFillEmptySpace                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -18394,7 +17138,7 @@ void UWrapBoxSlot::SetFillEmptySpace(bool InbFillEmptySpace)
 
 
 // Function UMG.WrapBoxSlot.SetFillSpanWhenLessThan
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // float                                   InFillSpanWhenLessThan                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -18419,7 +17163,7 @@ void UWrapBoxSlot::SetFillSpanWhenLessThan(float InFillSpanWhenLessThan)
 
 
 // Function UMG.WrapBoxSlot.SetHorizontalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EHorizontalAlignment                    InHorizontalAlignment                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -18444,7 +17188,7 @@ void UWrapBoxSlot::SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlign
 
 
 // Function UMG.WrapBoxSlot.SetNewLine
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    InForceNewLine                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -18469,7 +17213,7 @@ void UWrapBoxSlot::SetNewLine(bool InForceNewLine)
 
 
 // Function UMG.WrapBoxSlot.SetPadding
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // const struct FMargin&                   InPadding                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 
@@ -18494,7 +17238,7 @@ void UWrapBoxSlot::SetPadding(const struct FMargin& InPadding)
 
 
 // Function UMG.WrapBoxSlot.SetVerticalAlignment
-// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // EVerticalAlignment                      InVerticalAlignment                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -18519,7 +17263,7 @@ void UWrapBoxSlot::SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
 
 
 // Function UMG.DragDropOperation.DragCancelled
-// (RequiredAPI, Native, Event, Public, HasOutParams, BlueprintEvent)
+// (Native, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FPointerEvent&             PointerEvent                                           (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
@@ -18544,7 +17288,7 @@ void UDragDropOperation::DragCancelled(const struct FPointerEvent& PointerEvent)
 
 
 // Function UMG.DragDropOperation.Dragged
-// (RequiredAPI, Native, Event, Public, HasOutParams, BlueprintEvent)
+// (Native, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FPointerEvent&             PointerEvent                                           (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
@@ -18569,7 +17313,7 @@ void UDragDropOperation::Dragged(const struct FPointerEvent& PointerEvent)
 
 
 // Function UMG.DragDropOperation.Drop
-// (RequiredAPI, Native, Event, Public, HasOutParams, BlueprintEvent)
+// (Native, Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
 // const struct FPointerEvent&             PointerEvent                                           (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 
@@ -18594,7 +17338,7 @@ void UDragDropOperation::Drop(const struct FPointerEvent& PointerEvent)
 
 
 // Function UMG.SlateBlueprintLibrary.AbsoluteToLocal
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FGeometry&                 Geometry                                               (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 AbsoluteCoordinate                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -18624,7 +17368,7 @@ struct FVector2D USlateBlueprintLibrary::AbsoluteToLocal(const struct FGeometry&
 
 
 // Function UMG.SlateBlueprintLibrary.AbsoluteToViewport
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 AbsoluteDesktopCoordinate                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -18659,7 +17403,7 @@ void USlateBlueprintLibrary::AbsoluteToViewport(class UObject* WorldContextObjec
 
 
 // Function UMG.SlateBlueprintLibrary.EqualEqual_SlateBrush
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FSlateBrush&               A                                                      (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // const struct FSlateBrush&               B                                                      (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
@@ -18689,7 +17433,7 @@ bool USlateBlueprintLibrary::EqualEqual_SlateBrush(const struct FSlateBrush& A, 
 
 
 // Function UMG.SlateBlueprintLibrary.GetAbsoluteSize
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FGeometry&                 Geometry                                               (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -18717,7 +17461,7 @@ struct FVector2D USlateBlueprintLibrary::GetAbsoluteSize(const struct FGeometry&
 
 
 // Function UMG.SlateBlueprintLibrary.GetLocalSize
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FGeometry&                 Geometry                                               (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -18745,7 +17489,7 @@ struct FVector2D USlateBlueprintLibrary::GetLocalSize(const struct FGeometry& Ge
 
 
 // Function UMG.SlateBlueprintLibrary.GetLocalTopLeft
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FGeometry&                 Geometry                                               (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -18773,7 +17517,7 @@ struct FVector2D USlateBlueprintLibrary::GetLocalTopLeft(const struct FGeometry&
 
 
 // Function UMG.SlateBlueprintLibrary.IsUnderLocation
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FGeometry&                 Geometry                                               (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 AbsoluteCoordinate                                     (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -18803,7 +17547,7 @@ bool USlateBlueprintLibrary::IsUnderLocation(const struct FGeometry& Geometry, c
 
 
 // Function UMG.SlateBlueprintLibrary.LocalToAbsolute
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FGeometry&                 Geometry                                               (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 LocalCoordinate                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -18833,7 +17577,7 @@ struct FVector2D USlateBlueprintLibrary::LocalToAbsolute(const struct FGeometry&
 
 
 // Function UMG.SlateBlueprintLibrary.LocalToViewport
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FGeometry&                 Geometry                                               (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
@@ -18870,7 +17614,7 @@ void USlateBlueprintLibrary::LocalToViewport(class UObject* WorldContextObject, 
 
 
 // Function UMG.SlateBlueprintLibrary.ScreenToViewport
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 ScreenPosition                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -18901,7 +17645,7 @@ void USlateBlueprintLibrary::ScreenToViewport(class UObject* WorldContextObject,
 
 
 // Function UMG.SlateBlueprintLibrary.ScreenToWidgetAbsolute
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 ScreenPosition                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -18934,7 +17678,7 @@ void USlateBlueprintLibrary::ScreenToWidgetAbsolute(class UObject* WorldContextO
 
 
 // Function UMG.SlateBlueprintLibrary.ScreenToWidgetLocal
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FGeometry&                 Geometry                                               (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
@@ -18969,7 +17713,7 @@ void USlateBlueprintLibrary::ScreenToWidgetLocal(class UObject* WorldContextObje
 
 
 // Function UMG.SlateBlueprintLibrary.TransformScalarAbsoluteToLocal
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FGeometry&                 Geometry                                               (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // float                                   AbsoluteScalar                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -18999,7 +17743,7 @@ float USlateBlueprintLibrary::TransformScalarAbsoluteToLocal(const struct FGeome
 
 
 // Function UMG.SlateBlueprintLibrary.TransformScalarLocalToAbsolute
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FGeometry&                 Geometry                                               (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // float                                   LocalScalar                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19029,7 +17773,7 @@ float USlateBlueprintLibrary::TransformScalarLocalToAbsolute(const struct FGeome
 
 
 // Function UMG.SlateBlueprintLibrary.TransformVectorAbsoluteToLocal
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FGeometry&                 Geometry                                               (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 AbsoluteVector                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19059,7 +17803,7 @@ struct FVector2D USlateBlueprintLibrary::TransformVectorAbsoluteToLocal(const st
 
 
 // Function UMG.SlateBlueprintLibrary.TransformVectorLocalToAbsolute
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FGeometry&                 Geometry                                               (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 LocalVector                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19089,7 +17833,7 @@ struct FVector2D USlateBlueprintLibrary::TransformVectorLocalToAbsolute(const st
 
 
 // Function UMG.WidgetBlueprintLibrary.CancelDragDrop
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
+// (Final, Native, Static, Public, BlueprintCallable)
 
 void UWidgetBlueprintLibrary::CancelDragDrop()
 {
@@ -19108,7 +17852,7 @@ void UWidgetBlueprintLibrary::CancelDragDrop()
 
 
 // Function UMG.WidgetBlueprintLibrary.CaptureJoystick
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // struct FEventReply&                     Reply                                                  (Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // class UWidget*                          CapturingWidget                                        (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19142,7 +17886,7 @@ struct FEventReply UWidgetBlueprintLibrary::CaptureJoystick(struct FEventReply& 
 
 
 // Function UMG.WidgetBlueprintLibrary.CaptureMouse
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // struct FEventReply&                     Reply                                                  (Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // class UWidget*                          CapturingWidget                                        (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19174,7 +17918,7 @@ struct FEventReply UWidgetBlueprintLibrary::CaptureMouse(struct FEventReply& Rep
 
 
 // Function UMG.WidgetBlueprintLibrary.ClearUserFocus
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // struct FEventReply&                     Reply                                                  (Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // bool                                    bInAllUsers                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19206,7 +17950,7 @@ struct FEventReply UWidgetBlueprintLibrary::ClearUserFocus(struct FEventReply& R
 
 
 // Function UMG.WidgetBlueprintLibrary.Create
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Static, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TSubclassOf<class UUserWidget>          WidgetType                                             (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19238,7 +17982,7 @@ class UUserWidget* UWidgetBlueprintLibrary::Create(class UObject* WorldContextOb
 
 
 // Function UMG.WidgetBlueprintLibrary.CreateDragDropOperation
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // TSubclassOf<class UDragDropOperation>   OperationClass                                         (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UDragDropOperation*               ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19266,7 +18010,7 @@ class UDragDropOperation* UWidgetBlueprintLibrary::CreateDragDropOperation(TSubc
 
 
 // Function UMG.WidgetBlueprintLibrary.DetectDrag
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // struct FEventReply&                     Reply                                                  (Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // class UWidget*                          WidgetDetectingDrag                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19300,7 +18044,7 @@ struct FEventReply UWidgetBlueprintLibrary::DetectDrag(struct FEventReply& Reply
 
 
 // Function UMG.WidgetBlueprintLibrary.DetectDragIfPressed
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // const struct FPointerEvent&             PointerEvent                                           (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // class UWidget*                          WidgetDetectingDrag                                    (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19332,7 +18076,7 @@ struct FEventReply UWidgetBlueprintLibrary::DetectDragIfPressed(const struct FPo
 
 
 // Function UMG.WidgetBlueprintLibrary.DismissAllMenus
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Static, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Static, Public, BlueprintCallable)
 
 void UWidgetBlueprintLibrary::DismissAllMenus()
 {
@@ -19351,7 +18095,7 @@ void UWidgetBlueprintLibrary::DismissAllMenus()
 
 
 // Function UMG.WidgetBlueprintLibrary.DrawBox
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
 // struct FPaintContext&                   Context                                                (Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19386,7 +18130,7 @@ void UWidgetBlueprintLibrary::DrawBox(struct FPaintContext& Context, const struc
 
 
 // Function UMG.WidgetBlueprintLibrary.DrawLine
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
 // struct FPaintContext&                   Context                                                (Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 PositionA                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19423,7 +18167,7 @@ void UWidgetBlueprintLibrary::DrawLine(struct FPaintContext& Context, const stru
 
 
 // Function UMG.WidgetBlueprintLibrary.DrawLines
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
 // struct FPaintContext&                   Context                                                (Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 // const TArray<struct FVector2D>&         Points                                                 (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
@@ -19458,7 +18202,7 @@ void UWidgetBlueprintLibrary::DrawLines(struct FPaintContext& Context, const TAr
 
 
 // Function UMG.WidgetBlueprintLibrary.DrawSpline
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
 // struct FPaintContext&                   Context                                                (Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 Start                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19497,7 +18241,7 @@ void UWidgetBlueprintLibrary::DrawSpline(struct FPaintContext& Context, const st
 
 
 // Function UMG.WidgetBlueprintLibrary.DrawText
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
 // struct FPaintContext&                   Context                                                (Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 // const class FString&                    InString                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19530,17 +18274,17 @@ void UWidgetBlueprintLibrary::DrawText(struct FPaintContext& Context, const clas
 
 
 // Function UMG.WidgetBlueprintLibrary.DrawTextFormatted
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
 // struct FPaintContext&                   Context                                                (Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 // const class FText&                      Text                                                   (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UFont*                            Font                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   FontSize                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   FontSize                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class FName                             FontTypeFace                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FLinearColor&              Tint                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UWidgetBlueprintLibrary::DrawTextFormatted(struct FPaintContext& Context, const class FText& Text, const struct FVector2D& position, class UFont* Font, float FontSize, class FName FontTypeFace, const struct FLinearColor& Tint)
+void UWidgetBlueprintLibrary::DrawTextFormatted(struct FPaintContext& Context, const class FText& Text, const struct FVector2D& position, class UFont* Font, int32 FontSize, class FName FontTypeFace, const struct FLinearColor& Tint)
 {
 	static class UFunction* Func = nullptr;
 
@@ -19569,7 +18313,7 @@ void UWidgetBlueprintLibrary::DrawTextFormatted(struct FPaintContext& Context, c
 
 
 // Function UMG.WidgetBlueprintLibrary.EndDragDrop
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // struct FEventReply&                     Reply                                                  (Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // struct FEventReply                      ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
@@ -19599,7 +18343,7 @@ struct FEventReply UWidgetBlueprintLibrary::EndDragDrop(struct FEventReply& Repl
 
 
 // Function UMG.WidgetBlueprintLibrary.GetAllWidgetsOfClass
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Static, Public, HasOutParams, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<class UUserWidget*>*             FoundWidgets                                           (Parm, OutParm, ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
@@ -19632,7 +18376,7 @@ void UWidgetBlueprintLibrary::GetAllWidgetsOfClass(class UObject* WorldContextOb
 
 
 // Function UMG.WidgetBlueprintLibrary.GetAllWidgetsWithInterface
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Static, Public, HasOutParams, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TArray<class UUserWidget*>*             FoundWidgets                                           (Parm, OutParm, ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
@@ -19667,7 +18411,7 @@ void UWidgetBlueprintLibrary::GetAllWidgetsWithInterface(class UObject* WorldCon
 
 
 // Function UMG.WidgetBlueprintLibrary.GetBrushResource
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FSlateBrush&               Brush                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // class UObject*                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19695,7 +18439,7 @@ class UObject* UWidgetBlueprintLibrary::GetBrushResource(const struct FSlateBrus
 
 
 // Function UMG.WidgetBlueprintLibrary.GetBrushResourceAsMaterial
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FSlateBrush&               Brush                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // class UMaterialInterface*               ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19723,7 +18467,7 @@ class UMaterialInterface* UWidgetBlueprintLibrary::GetBrushResourceAsMaterial(co
 
 
 // Function UMG.WidgetBlueprintLibrary.GetBrushResourceAsTexture2D
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FSlateBrush&               Brush                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // class UTexture2D*                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19751,7 +18495,7 @@ class UTexture2D* UWidgetBlueprintLibrary::GetBrushResourceAsTexture2D(const str
 
 
 // Function UMG.WidgetBlueprintLibrary.GetDragDroppingContent
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// (Final, BlueprintCosmetic, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class UDragDropOperation*               ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -19776,7 +18520,7 @@ class UDragDropOperation* UWidgetBlueprintLibrary::GetDragDroppingContent()
 
 
 // Function UMG.WidgetBlueprintLibrary.GetDynamicMaterial
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // struct FSlateBrush&                     Brush                                                  (Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // class UMaterialInstanceDynamic*         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19806,7 +18550,7 @@ class UMaterialInstanceDynamic* UWidgetBlueprintLibrary::GetDynamicMaterial(stru
 
 
 // Function UMG.WidgetBlueprintLibrary.GetInputEventFromCharacterEvent
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FCharacterEvent&           Event                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // struct FInputEvent                      ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
@@ -19834,7 +18578,7 @@ struct FInputEvent UWidgetBlueprintLibrary::GetInputEventFromCharacterEvent(cons
 
 
 // Function UMG.WidgetBlueprintLibrary.GetInputEventFromKeyEvent
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FKeyEvent&                 Event                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // struct FInputEvent                      ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
@@ -19862,7 +18606,7 @@ struct FInputEvent UWidgetBlueprintLibrary::GetInputEventFromKeyEvent(const stru
 
 
 // Function UMG.WidgetBlueprintLibrary.GetInputEventFromNavigationEvent
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FNavigationEvent&          Event                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // struct FInputEvent                      ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
@@ -19890,7 +18634,7 @@ struct FInputEvent UWidgetBlueprintLibrary::GetInputEventFromNavigationEvent(con
 
 
 // Function UMG.WidgetBlueprintLibrary.GetInputEventFromPointerEvent
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FPointerEvent&             Event                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // struct FInputEvent                      ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
@@ -19918,7 +18662,7 @@ struct FInputEvent UWidgetBlueprintLibrary::GetInputEventFromPointerEvent(const 
 
 
 // Function UMG.WidgetBlueprintLibrary.GetKeyEventFromAnalogInputEvent
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // const struct FAnalogInputEvent&         Event                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // struct FKeyEvent                        ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
@@ -19946,7 +18690,7 @@ struct FKeyEvent UWidgetBlueprintLibrary::GetKeyEventFromAnalogInputEvent(const 
 
 
 // Function UMG.WidgetBlueprintLibrary.GetSafeZonePadding
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector4*                        SafePadding                                            (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19983,7 +18727,7 @@ void UWidgetBlueprintLibrary::GetSafeZonePadding(class UObject* WorldContextObje
 
 
 // Function UMG.WidgetBlueprintLibrary.Handled
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // struct FEventReply                      ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
@@ -20008,7 +18752,7 @@ struct FEventReply UWidgetBlueprintLibrary::Handled()
 
 
 // Function UMG.WidgetBlueprintLibrary.IsDragDropping
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// (Final, BlueprintCosmetic, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -20033,7 +18777,7 @@ bool UWidgetBlueprintLibrary::IsDragDropping()
 
 
 // Function UMG.WidgetBlueprintLibrary.LockMouse
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // struct FEventReply&                     Reply                                                  (Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // class UWidget*                          CapturingWidget                                        (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20065,7 +18809,7 @@ struct FEventReply UWidgetBlueprintLibrary::LockMouse(struct FEventReply& Reply,
 
 
 // Function UMG.WidgetBlueprintLibrary.MakeBrushFromAsset
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class USlateBrushAsset*                 BrushAsset                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FSlateBrush                      ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
@@ -20093,7 +18837,7 @@ struct FSlateBrush UWidgetBlueprintLibrary::MakeBrushFromAsset(class USlateBrush
 
 
 // Function UMG.WidgetBlueprintLibrary.MakeBrushFromMaterial
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class UMaterialInterface*               Material                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   Width                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20125,7 +18869,7 @@ struct FSlateBrush UWidgetBlueprintLibrary::MakeBrushFromMaterial(class UMateria
 
 
 // Function UMG.WidgetBlueprintLibrary.MakeBrushFromTexture
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // class UTexture2D*                       Texture                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   Width                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20157,7 +18901,7 @@ struct FSlateBrush UWidgetBlueprintLibrary::MakeBrushFromTexture(class UTexture2
 
 
 // Function UMG.WidgetBlueprintLibrary.NoResourceBrush
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // struct FSlateBrush                      ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
@@ -20182,7 +18926,7 @@ struct FSlateBrush UWidgetBlueprintLibrary::NoResourceBrush()
 
 
 // Function UMG.WidgetBlueprintLibrary.ReleaseJoystickCapture
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // struct FEventReply&                     Reply                                                  (Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // bool                                    bInAllJoysticks                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20214,7 +18958,7 @@ struct FEventReply UWidgetBlueprintLibrary::ReleaseJoystickCapture(struct FEvent
 
 
 // Function UMG.WidgetBlueprintLibrary.ReleaseMouseCapture
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // struct FEventReply&                     Reply                                                  (Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // struct FEventReply                      ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
@@ -20244,7 +18988,7 @@ struct FEventReply UWidgetBlueprintLibrary::ReleaseMouseCapture(struct FEventRep
 
 
 // Function UMG.WidgetBlueprintLibrary.RestorePreviousWindowTitleBarState
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
+// (Final, Native, Static, Public, BlueprintCallable)
 
 void UWidgetBlueprintLibrary::RestorePreviousWindowTitleBarState()
 {
@@ -20263,7 +19007,7 @@ void UWidgetBlueprintLibrary::RestorePreviousWindowTitleBarState()
 
 
 // Function UMG.WidgetBlueprintLibrary.SetBrushResourceToMaterial
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // struct FSlateBrush&                     Brush                                                  (Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // class UMaterialInterface*               Material                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20292,7 +19036,7 @@ void UWidgetBlueprintLibrary::SetBrushResourceToMaterial(struct FSlateBrush& Bru
 
 
 // Function UMG.WidgetBlueprintLibrary.SetBrushResourceToTexture
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
 // struct FSlateBrush&                     Brush                                                  (Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // class UTexture2D*                       Texture                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20321,7 +19065,7 @@ void UWidgetBlueprintLibrary::SetBrushResourceToTexture(struct FSlateBrush& Brus
 
 
 // Function UMG.WidgetBlueprintLibrary.SetColorVisionDeficiencyType
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Static, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // EColorVisionDeficiency                  Type                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Severity                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20352,7 +19096,7 @@ void UWidgetBlueprintLibrary::SetColorVisionDeficiencyType(EColorVisionDeficienc
 
 
 // Function UMG.WidgetBlueprintLibrary.SetFocusToGameViewport
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Static, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Static, Public, BlueprintCallable)
 
 void UWidgetBlueprintLibrary::SetFocusToGameViewport()
 {
@@ -20371,7 +19115,7 @@ void UWidgetBlueprintLibrary::SetFocusToGameViewport()
 
 
 // Function UMG.WidgetBlueprintLibrary.SetHardwareCursor
-// (Final, RequiredAPI, Native, Static, Public, HasDefaults, BlueprintCallable)
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EMouseCursor                            CursorShape                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20405,7 +19149,7 @@ bool UWidgetBlueprintLibrary::SetHardwareCursor(class UObject* WorldContextObjec
 
 
 // Function UMG.WidgetBlueprintLibrary.SetInputMode_GameAndUIEx
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Static, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class APlayerController*                PlayerController                                       (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UWidget*                          InWidgetToFocus                                        (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20438,7 +19182,7 @@ void UWidgetBlueprintLibrary::SetInputMode_GameAndUIEx(class APlayerController* 
 
 
 // Function UMG.WidgetBlueprintLibrary.SetInputMode_GameOnly
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Static, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class APlayerController*                PlayerController                                       (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const bool                              bFlushInput                                            (ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20465,7 +19209,7 @@ void UWidgetBlueprintLibrary::SetInputMode_GameOnly(class APlayerController* Pla
 
 
 // Function UMG.WidgetBlueprintLibrary.SetInputMode_UIOnlyEx
-// (Final, RequiredAPI, BlueprintCosmetic, Native, Static, Public, BlueprintCallable)
+// (Final, BlueprintCosmetic, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class APlayerController*                PlayerController                                       (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UWidget*                          InWidgetToFocus                                        (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20496,7 +19240,7 @@ void UWidgetBlueprintLibrary::SetInputMode_UIOnlyEx(class APlayerController* Pla
 
 
 // Function UMG.WidgetBlueprintLibrary.SetMousePosition
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // struct FEventReply&                     Reply                                                  (Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // const struct FVector2D&                 NewMousePosition                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20528,7 +19272,7 @@ struct FEventReply UWidgetBlueprintLibrary::SetMousePosition(struct FEventReply&
 
 
 // Function UMG.WidgetBlueprintLibrary.SetUserFocus
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // struct FEventReply&                     Reply                                                  (Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // class UWidget*                          FocusWidget                                            (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20562,7 +19306,7 @@ struct FEventReply UWidgetBlueprintLibrary::SetUserFocus(struct FEventReply& Rep
 
 
 // Function UMG.WidgetBlueprintLibrary.SetWindowTitleBarCloseButtonActive
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // bool                                    bActive                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -20587,7 +19331,7 @@ void UWidgetBlueprintLibrary::SetWindowTitleBarCloseButtonActive(bool bActive)
 
 
 // Function UMG.WidgetBlueprintLibrary.SetWindowTitleBarOnCloseClickedDelegate
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // TDelegate<void()>                       Delegate                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -20612,7 +19356,7 @@ void UWidgetBlueprintLibrary::SetWindowTitleBarOnCloseClickedDelegate(TDelegate<
 
 
 // Function UMG.WidgetBlueprintLibrary.SetWindowTitleBarState
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
+// (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UWidget*                          TitleBarContent                                        (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EWindowTitleBarMode                     Mode                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20645,7 +19389,7 @@ void UWidgetBlueprintLibrary::SetWindowTitleBarState(class UWidget* TitleBarCont
 
 
 // Function UMG.WidgetBlueprintLibrary.Unhandled
-// (Final, RequiredAPI, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // struct FEventReply                      ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
@@ -20670,7 +19414,7 @@ struct FEventReply UWidgetBlueprintLibrary::Unhandled()
 
 
 // Function UMG.WidgetBlueprintLibrary.UnlockMouse
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
 // Parameters:
 // struct FEventReply&                     Reply                                                  (Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // struct FEventReply                      ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
@@ -20694,6 +19438,632 @@ struct FEventReply UWidgetBlueprintLibrary::UnlockMouse(struct FEventReply& Repl
 	Func->FunctionFlags = Flgs;
 
 	Reply = std::move(Parms.Reply);
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.GetMousePositionOnPlatform
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+struct FVector2D UWidgetLayoutLibrary::GetMousePositionOnPlatform()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "GetMousePositionOnPlatform");
+
+	Params::WidgetLayoutLibrary_GetMousePositionOnPlatform Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.GetMousePositionOnViewport
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+struct FVector2D UWidgetLayoutLibrary::GetMousePositionOnViewport(class UObject* WorldContextObject)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "GetMousePositionOnViewport");
+
+	Params::WidgetLayoutLibrary_GetMousePositionOnViewport Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.GetMousePositionScaledByDPI
+// (Final, BlueprintCosmetic, Native, Static, Public, HasOutParams, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class APlayerController*                Player                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float*                                  LocationX                                              (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float*                                  LocationY                                              (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UWidgetLayoutLibrary::GetMousePositionScaledByDPI(class APlayerController* Player, float* LocationX, float* LocationY)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "GetMousePositionScaledByDPI");
+
+	Params::WidgetLayoutLibrary_GetMousePositionScaledByDPI Parms{};
+
+	Parms.Player = Player;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (LocationX != nullptr)
+		*LocationX = Parms.LocationX;
+
+	if (LocationY != nullptr)
+		*LocationY = Parms.LocationY;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.GetPlayerScreenWidgetGeometry
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class APlayerController*                PlayerController                                       (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FGeometry                        ReturnValue                                            (Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+
+struct FGeometry UWidgetLayoutLibrary::GetPlayerScreenWidgetGeometry(class APlayerController* PlayerController)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "GetPlayerScreenWidgetGeometry");
+
+	Params::WidgetLayoutLibrary_GetPlayerScreenWidgetGeometry Parms{};
+
+	Parms.PlayerController = PlayerController;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.GetViewportScale
+// (Final, BlueprintCosmetic, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// const class UObject*                    WorldContextObject                                     (ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float UWidgetLayoutLibrary::GetViewportScale(const class UObject* WorldContextObject)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "GetViewportScale");
+
+	Params::WidgetLayoutLibrary_GetViewportScale Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.GetViewportSize
+// (Final, BlueprintCosmetic, Native, Static, Public, HasDefaults, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FVector2D                        ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+struct FVector2D UWidgetLayoutLibrary::GetViewportSize(class UObject* WorldContextObject)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "GetViewportSize");
+
+	Params::WidgetLayoutLibrary_GetViewportSize Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.GetViewportWidgetGeometry
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FGeometry                        ReturnValue                                            (Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+
+struct FGeometry UWidgetLayoutLibrary::GetViewportWidgetGeometry(class UObject* WorldContextObject)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "GetViewportWidgetGeometry");
+
+	Params::WidgetLayoutLibrary_GetViewportWidgetGeometry Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.ProjectWorldLocationToWidgetPosition
+// (Final, BlueprintCosmetic, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class APlayerController*                PlayerController                                       (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector&                   WorldLocation                                          (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FVector2D*                       ScreenPosition                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bPlayerViewportRelative                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UWidgetLayoutLibrary::ProjectWorldLocationToWidgetPosition(class APlayerController* PlayerController, const struct FVector& WorldLocation, struct FVector2D* ScreenPosition, bool bPlayerViewportRelative)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "ProjectWorldLocationToWidgetPosition");
+
+	Params::WidgetLayoutLibrary_ProjectWorldLocationToWidgetPosition Parms{};
+
+	Parms.PlayerController = PlayerController;
+	Parms.WorldLocation = std::move(WorldLocation);
+	Parms.bPlayerViewportRelative = bPlayerViewportRelative;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (ScreenPosition != nullptr)
+		*ScreenPosition = std::move(Parms.ScreenPosition);
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.RemoveAllWidgets
+// (Final, BlueprintCosmetic, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UWidgetLayoutLibrary::RemoveAllWidgets(class UObject* WorldContextObject)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "RemoveAllWidgets");
+
+	Params::WidgetLayoutLibrary_RemoveAllWidgets Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.SlotAsBorderSlot
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UBorderSlot*                      ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UBorderSlot* UWidgetLayoutLibrary::SlotAsBorderSlot(class UWidget* Widget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsBorderSlot");
+
+	Params::WidgetLayoutLibrary_SlotAsBorderSlot Parms{};
+
+	Parms.Widget = Widget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.SlotAsCanvasSlot
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UCanvasPanelSlot*                 ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UCanvasPanelSlot* UWidgetLayoutLibrary::SlotAsCanvasSlot(class UWidget* Widget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsCanvasSlot");
+
+	Params::WidgetLayoutLibrary_SlotAsCanvasSlot Parms{};
+
+	Parms.Widget = Widget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.SlotAsGridSlot
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UGridSlot*                        ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UGridSlot* UWidgetLayoutLibrary::SlotAsGridSlot(class UWidget* Widget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsGridSlot");
+
+	Params::WidgetLayoutLibrary_SlotAsGridSlot Parms{};
+
+	Parms.Widget = Widget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.SlotAsHorizontalBoxSlot
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UHorizontalBoxSlot*               ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UHorizontalBoxSlot* UWidgetLayoutLibrary::SlotAsHorizontalBoxSlot(class UWidget* Widget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsHorizontalBoxSlot");
+
+	Params::WidgetLayoutLibrary_SlotAsHorizontalBoxSlot Parms{};
+
+	Parms.Widget = Widget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.SlotAsOverlaySlot
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UOverlaySlot*                     ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UOverlaySlot* UWidgetLayoutLibrary::SlotAsOverlaySlot(class UWidget* Widget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsOverlaySlot");
+
+	Params::WidgetLayoutLibrary_SlotAsOverlaySlot Parms{};
+
+	Parms.Widget = Widget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.SlotAsSafeBoxSlot
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class USafeZoneSlot*                    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class USafeZoneSlot* UWidgetLayoutLibrary::SlotAsSafeBoxSlot(class UWidget* Widget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsSafeBoxSlot");
+
+	Params::WidgetLayoutLibrary_SlotAsSafeBoxSlot Parms{};
+
+	Parms.Widget = Widget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.SlotAsScaleBoxSlot
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UScaleBoxSlot*                    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UScaleBoxSlot* UWidgetLayoutLibrary::SlotAsScaleBoxSlot(class UWidget* Widget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsScaleBoxSlot");
+
+	Params::WidgetLayoutLibrary_SlotAsScaleBoxSlot Parms{};
+
+	Parms.Widget = Widget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.SlotAsScrollBoxSlot
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UScrollBoxSlot*                   ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UScrollBoxSlot* UWidgetLayoutLibrary::SlotAsScrollBoxSlot(class UWidget* Widget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsScrollBoxSlot");
+
+	Params::WidgetLayoutLibrary_SlotAsScrollBoxSlot Parms{};
+
+	Parms.Widget = Widget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.SlotAsSizeBoxSlot
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class USizeBoxSlot*                     ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class USizeBoxSlot* UWidgetLayoutLibrary::SlotAsSizeBoxSlot(class UWidget* Widget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsSizeBoxSlot");
+
+	Params::WidgetLayoutLibrary_SlotAsSizeBoxSlot Parms{};
+
+	Parms.Widget = Widget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.SlotAsUniformGridSlot
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UUniformGridSlot*                 ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UUniformGridSlot* UWidgetLayoutLibrary::SlotAsUniformGridSlot(class UWidget* Widget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsUniformGridSlot");
+
+	Params::WidgetLayoutLibrary_SlotAsUniformGridSlot Parms{};
+
+	Parms.Widget = Widget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.SlotAsVerticalBoxSlot
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UVerticalBoxSlot*                 ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UVerticalBoxSlot* UWidgetLayoutLibrary::SlotAsVerticalBoxSlot(class UWidget* Widget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsVerticalBoxSlot");
+
+	Params::WidgetLayoutLibrary_SlotAsVerticalBoxSlot Parms{};
+
+	Parms.Widget = Widget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.SlotAsWidgetSwitcherSlot
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UWidgetSwitcherSlot*              ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UWidgetSwitcherSlot* UWidgetLayoutLibrary::SlotAsWidgetSwitcherSlot(class UWidget* Widget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsWidgetSwitcherSlot");
+
+	Params::WidgetLayoutLibrary_SlotAsWidgetSwitcherSlot Parms{};
+
+	Parms.Widget = Widget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UMG.WidgetLayoutLibrary.SlotAsWrapBoxSlot
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class UWidget*                          Widget                                                 (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UWrapBoxSlot*                     ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UWrapBoxSlot* UWidgetLayoutLibrary::SlotAsWrapBoxSlot(class UWidget* Widget)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("WidgetLayoutLibrary", "SlotAsWrapBoxSlot");
+
+	Params::WidgetLayoutLibrary_SlotAsWrapBoxSlot Parms{};
+
+	Parms.Widget = Widget;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
 }

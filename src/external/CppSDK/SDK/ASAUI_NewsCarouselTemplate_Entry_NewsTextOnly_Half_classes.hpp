@@ -17,24 +17,24 @@
 SDK_NAMESPACE_START
 
 // WidgetBlueprintGeneratedClass ASAUI_NewsCarouselTemplate_Entry_NewsTextOnly_Half.ASAUI_NewsCarouselTemplate_Entry_NewsTextOnly_Half_C
-// 0x0038 (0x03E8 - 0x03B0)
+// 0x0038 (0x03A0 - 0x0368)
 class UASAUI_NewsCarouselTemplate_Entry_NewsTextOnly_Half_C final : public UUI_MenuCarouselEntryWidget
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x03B0(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	class UScrollBox*                             TextBody_Scrollbox;                                // 0x03B8(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
-	double                                        AutoScrollWaitAtStart;                             // 0x03C0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        DefaultAutoScrollSpeed;                            // 0x03C8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        AutoScrollTracker;                                 // 0x03D0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        AutoScrollWaitAtEnd;                               // 0x03D8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class UClass*                                 SubEntryWidgetTemplate;                            // 0x03E0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0368(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	class UScrollBox*                             TextBody_Scrollbox;                                // 0x0370(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, InstancedReference, RepSkip, NoDestructor, PersistentInstance, HasGetValueTypeHash)
+	double                                        AutoScrollWaitAtStart;                             // 0x0378(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        DefaultAutoScrollSpeed;                            // 0x0380(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        AutoScrollTracker;                                 // 0x0388(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        AutoScrollWaitAtEnd;                               // 0x0390(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class UClass*                                 SubEntryWidgetTemplate;                            // 0x0398(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 
 public:
-	void BlueprintInit(const class FString& RawExtraData);
-	void EntryFocusEnd(bool bInstigatedByAutoRollover);
-	void EntryFocusStart(bool bInstigatedByAutoRollover);
-	void EntryFocusTick(float DeltaTime, bool bIsHighlighted);
 	void ExecuteUbergraph_ASAUI_NewsCarouselTemplate_Entry_NewsTextOnly_Half(int32 EntryPoint);
+	void EntryFocusTick(float DeltaTime, bool bIsHighlighted);
+	void EntryFocusStart(bool bInstigatedByAutoRollover);
+	void EntryFocusEnd(bool bInstigatedByAutoRollover);
+	void BlueprintInit(const class FString& RawExtraData);
 
 public:
 	static class UClass* StaticClass()

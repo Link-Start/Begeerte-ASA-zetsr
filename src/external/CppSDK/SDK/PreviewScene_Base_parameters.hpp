@@ -125,7 +125,7 @@ DUMPER7_ASSERTS_PreviewScene_Base_C_SetDebugLightRotation;
 struct PreviewScene_Base_C_UpdateFloorLocation final
 {
 public:
-	bool                                          IsFemale_0;                                        // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          isFemale;                                          // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_PreviewScene_Base_C_UpdateFloorLocation;
 

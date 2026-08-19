@@ -10,60 +10,15 @@
 
 #include "Basic.hpp"
 
-#include "Engine_structs.hpp"
 #include "CoreUObject_structs.hpp"
-#include "GeometryCollectionEngine_structs.hpp"
 #include "Chaos_structs.hpp"
+#include "GeometryCollectionEngine_structs.hpp"
+#include "Engine_structs.hpp"
 #include "ChaosSolverEngine_structs.hpp"
 
 
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
-
-// Function GeometryCollectionEngine.GeometryCollectionBlueprintLibrary.SetCustomInstanceDataByIndex
-// 0x0010 (0x0010 - 0x0000)
-struct GeometryCollectionBlueprintLibrary_SetCustomInstanceDataByIndex final
-{
-public:
-	class UGeometryCollectionComponent*           GeometryCollectionComponent;                       // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         CustomDataIndex;                                   // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         CustomDataValue;                                   // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionBlueprintLibrary_SetCustomInstanceDataByIndex;
-
-// Function GeometryCollectionEngine.GeometryCollectionBlueprintLibrary.SetCustomInstanceDataByName
-// 0x0018 (0x0018 - 0x0000)
-struct GeometryCollectionBlueprintLibrary_SetCustomInstanceDataByName final
-{
-public:
-	class UGeometryCollectionComponent*           GeometryCollectionComponent;                       // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   CustomDataName;                                    // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         CustomDataValue;                                   // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_GeometryCollectionBlueprintLibrary_SetCustomInstanceDataByName;
-
-// Function GeometryCollectionEngine.GeometryCollectionBlueprintLibrary.SetISMPoolCustomInstanceData
-// 0x0010 (0x0010 - 0x0000)
-struct GeometryCollectionBlueprintLibrary_SetISMPoolCustomInstanceData final
-{
-public:
-	class UGeometryCollectionComponent*           GeometryCollectionComponent;                       // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         CustomDataIndex;                                   // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         CustomDataValue;                                   // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionBlueprintLibrary_SetISMPoolCustomInstanceData;
-
-// Function GeometryCollectionEngine.GeometryCollectionISMPoolSubSystem.OnActorEndPlay
-// 0x0010 (0x0010 - 0x0000)
-struct GeometryCollectionISMPoolSubSystem_OnActorEndPlay final
-{
-public:
-	class AActor*                                 InSource;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EEndPlayReason                                Reason;                                            // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_GeometryCollectionISMPoolSubSystem_OnActorEndPlay;
 
 // Function GeometryCollectionEngine.PrimalDestructibleActor.BPStartDestruction
 // 0x0028 (0x0028 - 0x0000)
@@ -265,15 +220,15 @@ public:
 DUMPER7_ASSERTS_ChaosDestructionListener_IsEventListening;
 
 // Function GeometryCollectionEngine.GeometryCollectionActor.RaycastSingle
-// 0x0140 (0x0140 - 0x0000)
+// 0x0128 (0x0128 - 0x0000)
 struct GeometryCollectionActor_RaycastSingle final
 {
 public:
 	struct FVector                                Start;                                             // 0x0000(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                End;                                               // 0x0018(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FHitResult                             OutHit;                                            // 0x0030(0x0108)(Parm, OutParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0138(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_139[0x7];                                      // 0x0139(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FHitResult                             OutHit;                                            // 0x0030(0x00F0)(Parm, OutParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0120(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_121[0x7];                                      // 0x0121(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_GeometryCollectionActor_RaycastSingle;
 
@@ -393,24 +348,6 @@ public:
 };
 DUMPER7_ASSERTS_GeometryCollectionComponent_CrumbleCluster;
 
-// Function GeometryCollectionEngine.GeometryCollectionComponent.EnableRootProxyForCustomRenderer
-// 0x0001 (0x0001 - 0x0000)
-struct GeometryCollectionComponent_EnableRootProxyForCustomRenderer final
-{
-public:
-	bool                                          bEnable;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_EnableRootProxyForCustomRenderer;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.ForceBrokenForCustomRenderer
-// 0x0001 (0x0001 - 0x0000)
-struct GeometryCollectionComponent_ForceBrokenForCustomRenderer final
-{
-public:
-	bool                                          bForceBroken;                                      // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_ForceBrokenForCustomRenderer;
-
 // Function GeometryCollectionEngine.GeometryCollectionComponent.GetDebugInfo
 // 0x0010 (0x0010 - 0x0000)
 struct GeometryCollectionComponent_GetDebugInfo final
@@ -450,15 +387,6 @@ public:
 };
 DUMPER7_ASSERTS_GeometryCollectionComponent_ReceivePhysicsCollision;
 
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetAbandonedParticleCollisionProfileName
-// 0x0008 (0x0008 - 0x0000)
-struct GeometryCollectionComponent_SetAbandonedParticleCollisionProfileName final
-{
-public:
-	class FName                                   CollisionProfile;                                  // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetAbandonedParticleCollisionProfileName;
-
 // Function GeometryCollectionEngine.GeometryCollectionComponent.SetAnchoredByBox
 // 0x0040 (0x0040 - 0x0000)
 struct GeometryCollectionComponent_SetAnchoredByBox final
@@ -497,42 +425,6 @@ public:
 };
 DUMPER7_ASSERTS_GeometryCollectionComponent_SetAnchoredByTransformedBox;
 
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetDamageModel
-// 0x0001 (0x0001 - 0x0000)
-struct GeometryCollectionComponent_SetDamageModel final
-{
-public:
-	EDamageModelTypeEnum                          InDamageModel;                                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetDamageModel;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetDamagePropagationData
-// 0x000C (0x000C - 0x0000)
-struct GeometryCollectionComponent_SetDamagePropagationData final
-{
-public:
-	struct FGeometryCollectionDamagePropagationData InDamagePropagationData;                         // 0x0000(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetDamagePropagationData;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetDamageThreshold
-// 0x0010 (0x0010 - 0x0000)
-struct GeometryCollectionComponent_SetDamageThreshold final
-{
-public:
-	TArray<float>                                 InDamageThreshold;                                 // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetDamageThreshold;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetDensityFromPhysicsMaterial
-// 0x0001 (0x0001 - 0x0000)
-struct GeometryCollectionComponent_SetDensityFromPhysicsMaterial final
-{
-public:
-	bool                                          bInDensityFromPhysicsMaterial;                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetDensityFromPhysicsMaterial;
-
 // Function GeometryCollectionEngine.GeometryCollectionComponent.SetEnableDamageFromCollision
 // 0x0001 (0x0001 - 0x0000)
 struct GeometryCollectionComponent_SetEnableDamageFromCollision final
@@ -541,26 +433,6 @@ public:
 	bool                                          bValue;                                            // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_GeometryCollectionComponent_SetEnableDamageFromCollision;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetGravityGroupIndex
-// 0x0004 (0x0004 - 0x0000)
-struct GeometryCollectionComponent_SetGravityGroupIndex final
-{
-public:
-	int32                                         InGravityGroupIndex;                               // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetGravityGroupIndex;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetLocalRestTransforms
-// 0x0018 (0x0018 - 0x0000)
-struct GeometryCollectionComponent_SetLocalRestTransforms final
-{
-public:
-	TArray<struct FTransform>                     Transforms;                                        // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	bool                                          bOnlyLeaves;                                       // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetLocalRestTransforms;
 
 // Function GeometryCollectionEngine.GeometryCollectionComponent.SetNotifyBreaks
 // 0x0001 (0x0001 - 0x0000)
@@ -581,43 +453,6 @@ public:
 };
 DUMPER7_ASSERTS_GeometryCollectionComponent_SetNotifyCrumblings;
 
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetNotifyGlobalBreaks
-// 0x0001 (0x0001 - 0x0000)
-struct GeometryCollectionComponent_SetNotifyGlobalBreaks final
-{
-public:
-	bool                                          bNewNotifyGlobalBreaks;                            // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetNotifyGlobalBreaks;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetNotifyGlobalCollision
-// 0x0001 (0x0001 - 0x0000)
-struct GeometryCollectionComponent_SetNotifyGlobalCollision final
-{
-public:
-	bool                                          bNewNotifyGlobalCollisions;                        // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetNotifyGlobalCollision;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetNotifyGlobalCrumblings
-// 0x0002 (0x0002 - 0x0000)
-struct GeometryCollectionComponent_SetNotifyGlobalCrumblings final
-{
-public:
-	bool                                          bNewNotifyGlobalCrumblings;                        // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bGlobalNewCrumblingEventIncludesChildren;          // 0x0001(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetNotifyGlobalCrumblings;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetNotifyGlobalRemovals
-// 0x0001 (0x0001 - 0x0000)
-struct GeometryCollectionComponent_SetNotifyGlobalRemovals final
-{
-public:
-	bool                                          bNewNotifyGlobalRemovals;                          // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetNotifyGlobalRemovals;
-
 // Function GeometryCollectionEngine.GeometryCollectionComponent.SetNotifyRemovals
 // 0x0001 (0x0001 - 0x0000)
 struct GeometryCollectionComponent_SetNotifyRemovals final
@@ -627,100 +462,14 @@ public:
 };
 DUMPER7_ASSERTS_GeometryCollectionComponent_SetNotifyRemovals;
 
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetOneWayInteractionLevel
-// 0x0004 (0x0004 - 0x0000)
-struct GeometryCollectionComponent_SetOneWayInteractionLevel final
-{
-public:
-	int32                                         InOneWayInteractionLevel;                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetOneWayInteractionLevel;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetPerLevelCollisionProfileNames
-// 0x0010 (0x0010 - 0x0000)
-struct GeometryCollectionComponent_SetPerLevelCollisionProfileNames final
-{
-public:
-	TArray<class FName>                           ProfileNames;                                      // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetPerLevelCollisionProfileNames;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetPerParticleCollisionProfileName
-// 0x0018 (0x0018 - 0x0000)
-struct GeometryCollectionComponent_SetPerParticleCollisionProfileName final
-{
-public:
-	TArray<int32>                                 BoneIds;                                           // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	class FName                                   ProfileName;                                       // 0x0010(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetPerParticleCollisionProfileName;
-
 // Function GeometryCollectionEngine.GeometryCollectionComponent.SetRestCollection
-// 0x0010 (0x0010 - 0x0000)
+// 0x0008 (0x0008 - 0x0000)
 struct GeometryCollectionComponent_SetRestCollection final
 {
 public:
 	const class UGeometryCollection*              RestCollectionIn;                                  // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bApplyAssetDefaults;                               // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_GeometryCollectionComponent_SetRestCollection;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetRootProxyComponentSpaceTransform
-// 0x0070 (0x0070 - 0x0000)
-struct GeometryCollectionComponent_SetRootProxyComponentSpaceTransform final
-{
-public:
-	int32                                         Index_0;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0xC];                                        // 0x0004(0x000C)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FTransform                             RootProxyTransform;                                // 0x0010(0x0060)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetRootProxyComponentSpaceTransform;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetSolverActor
-// 0x0008 (0x0008 - 0x0000)
-struct GeometryCollectionComponent_SetSolverActor final
-{
-public:
-	class AChaosSolverActor*                      InSolverActor;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetSolverActor;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetUseMaterialDamageModifiers
-// 0x0001 (0x0001 - 0x0000)
-struct GeometryCollectionComponent_SetUseMaterialDamageModifiers final
-{
-public:
-	bool                                          bInUseMaterialDamageModifiers;                     // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetUseMaterialDamageModifiers;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.SetUseStaticMeshCollisionForTraces
-// 0x0001 (0x0001 - 0x0000)
-struct GeometryCollectionComponent_SetUseStaticMeshCollisionForTraces final
-{
-public:
-	bool                                          bInUseStaticMeshCollisionForTraces;                // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_SetUseStaticMeshCollisionForTraces;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.GetDamageThreshold
-// 0x0010 (0x0010 - 0x0000)
-struct GeometryCollectionComponent_GetDamageThreshold final
-{
-public:
-	TArray<float>                                 ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_GetDamageThreshold;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.GetInitialLocalRestTransforms
-// 0x0010 (0x0010 - 0x0000)
-struct GeometryCollectionComponent_GetInitialLocalRestTransforms final
-{
-public:
-	TArray<struct FTransform>                     ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_GetInitialLocalRestTransforms;
 
 // Function GeometryCollectionEngine.GeometryCollectionComponent.GetLocalBounds
 // 0x0038 (0x0038 - 0x0000)
@@ -731,26 +480,6 @@ public:
 };
 DUMPER7_ASSERTS_GeometryCollectionComponent_GetLocalBounds;
 
-// Function GeometryCollectionEngine.GeometryCollectionComponent.GetLocalRestTransforms
-// 0x0018 (0x0018 - 0x0000)
-struct GeometryCollectionComponent_GetLocalRestTransforms final
-{
-public:
-	bool                                          bInitialTransforms;                                // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FTransform>                     ReturnValue;                                       // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_GetLocalRestTransforms;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.GetRootCurrentTransform
-// 0x0060 (0x0060 - 0x0000)
-struct GeometryCollectionComponent_GetRootCurrentTransform final
-{
-public:
-	struct FTransform                             ReturnValue;                                       // 0x0000(0x0060)(Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_GetRootCurrentTransform;
-
 // Function GeometryCollectionEngine.GeometryCollectionComponent.GetRootIndex
 // 0x0004 (0x0004 - 0x0000)
 struct GeometryCollectionComponent_GetRootIndex final
@@ -759,60 +488,6 @@ public:
 	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_GeometryCollectionComponent_GetRootIndex;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.GetRootInitialTransform
-// 0x0060 (0x0060 - 0x0000)
-struct GeometryCollectionComponent_GetRootInitialTransform final
-{
-public:
-	struct FTransform                             ReturnValue;                                       // 0x0000(0x0060)(Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_GetRootInitialTransform;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.GetSolverActor
-// 0x0008 (0x0008 - 0x0000)
-struct GeometryCollectionComponent_GetSolverActor final
-{
-public:
-	class AChaosSolverActor*                      ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_GetSolverActor;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.GetUseStaticMeshCollisionForTraces
-// 0x0001 (0x0001 - 0x0000)
-struct GeometryCollectionComponent_GetUseStaticMeshCollisionForTraces final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_GetUseStaticMeshCollisionForTraces;
-
-// Function GeometryCollectionEngine.GeometryCollectionComponent.IsRootBroken
-// 0x0001 (0x0001 - 0x0000)
-struct GeometryCollectionComponent_IsRootBroken final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollectionComponent_IsRootBroken;
-
-// Function GeometryCollectionEngine.GeometryCollection.SetConvertVertexColorsToSRGB
-// 0x0001 (0x0001 - 0x0000)
-struct GeometryCollection_SetConvertVertexColorsToSRGB final
-{
-public:
-	bool                                          bValue;                                            // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollection_SetConvertVertexColorsToSRGB;
-
-// Function GeometryCollectionEngine.GeometryCollection.SetEnableNanite
-// 0x0001 (0x0001 - 0x0000)
-struct GeometryCollection_SetEnableNanite final
-{
-public:
-	bool                                          bValue;                                            // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GeometryCollection_SetEnableNanite;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

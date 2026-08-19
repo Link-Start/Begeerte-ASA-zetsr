@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemArmor_ClothGloves.PrimalItemArmor_ClothGloves_C
-// 0x0000 (0x0B90 - 0x0B90)
+// 0x0000 (0x1180 - 0x1180)
 class UPrimalItemArmor_ClothGloves_C final : public UPrimalItemArmor_BaseGloves_C
 {
 public:

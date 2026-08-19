@@ -430,7 +430,7 @@ class UTickListenerSubsystem final : public UWorldSubsystem
 {
 public:
 	uint8                                         Pad_30[0x20];                                      // 0x0030(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	class UThreadNodeSubsystem*                   ThreadNodeSubsystem;                               // 0x0050(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UThreadNodeSubsystem*                   ThreadNodeSubsystem;                               // 0x0050(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 
 public:
 	static class UClass* StaticClass()

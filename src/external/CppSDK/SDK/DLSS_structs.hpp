@@ -24,7 +24,7 @@ enum class EDLSSSettingOverride : uint8
 };
 
 // Enum DLSS.EDLSSPreset
-// NumValues: 0x0011
+// NumValues: 0x0009
 enum class EDLSSPreset : uint8
 {
 	Default                                  = 0,
@@ -35,38 +35,7 @@ enum class EDLSSPreset : uint8
 	E                                        = 5,
 	F                                        = 6,
 	G                                        = 7,
-	H                                        = 8,
-	I                                        = 9,
-	J                                        = 10,
-	K                                        = 11,
-	L                                        = 12,
-	M                                        = 13,
-	N                                        = 14,
-	O                                        = 15,
-	MAX                                      = 16,
-};
-
-// Enum DLSS.EDLSSRRPreset
-// NumValues: 0x0011
-enum class EDLSSRRPreset : uint8
-{
-	Default                                  = 0,
-	A                                        = 1,
-	B                                        = 2,
-	C                                        = 3,
-	D                                        = 4,
-	E                                        = 5,
-	F                                        = 6,
-	G                                        = 7,
-	H                                        = 8,
-	I                                        = 9,
-	J                                        = 10,
-	K                                        = 11,
-	L                                        = 12,
-	M                                        = 13,
-	N                                        = 14,
-	O                                        = 15,
-	MAX                                      = 16,
+	EDLSSPreset_MAX                          = 8,
 };
 
 SDK_NAMESPACE_END

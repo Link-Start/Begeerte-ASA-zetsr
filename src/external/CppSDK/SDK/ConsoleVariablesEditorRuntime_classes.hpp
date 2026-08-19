@@ -27,7 +27,6 @@ public:
 	TArray<struct FConsoleVariablesEditorAssetSaveData> SavedCommands;                               // 0x0040(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
 
 public:
-	void AddFrom(const class UConsoleVariablesAsset* InAssetToCopy);
 	void AddOrSetConsoleObjectSavedData(const struct FConsoleVariablesEditorAssetSaveData& InData);
 	void CopyFrom(const class UConsoleVariablesAsset* InAssetToCopy);
 	bool RemoveConsoleVariable(const class FString& InCommandString);

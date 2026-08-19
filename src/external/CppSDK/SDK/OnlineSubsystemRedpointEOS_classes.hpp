@@ -12,11 +12,43 @@
 
 #include "Engine_classes.hpp"
 #include "OnlineSubsystemUtils_classes.hpp"
-#include "OnlineSubsystemRedpointEOS_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "OnlineSubsystemRedpointEOS_structs.hpp"
 
 
 SDK_NAMESPACE_START
+
+// Class OnlineSubsystemRedpointEOS.EOSUserInterface_EnterDevicePinCode
+// 0x0000 (0x0000 - 0x0000)
+class IEOSUserInterface_EnterDevicePinCode final
+{
+public:
+	void SetupUserInterface(class UEOSUserInterface_EnterDevicePinCode_Context* Context, const class FString& VerificationUrl, const class FString& PinCode);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("EOSUserInterface_EnterDevicePinCode")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"EOSUserInterface_EnterDevicePinCode")
+	}
+	static class IEOSUserInterface_EnterDevicePinCode* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<IEOSUserInterface_EnterDevicePinCode>();
+	}
+
+	class UObject* AsUObject()
+	{
+		return reinterpret_cast<UObject*>(this);
+	}
+	const class UObject* AsUObject() const
+	{
+		return reinterpret_cast<const UObject*>(this);
+	}
+};
+DUMPER7_ASSERTS_IEOSUserInterface_EnterDevicePinCode;
 
 // Class OnlineSubsystemRedpointEOS.EOSControlChannel
 // 0x0220 (0x02A8 - 0x0088)
@@ -41,8 +73,34 @@ public:
 };
 DUMPER7_ASSERTS_UEOSControlChannel;
 
+// Class OnlineSubsystemRedpointEOS.EOSUserInterface_LinkEOSAccountsAgainstCrossPlatform_Context
+// 0x0010 (0x0038 - 0x0028)
+class UEOSUserInterface_LinkEOSAccountsAgainstCrossPlatform_Context final : public UObject
+{
+public:
+	uint8                                         Pad_28[0x10];                                      // 0x0028(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void SelectedCandidates(const TArray<struct FEOSUserInterface_CandidateEOSAccount>& SelectedCandidates_0);
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("EOSUserInterface_LinkEOSAccountsAgainstCrossPlatform_Context")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"EOSUserInterface_LinkEOSAccountsAgainstCrossPlatform_Context")
+	}
+	static class UEOSUserInterface_LinkEOSAccountsAgainstCrossPlatform_Context* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UEOSUserInterface_LinkEOSAccountsAgainstCrossPlatform_Context>();
+	}
+};
+DUMPER7_ASSERTS_UEOSUserInterface_LinkEOSAccountsAgainstCrossPlatform_Context;
+
 // Class OnlineSubsystemRedpointEOS.EOSIpNetConnection
-// 0x0000 (0x1FE8 - 0x1FE8)
+// 0x0000 (0x1EC0 - 0x1EC0)
 class UEOSIpNetConnection final : public UIpConnection
 {
 public:
@@ -62,11 +120,11 @@ public:
 DUMPER7_ASSERTS_UEOSIpNetConnection;
 
 // Class OnlineSubsystemRedpointEOS.EOSNetConnection
-// 0x0010 (0x1F28 - 0x1F18)
+// 0x0010 (0x1E00 - 0x1DF0)
 class UEOSNetConnection final : public UNetConnection
 {
 public:
-	uint8                                         Pad_1F18[0x10];                                    // 0x1F18(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_1DF0[0x10];                                    // 0x1DF0(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -85,12 +143,12 @@ public:
 DUMPER7_ASSERTS_UEOSNetConnection;
 
 // Class OnlineSubsystemRedpointEOS.EOSNetDriver
-// 0x0088 (0x09E8 - 0x0960)
+// 0x0088 (0x08C8 - 0x0840)
 class UEOSNetDriver final : public UIpNetDriver
 {
 public:
-	uint8                                         Pad_960[0x78];                                     // 0x0960(0x0078)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UEOSNetConnection*>              PendingConnectionClose;                            // 0x09D8(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_840[0x78];                                     // 0x0840(0x0078)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class UEOSNetConnection*>              PendingConnectionClose;                            // 0x08B8(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()
@@ -158,64 +216,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UEOSUserInterface_EnterDevicePinCode_Context;
-
-// Class OnlineSubsystemRedpointEOS.EOSUserInterface_EnterDevicePinCode
-// 0x0000 (0x0000 - 0x0000)
-class IEOSUserInterface_EnterDevicePinCode final
-{
-public:
-	void SetupUserInterface(class UEOSUserInterface_EnterDevicePinCode_Context* Context, const class FString& VerificationUrl, const class FString& PinCode);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("EOSUserInterface_EnterDevicePinCode")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"EOSUserInterface_EnterDevicePinCode")
-	}
-	static class IEOSUserInterface_EnterDevicePinCode* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<IEOSUserInterface_EnterDevicePinCode>();
-	}
-
-	class UObject* AsUObject()
-	{
-		return reinterpret_cast<UObject*>(this);
-	}
-	const class UObject* AsUObject() const
-	{
-		return reinterpret_cast<const UObject*>(this);
-	}
-};
-DUMPER7_ASSERTS_IEOSUserInterface_EnterDevicePinCode;
-
-// Class OnlineSubsystemRedpointEOS.EOSUserInterface_LinkEOSAccountsAgainstCrossPlatform_Context
-// 0x0010 (0x0038 - 0x0028)
-class UEOSUserInterface_LinkEOSAccountsAgainstCrossPlatform_Context final : public UObject
-{
-public:
-	uint8                                         Pad_28[0x10];                                      // 0x0028(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	void SelectedCandidates(const TArray<struct FEOSUserInterface_CandidateEOSAccount>& SelectedCandidates_0);
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("EOSUserInterface_LinkEOSAccountsAgainstCrossPlatform_Context")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"EOSUserInterface_LinkEOSAccountsAgainstCrossPlatform_Context")
-	}
-	static class UEOSUserInterface_LinkEOSAccountsAgainstCrossPlatform_Context* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UEOSUserInterface_LinkEOSAccountsAgainstCrossPlatform_Context>();
-	}
-};
-DUMPER7_ASSERTS_UEOSUserInterface_LinkEOSAccountsAgainstCrossPlatform_Context;
 
 // Class OnlineSubsystemRedpointEOS.EOSUserInterface_LinkEOSAccountsAgainstCrossPlatform
 // 0x0000 (0x0000 - 0x0000)

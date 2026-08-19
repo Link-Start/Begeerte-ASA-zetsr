@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemDye_Blue.PrimalItemDye_Blue_C
-// 0x0000 (0x0BA0 - 0x0BA0)
+// 0x0000 (0x1190 - 0x1190)
 class UPrimalItemDye_Blue_C final : public UPrimalItemDyeGeneric_C
 {
 public:

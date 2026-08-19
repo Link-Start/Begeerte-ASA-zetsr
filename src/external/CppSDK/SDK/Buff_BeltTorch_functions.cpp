@@ -140,10 +140,9 @@ void ABuff_BeltTorch_C::BPOnInputEvent(EPrimalCharacterInputType inputType)
 // Parameters:
 // class APlayerController*                ForPC                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // int32                                   UseIndex                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// class FName                             UseName                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-bool ABuff_BeltTorch_C::BPTryMultiUse(class APlayerController* ForPC, int32 UseIndex, class FName UseName)
+bool ABuff_BeltTorch_C::BPTryMultiUse(class APlayerController* ForPC, int32 UseIndex)
 {
 	static class UFunction* Func = nullptr;
 
@@ -154,7 +153,6 @@ bool ABuff_BeltTorch_C::BPTryMultiUse(class APlayerController* ForPC, int32 UseI
 
 	Parms.ForPC = ForPC;
 	Parms.UseIndex = UseIndex;
-	Parms.UseName = UseName;
 
 	UObject::ProcessEvent(Func, &Parms);
 
@@ -279,10 +277,10 @@ void ABuff_BeltTorch_C::InitializeDefaultTorchWeapon()
 // Function Buff_BeltTorch.Buff_BeltTorch_C.InitializeTorchFromItem
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// class UPrimalItem*                      TheItem                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// class UPrimalItem*                      theItem                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // class UClass*                           WeaponClassOverride                                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 
-void ABuff_BeltTorch_C::InitializeTorchFromItem(class UPrimalItem* TheItem, class UClass* WeaponClassOverride)
+void ABuff_BeltTorch_C::InitializeTorchFromItem(class UPrimalItem* theItem, class UClass* WeaponClassOverride)
 {
 	static class UFunction* Func = nullptr;
 
@@ -291,7 +289,7 @@ void ABuff_BeltTorch_C::InitializeTorchFromItem(class UPrimalItem* TheItem, clas
 
 	Params::Buff_BeltTorch_C_InitializeTorchFromItem Parms{};
 
-	Parms.TheItem = TheItem;
+	Parms.theItem = theItem;
 	Parms.WeaponClassOverride = WeaponClassOverride;
 
 	UObject::ProcessEvent(Func, &Parms);

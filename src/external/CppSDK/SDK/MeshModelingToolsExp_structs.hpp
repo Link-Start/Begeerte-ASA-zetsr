@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
 #include "Engine_structs.hpp"
+#include "CoreUObject_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -82,16 +82,6 @@ enum class EPlaneBrushSideMode : uint8
 	PushDown                                 = 1,
 	PullTowards                              = 2,
 	EPlaneBrushSideMode_MAX                  = 3,
-};
-
-// Enum MeshModelingToolsExp.EVertexColorPaintBrushOpBlendMode
-// NumValues: 0x0004
-enum class EVertexColorPaintBrushOpBlendMode : uint32
-{
-	Lerp                                     = 0,
-	Mix                                      = 1,
-	Multiply                                 = 2,
-	EVertexColorPaintBrushOpBlendMode_MAX    = 3,
 };
 
 // Enum MeshModelingToolsExp.EOffsetMeshSelectionInteractionMode
@@ -184,16 +174,6 @@ enum class EMaterialBoundaryConstraint : uint8
 	EMaterialBoundaryConstraint_MAX          = 8,
 };
 
-// Enum MeshModelingToolsExp.ERevolveSplineSampleMode
-// NumValues: 0x0004
-enum class ERevolveSplineSampleMode : uint8
-{
-	ControlPointsOnly                        = 0,
-	PolyLineMaxError                         = 1,
-	UniformSpacingAlongCurve                 = 2,
-	ERevolveSplineSampleMode_MAX             = 3,
-};
-
 // Enum MeshModelingToolsExp.EAlignObjectsAlignTypes
 // NumValues: 0x0003
 enum class EAlignObjectsAlignTypes : uint32
@@ -229,7 +209,7 @@ enum class EAlignObjectsBoxPoint : uint32
 };
 
 // Enum MeshModelingToolsExp.EBakeMapType
-// NumValues: 0x0012
+// NumValues: 0x000E
 enum class EBakeMapType : uint16
 {
 	None                                     = 0,
@@ -244,12 +224,8 @@ enum class EBakeMapType : uint16
 	MultiTexture                             = 256,
 	VertexColor                              = 512,
 	MaterialID                               = 1024,
-	PolyGroupID                              = 2048,
-	One                                      = 4096,
-	Zero                                     = 8192,
-	UVShell                                  = 16384,
-	All                                      = 16383,
-	EBakeMapType_MAX                         = 16385,
+	All                                      = 2047,
+	EBakeMapType_MAX                         = 2048,
 };
 
 // Enum MeshModelingToolsExp.EBakeVertexOutput
@@ -309,7 +285,7 @@ enum class ECubeGridToolFaceSelectionMode : uint32
 };
 
 // Enum MeshModelingToolsExp.ECubeGridToolAction
-// NumValues: 0x000C
+// NumValues: 0x000D
 enum class ECubeGridToolAction : uint8
 {
 	NoAction                                 = 0,
@@ -322,8 +298,9 @@ enum class ECubeGridToolAction : uint8
 	IncreaseGridPower                        = 7,
 	CornerMode                               = 8,
 	ResetFromActor                           = 9,
-	AcceptAndStartNew                        = 10,
-	ECubeGridToolAction_MAX                  = 11,
+	Done                                     = 10,
+	Cancel                                   = 11,
+	ECubeGridToolAction_MAX                  = 12,
 };
 
 // Enum MeshModelingToolsExp.EGroupTopologyDeformationStrategy
@@ -468,9 +445,10 @@ enum class EDynamicMeshSculptBrushType : uint8
 };
 
 // Enum MeshModelingToolsExp.EEditPivotSnapDragRotationMode
-// NumValues: 0x0004
+// NumValues: 0x0005
 enum class EEditPivotSnapDragRotationMode : uint8
 {
+	Ignore                                   = 0,
 	Align                                    = 1,
 	AlignFlipped                             = 2,
 	LastValue                                = 3,
@@ -708,119 +686,6 @@ enum class EMeshSpaceDeformerToolAction : uint8
 	EMeshSpaceDeformerToolAction_MAX         = 2,
 };
 
-// Enum MeshModelingToolsExp.EMeshVertexPaintInteractionType
-// NumValues: 0x0007
-enum class EMeshVertexPaintInteractionType : uint8
-{
-	Brush                                    = 0,
-	TriFill                                  = 1,
-	Fill                                     = 2,
-	GroupFill                                = 3,
-	PolyLasso                                = 4,
-	LastValue                                = 5,
-	EMeshVertexPaintInteractionType_MAX      = 6,
-};
-
-// Enum MeshModelingToolsExp.EMeshVertexPaintColorChannel
-// NumValues: 0x0005
-enum class EMeshVertexPaintColorChannel : uint8
-{
-	Red                                      = 0,
-	Green                                    = 1,
-	Blue                                     = 2,
-	Alpha                                    = 3,
-	EMeshVertexPaintColorChannel_MAX         = 4,
-};
-
-// Enum MeshModelingToolsExp.EMeshVertexPaintColorBlendMode
-// NumValues: 0x0004
-enum class EMeshVertexPaintColorBlendMode : uint8
-{
-	Lerp                                     = 0,
-	Mix                                      = 1,
-	Multiply                                 = 2,
-	EMeshVertexPaintColorBlendMode_MAX       = 3,
-};
-
-// Enum MeshModelingToolsExp.EMeshVertexPaintBrushType
-// NumValues: 0x0006
-enum class EMeshVertexPaintBrushType : uint8
-{
-	Paint                                    = 0,
-	Erase                                    = 1,
-	Soften                                   = 2,
-	Smooth                                   = 3,
-	LastValue                                = 4,
-	EMeshVertexPaintBrushType_MAX            = 5,
-};
-
-// Enum MeshModelingToolsExp.EMeshVertexPaintSecondaryActionType
-// NumValues: 0x0004
-enum class EMeshVertexPaintSecondaryActionType : uint8
-{
-	Erase                                    = 0,
-	Soften                                   = 1,
-	Smooth                                   = 2,
-	EMeshVertexPaintSecondaryActionType_MAX  = 3,
-};
-
-// Enum MeshModelingToolsExp.EMeshVertexPaintBrushAreaType
-// NumValues: 0x0003
-enum class EMeshVertexPaintBrushAreaType : uint8
-{
-	Connected                                = 0,
-	Volumetric                               = 1,
-	EMeshVertexPaintBrushAreaType_MAX        = 2,
-};
-
-// Enum MeshModelingToolsExp.EMeshVertexPaintVisibilityType
-// NumValues: 0x0004
-enum class EMeshVertexPaintVisibilityType : uint8
-{
-	None                                     = 0,
-	FrontFacing                              = 1,
-	Unoccluded                               = 2,
-	EMeshVertexPaintVisibilityType_MAX       = 3,
-};
-
-// Enum MeshModelingToolsExp.EMeshVertexPaintMaterialMode
-// NumValues: 0x0004
-enum class EMeshVertexPaintMaterialMode : uint8
-{
-	LitVertexColor                           = 0,
-	UnlitVertexColor                         = 1,
-	OriginalMaterial                         = 2,
-	EMeshVertexPaintMaterialMode_MAX         = 3,
-};
-
-// Enum MeshModelingToolsExp.EMeshVertexPaintToolActions
-// NumValues: 0x0007
-enum class EMeshVertexPaintToolActions : uint8
-{
-	NoAction                                 = 0,
-	PaintAll                                 = 1,
-	EraseAll                                 = 2,
-	FillBlack                                = 3,
-	FillWhite                                = 4,
-	ApplyCurrentUtility                      = 5,
-	EMeshVertexPaintToolActions_MAX          = 6,
-};
-
-// Enum MeshModelingToolsExp.EMeshVertexPaintToolUtilityOperations
-// NumValues: 0x0009
-enum class EMeshVertexPaintToolUtilityOperations : uint32
-{
-	BlendAllSeams                            = 0,
-	FillChannels                             = 1,
-	InvertChannels                           = 2,
-	CopyChannelToChannel                     = 3,
-	SwapChannels                             = 4,
-	CopyFromWeightMap                        = 5,
-	CopyToOtherLODs                          = 6,
-	CopyToSingleLOD                          = 7,
-	EMeshVertexPaintToolUtilityOperations_MAX = 8,
-};
-
 // Enum MeshModelingToolsExp.EMeshVertexSculptBrushType
 // NumValues: 0x0012
 enum class EMeshVertexSculptBrushType : uint8
@@ -859,8 +724,8 @@ enum class EMeshVertexSculptBrushFilterType : uint8
 // NumValues: 0x0003
 enum class EMirrorSaveMode : uint8
 {
-	InputObjects                             = 0,
-	NewObjects                               = 1,
+	UpdateAssets                             = 0,
+	CreateNewAssets                          = 1,
 	EMirrorSaveMode_MAX                      = 2,
 };
 
@@ -871,6 +736,15 @@ enum class EMirrorOperationMode : uint8
 	MirrorAndAppend                          = 0,
 	MirrorExisting                           = 1,
 	EMirrorOperationMode_MAX                 = 2,
+};
+
+// Enum MeshModelingToolsExp.EMirrorCtrlClickBehavior
+// NumValues: 0x0003
+enum class EMirrorCtrlClickBehavior : uint8
+{
+	Reposition                               = 0,
+	RepositionAndReorient                    = 1,
+	EMirrorCtrlClickBehavior_MAX             = 2,
 };
 
 // Enum MeshModelingToolsExp.EMirrorToolAction
@@ -929,20 +803,19 @@ enum class ESetCollisionGeometryInputMode : uint32
 };
 
 // Enum MeshModelingToolsExp.ECollisionGeometryType
-// NumValues: 0x000C
+// NumValues: 0x000B
 enum class ECollisionGeometryType : uint32
 {
-	CopyFromInputs                           = 0,
+	KeepExisting                             = 0,
 	AlignedBoxes                             = 1,
 	OrientedBoxes                            = 2,
 	MinimalSpheres                           = 3,
 	Capsules                                 = 4,
 	ConvexHulls                              = 5,
-	ConvexDecompositions                     = 8,
 	SweptHulls                               = 6,
 	LevelSets                                = 7,
 	MinVolume                                = 10,
-	Empty                                    = 11,
+	None                                     = 11,
 	ECollisionGeometryType_MAX               = 12,
 };
 
@@ -956,29 +829,6 @@ enum class EProjectedHullAxis : uint32
 	SmallestBoxDimension                     = 3,
 	SmallestVolume                           = 4,
 	EProjectedHullAxis_MAX                   = 5,
-};
-
-// Enum MeshModelingToolsExp.EConvexDecompositionMethod
-// NumValues: 0x0003
-enum class EConvexDecompositionMethod : uint32
-{
-	NavigationDriven                         = 0,
-	VolumetricError                          = 1,
-	EConvexDecompositionMethod_MAX           = 2,
-};
-
-// Enum MeshModelingToolsExp.ESimpleCollisionEditorToolAction
-// NumValues: 0x0008
-enum class ESimpleCollisionEditorToolAction : uint8
-{
-	NoAction                                 = 0,
-	AddSphere                                = 1,
-	AddBox                                   = 2,
-	AddCapsule                               = 3,
-	Duplicate                                = 4,
-	DeleteSelected                           = 5,
-	DeleteAll                                = 6,
-	ESimpleCollisionEditorToolAction_MAX     = 7,
 };
 
 // Enum MeshModelingToolsExp.EPlaneCutToolActions
@@ -1043,6 +893,15 @@ enum class EMeshSculptFalloffType : uint8
 	EMeshSculptFalloffType_MAX               = 9,
 };
 
+// Enum MeshModelingToolsExp.ESkinWeightsBindType
+// NumValues: 0x0003
+enum class ESkinWeightsBindType : uint8
+{
+	DirectDistance                           = 0,
+	GeodesicVoxel                            = 1,
+	ESkinWeightsBindType_MAX                 = 2,
+};
+
 // Enum MeshModelingToolsExp.ESmoothMeshToolSmoothType
 // NumValues: 0x0004
 enum class ESmoothMeshToolSmoothType : uint8
@@ -1051,17 +910,6 @@ enum class ESmoothMeshToolSmoothType : uint8
 	Implicit                                 = 1,
 	Diffusion                                = 2,
 	ESmoothMeshToolSmoothType_MAX            = 3,
-};
-
-// Enum MeshModelingToolsExp.ESplitMeshesMethod
-// NumValues: 0x0005
-enum class ESplitMeshesMethod : uint8
-{
-	ByMeshTopology                           = 0,
-	ByVertexOverlap                          = 1,
-	ByMaterialID                             = 2,
-	ByPolyGroup                              = 3,
-	ESplitMeshesMethod_MAX                   = 4,
 };
 
 // Enum MeshModelingToolsExp.ETransformMeshesTransformMode
@@ -1105,23 +953,13 @@ enum class EVoxelBlendOperation : uint8
 	EVoxelBlendOperation_MAX                 = 2,
 };
 
-// Enum MeshModelingToolsExp.EWeldMeshEdgesAttributeUIMode
-// NumValues: 0x0004
-enum class EWeldMeshEdgesAttributeUIMode : uint8
-{
-	None                                     = 0,
-	OnWeldedMeshEdgesOnly                    = 1,
-	OnFullMesh                               = 2,
-	EWeldMeshEdgesAttributeUIMode_MAX        = 3,
-};
-
 // ScriptStruct MeshModelingToolsExp.BakeMultiMeshDetailProperties
 // 0x0018 (0x0018 - 0x0000)
 struct FBakeMultiMeshDetailProperties final
 {
 public:
-	class UStaticMesh*                            SourceMesh;                                        // 0x0000(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UTexture2D*                             SourceTexture;                                     // 0x0008(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UStaticMesh*                            SourceMesh;                                        // 0x0000(0x0008)(Edit, ZeroConstructor, EditConst, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UTexture2D*                             SourceTexture;                                     // 0x0008(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         SourceTextureUVLayer;                              // 0x0010(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -1137,13 +975,22 @@ public:
 };
 DUMPER7_ASSERTS_FPerlinLayerProperties;
 
+// ScriptStruct MeshModelingToolsExp.PhysicsLevelSetData
+// 0x0030 (0x0030 - 0x0000)
+struct FPhysicsLevelSetData final
+{
+public:
+	struct FKShapeElem                            Element;                                           // 0x0000(0x0030)(Edit, EditConst, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FPhysicsLevelSetData;
+
 // ScriptStruct MeshModelingToolsExp.EditPivotTarget
 // 0x0010 (0x0010 - 0x0000)
 struct FEditPivotTarget final
 {
 public:
-	class UTransformProxy*                        TransformProxy;                                    // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UCombinedTransformGizmo*                TransformGizmo;                                    // 0x0008(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UTransformProxy*                        TransformProxy;                                    // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UCombinedTransformGizmo*                TransformGizmo;                                    // 0x0008(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FEditPivotTarget;
 
@@ -1171,6 +1018,17 @@ public:
 };
 DUMPER7_ASSERTS_FPhysicsBoxData;
 
+// ScriptStruct MeshModelingToolsExp.PhysicsConvexData
+// 0x0038 (0x0038 - 0x0000)
+struct FPhysicsConvexData final
+{
+public:
+	int32                                         NumVertices;                                       // 0x0000(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         NumFaces;                                          // 0x0004(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FKShapeElem                            Element;                                           // 0x0008(0x0030)(Edit, EditConst, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FPhysicsConvexData;
+
 // ScriptStruct MeshModelingToolsExp.PhysicsCapsuleData
 // 0x00A0 (0x00A0 - 0x0000)
 struct FPhysicsCapsuleData final
@@ -1183,26 +1041,6 @@ public:
 	struct FKShapeElem                            Element;                                           // 0x0070(0x0030)(Edit, EditConst, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FPhysicsCapsuleData;
-
-// ScriptStruct MeshModelingToolsExp.PhysicsConvexData
-// 0x0038 (0x0038 - 0x0000)
-struct FPhysicsConvexData final
-{
-public:
-	int32                                         NumVertices;                                       // 0x0000(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         NumFaces;                                          // 0x0004(0x0004)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FKShapeElem                            Element;                                           // 0x0008(0x0030)(Edit, EditConst, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FPhysicsConvexData;
-
-// ScriptStruct MeshModelingToolsExp.PhysicsLevelSetData
-// 0x0030 (0x0030 - 0x0000)
-struct FPhysicsLevelSetData final
-{
-public:
-	struct FKShapeElem                            Element;                                           // 0x0000(0x0030)(Edit, EditConst, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FPhysicsLevelSetData;
 
 // ScriptStruct MeshModelingToolsExp.BrushToolRadius
 // 0x0014 (0x0014 - 0x0000)
@@ -1222,8 +1060,8 @@ DUMPER7_ASSERTS_FBrushToolRadius;
 struct FTransformMeshesTarget final
 {
 public:
-	class UTransformProxy*                        TransformProxy;                                    // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UCombinedTransformGizmo*                TransformGizmo;                                    // 0x0008(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UTransformProxy*                        TransformProxy;                                    // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UCombinedTransformGizmo*                TransformGizmo;                                    // 0x0008(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FTransformMeshesTarget;
 

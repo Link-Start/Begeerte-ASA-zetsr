@@ -21,8 +21,8 @@ SDK_NAMESPACE_START
 class UBP_CFCoreUIModel_C final : public UCFCoreUIModel
 {
 public:
-	bool OnEventReceived_LibraryProgress(const EGameModsEvent& evt, const struct FLibraryProgress& progress, TArray<struct FInstallProgressMod>* OutModsList);
 	bool OnEventReceived(const EGameModsEvent& evt, const TArray<struct FCFCoreMod>& InModsList, TArray<struct FInstallProgressMod>* OutModsList);
+	bool OnEventReceived_LibraryProgress(const EGameModsEvent& evt, const struct FLibraryProgress& progress, TArray<struct FInstallProgressMod>* OutModsList);
 
 public:
 	static class UClass* StaticClass()

@@ -16,8 +16,8 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemConsumable_RawPrimeMeat.PrimalItemConsumable_RawPrimeMeat_C
-// 0x0000 (0x0B90 - 0x0B90)
-class UPrimalItemConsumable_RawPrimeMeat_C final : public UPrimalItemConsumableEatable_C
+// 0x0000 (0x1170 - 0x1170)
+class UPrimalItemConsumable_RawPrimeMeat_C : public UPrimalItemConsumableEatable_C
 {
 public:
 	static class UClass* StaticClass()

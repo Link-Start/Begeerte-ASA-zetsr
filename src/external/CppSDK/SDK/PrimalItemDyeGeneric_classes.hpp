@@ -16,12 +16,9 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemDyeGeneric.PrimalItemDyeGeneric_C
-// 0x0000 (0x0BA0 - 0x0BA0)
+// 0x0000 (0x1190 - 0x1190)
 class UPrimalItemDyeGeneric_C : public UPrimalItem_Dye
 {
-public:
-	bool BPShouldAlwaysShowInFolder(const int32 FolderDepth, const bool bShowFolders);
-
 public:
 	static class UClass* StaticClass()
 	{

@@ -17,25 +17,26 @@
 SDK_NAMESPACE_START
 
 // Class ImgMedia.ImgMediaSource
-// 0x0060 (0x00E8 - 0x0088)
+// 0x0048 (0x00D0 - 0x0088)
 class UImgMediaSource final : public UBaseMediaSource
 {
 public:
 	bool                                          IsPathRelativeToProjectRoot;                       // 0x0088(0x0001)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_89[0x3];                                       // 0x0089(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FFrameRate                             FrameRateOverride;                                 // 0x008C(0x0008)(Edit, BlueprintVisible, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FFrameRate                             FrameRateOverride;                                 // 0x008C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_94[0x4];                                       // 0x0094(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	class FString                                 ProxyOverride;                                     // 0x0098(0x0010)(Edit, BlueprintVisible, ZeroConstructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bFillGapsInSequence;                               // 0x00A8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_A9[0x3];                                       // 0x00A9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FTimecode                              StartTimecode;                                     // 0x00AC(0x0018)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C4[0x4];                                       // 0x00C4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FDirectoryPath                         SequencePath;                                      // 0x00C8(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_D8[0x10];                                      // 0x00D8(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_A9[0x7];                                       // 0x00A9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FDirectoryPath                         SequencePath;                                      // 0x00B0(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_C0[0x10];                                      // 0x00C0(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
+	void AddGlobalCamera(class AActor* InActor);
 	void AddTargetObject(class AActor* InActor);
+	void RemoveGlobalCamera(class AActor* InActor);
 	void RemoveTargetObject(class AActor* InActor);
+	void SetMipLevelDistance(float Distance);
 	void SetSequencePath(const class FString& Path);
 	void SetTokenizedSequencePath(const class FString& Path);
 

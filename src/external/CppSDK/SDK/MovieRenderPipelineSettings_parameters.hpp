@@ -10,7 +10,7 @@
 
 #include "Basic.hpp"
 
-#include "MovieRenderPipelineCore_structs.hpp"
+#include "MovieRenderPipelineSettings_structs.hpp"
 
 
 SDK_NAMESPACE_START

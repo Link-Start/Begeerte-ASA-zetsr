@@ -10,10 +10,10 @@
 
 #include "Basic.hpp"
 
+#include "Engine_classes.hpp"
+#include "ActorSequence_structs.hpp"
 #include "MovieScene_structs.hpp"
 #include "MovieScene_classes.hpp"
-#include "ActorSequence_structs.hpp"
-#include "Engine_classes.hpp"
 
 
 SDK_NAMESPACE_START
@@ -23,7 +23,7 @@ SDK_NAMESPACE_START
 class UActorSequence final : public UMovieSceneSequence
 {
 public:
-	class UMovieScene*                            MovieScene;                                        // 0x0068(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class UMovieScene*                            MovieScene;                                        // 0x0068(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	struct FActorSequenceObjectReferenceMap       ObjectReferences;                                  // 0x0070(0x0020)(NativeAccessSpecifierPrivate)
 
 public:
@@ -43,13 +43,13 @@ public:
 DUMPER7_ASSERTS_UActorSequence;
 
 // Class ActorSequence.ActorSequenceComponent
-// 0x0038 (0x0108 - 0x00D0)
+// 0x0030 (0x00E8 - 0x00B8)
 class UActorSequenceComponent final : public UActorComponent
 {
 public:
-	struct FMovieSceneSequencePlaybackSettings    PlaybackSettings;                                  // 0x00D0(0x0028)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
-	class UActorSequence*                         Sequence;                                          // 0x00F8(0x0008)(Edit, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UActorSequencePlayer*                   SequencePlayer;                                    // 0x0100(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	struct FMovieSceneSequencePlaybackSettings    PlaybackSettings;                                  // 0x00B8(0x0020)(Edit, NoDestructor, Protected, NativeAccessSpecifierProtected)
+	class UActorSequence*                         Sequence;                                          // 0x00D8(0x0008)(Edit, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	class UActorSequencePlayer*                   SequencePlayer;                                    // 0x00E0(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 
 public:
 	void PauseSequence();
@@ -73,7 +73,7 @@ public:
 DUMPER7_ASSERTS_UActorSequenceComponent;
 
 // Class ActorSequence.ActorSequencePlayer
-// 0x0000 (0x0480 - 0x0480)
+// 0x0000 (0x04D0 - 0x04D0)
 class UActorSequencePlayer final : public UMovieSceneSequencePlayer
 {
 public:

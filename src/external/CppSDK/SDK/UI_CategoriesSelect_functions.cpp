@@ -16,139 +16,21 @@
 
 SDK_NAMESPACE_START
 
-// Function UI_CategoriesSelect.UI_CategoriesSelect_C.CreateAllCategoriesCategory
-// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
-
-void UUI_CategoriesSelect_C::CreateAllCategoriesCategory()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CategoriesSelect_C", "CreateAllCategoriesCategory");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function UI_CategoriesSelect.UI_CategoriesSelect_C.ExecuteUbergraph_UI_CategoriesSelect
-// (Final, UbergraphFunction, HasDefaults)
+// Function UI_CategoriesSelect.UI_CategoriesSelect_C.UpdateOptions
+// (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// int64                                   Current_Class_Category_ID                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UUI_CategoriesSelect_C::ExecuteUbergraph_UI_CategoriesSelect(int32 EntryPoint)
+void UUI_CategoriesSelect_C::UpdateOptions(int64 Current_Class_Category_ID)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CategoriesSelect_C", "ExecuteUbergraph_UI_CategoriesSelect");
+		Func = Class->GetFunction("UI_CategoriesSelect_C", "UpdateOptions");
 
-	Params::UI_CategoriesSelect_C_ExecuteUbergraph_UI_CategoriesSelect Parms{};
+	Params::UI_CategoriesSelect_C_UpdateOptions Parms{};
 
-	Parms.EntryPoint = EntryPoint;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function UI_CategoriesSelect.UI_CategoriesSelect_C.FilterOutCategories
-// (Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// TArray<struct FCategory>&               Categories                                             (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
-
-void UUI_CategoriesSelect_C::FilterOutCategories(TArray<struct FCategory>& Categories)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CategoriesSelect_C", "FilterOutCategories");
-
-	Params::UI_CategoriesSelect_C_FilterOutCategories Parms{};
-
-	Parms.Categories = std::move(Categories);
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Categories = std::move(Parms.Categories);
-}
-
-
-// Function UI_CategoriesSelect.UI_CategoriesSelect_C.OnCategoriesInfoFound
-// (HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// const TArray<struct FCategory>&         Categories                                             (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
-
-void UUI_CategoriesSelect_C::OnCategoriesInfoFound(const TArray<struct FCategory>& Categories)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CategoriesSelect_C", "OnCategoriesInfoFound");
-
-	Params::UI_CategoriesSelect_C_OnCategoriesInfoFound Parms{};
-
-	Parms.Categories = std::move(Categories);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function UI_CategoriesSelect.UI_CategoriesSelect_C.OnCategoriesInfoFound_Error
-// (HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// const struct FCFCoreError&              Error                                                  (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
-
-void UUI_CategoriesSelect_C::OnCategoriesInfoFound_Error(const struct FCFCoreError& Error)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CategoriesSelect_C", "OnCategoriesInfoFound_Error");
-
-	Params::UI_CategoriesSelect_C_OnCategoriesInfoFound_Error Parms{};
-
-	Parms.Error = std::move(Error);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function UI_CategoriesSelect.UI_CategoriesSelect_C.OnOptionSelectedInterface
-// (Public, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// const class FString&                    Option                                                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
-// int64                                   ID                                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UUI_CategoriesSelect_C::OnOptionSelectedInterface(const class FString& Option, int64 ID)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CategoriesSelect_C", "OnOptionSelectedInterface");
-
-	Params::UI_CategoriesSelect_C_OnOptionSelectedInterface Parms{};
-
-	Parms.Option = std::move(Option);
-	Parms.ID = ID;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function UI_CategoriesSelect.UI_CategoriesSelect_C.PreConstruct
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-// Parameters:
-// bool                                    IsDesignTime                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UUI_CategoriesSelect_C::PreConstruct(bool IsDesignTime)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CategoriesSelect_C", "PreConstruct");
-
-	Params::UI_CategoriesSelect_C_PreConstruct Parms{};
-
-	Parms.IsDesignTime = IsDesignTime;
+	Parms.Current_Class_Category_ID = Current_Class_Category_ID;
 
 	UObject::ProcessEvent(Func, &Parms);
 }
@@ -176,23 +58,141 @@ void UUI_CategoriesSelect_C::Tick(const struct FGeometry& MyGeometry, float InDe
 }
 
 
-// Function UI_CategoriesSelect.UI_CategoriesSelect_C.UpdateOptions
-// (BlueprintCallable, BlueprintEvent)
+// Function UI_CategoriesSelect.UI_CategoriesSelect_C.PreConstruct
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// int64                                   Current_Class_Category_ID                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool                                    IsDesignTime                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UUI_CategoriesSelect_C::UpdateOptions(int64 Current_Class_Category_ID)
+void UUI_CategoriesSelect_C::PreConstruct(bool IsDesignTime)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CategoriesSelect_C", "UpdateOptions");
+		Func = Class->GetFunction("UI_CategoriesSelect_C", "PreConstruct");
 
-	Params::UI_CategoriesSelect_C_UpdateOptions Parms{};
+	Params::UI_CategoriesSelect_C_PreConstruct Parms{};
 
-	Parms.Current_Class_Category_ID = Current_Class_Category_ID;
+	Parms.IsDesignTime = IsDesignTime;
 
 	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_CategoriesSelect.UI_CategoriesSelect_C.OnOptionSelectedInterface
+// (Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// const class FString&                    Option                                                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+// int64                                   ID                                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UUI_CategoriesSelect_C::OnOptionSelectedInterface(const class FString& Option, int64 ID)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CategoriesSelect_C", "OnOptionSelectedInterface");
+
+	Params::UI_CategoriesSelect_C_OnOptionSelectedInterface Parms{};
+
+	Parms.Option = std::move(Option);
+	Parms.ID = ID;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_CategoriesSelect.UI_CategoriesSelect_C.OnCategoriesInfoFound_Error
+// (HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// const struct FCFCoreError&              Error                                                  (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+
+void UUI_CategoriesSelect_C::OnCategoriesInfoFound_Error(const struct FCFCoreError& Error)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CategoriesSelect_C", "OnCategoriesInfoFound_Error");
+
+	Params::UI_CategoriesSelect_C_OnCategoriesInfoFound_Error Parms{};
+
+	Parms.Error = std::move(Error);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_CategoriesSelect.UI_CategoriesSelect_C.OnCategoriesInfoFound
+// (HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// const TArray<struct FCategory>&         Categories                                             (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+
+void UUI_CategoriesSelect_C::OnCategoriesInfoFound(const TArray<struct FCategory>& Categories)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CategoriesSelect_C", "OnCategoriesInfoFound");
+
+	Params::UI_CategoriesSelect_C_OnCategoriesInfoFound Parms{};
+
+	Parms.Categories = std::move(Categories);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_CategoriesSelect.UI_CategoriesSelect_C.FilterOutCategories
+// (Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// TArray<struct FCategory>&               Categories                                             (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+
+void UUI_CategoriesSelect_C::FilterOutCategories(TArray<struct FCategory>& Categories)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CategoriesSelect_C", "FilterOutCategories");
+
+	Params::UI_CategoriesSelect_C_FilterOutCategories Parms{};
+
+	Parms.Categories = std::move(Categories);
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Categories = std::move(Parms.Categories);
+}
+
+
+// Function UI_CategoriesSelect.UI_CategoriesSelect_C.ExecuteUbergraph_UI_CategoriesSelect
+// (Final, UbergraphFunction, HasDefaults)
+// Parameters:
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UUI_CategoriesSelect_C::ExecuteUbergraph_UI_CategoriesSelect(int32 EntryPoint)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CategoriesSelect_C", "ExecuteUbergraph_UI_CategoriesSelect");
+
+	Params::UI_CategoriesSelect_C_ExecuteUbergraph_UI_CategoriesSelect Parms{};
+
+	Parms.EntryPoint = EntryPoint;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_CategoriesSelect.UI_CategoriesSelect_C.CreateAllCategoriesCategory
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+
+void UUI_CategoriesSelect_C::CreateAllCategoriesCategory()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CategoriesSelect_C", "CreateAllCategoriesCategory");
+
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 

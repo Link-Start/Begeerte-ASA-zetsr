@@ -17,7 +17,7 @@
 SDK_NAMESPACE_START
 
 // Function NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffect.GetSpawnedEffect
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, Const)
+// (Final, Native, Public, BlueprintCallable, Const)
 // Parameters:
 // class UMeshComponent*                   MeshComp                                               (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UFXSystemComponent*               ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -45,7 +45,7 @@ class UFXSystemComponent* UAnimNotifyState_TimedNiagaraEffect::GetSpawnedEffect(
 
 
 // Function NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffectAdvanced.GetNotifyProgress
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, Const)
+// (Final, Native, Public, BlueprintCallable, Const)
 // Parameters:
 // class UMeshComponent*                   MeshComp                                               (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -73,7 +73,7 @@ float UAnimNotifyState_TimedNiagaraEffectAdvanced::GetNotifyProgress(class UMesh
 
 
 // Function NiagaraAnimNotifies.AnimNotify_PlayNiagaraEffect.GetSpawnedEffect
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, Const)
+// (Final, Native, Public, BlueprintCallable, Const)
 // Parameters:
 // class UFXSystemComponent*               ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 

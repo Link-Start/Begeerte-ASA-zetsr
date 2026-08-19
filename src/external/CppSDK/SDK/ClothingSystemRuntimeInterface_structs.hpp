@@ -15,17 +15,6 @@
 
 SDK_NAMESPACE_START
 
-// Enum ClothingSystemRuntimeInterface.EClothingTeleportMode
-// NumValues: 0x0005
-enum class EClothingTeleportMode : uint8
-{
-	None                                     = 0,
-	Teleport                                 = 1,
-	TeleportAndReset                         = 2,
-	HardReset                                = 3,
-	EClothingTeleportMode_MAX                = 4,
-};
-
 // ScriptStruct ClothingSystemRuntimeInterface.ClothCollisionPrim_Sphere
 // 0x0020 (0x0020 - 0x0000)
 struct FClothCollisionPrim_Sphere final

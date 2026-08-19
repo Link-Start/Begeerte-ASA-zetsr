@@ -16,6 +16,26 @@
 
 SDK_NAMESPACE_START
 
+// Function UI_CustomizeSlot_BUTTON_SignIn.UI_CustomizeSlot_BUTTON_SignIn_C.SetColor
+// (Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// const struct FLinearColor&              Color                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UUI_CustomizeSlot_BUTTON_SignIn_C::SetColor(const struct FLinearColor& Color)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomizeSlot_BUTTON_SignIn_C", "SetColor");
+
+	Params::UI_CustomizeSlot_BUTTON_SignIn_C_SetColor Parms{};
+
+	Parms.Color = std::move(Color);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function UI_CustomizeSlot_BUTTON_SignIn.UI_CustomizeSlot_BUTTON_SignIn_C.GetColor
 // (Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
@@ -34,26 +54,6 @@ void UUI_CustomizeSlot_BUTTON_SignIn_C::GetColor(struct FLinearColor* Color)
 
 	if (Color != nullptr)
 		*Color = std::move(Parms.Color);
-}
-
-
-// Function UI_CustomizeSlot_BUTTON_SignIn.UI_CustomizeSlot_BUTTON_SignIn_C.SetColor
-// (Public, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// const struct FLinearColor&              Color                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UUI_CustomizeSlot_BUTTON_SignIn_C::SetColor(const struct FLinearColor& Color)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomizeSlot_BUTTON_SignIn_C", "SetColor");
-
-	Params::UI_CustomizeSlot_BUTTON_SignIn_C_SetColor Parms{};
-
-	Parms.Color = std::move(Color);
-
-	UObject::ProcessEvent(Func, &Parms);
 }
 
 

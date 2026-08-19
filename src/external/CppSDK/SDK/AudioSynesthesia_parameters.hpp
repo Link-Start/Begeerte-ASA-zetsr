@@ -14,24 +14,6 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function AudioSynesthesia.ConstantQAnalyzer.GetCenterFrequencies
-// 0x0010 (0x0010 - 0x0000)
-struct ConstantQAnalyzer_GetCenterFrequencies final
-{
-public:
-	TArray<float>                                 OutCenterFrequencies;                              // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ConstantQAnalyzer_GetCenterFrequencies;
-
-// Function AudioSynesthesia.ConstantQAnalyzer.GetNumCenterFrequencies
-// 0x0004 (0x0004 - 0x0000)
-struct ConstantQAnalyzer_GetNumCenterFrequencies final
-{
-public:
-	int32                                         ReturnValue;                                       // 0x0000(0x0004)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_ConstantQAnalyzer_GetNumCenterFrequencies;
-
 // Function AudioSynesthesia.ConstantQNRT.GetChannelConstantQAtTime
 // 0x0018 (0x0018 - 0x0000)
 struct ConstantQNRT_GetChannelConstantQAtTime final

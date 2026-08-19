@@ -359,31 +359,4 @@ void UTraceUtilLibrary::TraceMarkRegionStart(const class FString& Name_0)
 }
 
 
-// Function TraceUtilities.TraceUtilLibrary.TraceScreenshot
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    Name_0                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bShowUI                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UTraceUtilLibrary::TraceScreenshot(const class FString& Name_0, bool bShowUI)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("TraceUtilLibrary", "TraceScreenshot");
-
-	Params::TraceUtilLibrary_TraceScreenshot Parms{};
-
-	Parms.Name_0 = std::move(Name_0);
-	Parms.bShowUI = bShowUI;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 SDK_NAMESPACE_END

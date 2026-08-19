@@ -442,7 +442,8 @@ namespace g_DrawESP {
                 entry.shouldDrawTorpor = bDrawTorpor;
 
                 if (bDrawName) {
-                    const char* genderSuffix = TargetActor->IsFemale() ? "-F" : "-M";
+                    const char* genderSuffix = "?";
+                    // const char* genderSuffix = TargetActor->IsFemale() ? "-F" : "-M";
                     entry.name = TargetPS
                         ? TargetPS->GetPlayerName().ToString() + genderSuffix
                         : TargetChar->GetDescriptiveName().ToString() + genderSuffix;

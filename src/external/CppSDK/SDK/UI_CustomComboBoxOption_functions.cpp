@@ -16,43 +16,426 @@
 
 SDK_NAMESPACE_START
 
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature
-// (BlueprintEvent)
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.UpdateHoveredOption
+// (Public, BlueprintCallable, BlueprintEvent)
 
-void UUI_CustomComboBoxOption_C::BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature()
+void UUI_CustomComboBoxOption_C::UpdateHoveredOption()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature");
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "UpdateHoveredOption");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature
-// (BlueprintEvent)
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.Tick
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+// Parameters:
+// const struct FGeometry&                 MyGeometry                                             (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor)
+// float                                   InDeltaTime                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UUI_CustomComboBoxOption_C::BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature()
+void UUI_CustomComboBoxOption_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature");
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "Tick");
+
+	Params::UI_CustomComboBoxOption_C_Tick Parms{};
+
+	Parms.MyGeometry = std::move(MyGeometry);
+	Parms.InDeltaTime = InDeltaTime;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.StopUpdating
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void UUI_CustomComboBoxOption_C::StopUpdating()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "StopUpdating");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_2_OnButtonHoverEvent__DelegateSignature
-// (BlueprintEvent)
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.PreConstruct
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+// Parameters:
+// bool                                    IsDesignTime                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UUI_CustomComboBoxOption_C::BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_2_OnButtonHoverEvent__DelegateSignature()
+void UUI_CustomComboBoxOption_C::PreConstruct(bool IsDesignTime)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_2_OnButtonHoverEvent__DelegateSignature");
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "PreConstruct");
+
+	Params::UI_CustomComboBoxOption_C_PreConstruct Parms{};
+
+	Parms.IsDesignTime = IsDesignTime;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.RemoveSpacingIfNotHaveImage
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void UUI_CustomComboBoxOption_C::RemoveSpacingIfNotHaveImage()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "RemoveSpacingIfNotHaveImage");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.RemoveSpacingIfNotHaveArrow
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void UUI_CustomComboBoxOption_C::RemoveSpacingIfNotHaveArrow()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "RemoveSpacingIfNotHaveArrow");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.OnUpdate
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void UUI_CustomComboBoxOption_C::OnUpdate()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "OnUpdate");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.OnSuccess_2F79E7094E3FA19CAF12DEBE91370E8A
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// class UTexture2DDynamic*                Texture                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+
+void UUI_CustomComboBoxOption_C::OnSuccess_2F79E7094E3FA19CAF12DEBE91370E8A(class UTexture2DDynamic* Texture)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "OnSuccess_2F79E7094E3FA19CAF12DEBE91370E8A");
+
+	Params::UI_CustomComboBoxOption_C_OnSuccess_2F79E7094E3FA19CAF12DEBE91370E8A Parms{};
+
+	Parms.Texture = Texture;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.OnRemovedFromFocusPath
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+// Parameters:
+// const struct FFocusEvent&               InFocusEvent                                           (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor)
+
+void UUI_CustomComboBoxOption_C::OnRemovedFromFocusPath(const struct FFocusEvent& InFocusEvent)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "OnRemovedFromFocusPath");
+
+	Params::UI_CustomComboBoxOption_C_OnRemovedFromFocusPath Parms{};
+
+	Parms.InFocusEvent = std::move(InFocusEvent);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.OnOptionSelected
+// (Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// const class FString&                    Option                                                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+// int64                                   ID                                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UUI_CustomComboBoxOption_C::OnOptionSelected(const class FString& Option, int64 ID)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "OnOptionSelected");
+
+	Params::UI_CustomComboBoxOption_C_OnOptionSelected Parms{};
+
+	Parms.Option = std::move(Option);
+	Parms.ID = ID;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.OnNavRight
+// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// EUINavigation                           Navigation_0                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// class UWidget*                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash)
+
+class UWidget* UUI_CustomComboBoxOption_C::OnNavRight(EUINavigation Navigation_0)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "OnNavRight");
+
+	Params::UI_CustomComboBoxOption_C_OnNavRight Parms{};
+
+	Parms.Navigation_0 = Navigation_0;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	return Parms.ReturnValue;
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.OnAddedToFocusPath
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+// Parameters:
+// const struct FFocusEvent&               InFocusEvent                                           (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor)
+
+void UUI_CustomComboBoxOption_C::OnAddedToFocusPath(const struct FFocusEvent& InFocusEvent)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "OnAddedToFocusPath");
+
+	Params::UI_CustomComboBoxOption_C_OnAddedToFocusPath Parms{};
+
+	Parms.InFocusEvent = std::move(InFocusEvent);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.FocusON
+// (BlueprintCallable, BlueprintEvent)
+
+void UUI_CustomComboBoxOption_C::FocusON()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "FocusON");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.OnFail_2F79E7094E3FA19CAF12DEBE91370E8A
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// class UTexture2DDynamic*                Texture                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+
+void UUI_CustomComboBoxOption_C::OnFail_2F79E7094E3FA19CAF12DEBE91370E8A(class UTexture2DDynamic* Texture)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "OnFail_2F79E7094E3FA19CAF12DEBE91370E8A");
+
+	Params::UI_CustomComboBoxOption_C_OnFail_2F79E7094E3FA19CAF12DEBE91370E8A Parms{};
+
+	Parms.Texture = Texture;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.FocusOff
+// (BlueprintCallable, BlueprintEvent)
+
+void UUI_CustomComboBoxOption_C::FocusOff()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "FocusOff");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.ExecuteUbergraph_UI_CustomComboBoxOption
+// (Final, UbergraphFunction, HasDefaults)
+// Parameters:
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UUI_CustomComboBoxOption_C::ExecuteUbergraph_UI_CustomComboBoxOption(int32 EntryPoint)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "ExecuteUbergraph_UI_CustomComboBoxOption");
+
+	Params::UI_CustomComboBoxOption_C_ExecuteUbergraph_UI_CustomComboBoxOption Parms{};
+
+	Parms.EntryPoint = EntryPoint;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.Event Update Navigation
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// bool                                    IsLast                                                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UUI_CustomComboBoxOption_C::Event_Update_Navigation(bool IsLast)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "Event Update Navigation");
+
+	Params::UI_CustomComboBoxOption_C_Event_Update_Navigation Parms{};
+
+	Parms.IsLast = IsLast;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.Event Remove Scroll
+// (BlueprintCallable, BlueprintEvent)
+
+void UUI_CustomComboBoxOption_C::Event_Remove_Scroll()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "Event Remove Scroll");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.Event On Sub Option Clicked
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// const class FString&                    SubCategory                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+// int64                                   SubCategoryID                                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UUI_CustomComboBoxOption_C::Event_On_Sub_Option_Clicked(const class FString& SubCategory, int64 SubCategoryID)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "Event On Sub Option Clicked");
+
+	Params::UI_CustomComboBoxOption_C_Event_On_Sub_Option_Clicked Parms{};
+
+	Parms.SubCategory = std::move(SubCategory);
+	Parms.SubCategoryID = SubCategoryID;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.Event Check If Still Hovered
+// (BlueprintCallable, BlueprintEvent)
+
+void UUI_CustomComboBoxOption_C::Event_Check_If_Still_Hovered()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "Event Check If Still Hovered");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.Event Check If Selected
+// (BlueprintCallable, BlueprintEvent)
+
+void UUI_CustomComboBoxOption_C::Event_Check_If_Selected()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "Event Check If Selected");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.ContinueUpdating
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+
+void UUI_CustomComboBoxOption_C::ContinueUpdating()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "ContinueUpdating");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.Event Close
+// (BlueprintCallable, BlueprintEvent)
+
+void UUI_CustomComboBoxOption_C::Event_Close()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "Event Close");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.Construct
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+
+void UUI_CustomComboBoxOption_C::Construct()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "Construct");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.BndEvt__UI_CustomComboBoxOption_Button_Option_K2Node_ComponentBoundEvent_5_OnButtonPressedEvent__DelegateSignature
+// (BlueprintEvent)
+
+void UUI_CustomComboBoxOption_C::BndEvt__UI_CustomComboBoxOption_Button_Option_K2Node_ComponentBoundEvent_5_OnButtonPressedEvent__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "BndEvt__UI_CustomComboBoxOption_Button_Option_K2Node_ComponentBoundEvent_5_OnButtonPressedEvent__DelegateSignature");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
@@ -72,15 +455,15 @@ void UUI_CustomComboBoxOption_C::BndEvt__UI_CustomComboBoxOption_Button_Option_K
 }
 
 
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.BndEvt__UI_CustomComboBoxOption_Button_Option_K2Node_ComponentBoundEvent_5_OnButtonPressedEvent__DelegateSignature
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_2_OnButtonHoverEvent__DelegateSignature
 // (BlueprintEvent)
 
-void UUI_CustomComboBoxOption_C::BndEvt__UI_CustomComboBoxOption_Button_Option_K2Node_ComponentBoundEvent_5_OnButtonPressedEvent__DelegateSignature()
+void UUI_CustomComboBoxOption_C::BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_2_OnButtonHoverEvent__DelegateSignature()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "BndEvt__UI_CustomComboBoxOption_Button_Option_K2Node_ComponentBoundEvent_5_OnButtonPressedEvent__DelegateSignature");
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_2_OnButtonHoverEvent__DelegateSignature");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
@@ -110,433 +493,29 @@ void UUI_CustomComboBoxOption_C::CheckIfSubCategorySelected(const class FString&
 }
 
 
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.Construct
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature
+// (BlueprintEvent)
 
-void UUI_CustomComboBoxOption_C::Construct()
+void UUI_CustomComboBoxOption_C::BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "Construct");
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.ContinueUpdating
-// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature
+// (BlueprintEvent)
 
-void UUI_CustomComboBoxOption_C::ContinueUpdating()
+void UUI_CustomComboBoxOption_C::BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "ContinueUpdating");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.Event Check If Selected
-// (BlueprintCallable, BlueprintEvent)
-
-void UUI_CustomComboBoxOption_C::Event_Check_If_Selected()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "Event Check If Selected");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.Event Check If Still Hovered
-// (BlueprintCallable, BlueprintEvent)
-
-void UUI_CustomComboBoxOption_C::Event_Check_If_Still_Hovered()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "Event Check If Still Hovered");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.Event Close
-// (BlueprintCallable, BlueprintEvent)
-
-void UUI_CustomComboBoxOption_C::Event_Close()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "Event Close");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.Event On Sub Option Clicked
-// (BlueprintCallable, BlueprintEvent)
-// Parameters:
-// const class FString&                    SubCategory                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
-// int64                                   SubCategoryID                                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UUI_CustomComboBoxOption_C::Event_On_Sub_Option_Clicked(const class FString& SubCategory, int64 SubCategoryID)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "Event On Sub Option Clicked");
-
-	Params::UI_CustomComboBoxOption_C_Event_On_Sub_Option_Clicked Parms{};
-
-	Parms.SubCategory = std::move(SubCategory);
-	Parms.SubCategoryID = SubCategoryID;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.Event Remove Scroll
-// (BlueprintCallable, BlueprintEvent)
-
-void UUI_CustomComboBoxOption_C::Event_Remove_Scroll()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "Event Remove Scroll");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.Event Update Navigation
-// (BlueprintCallable, BlueprintEvent)
-// Parameters:
-// bool                                    IsLast                                                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UUI_CustomComboBoxOption_C::Event_Update_Navigation(bool IsLast)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "Event Update Navigation");
-
-	Params::UI_CustomComboBoxOption_C_Event_Update_Navigation Parms{};
-
-	Parms.IsLast = IsLast;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.ExecuteUbergraph_UI_CustomComboBoxOption
-// (Final, UbergraphFunction, HasDefaults)
-// Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UUI_CustomComboBoxOption_C::ExecuteUbergraph_UI_CustomComboBoxOption(int32 EntryPoint)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "ExecuteUbergraph_UI_CustomComboBoxOption");
-
-	Params::UI_CustomComboBoxOption_C_ExecuteUbergraph_UI_CustomComboBoxOption Parms{};
-
-	Parms.EntryPoint = EntryPoint;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.FocusOff
-// (BlueprintCallable, BlueprintEvent)
-
-void UUI_CustomComboBoxOption_C::FocusOff()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "FocusOff");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.FocusON
-// (BlueprintCallable, BlueprintEvent)
-
-void UUI_CustomComboBoxOption_C::FocusON()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "FocusON");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.GetRootCFWidget
-// (Public, HasOutParams, BlueprintCallable, BlueprintEvent, BlueprintPure)
-// Parameters:
-// class UPanelWidget**                    RootPanelWidget                                        (Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-
-void UUI_CustomComboBoxOption_C::GetRootCFWidget(class UPanelWidget** RootPanelWidget)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "GetRootCFWidget");
-
-	Params::UI_CustomComboBoxOption_C_GetRootCFWidget Parms{};
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	if (RootPanelWidget != nullptr)
-		*RootPanelWidget = Parms.RootPanelWidget;
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.OnAddedToFocusPath
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-// Parameters:
-// const struct FFocusEvent&               InFocusEvent                                           (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor)
-
-void UUI_CustomComboBoxOption_C::OnAddedToFocusPath(const struct FFocusEvent& InFocusEvent)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "OnAddedToFocusPath");
-
-	Params::UI_CustomComboBoxOption_C_OnAddedToFocusPath Parms{};
-
-	Parms.InFocusEvent = std::move(InFocusEvent);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.OnFail_2F79E7094E3FA19CAF12DEBE91370E8A
-// (BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class UTexture2DDynamic*                Texture                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-
-void UUI_CustomComboBoxOption_C::OnFail_2F79E7094E3FA19CAF12DEBE91370E8A(class UTexture2DDynamic* Texture)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "OnFail_2F79E7094E3FA19CAF12DEBE91370E8A");
-
-	Params::UI_CustomComboBoxOption_C_OnFail_2F79E7094E3FA19CAF12DEBE91370E8A Parms{};
-
-	Parms.Texture = Texture;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.OnNavRight
-// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// EUINavigation                           Navigation_0                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// class UWidget*                          ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash)
-
-class UWidget* UUI_CustomComboBoxOption_C::OnNavRight(EUINavigation Navigation_0)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "OnNavRight");
-
-	Params::UI_CustomComboBoxOption_C_OnNavRight Parms{};
-
-	Parms.Navigation_0 = Navigation_0;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.OnOptionSelected
-// (Public, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// const class FString&                    Option                                                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
-// int64                                   ID                                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UUI_CustomComboBoxOption_C::OnOptionSelected(const class FString& Option, int64 ID)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "OnOptionSelected");
-
-	Params::UI_CustomComboBoxOption_C_OnOptionSelected Parms{};
-
-	Parms.Option = std::move(Option);
-	Parms.ID = ID;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.OnRemovedFromFocusPath
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-// Parameters:
-// const struct FFocusEvent&               InFocusEvent                                           (BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor)
-
-void UUI_CustomComboBoxOption_C::OnRemovedFromFocusPath(const struct FFocusEvent& InFocusEvent)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "OnRemovedFromFocusPath");
-
-	Params::UI_CustomComboBoxOption_C_OnRemovedFromFocusPath Parms{};
-
-	Parms.InFocusEvent = std::move(InFocusEvent);
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.OnSuccess_2F79E7094E3FA19CAF12DEBE91370E8A
-// (BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class UTexture2DDynamic*                Texture                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-
-void UUI_CustomComboBoxOption_C::OnSuccess_2F79E7094E3FA19CAF12DEBE91370E8A(class UTexture2DDynamic* Texture)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "OnSuccess_2F79E7094E3FA19CAF12DEBE91370E8A");
-
-	Params::UI_CustomComboBoxOption_C_OnSuccess_2F79E7094E3FA19CAF12DEBE91370E8A Parms{};
-
-	Parms.Texture = Texture;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.OnUpdate
-// (Public, BlueprintCallable, BlueprintEvent)
-
-void UUI_CustomComboBoxOption_C::OnUpdate()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "OnUpdate");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.PreConstruct
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-// Parameters:
-// bool                                    IsDesignTime                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UUI_CustomComboBoxOption_C::PreConstruct(bool IsDesignTime)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "PreConstruct");
-
-	Params::UI_CustomComboBoxOption_C_PreConstruct Parms{};
-
-	Parms.IsDesignTime = IsDesignTime;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.RemoveSpacingIfNotHaveArrow
-// (Public, BlueprintCallable, BlueprintEvent)
-
-void UUI_CustomComboBoxOption_C::RemoveSpacingIfNotHaveArrow()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "RemoveSpacingIfNotHaveArrow");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.RemoveSpacingIfNotHaveImage
-// (Public, BlueprintCallable, BlueprintEvent)
-
-void UUI_CustomComboBoxOption_C::RemoveSpacingIfNotHaveImage()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "RemoveSpacingIfNotHaveImage");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.StopUpdating
-// (Public, BlueprintCallable, BlueprintEvent)
-
-void UUI_CustomComboBoxOption_C::StopUpdating()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "StopUpdating");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.Tick
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-// Parameters:
-// const struct FGeometry&                 MyGeometry                                             (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor)
-// float                                   InDeltaTime                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UUI_CustomComboBoxOption_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "Tick");
-
-	Params::UI_CustomComboBoxOption_C_Tick Parms{};
-
-	Parms.MyGeometry = std::move(MyGeometry);
-	Parms.InDeltaTime = InDeltaTime;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function UI_CustomComboBoxOption.UI_CustomComboBoxOption_C.UpdateHoveredOption
-// (Public, BlueprintCallable, BlueprintEvent)
-
-void UUI_CustomComboBoxOption_C::UpdateHoveredOption()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "UpdateHoveredOption");
+		Func = Class->GetFunction("UI_CustomComboBoxOption_C", "BndEvt__CustomComboBoxOption_OptionButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature");
 
 	UObject::ProcessEvent(Func, nullptr);
 }

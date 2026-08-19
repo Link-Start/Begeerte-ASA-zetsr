@@ -40,26 +40,6 @@ void UPrimalItemArmor_Shield_C::BPClientHandleItemNetExecCommand(class FName Com
 }
 
 
-// Function PrimalItemArmor_Shield.PrimalItemArmor_Shield_C.BPGetShieldHitImpactEffect
-// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class UFXSystemAsset*                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash)
-
-class UFXSystemAsset* UPrimalItemArmor_Shield_C::BPGetShieldHitImpactEffect()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PrimalItemArmor_Shield_C", "BPGetShieldHitImpactEffect");
-
-	Params::PrimalItemArmor_Shield_C_BPGetShieldHitImpactEffect Parms{};
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	return Parms.ReturnValue;
-}
-
-
 // Function PrimalItemArmor_Shield.PrimalItemArmor_Shield_C.HandleShieldDamageBlocking
 // (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -98,9 +78,9 @@ float UPrimalItemArmor_Shield_C::HandleShieldDamageBlocking(class AShooterCharac
 // Parameters:
 // bool                                    LocalOnly                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // const struct FVector&                   HitLoc                                                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// const struct FVector&                   FromLoc                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// const struct FVector&                   fromLoc                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UPrimalItemArmor_Shield_C::PlayHitShieldEffect(bool LocalOnly, const struct FVector& HitLoc, const struct FVector& FromLoc)
+void UPrimalItemArmor_Shield_C::PlayHitShieldEffect(bool LocalOnly, const struct FVector& HitLoc, const struct FVector& fromLoc)
 {
 	static class UFunction* Func = nullptr;
 
@@ -111,7 +91,7 @@ void UPrimalItemArmor_Shield_C::PlayHitShieldEffect(bool LocalOnly, const struct
 
 	Parms.LocalOnly = LocalOnly;
 	Parms.HitLoc = std::move(HitLoc);
-	Parms.FromLoc = std::move(FromLoc);
+	Parms.fromLoc = std::move(fromLoc);
 
 	UObject::ProcessEvent(Func, &Parms);
 }

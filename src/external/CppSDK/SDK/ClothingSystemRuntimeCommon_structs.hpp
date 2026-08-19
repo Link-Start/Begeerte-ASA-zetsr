@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
 #include "ClothingSystemRuntimeInterface_structs.hpp"
+#include "CoreUObject_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -119,7 +119,7 @@ public:
 DUMPER7_ASSERTS_FClothTetherData;
 
 // ScriptStruct ClothingSystemRuntimeCommon.ClothPhysicalMeshData
-// 0x0128 (0x0128 - 0x0000)
+// 0x00D8 (0x00D8 - 0x0000)
 struct FClothPhysicalMeshData final
 {
 public:
@@ -129,26 +129,26 @@ public:
 	TMap<uint32, struct FPointWeightMap>          WeightMaps;                                        // 0x0030(0x0050)(Edit, NativeAccessSpecifierPublic)
 	TArray<float>                                 InverseMasses;                                     // 0x0080(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
 	TArray<struct FClothVertBoneData>             BoneData;                                          // 0x0090(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	TSet<int32>                                   SelfCollisionVertexSet;                            // 0x00A0(0x0050)(Edit, NativeAccessSpecifierPublic)
-	struct FClothTetherData                       EuclideanTethers;                                  // 0x00F0(0x0010)(Edit, NativeAccessSpecifierPublic)
-	struct FClothTetherData                       GeodesicTethers;                                   // 0x0100(0x0010)(Edit, NativeAccessSpecifierPublic)
-	int32                                         MaxBoneWeights;                                    // 0x0110(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         NumFixedVerts;                                     // 0x0114(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<uint32>                                SelfCollisionIndices;                              // 0x0118(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<uint32>                                SelfCollisionIndices;                              // 0x00A0(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	struct FClothTetherData                       EuclideanTethers;                                  // 0x00B0(0x0010)(Edit, NativeAccessSpecifierPublic)
+	struct FClothTetherData                       GeodesicTethers;                                   // 0x00C0(0x0010)(Edit, NativeAccessSpecifierPublic)
+	int32                                         MaxBoneWeights;                                    // 0x00D0(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         NumFixedVerts;                                     // 0x00D4(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FClothPhysicalMeshData;
 
 // ScriptStruct ClothingSystemRuntimeCommon.ClothLODDataCommon
-// 0x0158 (0x0158 - 0x0000)
+// 0x0148 (0x0148 - 0x0000)
 struct FClothLODDataCommon final
 {
 public:
-	struct FClothPhysicalMeshData                 PhysicalMeshData;                                  // 0x0000(0x0128)(Edit, NativeAccessSpecifierPublic)
-	bool                                          bUseMultipleInfluences;                            // 0x0128(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_129[0x3];                                      // 0x0129(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         SkinningKernelRadius;                              // 0x012C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bSmoothTransition;                                 // 0x0130(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_131[0x27];                                     // 0x0131(0x0027)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FClothPhysicalMeshData                 PhysicalMeshData;                                  // 0x0000(0x00D8)(Edit, NativeAccessSpecifierPublic)
+	struct FClothCollisionData                    CollisionData;                                     // 0x00D8(0x0040)(Edit, NativeAccessSpecifierPublic)
+	bool                                          bUseMultipleInfluences;                            // 0x0118(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_119[0x3];                                      // 0x0119(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         SkinningKernelRadius;                              // 0x011C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bSmoothTransition;                                 // 0x0120(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_121[0x27];                                     // 0x0121(0x0027)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FClothLODDataCommon;
 

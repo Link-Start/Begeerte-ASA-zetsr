@@ -10,20 +10,10 @@
 
 #include "Basic.hpp"
 
-#include "Engine_structs.hpp"
 #include "CoreUObject_structs.hpp"
 
 
 SDK_NAMESPACE_START
-
-// Enum MotionWarping.EAttributeBasedRootMotionMode
-// NumValues: 0x0003
-enum class EAttributeBasedRootMotionMode : uint32
-{
-	ApplyDelta                               = 0,
-	ApplyVelocity                            = 1,
-	EAttributeBasedRootMotionMode_MAX        = 2,
-};
 
 // Enum MotionWarping.ERootMotionModifierState
 // NumValues: 0x0005
@@ -45,16 +35,6 @@ enum class EMotionWarpRotationType : uint8
 	EMotionWarpRotationType_MAX              = 2,
 };
 
-// Enum MotionWarping.EMotionWarpRotationMethod
-// NumValues: 0x0004
-enum class EMotionWarpRotationMethod : uint8
-{
-	Slerp                                    = 0,
-	SlerpWithClampedRate                     = 1,
-	ConstantRate                             = 2,
-	EMotionWarpRotationMethod_MAX            = 3,
-};
-
 // Enum MotionWarping.EWarpPointAnimProvider
 // NumValues: 0x0004
 enum class EWarpPointAnimProvider : uint8
@@ -65,21 +45,12 @@ enum class EWarpPointAnimProvider : uint8
 	EWarpPointAnimProvider_MAX               = 3,
 };
 
-// ScriptStruct MotionWarping.AttributeBasedRootMotionComponentPrePhysicsTickFunction
-// 0x0008 (0x0038 - 0x0030)
-struct FAttributeBasedRootMotionComponentPrePhysicsTickFunction final : public FTickFunction
-{
-public:
-	uint8                                         Pad_30[0x8];                                       // 0x0030(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FAttributeBasedRootMotionComponentPrePhysicsTickFunction;
-
 // ScriptStruct MotionWarping.MotionWarpingWindowData
 // 0x0010 (0x0010 - 0x0000)
 struct FMotionWarpingWindowData final
 {
 public:
-	class UAnimNotifyState_MotionWarping*         AnimNotify;                                        // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UAnimNotifyState_MotionWarping*         AnimNotify;                                        // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         StartTime;                                         // 0x0008(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         EndTime;                                           // 0x000C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
@@ -100,7 +71,7 @@ public:
 DUMPER7_ASSERTS_FMotionWarpingUpdateContext;
 
 // ScriptStruct MotionWarping.MotionWarpingTarget
-// 0x0080 (0x0080 - 0x0000)
+// 0x0050 (0x0050 - 0x0000)
 struct FMotionWarpingTarget final
 {
 public:
@@ -110,9 +81,7 @@ public:
 	TWeakObjectPtr<class USceneComponent>         Component;                                         // 0x0038(0x0008)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FName                                   BoneName;                                          // 0x0040(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bFollowComponent;                                  // 0x0048(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_49[0x7];                                       // 0x0049(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                LocationOffset;                                    // 0x0050(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FRotator                               RotationOffset;                                    // 0x0068(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_49[0x7];                                       // 0x0049(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FMotionWarpingTarget;
 

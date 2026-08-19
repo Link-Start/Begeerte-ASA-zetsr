@@ -52,24 +52,18 @@ bool UOpenColorIOBlueprintLibrary::ApplyColorSpaceTransform(const class UObject*
 
 // Function OpenColorIO.OpenColorIOConfiguration.ReloadExistingColorspaces
 // (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    bForce                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UOpenColorIOConfiguration::ReloadExistingColorspaces(bool bForce)
+void UOpenColorIOConfiguration::ReloadExistingColorspaces()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
 		Func = Class->GetFunction("OpenColorIOConfiguration", "ReloadExistingColorspaces");
 
-	Params::OpenColorIOConfiguration_ReloadExistingColorspaces Parms{};
-
-	Parms.bForce = bForce;
-
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
 
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
 
 	Func->FunctionFlags = Flgs;
 }

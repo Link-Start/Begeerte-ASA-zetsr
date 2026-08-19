@@ -16,21 +16,23 @@
 
 SDK_NAMESPACE_START
 
-// Function UI_ComboCategory.UI_ComboCategory_C.ExecuteUbergraph_UI_ComboCategory
-// (Final, UbergraphFunction, HasDefaults)
+// Function UI_ComboCategory.UI_ComboCategory_C.Tick
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// const struct FGeometry&                 MyGeometry                                             (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor)
+// float                                   InDeltaTime                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UUI_ComboCategory_C::ExecuteUbergraph_UI_ComboCategory(int32 EntryPoint)
+void UUI_ComboCategory_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UI_ComboCategory_C", "ExecuteUbergraph_UI_ComboCategory");
+		Func = Class->GetFunction("UI_ComboCategory_C", "Tick");
 
-	Params::UI_ComboCategory_C_ExecuteUbergraph_UI_ComboCategory Parms{};
+	Params::UI_ComboCategory_C_Tick Parms{};
 
-	Parms.EntryPoint = EntryPoint;
+	Parms.MyGeometry = std::move(MyGeometry);
+	Parms.InDeltaTime = InDeltaTime;
 
 	UObject::ProcessEvent(Func, &Parms);
 }
@@ -56,23 +58,21 @@ void UUI_ComboCategory_C::PreConstruct(bool IsDesignTime)
 }
 
 
-// Function UI_ComboCategory.UI_ComboCategory_C.Tick
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+// Function UI_ComboCategory.UI_ComboCategory_C.ExecuteUbergraph_UI_ComboCategory
+// (Final, UbergraphFunction, HasDefaults)
 // Parameters:
-// const struct FGeometry&                 MyGeometry                                             (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor)
-// float                                   InDeltaTime                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UUI_ComboCategory_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
+void UUI_ComboCategory_C::ExecuteUbergraph_UI_ComboCategory(int32 EntryPoint)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("UI_ComboCategory_C", "Tick");
+		Func = Class->GetFunction("UI_ComboCategory_C", "ExecuteUbergraph_UI_ComboCategory");
 
-	Params::UI_ComboCategory_C_Tick Parms{};
+	Params::UI_ComboCategory_C_ExecuteUbergraph_UI_ComboCategory Parms{};
 
-	Parms.MyGeometry = std::move(MyGeometry);
-	Parms.InDeltaTime = InDeltaTime;
+	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
 }

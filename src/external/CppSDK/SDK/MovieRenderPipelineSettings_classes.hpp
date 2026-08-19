@@ -12,14 +12,14 @@
 
 #include "UMG_classes.hpp"
 #include "CoreUObject_structs.hpp"
-#include "MovieRenderPipelineCore_structs.hpp"
 #include "MovieRenderPipelineCore_classes.hpp"
+#include "MovieRenderPipelineSettings_structs.hpp"
 
 
 SDK_NAMESPACE_START
 
 // Class MovieRenderPipelineSettings.MoviePipelineBurnInWidget
-// 0x0000 (0x0368 - 0x0368)
+// 0x0000 (0x0320 - 0x0320)
 class UMoviePipelineBurnInWidget final : public UUserWidget
 {
 public:
@@ -49,8 +49,8 @@ public:
 	struct FSoftClassPath                         BurnInClass;                                       // 0x0048(0x0020)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bCompositeOntoFinalImage;                          // 0x0068(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_69[0x2F];                                      // 0x0069(0x002F)(Fixing Size After Last Property [ Dumper-7 ])
-	class UTextureRenderTarget2D*                 RenderTarget;                                      // 0x0098(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	TArray<class UMoviePipelineBurnInWidget*>     BurnInWidgetInstances;                             // 0x00A0(0x0010)(ExportObject, ZeroConstructor, Transient, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class UTextureRenderTarget2D*                 RenderTarget;                                      // 0x0098(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	TArray<class UMoviePipelineBurnInWidget*>     BurnInWidgetInstances;                             // 0x00A0(0x0010)(ExportObject, ZeroConstructor, Transient, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()
@@ -69,15 +69,16 @@ public:
 DUMPER7_ASSERTS_UMoviePipelineBurnInSetting;
 
 // Class MovieRenderPipelineSettings.MoviePipelineConsoleVariableSetting
-// 0x0060 (0x00A8 - 0x0048)
+// 0x00B0 (0x00F8 - 0x0048)
 class UMoviePipelineConsoleVariableSetting final : public UMoviePipelineSetting
 {
 public:
 	TArray<TScriptInterface<class IMovieSceneConsoleVariableTrackInterface>> ConsoleVariablePresets; // 0x0048(0x0010)(Edit, BlueprintVisible, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic)
-	TArray<class FString>                         StartConsoleCommands;                              // 0x0058(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<class FString>                         EndConsoleCommands;                                // 0x0068(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FMoviePipelineConsoleVariableEntry> CVars;                                         // 0x0078(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_88[0x20];                                      // 0x0088(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TMap<class FString, float>                    ConsoleVariables;                                  // 0x0058(0x0050)(Deprecated, NativeAccessSpecifierPublic)
+	TArray<class FString>                         StartConsoleCommands;                              // 0x00A8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<class FString>                         EndConsoleCommands;                                // 0x00B8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FMoviePipelineConsoleVariableEntry> CVars;                                         // 0x00C8(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_D8[0x20];                                      // 0x00D8(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	bool AddConsoleVariable(const class FString& Name_0, const float Value);
@@ -110,7 +111,7 @@ class UMoviePipelineWidgetRenderer final : public UMoviePipelineRenderPass
 public:
 	bool                                          bCompositeOntoFinalImage;                          // 0x0048(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_49[0x17];                                      // 0x0049(0x0017)(Fixing Size After Last Property [ Dumper-7 ])
-	class UTextureRenderTarget2D*                 RenderTarget;                                      // 0x0060(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class UTextureRenderTarget2D*                 RenderTarget;                                      // 0x0060(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()

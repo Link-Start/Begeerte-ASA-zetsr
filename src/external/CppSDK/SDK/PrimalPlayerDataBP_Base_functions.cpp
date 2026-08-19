@@ -181,58 +181,6 @@ bool UPrimalPlayerDataBP_Base_C::HasGeneralizedAchievementTag(class FName Tag)
 }
 
 
-// Function PrimalPlayerDataBP_Base.PrimalPlayerDataBP_Base_C.Interface_PlayerData Progress Abb Sigil Count
-// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// uint8                                   Newly_Added_Sigil_Count                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// class AShooterPlayerController*         Player_Controller                                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// bool*                                   success                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UPrimalPlayerDataBP_Base_C::Interface_PlayerData_Progress_Abb_Sigil_Count(uint8 Newly_Added_Sigil_Count, class AShooterPlayerController* Player_Controller, bool* success)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PrimalPlayerDataBP_Base_C", "Interface_PlayerData Progress Abb Sigil Count");
-
-	Params::PrimalPlayerDataBP_Base_C_Interface_PlayerData_Progress_Abb_Sigil_Count Parms{};
-
-	Parms.Newly_Added_Sigil_Count = Newly_Added_Sigil_Count;
-	Parms.Player_Controller = Player_Controller;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	if (success != nullptr)
-		*success = Parms.success;
-}
-
-
-// Function PrimalPlayerDataBP_Base.PrimalPlayerDataBP_Base_C.Interface_PlayerData Progress Crimson Sigil Count
-// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// uint8                                   Newly_Added_Sigil_Count                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// class AShooterPlayerController*         Player_Controller                                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// bool*                                   success                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UPrimalPlayerDataBP_Base_C::Interface_PlayerData_Progress_Crimson_Sigil_Count(uint8 Newly_Added_Sigil_Count, class AShooterPlayerController* Player_Controller, bool* success)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PrimalPlayerDataBP_Base_C", "Interface_PlayerData Progress Crimson Sigil Count");
-
-	Params::PrimalPlayerDataBP_Base_C_Interface_PlayerData_Progress_Crimson_Sigil_Count Parms{};
-
-	Parms.Newly_Added_Sigil_Count = Newly_Added_Sigil_Count;
-	Parms.Player_Controller = Player_Controller;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	if (success != nullptr)
-		*success = Parms.success;
-}
-
-
 // Function PrimalPlayerDataBP_Base.PrimalPlayerDataBP_Base_C.SetChibiLevels
 // (Event, Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -275,38 +223,6 @@ bool UPrimalPlayerDataBP_Base_C::SetPlayerHexagonCount(int32 NewHexagonCount)
 	UObject::ProcessEvent(Func, &Parms);
 
 	return Parms.ReturnValue;
-}
-
-
-// Function PrimalPlayerDataBP_Base.PrimalPlayerDataBP_Base_C.Shared Adding Sigil Count Function
-// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// uint8                                   newly_added_sigils                                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// class AShooterPlayerController*         Controller                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// uint8                                   sigil_count                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// bool                                    is_crimson                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// bool                                    is_abb                                                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// uint8*                                  Count_After                                            (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UPrimalPlayerDataBP_Base_C::Shared_Adding_Sigil_Count_Function(uint8 newly_added_sigils, class AShooterPlayerController* Controller, uint8 sigil_count, bool is_crimson, bool is_abb, uint8* Count_After)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("PrimalPlayerDataBP_Base_C", "Shared Adding Sigil Count Function");
-
-	Params::PrimalPlayerDataBP_Base_C_Shared_Adding_Sigil_Count_Function Parms{};
-
-	Parms.newly_added_sigils = newly_added_sigils;
-	Parms.Controller = Controller;
-	Parms.sigil_count = sigil_count;
-	Parms.is_crimson = is_crimson;
-	Parms.is_abb = is_abb;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	if (Count_After != nullptr)
-		*Count_After = Parms.Count_After;
 }
 
 

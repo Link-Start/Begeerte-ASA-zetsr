@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass StoneHarvestComponent_RequiresMetal.StoneHarvestComponent_RequiresMetal_C
-// 0x0000 (0x0238 - 0x0238)
+// 0x0000 (0x0210 - 0x0210)
 class UStoneHarvestComponent_RequiresMetal_C : public UStoneHarvestComponent_C
 {
 public:

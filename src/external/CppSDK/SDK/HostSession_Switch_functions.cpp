@@ -16,206 +16,197 @@
 
 SDK_NAMESPACE_START
 
-// Function HostSession_Switch.HostSession_Switch_C.BndEvt__HostSession_Switch_EasyPresetButton_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature
-// (BlueprintEvent)
-
-void UHostSession_Switch_C::BndEvt__HostSession_Switch_EasyPresetButton_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "BndEvt__HostSession_Switch_EasyPresetButton_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function HostSession_Switch.HostSession_Switch_C.BndEvt__HostSession_Switch_HardPresetButton_K2Node_ComponentBoundEvent_2_OnButtonClickedEvent__DelegateSignature
-// (BlueprintEvent)
-
-void UHostSession_Switch_C::BndEvt__HostSession_Switch_HardPresetButton_K2Node_ComponentBoundEvent_2_OnButtonClickedEvent__DelegateSignature()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "BndEvt__HostSession_Switch_HardPresetButton_K2Node_ComponentBoundEvent_2_OnButtonClickedEvent__DelegateSignature");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function HostSession_Switch.HostSession_Switch_C.BndEvt__HostSession_Switch_MediumPresetButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature
-// (BlueprintEvent)
-
-void UHostSession_Switch_C::BndEvt__HostSession_Switch_MediumPresetButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "BndEvt__HostSession_Switch_MediumPresetButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function HostSession_Switch.HostSession_Switch_C.BPOnUpdateSavedDataButtons
-// (Event, Protected, BlueprintEvent)
-
-void UHostSession_Switch_C::BPOnUpdateSavedDataButtons()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "BPOnUpdateSavedDataButtons");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function HostSession_Switch.HostSession_Switch_C.BPPopulateMods
-// (Event, Protected, HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// TArray<struct FInstalledMod>            ReturnValue                                            (Parm, OutParm, ReturnParm)
-
-TArray<struct FInstalledMod> UHostSession_Switch_C::BPPopulateMods()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "BPPopulateMods");
-
-	Params::HostSession_Switch_C_BPPopulateMods Parms{};
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function HostSession_Switch.HostSession_Switch_C.BPPostPopulateMods
-// (Event, Protected, BlueprintEvent)
-
-void UHostSession_Switch_C::BPPostPopulateMods()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "BPPostPopulateMods");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function HostSession_Switch.HostSession_Switch_C.ConfirmedChangeSettingsToEasy
-// (Event, Public, BlueprintCallable, BlueprintEvent)
-
-void UHostSession_Switch_C::ConfirmedChangeSettingsToEasy()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "ConfirmedChangeSettingsToEasy");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function HostSession_Switch.HostSession_Switch_C.ConfirmedChangeSettingsToHard
-// (Event, Public, BlueprintCallable, BlueprintEvent)
-
-void UHostSession_Switch_C::ConfirmedChangeSettingsToHard()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "ConfirmedChangeSettingsToHard");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function HostSession_Switch.HostSession_Switch_C.ConfirmedChangeSettingsToMedium
-// (Event, Public, BlueprintCallable, BlueprintEvent)
-
-void UHostSession_Switch_C::ConfirmedChangeSettingsToMedium()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "ConfirmedChangeSettingsToMedium");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function HostSession_Switch.HostSession_Switch_C.Construct
+// Function HostSession_Switch.HostSession_Switch_C.Tick
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
+// Parameters:
+// const struct FGeometry&                 MyGeometry                                             (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor)
+// float                                   InDeltaTime                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UHostSession_Switch_C::Construct()
+void UHostSession_Switch_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "Construct");
+		Func = Class->GetFunction("HostSession_Switch_C", "Tick");
+
+	Params::HostSession_Switch_C_Tick Parms{};
+
+	Parms.MyGeometry = std::move(MyGeometry);
+	Parms.InDeltaTime = InDeltaTime;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function HostSession_Switch.HostSession_Switch_C.SetupMapSelectEntries
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+
+void UHostSession_Switch_C::SetupMapSelectEntries()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("HostSession_Switch_C", "SetupMapSelectEntries");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function HostSession_Switch.HostSession_Switch_C.DoSettingsMatchAnyDefaults
-// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Function HostSession_Switch.HostSession_Switch_C.SetSelectedMapIndex
+// (Event, Public, BlueprintEvent)
 // Parameters:
-// bool*                                   Matches                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// int32                                   Index_0                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UHostSession_Switch_C::DoSettingsMatchAnyDefaults(bool* Matches)
+void UHostSession_Switch_C::SetSelectedMapIndex(int32 Index_0)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "DoSettingsMatchAnyDefaults");
+		Func = Class->GetFunction("HostSession_Switch_C", "SetSelectedMapIndex");
 
-	Params::HostSession_Switch_C_DoSettingsMatchAnyDefaults Parms{};
+	Params::HostSession_Switch_C_SetSelectedMapIndex Parms{};
 
-	UObject::ProcessEvent(Func, &Parms);
-
-	if (Matches != nullptr)
-		*Matches = Parms.Matches;
-}
-
-
-// Function HostSession_Switch.HostSession_Switch_C.ExecuteUbergraph_HostSession_Switch
-// (Final, UbergraphFunction, HasDefaults)
-// Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UHostSession_Switch_C::ExecuteUbergraph_HostSession_Switch(int32 EntryPoint)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "ExecuteUbergraph_HostSession_Switch");
-
-	Params::HostSession_Switch_C_ExecuteUbergraph_HostSession_Switch Parms{};
-
-	Parms.EntryPoint = EntryPoint;
+	Parms.Index_0 = Index_0;
 
 	UObject::ProcessEvent(Func, &Parms);
 }
 
 
-// Function HostSession_Switch.HostSession_Switch_C.GetMapSelectScrollBox
+// Function HostSession_Switch.HostSession_Switch_C.SetMainMapSelectEntry
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// int32                                   MapIndex                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UHostSession_Switch_C::SetMainMapSelectEntry(int32 MapIndex)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("HostSession_Switch_C", "SetMainMapSelectEntry");
+
+	Params::HostSession_Switch_C_SetMainMapSelectEntry Parms{};
+
+	Parms.MapIndex = MapIndex;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function HostSession_Switch.HostSession_Switch_C.SelectMapButtonPressed
+// (Event, Public, BlueprintEvent)
+
+void UHostSession_Switch_C::SelectMapButtonPressed()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("HostSession_Switch_C", "SelectMapButtonPressed");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function HostSession_Switch.HostSession_Switch_C.PreConstruct
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+// Parameters:
+// bool                                    IsDesignTime                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UHostSession_Switch_C::PreConstruct(bool IsDesignTime)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("HostSession_Switch_C", "PreConstruct");
+
+	Params::HostSession_Switch_C_PreConstruct Parms{};
+
+	Parms.IsDesignTime = IsDesignTime;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function HostSession_Switch.HostSession_Switch_C.OnIsAuthenticated
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// bool                                    is_authenticated                                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UHostSession_Switch_C::OnIsAuthenticated(bool is_authenticated)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("HostSession_Switch_C", "OnIsAuthenticated");
+
+	Params::HostSession_Switch_C_OnIsAuthenticated Parms{};
+
+	Parms.is_authenticated = is_authenticated;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function HostSession_Switch.HostSession_Switch_C.OnGetInstalledMods
+// (HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// const TArray<struct FInstalledMod>&     installed_mods                                         (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+
+void UHostSession_Switch_C::OnGetInstalledMods(const TArray<struct FInstalledMod>& installed_mods)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("HostSession_Switch_C", "OnGetInstalledMods");
+
+	Params::HostSession_Switch_C_OnGetInstalledMods Parms{};
+
+	Parms.installed_mods = std::move(installed_mods);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function HostSession_Switch.HostSession_Switch_C.MoveToMapScreen
+// (Event, Public, BlueprintEvent)
+
+void UHostSession_Switch_C::MoveToMapScreen()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("HostSession_Switch_C", "MoveToMapScreen");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function HostSession_Switch.HostSession_Switch_C.MoveToMainScreen
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void UHostSession_Switch_C::MoveToMainScreen()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("HostSession_Switch_C", "MoveToMainScreen");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function HostSession_Switch.HostSession_Switch_C.IsInMapSelectView
 // (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// class UScrollBox*                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-class UScrollBox* UHostSession_Switch_C::GetMapSelectScrollBox()
+bool UHostSession_Switch_C::IsInMapSelectView()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "GetMapSelectScrollBox");
+		Func = Class->GetFunction("HostSession_Switch_C", "IsInMapSelectView");
 
-	Params::HostSession_Switch_C_GetMapSelectScrollBox Parms{};
+	Params::HostSession_Switch_C_IsInMapSelectView Parms{};
 
 	UObject::ProcessEvent(Func, &Parms);
 
@@ -243,19 +234,19 @@ int32 UHostSession_Switch_C::GetSelectedMapIndex()
 }
 
 
-// Function HostSession_Switch.HostSession_Switch_C.IsInMapSelectView
+// Function HostSession_Switch.HostSession_Switch_C.GetMapSelectScrollBox
 // (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// class UScrollBox*                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash)
 
-bool UHostSession_Switch_C::IsInMapSelectView()
+class UScrollBox* UHostSession_Switch_C::GetMapSelectScrollBox()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "IsInMapSelectView");
+		Func = Class->GetFunction("HostSession_Switch_C", "GetMapSelectScrollBox");
 
-	Params::HostSession_Switch_C_IsInMapSelectView Parms{};
+	Params::HostSession_Switch_C_GetMapSelectScrollBox Parms{};
 
 	UObject::ProcessEvent(Func, &Parms);
 
@@ -263,181 +254,190 @@ bool UHostSession_Switch_C::IsInMapSelectView()
 }
 
 
-// Function HostSession_Switch.HostSession_Switch_C.MoveToMainScreen
-// (Public, BlueprintCallable, BlueprintEvent)
-
-void UHostSession_Switch_C::MoveToMainScreen()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "MoveToMainScreen");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function HostSession_Switch.HostSession_Switch_C.MoveToMapScreen
-// (Event, Public, BlueprintEvent)
-
-void UHostSession_Switch_C::MoveToMapScreen()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "MoveToMapScreen");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function HostSession_Switch.HostSession_Switch_C.OnGetInstalledMods
-// (HasOutParams, BlueprintCallable, BlueprintEvent)
+// Function HostSession_Switch.HostSession_Switch_C.ExecuteUbergraph_HostSession_Switch
+// (Final, UbergraphFunction, HasDefaults)
 // Parameters:
-// const TArray<struct FInstalledMod>&     installed_mods                                         (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UHostSession_Switch_C::OnGetInstalledMods(const TArray<struct FInstalledMod>& installed_mods)
+void UHostSession_Switch_C::ExecuteUbergraph_HostSession_Switch(int32 EntryPoint)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "OnGetInstalledMods");
+		Func = Class->GetFunction("HostSession_Switch_C", "ExecuteUbergraph_HostSession_Switch");
 
-	Params::HostSession_Switch_C_OnGetInstalledMods Parms{};
+	Params::HostSession_Switch_C_ExecuteUbergraph_HostSession_Switch Parms{};
 
-	Parms.installed_mods = std::move(installed_mods);
+	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
 }
 
 
-// Function HostSession_Switch.HostSession_Switch_C.OnIsAuthenticated
-// (BlueprintCallable, BlueprintEvent)
+// Function HostSession_Switch.HostSession_Switch_C.DoSettingsMatchAnyDefaults
+// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                                    is_authenticated                                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool*                                   Matches                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UHostSession_Switch_C::OnIsAuthenticated(bool is_authenticated)
+void UHostSession_Switch_C::DoSettingsMatchAnyDefaults(bool* Matches)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "OnIsAuthenticated");
+		Func = Class->GetFunction("HostSession_Switch_C", "DoSettingsMatchAnyDefaults");
 
-	Params::HostSession_Switch_C_OnIsAuthenticated Parms{};
-
-	Parms.is_authenticated = is_authenticated;
+	Params::HostSession_Switch_C_DoSettingsMatchAnyDefaults Parms{};
 
 	UObject::ProcessEvent(Func, &Parms);
+
+	if (Matches != nullptr)
+		*Matches = Parms.Matches;
 }
 
 
-// Function HostSession_Switch.HostSession_Switch_C.PreConstruct
+// Function HostSession_Switch.HostSession_Switch_C.Construct
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
-// Parameters:
-// bool                                    IsDesignTime                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UHostSession_Switch_C::PreConstruct(bool IsDesignTime)
+void UHostSession_Switch_C::Construct()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "PreConstruct");
-
-	Params::HostSession_Switch_C_PreConstruct Parms{};
-
-	Parms.IsDesignTime = IsDesignTime;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function HostSession_Switch.HostSession_Switch_C.SelectMapButtonPressed
-// (Event, Public, BlueprintEvent)
-
-void UHostSession_Switch_C::SelectMapButtonPressed()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "SelectMapButtonPressed");
+		Func = Class->GetFunction("HostSession_Switch_C", "Construct");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function HostSession_Switch.HostSession_Switch_C.SetMainMapSelectEntry
-// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// int32                                   MapIndex                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// Function HostSession_Switch.HostSession_Switch_C.ConfirmedChangeSettingsToMedium
+// (Event, Public, BlueprintCallable, BlueprintEvent)
 
-void UHostSession_Switch_C::SetMainMapSelectEntry(int32 MapIndex)
+void UHostSession_Switch_C::ConfirmedChangeSettingsToMedium()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "SetMainMapSelectEntry");
-
-	Params::HostSession_Switch_C_SetMainMapSelectEntry Parms{};
-
-	Parms.MapIndex = MapIndex;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function HostSession_Switch.HostSession_Switch_C.SetSelectedMapIndex
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// int32                                   Index_0                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UHostSession_Switch_C::SetSelectedMapIndex(int32 Index_0)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "SetSelectedMapIndex");
-
-	Params::HostSession_Switch_C_SetSelectedMapIndex Parms{};
-
-	Parms.Index_0 = Index_0;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function HostSession_Switch.HostSession_Switch_C.SetupMapSelectEntries
-// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
-
-void UHostSession_Switch_C::SetupMapSelectEntries()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "SetupMapSelectEntries");
+		Func = Class->GetFunction("HostSession_Switch_C", "ConfirmedChangeSettingsToMedium");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function HostSession_Switch.HostSession_Switch_C.Tick
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-// Parameters:
-// const struct FGeometry&                 MyGeometry                                             (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor)
-// float                                   InDeltaTime                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// Function HostSession_Switch.HostSession_Switch_C.ConfirmedChangeSettingsToHard
+// (Event, Public, BlueprintCallable, BlueprintEvent)
 
-void UHostSession_Switch_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
+void UHostSession_Switch_C::ConfirmedChangeSettingsToHard()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("HostSession_Switch_C", "Tick");
+		Func = Class->GetFunction("HostSession_Switch_C", "ConfirmedChangeSettingsToHard");
 
-	Params::HostSession_Switch_C_Tick Parms{};
+	UObject::ProcessEvent(Func, nullptr);
+}
 
-	Parms.MyGeometry = std::move(MyGeometry);
-	Parms.InDeltaTime = InDeltaTime;
+
+// Function HostSession_Switch.HostSession_Switch_C.ConfirmedChangeSettingsToEasy
+// (Event, Public, BlueprintCallable, BlueprintEvent)
+
+void UHostSession_Switch_C::ConfirmedChangeSettingsToEasy()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("HostSession_Switch_C", "ConfirmedChangeSettingsToEasy");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function HostSession_Switch.HostSession_Switch_C.BPPostPopulateMods
+// (Event, Protected, BlueprintEvent)
+
+void UHostSession_Switch_C::BPPostPopulateMods()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("HostSession_Switch_C", "BPPostPopulateMods");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function HostSession_Switch.HostSession_Switch_C.BPPopulateMods
+// (Event, Protected, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// TArray<struct FInstalledMod>            ReturnValue                                            (Parm, OutParm, ReturnParm)
+
+TArray<struct FInstalledMod> UHostSession_Switch_C::BPPopulateMods()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("HostSession_Switch_C", "BPPopulateMods");
+
+	Params::HostSession_Switch_C_BPPopulateMods Parms{};
 
 	UObject::ProcessEvent(Func, &Parms);
+
+	return Parms.ReturnValue;
+}
+
+
+// Function HostSession_Switch.HostSession_Switch_C.BPOnUpdateSavedDataButtons
+// (Event, Protected, BlueprintEvent)
+
+void UHostSession_Switch_C::BPOnUpdateSavedDataButtons()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("HostSession_Switch_C", "BPOnUpdateSavedDataButtons");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function HostSession_Switch.HostSession_Switch_C.BndEvt__HostSession_Switch_MediumPresetButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature
+// (BlueprintEvent)
+
+void UHostSession_Switch_C::BndEvt__HostSession_Switch_MediumPresetButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("HostSession_Switch_C", "BndEvt__HostSession_Switch_MediumPresetButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function HostSession_Switch.HostSession_Switch_C.BndEvt__HostSession_Switch_HardPresetButton_K2Node_ComponentBoundEvent_2_OnButtonClickedEvent__DelegateSignature
+// (BlueprintEvent)
+
+void UHostSession_Switch_C::BndEvt__HostSession_Switch_HardPresetButton_K2Node_ComponentBoundEvent_2_OnButtonClickedEvent__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("HostSession_Switch_C", "BndEvt__HostSession_Switch_HardPresetButton_K2Node_ComponentBoundEvent_2_OnButtonClickedEvent__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function HostSession_Switch.HostSession_Switch_C.BndEvt__HostSession_Switch_EasyPresetButton_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature
+// (BlueprintEvent)
+
+void UHostSession_Switch_C::BndEvt__HostSession_Switch_EasyPresetButton_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("HostSession_Switch_C", "BndEvt__HostSession_Switch_EasyPresetButton_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 

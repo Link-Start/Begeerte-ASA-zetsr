@@ -16,15 +16,6 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
-// Function LiveLinkAnimationCore.LiveLinkInstance.EnableLiveLinkEvaluation
-// 0x0001 (0x0001 - 0x0000)
-struct LiveLinkInstance_EnableLiveLinkEvaluation final
-{
-public:
-	bool                                          bDoEnable;                                         // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_LiveLinkInstance_EnableLiveLinkEvaluation;
-
 // Function LiveLinkAnimationCore.LiveLinkInstance.SetRetargetAsset
 // 0x0008 (0x0008 - 0x0000)
 struct LiveLinkInstance_SetRetargetAsset final

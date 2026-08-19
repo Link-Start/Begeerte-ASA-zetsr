@@ -27,7 +27,7 @@ enum class EGameplayDebuggerOverrideMode : uint8
 };
 
 // Enum GameplayDebugger.EGameplayDebuggerShape
-// NumValues: 0x000D
+// NumValues: 0x000B
 enum class EGameplayDebuggerShape : uint8
 {
 	Invalid                                  = 0,
@@ -37,12 +37,10 @@ enum class EGameplayDebuggerShape : uint8
 	Cone                                     = 4,
 	Cylinder                                 = 5,
 	Circle                                   = 6,
-	Rectangle                                = 7,
-	Capsule                                  = 8,
-	Polygon                                  = 9,
-	Polyline                                 = 10,
-	Arrow                                    = 11,
-	EGameplayDebuggerShape_MAX               = 12,
+	Capsule                                  = 7,
+	Polygon                                  = 8,
+	Arrow                                    = 9,
+	EGameplayDebuggerShape_MAX               = 10,
 };
 
 // ScriptStruct GameplayDebugger.GameplayDebuggerDataPackHeader
@@ -104,7 +102,7 @@ DUMPER7_ASSERTS_FGameplayDebuggerCategoryData;
 struct FGameplayDebuggerNetPack final
 {
 public:
-	class AGameplayDebuggerCategoryReplicator*    Owner;                                             // 0x0000(0x0008)(ZeroConstructor, RepSkip, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class AGameplayDebuggerCategoryReplicator*    Owner;                                             // 0x0000(0x0008)(ZeroConstructor, RepSkip, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<struct FGameplayDebuggerCategoryData>  SavedData;                                         // 0x0008(0x0010)(ZeroConstructor, NativeAccessSpecifierPrivate)
 };
 DUMPER7_ASSERTS_FGameplayDebuggerNetPack;
@@ -179,9 +177,9 @@ DUMPER7_ASSERTS_FGameplayDebuggerExtensionConfig;
 struct FGameplayDebuggerPlayerData final
 {
 public:
-	class UGameplayDebuggerLocalController*       Controller;                                        // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UInputComponent*                        InputComponent;                                    // 0x0008(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class AGameplayDebuggerCategoryReplicator*    Replicator;                                        // 0x0010(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UGameplayDebuggerLocalController*       Controller;                                        // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UInputComponent*                        InputComponent;                                    // 0x0008(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AGameplayDebuggerCategoryReplicator*    Replicator;                                        // 0x0010(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FGameplayDebuggerPlayerData;
 

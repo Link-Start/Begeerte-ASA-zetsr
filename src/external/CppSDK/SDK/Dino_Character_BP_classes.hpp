@@ -18,50 +18,64 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass Dino_Character_BP.Dino_Character_BP_C
-// 0x00B0 (0x2B20 - 0x2A70)
+// 0x00F0 (0x3860 - 0x3770)
 #pragma pack(push, 0x1)
 class SDK_ALIGN(0x10) ADino_Character_BP_C : public APrimalDinoCharacter
 {
 public:
-	uint8                                         Pad_2A68[0x8];                                     // 0x2A68(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x2A70(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	class USphereComponent*                       StasisComponent;                                   // 0x2A78(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
-	TArray<class UAnimSequence*>                  AlternateDeathAnims;                               // 0x2A80(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	struct FDinoContentData                       ContentData;                                       // 0x2A90(0x0020)(Edit, BlueprintVisible, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          GeneratedBlendSpaces;                              // 0x2AB0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_2AB1[0x7];                                     // 0x2AB1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        PostDestructionFootstepLifespan;                   // 0x2AB8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          SupportsConsumablesAutoTransfer;                   // 0x2AC0(0x0001)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, ExperimentalAlwaysOverriden)
-	uint8                                         Pad_2AC1[0x7];                                     // 0x2AC1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TSoftClassPtr<class UClass>                   HarnesSaddleItem;                                  // 0x2AC8(0x0028)(Edit, BlueprintVisible, DisableEditOnInstance, HasGetValueTypeHash)
-	double                                        CartBodyPitchOffset;                               // 0x2AF0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class FText                                   DisableConsumablesTransferText;                    // 0x2AF8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	class FText                                   EnableConsumablesTransferText;                     // 0x2B08(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x3770(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	class USphereComponent*                       StasisComponent;                                   // 0x3778(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
+	TArray<class UAnimSequence*>                  AlternateDeathAnims;                               // 0x3780(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FDinoContentData                       ContentData;                                       // 0x3790(0x0020)(Edit, BlueprintVisible, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        BabySpeedMult_WildBaby;                            // 0x37B0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        BabySpeedMult_NotWildBaby;                         // 0x37B8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        FollowingRunDistance_BabyLong;                     // 0x37C0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        FollowingRunDistance_BabyShort;                    // 0x37C8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        FollowingRunDistance_Adult;                        // 0x37D0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        AIFollowStoppingDistance_Baby;                     // 0x37D8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        AIFollowStoppingDistance_Adult;                    // 0x37E0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         AiAccessFails;                                     // 0x37E8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_37EC[0x4];                                     // 0x37EC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        WildBaby_NextRunTime;                              // 0x37F0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        WildBaby_MinTimeBetweenRuns;                       // 0x37F8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          GeneratedBlendSpaces;                              // 0x3800(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_3801[0x7];                                     // 0x3801(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        PostDestructionFootstepLifespan;                   // 0x3808(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          SupportsConsumablesAutoTransfer;                   // 0x3810(0x0001)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, ExperimentalAlwaysOverriden)
+	uint8                                         Pad_3811[0x7];                                     // 0x3811(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UClass*                                 HarnesSaddleItem;                                  // 0x3818(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	double                                        CartBodyPitchOffset;                               // 0x3820(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FText                                   DisableConsumablesTransferText;                    // 0x3828(0x0018)(Edit, BlueprintVisible, DisableEditOnInstance)
+	class FText                                   EnableConsumablesTransferText;                     // 0x3840(0x0018)(Edit, BlueprintVisible, DisableEditOnInstance)
 
 public:
-	void ReceiveBeginPlay();
-	void ExecuteUbergraph_Dino_Character_BP(int32 EntryPoint);
-	void BPCameraAllowPivotPitchModifiers(bool* bAllow);
-	void SetSubmarineStructure(class APrimalStructure* Structure);
-	TArray<struct FMultiUseEntry> BPGetRidingMultiUseEntries(class APlayerController* ForPC, const TArray<struct FMultiUseEntry>& MultiUseEntries);
-	void FearTheManticore(bool ShouldFear);
-	bool BPTryMultiUse(class APlayerController* ForPC, int32 UseIndex, class FName UseName);
-	TArray<struct FMultiUseEntry> BPGetMultiUseEntries(class APlayerController* ForPC, const TArray<struct FMultiUseEntry>& MultiUseEntries);
-	bool BPOverrideCameraDesiredPivotLocation(const struct FVector& CurrentCameraPivotLocation, struct FVector& DesiredCameraPivotLocation);
-	bool BPOverrideCameraDesiredPivotRotation(const struct FRotator& CurrentCameraPivotRotation, struct FRotator& DesiredCameraPivotRotation);
-	bool BPOverrideCameraDesiredPivotOffset(const struct FPrimalCameraParams& CameraParams, struct FVector& DesiredCameraOffset);
-	bool BPOverrideCameraPivotLocationInterpParams(const struct FPrimalCameraParams& CameraParams, const struct FPrimalCameraPivotZInterpOverrides& PivotZInterpOverrides, const struct FPrimalCameraInterpParams& LastInterpParamsX, const struct FPrimalCameraInterpParams& LastInterpParamsY, const struct FPrimalCameraInterpParams& LastInterpParamsZ, struct FPrimalCameraInterpParams& OutInterpParamsX, struct FPrimalCameraInterpParams& OutInterpParamsY, struct FPrimalCameraInterpParams& OutInterpParamsZ);
-	bool BPOverrideCameraArmLengthInterpParams(const struct FPrimalCameraParams& CameraParams, struct FPrimalCameraInterpParams& OutInterpParams);
-	bool BPOverrideCameraArmLength(const struct FPrimalCameraParams& CameraParams, float CurrentCameraArmLength, float& DesiredCameraArmLength);
-	struct FLinearColor GetFXBloodColor();
-	void GetDinoContentData(struct FDinoContentData* DinoContentData);
-	bool BPHandleRightShoulderButton();
-	void EditorBeginPlay();
-	void BP_OnSetDeath();
 	void BlendSpaceGenerated(class UBlendSpace* BlendSpace);
-	void ReceiveDestroyed();
-	void BPTriggerStasisEvent();
+	bool BlueprintOverrideWantsToRun(bool bInputWantsToRun, bool bWantsToRunBeforeTargetIsRunningCheck);
+	void BP_OnSetDeath();
+	void BPBecomeAdult();
+	void BPBecomeBaby();
+	TArray<struct FMultiUseEntry> BPGetMultiUseEntries(class APlayerController* ForPC, const TArray<struct FMultiUseEntry>& MultiUseEntries);
+	TArray<struct FMultiUseEntry> BPGetRidingMultiUseEntries(class APlayerController* ForPC, const TArray<struct FMultiUseEntry>& MultiUseEntries);
+	bool BPHandleRightShoulderButton();
+	void BPNotifyClaimed();
+	bool BPOverrideCameraArmLength(const struct FPrimalCameraParams& CameraParams, float CurrentCameraArmLength, float& DesiredCameraArmLength);
+	bool BPOverrideCameraArmLengthInterpParams(const struct FPrimalCameraParams& CameraParams, struct FPrimalCameraInterpParams& OutInterpParams);
+	bool BPOverrideCameraDesiredPivotLocation(const struct FVector& CurrentCameraPivotLocation, struct FVector& DesiredCameraPivotLocation);
+	bool BPOverrideCameraDesiredPivotOffset(const struct FPrimalCameraParams& CameraParams, struct FVector& DesiredCameraOffset);
+	bool BPOverrideCameraDesiredPivotRotation(const struct FRotator& CurrentCameraPivotRotation, struct FRotator& DesiredCameraPivotRotation);
+	bool BPOverrideCameraPivotLocationInterpParams(const struct FPrimalCameraParams& CameraParams, const struct FPrimalCameraPivotZInterpOverrides& PivotZInterpOverrides, const struct FPrimalCameraInterpParams& LastInterpParamsX, const struct FPrimalCameraInterpParams& LastInterpParamsY, const struct FPrimalCameraInterpParams& LastInterpParamsZ, struct FPrimalCameraInterpParams& OutInterpParamsX, struct FPrimalCameraInterpParams& OutInterpParamsY, struct FPrimalCameraInterpParams& OutInterpParamsZ);
 	void BPSpawnAttackerDamageImpactFX(class FName SocketName, class APrimalCharacter* VictimChar);
+	void BPTriggerStasisEvent();
+	bool BPTryMultiUse(class APlayerController* ForPC, int32 UseIndex);
+	void EditorBeginPlay();
+	void ExecuteUbergraph_Dino_Character_BP(int32 EntryPoint);
+	void FearTheManticore(bool ShouldFear);
+	void GetDinoContentData(struct FDinoContentData* DinoContentData);
+	struct FLinearColor GetFXBloodColor();
+	void ReceiveBeginPlay();
+	void ReceiveDestroyed();
+	void UpdateBabyAndRunValues();
+	void UpdateWildBabyNextRunTime();
 
 	void BPControlRigNotify(class FName NotifyName, class FName NotifyCustomTag, const struct FHitResult& WorldSpaceHitResult, const struct FVector& Velocity) const;
 

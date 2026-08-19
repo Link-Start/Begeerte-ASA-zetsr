@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
-#include "Engine_structs.hpp"
 #include "AIModule_structs.hpp"
 #include "AIModule_classes.hpp"
+#include "Engine_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -23,7 +23,7 @@ class UCheckIsVectorNonZero_C final : public UBTTask_BlueprintBase
 {
 public:
 	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x00A8(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	struct FBlackboardKeySelector                 InVec;                                             // 0x00B0(0x0028)(Edit, BlueprintVisible)
+	struct FBlackboardKeySelector                 inVec;                                             // 0x00B0(0x0028)(Edit, BlueprintVisible)
 
 public:
 	void ExecuteUbergraph_CheckIsVectorNonZero(int32 EntryPoint);

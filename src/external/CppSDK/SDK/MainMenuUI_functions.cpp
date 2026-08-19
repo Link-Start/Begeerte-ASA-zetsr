@@ -16,77 +16,21 @@
 
 SDK_NAMESPACE_START
 
-// Function MainMenuUI.MainMenuUI_C.BndEvt__CreditsButton_K2Node_ComponentBoundEvent_116_OnButtonClickedEvent__DelegateSignature
-// (BlueprintEvent)
-
-void UMainMenuUI_C::BndEvt__CreditsButton_K2Node_ComponentBoundEvent_116_OnButtonClickedEvent__DelegateSignature()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MainMenuUI_C", "BndEvt__CreditsButton_K2Node_ComponentBoundEvent_116_OnButtonClickedEvent__DelegateSignature");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function MainMenuUI.MainMenuUI_C.BndEvt__ScorchedEarthStoreButton_K2Node_ComponentBoundEvent_129_OnButtonClickedEvent__DelegateSignature
-// (BlueprintEvent)
-
-void UMainMenuUI_C::BndEvt__ScorchedEarthStoreButton_K2Node_ComponentBoundEvent_129_OnButtonClickedEvent__DelegateSignature()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MainMenuUI_C", "BndEvt__ScorchedEarthStoreButton_K2Node_ComponentBoundEvent_129_OnButtonClickedEvent__DelegateSignature");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function MainMenuUI.MainMenuUI_C.BndEvt__WebButton_K2Node_ComponentBoundEvent_110_OnButtonClickedEvent__DelegateSignature
-// (BlueprintEvent)
-
-void UMainMenuUI_C::BndEvt__WebButton_K2Node_ComponentBoundEvent_110_OnButtonClickedEvent__DelegateSignature()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MainMenuUI_C", "BndEvt__WebButton_K2Node_ComponentBoundEvent_110_OnButtonClickedEvent__DelegateSignature");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function MainMenuUI.MainMenuUI_C.Construct
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-
-void UMainMenuUI_C::Construct()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("MainMenuUI_C", "Construct");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function MainMenuUI.MainMenuUI_C.ExecuteUbergraph_MainMenuUI
-// (Final, UbergraphFunction, HasDefaults)
+// Function MainMenuUI.MainMenuUI_C.UpdateLeftTextPosition
+// (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool                                    isCTAVisible                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UMainMenuUI_C::ExecuteUbergraph_MainMenuUI(int32 EntryPoint)
+void UMainMenuUI_C::UpdateLeftTextPosition(bool isCTAVisible)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MainMenuUI_C", "ExecuteUbergraph_MainMenuUI");
+		Func = Class->GetFunction("MainMenuUI_C", "UpdateLeftTextPosition");
 
-	Params::MainMenuUI_C_ExecuteUbergraph_MainMenuUI Parms{};
+	Params::MainMenuUI_C_UpdateLeftTextPosition Parms{};
 
-	Parms.EntryPoint = EntryPoint;
+	Parms.isCTAVisible = isCTAVisible;
 
 	UObject::ProcessEvent(Func, &Parms);
 }
@@ -114,23 +58,79 @@ void UMainMenuUI_C::OverrideBGImage(class UTexture2D* BGOverrideTexture, bool In
 }
 
 
-// Function MainMenuUI.MainMenuUI_C.UpdateLeftTextPosition
-// (Public, BlueprintCallable, BlueprintEvent)
+// Function MainMenuUI.MainMenuUI_C.ExecuteUbergraph_MainMenuUI
+// (Final, UbergraphFunction, HasDefaults)
 // Parameters:
-// bool                                    isCTAVisible                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UMainMenuUI_C::UpdateLeftTextPosition(bool isCTAVisible)
+void UMainMenuUI_C::ExecuteUbergraph_MainMenuUI(int32 EntryPoint)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("MainMenuUI_C", "UpdateLeftTextPosition");
+		Func = Class->GetFunction("MainMenuUI_C", "ExecuteUbergraph_MainMenuUI");
 
-	Params::MainMenuUI_C_UpdateLeftTextPosition Parms{};
+	Params::MainMenuUI_C_ExecuteUbergraph_MainMenuUI Parms{};
 
-	Parms.isCTAVisible = isCTAVisible;
+	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function MainMenuUI.MainMenuUI_C.Construct
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+
+void UMainMenuUI_C::Construct()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MainMenuUI_C", "Construct");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function MainMenuUI.MainMenuUI_C.BndEvt__WebButton_K2Node_ComponentBoundEvent_110_OnButtonClickedEvent__DelegateSignature
+// (BlueprintEvent)
+
+void UMainMenuUI_C::BndEvt__WebButton_K2Node_ComponentBoundEvent_110_OnButtonClickedEvent__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MainMenuUI_C", "BndEvt__WebButton_K2Node_ComponentBoundEvent_110_OnButtonClickedEvent__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function MainMenuUI.MainMenuUI_C.BndEvt__ScorchedEarthStoreButton_K2Node_ComponentBoundEvent_129_OnButtonClickedEvent__DelegateSignature
+// (BlueprintEvent)
+
+void UMainMenuUI_C::BndEvt__ScorchedEarthStoreButton_K2Node_ComponentBoundEvent_129_OnButtonClickedEvent__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MainMenuUI_C", "BndEvt__ScorchedEarthStoreButton_K2Node_ComponentBoundEvent_129_OnButtonClickedEvent__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function MainMenuUI.MainMenuUI_C.BndEvt__CreditsButton_K2Node_ComponentBoundEvent_116_OnButtonClickedEvent__DelegateSignature
+// (BlueprintEvent)
+
+void UMainMenuUI_C::BndEvt__CreditsButton_K2Node_ComponentBoundEvent_116_OnButtonClickedEvent__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("MainMenuUI_C", "BndEvt__CreditsButton_K2Node_ComponentBoundEvent_116_OnButtonClickedEvent__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 

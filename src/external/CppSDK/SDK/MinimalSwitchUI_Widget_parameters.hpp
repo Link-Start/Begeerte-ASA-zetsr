@@ -75,16 +75,16 @@ public:
 DUMPER7_ASSERTS_MinimalSwitchUI_Widget_C_Tick;
 
 // Function MinimalSwitchUI_Widget.MinimalSwitchUI_Widget_C.UpdateTooltipMoreInfo
-// 0x0040 (0x0040 - 0x0000)
+// 0x0058 (0x0058 - 0x0000)
 struct MinimalSwitchUI_Widget_C_UpdateTooltipMoreInfo final
 {
 public:
 	bool                                          Temp_bool_Variable;                                // 0x0000(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0008(0x0010)()
-	class FText                                   CallFunc_Conv_StringToText_ReturnValue_1;          // 0x0018(0x0010)()
-	class UShooterGameUserSettings*               CallFunc_GetShooterGameUserSettings_ReturnValue;   // 0x0028(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class FText                                   K2Node_Select_Default;                             // 0x0030(0x0010)()
+	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0008(0x0018)()
+	class FText                                   CallFunc_Conv_StringToText_ReturnValue_1;          // 0x0020(0x0018)()
+	class UShooterGameUserSettings*               CallFunc_GetShooterGameUserSettings_ReturnValue;   // 0x0038(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class FText                                   K2Node_Select_Default;                             // 0x0040(0x0018)()
 };
 DUMPER7_ASSERTS_MinimalSwitchUI_Widget_C_UpdateTooltipMoreInfo;
 

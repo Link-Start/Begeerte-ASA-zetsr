@@ -1725,7 +1725,7 @@ void UChaosWheeledVehicleMovementComponent::BreakWheelSnapshot(const struct FWhe
 // Function ChaosVehicles.ChaosWheeledVehicleMovementComponent.BreakWheelStatus
 // (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
-// const struct FWheelStatus&              Status                                                 (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+// const struct FWheelStatus&              status                                                 (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 // bool*                                   bInContact                                             (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector*                         ContactPoint                                           (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // class UPhysicalMaterial**               PhysMaterial                                           (Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -1741,7 +1741,7 @@ void UChaosWheeledVehicleMovementComponent::BreakWheelSnapshot(const struct FWhe
 // float*                                  BrakeTorque                                            (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool*                                   bABSActivated                                          (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UChaosWheeledVehicleMovementComponent::BreakWheelStatus(const struct FWheelStatus& Status, bool* bInContact, struct FVector* ContactPoint, class UPhysicalMaterial** PhysMaterial, float* NormalizedSuspensionLength, float* SpringForce, float* SlipAngle, bool* bIsSlipping, float* SlipMagnitude, bool* bIsSkidding, float* SkidMagnitude, struct FVector* SkidNormal, float* DriveTorque, float* BrakeTorque, bool* bABSActivated)
+void UChaosWheeledVehicleMovementComponent::BreakWheelStatus(const struct FWheelStatus& status, bool* bInContact, struct FVector* ContactPoint, class UPhysicalMaterial** PhysMaterial, float* NormalizedSuspensionLength, float* SpringForce, float* SlipAngle, bool* bIsSlipping, float* SlipMagnitude, bool* bIsSkidding, float* SkidMagnitude, struct FVector* SkidNormal, float* DriveTorque, float* BrakeTorque, bool* bABSActivated)
 {
 	static class UFunction* Func = nullptr;
 
@@ -1750,7 +1750,7 @@ void UChaosWheeledVehicleMovementComponent::BreakWheelStatus(const struct FWheel
 
 	Params::ChaosWheeledVehicleMovementComponent_BreakWheelStatus Parms{};
 
-	Parms.Status = std::move(Status);
+	Parms.status = std::move(status);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

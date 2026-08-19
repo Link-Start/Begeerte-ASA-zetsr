@@ -16,33 +16,6 @@
 
 SDK_NAMESPACE_START
 
-// Function LiveLinkComponents.LiveLinkComponentController.SetControlledComponent
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// TSubclassOf<class ULiveLinkRole>        InRoleClass                                            (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UActorComponent*                  InComponent                                            (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void ULiveLinkComponentController::SetControlledComponent(TSubclassOf<class ULiveLinkRole> InRoleClass, class UActorComponent* InComponent)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("LiveLinkComponentController", "SetControlledComponent");
-
-	Params::LiveLinkComponentController_SetControlledComponent Parms{};
-
-	Parms.InRoleClass = InRoleClass;
-	Parms.InComponent = InComponent;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function LiveLinkComponents.LiveLinkComponentController.SetSubjectRepresentation
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -65,34 +38,6 @@ void ULiveLinkComponentController::SetSubjectRepresentation(const struct FLiveLi
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
-}
-
-
-// Function LiveLinkComponents.LiveLinkComponentController.GetControlledComponent
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// TSubclassOf<class ULiveLinkRole>        InRoleClass                                            (Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UActorComponent*                  ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UActorComponent* ULiveLinkComponentController::GetControlledComponent(TSubclassOf<class ULiveLinkRole> InRoleClass) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("LiveLinkComponentController", "GetControlledComponent");
-
-	Params::LiveLinkComponentController_GetControlledComponent Parms{};
-
-	Parms.InRoleClass = InRoleClass;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
 }
 
 

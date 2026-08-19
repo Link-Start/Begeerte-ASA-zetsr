@@ -416,66 +416,6 @@ struct FARFilter UAssetRegistryHelpers::SetFilterTagsAndValues(const struct FARF
 }
 
 
-// Function AssetRegistry.AssetRegistryHelpers.SortByAssetName
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// TArray<struct FAssetData>&              Assets                                                 (Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-// EAssetRegistrySortOrder                 SortOrder                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UAssetRegistryHelpers::SortByAssetName(TArray<struct FAssetData>& Assets, EAssetRegistrySortOrder SortOrder)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("AssetRegistryHelpers", "SortByAssetName");
-
-	Params::AssetRegistryHelpers_SortByAssetName Parms{};
-
-	Parms.Assets = std::move(Assets);
-	Parms.SortOrder = SortOrder;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	Assets = std::move(Parms.Assets);
-}
-
-
-// Function AssetRegistry.AssetRegistryHelpers.SortByPredicate
-// (Final, RequiredAPI, Native, Static, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// TArray<struct FAssetData>&              Assets                                                 (Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-// TDelegate<void(const struct FAssetData& Left, const struct FAssetData& Right)>SortingPredicate                                       (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EAssetRegistrySortOrder                 SortOrder                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UAssetRegistryHelpers::SortByPredicate(TArray<struct FAssetData>& Assets, TDelegate<void(const struct FAssetData& Left, const struct FAssetData& Right)> SortingPredicate, EAssetRegistrySortOrder SortOrder)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("AssetRegistryHelpers", "SortByPredicate");
-
-	Params::AssetRegistryHelpers_SortByPredicate Parms{};
-
-	Parms.Assets = std::move(Assets);
-	Parms.SortingPredicate = SortingPredicate;
-	Parms.SortOrder = SortOrder;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	GetDefaultObj()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	Assets = std::move(Parms.Assets);
-}
-
-
 // Function AssetRegistry.AssetRegistryHelpers.ToSoftObjectPath
 // (Final, Native, Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
@@ -1006,40 +946,6 @@ void IAssetRegistry::GetDerivedClassNames(const TArray<struct FTopLevelAssetPath
 }
 
 
-// Function AssetRegistry.AssetRegistry.GetInMemoryAssets
-// (Native, Public, HasOutParams, HasDefaults, BlueprintCallable, Const)
-// Parameters:
-// const struct FARFilter&                 Filter                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// TArray<struct FAssetData>*              OutAssetData                                           (Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-// bool                                    bSkipARFilteredAssets                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool IAssetRegistry::GetInMemoryAssets(const struct FARFilter& Filter, TArray<struct FAssetData>* OutAssetData, bool bSkipARFilteredAssets) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = AsUObject()->Class->GetFunction("AssetRegistry", "GetInMemoryAssets");
-
-	Params::AssetRegistry_GetInMemoryAssets Parms{};
-
-	Parms.Filter = std::move(Filter);
-	Parms.bSkipARFilteredAssets = bSkipARFilteredAssets;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	AsUObject()->ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (OutAssetData != nullptr)
-		*OutAssetData = std::move(Parms.OutAssetData);
-
-	return Parms.ReturnValue;
-}
-
-
 // Function AssetRegistry.AssetRegistry.GetSubPaths
 // (Native, Public, HasOutParams, BlueprintCallable, Const)
 // Parameters:
@@ -1181,10 +1087,9 @@ bool IAssetRegistry::IsSearchAsync() const
 // Parameters:
 // const struct FSoftObjectPath&           ObjectPath                                             (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bIncludeOnlyOnDiskAssets                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bSkipARFilteredAssets                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FAssetData                       ReturnValue                                            (Parm, OutParm, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-struct FAssetData IAssetRegistry::K2_GetAssetByObjectPath(const struct FSoftObjectPath& ObjectPath, bool bIncludeOnlyOnDiskAssets, bool bSkipARFilteredAssets) const
+struct FAssetData IAssetRegistry::K2_GetAssetByObjectPath(const struct FSoftObjectPath& ObjectPath, bool bIncludeOnlyOnDiskAssets) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -1195,7 +1100,6 @@ struct FAssetData IAssetRegistry::K2_GetAssetByObjectPath(const struct FSoftObje
 
 	Parms.ObjectPath = std::move(ObjectPath);
 	Parms.bIncludeOnlyOnDiskAssets = bIncludeOnlyOnDiskAssets;
-	Parms.bSkipARFilteredAssets = bSkipARFilteredAssets;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

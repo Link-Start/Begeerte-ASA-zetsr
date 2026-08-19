@@ -186,7 +186,7 @@ public:
 DUMPER7_ASSERTS_PrimalItemArmor_Base_Tek_C_FillEmptyArmorElementWhenAvailable;
 
 // Function PrimalItemArmor_Base_Tek.PrimalItemArmor_Base_Tek_C.GetInternalMapRestrictedTekArmorBuff
-// 0x0090 (0x0090 - 0x0000)
+// 0x0098 (0x0098 - 0x0000)
 struct PrimalItemArmor_Base_Tek_C_GetInternalMapRestrictedTekArmorBuff final
 {
 public:
@@ -202,14 +202,14 @@ public:
 	int32                                         CallFunc_Add_IntInt_ReturnValue;                   // 0x0028(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	class FString                                 CallFunc_BPGetPrimaryMapName_ReturnValue;          // 0x0030(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	struct FMapSpecificTekArmorBuffs              CallFunc_Array_Get_Item;                           // 0x0040(0x0038)(HasGetValueTypeHash)
-	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0078(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x007C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_EqualEqual_StriStri_ReturnValue;          // 0x007D(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_BooleanAND_ReturnValue;                   // 0x007E(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_7F[0x1];                                       // 0x007F(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	class UClass*                                 CallFunc_ClassAssetResolve_ReturnValue;            // 0x0080(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UClass*                                 CallFunc_ClassAssetResolve_ReturnValue_1;          // 0x0088(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	struct FMapSpecificTekArmorBuffs              CallFunc_Array_Get_Item;                           // 0x0040(0x0040)(HasGetValueTypeHash)
+	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x0080(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0084(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_EqualEqual_StriStri_ReturnValue;          // 0x0085(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_BooleanAND_ReturnValue;                   // 0x0086(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_87[0x1];                                       // 0x0087(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	class UClass*                                 CallFunc_ClassAssetResolve_ReturnValue;            // 0x0088(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UClass*                                 CallFunc_ClassAssetResolve_ReturnValue_1;          // 0x0090(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_PrimalItemArmor_Base_Tek_C_GetInternalMapRestrictedTekArmorBuff;
 

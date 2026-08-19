@@ -17,11 +17,11 @@
 SDK_NAMESPACE_START
 
 // Class GeometryCollectionTracks.MovieSceneGeometryCollectionSection
-// 0x0038 (0x0130 - 0x00F8)
+// 0x0038 (0x0128 - 0x00F0)
 class UMovieSceneGeometryCollectionSection final : public UMovieSceneSection
 {
 public:
-	struct FMovieSceneGeometryCollectionParams    Params_0;                                          // 0x00F8(0x0038)(Edit, NativeAccessSpecifierPublic)
+	struct FMovieSceneGeometryCollectionParams    Params_0;                                          // 0x00F0(0x0038)(Edit, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -40,12 +40,12 @@ public:
 DUMPER7_ASSERTS_UMovieSceneGeometryCollectionSection;
 
 // Class GeometryCollectionTracks.MovieSceneGeometryCollectionTrack
-// 0x0018 (0x0110 - 0x00F8)
+// 0x0018 (0x00B0 - 0x0098)
 class UMovieSceneGeometryCollectionTrack final : public UMovieSceneNameableTrack
 {
 public:
-	uint8                                         Pad_F8[0x8];                                       // 0x00F8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UMovieSceneSection*>             AnimationSections;                                 // 0x0100(0x0010)(ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	uint8                                         Pad_98[0x8];                                       // 0x0098(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class UMovieSceneSection*>             AnimationSections;                                 // 0x00A0(0x0010)(ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()

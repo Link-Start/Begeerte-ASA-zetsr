@@ -33,7 +33,6 @@ public:
 	static void TraceBookmark(const class FString& Name_0);
 	static void TraceMarkRegionEnd(const class FString& Name_0);
 	static void TraceMarkRegionStart(const class FString& Name_0);
-	static void TraceScreenshot(const class FString& Name_0, bool bShowUI);
 
 public:
 	static class UClass* StaticClass()

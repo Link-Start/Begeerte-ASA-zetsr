@@ -111,9 +111,9 @@ void APreviewScene_InventoryNew_C::RotateLightsInZWithCamera()
 // Function PreviewScene_InventoryNew.PreviewScene_InventoryNew_C.UpdateFloorLocation
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                                    IsFemale_0                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool                                    isFemale                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void APreviewScene_InventoryNew_C::UpdateFloorLocation(bool IsFemale_0)
+void APreviewScene_InventoryNew_C::UpdateFloorLocation(bool isFemale)
 {
 	static class UFunction* Func = nullptr;
 
@@ -122,7 +122,7 @@ void APreviewScene_InventoryNew_C::UpdateFloorLocation(bool IsFemale_0)
 
 	Params::PreviewScene_InventoryNew_C_UpdateFloorLocation Parms{};
 
-	Parms.IsFemale_0 = IsFemale_0;
+	Parms.isFemale = isFemale;
 
 	UObject::ProcessEvent(Func, &Parms);
 }

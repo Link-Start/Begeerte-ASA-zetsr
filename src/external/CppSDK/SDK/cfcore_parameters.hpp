@@ -72,7 +72,7 @@ public:
 DUMPER7_ASSERTS_CFCoreBPLibrary_MakeAssureServerModsUpdatedParams;
 
 // Function cfcore.CFCoreBPLibrary.MakeCreateModFileRequest
-// 0x00E8 (0x00E8 - 0x0000)
+// 0x00A8 (0x00A8 - 0x0000)
 struct CFCoreBPLibrary_MakeCreateModFileRequest final
 {
 public:
@@ -83,11 +83,9 @@ public:
 	class FString                                 DisplayName;                                       // 0x0028(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<int64>                                 gameVersionIds;                                    // 0x0038(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 	ECFCoreFileReleaseType                        releaseType;                                       // 0x0048(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_49[0x7];                                       // 0x0049(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FModFileCookingOptions                 cookingOptions;                                    // 0x0050(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	bool                                          isMarkedForManualRelease;                          // 0x0068(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_69[0x7];                                       // 0x0069(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FCreateModFileRequest                  ReturnValue;                                       // 0x0070(0x0078)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	struct FModFileCookingOptions                 cookingOptions;                                    // 0x0049(0x0002)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4B[0x5];                                       // 0x004B(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FCreateModFileRequest                  ReturnValue;                                       // 0x0050(0x0058)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreBPLibrary_MakeCreateModFileRequest;
 
@@ -121,17 +119,17 @@ public:
 DUMPER7_ASSERTS_CFCoreBPLibrary_MakeExternalAuthAdditionalInfo;
 
 // Function cfcore.CFCoreBPLibrary.MakeGetCategoriesFilter
-// 0x000C (0x000C - 0x0000)
+// 0x0008 (0x0008 - 0x0000)
 struct CFCoreBPLibrary_MakeGetCategoriesFilter final
 {
 public:
 	int32                                         class_id;                                          // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FCFCoreGetCategoriesFilter             ReturnValue;                                       // 0x0004(0x0008)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
+	struct FCFCoreGetCategoriesFilter             ReturnValue;                                       // 0x0004(0x0004)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreBPLibrary_MakeGetCategoriesFilter;
 
 // Function cfcore.CFCoreBPLibrary.MakeSettings
-// 0x01A0 (0x01A0 - 0x0000)
+// 0x0128 (0x0128 - 0x0000)
 struct CFCoreBPLibrary_MakeSettings final
 {
 public:
@@ -142,16 +140,16 @@ public:
 	class FString                                 user_data_directory;                               // 0x0038(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         max_concurrent_installations;                      // 0x0048(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_4C[0x4];                                       // 0x004C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FCFCoreSettings                        ReturnValue;                                       // 0x0050(0x0150)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	struct FCFCoreSettings                        ReturnValue;                                       // 0x0050(0x00D8)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreBPLibrary_MakeSettings;
 
 // Function cfcore.CFCoreBPLibrary.MakeSettingsFromProjectConfig
-// 0x0150 (0x0150 - 0x0000)
+// 0x00D8 (0x00D8 - 0x0000)
 struct CFCoreBPLibrary_MakeSettingsFromProjectConfig final
 {
 public:
-	struct FCFCoreSettings                        ReturnValue;                                       // 0x0000(0x0150)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	struct FCFCoreSettings                        ReturnValue;                                       // 0x0000(0x00D8)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreBPLibrary_MakeSettingsFromProjectConfig;
 
@@ -173,32 +171,6 @@ public:
 	struct FUpdateModRequest                      ReturnValue;                                       // 0x0060(0x0060)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreBPLibrary_MakeUpdateModRequest;
-
-// Function cfcore.CFCoreBPLibrary.SplitInstalledMods
-// 0x0038 (0x0038 - 0x0000)
-struct CFCoreBPLibrary_SplitInstalledMods final
-{
-public:
-	TArray<struct FInstalledMod>                  InInstalledMods;                                   // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FSplitInstalledModsOptions             InOptions;                                         // 0x0010(0x0002)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_12[0x6];                                       // 0x0012(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FInstalledMod>                  OutFirstInstalledMods;                             // 0x0018(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FInstalledMod>                  OutSecondInstalledMods;                            // 0x0028(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreBPLibrary_SplitInstalledMods;
-
-// Function cfcore.CFCoreBPLibrary.UpdateInstalledModsLoadOrder
-// 0x0038 (0x0038 - 0x0000)
-struct CFCoreBPLibrary_UpdateInstalledModsLoadOrder final
-{
-public:
-	TArray<struct FInstalledMod>                  InInstalledMods;                                   // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	int32                                         InModIndexToUpdate;                                // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         InNewLoadOrder;                                    // 0x0014(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<struct FInstalledMod>                  OutOrderedInstalledMods;                           // 0x0018(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FInstalledModProperties>        OutOrderedInstalledModsProperties;                 // 0x0028(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreBPLibrary_UpdateInstalledModsLoadOrder;
 
 // Function cfcore.CFCoreSubsystem.AnalyticsSendGamePlaySession
 // 0x0048 (0x0048 - 0x0000)
@@ -233,16 +205,6 @@ public:
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_AnalyticsSendModBrowsingFunnelImpression;
 
-// Function cfcore.CFCoreSubsystem.ApiDiagnosticsInit
-// 0x0020 (0x0020 - 0x0000)
-struct CFCoreSubsystem_ApiDiagnosticsInit final
-{
-public:
-	TDelegate<void(const struct FDiagnosticsInitData& init_data)> on_success;                        // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0010(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_ApiDiagnosticsInit;
-
 // Function cfcore.CFCoreSubsystem.ApiEntitlementsRedeemCode
 // 0x0030 (0x0030 - 0x0000)
 struct CFCoreSubsystem_ApiEntitlementsRedeemCode final
@@ -266,13 +228,13 @@ public:
 DUMPER7_ASSERTS_CFCoreSubsystem_ApiFinalizePurchase;
 
 // Function cfcore.CFCoreSubsystem.ApiGeneratePremiumCheckoutUrl
-// 0x0098 (0x0098 - 0x0000)
+// 0x0080 (0x0080 - 0x0000)
 struct CFCoreSubsystem_ApiGeneratePremiumCheckoutUrl final
 {
 public:
-	struct FGenPremiumCheckoutUrlRequest          Request;                                           // 0x0000(0x0078)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	TDelegate<void(const class FString& URL)>     OnSuccess;                                         // 0x0078(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x0088(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGenPremiumCheckoutUrlRequest          Request;                                           // 0x0000(0x0060)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	TDelegate<void(const class FString& URL)>     OnSuccess;                                         // 0x0060(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x0070(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_ApiGeneratePremiumCheckoutUrl;
 
@@ -307,13 +269,13 @@ public:
 DUMPER7_ASSERTS_CFCoreSubsystem_ApiGetBlockedModsDetails;
 
 // Function cfcore.CFCoreSubsystem.ApiGetCategories
-// 0x0028 (0x0028 - 0x0000)
+// 0x0024 (0x0024 - 0x0000)
 struct CFCoreSubsystem_ApiGetCategories final
 {
 public:
-	struct FCFCoreGetCategoriesFilter             Filter;                                            // 0x0000(0x0008)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-	TDelegate<void(const TArray<struct FCategory>& Categories)> on_results;                          // 0x0008(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0018(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FCFCoreGetCategoriesFilter             Filter;                                            // 0x0000(0x0004)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+	TDelegate<void(const TArray<struct FCategory>& Categories)> on_results;                          // 0x0004(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0014(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_ApiGetCategories;
 
@@ -370,18 +332,6 @@ public:
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_ApiGetModDescription;
 
-// Function cfcore.CFCoreSubsystem.ApiGetModFileChangelog
-// 0x0030 (0x0030 - 0x0000)
-struct CFCoreSubsystem_ApiGetModFileChangelog final
-{
-public:
-	int64                                         modId;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int64                                         fileId;                                            // 0x0008(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const class FString& changelog)> OnChangelog;                                     // 0x0010(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x0020(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_ApiGetModFileChangelog;
-
 // Function cfcore.CFCoreSubsystem.ApiGetMods
 // 0x0030 (0x0030 - 0x0000)
 struct CFCoreSubsystem_ApiGetMods final
@@ -414,39 +364,6 @@ public:
 	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x0028(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_ApiGetModsHighlightsV2;
-
-// Function cfcore.CFCoreSubsystem.ApiGetModsHighlightsV3
-// 0x0038 (0x0038 - 0x0000)
-struct CFCoreSubsystem_ApiGetModsHighlightsV3 final
-{
-public:
-	struct FCFCoreGetModsHighlightsFilter         InFilter;                                          // 0x0000(0x0018)(Parm, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FModsHighlightsV3& mods)> OnResults;                                 // 0x0018(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x0028(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_ApiGetModsHighlightsV3;
-
-// Function cfcore.CFCoreSubsystem.ApiGetModsSubscriptions
-// 0x0028 (0x0028 - 0x0000)
-struct CFCoreSubsystem_ApiGetModsSubscriptions final
-{
-public:
-	struct FCFCoreApiRequestPagination            pagination;                                        // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	TDelegate<void(const TArray<struct FCFCoreMod>& mods, const struct FCFCoreApiResponsePagination& pagination)> on_subscriptions; // 0x0008(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0018(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_ApiGetModsSubscriptions;
-
-// Function cfcore.CFCoreSubsystem.ApiGetModsSubscriptionsIds
-// 0x0028 (0x0028 - 0x0000)
-struct CFCoreSubsystem_ApiGetModsSubscriptionsIds final
-{
-public:
-	struct FCFCoreApiRequestPagination            pagination;                                        // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	TDelegate<void(const TArray<int64>& ids, const struct FCFCoreApiResponsePagination& pagination)> on_subscriptions_ids; // 0x0008(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0018(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_ApiGetModsSubscriptionsIds;
 
 // Function cfcore.CFCoreSubsystem.ApiGetMyMods
 // 0x0020 (0x0020 - 0x0000)
@@ -545,38 +462,16 @@ public:
 DUMPER7_ASSERTS_CFCoreSubsystem_ApiReportMod;
 
 // Function cfcore.CFCoreSubsystem.ApiSearchMods
-// 0x0080 (0x0080 - 0x0000)
+// 0x0070 (0x0070 - 0x0000)
 struct CFCoreSubsystem_ApiSearchMods final
 {
 public:
-	struct FCFCoreSearchModsFilter                Filter;                                            // 0x0000(0x0058)(Parm, NativeAccessSpecifierPublic)
-	struct FCFCoreApiRequestPagination            pagination;                                        // 0x0058(0x0008)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-	TDelegate<void(const TArray<struct FCFCoreMod>& mods, const struct FCFCoreApiResponsePagination& pagination)> on_results; // 0x0060(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0070(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FCFCoreSearchModsFilter                Filter;                                            // 0x0000(0x0048)(Parm, NativeAccessSpecifierPublic)
+	struct FCFCoreApiRequestPagination            pagination;                                        // 0x0048(0x0008)(Parm, NoDestructor, NativeAccessSpecifierPublic)
+	TDelegate<void(const TArray<struct FCFCoreMod>& mods, const struct FCFCoreApiResponsePagination& pagination)> on_results; // 0x0050(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0060(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_ApiSearchMods;
-
-// Function cfcore.CFCoreSubsystem.ApiSubscribe
-// 0x0028 (0x0028 - 0x0000)
-struct CFCoreSubsystem_ApiSubscribe final
-{
-public:
-	struct FSubscribeRequest                      Request;                                           // 0x0000(0x0008)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreMod& mod)> on_success;                                        // 0x0008(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0018(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_ApiSubscribe;
-
-// Function cfcore.CFCoreSubsystem.ApiSubscribeMods
-// 0x0030 (0x0030 - 0x0000)
-struct CFCoreSubsystem_ApiSubscribeMods final
-{
-public:
-	struct FSubscribeModsRequest                  Request;                                           // 0x0000(0x0010)(Parm, NativeAccessSpecifierPublic)
-	TDelegate<void()>                             on_success;                                        // 0x0010(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0020(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_ApiSubscribeMods;
 
 // Function cfcore.CFCoreSubsystem.ApiUnblockMods
 // 0x0060 (0x0060 - 0x0000)
@@ -584,21 +479,10 @@ struct CFCoreSubsystem_ApiUnblockMods final
 {
 public:
 	struct FUnblockModsRequest                    Request;                                           // 0x0000(0x0040)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	TDelegate<void(bool success)>                 OnResult;                                          // 0x0040(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(bool Success)>                 OnResult;                                          // 0x0040(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x0050(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_ApiUnblockMods;
-
-// Function cfcore.CFCoreSubsystem.ApiUnsubscribe
-// 0x0028 (0x0028 - 0x0000)
-struct CFCoreSubsystem_ApiUnsubscribe final
-{
-public:
-	struct FSubscribeRequest                      Request;                                           // 0x0000(0x0008)(Parm, NoDestructor, NativeAccessSpecifierPublic)
-	TDelegate<void()>                             on_success;                                        // 0x0008(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0018(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_ApiUnsubscribe;
 
 // Function cfcore.CFCoreSubsystem.ApiUpdateRating
 // 0x0030 (0x0030 - 0x0000)
@@ -658,16 +542,6 @@ public:
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_CancelInstallation;
 
-// Function cfcore.CFCoreSubsystem.CleanTempDir
-// 0x0020 (0x0020 - 0x0000)
-struct CFCoreSubsystem_CleanTempDir final
-{
-public:
-	TDelegate<void()>                             OnSuccess;                                         // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x0010(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_CleanTempDir;
-
 // Function cfcore.CFCoreSubsystem.CreateCookedModFile
 // 0x0070 (0x0070 - 0x0000)
 struct CFCoreSubsystem_CreateCookedModFile final
@@ -697,40 +571,19 @@ public:
 DUMPER7_ASSERTS_CFCoreSubsystem_CreateMod;
 
 // Function cfcore.CFCoreSubsystem.CreateModFile
-// 0x00D0 (0x00D0 - 0x0000)
+// 0x00B0 (0x00B0 - 0x0000)
 struct CFCoreSubsystem_CreateModFile final
 {
 public:
 	int64                                         modId;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FCreateModFileRequest                  CreateModFileRequest;                              // 0x0008(0x0078)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class FString                                 LocalFilenameToUpload;                             // 0x0080(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(int64 mod_file_request_id)>    OnCreateModFileRequestId;                          // 0x0090(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FFileTransferProgress& progress)> OnProgress;                        // 0x00A0(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FUploadedModFile& uploaded_file)> OnSuccess;                         // 0x00B0(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x00C0(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FCreateModFileRequest                  CreateModFileRequest;                              // 0x0008(0x0058)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class FString                                 LocalFilenameToUpload;                             // 0x0060(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(int64 mod_file_request_id)>    OnCreateModFileRequestId;                          // 0x0070(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FFileTransferProgress& progress)> OnProgress;                        // 0x0080(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FUploadedModFile& uploaded_file)> OnSuccess;                         // 0x0090(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x00A0(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_CreateModFile;
-
-// Function cfcore.CFCoreSubsystem.EnableAutoManagement
-// 0x0020 (0x0020 - 0x0000)
-struct CFCoreSubsystem_EnableAutoManagement final
-{
-public:
-	TDelegate<void()>                             on_success;                                        // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0010(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_EnableAutoManagement;
-
-// Function cfcore.CFCoreSubsystem.ExecuteSyncPlan
-// 0x0030 (0x0030 - 0x0000)
-struct CFCoreSubsystem_ExecuteSyncPlan final
-{
-public:
-	TArray<struct FSubscriptionSyncPlanItem>      plan_items;                                        // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	TDelegate<void(const TArray<struct FSubscriptionSyncResultItem>& result_items)> on_success;      // 0x0010(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0020(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_ExecuteSyncPlan;
 
 // Function cfcore.CFCoreSubsystem.GenerateAuthToken
 // 0x0038 (0x0038 - 0x0000)
@@ -799,70 +652,40 @@ public:
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_GetMyPremiumMods;
 
-// Function cfcore.CFCoreSubsystem.GetMyPremiumModsV2
-// 0x0020 (0x0020 - 0x0000)
-struct CFCoreSubsystem_GetMyPremiumModsV2 final
-{
-public:
-	TDelegate<void(const struct FOwnedPremiumMods& OwnedPremiumMods)> OnSuccess;                     // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x0010(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_GetMyPremiumModsV2;
-
-// Function cfcore.CFCoreSubsystem.GetSyncPlan
-// 0x0020 (0x0020 - 0x0000)
-struct CFCoreSubsystem_GetSyncPlan final
-{
-public:
-	TDelegate<void(const TArray<struct FSubscriptionSyncPlanItem>& plan_items)> on_success;          // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0010(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_GetSyncPlan;
-
-// Function cfcore.CFCoreSubsystem.GetSystemInstalledMods
-// 0x0020 (0x0020 - 0x0000)
-struct CFCoreSubsystem_GetSystemInstalledMods final
-{
-public:
-	TDelegate<void(const TArray<struct FInstalledMod>& installed_mods)> on_installed_mods;           // 0x0000(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0010(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_GetSystemInstalledMods;
-
 // Function cfcore.CFCoreSubsystem.Initialize
-// 0x0170 (0x0170 - 0x0000)
+// 0x00F8 (0x00F8 - 0x0000)
 struct CFCoreSubsystem_Initialize final
 {
 public:
-	struct FCFCoreSettings                        Settings;                                          // 0x0000(0x0150)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	TDelegate<void()>                             OnInitialized;                                     // 0x0150(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x0160(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FCFCoreSettings                        Settings;                                          // 0x0000(0x00D8)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	TDelegate<void()>                             OnInitialized;                                     // 0x00D8(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x00E8(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_Initialize;
 
 // Function cfcore.CFCoreSubsystem.InstallMod
-// 0x0238 (0x0238 - 0x0000)
+// 0x0230 (0x0230 - 0x0000)
 struct CFCoreSubsystem_InstallMod final
 {
 public:
-	struct FCFCoreMod                             mod;                                               // 0x0000(0x0208)(Parm, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FLibraryProgress& progress)> on_progress;                            // 0x0208(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FInstalledMod& installed_mod)> on_installed;                         // 0x0218(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0228(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FCFCoreMod                             mod;                                               // 0x0000(0x0200)(Parm, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FLibraryProgress& progress)> on_progress;                            // 0x0200(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FInstalledMod& installed_mod)> on_installed;                         // 0x0210(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0220(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_InstallMod;
 
 // Function cfcore.CFCoreSubsystem.InstallModExtended
-// 0x0398 (0x0398 - 0x0000)
+// 0x0380 (0x0380 - 0x0000)
 struct CFCoreSubsystem_InstallModExtended final
 {
 public:
-	struct FCFCoreMod                             InMod;                                             // 0x0000(0x0208)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FFile                                  InFile;                                            // 0x0208(0x0108)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FInstallModAdditionalParams            InAdditionalParams;                                // 0x0310(0x0058)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FLibraryProgress& progress)> OnProgress;                             // 0x0368(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FInstalledMod& installed_mod)> OnInstalled;                          // 0x0378(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x0388(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FCFCoreMod                             InMod;                                             // 0x0000(0x0200)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FFile                                  InFile;                                            // 0x0200(0x00F8)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FInstallModAdditionalParams            InAdditionalParams;                                // 0x02F8(0x0058)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FLibraryProgress& progress)> OnProgress;                             // 0x0350(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FInstalledMod& installed_mod)> OnInstalled;                          // 0x0360(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x0370(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_InstallModExtended;
 
@@ -905,30 +728,6 @@ public:
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_OverridePublicKey;
 
-// Function cfcore.CFCoreSubsystem.PerformModsValidation
-// 0x0030 (0x0030 - 0x0000)
-struct CFCoreSubsystem_PerformModsValidation final
-{
-public:
-	TArray<struct FInstalledMod>                  installed_mods;                                    // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	TDelegate<void(const TArray<struct FInstalledMod>& invalid_installed_mods)> on_success;          // 0x0010(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0020(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_PerformModsValidation;
-
-// Function cfcore.CFCoreSubsystem.PollModPurchase
-// 0x0058 (0x0058 - 0x0000)
-struct CFCoreSubsystem_PollModPurchase final
-{
-public:
-	struct FPollPurchaseParams                    InParams;                                          // 0x0000(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	TDelegate<void(const TArray<int64>& OwnedModIds)> OnPurchased;                                   // 0x0018(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x0028(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void()>                             OnPurchasePollingTimeout;                          // 0x0038(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void()>                             OnPurchasePollingStopped;                          // 0x0048(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_PollModPurchase;
-
 // Function cfcore.CFCoreSubsystem.PremiumModsCheck
 // 0x0030 (0x0030 - 0x0000)
 struct CFCoreSubsystem_PremiumModsCheck final
@@ -939,17 +738,6 @@ public:
 	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x0020(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_PremiumModsCheck;
-
-// Function cfcore.CFCoreSubsystem.PremiumModsCheckDlc
-// 0x0030 (0x0030 - 0x0000)
-struct CFCoreSubsystem_PremiumModsCheckDlc final
-{
-public:
-	TArray<class FString>                         InEntitlementIds;                                  // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	TDelegate<void(const TArray<int64>& modIds)>  OnSuccess;                                         // 0x0010(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x0020(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_PremiumModsCheckDlc;
 
 // Function cfcore.CFCoreSubsystem.SendSecurityCode
 // 0x0030 (0x0030 - 0x0000)
@@ -962,17 +750,6 @@ public:
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_SendSecurityCode;
 
-// Function cfcore.CFCoreSubsystem.SubscribeMod
-// 0x0028 (0x0028 - 0x0000)
-struct CFCoreSubsystem_SubscribeMod final
-{
-public:
-	struct FSubscribeRequest                      Request;                                           // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreMod& mod)> on_success;                                        // 0x0008(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0018(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_SubscribeMod;
-
 // Function cfcore.CFCoreSubsystem.SynchronizeWithServer
 // 0x0020 (0x0020 - 0x0000)
 struct CFCoreSubsystem_SynchronizeWithServer final
@@ -982,16 +759,6 @@ public:
 	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0010(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_SynchronizeWithServer;
-
-// Function cfcore.CFCoreSubsystem.SyncSubscriptions
-// 0x0020 (0x0020 - 0x0000)
-struct CFCoreSubsystem_SyncSubscriptions final
-{
-public:
-	TDelegate<void(const TArray<struct FSubscriptionSyncResultItem>& result_items)> on_success;      // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0010(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_SyncSubscriptions;
 
 // Function cfcore.CFCoreSubsystem.UninstallMod
 // 0x0028 (0x0028 - 0x0000)
@@ -1014,28 +781,6 @@ public:
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_Unitialize;
 
-// Function cfcore.CFCoreSubsystem.UnsubscribeMod
-// 0x0028 (0x0028 - 0x0000)
-struct CFCoreSubsystem_UnsubscribeMod final
-{
-public:
-	struct FSubscribeRequest                      Request;                                           // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	TDelegate<void()>                             on_success;                                        // 0x0008(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0018(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_UnsubscribeMod;
-
-// Function cfcore.CFCoreSubsystem.UpdateInstalledModsProperties
-// 0x0030 (0x0030 - 0x0000)
-struct CFCoreSubsystem_UpdateInstalledModsProperties final
-{
-public:
-	TArray<struct FInstalledModProperties>        InInstalledModsProperties;                         // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	TDelegate<void()>                             OnSuccess;                                         // 0x0010(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x0020(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_UpdateInstalledModsProperties;
-
 // Function cfcore.CFCoreSubsystem.UpdateMod
 // 0x0098 (0x0098 - 0x0000)
 struct CFCoreSubsystem_UpdateMod final
@@ -1048,30 +793,6 @@ public:
 	TDelegate<void(const struct FCFCoreError& Error)> on_error;                                      // 0x0088(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_CFCoreSubsystem_UpdateMod;
-
-// Function cfcore.CFCoreSubsystem.UpdateSettings
-// 0x0038 (0x0038 - 0x0000)
-struct CFCoreSubsystem_UpdateSettings final
-{
-public:
-	struct FCFCoreUpdatableSettings               InSettings;                                        // 0x0000(0x0018)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	TDelegate<void()>                             OnSuccess;                                         // 0x0018(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCFCoreError& Error)> OnError;                                       // 0x0028(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_UpdateSettings;
-
-// Function cfcore.CFCoreSubsystem.UtilsCompressionZipPaths
-// 0x0050 (0x0050 - 0x0000)
-struct CFCoreSubsystem_UtilsCompressionZipPaths final
-{
-public:
-	TArray<class FString>                         InPathsToZip;                                      // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	class FString                                 InOutputZipFile;                                   // 0x0010(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FCompressionProgress& progress)> OnProgress;                         // 0x0020(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void()>                             OnSuccess;                                         // 0x0030(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TDelegate<void(ECompressionError CompressionError)> OnError;                                     // 0x0040(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_CFCoreSubsystem_UtilsCompressionZipPaths;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

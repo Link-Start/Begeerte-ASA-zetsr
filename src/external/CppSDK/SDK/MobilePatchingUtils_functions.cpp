@@ -250,9 +250,9 @@ float UMobilePendingContent::GetTotalDownloadedSize()
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // TDelegate<void()>                       OnSucceeded                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(class FText ErrorText, int32 ErrorCode)>OnFailed                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(class FText ErrorText, int32 errorCode)>OnFailed                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMobilePendingContent::StartInstall(TDelegate<void()> OnSucceeded, TDelegate<void(class FText ErrorText, int32 ErrorCode)> OnFailed)
+void UMobilePendingContent::StartInstall(TDelegate<void()> OnSucceeded, TDelegate<void(class FText ErrorText, int32 errorCode)> OnFailed)
 {
 	static class UFunction* Func = nullptr;
 
@@ -383,9 +383,9 @@ bool UMobilePatchingLibrary::HasActiveWiFiConnection()
 // const class FString&                    CloudURL                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    InstallDirectory                                       (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // TDelegate<void(class UMobilePendingContent* MobilePendingContent)>OnSucceeded                                            (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// TDelegate<void(class FText ErrorText, int32 ErrorCode)>OnFailed                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TDelegate<void(class FText ErrorText, int32 errorCode)>OnFailed                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UMobilePatchingLibrary::RequestContent(const class FString& RemoteManifestURL, const class FString& CloudURL, const class FString& InstallDirectory, TDelegate<void(class UMobilePendingContent* MobilePendingContent)> OnSucceeded, TDelegate<void(class FText ErrorText, int32 ErrorCode)> OnFailed)
+void UMobilePatchingLibrary::RequestContent(const class FString& RemoteManifestURL, const class FString& CloudURL, const class FString& InstallDirectory, TDelegate<void(class UMobilePendingContent* MobilePendingContent)> OnSucceeded, TDelegate<void(class FText ErrorText, int32 errorCode)> OnFailed)
 {
 	static class UFunction* Func = nullptr;
 

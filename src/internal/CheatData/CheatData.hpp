@@ -19,18 +19,18 @@ namespace g_CheatData {
 			
 			// 他妈的特别特别特别长的特征码
 			std::string ClientNotifyReconnected = "OUTDATED";
-			std::string ClientNotifyRespawned = "48 89 5C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? 33 FF 48 8B DA 48 89 7C 24 ? 4C 8B F1 E8 ? ? ? ? 48 8B 43 ? 4C 8D 3D ? ? ? ? 48 85 C0 74 ? 0F B6 08 4C 8D 44 24 ? 48 FF C0 48 8B D3 48 89 43 ? 4D 8B 0C CF 48 8B 4B ? 41 FF D1 EB ? 48 8B 8B ? ? ? ? 48 8B 41 ? 48 89 83 ? ? ? ? 8B 41 ? 48 0F BA E0 ? 73 ? 48 8B 83 ? ? ? ? 48 39 08 74 ? 0F 1F 40 ? 48 8B 40 ? 48 39 08 75 ? 48 8B 40 ? 48 89 43 ? 48 89 7B ? EB ? 48 63 41 ? 48 8D 54 24 ? 4C 8B 43 ? 49 03 C0 4C 89 43 ? 48 89 43 ? 48 8B 01 FF 90 ? ? ? ? B8 ? ? ? ? 89 7C 24 ? 48 8B CB 48 8D 34 18 E8 ? ? ? ? 48 8B 43 ? 48 85 C0 74 ? 0F B6 08 4C 8D 44 24 ? 48 FF C0 48 8B D3 48 89 43 ? 4D 8B 0C CF 48 8B 4B ? 41 FF D1 EB ? 48 8B 0E 48 8B 41 ? 48 89 06 8B 41 ? 48 0F BA E0 ? 73 ? 48 8B 83 ? ? ? ? 48 39 08 74 ? 48 8B 40 ? 48 39 08 75 ? 48 8B 40 ? 48 89 43 ? 48 89 7B ? EB ? 48 63 41 ? 48 8D 54 24 ? 4C 8B 43 ? 49 03 C0 4C 89 43 ? 48 89 43 ? 48 8B 01 FF 90 ? ? ? ? 48 8B 43 ? 49 8B CE 48 8B 54 24 ? 48 85 C0 40 0F 95 C7 48 03 F8 83 7C 24 ? ? 48 89 7B ? 49 8B 06 41 0F 95 C0 FF 90 ? ? ? ? 48 8B 5C 24 ? 48 8B 74 24 ? 48 83 C4 ? 41 5F 41 5E 5F C3 CC CC CC 48 83 EC ? 48 8B 05 ? ? ? ? 48 85 C0 75 ? 48 8D 15 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8B 05 ? ? ? ? 48 83 C4 ? C3 CC 48 8B C4 53 41";
+			std::string ClientNotifyRespawned = "OUTDATED";
 		}
 
 		namespace AActor {
 			// push rbp | push rbx | push rsi | push rdi | push r12 | push r13 | push r14 | push r15 | lea rbp, [rsp+offset] | sub rsp, alloc | movaps [rsp+offset], xmm11
-			std::string TakeDamage = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 44 0F 29 9C";
+			std::string TakeDamage = "OUTDATED";
 			std::string Tick = "40 53 48 83 EC ? 0F B6 81 ? ? ? ? 48 8B D9 A8 ? 75 ? A8 ? 74";
 		}
 
 		namespace UNetConnection {
 			// 7FF7A8D25520
-			std::string HandleDisconnect = "? ? ? ? ? ? ? 55 57 48 8D 68 A1 48 81 EC D8 00 00 00 48 89 58 E8 48 8D 55 E7 48 89 70 E0";
+			std::string HandleDisconnect = "OUTDATED";
 		}
 
 		namespace UMovementComponent {
@@ -87,7 +87,7 @@ namespace g_CheatData {
 
 			// 8B C2 35 DE C5 F3 59 44 8B C0 69 C0 B1 79 37 9E 41 C1 E8 0D 44 33 C0 41 69 C0 6B CA EB 85
 			// mov eax, edx | xor eax, imm32 | mov r8d, eax | imul eax, eax, imm32 | shr r8d, imm8 | xor r8d, eax | imul r8d, r8d, imm32
-			std::string PostRender = "8B C2 35 ? ? ? ? 44";
+			std::string PostRender = "48 8B 01 48 FF A0 ? ? ? ? CC CC CC CC CC CC 48 89 6C";
 		}
 
 		namespace UConsole {
@@ -115,7 +115,7 @@ namespace g_CheatData {
 
 			// 2026/6/10 @zetsr
 			// mov rax, rsp | push r12 | sub rsp, alloc | mov [rax+8], rbx | mov
-			std::string OutputTextLine = "48 8B C4 41 54 48 83 EC ? 48 89 58 ? 48";
+			std::string OutputTextLine = "OUTDATED";
 		}
 	}
 }

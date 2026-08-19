@@ -116,7 +116,7 @@ void UASACameraFunctionLibrary_C::ApplyPitchBasedModifierToArmLengthInterp(class
 }
 
 
-// Function ASACameraFunctionLibrary.ASACameraFunctionLibrary_C.ApplyPitchBasedModifierToPivotInterpParams
+// Function ASACameraFunctionLibrary.ASACameraFunctionLibrary_C.ApplyPitchBasedModifierToInterpParams
 // (Static, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // class APrimalCharacter*                 CameraOwnerCharacter                                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
@@ -127,14 +127,14 @@ void UASACameraFunctionLibrary_C::ApplyPitchBasedModifierToArmLengthInterp(class
 // TArray<struct FPrimalCameraPitchBasedModifier>&PitchBasedModifiers                                    (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 // class UObject*                          __WorldContext                                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 
-void UASACameraFunctionLibrary_C::ApplyPitchBasedModifierToPivotInterpParams(class APrimalCharacter* CameraOwnerCharacter, struct FPrimalCameraParams& CameraParams, struct FPrimalCameraInterpParams& InterpParamsX, struct FPrimalCameraInterpParams& InterpParamsY, struct FPrimalCameraInterpParams& InterpParamsZ, TArray<struct FPrimalCameraPitchBasedModifier>& PitchBasedModifiers, class UObject* __WorldContext)
+void UASACameraFunctionLibrary_C::ApplyPitchBasedModifierToInterpParams(class APrimalCharacter* CameraOwnerCharacter, struct FPrimalCameraParams& CameraParams, struct FPrimalCameraInterpParams& InterpParamsX, struct FPrimalCameraInterpParams& InterpParamsY, struct FPrimalCameraInterpParams& InterpParamsZ, TArray<struct FPrimalCameraPitchBasedModifier>& PitchBasedModifiers, class UObject* __WorldContext)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = StaticClass()->GetFunction("ASACameraFunctionLibrary_C", "ApplyPitchBasedModifierToPivotInterpParams");
+		Func = StaticClass()->GetFunction("ASACameraFunctionLibrary_C", "ApplyPitchBasedModifierToInterpParams");
 
-	Params::ASACameraFunctionLibrary_C_ApplyPitchBasedModifierToPivotInterpParams Parms{};
+	Params::ASACameraFunctionLibrary_C_ApplyPitchBasedModifierToInterpParams Parms{};
 
 	Parms.CameraOwnerCharacter = CameraOwnerCharacter;
 	Parms.CameraParams = std::move(CameraParams);
@@ -191,11 +191,11 @@ void UASACameraFunctionLibrary_C::ApplyPitchBasedModifierToPivotOffset(class APr
 // Parameters:
 // class APrimalCharacter*                 CameraOwnerCharacter                                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // struct FPrimalCameraPitchBasedModifier& PitchBasedModifier                                     (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, NoDestructor)
-// int32                                   EntryIndex                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// int32                                   entryIndex                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // double                                  ModifierAlpha                                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // class UObject*                          __WorldContext                                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 
-void UASACameraFunctionLibrary_C::DebugPitchBasedModifier(class APrimalCharacter* CameraOwnerCharacter, struct FPrimalCameraPitchBasedModifier& PitchBasedModifier, int32 EntryIndex, double ModifierAlpha, class UObject* __WorldContext)
+void UASACameraFunctionLibrary_C::DebugPitchBasedModifier(class APrimalCharacter* CameraOwnerCharacter, struct FPrimalCameraPitchBasedModifier& PitchBasedModifier, int32 entryIndex, double ModifierAlpha, class UObject* __WorldContext)
 {
 	static class UFunction* Func = nullptr;
 
@@ -206,7 +206,7 @@ void UASACameraFunctionLibrary_C::DebugPitchBasedModifier(class APrimalCharacter
 
 	Parms.CameraOwnerCharacter = CameraOwnerCharacter;
 	Parms.PitchBasedModifier = std::move(PitchBasedModifier);
-	Parms.EntryIndex = EntryIndex;
+	Parms.entryIndex = entryIndex;
 	Parms.ModifierAlpha = ModifierAlpha;
 	Parms.__WorldContext = __WorldContext;
 
@@ -228,10 +228,9 @@ void UASACameraFunctionLibrary_C::DebugPitchBasedModifier(class APrimalCharacter
 // struct FPrimalCameraInterpParams&       PivotInterpParamsX                                     (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, NoDestructor)
 // struct FPrimalCameraInterpParams&       PivotInterpParamsY                                     (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, NoDestructor)
 // struct FPrimalCameraInterpParams&       PivotInterpParamsZ                                     (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, NoDestructor)
-// bool                                    bAllowPitchModifiers                                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // class UObject*                          __WorldContext                                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 
-void UASACameraFunctionLibrary_C::Final_Override_Pivot_Interp_Params(class APrimalCharacter* CameraOwnerCharacter, struct FPrimalCameraParams& CameraParams, struct FPrimalCameraPivotZInterpOverrides& PivotZInterpOverrides, const struct FPrimalCameraInterpParams& LastPivotInterpParamsX, const struct FPrimalCameraInterpParams& LastPivotInterpParamsY, const struct FPrimalCameraInterpParams& LastPivotInterpParamsZ, struct FPrimalCameraInterpParams& PivotInterpParamsX, struct FPrimalCameraInterpParams& PivotInterpParamsY, struct FPrimalCameraInterpParams& PivotInterpParamsZ, bool bAllowPitchModifiers, class UObject* __WorldContext)
+void UASACameraFunctionLibrary_C::Final_Override_Pivot_Interp_Params(class APrimalCharacter* CameraOwnerCharacter, struct FPrimalCameraParams& CameraParams, struct FPrimalCameraPivotZInterpOverrides& PivotZInterpOverrides, const struct FPrimalCameraInterpParams& LastPivotInterpParamsX, const struct FPrimalCameraInterpParams& LastPivotInterpParamsY, const struct FPrimalCameraInterpParams& LastPivotInterpParamsZ, struct FPrimalCameraInterpParams& PivotInterpParamsX, struct FPrimalCameraInterpParams& PivotInterpParamsY, struct FPrimalCameraInterpParams& PivotInterpParamsZ, class UObject* __WorldContext)
 {
 	static class UFunction* Func = nullptr;
 
@@ -249,7 +248,6 @@ void UASACameraFunctionLibrary_C::Final_Override_Pivot_Interp_Params(class APrim
 	Parms.PivotInterpParamsX = std::move(PivotInterpParamsX);
 	Parms.PivotInterpParamsY = std::move(PivotInterpParamsY);
 	Parms.PivotInterpParamsZ = std::move(PivotInterpParamsZ);
-	Parms.bAllowPitchModifiers = bAllowPitchModifiers;
 	Parms.__WorldContext = __WorldContext;
 
 	GetDefaultObj()->ProcessEvent(Func, &Parms);
@@ -359,10 +357,9 @@ void UASACameraFunctionLibrary_C::FinalOverridePivotLocation(class APrimalCharac
 // struct FPrimalCameraParams&             CameraParams                                           (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 // TArray<struct FPrimalCameraPitchBasedModifier>&PitchBasedModifiers                                    (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 // struct FVector&                         DesiredPivotOffset                                     (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// bool                                    bAllowPitchModifiers                                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // class UObject*                          __WorldContext                                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 
-void UASACameraFunctionLibrary_C::FinalOverridePivotOffset(class APrimalCharacter* CameraOwnerCharacter, struct FPrimalCameraParams& CameraParams, TArray<struct FPrimalCameraPitchBasedModifier>& PitchBasedModifiers, struct FVector& DesiredPivotOffset, bool bAllowPitchModifiers, class UObject* __WorldContext)
+void UASACameraFunctionLibrary_C::FinalOverridePivotOffset(class APrimalCharacter* CameraOwnerCharacter, struct FPrimalCameraParams& CameraParams, TArray<struct FPrimalCameraPitchBasedModifier>& PitchBasedModifiers, struct FVector& DesiredPivotOffset, class UObject* __WorldContext)
 {
 	static class UFunction* Func = nullptr;
 
@@ -375,7 +372,6 @@ void UASACameraFunctionLibrary_C::FinalOverridePivotOffset(class APrimalCharacte
 	Parms.CameraParams = std::move(CameraParams);
 	Parms.PitchBasedModifiers = std::move(PitchBasedModifiers);
 	Parms.DesiredPivotOffset = std::move(DesiredPivotOffset);
-	Parms.bAllowPitchModifiers = bAllowPitchModifiers;
 	Parms.__WorldContext = __WorldContext;
 
 	GetDefaultObj()->ProcessEvent(Func, &Parms);

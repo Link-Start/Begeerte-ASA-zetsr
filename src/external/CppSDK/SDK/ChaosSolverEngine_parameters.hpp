@@ -18,12 +18,12 @@ SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
 // Function ChaosSolverEngine.ChaosSolverEngineBlueprintLibrary.ConvertPhysicsCollisionToHitResult
-// 0x01C8 (0x01C8 - 0x0000)
+// 0x01B0 (0x01B0 - 0x0000)
 struct ChaosSolverEngineBlueprintLibrary_ConvertPhysicsCollisionToHitResult final
 {
 public:
 	struct FChaosPhysicsCollisionInfo             PhysicsCollision;                                  // 0x0000(0x00C0)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	struct FHitResult                             ReturnValue;                                       // 0x00C0(0x0108)(Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	struct FHitResult                             ReturnValue;                                       // 0x00C0(0x00F0)(Parm, OutParm, ReturnParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_ChaosSolverEngineBlueprintLibrary_ConvertPhysicsCollisionToHitResult;
 

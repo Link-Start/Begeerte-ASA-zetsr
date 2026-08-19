@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "TypedElementFramework_structs.hpp"
 #include "TypedElementRuntime_structs.hpp"
+#include "TypedElementFramework_structs.hpp"
 #include "CoreUObject_structs.hpp"
 
 
@@ -19,101 +19,100 @@ SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
 // Function TypedElementRuntime.TypedElementSelectionSetLibrary.DeselectElementsFromList
-// 0x0030 (0x0030 - 0x0000)
+// 0x0020 (0x0020 - 0x0000)
 struct TypedElementSelectionSetLibrary_DeselectElementsFromList final
 {
 public:
 	class UTypedElementSelectionSet*              SelectionSet;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FScriptTypedElementListProxy           ElementList;                                       // 0x0008(0x0010)(ConstParm, Parm, NativeAccessSpecifierPublic)
-	struct FTypedElementSelectionOptions          SelectionOptions;                                  // 0x0018(0x0010)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0028(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTypedElementSelectionOptions          SelectionOptions;                                  // 0x0018(0x0005)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x001D(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1E[0x2];                                       // 0x001E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_TypedElementSelectionSetLibrary_DeselectElementsFromList;
 
 // Function TypedElementRuntime.TypedElementSelectionSetLibrary.GetNormalizedElementList
-// 0x0038 (0x0038 - 0x0000)
+// 0x0030 (0x0030 - 0x0000)
 struct TypedElementSelectionSetLibrary_GetNormalizedElementList final
 {
 public:
 	class UTypedElementSelectionSet*              SelectionSet;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FScriptTypedElementListProxy           ElementList;                                       // 0x0008(0x0010)(ConstParm, Parm, NativeAccessSpecifierPublic)
-	struct FTypedElementSelectionNormalizationOptions NormalizationOptions;                          // 0x0018(0x000C)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FScriptTypedElementListProxy           ReturnValue;                                       // 0x0028(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	struct FTypedElementSelectionNormalizationOptions NormalizationOptions;                          // 0x0018(0x0002)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1A[0x6];                                       // 0x001A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FScriptTypedElementListProxy           ReturnValue;                                       // 0x0020(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_TypedElementSelectionSetLibrary_GetNormalizedElementList;
 
 // Function TypedElementRuntime.TypedElementSelectionSetLibrary.GetNormalizedSelection
-// 0x0028 (0x0028 - 0x0000)
+// 0x0020 (0x0020 - 0x0000)
 struct TypedElementSelectionSetLibrary_GetNormalizedSelection final
 {
 public:
 	class UTypedElementSelectionSet*              SelectionSet;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FTypedElementSelectionNormalizationOptions NormalizationOptions;                          // 0x0008(0x000C)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FScriptTypedElementListProxy           ReturnValue;                                       // 0x0018(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+	struct FTypedElementSelectionNormalizationOptions NormalizationOptions;                          // 0x0008(0x0002)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A[0x6];                                        // 0x000A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FScriptTypedElementListProxy           ReturnValue;                                       // 0x0010(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_TypedElementSelectionSetLibrary_GetNormalizedSelection;
 
 // Function TypedElementRuntime.TypedElementSelectionSetLibrary.SelectElementsFromList
-// 0x0030 (0x0030 - 0x0000)
+// 0x0020 (0x0020 - 0x0000)
 struct TypedElementSelectionSetLibrary_SelectElementsFromList final
 {
 public:
 	class UTypedElementSelectionSet*              SelectionSet;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FScriptTypedElementListProxy           ElementList;                                       // 0x0008(0x0010)(ConstParm, Parm, NativeAccessSpecifierPublic)
-	struct FTypedElementSelectionOptions          SelectionOptions;                                  // 0x0018(0x0010)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0028(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTypedElementSelectionOptions          SelectionOptions;                                  // 0x0018(0x0005)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x001D(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1E[0x2];                                       // 0x001E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_TypedElementSelectionSetLibrary_SelectElementsFromList;
 
 // Function TypedElementRuntime.TypedElementSelectionSetLibrary.SetSelectionFromList
-// 0x0030 (0x0030 - 0x0000)
+// 0x0020 (0x0020 - 0x0000)
 struct TypedElementSelectionSetLibrary_SetSelectionFromList final
 {
 public:
 	class UTypedElementSelectionSet*              SelectionSet;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FScriptTypedElementListProxy           ElementList;                                       // 0x0008(0x0010)(ConstParm, Parm, NativeAccessSpecifierPublic)
-	struct FTypedElementSelectionOptions          SelectionOptions;                                  // 0x0018(0x0010)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0028(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTypedElementSelectionOptions          SelectionOptions;                                  // 0x0018(0x0005)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x001D(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1E[0x2];                                       // 0x001E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_TypedElementSelectionSetLibrary_SetSelectionFromList;
 
 // Function TypedElementRuntime.TypedElementSelectionSet.ClearSelection
-// 0x0014 (0x0014 - 0x0000)
+// 0x0006 (0x0006 - 0x0000)
 struct TypedElementSelectionSet_ClearSelection final
 {
 public:
-	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0000(0x0010)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x3];                                       // 0x0011(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0000(0x0005)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0005(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_TypedElementSelectionSet_ClearSelection;
 
 // Function TypedElementRuntime.TypedElementSelectionSet.DeselectElement
-// 0x0020 (0x0020 - 0x0000)
+// 0x0010 (0x0010 - 0x0000)
 struct TypedElementSelectionSet_DeselectElement final
 {
 public:
 	struct FScriptTypedElementHandle              InElementHandle;                                   // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0008(0x0010)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0008(0x0005)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x000D(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E[0x2];                                        // 0x000E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_TypedElementSelectionSet_DeselectElement;
 
 // Function TypedElementRuntime.TypedElementSelectionSet.DeselectElements
-// 0x0028 (0x0028 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct TypedElementSelectionSet_DeselectElements final
 {
 public:
 	TArray<struct FScriptTypedElementHandle>      InElementHandles;                                  // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0010(0x0010)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0020(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0010(0x0005)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0015(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_16[0x2];                                       // 0x0016(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_TypedElementSelectionSet_DeselectElements;
 
@@ -127,38 +126,38 @@ public:
 DUMPER7_ASSERTS_TypedElementSelectionSet_RestoreSelectionState;
 
 // Function TypedElementRuntime.TypedElementSelectionSet.SelectElement
-// 0x0020 (0x0020 - 0x0000)
+// 0x0010 (0x0010 - 0x0000)
 struct TypedElementSelectionSet_SelectElement final
 {
 public:
 	struct FScriptTypedElementHandle              InElementHandle;                                   // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0008(0x0010)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0008(0x0005)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x000D(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E[0x2];                                        // 0x000E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_TypedElementSelectionSet_SelectElement;
 
 // Function TypedElementRuntime.TypedElementSelectionSet.SelectElements
-// 0x0028 (0x0028 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct TypedElementSelectionSet_SelectElements final
 {
 public:
 	TArray<struct FScriptTypedElementHandle>      InElementHandles;                                  // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0010(0x0010)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0020(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0010(0x0005)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0015(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_16[0x2];                                       // 0x0016(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_TypedElementSelectionSet_SelectElements;
 
 // Function TypedElementRuntime.TypedElementSelectionSet.SetSelection
-// 0x0028 (0x0028 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct TypedElementSelectionSet_SetSelection final
 {
 public:
 	TArray<struct FScriptTypedElementHandle>      InElementHandles;                                  // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0010(0x0010)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0020(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0010(0x0005)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0015(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_16[0x2];                                       // 0x0016(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_TypedElementSelectionSet_SetSelection;
 
@@ -174,26 +173,26 @@ public:
 DUMPER7_ASSERTS_TypedElementSelectionSet_AllowSelectionModifiers;
 
 // Function TypedElementRuntime.TypedElementSelectionSet.CanDeselectElement
-// 0x0020 (0x0020 - 0x0000)
+// 0x0010 (0x0010 - 0x0000)
 struct TypedElementSelectionSet_CanDeselectElement final
 {
 public:
 	struct FScriptTypedElementHandle              InElementHandle;                                   // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0008(0x0010)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0008(0x0005)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x000D(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E[0x2];                                        // 0x000E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_TypedElementSelectionSet_CanDeselectElement;
 
 // Function TypedElementRuntime.TypedElementSelectionSet.CanSelectElement
-// 0x0020 (0x0020 - 0x0000)
+// 0x0010 (0x0010 - 0x0000)
 struct TypedElementSelectionSet_CanSelectElement final
 {
 public:
 	struct FScriptTypedElementHandle              InElementHandle;                                   // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0008(0x0010)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0008(0x0005)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x000D(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E[0x2];                                        // 0x000E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_TypedElementSelectionSet_CanSelectElement;
 
@@ -302,14 +301,14 @@ public:
 DUMPER7_ASSERTS_TypedElementSelectionSet_HasSelectedObjects;
 
 // Function TypedElementRuntime.TypedElementSelectionSet.IsElementSelected
-// 0x0018 (0x0018 - 0x0000)
+// 0x0010 (0x0010 - 0x0000)
 struct TypedElementSelectionSet_IsElementSelected final
 {
 public:
 	struct FScriptTypedElementHandle              InElementHandle;                                   // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FTypedElementIsSelectedOptions         InSelectionOptions;                                // 0x0008(0x000C)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0014(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_15[0x3];                                       // 0x0015(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTypedElementIsSelectedOptions         InSelectionOptions;                                // 0x0008(0x0001)(ConstParm, Parm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0009(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A[0x6];                                        // 0x000A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_TypedElementSelectionSet_IsElementSelected;
 
@@ -387,31 +386,6 @@ public:
 };
 DUMPER7_ASSERTS_TypedElementObjectInterface_GetObjectClass;
 
-// Function TypedElementRuntime.TypedElementPrimitiveCustomDataInterface.SetCustomData
-// 0x0020 (0x0020 - 0x0000)
-struct TypedElementPrimitiveCustomDataInterface_SetCustomData final
-{
-public:
-	struct FScriptTypedElementHandle              InElementHandle;                                   // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	TArray<float>                                 CustomDataFloats;                                  // 0x0008(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	bool                                          bMarkRenderStateDirty;                             // 0x0018(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_TypedElementPrimitiveCustomDataInterface_SetCustomData;
-
-// Function TypedElementRuntime.TypedElementPrimitiveCustomDataInterface.SetCustomDataValue
-// 0x0018 (0x0018 - 0x0000)
-struct TypedElementPrimitiveCustomDataInterface_SetCustomDataValue final
-{
-public:
-	struct FScriptTypedElementHandle              InElementHandle;                                   // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	int32                                         CustomDataIndex;                                   // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         CustomDataValue;                                   // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bMarkRenderStateDirty;                             // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_TypedElementPrimitiveCustomDataInterface_SetCustomDataValue;
-
 // Function TypedElementRuntime.TypedElementSelectionInterface.AllowSelectionModifiers
 // 0x0020 (0x0020 - 0x0000)
 struct TypedElementSelectionInterface_AllowSelectionModifiers final
@@ -425,39 +399,39 @@ public:
 DUMPER7_ASSERTS_TypedElementSelectionInterface_AllowSelectionModifiers;
 
 // Function TypedElementRuntime.TypedElementSelectionInterface.CanDeselectElement
-// 0x0020 (0x0020 - 0x0000)
+// 0x0010 (0x0010 - 0x0000)
 struct TypedElementSelectionInterface_CanDeselectElement final
 {
 public:
 	struct FScriptTypedElementHandle              InElementHandle;                                   // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0008(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0008(0x0005)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x000D(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E[0x2];                                        // 0x000E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_TypedElementSelectionInterface_CanDeselectElement;
 
 // Function TypedElementRuntime.TypedElementSelectionInterface.CanSelectElement
-// 0x0020 (0x0020 - 0x0000)
+// 0x0010 (0x0010 - 0x0000)
 struct TypedElementSelectionInterface_CanSelectElement final
 {
 public:
 	struct FScriptTypedElementHandle              InElementHandle;                                   // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0008(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0008(0x0005)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x000D(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E[0x2];                                        // 0x000E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_TypedElementSelectionInterface_CanSelectElement;
 
 // Function TypedElementRuntime.TypedElementSelectionInterface.DeselectElement
-// 0x0030 (0x0030 - 0x0000)
+// 0x0020 (0x0020 - 0x0000)
 struct TypedElementSelectionInterface_DeselectElement final
 {
 public:
 	struct FScriptTypedElementHandle              InElementHandle;                                   // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 	struct FScriptTypedElementListProxy           InSelectionSet;                                    // 0x0008(0x0010)(Parm, NativeAccessSpecifierPublic)
-	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0018(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0028(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0018(0x0005)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x001D(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1E[0x2];                                       // 0x001E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_TypedElementSelectionInterface_DeselectElement;
 
@@ -475,28 +449,28 @@ public:
 DUMPER7_ASSERTS_TypedElementSelectionInterface_GetSelectionElement;
 
 // Function TypedElementRuntime.TypedElementSelectionInterface.IsElementSelected
-// 0x0028 (0x0028 - 0x0000)
+// 0x0020 (0x0020 - 0x0000)
 struct TypedElementSelectionInterface_IsElementSelected final
 {
 public:
 	struct FScriptTypedElementHandle              InElementHandle;                                   // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 	struct FScriptTypedElementListProxy           InSelectionSet;                                    // 0x0008(0x0010)(ConstParm, Parm, NativeAccessSpecifierPublic)
-	struct FTypedElementIsSelectedOptions         InSelectionOptions;                                // 0x0018(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0024(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_25[0x3];                                       // 0x0025(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTypedElementIsSelectedOptions         InSelectionOptions;                                // 0x0018(0x0001)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0019(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1A[0x6];                                       // 0x001A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_TypedElementSelectionInterface_IsElementSelected;
 
 // Function TypedElementRuntime.TypedElementSelectionInterface.SelectElement
-// 0x0030 (0x0030 - 0x0000)
+// 0x0020 (0x0020 - 0x0000)
 struct TypedElementSelectionInterface_SelectElement final
 {
 public:
 	struct FScriptTypedElementHandle              InElementHandle;                                   // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 	struct FScriptTypedElementListProxy           InSelectionSet;                                    // 0x0008(0x0010)(Parm, NativeAccessSpecifierPublic)
-	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0018(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0028(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FTypedElementSelectionOptions          InSelectionOptions;                                // 0x0018(0x0005)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x001D(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1E[0x2];                                       // 0x001E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_TypedElementSelectionInterface_SelectElement;
 

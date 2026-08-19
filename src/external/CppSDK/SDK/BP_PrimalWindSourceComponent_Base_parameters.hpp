@@ -210,7 +210,7 @@ public:
 DUMPER7_ASSERTS_BP_PrimalWindSourceComponent_Base_C_Get_Bubble_System_Tag;
 
 // Function BP_PrimalWindSourceComponent_Base.BP_PrimalWindSourceComponent_Base_C.PlayFluidImpactEffect
-// 0x01F0 (0x01F0 - 0x0000)
+// 0x01D8 (0x01D8 - 0x0000)
 struct BP_PrimalWindSourceComponent_Base_C_PlayFluidImpactEffect final
 {
 public:
@@ -231,11 +231,11 @@ public:
 	bool                                          CallFunc_BPFastTrace_ReturnValue;                  // 0x0091(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_92[0x6];                                       // 0x0092(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FVector                                CallFunc_K2_GetActorLocation_ReturnValue;          // 0x0098(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FHitResult                             CallFunc_VTraceSingleBP_OutHit;                    // 0x00B0(0x0108)(IsPlainOldData, NoDestructor, ContainsInstancedReference)
-	bool                                          CallFunc_VTraceSingleBP_ReturnValue;               // 0x01B8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_1B9[0x7];                                      // 0x01B9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                CallFunc_SetVariableVec3_InValue_ImplicitCast;     // 0x01C0(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FVector                                CallFunc_Multiply_VectorVector_A_ImplicitCast;     // 0x01D8(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FHitResult                             CallFunc_VTraceSingleBP_OutHit;                    // 0x00B0(0x00F0)(IsPlainOldData, NoDestructor, ContainsInstancedReference)
+	bool                                          CallFunc_VTraceSingleBP_ReturnValue;               // 0x01A0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_1A1[0x7];                                      // 0x01A1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                CallFunc_SetVariableVec3_InValue_ImplicitCast;     // 0x01A8(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FVector                                CallFunc_Multiply_VectorVector_A_ImplicitCast;     // 0x01C0(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_BP_PrimalWindSourceComponent_Base_C_PlayFluidImpactEffect;
 

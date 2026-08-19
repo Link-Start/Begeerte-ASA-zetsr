@@ -17,6 +17,17 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
+// Function FieldSystemEngine.FieldSystemMetaDataIteration.SetMetaDataIteration
+// 0x0010 (0x0010 - 0x0000)
+struct FieldSystemMetaDataIteration_SetMetaDataIteration final
+{
+public:
+	int32                                         Iterations_0;                                      // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UFieldSystemMetaDataIteration*          ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FieldSystemMetaDataIteration_SetMetaDataIteration;
+
 // Function FieldSystemEngine.FieldSystemComponent.AddFieldCommand
 // 0x0018 (0x0018 - 0x0000)
 struct FieldSystemComponent_AddFieldCommand final
@@ -136,17 +147,6 @@ public:
 	float                                         Magnitude;                                         // 0x003C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FieldSystemComponent_ApplyUniformVectorFalloffForce;
-
-// Function FieldSystemEngine.FieldSystemMetaDataIteration.SetMetaDataIteration
-// 0x0010 (0x0010 - 0x0000)
-struct FieldSystemMetaDataIteration_SetMetaDataIteration final
-{
-public:
-	int32                                         Iterations_0;                                      // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UFieldSystemMetaDataIteration*          ReturnValue;                                       // 0x0008(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FieldSystemMetaDataIteration_SetMetaDataIteration;
 
 // Function FieldSystemEngine.FieldSystemMetaDataProcessingResolution.SetMetaDataaProcessingResolutionType
 // 0x0010 (0x0010 - 0x0000)

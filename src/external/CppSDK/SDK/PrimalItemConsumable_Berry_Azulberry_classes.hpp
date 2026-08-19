@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemConsumable_Berry_Azulberry.PrimalItemConsumable_Berry_Azulberry_C
-// 0x0000 (0x0B90 - 0x0B90)
+// 0x0000 (0x1170 - 0x1170)
 class UPrimalItemConsumable_Berry_Azulberry_C final : public UPrimalItemConsumable_Berry_Base_C
 {
 public:

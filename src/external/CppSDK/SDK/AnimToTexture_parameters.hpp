@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
 #include "AnimToTexture_structs.hpp"
+#include "CoreUObject_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -73,120 +73,93 @@ public:
 };
 DUMPER7_ASSERTS_AnimToTextureDataAsset_GetIndexFromAnimSequence;
 
-// Function AnimToTexture.AnimToTextureInstancePlaybackLibrary.BatchUpdateInstancesAutoPlayData
-// 0x0030 (0x0030 - 0x0000)
-struct AnimToTextureInstancePlaybackLibrary_BatchUpdateInstancesAutoPlayData final
-{
-public:
-	class UInstancedStaticMeshComponent*          InstancedMeshComponent;                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<struct FAnimToTextureAutoPlayData>     AutoPlayData;                                      // 0x0008(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	TArray<struct FMatrix>                        Transforms;                                        // 0x0018(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	bool                                          bMarkRenderStateDirty;                             // 0x0028(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0029(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2A[0x6];                                       // 0x002A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_AnimToTextureInstancePlaybackLibrary_BatchUpdateInstancesAutoPlayData;
-
-// Function AnimToTexture.AnimToTextureInstancePlaybackLibrary.BatchUpdateInstancesFrameData
-// 0x0030 (0x0030 - 0x0000)
-struct AnimToTextureInstancePlaybackLibrary_BatchUpdateInstancesFrameData final
-{
-public:
-	class UInstancedStaticMeshComponent*          InstancedMeshComponent;                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<struct FAnimToTextureFrameData>        FrameData;                                         // 0x0008(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	TArray<struct FMatrix>                        Transforms;                                        // 0x0018(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	bool                                          bMarkRenderStateDirty;                             // 0x0028(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0029(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2A[0x6];                                       // 0x002A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_AnimToTextureInstancePlaybackLibrary_BatchUpdateInstancesFrameData;
-
-// Function AnimToTexture.AnimToTextureInstancePlaybackLibrary.GetAutoPlayDataFromDataAsset
+// Function AnimToTexture.AnimToTextureInstancePlaybackLibrary.AllocateInstanceData
 // 0x0028 (0x0028 - 0x0000)
-struct AnimToTextureInstancePlaybackLibrary_GetAutoPlayDataFromDataAsset final
+struct AnimToTextureInstancePlaybackLibrary_AllocateInstanceData final
+{
+public:
+	struct FAnimToTextureInstanceData             InstanceData;                                      // 0x0000(0x0020)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	int32                                         Count;                                             // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_AnimToTextureInstancePlaybackLibrary_AllocateInstanceData;
+
+// Function AnimToTexture.AnimToTextureInstancePlaybackLibrary.AnimStateFromDataAsset
+// 0x0028 (0x0028 - 0x0000)
+struct AnimToTextureInstancePlaybackLibrary_AnimStateFromDataAsset final
 {
 public:
 	const class UAnimToTextureDataAsset*          DataAsset;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         animationIndex;                                    // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FAnimToTextureAutoPlayData             AutoPlayData;                                      // 0x000C(0x0010)(Parm, OutParm, NoDestructor, NativeAccessSpecifierPublic)
-	float                                         TimeOffset;                                        // 0x001C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         PlayRate;                                          // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0024(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_25[0x3];                                       // 0x0025(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_AnimToTextureInstancePlaybackLibrary_GetAutoPlayDataFromDataAsset;
-
-// Function AnimToTexture.AnimToTextureInstancePlaybackLibrary.GetFrame
-// 0x001C (0x001C - 0x0000)
-struct AnimToTextureInstancePlaybackLibrary_GetFrame final
-{
-public:
-	float                                         Time;                                              // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         StartFrame;                                        // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         EndFrame;                                          // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         TimeOffset;                                        // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         PlayRate;                                          // 0x0010(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         SampleRate;                                        // 0x0014(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ReturnValue;                                       // 0x0018(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AnimToTextureInstancePlaybackLibrary_GetFrame;
-
-// Function AnimToTexture.AnimToTextureInstancePlaybackLibrary.GetFrameDataFromDataAsset
-// 0x0028 (0x0028 - 0x0000)
-struct AnimToTextureInstancePlaybackLibrary_GetFrameDataFromDataAsset final
-{
-public:
-	const class UAnimToTextureDataAsset*          DataAsset;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         animationIndex;                                    // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Time;                                              // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FAnimToTextureFrameData                AutoPlayData;                                      // 0x0010(0x0008)(Parm, OutParm, NoDestructor, NativeAccessSpecifierPublic)
-	float                                         TimeOffset;                                        // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         PlayRate;                                          // 0x001C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         StateIndex;                                        // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FAnimToTextureAnimState                AnimState;                                         // 0x000C(0x0014)(Parm, OutParm, NoDestructor, NativeAccessSpecifierPublic)
 	bool                                          ReturnValue;                                       // 0x0020(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_AnimToTextureInstancePlaybackLibrary_GetFrameDataFromDataAsset;
+DUMPER7_ASSERTS_AnimToTextureInstancePlaybackLibrary_AnimStateFromDataAsset;
+
+// Function AnimToTexture.AnimToTextureInstancePlaybackLibrary.BatchUpdateInstancedMeshComponent
+// 0x0028 (0x0028 - 0x0000)
+struct AnimToTextureInstancePlaybackLibrary_BatchUpdateInstancedMeshComponent final
+{
+public:
+	class UInstancedStaticMeshComponent*          InstancedMeshComponent;                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FAnimToTextureInstanceData             InstanceData;                                      // 0x0008(0x0020)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_AnimToTextureInstancePlaybackLibrary_BatchUpdateInstancedMeshComponent;
+
+// Function AnimToTexture.AnimToTextureInstancePlaybackLibrary.GetInstancePlaybackData
+// 0x0040 (0x0040 - 0x0000)
+struct AnimToTextureInstancePlaybackLibrary_GetInstancePlaybackData final
+{
+public:
+	struct FAnimToTextureInstanceData             InstanceData;                                      // 0x0000(0x0020)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	int32                                         InstanceIndex;                                     // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FAnimToTextureInstancePlaybackData     InstancePlaybackData;                              // 0x0024(0x0014)(Parm, OutParm, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0038(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_AnimToTextureInstancePlaybackLibrary_GetInstancePlaybackData;
+
+// Function AnimToTexture.AnimToTextureInstancePlaybackLibrary.GetInstanceTransform
+// 0x00A0 (0x00A0 - 0x0000)
+struct AnimToTextureInstancePlaybackLibrary_GetInstanceTransform final
+{
+public:
+	struct FAnimToTextureInstanceData             InstanceData;                                      // 0x0000(0x0020)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	int32                                         InstanceIndex;                                     // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_24[0xC];                                       // 0x0024(0x000C)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FTransform                             InstanceTransform;                                 // 0x0030(0x0060)(Parm, OutParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0090(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_91[0xF];                                       // 0x0091(0x000F)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_AnimToTextureInstancePlaybackLibrary_GetInstanceTransform;
 
 // Function AnimToTexture.AnimToTextureInstancePlaybackLibrary.SetupInstancedMeshComponent
-// 0x0010 (0x0010 - 0x0000)
+// 0x0030 (0x0030 - 0x0000)
 struct AnimToTextureInstancePlaybackLibrary_SetupInstancedMeshComponent final
 {
 public:
 	class UInstancedStaticMeshComponent*          InstancedMeshComponent;                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         NumInstances;                                      // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAutoPlay;                                         // 0x000C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x000D(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_E[0x2];                                        // 0x000E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FAnimToTextureInstanceData             InstanceData;                                      // 0x0008(0x0020)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	int32                                         NumInstances;                                      // 0x0028(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_AnimToTextureInstancePlaybackLibrary_SetupInstancedMeshComponent;
 
-// Function AnimToTexture.AnimToTextureInstancePlaybackLibrary.UpdateInstanceAutoPlayData
-// 0x0020 (0x0020 - 0x0000)
-struct AnimToTextureInstancePlaybackLibrary_UpdateInstanceAutoPlayData final
+// Function AnimToTexture.AnimToTextureInstancePlaybackLibrary.UpdateInstanceData
+// 0x00B0 (0x00B0 - 0x0000)
+struct AnimToTextureInstancePlaybackLibrary_UpdateInstanceData final
 {
 public:
-	class UInstancedStaticMeshComponent*          InstancedMeshComponent;                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         InstanceIndex;                                     // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FAnimToTextureAutoPlayData             AutoPlayData;                                      // 0x000C(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          bMarkRenderStateDirty;                             // 0x001C(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x001D(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1E[0x2];                                       // 0x001E(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FAnimToTextureInstanceData             InstanceData;                                      // 0x0000(0x0020)(Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	int32                                         InstanceIndex;                                     // 0x0020(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FAnimToTextureInstancePlaybackData     PlaybackData;                                      // 0x0024(0x0014)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_38[0x8];                                       // 0x0038(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FTransform                             Transform;                                         // 0x0040(0x0060)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x00A0(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A1[0xF];                                       // 0x00A1(0x000F)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_AnimToTextureInstancePlaybackLibrary_UpdateInstanceAutoPlayData;
-
-// Function AnimToTexture.AnimToTextureInstancePlaybackLibrary.UpdateInstanceFrameData
-// 0x0018 (0x0018 - 0x0000)
-struct AnimToTextureInstancePlaybackLibrary_UpdateInstanceFrameData final
-{
-public:
-	class UInstancedStaticMeshComponent*          InstancedMeshComponent;                            // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         InstanceIndex;                                     // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FAnimToTextureFrameData                FrameData;                                         // 0x000C(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          bMarkRenderStateDirty;                             // 0x0014(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0015(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_16[0x2];                                       // 0x0016(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_AnimToTextureInstancePlaybackLibrary_UpdateInstanceFrameData;
+DUMPER7_ASSERTS_AnimToTextureInstancePlaybackLibrary_UpdateInstanceData;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

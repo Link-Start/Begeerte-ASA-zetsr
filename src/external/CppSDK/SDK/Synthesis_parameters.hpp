@@ -17,6 +17,15 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
+// Function Synthesis.SourceEffectDynamicsProcessorPreset.SetSettings
+// 0x0028 (0x0028 - 0x0000)
+struct SourceEffectDynamicsProcessorPreset_SetSettings final
+{
+public:
+	struct FSourceEffectDynamicsProcessorSettings InSettings;                                        // 0x0000(0x0028)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_SourceEffectDynamicsProcessorPreset_SetSettings;
+
 // Function Synthesis.ModularSynthLibrary.AddModularSynthPresetToBankAsset
 // 0x00F8 (0x00F8 - 0x0000)
 struct ModularSynthLibrary_AddModularSynthPresetToBankAsset final
@@ -619,11 +628,11 @@ public:
 DUMPER7_ASSERTS_SourceEffectBitCrusherPreset_SetBits;
 
 // Function Synthesis.SourceEffectBitCrusherPreset.SetModulationSettings
-// 0x00C0 (0x00C0 - 0x0000)
+// 0x00D0 (0x00D0 - 0x0000)
 struct SourceEffectBitCrusherPreset_SetModulationSettings final
 {
 public:
-	struct FSourceEffectBitCrusherSettings        ModulationSettings;                                // 0x0000(0x00C0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FSourceEffectBitCrusherSettings        ModulationSettings;                                // 0x0000(0x00D0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_SourceEffectBitCrusherPreset_SetModulationSettings;
 
@@ -772,11 +781,11 @@ public:
 DUMPER7_ASSERTS_SourceEffectChorusPreset_SetFrequencyModulators;
 
 // Function Synthesis.SourceEffectChorusPreset.SetModulationSettings
-// 0x0228 (0x0228 - 0x0000)
+// 0x0258 (0x0258 - 0x0000)
 struct SourceEffectChorusPreset_SetModulationSettings final
 {
 public:
-	struct FSourceEffectChorusSettings            ModulationSettings;                                // 0x0000(0x0228)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FSourceEffectChorusSettings            ModulationSettings;                                // 0x0000(0x0258)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_SourceEffectChorusPreset_SetModulationSettings;
 
@@ -860,15 +869,6 @@ public:
 	struct FSourceEffectConvolutionReverbSettings InSettings;                                        // 0x0000(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_SourceEffectConvolutionReverbPreset_SetSettings;
-
-// Function Synthesis.SourceEffectDynamicsProcessorPreset.SetSettings
-// 0x0028 (0x0028 - 0x0000)
-struct SourceEffectDynamicsProcessorPreset_SetSettings final
-{
-public:
-	struct FSourceEffectDynamicsProcessorSettings InSettings;                                        // 0x0000(0x0028)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_SourceEffectDynamicsProcessorPreset_SetSettings;
 
 // Function Synthesis.SourceEffectEnvelopeFollowerPreset.RegisterEnvelopeFollowerListener
 // 0x0008 (0x0008 - 0x0000)

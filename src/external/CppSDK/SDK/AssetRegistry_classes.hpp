@@ -11,7 +11,6 @@
 #include "Basic.hpp"
 
 #include "CoreUObject_classes.hpp"
-#include "AssetRegistry_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -35,8 +34,6 @@ public:
 	static bool IsUAsset(const struct FAssetData& InAssetData);
 	static bool IsValid(const struct FAssetData& InAssetData);
 	static struct FARFilter SetFilterTagsAndValues(const struct FARFilter& InFilter, const TArray<struct FTagAndValue>& InTagsAndValues);
-	static void SortByAssetName(TArray<struct FAssetData>& Assets, EAssetRegistrySortOrder SortOrder);
-	static void SortByPredicate(TArray<struct FAssetData>& Assets, TDelegate<void(const struct FAssetData& Left, const struct FAssetData& Right)> SortingPredicate, EAssetRegistrySortOrder SortOrder);
 	static struct FSoftObjectPath ToSoftObjectPath(const struct FAssetData& InAssetData);
 
 public:
@@ -78,13 +75,12 @@ public:
 	bool GetAssetsByPath(class FName PackagePath, TArray<struct FAssetData>* OutAssetData, bool bRecursive, bool bIncludeOnlyOnDiskAssets) const;
 	bool GetAssetsByPaths(const TArray<class FName>& PackagePaths, TArray<struct FAssetData>* OutAssetData, bool bRecursive, bool bIncludeOnlyOnDiskAssets) const;
 	void GetDerivedClassNames(const TArray<struct FTopLevelAssetPath>& ClassNames, const TSet<struct FTopLevelAssetPath>& ExcludedClassNames, TSet<struct FTopLevelAssetPath>* OutDerivedClassNames) const;
-	bool GetInMemoryAssets(const struct FARFilter& Filter, TArray<struct FAssetData>* OutAssetData, bool bSkipARFilteredAssets) const;
 	void GetSubPaths(const class FString& InBasePath, TArray<class FString>* OutPathList, bool bInRecurse) const;
 	bool HasAssets(const class FName PackagePath, const bool bRecursive) const;
 	bool IsLoadingAssets() const;
 	bool IsSearchAllAssets() const;
 	bool IsSearchAsync() const;
-	struct FAssetData K2_GetAssetByObjectPath(const struct FSoftObjectPath& ObjectPath, bool bIncludeOnlyOnDiskAssets, bool bSkipARFilteredAssets) const;
+	struct FAssetData K2_GetAssetByObjectPath(const struct FSoftObjectPath& ObjectPath, bool bIncludeOnlyOnDiskAssets) const;
 	bool K2_GetDependencies(class FName PackageName, const struct FAssetRegistryDependencyOptions& DependencyOptions, TArray<class FName>* OutDependencies) const;
 	bool K2_GetReferencers(class FName PackageName, const struct FAssetRegistryDependencyOptions& ReferenceOptions, TArray<class FName>* OutReferencers) const;
 	void RunAssetsThroughFilter(TArray<struct FAssetData>& AssetDataList, const struct FARFilter& Filter) const;
@@ -116,11 +112,11 @@ public:
 DUMPER7_ASSERTS_IAssetRegistry;
 
 // Class AssetRegistry.AssetRegistryImpl
-// 0x10E0 (0x1108 - 0x0028)
+// 0x0B90 (0x0BB8 - 0x0028)
 class UAssetRegistryImpl final : public UObject
 {
 public:
-	uint8                                         Pad_28[0x10E0];                                    // 0x0028(0x10E0)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_28[0xB90];                                     // 0x0028(0x0B90)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

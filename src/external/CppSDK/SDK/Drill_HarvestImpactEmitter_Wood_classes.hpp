@@ -10,14 +10,14 @@
 
 #include "Basic.hpp"
 
-#include "Drill_HarvestImpactEmitter_Base_classes.hpp"
+#include "ShooterGame_classes.hpp"
 
 
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass Drill_HarvestImpactEmitter_Wood.Drill_HarvestImpactEmitter_Wood_C
-// 0x0000 (0x05D0 - 0x05D0)
-class ADrill_HarvestImpactEmitter_Wood_C final : public ADrill_HarvestImpactEmitter_Base_C
+// 0x0000 (0x05E8 - 0x05E8)
+class ADrill_HarvestImpactEmitter_Wood_C final : public APrimalEmitterSpawnable
 {
 public:
 	static class UClass* StaticClass()

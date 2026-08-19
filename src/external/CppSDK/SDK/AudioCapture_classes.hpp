@@ -93,12 +93,12 @@ public:
 DUMPER7_ASSERTS_UAudioCaptureBlueprintLibrary;
 
 // Class AudioCapture.AudioCaptureComponent
-// 0x00C0 (0x09A0 - 0x08E0)
+// 0x00C0 (0x0880 - 0x07C0)
 class UAudioCaptureComponent final : public USynthComponent
 {
 public:
-	int32                                         JitterLatencyFrames;                               // 0x08E0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_8E4[0xBC];                                     // 0x08E4(0x00BC)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	int32                                         JitterLatencyFrames;                               // 0x07C0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_7C4[0xBC];                                     // 0x07C4(0x00BC)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()

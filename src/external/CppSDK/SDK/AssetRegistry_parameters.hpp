@@ -166,29 +166,6 @@ public:
 };
 DUMPER7_ASSERTS_AssetRegistryHelpers_SetFilterTagsAndValues;
 
-// Function AssetRegistry.AssetRegistryHelpers.SortByAssetName
-// 0x0018 (0x0018 - 0x0000)
-struct AssetRegistryHelpers_SortByAssetName final
-{
-public:
-	TArray<struct FAssetData>                     Assets;                                            // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	EAssetRegistrySortOrder                       SortOrder;                                         // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_AssetRegistryHelpers_SortByAssetName;
-
-// Function AssetRegistry.AssetRegistryHelpers.SortByPredicate
-// 0x0028 (0x0028 - 0x0000)
-struct AssetRegistryHelpers_SortByPredicate final
-{
-public:
-	TArray<struct FAssetData>                     Assets;                                            // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	TDelegate<void(const struct FAssetData& Left, const struct FAssetData& Right)> SortingPredicate; // 0x0010(0x0010)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EAssetRegistrySortOrder                       SortOrder;                                         // 0x0020(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_AssetRegistryHelpers_SortByPredicate;
-
 // Function AssetRegistry.AssetRegistryHelpers.ToSoftObjectPath
 // 0x0088 (0x0088 - 0x0000)
 struct AssetRegistryHelpers_ToSoftObjectPath final
@@ -382,19 +359,6 @@ public:
 };
 DUMPER7_ASSERTS_AssetRegistry_GetDerivedClassNames;
 
-// Function AssetRegistry.AssetRegistry.GetInMemoryAssets
-// 0x0168 (0x0168 - 0x0000)
-struct AssetRegistry_GetInMemoryAssets final
-{
-public:
-	struct FARFilter                              Filter;                                            // 0x0000(0x0150)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	TArray<struct FAssetData>                     OutAssetData;                                      // 0x0150(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-	bool                                          bSkipARFilteredAssets;                             // 0x0160(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0161(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_162[0x6];                                      // 0x0162(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_AssetRegistry_GetInMemoryAssets;
-
 // Function AssetRegistry.AssetRegistry.GetSubPaths
 // 0x0028 (0x0028 - 0x0000)
 struct AssetRegistry_GetSubPaths final
@@ -453,8 +417,7 @@ struct AssetRegistry_K2_GetAssetByObjectPath final
 public:
 	struct FSoftObjectPath                        ObjectPath;                                        // 0x0000(0x0020)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bIncludeOnlyOnDiskAssets;                          // 0x0020(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bSkipARFilteredAssets;                             // 0x0021(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_22[0x6];                                       // 0x0022(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FAssetData                             ReturnValue;                                       // 0x0028(0x0068)(Parm, OutParm, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_AssetRegistry_K2_GetAssetByObjectPath;

@@ -14,14 +14,13 @@
 SDK_NAMESPACE_START
 
 // Enum GeometryFramework.EDynamicMeshComponentTangentsMode
-// NumValues: 0x0005
+// NumValues: 0x0004
 enum class EDynamicMeshComponentTangentsMode : uint8
 {
 	NoTangents                               = 0,
 	AutoCalculated                           = 1,
 	ExternallyProvided                       = 2,
-	Default                                  = 255,
-	EDynamicMeshComponentTangentsMode_MAX    = 256,
+	EDynamicMeshComponentTangentsMode_MAX    = 3,
 };
 
 // Enum GeometryFramework.EDynamicMeshComponentColorOverrideMode
@@ -33,34 +32,6 @@ enum class EDynamicMeshComponentColorOverrideMode : uint8
 	Polygroups                               = 2,
 	Constant                                 = 3,
 	EDynamicMeshComponentColorOverrideMode_MAX = 4,
-};
-
-// Enum GeometryFramework.EDynamicMeshDrawPath
-// NumValues: 0x0003
-enum class EDynamicMeshDrawPath : uint8
-{
-	DynamicDraw                              = 0,
-	StaticDraw                               = 1,
-	EDynamicMeshDrawPath_MAX                 = 2,
-};
-
-// Enum GeometryFramework.EDynamicMeshComponentDistanceFieldMode
-// NumValues: 0x0003
-enum class EDynamicMeshComponentDistanceFieldMode : uint8
-{
-	NoDistanceField                          = 0,
-	AsyncCPUDistanceField                    = 1,
-	EDynamicMeshComponentDistanceFieldMode_MAX = 2,
-};
-
-// Enum GeometryFramework.EDynamicMeshVertexColorTransformMode
-// NumValues: 0x0004
-enum class EDynamicMeshVertexColorTransformMode : uint8
-{
-	NoTransform                              = 0,
-	LinearToSRGB                             = 1,
-	SRGBToLinear                             = 2,
-	EDynamicMeshVertexColorTransformMode_MAX = 3,
 };
 
 // Enum GeometryFramework.EDynamicMeshComponentRenderUpdateMode

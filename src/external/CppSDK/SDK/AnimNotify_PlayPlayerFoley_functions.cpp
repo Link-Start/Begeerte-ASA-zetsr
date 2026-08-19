@@ -16,30 +16,6 @@
 
 SDK_NAMESPACE_START
 
-// Function AnimNotify_PlayPlayerFoley.AnimNotify_PlayPlayerFoley_C.SelectSound
-// (Public, HasOutParams, BlueprintCallable, BlueprintEvent, Const)
-// Parameters:
-// class UPDA_FoleyCollection_C*           FolleyColletion                                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// class USoundBase**                      FoleySoundReferance                                    (Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-
-void UAnimNotify_PlayPlayerFoley_C::SelectSound(class UPDA_FoleyCollection_C* FolleyColletion, class USoundBase** FoleySoundReferance) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("AnimNotify_PlayPlayerFoley_C", "SelectSound");
-
-	Params::AnimNotify_PlayPlayerFoley_C_SelectSound Parms{};
-
-	Parms.FolleyColletion = FolleyColletion;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	if (FoleySoundReferance != nullptr)
-		*FoleySoundReferance = Parms.FoleySoundReferance;
-}
-
-
 // Function AnimNotify_PlayPlayerFoley.AnimNotify_PlayPlayerFoley_C.GetNotifyName
 // (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
@@ -84,6 +60,30 @@ bool UAnimNotify_PlayPlayerFoley_C::Received_Notify(class USkeletalMeshComponent
 	UObject::ProcessEvent(Func, &Parms);
 
 	return Parms.ReturnValue;
+}
+
+
+// Function AnimNotify_PlayPlayerFoley.AnimNotify_PlayPlayerFoley_C.SelectSound
+// (Public, HasOutParams, BlueprintCallable, BlueprintEvent, Const)
+// Parameters:
+// class UPDA_FoleyCollection_C*           FolleyColletion                                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// class USoundBase**                      FoleySoundReferance                                    (Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+
+void UAnimNotify_PlayPlayerFoley_C::SelectSound(class UPDA_FoleyCollection_C* FolleyColletion, class USoundBase** FoleySoundReferance) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("AnimNotify_PlayPlayerFoley_C", "SelectSound");
+
+	Params::AnimNotify_PlayPlayerFoley_C_SelectSound Parms{};
+
+	Parms.FolleyColletion = FolleyColletion;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (FoleySoundReferance != nullptr)
+		*FoleySoundReferance = Parms.FoleySoundReferance;
 }
 
 

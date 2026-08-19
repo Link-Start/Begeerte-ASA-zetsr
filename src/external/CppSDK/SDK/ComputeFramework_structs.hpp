@@ -71,17 +71,6 @@ enum class EShaderResourceType : uint8
 	EShaderResourceType_MAX                  = 8,
 };
 
-// Enum ComputeFramework.EShaderParamModifier
-// NumValues: 0x0005
-enum class EShaderParamModifier : uint8
-{
-	None                                     = 0,
-	In                                       = 1,
-	Out                                      = 2,
-	InOut                                    = 3,
-	EShaderParamModifier_MAX                 = 4,
-};
-
 // ScriptStruct ComputeFramework.ComputeGraphEdge
 // 0x0038 (0x0038 - 0x0000)
 struct FComputeGraphEdge final
@@ -103,7 +92,7 @@ DUMPER7_ASSERTS_FComputeGraphEdge;
 struct FComputeGraphInstance final
 {
 public:
-	TArray<class UComputeDataProvider*>           DataProviders;                                     // 0x0000(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	TArray<class UComputeDataProvider*>           DataProviders;                                     // 0x0000(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_10[0x8];                                       // 0x0010(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FComputeGraphInstance;
@@ -167,25 +156,6 @@ public:
 };
 DUMPER7_ASSERTS_FShaderValueTypeHandle;
 
-// ScriptStruct ComputeFramework.ArrayShaderValue
-// 0x0010 (0x0010 - 0x0000)
-struct FArrayShaderValue final
-{
-public:
-	TArray<uint8>                                 ArrayOfValues;                                     // 0x0000(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FArrayShaderValue;
-
-// ScriptStruct ComputeFramework.ShaderValueContainer
-// 0x0020 (0x0020 - 0x0000)
-struct FShaderValueContainer final
-{
-public:
-	TArray<uint8>                                 ShaderValue;                                       // 0x0000(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FArrayShaderValue>              ArrayList;                                         // 0x0010(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FShaderValueContainer;
-
 // ScriptStruct ComputeFramework.ShaderValueType
 // 0x0020 (0x0020 - 0x0000)
 struct alignas(0x08) FShaderValueType final
@@ -211,8 +181,7 @@ public:
 	uint16                                        ArrayElementCount;                                 // 0x0028(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EShaderParamBindingType                       BindingType;                                       // 0x002A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EShaderResourceType                           ResourceType;                                      // 0x002B(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EShaderParamModifier                          Modifier;                                          // 0x002C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2D[0x3];                                       // 0x002D(0x0003)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_2C[0x4];                                       // 0x002C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FShaderParamTypeDefinition;
 

@@ -10,12 +10,12 @@
 
 #include "Basic.hpp"
 
-#include "SlateCore_structs.hpp"
-#include "ShooterGame_structs.hpp"
 #include "CheatMapJumpInfo_structs.hpp"
+#include "SlateCore_structs.hpp"
 #include "CheatMenuOptionTypes_structs.hpp"
 #include "UMG_structs.hpp"
 #include "CheatMenuCharacterLevelPreset_structs.hpp"
+#include "ShooterGame_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -43,41 +43,41 @@ public:
 DUMPER7_ASSERTS_CheatMenu_C_BndEvt__BlueprintCheckBox_K2Node_ComponentBoundEvent_19_OnCheckBoxComponentStateChanged__DelegateSignature;
 
 // Function CheatMenu.CheatMenu_C.BndEvt__CheatMenu_NamesFilterInputField_K2Node_ComponentBoundEvent_1_OnEditableTextBoxChangedEvent__DelegateSignature
-// 0x0010 (0x0010 - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct CheatMenu_C_BndEvt__CheatMenu_NamesFilterInputField_K2Node_ComponentBoundEvent_1_OnEditableTextBoxChangedEvent__DelegateSignature final
 {
 public:
-	class FText                                   Text;                                              // 0x0000(0x0010)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+	class FText                                   Text;                                              // 0x0000(0x0018)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 };
 DUMPER7_ASSERTS_CheatMenu_C_BndEvt__CheatMenu_NamesFilterInputField_K2Node_ComponentBoundEvent_1_OnEditableTextBoxChangedEvent__DelegateSignature;
 
 // Function CheatMenu.CheatMenu_C.BndEvt__DinoSpawnLevelBox_K2Node_ComponentBoundEvent_41_OnEditableTextBoxCommittedEvent__DelegateSignature
-// 0x0018 (0x0018 - 0x0000)
+// 0x0020 (0x0020 - 0x0000)
 struct CheatMenu_C_BndEvt__DinoSpawnLevelBox_K2Node_ComponentBoundEvent_41_OnEditableTextBoxCommittedEvent__DelegateSignature final
 {
 public:
-	class FText                                   Text;                                              // 0x0000(0x0010)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
-	ETextCommit                                   CommitMethod;                                      // 0x0010(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FText                                   Text;                                              // 0x0000(0x0018)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+	ETextCommit                                   CommitMethod;                                      // 0x0018(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_BndEvt__DinoSpawnLevelBox_K2Node_ComponentBoundEvent_41_OnEditableTextBoxCommittedEvent__DelegateSignature;
 
 // Function CheatMenu.CheatMenu_C.BndEvt__EditableTextBox_139_K2Node_ComponentBoundEvent_360_OnEditableTextBoxCommittedEvent__DelegateSignature
-// 0x0018 (0x0018 - 0x0000)
+// 0x0020 (0x0020 - 0x0000)
 struct CheatMenu_C_BndEvt__EditableTextBox_139_K2Node_ComponentBoundEvent_360_OnEditableTextBoxCommittedEvent__DelegateSignature final
 {
 public:
-	class FText                                   Text;                                              // 0x0000(0x0010)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
-	ETextCommit                                   CommitMethod;                                      // 0x0010(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FText                                   Text;                                              // 0x0000(0x0018)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+	ETextCommit                                   CommitMethod;                                      // 0x0018(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_BndEvt__EditableTextBox_139_K2Node_ComponentBoundEvent_360_OnEditableTextBoxCommittedEvent__DelegateSignature;
 
 // Function CheatMenu.CheatMenu_C.BndEvt__NumberEggsToSpawn_K2Node_ComponentBoundEvent_232_OnEditableTextBoxCommittedEvent__DelegateSignature
-// 0x0018 (0x0018 - 0x0000)
+// 0x0020 (0x0020 - 0x0000)
 struct CheatMenu_C_BndEvt__NumberEggsToSpawn_K2Node_ComponentBoundEvent_232_OnEditableTextBoxCommittedEvent__DelegateSignature final
 {
 public:
-	class FText                                   Text;                                              // 0x0000(0x0010)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
-	ETextCommit                                   CommitMethod;                                      // 0x0010(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FText                                   Text;                                              // 0x0000(0x0018)(ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+	ETextCommit                                   CommitMethod;                                      // 0x0018(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_BndEvt__NumberEggsToSpawn_K2Node_ComponentBoundEvent_232_OnEditableTextBoxCommittedEvent__DelegateSignature;
 
@@ -135,22 +135,22 @@ public:
 DUMPER7_ASSERTS_CheatMenu_C_CreateButtonFromAllEntries;
 
 // Function CheatMenu.CheatMenu_C.CreateButtonFromCharacterPresets
-// 0x0068 (0x0068 - 0x0000)
+// 0x0070 (0x0070 - 0x0000)
 struct CheatMenu_C_CreateButtonFromCharacterPresets final
 {
 public:
-	class FText                                   Name_0;                                            // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm)
-	struct FCheatMenuCharacterLevelPreset         Levels;                                            // 0x0010(0x0028)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FCheatMenuCharacterPresetItems         Items;                                             // 0x0038(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm)
-	class UUI_DebugSpawnMenuEntry*                CreatedWidget;                                     // 0x0048(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x0050(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UCheatMenuCharacterPresetsButton_C*     CallFunc_Create_ReturnValue;                       // 0x0058(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0060(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FText                                   Name_0;                                            // 0x0000(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm)
+	struct FCheatMenuCharacterLevelPreset         Levels;                                            // 0x0018(0x0028)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FCheatMenuCharacterPresetItems         Items;                                             // 0x0040(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm)
+	class UUI_DebugSpawnMenuEntry*                CreatedWidget;                                     // 0x0050(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x0058(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UCheatMenuCharacterPresetsButton_C*     CallFunc_Create_ReturnValue;                       // 0x0060(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0068(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_CreateButtonFromCharacterPresets;
 
 // Function CheatMenu.CheatMenu_C.CreateCharacterPresetEntry
-// 0x0090 (0x0090 - 0x0000)
+// 0x0098 (0x0098 - 0x0000)
 struct CheatMenu_C_CreateCharacterPresetEntry final
 {
 public:
@@ -161,14 +161,14 @@ public:
 	TArray<struct FCheatMenuCharacterPresetItems> ItemLists;                                         // 0x0028(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 	struct FCheatMenuCharacterPresetItems         CallFunc_Array_Get_Item;                           // 0x0038(0x0010)()
 	struct FCheatMenuCharacterLevelPreset         CallFunc_Array_Get_Item_1;                         // 0x0048(0x0028)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0070(0x0010)()
-	class UUI_DebugSpawnMenuEntry*                CallFunc_CreateButtonFromCharacterPresets_CreatedWidget; // 0x0080(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Array_Add_ReturnValue;                    // 0x0088(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0070(0x0018)()
+	class UUI_DebugSpawnMenuEntry*                CallFunc_CreateButtonFromCharacterPresets_CreatedWidget; // 0x0088(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Array_Add_ReturnValue;                    // 0x0090(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_CreateCharacterPresetEntry;
 
 // Function CheatMenu.CheatMenu_C.CreateCheatButtonFromBlueprintID
-// 0x0050 (0x0050 - 0x0000)
+// 0x0058 (0x0058 - 0x0000)
 struct CheatMenu_C_CreateCheatButtonFromBlueprintID final
 {
 public:
@@ -178,9 +178,9 @@ public:
 	bool                                          Allow_Additional_String;                           // 0x0021(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_22[0x6];                                       // 0x0022(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
 	class UUI_DebugSpawnMenuEntry*                CreatedWidget;                                     // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0030(0x0010)()
-	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x0040(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UCheatMenuCheatButton_C*                CallFunc_Create_ReturnValue;                       // 0x0048(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0030(0x0018)()
+	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x0048(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UCheatMenuCheatButton_C*                CallFunc_Create_ReturnValue;                       // 0x0050(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_CreateCheatButtonFromBlueprintID;
 
@@ -209,22 +209,22 @@ public:
 DUMPER7_ASSERTS_CheatMenu_C_CreateCheatEntry;
 
 // Function CheatMenu.CheatMenu_C.CreateDinoButtonAndSetText
-// 0x0088 (0x0088 - 0x0000)
+// 0x00A0 (0x00A0 - 0x0000)
 struct CheatMenu_C_CreateDinoButtonAndSetText final
 {
 public:
 	class FString                                 Text;                                              // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
-	TSoftClassPtr<class UClass>                   DinoBP;                                            // 0x0010(0x0028)(BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash)
-	TSoftClassPtr<class UClass>                   Saddle;                                            // 0x0038(0x0028)(BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash)
-	class UCheatMenuButton_C*                     CreatedButton;                                     // 0x0060(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0068(0x0010)()
-	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x0078(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UCheatMenuButton_C*                     CallFunc_Create_ReturnValue;                       // 0x0080(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	TSoftClassPtr<class UClass>                   DinoBP;                                            // 0x0010(0x0030)(BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash)
+	TSoftClassPtr<class UClass>                   Saddle;                                            // 0x0040(0x0030)(BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash)
+	class UCheatMenuButton_C*                     CreatedButton;                                     // 0x0070(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0078(0x0018)()
+	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x0090(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UCheatMenuButton_C*                     CallFunc_Create_ReturnValue;                       // 0x0098(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_CreateDinoButtonAndSetText;
 
 // Function CheatMenu.CheatMenu_C.CreateDinoEntry
-// 0x0098 (0x0098 - 0x0000)
+// 0x00A8 (0x00A8 - 0x0000)
 struct CheatMenu_C_CreateDinoEntry final
 {
 public:
@@ -233,17 +233,17 @@ public:
 	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<TSoftClassPtr<class UClass>>           DinoBPList;                                        // 0x0018(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 	TArray<TSoftClassPtr<class UClass>>           DinoSaddleList;                                    // 0x0028(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
-	TSoftClassPtr<class UClass>                   CallFunc_Array_Get_Item;                           // 0x0038(0x0028)(HasGetValueTypeHash)
-	TSoftClassPtr<class UClass>                   CallFunc_Array_Get_Item_1;                         // 0x0060(0x0028)(HasGetValueTypeHash)
-	class UCheatMenuButton_C*                     CallFunc_CreateDinoButtonAndSetText_CreatedButton; // 0x0088(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_IsValidSoftClassReference_ReturnValue;    // 0x0090(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_91[0x3];                                       // 0x0091(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         CallFunc_Array_Add_ReturnValue;                    // 0x0094(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	TSoftClassPtr<class UClass>                   CallFunc_Array_Get_Item;                           // 0x0038(0x0030)(HasGetValueTypeHash)
+	TSoftClassPtr<class UClass>                   CallFunc_Array_Get_Item_1;                         // 0x0068(0x0030)(HasGetValueTypeHash)
+	class UCheatMenuButton_C*                     CallFunc_CreateDinoButtonAndSetText_CreatedButton; // 0x0098(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValidSoftClassReference_ReturnValue;    // 0x00A0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_A1[0x3];                                       // 0x00A1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CallFunc_Array_Add_ReturnValue;                    // 0x00A4(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_CreateDinoEntry;
 
 // Function CheatMenu.CheatMenu_C.CreateEggEntry
-// 0x00E8 (0x00E8 - 0x0000)
+// 0x00F8 (0x00F8 - 0x0000)
 struct CheatMenu_C_CreateEggEntry final
 {
 public:
@@ -253,112 +253,112 @@ public:
 	TArray<TSoftClassPtr<class UClass>>           UnFertEggs;                                        // 0x0018(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 	TArray<TSoftClassPtr<class UClass>>           FertEggs;                                          // 0x0028(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 	class FString                                 Temp_string_Variable;                              // 0x0038(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	TSoftClassPtr<class UClass>                   CallFunc_Array_Get_Item;                           // 0x0048(0x0028)(HasGetValueTypeHash)
-	bool                                          CallFunc_IsValidSoftClassReference_ReturnValue;    // 0x0070(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_71[0x7];                                       // 0x0071(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TSoftClassPtr<class UClass>                   CallFunc_Array_Get_Item_1;                         // 0x0078(0x0028)(HasGetValueTypeHash)
-	class FString                                 Temp_string_Variable_1;                            // 0x00A0(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	bool                                          CallFunc_IsValidSoftClassReference_ReturnValue_1;  // 0x00B0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_BooleanXOR_ReturnValue;                   // 0x00B1(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_BooleanOR_ReturnValue;                    // 0x00B2(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          Temp_bool_Variable;                                // 0x00B3(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_B4[0x4];                                       // 0x00B4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 K2Node_Select_Default;                             // 0x00B8(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	class FString                                 CallFunc_Concat_StrStr_ReturnValue;                // 0x00C8(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	class UUI_DebugSpawnMenuEntry*                CallFunc_CreateEggItemButtonFromBlueprintIDs_CreatedWidget; // 0x00D8(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Array_Add_ReturnValue;                    // 0x00E0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	TSoftClassPtr<class UClass>                   CallFunc_Array_Get_Item;                           // 0x0048(0x0030)(HasGetValueTypeHash)
+	bool                                          CallFunc_IsValidSoftClassReference_ReturnValue;    // 0x0078(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_79[0x7];                                       // 0x0079(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TSoftClassPtr<class UClass>                   CallFunc_Array_Get_Item_1;                         // 0x0080(0x0030)(HasGetValueTypeHash)
+	class FString                                 Temp_string_Variable_1;                            // 0x00B0(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValidSoftClassReference_ReturnValue_1;  // 0x00C0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_BooleanXOR_ReturnValue;                   // 0x00C1(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_BooleanOR_ReturnValue;                    // 0x00C2(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          Temp_bool_Variable;                                // 0x00C3(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_C4[0x4];                                       // 0x00C4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 K2Node_Select_Default;                             // 0x00C8(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	class FString                                 CallFunc_Concat_StrStr_ReturnValue;                // 0x00D8(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	class UUI_DebugSpawnMenuEntry*                CallFunc_CreateEggItemButtonFromBlueprintIDs_CreatedWidget; // 0x00E8(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Array_Add_ReturnValue;                    // 0x00F0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_CreateEggEntry;
 
 // Function CheatMenu.CheatMenu_C.CreateEggItemButtonFromBlueprintIDs
-// 0x00E8 (0x00E8 - 0x0000)
+// 0x0100 (0x0100 - 0x0000)
 struct CheatMenu_C_CreateEggItemButtonFromBlueprintIDs final
 {
 public:
 	class FString                                 Name_0;                                            // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
-	TSoftClassPtr<class UClass>                   UnFertilizedEgg;                                   // 0x0010(0x0028)(BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash)
-	TSoftClassPtr<class UClass>                   FertilizedEgg;                                     // 0x0038(0x0028)(BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash)
-	class UUI_DebugSpawnMenuEntry*                CreatedWidget;                                     // 0x0060(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	bool                                          Temp_bool_Variable;                                // 0x0068(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_69[0x7];                                       // 0x0069(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UClass*                                 CallFunc_ClassAssetResolve_ReturnValue;            // 0x0070(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UClass*                                 CallFunc_ClassAssetResolve_ReturnValue_1;          // 0x0078(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0080(0x0010)()
-	bool                                          CallFunc_IsValidClass_ReturnValue;                 // 0x0090(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_91[0x7];                                       // 0x0091(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UClass*                                 K2Node_Select_Default;                             // 0x0098(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x00A0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UClass*                                 K2Node_ClassDynamicCast_AsPrimal_Item;             // 0x00A8(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	bool                                          K2Node_ClassDynamicCast_bSuccess;                  // 0x00B0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_B1[0x7];                                       // 0x00B1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UCheatMenuEggButton_C*                  CallFunc_Create_ReturnValue;                       // 0x00B8(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	class UObject*                                CallFunc_GetClassDefaultObject_ReturnValue;        // 0x00C0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UPrimalItem*                            K2Node_DynamicCast_AsPrimal_Item;                  // 0x00C8(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	bool                                          K2Node_DynamicCast_bSuccess;                       // 0x00D0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_D1[0x7];                                       // 0x00D1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UTexture2D*                             CallFunc_GetItemIconJIT_ReturnValue;               // 0x00D8(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x00E0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_IsValid_ReturnValue_1;                    // 0x00E1(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	TSoftClassPtr<class UClass>                   UnFertilizedEgg;                                   // 0x0010(0x0030)(BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash)
+	TSoftClassPtr<class UClass>                   FertilizedEgg;                                     // 0x0040(0x0030)(BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash)
+	class UUI_DebugSpawnMenuEntry*                CreatedWidget;                                     // 0x0070(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	bool                                          Temp_bool_Variable;                                // 0x0078(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_79[0x7];                                       // 0x0079(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UClass*                                 CallFunc_ClassAssetResolve_ReturnValue;            // 0x0080(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UClass*                                 CallFunc_ClassAssetResolve_ReturnValue_1;          // 0x0088(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0090(0x0018)()
+	bool                                          CallFunc_IsValidClass_ReturnValue;                 // 0x00A8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_A9[0x7];                                       // 0x00A9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UClass*                                 K2Node_Select_Default;                             // 0x00B0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x00B8(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UClass*                                 K2Node_ClassDynamicCast_AsPrimal_Item;             // 0x00C0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	bool                                          K2Node_ClassDynamicCast_bSuccess;                  // 0x00C8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_C9[0x7];                                       // 0x00C9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UCheatMenuEggButton_C*                  CallFunc_Create_ReturnValue;                       // 0x00D0(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class UObject*                                CallFunc_GetClassDefaultObject_ReturnValue;        // 0x00D8(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UPrimalItem*                            K2Node_DynamicCast_AsPrimal_Item;                  // 0x00E0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	bool                                          K2Node_DynamicCast_bSuccess;                       // 0x00E8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_E9[0x7];                                       // 0x00E9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UTexture2D*                             CallFunc_GetItemIconJIT_ReturnValue;               // 0x00F0(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x00F8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValid_ReturnValue_1;                    // 0x00F9(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_CreateEggItemButtonFromBlueprintIDs;
 
 // Function CheatMenu.CheatMenu_C.CreateFolderButtons
-// 0x0038 (0x0038 - 0x0000)
+// 0x0040 (0x0040 - 0x0000)
 struct CheatMenu_C_CreateFolderButtons final
 {
 public:
-	class FText                                   Name_0;                                            // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm)
-	int32                                         ScreenNumber;                                      // 0x0010(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UTexture2D*                             Image_0;                                           // 0x0018(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UUI_DebugSpawnMenuEntry*                outWidget;                                         // 0x0020(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x0028(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UCheatMenuFolderButton_C*               CallFunc_Create_ReturnValue;                       // 0x0030(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class FText                                   Name_0;                                            // 0x0000(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm)
+	int32                                         ScreenNumber;                                      // 0x0018(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UTexture2D*                             Image_0;                                           // 0x0020(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UUI_DebugSpawnMenuEntry*                outWidget;                                         // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x0030(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UCheatMenuFolderButton_C*               CallFunc_Create_ReturnValue;                       // 0x0038(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_CreateFolderButtons;
 
 // Function CheatMenu.CheatMenu_C.CreateItemButtonAndSetText
-// 0x0048 (0x0048 - 0x0000)
+// 0x0050 (0x0050 - 0x0000)
 struct CheatMenu_C_CreateItemButtonAndSetText final
 {
 public:
 	class FString                                 ItemName;                                          // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
 	class FString                                 ItemSpawnString;                                   // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
 	class UCheatMenuButton_C*                     CreatedButton;                                     // 0x0020(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0028(0x0010)()
-	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x0038(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UCheatMenuItemButton_C*                 CallFunc_Create_ReturnValue;                       // 0x0040(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0028(0x0018)()
+	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x0040(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UCheatMenuItemButton_C*                 CallFunc_Create_ReturnValue;                       // 0x0048(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_CreateItemButtonAndSetText;
 
 // Function CheatMenu.CheatMenu_C.CreateItemButtonFromBlueprintID
-// 0x0060 (0x0060 - 0x0000)
+// 0x0068 (0x0068 - 0x0000)
 struct CheatMenu_C_CreateItemButtonFromBlueprintID final
 {
 public:
-	TSoftClassPtr<class UClass>                   Blueprint;                                         // 0x0000(0x0028)(BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash)
-	class UUI_DebugSpawnMenuEntry*                CreatedWidget;                                     // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_IsValidSoftClassReference_ReturnValue;    // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UClass*                                 CallFunc_ClassAssetResolve_ReturnValue;            // 0x0038(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UClass*                                 K2Node_ClassDynamicCast_AsPrimal_Item;             // 0x0040(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	bool                                          K2Node_ClassDynamicCast_bSuccess;                  // 0x0048(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_49[0x7];                                       // 0x0049(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x0050(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UCheatMenuItemButton_C*                 CallFunc_Create_ReturnValue;                       // 0x0058(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	TSoftClassPtr<class UClass>                   Blueprint;                                         // 0x0000(0x0030)(BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash)
+	class UUI_DebugSpawnMenuEntry*                CreatedWidget;                                     // 0x0030(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValidSoftClassReference_ReturnValue;    // 0x0038(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UClass*                                 CallFunc_ClassAssetResolve_ReturnValue;            // 0x0040(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UClass*                                 K2Node_ClassDynamicCast_AsPrimal_Item;             // 0x0048(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	bool                                          K2Node_ClassDynamicCast_bSuccess;                  // 0x0050(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_51[0x7];                                       // 0x0051(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x0058(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UCheatMenuItemButton_C*                 CallFunc_Create_ReturnValue;                       // 0x0060(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_CreateItemButtonFromBlueprintID;
 
 // Function CheatMenu.CheatMenu_C.CreateMapJumpButton
-// 0x0068 (0x0068 - 0x0000)
+// 0x0070 (0x0070 - 0x0000)
 struct CheatMenu_C_CreateMapJumpButton final
 {
 public:
 	struct FCheatMapJumpInfo                      Cheat;                                             // 0x0000(0x0040)(BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash)
 	class UUI_DebugSpawnMenuEntry*                CreatedWidget;                                     // 0x0040(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x0048(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0050(0x0010)()
-	class UCheatMapJumpButton_C*                  CallFunc_Create_ReturnValue;                       // 0x0060(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0050(0x0018)()
+	class UCheatMapJumpButton_C*                  CallFunc_Create_ReturnValue;                       // 0x0068(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_CreateMapJumpButton;
 
@@ -377,16 +377,16 @@ public:
 DUMPER7_ASSERTS_CheatMenu_C_CreateMapJumpEntry;
 
 // Function CheatMenu.CheatMenu_C.CreateMapOpenButton
-// 0x0040 (0x0040 - 0x0000)
+// 0x0048 (0x0048 - 0x0000)
 struct CheatMenu_C_CreateMapOpenButton final
 {
 public:
 	class FString                                 Name_0;                                            // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
 	class FName                                   MapName;                                           // 0x0010(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	class UUI_DebugSpawnMenuEntry*                CreatedWidget;                                     // 0x0018(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0020(0x0010)()
-	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x0030(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UCheatMenuMapOpenButton_C*              CallFunc_Create_ReturnValue;                       // 0x0038(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0020(0x0018)()
+	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x0038(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UCheatMenuMapOpenButton_C*              CallFunc_Create_ReturnValue;                       // 0x0040(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_CreateMapOpenButton;
 
@@ -407,7 +407,7 @@ public:
 DUMPER7_ASSERTS_CheatMenu_C_CreateMapOpenEntry;
 
 // Function CheatMenu.CheatMenu_C.ExecuteUbergraph_CheatMenu
-// 0x0628 (0x0628 - 0x0000)
+// 0x0678 (0x0678 - 0x0000)
 struct CheatMenu_C_ExecuteUbergraph_CheatMenu final
 {
 public:
@@ -477,123 +477,123 @@ public:
 	int32                                         Temp_int_Loop_Counter_Variable_4;                  // 0x02A0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	int32                                         CallFunc_Add_IntInt_ReturnValue_4;                 // 0x02A4(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	TArray<class FString>                         Temp_string_Variable_21;                           // 0x02A8(0x0010)(ReferenceParm)
-	class FText                                   K2Node_ComponentBoundEvent_Text_3;                 // 0x02B8(0x0010)(ConstParm)
-	ETextCommit                                   K2Node_ComponentBoundEvent_CommitMethod_2;         // 0x02C8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_2C9[0x7];                                      // 0x02C9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 CallFunc_Conv_TextToString_ReturnValue;            // 0x02D0(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	class FText                                   K2Node_ComponentBoundEvent_Text_2;                 // 0x02E0(0x0010)(ConstParm)
-	ETextCommit                                   K2Node_ComponentBoundEvent_CommitMethod_1;         // 0x02F0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_2F1[0x3];                                      // 0x02F1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         CallFunc_Conv_StringToInt_ReturnValue;             // 0x02F4(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class FString                                 CallFunc_Conv_TextToString_ReturnValue_1;          // 0x02F8(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	class FText                                   CallFunc_Conv_IntToText_ReturnValue;               // 0x0308(0x0010)()
-	int32                                         CallFunc_Conv_StringToInt_ReturnValue_1;           // 0x0318(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_31C[0x4];                                      // 0x031C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FText                                   CallFunc_Conv_IntToText_ReturnValue_1;             // 0x0320(0x0010)()
-	class FText                                   K2Node_ComponentBoundEvent_Text_1;                 // 0x0330(0x0010)(ConstParm)
-	ETextCommit                                   K2Node_ComponentBoundEvent_CommitMethod;           // 0x0340(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_341[0x7];                                      // 0x0341(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 CallFunc_Conv_TextToString_ReturnValue_2;          // 0x0348(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Conv_StringToInt_ReturnValue_2;           // 0x0358(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_35C[0x4];                                      // 0x035C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FText                                   CallFunc_Conv_IntToText_ReturnValue_2;             // 0x0360(0x0010)()
-	int32                                         Temp_int_Array_Index_Variable_4;                   // 0x0370(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_374[0x4];                                      // 0x0374(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UUI_DebugSpawnMenuEntry*                CallFunc_Array_Get_Item;                           // 0x0378(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	class UPanelSlot*                             CallFunc_AddChild_ReturnValue;                     // 0x0380(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_EqualEqual_StrStr_ReturnValue;            // 0x0388(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_389[0x3];                                      // 0x0389(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x038C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         K2Node_CustomEvent_ToScreen;                       // 0x0390(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x0394(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue;            // 0x0395(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_396[0x2];                                      // 0x0396(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	class FText                                   CallFunc_Array_Get_Item_1;                         // 0x0398(0x0010)()
-	int32                                         CallFunc_Array_Length_ReturnValue_1;               // 0x03A8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_IntInt_ReturnValue_1;                // 0x03AC(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_3AD[0x3];                                      // 0x03AD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class UUI_DebugSpawnMenuEntry*                CallFunc_CreateFolderButtons_outWidget;            // 0x03B0(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	class UUI_DebugSpawnMenuEntry*                CallFunc_Array_Get_Item_2;                         // 0x03B8(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Array_Length_ReturnValue_2;               // 0x03C0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_3C4[0x4];                                      // 0x03C4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UPanelSlot*                             CallFunc_AddChild_ReturnValue_1;                   // 0x03C8(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_IntInt_ReturnValue_2;                // 0x03D0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_3D1[0x7];                                      // 0x03D1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FString>                         Temp_string_Variable_22;                           // 0x03D8(0x0010)(ReferenceParm)
-	bool                                          K2Node_ComponentBoundEvent_bIsChecked_1;           // 0x03E8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          K2Node_ComponentBoundEvent_bIsChecked;             // 0x03E9(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	ECheckBoxState                                K2Node_Select_Default;                             // 0x03EA(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	ESlateVisibility                              K2Node_Select_Default_1;                           // 0x03EB(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_3EC[0x4];                                      // 0x03EC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FString>                         Temp_string_Variable_23;                           // 0x03F0(0x0010)(ReferenceParm)
-	ECheatMenuOptionTypes                         CallFunc_Array_Get_Item_3;                         // 0x0400(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          K2Node_SwitchEnum_CmpSuccess;                      // 0x0401(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_402[0x6];                                      // 0x0402(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<TSoftClassPtr<class UClass>>           CallFunc_GetDinoListsForEntry_Dinos;               // 0x0408(0x0010)(ReferenceParm)
-	TArray<TSoftClassPtr<class UClass>>           CallFunc_GetDinoListsForEntry_Saddles;             // 0x0418(0x0010)(ReferenceParm)
-	bool                                          CallFunc_GetDinoListsForEntry_Success;             // 0x0428(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_429[0x7];                                      // 0x0429(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<TSoftClassPtr<class UClass>>           CallFunc_GetEggListsForEntry_DinoEggBlueprintIDs;  // 0x0430(0x0010)(ReferenceParm)
-	TArray<TSoftClassPtr<class UClass>>           CallFunc_GetEggListsForEntry_DinoFertEggBlueprintIDs; // 0x0440(0x0010)(ReferenceParm)
-	bool                                          CallFunc_GetEggListsForEntry_Success;              // 0x0450(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_451[0x7];                                      // 0x0451(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FString>                         CallFunc_GetCheatListsForEntry_CheatStrings;       // 0x0458(0x0010)(ReferenceParm)
-	TArray<bool>                                  CallFunc_GetCheatListsForEntry_RequireConfirm;     // 0x0468(0x0010)(ReferenceParm)
-	bool                                          CallFunc_GetCheatListsForEntry_AllowAdditionalString; // 0x0478(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_GetCheatListsForEntry_Success;            // 0x0479(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_47A[0x6];                                      // 0x047A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FCheatMenuCharacterLevelPreset> CallFunc_GetCharacterPresetsForEntry_CharacterPresetLevel; // 0x0480(0x0010)(ReferenceParm)
-	TArray<struct FCheatMenuCharacterPresetItems> CallFunc_GetCharacterPresetsForEntry_CharacterPresetItem; // 0x0490(0x0010)(ReferenceParm)
-	bool                                          CallFunc_GetCharacterPresetsForEntry_Success;      // 0x04A0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_4A1[0x7];                                      // 0x04A1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FString>                         Temp_string_Variable_24;                           // 0x04A8(0x0010)(ReferenceParm)
-	TArray<struct FCheatMapJumpInfo>              CallFunc_GetMapJumpListForEntry_MapJumps;          // 0x04B8(0x0010)(ReferenceParm)
-	bool                                          CallFunc_GetMapJumpListForEntry_Success;           // 0x04C8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue_1;          // 0x04C9(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_4CA[0x6];                                      // 0x04CA(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FString>                         CallFunc_GetMapJumpArray_EmptyStringArray;         // 0x04D0(0x0010)(ReferenceParm)
-	TArray<class FString>                         Temp_string_Variable_25;                           // 0x04E0(0x0010)(ReferenceParm)
-	TArray<class FString>                         CallFunc_GetMapOpenListsForEntry_CheatStrings;     // 0x04F0(0x0010)(ReferenceParm)
-	bool                                          CallFunc_GetMapOpenListsForEntry_Success;          // 0x0500(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_501[0x7];                                      // 0x0501(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UTexture2D*                             CallFunc_Array_Get_Item_4;                         // 0x0508(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	class UUI_DebugSpawnMenuEntry*                CallFunc_CreateFolderButtons_outWidget_1;          // 0x0510(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Array_Add_ReturnValue;                    // 0x0518(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_51C[0x4];                                      // 0x051C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FString>                         Temp_string_Variable_26;                           // 0x0520(0x0010)(ReferenceParm)
-	class FString                                 CallFunc_Array_Get_Item_5;                         // 0x0530(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0540(0x0010)()
-	TArray<class FString>                         CallFunc_GetBossSpawnArray_BossNames;              // 0x0550(0x0010)(ReferenceParm)
-	TArray<class FString>                         CallFunc_GetBossSpawnArray_BossCheats;             // 0x0560(0x0010)(ReferenceParm)
-	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue_2;          // 0x0570(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_571[0x7];                                      // 0x0571(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<TSoftClassPtr<class UClass>>           K2Node_Select_Default_2;                           // 0x0578(0x0010)(ReferenceParm)
-	class FText                                   K2Node_ComponentBoundEvent_Text;                   // 0x0588(0x0010)(ConstParm)
-	TSoftClassPtr<class UClass>                   CallFunc_Array_Get_Item_6;                         // 0x0598(0x0028)(HasGetValueTypeHash)
-	class FString                                 CallFunc_Conv_TextToString_ReturnValue_3;          // 0x05C0(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	class UUI_DebugSpawnMenuEntry*                CallFunc_CreateItemButtonFromBlueprintID_CreatedWidget; // 0x05D0(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x05D8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_5D9[0x3];                                      // 0x05D9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         CallFunc_Array_Add_ReturnValue_1;                  // 0x05DC(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Array_Length_ReturnValue_3;               // 0x05E0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_IntInt_ReturnValue_3;                // 0x05E4(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_EqualEqual_StrStr_ReturnValue_1;          // 0x05E5(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_5E6[0x2];                                      // 0x05E6(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         Temp_int_Variable_1;                               // 0x05E8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_5EC[0x4];                                      // 0x05EC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FString>                         K2Node_Select_Default_3;                           // 0x05F0(0x0010)(ReferenceParm)
-	bool                                          CallFunc_Contains_ReturnValue;                     // 0x0600(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_601[0x7];                                      // 0x0601(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 CallFunc_Array_Get_Item_7;                         // 0x0608(0x0010)(ZeroConstructor, HasGetValueTypeHash)
-	int32                                         CallFunc_Array_Length_ReturnValue_4;               // 0x0618(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Less_IntInt_ReturnValue_4;                // 0x061C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_EqualEqual_StrStr_ReturnValue_2;          // 0x061D(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_61E[0x2];                                      // 0x061E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         CallFunc_Len_ReturnValue;                          // 0x0620(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue_3;          // 0x0624(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_BooleanOR_ReturnValue;                    // 0x0625(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_BooleanOR_ReturnValue_1;                  // 0x0626(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_BooleanOR_ReturnValue_2;                  // 0x0627(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FText                                   K2Node_ComponentBoundEvent_Text_3;                 // 0x02B8(0x0018)(ConstParm)
+	ETextCommit                                   K2Node_ComponentBoundEvent_CommitMethod_2;         // 0x02D0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_2D1[0x7];                                      // 0x02D1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 CallFunc_Conv_TextToString_ReturnValue;            // 0x02D8(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	class FText                                   K2Node_ComponentBoundEvent_Text_2;                 // 0x02E8(0x0018)(ConstParm)
+	ETextCommit                                   K2Node_ComponentBoundEvent_CommitMethod_1;         // 0x0300(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_301[0x3];                                      // 0x0301(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CallFunc_Conv_StringToInt_ReturnValue;             // 0x0304(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FString                                 CallFunc_Conv_TextToString_ReturnValue_1;          // 0x0308(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	class FText                                   CallFunc_Conv_IntToText_ReturnValue;               // 0x0318(0x0018)()
+	int32                                         CallFunc_Conv_StringToInt_ReturnValue_1;           // 0x0330(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_334[0x4];                                      // 0x0334(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class FText                                   CallFunc_Conv_IntToText_ReturnValue_1;             // 0x0338(0x0018)()
+	class FText                                   K2Node_ComponentBoundEvent_Text_1;                 // 0x0350(0x0018)(ConstParm)
+	ETextCommit                                   K2Node_ComponentBoundEvent_CommitMethod;           // 0x0368(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_369[0x7];                                      // 0x0369(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 CallFunc_Conv_TextToString_ReturnValue_2;          // 0x0370(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Conv_StringToInt_ReturnValue_2;           // 0x0380(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_384[0x4];                                      // 0x0384(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class FText                                   CallFunc_Conv_IntToText_ReturnValue_2;             // 0x0388(0x0018)()
+	int32                                         Temp_int_Array_Index_Variable_4;                   // 0x03A0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_3A4[0x4];                                      // 0x03A4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UUI_DebugSpawnMenuEntry*                CallFunc_Array_Get_Item;                           // 0x03A8(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class UPanelSlot*                             CallFunc_AddChild_ReturnValue;                     // 0x03B0(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_EqualEqual_StrStr_ReturnValue;            // 0x03B8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_3B9[0x3];                                      // 0x03B9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CallFunc_Array_Length_ReturnValue;                 // 0x03BC(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         K2Node_CustomEvent_ToScreen;                       // 0x03C0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_IntInt_ReturnValue;                  // 0x03C4(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue;            // 0x03C5(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_3C6[0x2];                                      // 0x03C6(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	class FText                                   CallFunc_Array_Get_Item_1;                         // 0x03C8(0x0018)()
+	int32                                         CallFunc_Array_Length_ReturnValue_1;               // 0x03E0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_IntInt_ReturnValue_1;                // 0x03E4(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_3E5[0x3];                                      // 0x03E5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class UUI_DebugSpawnMenuEntry*                CallFunc_CreateFolderButtons_outWidget;            // 0x03E8(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class UUI_DebugSpawnMenuEntry*                CallFunc_Array_Get_Item_2;                         // 0x03F0(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Array_Length_ReturnValue_2;               // 0x03F8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_3FC[0x4];                                      // 0x03FC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UPanelSlot*                             CallFunc_AddChild_ReturnValue_1;                   // 0x0400(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_IntInt_ReturnValue_2;                // 0x0408(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_409[0x7];                                      // 0x0409(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class FString>                         Temp_string_Variable_22;                           // 0x0410(0x0010)(ReferenceParm)
+	bool                                          K2Node_ComponentBoundEvent_bIsChecked_1;           // 0x0420(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          K2Node_ComponentBoundEvent_bIsChecked;             // 0x0421(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	ECheckBoxState                                K2Node_Select_Default;                             // 0x0422(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	ESlateVisibility                              K2Node_Select_Default_1;                           // 0x0423(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_424[0x4];                                      // 0x0424(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class FString>                         Temp_string_Variable_23;                           // 0x0428(0x0010)(ReferenceParm)
+	ECheatMenuOptionTypes                         CallFunc_Array_Get_Item_3;                         // 0x0438(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          K2Node_SwitchEnum_CmpSuccess;                      // 0x0439(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_43A[0x6];                                      // 0x043A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<TSoftClassPtr<class UClass>>           CallFunc_GetDinoListsForEntry_Dinos;               // 0x0440(0x0010)(ReferenceParm)
+	TArray<TSoftClassPtr<class UClass>>           CallFunc_GetDinoListsForEntry_Saddles;             // 0x0450(0x0010)(ReferenceParm)
+	bool                                          CallFunc_GetDinoListsForEntry_Success;             // 0x0460(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_461[0x7];                                      // 0x0461(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<TSoftClassPtr<class UClass>>           CallFunc_GetEggListsForEntry_DinoEggBlueprintIDs;  // 0x0468(0x0010)(ReferenceParm)
+	TArray<TSoftClassPtr<class UClass>>           CallFunc_GetEggListsForEntry_DinoFertEggBlueprintIDs; // 0x0478(0x0010)(ReferenceParm)
+	bool                                          CallFunc_GetEggListsForEntry_Success;              // 0x0488(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_489[0x7];                                      // 0x0489(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class FString>                         CallFunc_GetCheatListsForEntry_CheatStrings;       // 0x0490(0x0010)(ReferenceParm)
+	TArray<bool>                                  CallFunc_GetCheatListsForEntry_RequireConfirm;     // 0x04A0(0x0010)(ReferenceParm)
+	bool                                          CallFunc_GetCheatListsForEntry_AllowAdditionalString; // 0x04B0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_GetCheatListsForEntry_Success;            // 0x04B1(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_4B2[0x6];                                      // 0x04B2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FCheatMenuCharacterLevelPreset> CallFunc_GetCharacterPresetsForEntry_CharacterPresetLevel; // 0x04B8(0x0010)(ReferenceParm)
+	TArray<struct FCheatMenuCharacterPresetItems> CallFunc_GetCharacterPresetsForEntry_CharacterPresetItem; // 0x04C8(0x0010)(ReferenceParm)
+	bool                                          CallFunc_GetCharacterPresetsForEntry_Success;      // 0x04D8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_4D9[0x7];                                      // 0x04D9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class FString>                         Temp_string_Variable_24;                           // 0x04E0(0x0010)(ReferenceParm)
+	TArray<struct FCheatMapJumpInfo>              CallFunc_GetMapJumpListForEntry_MapJumps;          // 0x04F0(0x0010)(ReferenceParm)
+	bool                                          CallFunc_GetMapJumpListForEntry_Success;           // 0x0500(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue_1;          // 0x0501(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_502[0x6];                                      // 0x0502(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class FString>                         CallFunc_GetMapJumpArray_EmptyStringArray;         // 0x0508(0x0010)(ReferenceParm)
+	TArray<class FString>                         Temp_string_Variable_25;                           // 0x0518(0x0010)(ReferenceParm)
+	TArray<class FString>                         CallFunc_GetMapOpenListsForEntry_CheatStrings;     // 0x0528(0x0010)(ReferenceParm)
+	bool                                          CallFunc_GetMapOpenListsForEntry_Success;          // 0x0538(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_539[0x7];                                      // 0x0539(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UTexture2D*                             CallFunc_Array_Get_Item_4;                         // 0x0540(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class UUI_DebugSpawnMenuEntry*                CallFunc_CreateFolderButtons_outWidget_1;          // 0x0548(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Array_Add_ReturnValue;                    // 0x0550(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_554[0x4];                                      // 0x0554(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class FString>                         Temp_string_Variable_26;                           // 0x0558(0x0010)(ReferenceParm)
+	class FString                                 CallFunc_Array_Get_Item_5;                         // 0x0568(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	class FText                                   CallFunc_Conv_StringToText_ReturnValue;            // 0x0578(0x0018)()
+	TArray<class FString>                         CallFunc_GetBossSpawnArray_BossNames;              // 0x0590(0x0010)(ReferenceParm)
+	TArray<class FString>                         CallFunc_GetBossSpawnArray_BossCheats;             // 0x05A0(0x0010)(ReferenceParm)
+	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue_2;          // 0x05B0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_5B1[0x7];                                      // 0x05B1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<TSoftClassPtr<class UClass>>           K2Node_Select_Default_2;                           // 0x05B8(0x0010)(ReferenceParm)
+	class FText                                   K2Node_ComponentBoundEvent_Text;                   // 0x05C8(0x0018)(ConstParm)
+	TSoftClassPtr<class UClass>                   CallFunc_Array_Get_Item_6;                         // 0x05E0(0x0030)(HasGetValueTypeHash)
+	class FString                                 CallFunc_Conv_TextToString_ReturnValue_3;          // 0x0610(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	class UUI_DebugSpawnMenuEntry*                CallFunc_CreateItemButtonFromBlueprintID_CreatedWidget; // 0x0620(0x0008)(ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_IsValid_ReturnValue;                      // 0x0628(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_629[0x3];                                      // 0x0629(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CallFunc_Array_Add_ReturnValue_1;                  // 0x062C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Array_Length_ReturnValue_3;               // 0x0630(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_IntInt_ReturnValue_3;                // 0x0634(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_EqualEqual_StrStr_ReturnValue_1;          // 0x0635(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_636[0x2];                                      // 0x0636(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         Temp_int_Variable_1;                               // 0x0638(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_63C[0x4];                                      // 0x063C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class FString>                         K2Node_Select_Default_3;                           // 0x0640(0x0010)(ReferenceParm)
+	bool                                          CallFunc_Contains_ReturnValue;                     // 0x0650(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_651[0x7];                                      // 0x0651(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 CallFunc_Array_Get_Item_7;                         // 0x0658(0x0010)(ZeroConstructor, HasGetValueTypeHash)
+	int32                                         CallFunc_Array_Length_ReturnValue_4;               // 0x0668(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Less_IntInt_ReturnValue_4;                // 0x066C(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_EqualEqual_StrStr_ReturnValue_2;          // 0x066D(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_66E[0x2];                                      // 0x066E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CallFunc_Len_ReturnValue;                          // 0x0670(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue_3;          // 0x0674(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_BooleanOR_ReturnValue;                    // 0x0675(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_BooleanOR_ReturnValue_1;                  // 0x0676(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_BooleanOR_ReturnValue_2;                  // 0x0677(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_ExecuteUbergraph_CheatMenu;
 
@@ -619,7 +619,7 @@ public:
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<struct FCheatMenuCharacterLevelPreset> CharacterPresetLevel_0;                            // 0x0008(0x0010)(Parm, OutParm)
 	TArray<struct FCheatMenuCharacterPresetItems> CharacterPresetItem;                               // 0x0018(0x0010)(Parm, OutParm)
-	bool                                          success;                                           // 0x0028(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          Success;                                           // 0x0028(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue;            // 0x0029(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_GetCharacterPresetsForEntry;
@@ -634,7 +634,7 @@ public:
 	TArray<class FString>                         CheatStrings_0;                                    // 0x0008(0x0010)(Parm, OutParm)
 	TArray<bool>                                  RequireConfirm;                                    // 0x0018(0x0010)(Parm, OutParm)
 	bool                                          AllowAdditionalString;                             // 0x0028(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          success;                                           // 0x0029(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          Success;                                           // 0x0029(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_2A[0x6];                                       // 0x002A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<class FString>                         CallFunc_GetBossSpawnArray_BossNames;              // 0x0030(0x0010)(ReferenceParm)
 	TArray<class FString>                         CallFunc_GetBossSpawnArray_BossCheats;             // 0x0040(0x0010)(ReferenceParm)
@@ -652,7 +652,7 @@ public:
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<TSoftClassPtr<class UClass>>           Dinos;                                             // 0x0008(0x0010)(Parm, OutParm)
 	TArray<TSoftClassPtr<class UClass>>           Saddles;                                           // 0x0018(0x0010)(Parm, OutParm)
-	bool                                          success;                                           // 0x0028(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          Success;                                           // 0x0028(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue;            // 0x0029(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue_1;          // 0x002A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue_2;          // 0x002B(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
@@ -673,7 +673,7 @@ public:
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<TSoftClassPtr<class UClass>>           DinoEggBlueprintIDs_0;                             // 0x0008(0x0010)(Parm, OutParm)
 	TArray<TSoftClassPtr<class UClass>>           DinoFertEggBlueprintIDs_0;                         // 0x0018(0x0010)(Parm, OutParm)
-	bool                                          success;                                           // 0x0028(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          Success;                                           // 0x0028(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue;            // 0x0029(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue_1;          // 0x002A(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue_2;          // 0x002B(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
@@ -709,7 +709,7 @@ public:
 	int32                                         ScreenTracker_0;                                   // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<struct FCheatMapJumpInfo>              MapJumps;                                          // 0x0008(0x0010)(Parm, OutParm)
-	bool                                          success;                                           // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          Success;                                           // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	class UWorld*                                 CallFunc_GetGameWorld_ReturnValue;                 // 0x0020(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	class FString                                 CallFunc_GetObjectName_ReturnValue;                // 0x0028(0x0010)(ZeroConstructor, HasGetValueTypeHash)
@@ -725,7 +725,7 @@ public:
 	int32                                         ScreenTracker_0;                                   // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<class FString>                         CheatStrings_0;                                    // 0x0008(0x0010)(Parm, OutParm)
-	bool                                          success;                                           // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          Success;                                           // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          CallFunc_EqualEqual_IntInt_ReturnValue;            // 0x0019(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_CheatMenu_C_GetMapOpenListsForEntry;
@@ -740,14 +740,14 @@ public:
 DUMPER7_ASSERTS_CheatMenu_C_Screen_Changed;
 
 // Function CheatMenu.CheatMenu_C.SetupOptionBar
-// 0x0018 (0x0018 - 0x0000)
+// 0x0020 (0x0020 - 0x0000)
 struct CheatMenu_C_SetupOptionBar final
 {
 public:
 	int32                                         CallFunc_Array_Get_Item;                           // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          CallFunc_Array_Get_Item_1;                         // 0x0004(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_5[0x3];                                        // 0x0005(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FText                                   CallFunc_Conv_IntToText_ReturnValue;               // 0x0008(0x0010)()
+	class FText                                   CallFunc_Conv_IntToText_ReturnValue;               // 0x0008(0x0018)()
 };
 DUMPER7_ASSERTS_CheatMenu_C_SetupOptionBar;
 

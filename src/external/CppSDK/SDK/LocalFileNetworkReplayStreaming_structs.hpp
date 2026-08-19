@@ -14,7 +14,7 @@
 SDK_NAMESPACE_START
 
 // Enum LocalFileNetworkReplayStreaming.ELocalFileReplayResult
-// NumValues: 0x000D
+// NumValues: 0x0009
 enum class ELocalFileReplayResult : uint8
 {
 	Success                                  = 0,
@@ -24,12 +24,8 @@ enum class ELocalFileReplayResult : uint8
 	CompressionNotSupported                  = 4,
 	DecryptBuffer                            = 5,
 	EncryptionNotSupported                   = 6,
-	EncryptBuffer                            = 7,
-	CompressBuffer                           = 8,
-	InvalidName                              = 9,
-	FileWriter                               = 10,
-	Unknown                                  = 11,
-	ELocalFileReplayResult_MAX               = 12,
+	Unknown                                  = 7,
+	ELocalFileReplayResult_MAX               = 8,
 };
 
 SDK_NAMESPACE_END

@@ -439,31 +439,6 @@ float UGeometryCacheComponent::GetDuration() const
 }
 
 
-// Function GeometryCache.GeometryCacheComponent.GetElapsedTime
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-float UGeometryCacheComponent::GetElapsedTime() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("GeometryCacheComponent", "GetElapsedTime");
-
-	Params::GeometryCacheComponent_GetElapsedTime Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function GeometryCache.GeometryCacheComponent.GetMotionVectorScale
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
@@ -502,31 +477,6 @@ int32 UGeometryCacheComponent::GetNumberOfFrames() const
 		Func = Class->GetFunction("GeometryCacheComponent", "GetNumberOfFrames");
 
 	Params::GeometryCacheComponent_GetNumberOfFrames Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function GeometryCache.GeometryCacheComponent.GetNumberOfTracks
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 UGeometryCacheComponent::GetNumberOfTracks() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("GeometryCacheComponent", "GetNumberOfTracks");
-
-	Params::GeometryCacheComponent_GetNumberOfTracks Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

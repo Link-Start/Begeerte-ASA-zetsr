@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass BP_ShooterReplicationGraph.BP_ShooterReplicationGraph_C
-// 0x0000 (0x0700 - 0x0700)
+// 0x0000 (0x06F0 - 0x06F0)
 class UBP_ShooterReplicationGraph_C final : public UShooterReplicationGraph
 {
 public:

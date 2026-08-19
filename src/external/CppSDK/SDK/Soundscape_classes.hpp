@@ -10,13 +10,13 @@
 
 #include "Basic.hpp"
 
-#include "Soundscape_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
+#include "DeveloperSettings_classes.hpp"
+#include "Soundscape_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "GameplayTags_structs.hpp"
-#include "DeveloperSettings_classes.hpp"
 
 
 SDK_NAMESPACE_START
@@ -50,7 +50,7 @@ DUMPER7_ASSERTS_USoundscapeBPFunctionLibrary;
 class USoundscapeColor final : public UObject
 {
 public:
-	class USoundBase*                             Sound;                                             // 0x0028(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class USoundBase*                             Sound;                                             // 0x0028(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         VolumeBase;                                        // 0x0030(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         PitchBase;                                         // 0x0034(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FSoundscapeColorModulationSettings     ModulationBehavior;                                // 0x0038(0x0030)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
@@ -79,7 +79,7 @@ DUMPER7_ASSERTS_USoundscapeColor;
 class UActiveSoundscapeColorVoice final : public UObject
 {
 public:
-	class UAudioComponent*                        AudioComponent;                                    // 0x0028(0x0008)(Edit, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UAudioComponent*                        AudioComponent;                                    // 0x0028(0x0008)(Edit, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FTimerHandle                           TimerHandle;                                       // 0x0030(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bFree;                                             // 0x0038(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -108,14 +108,14 @@ DUMPER7_ASSERTS_UActiveSoundscapeColorVoice;
 class UActiveSoundscapeColor final : public UObject
 {
 public:
-	class USoundBase*                             Sound;                                             // 0x0028(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class USoundBase*                             Sound;                                             // 0x0028(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_30[0x8];                                       // 0x0030(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FSoundscapeColorModulationSettings     ModulationBehavior;                                // 0x0038(0x0030)(NoDestructor, NativeAccessSpecifierPrivate)
 	struct FSoundscapeColorPlaybackSettings       PlaybackBehavior;                                  // 0x0068(0x000C)(NoDestructor, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_74[0x4];                                       // 0x0074(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FSoundscapeColorSpawnSettings          SpawnBehavior;                                     // 0x0078(0x0088)(NoDestructor, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_100[0x78];                                     // 0x0100(0x0078)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UActiveSoundscapeColorVoice*>    SoundscapeColorVoicePool;                          // 0x0178(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	TArray<class UActiveSoundscapeColorVoice*>    SoundscapeColorVoicePool;                          // 0x0178(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPrivate)
 	uint8                                         Pad_188[0x8];                                      // 0x0188(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -141,11 +141,11 @@ public:
 DUMPER7_ASSERTS_UActiveSoundscapeColor;
 
 // Class Soundscape.SoundscapeColorPointComponent
-// 0x0008 (0x00D8 - 0x00D0)
+// 0x0008 (0x00C0 - 0x00B8)
 class USoundscapeColorPointComponent final : public UActorComponent
 {
 public:
-	struct FGameplayTag                           ColorPoint;                                        // 0x00D0(0x0008)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGameplayTag                           ColorPoint;                                        // 0x00B8(0x0008)(Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -192,8 +192,8 @@ DUMPER7_ASSERTS_USoundscapePalette;
 class UActiveSoundscapePalette final : public UObject
 {
 public:
-	class UWorld*                                 World;                                             // 0x0028(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	TArray<class UActiveSoundscapeColor*>         ActiveSoundscapeColors;                            // 0x0030(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class UWorld*                                 World;                                             // 0x0028(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	TArray<class UActiveSoundscapeColor*>         ActiveSoundscapeColors;                            // 0x0030(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPrivate)
 
 public:
 	void Play();
@@ -275,7 +275,7 @@ DUMPER7_ASSERTS_USoundscapeColorPointHashCellDensity;
 class USoundscapeColorPointHashMap final : public UObject
 {
 public:
-	TMap<struct FGameplayTag, class USoundscapeColorPointHashCellDensity*> ColorPointHashMap;        // 0x0028(0x0050)(UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	TMap<struct FGameplayTag, class USoundscapeColorPointHashCellDensity*> ColorPointHashMap;        // 0x0028(0x0050)(UObjectWrapper, NativeAccessSpecifierPrivate)
 	float                                         HashCellSize;                                      // 0x0078(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	int32                                         GridWidth;                                         // 0x007C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	int64                                         NumCells;                                          // 0x0080(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
@@ -314,9 +314,9 @@ DUMPER7_ASSERTS_USoundscapeColorPointHashMap;
 class USoundscapeColorPointHashMapCollection final : public UObject
 {
 public:
-	class USoundscapeColorPointHashMap*           ColorPointHashMapLOD1;                             // 0x0028(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	class USoundscapeColorPointHashMap*           ColorPointHashMapLOD2;                             // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	class USoundscapeColorPointHashMap*           ColorPointHashMapLOD3;                             // 0x0038(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	class USoundscapeColorPointHashMap*           ColorPointHashMapLOD1;                             // 0x0028(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class USoundscapeColorPointHashMap*           ColorPointHashMapLOD2;                             // 0x0030(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class USoundscapeColorPointHashMap*           ColorPointHashMapLOD3;                             // 0x0038(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	float                                         LOD1ColorPointHashWidth;                           // 0x0040(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	float                                         LOD1ColorPointHashDistance;                        // 0x0044(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	float                                         LOD2ColorPointHashWidth;                           // 0x0048(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
@@ -341,23 +341,23 @@ public:
 DUMPER7_ASSERTS_USoundscapeColorPointHashMapCollection;
 
 // Class Soundscape.SoundscapeSubsystem
-// 0x0238 (0x0268 - 0x0030)
+// 0x01E8 (0x0218 - 0x0030)
 class USoundscapeSubsystem final : public UGameInstanceSubsystem
 {
 public:
 	uint8                                         Pad_30[0x8];                                       // 0x0030(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TSet<class USoundscapePalette*>               LoadedPaletteCollectionSet;                        // 0x0038(0x0050)(UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
+	TSet<class USoundscapePalette*>               LoadedPaletteCollectionSet;                        // 0x0038(0x0050)(UObjectWrapper, NativeAccessSpecifierPrivate)
 	TMap<class FName, struct FSoundscapePaletteCollection> UnloadedPaletteCollections;               // 0x0088(0x0050)(NativeAccessSpecifierPrivate)
 	uint8                                         Pad_D8[0x20];                                      // 0x00D8(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	TMap<class USoundscapePalette*, class UActiveSoundscapePalette*> ActivePalettes;                 // 0x00F8(0x0050)(UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	uint8                                         Pad_148[0x58];                                     // 0x0148(0x0058)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class USoundscapeColorPointHashMapCollection*> ColorPointHashMapCollections;              // 0x01A0(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	uint8                                         Pad_1B0[0x60];                                     // 0x01B0(0x0060)(Fixing Size After Last Property [ Dumper-7 ])
-	class USoundscapeColorPointHashMap*           ColorPointHashMapLOD1;                             // 0x0210(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	class USoundscapeColorPointHashMap*           ColorPointHashMapLOD2;                             // 0x0218(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	class USoundscapeColorPointHashMap*           ColorPointHashMapLOD3;                             // 0x0220(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	class USoundscapeColorPointHashMap*           ActiveColorPointHashMap;                           // 0x0228(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate, ExperimentalNeverOverriden)
-	uint8                                         Pad_230[0x38];                                     // 0x0230(0x0038)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	TMap<class USoundscapePalette*, class UActiveSoundscapePalette*> ActivePalettes;                 // 0x00F8(0x0050)(UObjectWrapper, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_148[0x8];                                      // 0x0148(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class USoundscapeColorPointHashMapCollection*> ColorPointHashMapCollections;              // 0x0150(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_160[0x60];                                     // 0x0160(0x0060)(Fixing Size After Last Property [ Dumper-7 ])
+	class USoundscapeColorPointHashMap*           ColorPointHashMapLOD1;                             // 0x01C0(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class USoundscapeColorPointHashMap*           ColorPointHashMapLOD2;                             // 0x01C8(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class USoundscapeColorPointHashMap*           ColorPointHashMapLOD3;                             // 0x01D0(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class USoundscapeColorPointHashMap*           ActiveColorPointHashMap;                           // 0x01D8(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_1E0[0x38];                                     // 0x01E0(0x0038)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void AddColorPointCollection(class FName ColorPointCollectionName, const struct FSoundscapeColorPointCollection& ColorPointCollection);

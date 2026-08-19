@@ -136,7 +136,6 @@
     <ClInclude Include="internal\ESP\ESP.h" />
     <ClInclude Include="internal\Hack\Hack.h" />
     <ClInclude Include="internal\Language\LanguageManager.h" />
-    <ClInclude Include="internal\Legit\Aimbot\Aimbot.h" />
     <ClInclude Include="internal\Log\LogManager.h" />
     <ClInclude Include="internal\Lua\LuaManager.h" />
     <ClInclude Include="internal\Menu\Aimbot_Menu.h" />
@@ -204,7 +203,6 @@
     <ClCompile Include="internal\ESP\ESP.cpp" />
     <ClCompile Include="internal\Hack\Hack.cpp" />
     <ClCompile Include="internal\Language\LanguageManager.cpp" />
-    <ClCompile Include="internal\Legit\Aimbot\Aimbot.cpp" />
     <ClCompile Include="internal\Log\LogManager.cpp" />
     <ClCompile Include="internal\Lua\LuaManager.cpp" />
     <ClCompile Include="internal\Menu\Aimbot_Menu.cpp" />
@@ -356,7 +354,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <ExceptionHandling>false</ExceptionHandling>
+      <ExceptionHandling>SyncCThrow</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <Optimization>MaxSpeed</Optimization>

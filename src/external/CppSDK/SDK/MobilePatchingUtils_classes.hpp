@@ -58,7 +58,7 @@ public:
 	float GetInstallProgress();
 	float GetRequiredDiskSpace();
 	float GetTotalDownloadedSize();
-	void StartInstall(TDelegate<void()> OnSucceeded, TDelegate<void(class FText ErrorText, int32 ErrorCode)> OnFailed);
+	void StartInstall(TDelegate<void()> OnSucceeded, TDelegate<void(class FText ErrorText, int32 errorCode)> OnFailed);
 
 public:
 	static class UClass* StaticClass()
@@ -85,7 +85,7 @@ public:
 	static class UMobileInstalledContent* GetInstalledContent(const class FString& InstallDirectory);
 	static TArray<class FString> GetSupportedPlatformNames();
 	static bool HasActiveWiFiConnection();
-	static void RequestContent(const class FString& RemoteManifestURL, const class FString& CloudURL, const class FString& InstallDirectory, TDelegate<void(class UMobilePendingContent* MobilePendingContent)> OnSucceeded, TDelegate<void(class FText ErrorText, int32 ErrorCode)> OnFailed);
+	static void RequestContent(const class FString& RemoteManifestURL, const class FString& CloudURL, const class FString& InstallDirectory, TDelegate<void(class UMobilePendingContent* MobilePendingContent)> OnSucceeded, TDelegate<void(class FText ErrorText, int32 errorCode)> OnFailed);
 
 public:
 	static class UClass* StaticClass()

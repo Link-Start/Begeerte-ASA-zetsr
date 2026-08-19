@@ -10,8 +10,6 @@
 
 #include "Basic.hpp"
 
-#include "CoreUObject_structs.hpp"
-
 
 SDK_NAMESPACE_START
 
@@ -39,15 +37,6 @@ enum class EUsdDefaultKind : uint8
 	EUsdDefaultKind_MAX                      = 17,
 };
 
-// Enum UnrealUSDWrapper.EUsdLoadPolicy
-// NumValues: 0x0003
-enum class EUsdLoadPolicy : uint8
-{
-	UsdLoadWithDescendants                   = 0,
-	UsdLoadWithoutDescendants                = 1,
-	EUsdLoadPolicy_MAX                       = 2,
-};
-
 // Enum UnrealUSDWrapper.EUsdInitialLoadSet
 // NumValues: 0x0003
 enum class EUsdInitialLoadSet : uint8
@@ -68,54 +57,12 @@ enum class EUsdInterpolationType : uint8
 
 // Enum UnrealUSDWrapper.EUsdRootMotionHandling
 // NumValues: 0x0004
-enum class EUsdRootMotionHandling : uint8
+enum class EUsdRootMotionHandling : uint32
 {
 	NoAdditionalRootMotion                   = 0,
 	UseMotionFromSkelRoot                    = 1,
 	UseMotionFromSkeleton                    = 2,
 	EUsdRootMotionHandling_MAX               = 3,
 };
-
-// Enum UnrealUSDWrapper.EGeometryCacheImport
-// NumValues: 0x0004
-enum class EGeometryCacheImport : uint8
-{
-	Never                                    = 0,
-	OnLoad                                   = 1,
-	OnSave                                   = 2,
-	EGeometryCacheImport_MAX                 = 3,
-};
-
-// Enum UnrealUSDWrapper.EUsdListPosition
-// NumValues: 0x0005
-enum class EUsdListPosition : uint8
-{
-	FrontOfPrependList                       = 0,
-	BackOfPrependList                        = 1,
-	FrontOfAppendList                        = 2,
-	BackOfAppendList                         = 3,
-	EUsdListPosition_MAX                     = 4,
-};
-
-// ScriptStruct UnrealUSDWrapper.Matrix2D
-// 0x0020 (0x0020 - 0x0000)
-struct FMatrix2D final
-{
-public:
-	struct FVector2D                              Row0;                                              // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              Row1;                                              // 0x0010(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FMatrix2D;
-
-// ScriptStruct UnrealUSDWrapper.Matrix3D
-// 0x0048 (0x0048 - 0x0000)
-struct FMatrix3D final
-{
-public:
-	struct FVector                                Row0;                                              // 0x0000(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                Row1;                                              // 0x0018(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                Row2;                                              // 0x0030(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FMatrix3D;
 
 SDK_NAMESPACE_END

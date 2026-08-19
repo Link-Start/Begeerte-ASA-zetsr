@@ -16,7 +16,7 @@
 SDK_NAMESPACE_START
 
 // ScriptStruct WeaponFistsAnimBlueprint.WeaponFistsAnimBlueprint_C.AnimBlueprintGeneratedConstantData
-// 0x0000 (0x1118 - 0x1118)
+// 0x0000 (0x0210 - 0x0210)
 struct WeaponFistsAnimBlueprint::FAnimBlueprintGeneratedConstantData final : public FPVWeaponAnimBP_Base_Carrying::FAnimBlueprintGeneratedConstantData
 {
 };

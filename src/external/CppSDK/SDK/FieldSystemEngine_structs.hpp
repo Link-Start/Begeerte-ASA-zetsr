@@ -19,8 +19,8 @@ struct FFieldObjectCommands final
 {
 public:
 	TArray<class FName>                           TargetNames;                                       // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<class UFieldNodeBase*>                 RootNodes;                                         // 0x0010(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	TArray<class UFieldSystemMetaData*>           MetaDatas;                                         // 0x0020(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TArray<class UFieldNodeBase*>                 RootNodes;                                         // 0x0010(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic)
+	TArray<class UFieldSystemMetaData*>           MetaDatas;                                         // 0x0020(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FFieldObjectCommands;
 

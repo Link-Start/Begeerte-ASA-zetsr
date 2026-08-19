@@ -47,11 +47,11 @@ public:
 DUMPER7_ASSERTS_EOSUserInterface_LinkEOSAccountsAgainstCrossPlatform_SetupUserInterface;
 
 // Function OnlineSubsystemRedpointEOS.EOSUserInterface_SelectEOSAccount_Context.SelectCandidate
-// 0x00C0 (0x00C0 - 0x0000)
+// 0x00D0 (0x00D0 - 0x0000)
 struct EOSUserInterface_SelectEOSAccount_Context_SelectCandidate final
 {
 public:
-	struct FEOSUserInterface_CandidateEOSAccount  SelectedCandidate;                                 // 0x0000(0x00C0)(Parm, NativeAccessSpecifierPublic)
+	struct FEOSUserInterface_CandidateEOSAccount  SelectedCandidate;                                 // 0x0000(0x00D0)(Parm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_EOSUserInterface_SelectEOSAccount_Context_SelectCandidate;
 

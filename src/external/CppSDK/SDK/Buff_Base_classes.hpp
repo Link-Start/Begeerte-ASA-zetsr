@@ -17,18 +17,16 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass Buff_Base.Buff_Base_C
-// 0x0010 (0x0BF0 - 0x0BE0)
+// 0x0010 (0x0C10 - 0x0C00)
 class ABuff_Base_C : public APrimalBuff
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0BE0(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	bool                                          bDismountingBuff;                                  // 0x0BE8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x0C00(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	bool                                          bDismountingBuff;                                  // 0x0C08(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void BPDeactivated(class AActor* ForInstigator);
 	void ExecuteUbergraph_Buff_Base(int32 EntryPoint);
-	void PressedAltFire();
-	void SetBuffHordeManagerData(double Time, bool Routing, bool SetRouting);
 
 	bool BPCustomAllowAddBuff(class APrimalCharacter* ForCharacter, class AActor* DamageCauser) const;
 

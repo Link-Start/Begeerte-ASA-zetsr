@@ -40,47 +40,23 @@ void UBP_VFX_Spawn_on_AnimNotify_C::BPOverrideNiagaraSystem(class USkeletalMeshC
 }
 
 
-// Function BP_VFX_Spawn_on_AnimNotify.BP_VFX_Spawn_on_AnimNotify_C.Spawn_Sound
-// (Public, BlueprintCallable, BlueprintEvent, Const)
+// Function BP_VFX_Spawn_on_AnimNotify.BP_VFX_Spawn_on_AnimNotify_C.GetNotifyName
+// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
-// class USceneComponent*                  Actor                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-// const struct FVector&                   Location                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// double                                  Speed                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// double                                  Size                                                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// const struct FAudio_Ground_Collection&  StepSounds                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// bool                                    IsPlayer                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash)
 
-void UBP_VFX_Spawn_on_AnimNotify_C::Spawn_Sound(class USceneComponent* Actor, const struct FVector& Location, double Speed, double Size, const struct FAudio_Ground_Collection& StepSounds, bool IsPlayer) const
+class FString UBP_VFX_Spawn_on_AnimNotify_C::GetNotifyName() const
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("BP_VFX_Spawn_on_AnimNotify_C", "Spawn_Sound");
+		Func = Class->GetFunction("BP_VFX_Spawn_on_AnimNotify_C", "GetNotifyName");
 
-	Params::BP_VFX_Spawn_on_AnimNotify_C_Spawn_Sound Parms{};
-
-	Parms.Actor = Actor;
-	Parms.Location = std::move(Location);
-	Parms.Speed = Speed;
-	Parms.Size = Size;
-	Parms.StepSounds = std::move(StepSounds);
-	Parms.IsPlayer = IsPlayer;
+	Params::BP_VFX_Spawn_on_AnimNotify_C_GetNotifyName Parms{};
 
 	UObject::ProcessEvent(Func, &Parms);
-}
 
-
-// Function BP_VFX_Spawn_on_AnimNotify.BP_VFX_Spawn_on_AnimNotify_C.Spawn_Anim_Notify
-// (Public, BlueprintCallable, BlueprintEvent, Const)
-
-void UBP_VFX_Spawn_on_AnimNotify_C::Spawn_Anim_Notify() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_VFX_Spawn_on_AnimNotify_C", "Spawn_Anim_Notify");
-
-	UObject::ProcessEvent(Func, nullptr);
+	return Parms.ReturnValue;
 }
 
 
@@ -140,26 +116,6 @@ bool UBP_VFX_Spawn_on_AnimNotify_C::Received_NotifyEnd(class USkeletalMeshCompon
 }
 
 
-// Function BP_VFX_Spawn_on_AnimNotify.BP_VFX_Spawn_on_AnimNotify_C.GetNotifyName
-// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent, Const)
-// Parameters:
-// class FString                           ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash)
-
-class FString UBP_VFX_Spawn_on_AnimNotify_C::GetNotifyName() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("BP_VFX_Spawn_on_AnimNotify_C", "GetNotifyName");
-
-	Params::BP_VFX_Spawn_on_AnimNotify_C_GetNotifyName Parms{};
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	return Parms.ReturnValue;
-}
-
-
 // Function BP_VFX_Spawn_on_AnimNotify.BP_VFX_Spawn_on_AnimNotify_C.Received_NotifyTick
 // (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent, Const)
 // Parameters:
@@ -186,6 +142,50 @@ bool UBP_VFX_Spawn_on_AnimNotify_C::Received_NotifyTick(class USkeletalMeshCompo
 	UObject::ProcessEvent(Func, &Parms);
 
 	return Parms.ReturnValue;
+}
+
+
+// Function BP_VFX_Spawn_on_AnimNotify.BP_VFX_Spawn_on_AnimNotify_C.Spawn_Anim_Notify
+// (Public, BlueprintCallable, BlueprintEvent, Const)
+
+void UBP_VFX_Spawn_on_AnimNotify_C::Spawn_Anim_Notify() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_VFX_Spawn_on_AnimNotify_C", "Spawn_Anim_Notify");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function BP_VFX_Spawn_on_AnimNotify.BP_VFX_Spawn_on_AnimNotify_C.Spawn_Sound
+// (Public, BlueprintCallable, BlueprintEvent, Const)
+// Parameters:
+// class USceneComponent*                  Actor                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
+// const struct FVector&                   Location                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// double                                  Speed                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// double                                  Size                                                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// const struct FAudio_Ground_Collection&  StepSounds                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// bool                                    IsPlayer                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UBP_VFX_Spawn_on_AnimNotify_C::Spawn_Sound(class USceneComponent* Actor, const struct FVector& Location, double Speed, double Size, const struct FAudio_Ground_Collection& StepSounds, bool IsPlayer) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_VFX_Spawn_on_AnimNotify_C", "Spawn_Sound");
+
+	Params::BP_VFX_Spawn_on_AnimNotify_C_Spawn_Sound Parms{};
+
+	Parms.Actor = Actor;
+	Parms.Location = std::move(Location);
+	Parms.Speed = Speed;
+	Parms.Size = Size;
+	Parms.StepSounds = std::move(StepSounds);
+	Parms.IsPlayer = IsPlayer;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 

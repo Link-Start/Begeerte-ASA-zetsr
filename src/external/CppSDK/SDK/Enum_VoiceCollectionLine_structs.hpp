@@ -14,7 +14,7 @@
 SDK_NAMESPACE_START
 
 // UserDefinedEnum Enum_VoiceCollectionLine.Enum_VoiceCollectionLine
-// NumValues: 0x0036
+// NumValues: 0x0035
 enum class Enum_VoiceCollectionLine : uint8
 {
 	NewEnumerator0                           = 0,
@@ -69,8 +69,7 @@ enum class Enum_VoiceCollectionLine : uint8
 	NewEnumerator47                          = 49,
 	NewEnumerator48                          = 50,
 	NewEnumerator51                          = 51,
-	NewEnumerator52                          = 52,
-	Enum_MAX                                 = 53,
+	Enum_MAX                                 = 52,
 };
 
 SDK_NAMESPACE_END

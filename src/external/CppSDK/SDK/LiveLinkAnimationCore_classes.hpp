@@ -17,14 +17,13 @@
 SDK_NAMESPACE_START
 
 // Class LiveLinkAnimationCore.LiveLinkInstance
-// 0x0000 (0x03D0 - 0x03D0)
+// 0x0000 (0x0350 - 0x0350)
 class ULiveLinkInstance final : public UAnimInstance
 {
 public:
-	class ULiveLinkRetargetAsset*                 CurrentRetargetAsset;                              // 0x03C8(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class ULiveLinkRetargetAsset*                 CurrentRetargetAsset;                              // 0x0348(0x0008)(ZeroConstructor, Transient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 
 public:
-	void EnableLiveLinkEvaluation(bool bDoEnable);
 	void SetRetargetAsset(TSubclassOf<class ULiveLinkRetargetAsset> RetargetAsset);
 	void SetSubject(const struct FLiveLinkSubjectName& SubjectName);
 

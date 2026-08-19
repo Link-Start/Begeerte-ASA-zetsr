@@ -16,17 +16,16 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PrimalItemArmor_Shield.PrimalItemArmor_Shield_C
-// 0x0010 (0x0BA0 - 0x0B90)
+// 0x0000 (0x1180 - 0x1180)
 class UPrimalItemArmor_Shield_C : public UPrimalItemArmorGeneric_C
 {
 public:
-	class UParticleSystem*                        ShieldHitImpactFX;                                 // 0x0B90(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	class UParticleSystem*                        ShieldHitImpactFX;                                 // 0x1178(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void BPClientHandleItemNetExecCommand(class FName CommandName, const struct FBPNetExecParams& ExecParams, class AShooterPlayerController* ForPC);
-	class UFXSystemAsset* BPGetShieldHitImpactEffect();
 	float HandleShieldDamageBlocking(class AShooterCharacter* ForShooterCharacter, float DamageIn, const struct FDamageEvent& DamageEvent, class AController* EventInstigator, class AActor* DamageCauser, const struct FVector& HitPoint);
-	void PlayHitShieldEffect(bool LocalOnly, const struct FVector& HitLoc, const struct FVector& FromLoc);
+	void PlayHitShieldEffect(bool LocalOnly, const struct FVector& HitLoc, const struct FVector& fromLoc);
 
 public:
 	static class UClass* StaticClass()

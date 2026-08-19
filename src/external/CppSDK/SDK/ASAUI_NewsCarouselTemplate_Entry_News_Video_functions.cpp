@@ -16,143 +16,103 @@
 
 SDK_NAMESPACE_START
 
-// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.AllowAutoscrollNavFrom
-// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.RebootVideo
+// (BlueprintCallable, BlueprintEvent)
 
-bool UASAUI_NewsCarouselTemplate_Entry_News_Video_C::AllowAutoscrollNavFrom()
+void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::RebootVideo()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "AllowAutoscrollNavFrom");
+		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "RebootVideo");
 
-	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_AllowAutoscrollNavFrom Parms{};
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	return Parms.ReturnValue;
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.BlueprintInit
+// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.OnSuccess_6683C921475B2E6142ED53BABD998580
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// const class FString&                    CacheVideoName                                         (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+
+void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::OnSuccess_6683C921475B2E6142ED53BABD998580(const class FString& CacheVideoName)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "OnSuccess_6683C921475B2E6142ED53BABD998580");
+
+	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_OnSuccess_6683C921475B2E6142ED53BABD998580 Parms{};
+
+	Parms.CacheVideoName = std::move(CacheVideoName);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.OnFail_6683C921475B2E6142ED53BABD998580
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// const class FString&                    CacheVideoName                                         (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+
+void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::OnFail_6683C921475B2E6142ED53BABD998580(const class FString& CacheVideoName)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "OnFail_6683C921475B2E6142ED53BABD998580");
+
+	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_OnFail_6683C921475B2E6142ED53BABD998580 Parms{};
+
+	Parms.CacheVideoName = std::move(CacheVideoName);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.OnCarouselUnpaused
 // (Event, Public, BlueprintEvent)
-// Parameters:
-// const class FString&                    RawExtraData                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
 
-void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::BlueprintInit(const class FString& RawExtraData)
+void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::OnCarouselUnpaused()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "BlueprintInit");
+		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "OnCarouselUnpaused");
 
-	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_BlueprintInit Parms{};
-
-	Parms.RawExtraData = std::move(RawExtraData);
-
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.EntryDoSecondaryClickAction
-// (Event, Public, HasOutParams, BlueprintEvent)
-// Parameters:
-// const class FName&                      SecondaryZoneClicked                                   (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// bool                                    bIsFromGamepad                                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::EntryDoSecondaryClickAction(const class FName& SecondaryZoneClicked, bool bIsFromGamepad)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "EntryDoSecondaryClickAction");
-
-	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_EntryDoSecondaryClickAction Parms{};
-
-	Parms.SecondaryZoneClicked = SecondaryZoneClicked;
-	Parms.bIsFromGamepad = bIsFromGamepad;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.EntryDoSecondaryHovered
-// (Event, Public, HasOutParams, BlueprintEvent)
-// Parameters:
-// const class FName&                      SecondaryZoneHovered                                   (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::EntryDoSecondaryHovered(const class FName& SecondaryZoneHovered)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "EntryDoSecondaryHovered");
-
-	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_EntryDoSecondaryHovered Parms{};
-
-	Parms.SecondaryZoneHovered = SecondaryZoneHovered;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.EntryDoSecondaryUnhovered
-// (Event, Public, HasOutParams, BlueprintEvent)
-// Parameters:
-// const class FName&                      SecondaryZoneUnhovered                                 (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::EntryDoSecondaryUnhovered(const class FName& SecondaryZoneUnhovered)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "EntryDoSecondaryUnhovered");
-
-	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_EntryDoSecondaryUnhovered Parms{};
-
-	Parms.SecondaryZoneUnhovered = SecondaryZoneUnhovered;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.EntryFocusEnd
+// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.OnCarouselPaused
 // (Event, Public, BlueprintEvent)
-// Parameters:
-// bool                                    bInstigatedByAutoRollover                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::EntryFocusEnd(bool bInstigatedByAutoRollover)
+void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::OnCarouselPaused()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "EntryFocusEnd");
+		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "OnCarouselPaused");
 
-	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_EntryFocusEnd Parms{};
-
-	Parms.bInstigatedByAutoRollover = bInstigatedByAutoRollover;
-
-	UObject::ProcessEvent(Func, &Parms);
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 
-// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.EntryFocusStart
-// (Event, Public, BlueprintEvent)
+// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.ExecuteUbergraph_ASAUI_NewsCarouselTemplate_Entry_News_Video
+// (Final, UbergraphFunction, HasDefaults)
 // Parameters:
-// bool                                    bInstigatedByAutoRollover                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::EntryFocusStart(bool bInstigatedByAutoRollover)
+void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::ExecuteUbergraph_ASAUI_NewsCarouselTemplate_Entry_News_Video(int32 EntryPoint)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "EntryFocusStart");
+		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "ExecuteUbergraph_ASAUI_NewsCarouselTemplate_Entry_News_Video");
 
-	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_EntryFocusStart Parms{};
+	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_ExecuteUbergraph_ASAUI_NewsCarouselTemplate_Entry_News_Video Parms{};
 
-	Parms.bInstigatedByAutoRollover = bInstigatedByAutoRollover;
+	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
 }
@@ -180,105 +140,145 @@ void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::EntryFocusTick(float DeltaT
 }
 
 
-// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.ExecuteUbergraph_ASAUI_NewsCarouselTemplate_Entry_News_Video
-// (Final, UbergraphFunction, HasDefaults)
-// Parameters:
-// int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-
-void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::ExecuteUbergraph_ASAUI_NewsCarouselTemplate_Entry_News_Video(int32 EntryPoint)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "ExecuteUbergraph_ASAUI_NewsCarouselTemplate_Entry_News_Video");
-
-	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_ExecuteUbergraph_ASAUI_NewsCarouselTemplate_Entry_News_Video Parms{};
-
-	Parms.EntryPoint = EntryPoint;
-
-	UObject::ProcessEvent(Func, &Parms);
-}
-
-
-// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.OnCarouselPaused
+// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.EntryFocusStart
 // (Event, Public, BlueprintEvent)
+// Parameters:
+// bool                                    bInstigatedByAutoRollover                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::OnCarouselPaused()
+void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::EntryFocusStart(bool bInstigatedByAutoRollover)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "OnCarouselPaused");
+		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "EntryFocusStart");
 
-	UObject::ProcessEvent(Func, nullptr);
+	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_EntryFocusStart Parms{};
+
+	Parms.bInstigatedByAutoRollover = bInstigatedByAutoRollover;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 
-// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.OnCarouselUnpaused
+// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.EntryFocusEnd
 // (Event, Public, BlueprintEvent)
-
-void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::OnCarouselUnpaused()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "OnCarouselUnpaused");
-
-	UObject::ProcessEvent(Func, nullptr);
-}
-
-
-// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.OnFail_6683C921475B2E6142ED53BABD998580
-// (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// const class FString&                    CacheVideoName                                         (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+// bool                                    bInstigatedByAutoRollover                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::OnFail_6683C921475B2E6142ED53BABD998580(const class FString& CacheVideoName)
+void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::EntryFocusEnd(bool bInstigatedByAutoRollover)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "OnFail_6683C921475B2E6142ED53BABD998580");
+		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "EntryFocusEnd");
 
-	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_OnFail_6683C921475B2E6142ED53BABD998580 Parms{};
+	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_EntryFocusEnd Parms{};
 
-	Parms.CacheVideoName = std::move(CacheVideoName);
+	Parms.bInstigatedByAutoRollover = bInstigatedByAutoRollover;
 
 	UObject::ProcessEvent(Func, &Parms);
 }
 
 
-// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.OnSuccess_6683C921475B2E6142ED53BABD998580
-// (BlueprintCallable, BlueprintEvent)
+// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.EntryDoSecondaryUnhovered
+// (Event, Public, HasOutParams, BlueprintEvent)
 // Parameters:
-// const class FString&                    CacheVideoName                                         (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+// const class FName&                      SecondaryZoneUnhovered                                 (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::OnSuccess_6683C921475B2E6142ED53BABD998580(const class FString& CacheVideoName)
+void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::EntryDoSecondaryUnhovered(const class FName& SecondaryZoneUnhovered)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "OnSuccess_6683C921475B2E6142ED53BABD998580");
+		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "EntryDoSecondaryUnhovered");
 
-	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_OnSuccess_6683C921475B2E6142ED53BABD998580 Parms{};
+	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_EntryDoSecondaryUnhovered Parms{};
 
-	Parms.CacheVideoName = std::move(CacheVideoName);
+	Parms.SecondaryZoneUnhovered = SecondaryZoneUnhovered;
 
 	UObject::ProcessEvent(Func, &Parms);
 }
 
 
-// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.RebootVideo
-// (BlueprintCallable, BlueprintEvent)
+// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.EntryDoSecondaryHovered
+// (Event, Public, HasOutParams, BlueprintEvent)
+// Parameters:
+// const class FName&                      SecondaryZoneHovered                                   (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::RebootVideo()
+void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::EntryDoSecondaryHovered(const class FName& SecondaryZoneHovered)
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "RebootVideo");
+		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "EntryDoSecondaryHovered");
 
-	UObject::ProcessEvent(Func, nullptr);
+	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_EntryDoSecondaryHovered Parms{};
+
+	Parms.SecondaryZoneHovered = SecondaryZoneHovered;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.EntryDoSecondaryClickAction
+// (Event, Public, HasOutParams, BlueprintEvent)
+// Parameters:
+// const class FName&                      SecondaryZoneClicked                                   (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool                                    bIsFromGamepad                                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::EntryDoSecondaryClickAction(const class FName& SecondaryZoneClicked, bool bIsFromGamepad)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "EntryDoSecondaryClickAction");
+
+	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_EntryDoSecondaryClickAction Parms{};
+
+	Parms.SecondaryZoneClicked = SecondaryZoneClicked;
+	Parms.bIsFromGamepad = bIsFromGamepad;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.BlueprintInit
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// const class FString&                    RawExtraData                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+
+void UASAUI_NewsCarouselTemplate_Entry_News_Video_C::BlueprintInit(const class FString& RawExtraData)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "BlueprintInit");
+
+	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_BlueprintInit Parms{};
+
+	Parms.RawExtraData = std::move(RawExtraData);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function ASAUI_NewsCarouselTemplate_Entry_News_Video.ASAUI_NewsCarouselTemplate_Entry_News_Video_C.AllowAutoscrollNavFrom
+// (Event, Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+bool UASAUI_NewsCarouselTemplate_Entry_News_Video_C::AllowAutoscrollNavFrom()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ASAUI_NewsCarouselTemplate_Entry_News_Video_C", "AllowAutoscrollNavFrom");
+
+	Params::ASAUI_NewsCarouselTemplate_Entry_News_Video_C_AllowAutoscrollNavFrom Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	return Parms.ReturnValue;
 }
 
 

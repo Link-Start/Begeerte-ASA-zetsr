@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "GeometryFramework_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "GeometryFramework_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -44,15 +44,6 @@ public:
 };
 DUMPER7_ASSERTS_BaseDynamicMeshComponent_SetConstantOverrideColor;
 
-// Function GeometryFramework.BaseDynamicMeshComponent.SetDistanceFieldMode
-// 0x0001 (0x0001 - 0x0000)
-struct BaseDynamicMeshComponent_SetDistanceFieldMode final
-{
-public:
-	EDynamicMeshComponentDistanceFieldMode        NewDistFieldMode;                                  // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BaseDynamicMeshComponent_SetDistanceFieldMode;
-
 // Function GeometryFramework.BaseDynamicMeshComponent.SetEnableFlatShading
 // 0x0001 (0x0001 - 0x0000)
 struct BaseDynamicMeshComponent_SetEnableFlatShading final
@@ -79,15 +70,6 @@ public:
 	bool                                          bEnable;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_BaseDynamicMeshComponent_SetEnableWireframeRenderPass;
-
-// Function GeometryFramework.BaseDynamicMeshComponent.SetMeshDrawPath
-// 0x0001 (0x0001 - 0x0000)
-struct BaseDynamicMeshComponent_SetMeshDrawPath final
-{
-public:
-	EDynamicMeshDrawPath                          NewDrawPath;                                       // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BaseDynamicMeshComponent_SetMeshDrawPath;
 
 // Function GeometryFramework.BaseDynamicMeshComponent.SetOverrideRenderMaterial
 // 0x0008 (0x0008 - 0x0000)
@@ -125,15 +107,6 @@ public:
 };
 DUMPER7_ASSERTS_BaseDynamicMeshComponent_SetShadowsEnabled;
 
-// Function GeometryFramework.BaseDynamicMeshComponent.SetVertexColorSpaceTransformMode
-// 0x0001 (0x0001 - 0x0000)
-struct BaseDynamicMeshComponent_SetVertexColorSpaceTransformMode final
-{
-public:
-	EDynamicMeshVertexColorTransformMode          NewMode;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BaseDynamicMeshComponent_SetVertexColorSpaceTransformMode;
-
 // Function GeometryFramework.BaseDynamicMeshComponent.SetViewModeOverridesEnabled
 // 0x0001 (0x0001 - 0x0000)
 struct BaseDynamicMeshComponent_SetViewModeOverridesEnabled final
@@ -161,15 +134,6 @@ public:
 };
 DUMPER7_ASSERTS_BaseDynamicMeshComponent_GetConstantOverrideColor;
 
-// Function GeometryFramework.BaseDynamicMeshComponent.GetDistanceFieldMode
-// 0x0001 (0x0001 - 0x0000)
-struct BaseDynamicMeshComponent_GetDistanceFieldMode final
-{
-public:
-	EDynamicMeshComponentDistanceFieldMode        ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BaseDynamicMeshComponent_GetDistanceFieldMode;
-
 // Function GeometryFramework.BaseDynamicMeshComponent.GetEnableRaytracing
 // 0x0001 (0x0001 - 0x0000)
 struct BaseDynamicMeshComponent_GetEnableRaytracing final
@@ -196,15 +160,6 @@ public:
 	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_BaseDynamicMeshComponent_GetFlatShadingEnabled;
-
-// Function GeometryFramework.BaseDynamicMeshComponent.GetMeshDrawPath
-// 0x0001 (0x0001 - 0x0000)
-struct BaseDynamicMeshComponent_GetMeshDrawPath final
-{
-public:
-	EDynamicMeshDrawPath                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BaseDynamicMeshComponent_GetMeshDrawPath;
 
 // Function GeometryFramework.BaseDynamicMeshComponent.GetOverrideRenderMaterial
 // 0x0010 (0x0010 - 0x0000)
@@ -244,15 +199,6 @@ public:
 };
 DUMPER7_ASSERTS_BaseDynamicMeshComponent_GetShadowsEnabled;
 
-// Function GeometryFramework.BaseDynamicMeshComponent.GetVertexColorSpaceTransformMode
-// 0x0001 (0x0001 - 0x0000)
-struct BaseDynamicMeshComponent_GetVertexColorSpaceTransformMode final
-{
-public:
-	EDynamicMeshVertexColorTransformMode          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_BaseDynamicMeshComponent_GetVertexColorSpaceTransformMode;
-
 // Function GeometryFramework.BaseDynamicMeshComponent.GetViewModeOverridesEnabled
 // 0x0001 (0x0001 - 0x0000)
 struct BaseDynamicMeshComponent_GetViewModeOverridesEnabled final
@@ -274,36 +220,13 @@ public:
 DUMPER7_ASSERTS_BaseDynamicMeshComponent_HasOverrideRenderMaterial;
 
 // Function GeometryFramework.DynamicMeshComponent.ConfigureMaterialSet
-// 0x0018 (0x0018 - 0x0000)
+// 0x0010 (0x0010 - 0x0000)
 struct DynamicMeshComponent_ConfigureMaterialSet final
 {
 public:
 	TArray<class UMaterialInterface*>             NewMaterialSet;                                    // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
-	bool                                          bDeleteExtraSlots;                                 // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_DynamicMeshComponent_ConfigureMaterialSet;
-
-// Function GeometryFramework.DynamicMeshComponent.NotifyMeshVertexAttributesModified
-// 0x0004 (0x0004 - 0x0000)
-struct DynamicMeshComponent_NotifyMeshVertexAttributesModified final
-{
-public:
-	bool                                          bPositions;                                        // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bNormals;                                          // 0x0001(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUVs;                                              // 0x0002(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bColors;                                           // 0x0003(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_DynamicMeshComponent_NotifyMeshVertexAttributesModified;
-
-// Function GeometryFramework.DynamicMeshComponent.SetAllowsGeometrySelection
-// 0x0001 (0x0001 - 0x0000)
-struct DynamicMeshComponent_SetAllowsGeometrySelection final
-{
-public:
-	bool                                          bInAllowsGeometrySelection;                        // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_DynamicMeshComponent_SetAllowsGeometrySelection;
 
 // Function GeometryFramework.DynamicMeshComponent.SetComplexAsSimpleCollisionEnabled
 // 0x0002 (0x0002 - 0x0000)
@@ -363,15 +286,6 @@ public:
 };
 DUMPER7_ASSERTS_DynamicMeshComponent_ValidateMaterialSlots;
 
-// Function GeometryFramework.DynamicMeshComponent.AllowsGeometrySelection
-// 0x0001 (0x0001 - 0x0000)
-struct DynamicMeshComponent_AllowsGeometrySelection final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_DynamicMeshComponent_AllowsGeometrySelection;
-
 // Function GeometryFramework.DynamicMeshComponent.GetTangentsType
 // 0x0001 (0x0001 - 0x0000)
 struct DynamicMeshComponent_GetTangentsType final
@@ -380,15 +294,6 @@ public:
 	EDynamicMeshComponentTangentsMode             ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_DynamicMeshComponent_GetTangentsType;
-
-// Function GeometryFramework.DynamicMeshComponent.GetTangentsTypePure
-// 0x0001 (0x0001 - 0x0000)
-struct DynamicMeshComponent_GetTangentsTypePure final
-{
-public:
-	EDynamicMeshComponentTangentsMode             ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_DynamicMeshComponent_GetTangentsTypePure;
 
 // Function GeometryFramework.DynamicMeshActor.AllocateComputeMesh
 // 0x0008 (0x0008 - 0x0000)

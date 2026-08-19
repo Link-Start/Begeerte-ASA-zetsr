@@ -17,7 +17,7 @@
 SDK_NAMESPACE_START
 
 // Class PropertyPath.PropertyPathTestObject
-// 0x0158 (0x0180 - 0x0028)
+// 0x0128 (0x0150 - 0x0028)
 class UPropertyPathTestObject final : public UObject
 {
 public:
@@ -32,11 +32,11 @@ public:
 	class FString                                 String;                                            // 0x0038(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         float_0;                                           // 0x0048(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_4C[0x4];                                       // 0x004C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPropertyPathTestStruct                Struct;                                            // 0x0050(0x0060)(Edit, BlueprintVisible, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	struct FPropertyPathTestStruct                StructRef;                                         // 0x00B0(0x0060)(Edit, BlueprintVisible, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	struct FPropertyPathTestStruct                StructConstRef;                                    // 0x0110(0x0060)(Edit, BlueprintVisible, DisableEditOnInstance, NativeAccessSpecifierPublic)
-	class UPropertyPathTestObject*                InnerObject;                                       // 0x0170(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_178[0x8];                                      // 0x0178(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FPropertyPathTestStruct                Struct;                                            // 0x0050(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	struct FPropertyPathTestStruct                StructRef;                                         // 0x00A0(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	struct FPropertyPathTestStruct                StructConstRef;                                    // 0x00F0(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance, NativeAccessSpecifierPublic)
+	class UPropertyPathTestObject*                InnerObject;                                       // 0x0140(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_148[0x8];                                      // 0x0148(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void SetFloat(float InFloat);

@@ -33,12 +33,12 @@ enum class EEOSUserInterface_SwitchToCrossPlatformAccount_Choice : uint8
 };
 
 // ScriptStruct OnlineSubsystemRedpointEOS.EOSUserInterface_CandidateEOSAccount
-// 0x00C0 (0x00C0 - 0x0000)
+// 0x00D0 (0x00D0 - 0x0000)
 struct FEOSUserInterface_CandidateEOSAccount final
 {
 public:
-	class FText                                   DisplayName;                                       // 0x0000(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, EditConst, NativeAccessSpecifierPublic)
-	uint8                                         Pad_10[0xB0];                                      // 0x0010(0x00B0)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class FText                                   DisplayName;                                       // 0x0000(0x0018)(Edit, BlueprintVisible, BlueprintReadOnly, EditConst, NativeAccessSpecifierPublic)
+	uint8                                         Pad_18[0xB8];                                      // 0x0018(0x00B8)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FEOSUserInterface_CandidateEOSAccount;
 
