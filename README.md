@@ -35,6 +35,7 @@
 
 ## 如果游戏更新
 
+### UNetConnection
  - 转到 `src\external\SDK\CppSDK\SDK\Engine_classes.hpp`
  - 转到 `class UNetConnection : public UPlayer` 
  - 将 `uint8 Pad_AD[0xBB]` 注释掉
@@ -68,6 +69,22 @@ int32_t GetPort() {
 	return (this) ? RemotePort : 0;
 }
 ```
+
+### UGameViewportClient
+ - 转到 `src\external\SDK\CppSDK\SDK\Engine_classes.hpp`
+ - 转到 `class UGameViewportClient : public UScriptViewportClient` 
+
+注释掉
+```cpp
+uint8 Pad_88[0x338]; // 0x0088(0x0338)(Fixing Struct Size After Last Property [ Dumper-7 ])
+```
+添加
+```cpp
+uint8 Pad_88_Part1[0x30]; // 0x0088(0x0030) (对齐到 0x00B8)
+uint8 EngineShowFlags[0x20]; // 0x00B8(0x0020) (占用 32 字节 / 256 位，用于位段操作)
+uint8 Pad_88_Part2[0x2E8]; // 0x00D8(0x02E8) (补全后半部分垫片，总计 0x338)
+```
+
 > **注意**
 >
 > 如果 `UNetConnection` 布局发生变化则需要重新寻找 `RemoteIPList` 和 `RemotePort` 的偏移，因为它们无法被Dumper-7自动反射。

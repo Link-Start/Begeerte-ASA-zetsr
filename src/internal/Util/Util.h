@@ -411,8 +411,29 @@ namespace g_Util {
         return targetNativeFuncAddress;
     }
 
-    inline void PotatoGraphics(SDK::UObject* WorldContextObject) {
+    inline void PotatoGraphics(SDK::UObject* WorldContextObject, SDK::UGameViewportClient* GameViewportClient) {
         if (!WorldContextObject) return;
+        if (!GameViewportClient) return;
+
+        // 禁用后处理
+        // [2] -> (ByteOffset: +0x0, Bit: 2)
+        GameViewportClient->EngineShowFlags[0] &= ~(1 << 2);
+
+        // 地面材质降低
+        // [61] -> (ByteOffset: +0x7, Bit: 5)
+        GameViewportClient->EngineShowFlags[0x7] &= ~(1 << 5);
+
+        // 删掉远景滤镜
+        // [129] -> (ByteOffset: +0x10, Bit: 1)
+        GameViewportClient->EngineShowFlags[0x10] &= ~(1 << 1);
+
+        // 禁用天空和反射
+        // [139] -> (ByteOffset: +0x11, Bit: 3)
+        GameViewportClient->EngineShowFlags[0x11] &= ~(1 << 3);
+
+        // 解决水面闪烁
+        // [220] -> (ByteOffset: +0x1B, Bit: 4)
+        GameViewportClient->EngineShowFlags[0x1B] &= ~(1 << 4);
 
         // 辅助宏：通过 KismetSystemLibrary 执行虚幻引擎控制台指令
         auto Exec = [WorldContextObject](const wchar_t* Cmd) {
@@ -443,14 +464,14 @@ namespace g_Util {
         Exec(L"r.DynamicGlobalIlluminationMethod 0");   // 关掉水会闪烁
         Exec(L"r.LightShaftQuality 0");                 // 禁用光轴与体积光斑 (丁达尔效应/Light Shafts)
 
-        Exec(L"r.LightMaxDrawDistanceScale -1");        // 光源最大绘制距离倍率
+        Exec(L"r.LightMaxDrawDistanceScale 1");         //  不要光源最大绘制距离倍率
 
         Exec(L"r.SkylightIntensityMultiplier 5");       // 天光
         Exec(L"r.Lumen.ScreenProbeGather.ScreenTraces 0"); // 禁用 Lumen 屏幕空间光线追踪探测
         Exec(L"r.Lumen.ScreenProbeGather.RadianceCache.ProbeResolution 16"); // 将 Radiance Cache 探针分辨率降至最低 (16)
 
         // 3. 反射
-        Exec(L"r.ReflectionEnvironment 1");             // 反射环境
+        Exec(L"r.ReflectionEnvironment 0");             // 反射环境
         Exec(L"r.SSR.Quality 0");                       // 禁用屏幕空间反射 (Screen Space Reflections)
         Exec(L"r.Lumen.Reflections.Allow 0");           // 禁用 Lumen 动态高精度反射
         Exec(L"r.Lumen.Reflections.Contrast 0");        // 将 Lumen 反射对比度归零，降低计算复杂度
@@ -463,7 +484,7 @@ namespace g_Util {
         Exec(L"grass.SizeScale 0");                     // 草地渲染尺寸归零
         Exec(L"r.Foliage.WPODisableMultiplier 1");      // 禁用植被的世界位置偏移 (WPO / 风吹风动动画)
         Exec(L"r.Foliage.AutoBoundsWPODisableMax 1");   // 自动关闭远距离植被的动画计算
-        Exec(L"r.Nanite.MaxPixelsPerEdge 10");           // 极简化 Nanite 几何体 (增加每条边的像素网格大小以降低几何面数)
+        Exec(L"r.Nanite.MaxPixelsPerEdge 10");          // 极简化 Nanite 几何体 (增加每条边的像素网格大小以降低几何面数)
         Exec(L"wp.Runtime.HLOD.ForceDisable 1");        // 强制禁用世界分区 (World Partition) 远景 HLOD 生成
 
         // 5. 后处理
@@ -476,7 +497,7 @@ namespace g_Util {
         Exec(L"r.LensFlareQuality 0");                  // 禁用镜头光晕 (Lens Flare) 特效
         Exec(L"fx.EnableNiagaraSpriteRendering 0");     // 禁用 Niagara 粒子系统的 Sprite 纹理渲染
         Exec(L"ark.MaxActiveDestroyedMeshGeoCollectionCount 0"); // 禁用破碎网格体 (Geometry Collection) 物理碎片生成
-        Exec(L"r.EyeAdaptationQuality 0");              // 禁用曝光采样质量
+        Exec(L"r.EyeAdaptationQuality 0");              // 不要禁用曝光采样质量
 
         // 6. 大气
         Exec(L"r.SkyAtmosphere 0");                     // 天空大气渲染
@@ -491,9 +512,10 @@ namespace g_Util {
         Exec(L"r.TranslucencyVolumeBlur 0");            // 禁用半透明体积模糊计算
         Exec(L"r.VT.EnableFeedback 0");                 // 禁用虚拟纹理 (Virtual Texture) 采样反馈机制
 
+        // 已经被flags关了
         // 8. 水体系统
-        Exec(L"r.Water.SingleLayer 0");                 // 关闭单层水体 (Single Layer Water) 渲染管线
-        Exec(L"r.Water.SingleLayer.Reflection 0");      // 关闭水面反射计算
+        // Exec(L"r.Water.SingleLayer 0");                 // 关闭单层水体 (Single Layer Water) 渲染管线
+        // Exec(L"r.Water.SingleLayer.Reflection 0");      // 关闭水面反射计算
     }
 
     inline bool Welcome(SDK::UWorld* World, SDK::UCanvas* Canvas)
