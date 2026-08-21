@@ -109,11 +109,14 @@ namespace g_DrawImGui {
 			}
 			ImGui::EndDisabled();
 
+			// 好像没啥用
+			/*
 			ImGui::BeginDisabled(!g_Hook::ClientNotifyReconnectedOK);
 			{
 				DrawCustomCheckbox(FastReconnectedChecked, &g_Config::bFastReconnected);
 			}
 			ImGui::EndDisabled();
+			*/
 
 			ImGui::BeginDisabled(!g_Hook::ClientNotifyRespawnedOK);
 			{

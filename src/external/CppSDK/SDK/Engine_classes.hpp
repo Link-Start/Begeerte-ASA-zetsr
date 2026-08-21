@@ -11201,12 +11201,10 @@ public:
 	int32                                         MaxPacket;                                         // 0x00A8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         InternalAck : 1;                                   // 0x00AC(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
 	
-	// --- 开始手术 ---
 	uint8                                          Pad_AD_To_C0[0x13];                                // 0x00AD(0x0013)(填充到 0xC0)
 	class FString                                  RemoteIPList;                                      // 0x00C0(0x0010)(我们发现的 IP 列表)
 	int32                                          RemotePort;
 	uint8                                          Pad_D4_To_168[0x94];                               // 0x00D4(0x0094)(填充到 PlayerID)
-	// --- 手术结束 ---
 
 	// uint8                                         Pad_AD[0xBB];                                      // 0x00AD(0x00BB)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FUniqueNetIdRepl                       PlayerID;                                          // 0x0168(0x0030)(HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -33785,9 +33783,9 @@ public:
 	class UWorld*                                 World;                                             // 0x0078(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 	class UGameInstance*                          GameInstance;                                      // 0x0080(0x0008)(ZeroConstructor, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 	// uint8                                         Pad_88[0x338];                                     // 0x0088(0x0338)(Fixing Struct Size After Last Property [ Dumper-7 ])
-	uint8                                         Pad_88_Part1[0x30];                                // 0x0088(0x0030) (对齐到 0x00B8)
-	uint8                                         EngineShowFlags[0x20];                             // 0x00B8(0x0020) (占用 32 字节 / 256 位，用于位段操作)
-	uint8                                         Pad_88_Part2[0x2E8];                               // 0x00D8(0x02E8) (补全后半部分垫片，总计 0x338)
+	uint8 Pad_88_Part1[0x30]; // 0x0088(0x0030) (对齐到 0x00B8)
+	uint8 EngineShowFlags[0x20]; // 0x00B8(0x0020) (占用 32 字节 / 256 位，用于位段操作)
+	uint8 Pad_88_Part2[0x2E8]; // 0x00D8(0x02E8) (补全后半部分垫片，总计 0x338)
 
 public:
 	void SetConsoleTarget(int32 PlayerIndex);
