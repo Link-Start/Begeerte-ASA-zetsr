@@ -167,7 +167,8 @@ namespace Shadow {
         ShadowInputTextFlags_AutoSelectAll = 1 << 8,
         ShadowInputTextFlags_ParseEmptyRefVal = 1 << 9,
         ShadowInputTextFlags_DisplayEmptyRefVal = 1 << 10,
-        ShadowInputTextFlags_NoName = 1 << 11
+        ShadowInputTextFlags_NoName = 1 << 11,
+        ShadowInputTextFlags_AlignCenter = 1 << 12
     };
     using ShadowInputTextFlags = int;
 
@@ -527,8 +528,24 @@ namespace Shadow {
         size_t HoveredListBoxIdPreviousFrame = 0;
     };
 
+    struct ShadowIO {
+        Vec2 DisplaySize;
+        float DeltaTime;
+    };
+
+    inline ShadowIO g_IO;
     inline GuiContext g_Ctx;
     inline SDK::UFont*& DefaultFont = g_Ctx.DefaultFont;
+
+    inline ShadowIO& GetIO() {
+        g_IO.DisplaySize = {
+            g_Ctx.Canvas ? static_cast<float>(g_Ctx.Canvas->SizeX) : 0.0f,
+            g_Ctx.Canvas ? static_cast<float>(g_Ctx.Canvas->SizeY) : 0.0f
+        };
+        g_IO.DeltaTime = static_cast<float>(g_Ctx.DeltaTime);
+
+        return g_IO;
+    }
 
     inline ShadowDrawList* GetWindowDrawList() {
         if (g_Ctx.InTooltip) return &g_Ctx.TooltipDrawList;
@@ -567,9 +584,9 @@ namespace Shadow {
         colors[GuiCol_Button] = { 0.025f, 0.032f, 0.045f, 1.000f };
         colors[GuiCol_ButtonHovered] = { 0.045f, 0.055f, 0.075f, 1.000f };
 
-        colors[GuiCol_Tab] = { 0.008f, 0.012f, 0.016f, 1.000f };
-        colors[GuiCol_TabHovered] = { 0.035f, 0.045f, 0.060f, 1.000f };
-        colors[GuiCol_TabActive] = { 0.015f, 0.020f, 0.028f, 1.000f };
+        colors[GuiCol_Tab] = { 0.006f, 0.010f, 0.014f, 1.000f };
+        colors[GuiCol_TabHovered] = { 0.070f, 0.080f, 0.095f, 1.000f };
+        colors[GuiCol_TabActive] = { 0.045f, 0.055f, 0.070f, 1.000f };
 
         colors[GuiCol_SliderGrab] = { 0.140f, 0.185f, 0.250f, 1.000f };
         colors[GuiCol_SliderKnob] = { 0.860f, 0.860f, 0.860f, 1.000f };
@@ -1295,19 +1312,53 @@ namespace Shadow {
 
     inline void InternalDrawRect(Vec2 pos, Vec2 size, Color color, float thickness, bool clipEnabled, Vec2 clipMin, Vec2 clipMax) {
         if (!g_Ctx.Canvas) return;
+        if (size.x <= 0.f || size.y <= 0.f) return;
+
+        // 1. AABB 完全在外部直接剔除
         if (clipEnabled) {
-            if (pos.x + size.x < clipMin.x || pos.x > clipMax.x || pos.y + size.y < clipMin.y || pos.y > clipMax.y) return;
-            if (pos.x < clipMin.x) { size.x -= (clipMin.x - pos.x); pos.x = clipMin.x; }
-            if (pos.y < clipMin.y) { size.y -= (clipMin.y - pos.y); pos.y = clipMin.y; }
-            if (pos.x + size.x > clipMax.x) size.x = clipMax.x - pos.x;
-            if (pos.y + size.y > clipMax.y) size.y = clipMax.y - pos.y;
-            if (size.x <= 0.f || size.y <= 0.f) return;
+            if (pos.x + size.x < clipMin.x || pos.x > clipMax.x ||
+                pos.y + size.y < clipMin.y || pos.y > clipMax.y)
+                return;
         }
 
-        InternalDrawLine({ pos.x, pos.y }, { pos.x + size.x, pos.y }, color, thickness, clipEnabled, clipMin, clipMax);
-        InternalDrawLine({ pos.x + size.x, pos.y }, { pos.x + size.x, pos.y + size.y }, color, thickness, clipEnabled, clipMin, clipMax);
-        InternalDrawLine({ pos.x + size.x, pos.y + size.y }, { pos.x, pos.y + size.y }, color, thickness, clipEnabled, clipMin, clipMax);
-        InternalDrawLine({ pos.x, pos.y + size.y }, { pos.x, pos.y }, color, thickness, clipEnabled, clipMin, clipMax);
+        float halfThick = thickness * 0.5f;
+
+        // 辅助 Lambda：在启用裁剪时限制坐标在 [clipMin, clipMax] 范围内
+        auto ClampVec = [clipEnabled, clipMin, clipMax](Vec2 p) -> Vec2 {
+            if (!clipEnabled) return p;
+            return {
+                std::clamp(p.x, clipMin.x, clipMax.x),
+                std::clamp(p.y, clipMin.y, clipMax.y)
+            };
+            };
+
+        // 1. 上边 (水平线)
+        Vec2 topL = ClampVec({ pos.x - halfThick, pos.y });
+        Vec2 topR = ClampVec({ pos.x + size.x + halfThick, pos.y });
+        if (topL.x < topR.x) {
+            InternalDrawLine(topL, topR, color, thickness, clipEnabled, clipMin, clipMax);
+        }
+
+        // 2. 下边 (水平线)
+        Vec2 botL = ClampVec({ pos.x - halfThick, pos.y + size.y });
+        Vec2 botR = ClampVec({ pos.x + size.x + halfThick, pos.y + size.y });
+        if (botL.x < botR.x) {
+            InternalDrawLine(botL, botR, color, thickness, clipEnabled, clipMin, clipMax);
+        }
+
+        // 3. 左边 (垂直线)
+        Vec2 leftT = ClampVec({ pos.x, pos.y + halfThick });
+        Vec2 leftB = ClampVec({ pos.x, pos.y + size.y - halfThick });
+        if (leftT.y < leftB.y) {
+            InternalDrawLine(leftT, leftB, color, thickness, clipEnabled, clipMin, clipMax);
+        }
+
+        // 4. 右边 (垂直线)
+        Vec2 rightT = ClampVec({ pos.x + size.x, pos.y + halfThick });
+        Vec2 rightB = ClampVec({ pos.x + size.x, pos.y + size.y - halfThick });
+        if (rightT.y < rightB.y) {
+            InternalDrawLine(rightT, rightB, color, thickness, clipEnabled, clipMin, clipMax);
+        }
     }
 
     inline void InternalDrawRectFilled(Vec2 pos, Vec2 size, Color color, bool clipEnabled, Vec2 clipMin, Vec2 clipMax) {
@@ -1347,7 +1398,7 @@ namespace Shadow {
         SDK::FVector2D shadowOff{ 1.0f, 1.0f };
 
         std::wstring wstr = ToWString(text);
-        g_Ctx.Canvas->K2_DrawText(font, SDK::FString(wstr.c_str()), uePos, scale, ueColor, 0.0f, shadow, shadowOff, false, false, true, outline);
+        g_Ctx.Canvas->K2_DrawText(font, SDK::FString(wstr.c_str()), uePos, scale, ueColor, 0.0f, shadow, shadowOff, false, false, false, outline);
     }
 
     inline void InternalDrawTriangleFilled(Vec2 p1, Vec2 p2, Vec2 p3, Color color, bool clipEnabled, Vec2 clipMin, Vec2 clipMax) {
@@ -1424,8 +1475,6 @@ namespace Shadow {
     inline void UpdateItemHeight() {
         Vec2 charSize = MeasureTextSize("A");
         g_Ctx.ItemHeight = charSize.y > 0.f ? charSize.y + g_Ctx.Style.FramePadding.y * 2.f : 20.f;
-        g_Ctx.SliderInputWidthCache.clear();
-        g_Ctx.SliderInputLengthCache.clear();
     }
 
     inline void PushFont(SDK::UFont* font, float scale = 1.0f) {
@@ -1510,16 +1559,16 @@ namespace Shadow {
             for (size_t i = 0; i < wstr.size(); ++i) {
                 float charWidth = MeasureCharWidth(wstr[i]);
                 if (!foundStart) {
-                    if (currentX + charWidth > g_Ctx.ClipMin.x) {
+                    if (currentX >= g_Ctx.ClipMin.x) {
                         foundStart = true;
                         clippedWstr += wstr[i];
                         outPos.x = currentX;
                     }
-                    currentX += charWidth;
                 }
                 else {
                     clippedWstr += wstr[i];
                 }
+                currentX += charWidth;
             }
             if (!foundStart) {
                 shouldDraw = false;
@@ -2389,13 +2438,28 @@ namespace Shadow {
 
         Color bgColor = disabled ? g_Ctx.Style.Colors[GuiCol_ControlDisabled] : (isActive ? g_Ctx.Style.Colors[GuiCol_FrameBgHovered] : (hovered ? g_Ctx.Style.Colors[GuiCol_FrameBgHovered] : g_Ctx.Style.Colors[GuiCol_FrameBg]));
         GetWindowDrawList()->AddRectFilled(pos, size, bgColor);
-        PushClipRect(pos, { pos.x + size.x, pos.y + size.y });
 
-        float textX = pos.x + g_Ctx.Style.FramePadding.x;
-        float textY = pos.y + g_Ctx.Style.FramePadding.y;
+        // 剪裁绘制区：一切超出文本框边界的内容都会被物理剔除
+        PushClipRect(pos, { pos.x + size.x, pos.y + size.y });
 
         std::string displayText = text;
         if (isPassword) displayText.assign(text.size(), '*');
+
+        // ==== 计算文本滚动偏移 ====
+        // 如果文本太长导致光标超越了右边界，我们会平滑的把整段文本和光标向左平移
+        float maxTextWidth = size.x - g_Ctx.Style.FramePadding.x * 2.f;
+        float textScrollX = 0.f;
+
+        if (isActive) {
+            std::string preCursor = displayText.substr(0, g_Ctx.InputCursorPos);
+            float curW = MeasureTextSize(preCursor).x;
+            if (curW > maxTextWidth) {
+                textScrollX = curW - maxTextWidth;
+            }
+        }
+
+        float textX = pos.x + g_Ctx.Style.FramePadding.x - textScrollX;
+        float textY = pos.y + g_Ctx.Style.FramePadding.y;
 
         if (isActive && g_Ctx.InputSelectionStart != -1 && g_Ctx.InputSelectionEnd != -1 && g_Ctx.InputSelectionStart != g_Ctx.InputSelectionEnd) {
             int s = std::clamp(std::min(g_Ctx.InputSelectionStart, g_Ctx.InputSelectionEnd), 0, (int)displayText.size());
@@ -2814,6 +2878,9 @@ namespace Shadow {
         if (currentMS > g_Ctx.SharedDelayExpirationTime) {
             g_Ctx.SharedDelayActive = false;
         }
+
+        g_IO.DisplaySize = { Canvas ? static_cast<float>(Canvas->SizeX) : 0.0f, Canvas ? static_cast<float>(Canvas->SizeY) : 0.0f };
+        g_IO.DeltaTime = static_cast<float>(g_Ctx.DeltaTime);
     }
 
     inline bool Begin(std::string_view name, ShadowWindowFlags flags = ShadowWindowFlags_None) {
@@ -4084,33 +4151,34 @@ namespace Shadow {
 
         size_t sliderInputId = id ^ HashString("_sliderInput");
 
-        if (g_Ctx.ActiveInputId != sliderInputId) {
-            int prec = 3;
-            if (step > 0.f) {
-                prec = 0;
-                float temp = step;
-                while (temp < 0.999f && prec < 5) {
-                    temp *= 10.0f;
-                    prec++;
-                }
+        int prec = 3;
+        if (step > 0.f) {
+            prec = 0;
+            float temp = step;
+            while (temp < 0.999f && prec < 5) {
+                temp *= 10.0f;
+                prec++;
             }
+        }
+
+        if (g_Ctx.ActiveInputId != sliderInputId) {
             g_Ctx.InputBuffers[sliderInputId] = std::format("{:.{}f}", *value, prec);
         }
 
-        float controlOffsetX = GetControlOffsetX();
-        float rightMargin = GetRightMargin();
-
-        std::string& inputStr = g_Ctx.InputBuffers[sliderInputId];
-        size_t currentLen = inputStr.length();
-
+        // [修复] 永远仅根据 min_val 和 max_val 计算最大理论物理宽度，彻底抛弃实时计算，断绝一切抖动源头
         auto it_width = g_Ctx.SliderInputWidthCache.find(sliderInputId);
-        auto it_len = g_Ctx.SliderInputLengthCache.find(sliderInputId);
-
-        if (it_len == g_Ctx.SliderInputLengthCache.end() || it_len->second != currentLen || it_width == g_Ctx.SliderInputWidthCache.end()) {
-            g_Ctx.SliderInputWidthCache[sliderInputId] = MeasureTextSize(inputStr).x + g_Ctx.Style.FramePadding.x * 2.f;
-            g_Ctx.SliderInputLengthCache[sliderInputId] = currentLen;
+        if (it_width == g_Ctx.SliderInputWidthCache.end()) {
+            std::string minStr = std::format("{:.{}f}", min_val, prec);
+            std::string maxStr = std::format("{:.{}f}", max_val, prec);
+            float wMin = MeasureTextSize(minStr).x;
+            float wMax = MeasureTextSize(maxStr).x;
+            // 选出极限宽度并加上充足 Padding 保留给非法的爆框输入
+            g_Ctx.SliderInputWidthCache[sliderInputId] = std::max(wMin, wMax) + g_Ctx.Style.FramePadding.x * 2.f + 4.f;
         }
         float valBoxWidth = g_Ctx.SliderInputWidthCache[sliderInputId];
+
+        float controlOffsetX = GetControlOffsetX();
+        float rightMargin = GetRightMargin();
 
         Vec2 sliderPos;
         float sliderWidth;
@@ -4183,7 +4251,8 @@ namespace Shadow {
             GetWindowDrawList()->AddRectFilled({ sliderPos.x + size.x, sliderPos.y }, { 1.f, size.y }, border);
         }
 
-        bool changed = InputTextEx(sliderInputId, valBoxPos, valBoxSize, g_Ctx.InputBuffers[sliderInputId], ShadowInputTextFlags_CharsDecimal);
+        // 传递新增加的 AlignCenter Flag
+        bool changed = InputTextEx(sliderInputId, valBoxPos, valBoxSize, g_Ctx.InputBuffers[sliderInputId], ShadowInputTextFlags_CharsDecimal | ShadowInputTextFlags_AlignCenter);
 
         if (changed && !disabled) {
             const std::string& str = g_Ctx.InputBuffers[sliderInputId];
