@@ -138,17 +138,8 @@ namespace g_ESP {
         Shadow::ShadowDrawList* dl = Shadow::GetBackgroundDrawList();
         if (!dl) return;
 
-        static SDK::UFont* SansationBold18 = nullptr;
-        static SDK::UFont* OpenSansRegular12 = nullptr;
-
-        if (!SansationBold18) {
-            SDK::UObject* _Font = SDK::UObject::FindObject("Font SansationBold18.SansationBold18");
-            if (_Font && _Font->IsA(SDK::UFont::StaticClass())) SansationBold18 = (SDK::UFont*)_Font;
-        }
-        if (!OpenSansRegular12) {
-            SDK::UObject* _Font = SDK::UObject::FindObject("Font OpenSansRegular12.OpenSansRegular12");
-            if (_Font && _Font->IsA(SDK::UFont::StaticClass())) OpenSansRegular12 = (SDK::UFont*)_Font;
-        }
+        static SDK::UFont* SansationBold18 = g_Util::GetSansationBold18();
+        static SDK::UFont* OpenSansRegular12 = g_Util::GetOpenSansRegular12();
 
         if (!SansationBold18 || !OpenSansRegular12) return;
         SDK::UFont* currentFont = (pos == FlagPos::Top) ? SansationBold18 : OpenSansRegular12;

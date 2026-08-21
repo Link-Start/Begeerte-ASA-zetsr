@@ -12,7 +12,7 @@
 namespace g_Util {
     static const float inv255 = 1.0f / 255.0f; 
 
-    inline const char* GetKeyName(UINT vk) {
+    __forceinline const char* GetKeyName(UINT vk) {
         if (vk >= 'A' && vk <= 'Z') {
             static char buf[2] = { 0 };
             buf[0] = (char)vk;
@@ -37,22 +37,22 @@ namespace g_Util {
         }
     }
 
-    inline std::string ToLower(std::string s) {
+    __forceinline std::string ToLower(std::string s) {
         std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c) {
             return std::tolower(c);
             });
         return s;
     }
 
-    inline ImU32 GetU32Color(float color[4]) {
+    __forceinline ImU32 GetU32Color(float color[4]) {
         return ImGui::ColorConvertFloat4ToU32(*(ImVec4*)color);
     }
 
-    inline ImU32 ToImColor(float r, float g, float b, float a) {
+    __forceinline ImU32 ToImColor(float r, float g, float b, float a) {
         return ImGui::ColorConvertFloat4ToU32(ImVec4(r * inv255, g * inv255, b * inv255, a * inv255));
     }
 
-    inline ImU32 GetHealthColor(float healthPercent) {
+    __forceinline ImU32 GetHealthColor(float healthPercent) {
         healthPercent = fmaxf(0.0f, fminf(healthPercent, 1.0f));
 
         float r = fminf(1.0f, 2.0f - 2.0f * healthPercent);
@@ -61,19 +61,19 @@ namespace g_Util {
         return ToImColor(r * 255.0f, g * 255.0f, 0.0f, 255.0f);
     }
 
-    inline bool IsCookedMeat(SDK::UPrimalItem* Item) {
+    __forceinline bool IsCookedMeat(SDK::UPrimalItem* Item) {
         if (!Item || !Item->Class) return false;
         std::string name = Item->Class->GetName();
         return name.find("PrimalItemConsumable_CookedMeat") != std::string::npos;
     }
 
-    inline bool IsRawMeat(SDK::UPrimalItem* Item) {
+    __forceinline bool IsRawMeat(SDK::UPrimalItem* Item) {
         if (!Item || !Item->Class) return false;
         std::string name = Item->Class->GetName();
         return name.find("PrimalItemConsumable_RawMeat") != std::string::npos;
     }
 
-    inline bool IsEntityMatch(std::string displayName, std::string filter) {
+    __forceinline bool IsEntityMatch(std::string displayName, std::string filter) {
         if (filter.empty()) return true;
 
         std::string nameLower = g_Util::ToLower(displayName);
@@ -98,7 +98,7 @@ namespace g_Util {
         return true;
     }
 
-    inline static std::vector<std::string> SplitFilterTokens(const std::string& filter) {
+    __forceinline static std::vector<std::string> SplitFilterTokens(const std::string& filter) {
         std::vector<std::string> tokens;
         std::stringstream ss(filter);
         std::string token;
@@ -115,7 +115,7 @@ namespace g_Util {
         return tokens;
     }
 
-    inline static bool IsEntityMatchMulti(const std::string& displayName, const char* filterBuf) {
+    __forceinline static bool IsEntityMatchMulti(const std::string& displayName, const char* filterBuf) {
         std::string filter = filterBuf;
         if (filter.empty()) return true;
 
@@ -129,7 +129,7 @@ namespace g_Util {
         return false;
     }
 
-    inline bool IsStructureMatch(const std::string& structureName, const std::string& filter) {
+    __forceinline bool IsStructureMatch(const std::string& structureName, const std::string& filter) {
         if (filter.empty()) return true;
 
         std::string lowerName = structureName;
@@ -141,7 +141,7 @@ namespace g_Util {
         return lowerName.find(lowerFilter) != std::string::npos;
     }
 
-    static bool IsStructureMatchMulti(const std::string& structureName, const char* filterBuf) {
+    __forceinline static bool IsStructureMatchMulti(const std::string& structureName, const char* filterBuf) {
         std::string filter = filterBuf;
         if (filter.empty()) return true;
 
@@ -155,7 +155,7 @@ namespace g_Util {
         return false;
     }
 
-    inline SDK::APlayerController* GetLocalPC() {
+    __forceinline SDK::APlayerController* GetLocalPC() {
         SDK::UWorld* World = SDK::UWorld::GetWorld();
 
         if (!World) {
@@ -183,7 +183,7 @@ namespace g_Util {
         return PC;
     }
 
-    inline float GetAngleDistance(SDK::FVector CamLoc, SDK::FVector TargetLoc, SDK::FRotator CamRot) {
+    __forceinline float GetAngleDistance(SDK::FVector CamLoc, SDK::FVector TargetLoc, SDK::FRotator CamRot) {
         SDK::FVector Diff = { TargetLoc.X - CamLoc.X, TargetLoc.Y - CamLoc.Y, TargetLoc.Z - CamLoc.Z };
         SDK::FVector DirToTarget = SDK::UKismetMathLibrary::Normal(Diff, 0.0001f);
         SDK::FVector CamForward = SDK::UKismetMathLibrary::GetForwardVector(CamRot);
@@ -192,14 +192,14 @@ namespace g_Util {
         return SDK::UKismetMathLibrary::DegAcos(Dot);
     }
 
-    inline void MimicMouseClick(bool bPress) {
+    __forceinline void MimicMouseClick(bool bPress) {
         INPUT input = { 0 };
         input.type = INPUT_MOUSE;
         input.mi.dwFlags = bPress ? MOUSEEVENTF_LEFTDOWN : MOUSEEVENTF_LEFTUP;
         SendInput(1, &input, sizeof(INPUT));
     }
 
-    inline void ProcessDinoFeed(SDK::AShooterPlayerController* PC, SDK::APrimalDinoCharacter* Dino) {
+    __forceinline void ProcessDinoFeed(SDK::AShooterPlayerController* PC, SDK::APrimalDinoCharacter* Dino) {
         if (!Dino || Dino->IsDead()) return;
 
         float curHP = Dino->GetHealth();
@@ -232,14 +232,14 @@ namespace g_Util {
         }
     }
 
-    inline static std::string IntToStr(int v)
+    __forceinline static std::string IntToStr(int v)
     {
         char buf[32];
         snprintf(buf, sizeof(buf), "%d", v);
         return buf; // NRVO / SSO，比 std::to_string 开销低
     }
 
-    inline static float ApproachAlpha(float cur, float target, float deltaSeconds, float fadeTime)
+    __forceinline static float ApproachAlpha(float cur, float target, float deltaSeconds, float fadeTime)
     {
         if (fadeTime <= 0.0f) return target;
         float diff = target - cur;
@@ -248,7 +248,7 @@ namespace g_Util {
         return cur + (diff > 0.0f ? maxStep : -maxStep);
     }
 
-    inline static ImU32 ResolveDroppedItemColor(const std::string& className, float itemRating, int quantity)
+    __forceinline static ImU32 ResolveDroppedItemColor(const std::string& className, float itemRating, int quantity)
     {
         const char* cn = className.c_str();
 
@@ -320,7 +320,7 @@ namespace g_Util {
         return g_Util::GetU32Color(g_Config::DroppedItemNameColor);
     }
 
-    inline bool IsDroppedItemAllowed(const std::string& className, int quantity)
+    __forceinline bool IsDroppedItemAllowed(const std::string& className, int quantity)
     {
         const char* cn = className.c_str();
 
@@ -386,7 +386,7 @@ namespace g_Util {
         return true;
     }
 
-    inline void* FindUFunction(std::string FuncName) {
+    __forceinline void* FindUFunction(std::string FuncName) {
         SDK::TUObjectArray* ObjectArray = SDK::UObject::GObjects.operator->();
         void* targetNativeFuncAddress = nullptr;
 
@@ -411,7 +411,7 @@ namespace g_Util {
         return targetNativeFuncAddress;
     }
 
-    inline void PotatoGraphics(SDK::UObject* WorldContextObject, SDK::UGameViewportClient* GameViewportClient) {
+    __forceinline void PotatoGraphics(SDK::UObject* WorldContextObject, SDK::UGameViewportClient* GameViewportClient) {
         if (!WorldContextObject) return;
         if (!GameViewportClient) return;
 
@@ -518,7 +518,7 @@ namespace g_Util {
         // Exec(L"r.Water.SingleLayer.Reflection 0");      // 关闭水面反射计算
     }
 
-    inline bool Welcome(SDK::UWorld* World, SDK::UCanvas* Canvas)
+    __forceinline bool Welcome(SDK::UWorld* World, SDK::UCanvas* Canvas)
     {
         // 只播放一次
         static bool bFinished = false;
@@ -683,5 +683,72 @@ namespace g_Util {
         DrawList->AddRectFilled({ Center.x - 1.5f, Center.y - 1.5f }, { 3.0f, 3.0f }, CyanGlow);
 
         return false;
+    }
+
+    __forceinline SDK::AShooterGameState* GetAShooterGameState() {
+        SDK::AShooterGameState* GS = nullptr;
+        SDK::UWorld* World = SDK::UWorld::GetWorld();
+
+        if (World && World->GameState && World->GameState->IsA(SDK::AShooterGameState::StaticClass())) {
+            GS = static_cast<SDK::AShooterGameState*>(World->GameState);
+        }
+
+        return GS;
+    }
+
+    __forceinline float GetClientPing() {
+        float ping = 0.f;
+
+        SDK::APlayerController* LocalPC = g_Util::GetLocalPC();
+        if (LocalPC && LocalPC->PlayerState) {
+            ping = LocalPC->PlayerState->GetExactPing();
+        }
+
+        return ping;
+    }
+
+    __forceinline SDK::UFont* GetOpenSansRegular12() {
+        static SDK::UFont* OpenSansRegular12 = nullptr;
+
+        if (!OpenSansRegular12) {
+            SDK::UObject* _Font = SDK::UObject::FindObject("Font OpenSansRegular12.OpenSansRegular12");
+            if (_Font && _Font->IsA(SDK::UFont::StaticClass())) OpenSansRegular12 = (SDK::UFont*)_Font;
+        }
+
+        return OpenSansRegular12;
+    }
+
+    __forceinline SDK::UFont* GetSansationBold18() {
+        static SDK::UFont* SansationBold18 = nullptr;
+
+        if (!SansationBold18) {
+            SDK::UObject* _Font = SDK::UObject::FindObject("Font SansationBold18.SansationBold18");
+            if (_Font && _Font->IsA(SDK::UFont::StaticClass())) SansationBold18 = (SDK::UFont*)_Font;
+        }
+
+        return SansationBold18;
+    }
+
+    __forceinline float GetFPS() {
+        static float time_accumulator = 0.f; // 累积时间 (秒)
+        static int   frame_count = 0;        // 累积渲染帧数
+        static float last_fps = 0.f;         // 上一次计算并缓存的 FPS
+
+        float dt = Shadow::GetIO().DeltaTime;
+
+        // 累加时间和帧数
+        time_accumulator += dt;
+        frame_count++;
+
+        // 达到 500ms (0.5秒) 更新一次
+        if (time_accumulator >= 0.5f) {
+            last_fps = (time_accumulator > 0.f) ? (static_cast<float>(frame_count) / time_accumulator) : 0.f;
+
+            // 重置计数器
+            time_accumulator = 0.f;
+            frame_count = 0;
+        }
+
+        return last_fps;
     }
 }

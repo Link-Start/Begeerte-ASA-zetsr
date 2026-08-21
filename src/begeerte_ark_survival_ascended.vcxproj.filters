@@ -522,6 +522,9 @@
     <ClInclude Include="external\CppSDK\UtfN.hpp">
       <Filter>external\CppSDK</Filter>
     </ClInclude>
+    <ClInclude Include="internal\ESP\Indicators.h">
+      <Filter>internal\ESP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Object Include="external\LuaJIT-2.1\src\lj_vm.obj">

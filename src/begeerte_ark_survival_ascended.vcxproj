@@ -134,6 +134,7 @@
     <ClInclude Include="internal\Config\Configs.h" />
     <ClInclude Include="internal\ESP\DrawESP.h" />
     <ClInclude Include="internal\ESP\ESP.h" />
+    <ClInclude Include="internal\ESP\Indicators.h" />
     <ClInclude Include="internal\Hack\Hack.h" />
     <ClInclude Include="internal\Language\LanguageManager.h" />
     <ClInclude Include="internal\Legit\Aimbot\Aimbot.h" />

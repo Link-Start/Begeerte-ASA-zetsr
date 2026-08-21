@@ -135,6 +135,7 @@ public:
         static const char* FastReconnected;
         static const char* FastRespawned;
         static const char* PotatoGraphics;
+        static const char* ShowInfo;
     };
 
     struct StructureList_Menu {

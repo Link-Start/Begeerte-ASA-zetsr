@@ -2,6 +2,7 @@
 #include "../../external/CppSDK/SDK.hpp"
 #include "../../external/Shadow-Gui/include/Shadow.h"
 #include "../ESP/DrawESP.h"
+#include "../ESP/Indicators.h"
 #include "../Lua/LuaManager.h"
 #include "../Util/Util.h"
 #include "PostRender.h"
@@ -180,16 +181,17 @@ namespace g_UGameViewportClient {
 
         // ApplyCrossVersionViewportScan(rcx);
 
+        SDK::UWorld* World = SDK::UWorld::GetWorld();
+
         if (g_Config::bPotatoGraphics) {
-            g_Util::PotatoGraphics(SDK::UWorld::GetWorld(), rcx);
+            g_Util::PotatoGraphics(World, rcx);
             g_Config::bPotatoGraphics = false;
         }
-
-        SDK::UWorld* World = SDK::UWorld::GetWorld();
 
         Shadow::NewFrame(canvas);
         g_Util::Welcome(World, canvas);
         g_DrawESP::DrawESP(canvas);
+        g_Indicators::OnRender();
         LuaManager::Get().Lua_OnPostRender();
         Shadow::Render();
     }

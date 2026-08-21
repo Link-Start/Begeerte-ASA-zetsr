@@ -37,6 +37,8 @@ namespace g_DrawImGui {
 		const char* FastReconnectedChecked = LanguageManager::Misc_Menu::FastReconnected;
 		const char* FastRespawnedChecked = LanguageManager::Misc_Menu::FastRespawned;
 		const char* btnPotatoGraphics = LanguageManager::Misc_Menu::PotatoGraphics;
+		const char* cbShowInfo = LanguageManager::Misc_Menu::ShowInfo;
+
 
 		if (ImGui::BeginTabItem(tabLabel)) {
 			ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(14.0f, 14.0f));
@@ -88,6 +90,12 @@ namespace g_DrawImGui {
 			}
 
 			DrawAnimatedSeparator();
+
+			ImGui::BeginDisabled(!g_Hook::PostRenderOK);
+			{
+				DrawCustomCheckbox(cbShowInfo, &g_Config::bShowInfo);
+			}
+			ImGui::EndDisabled();
 
 			ImGui::BeginDisabled(!g_Hook::ActorTickOK);
 			{

@@ -129,6 +129,8 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
 
         CONFIG_BOOL(g_Config::bFastReconnected);
         CONFIG_BOOL(g_Config::bFastRespawned);
+
+        CONFIG_BOOL(g_Config::bShowInfo);
         file << "\n";
 
         // 生物列表
@@ -384,6 +386,7 @@ bool ConfigManager::LoadConfig(const std::string& filename) {
 
         LOAD_BOOL(g_Config::bFastReconnected);
         LOAD_BOOL(g_Config::bFastRespawned);
+        LOAD_BOOL(g_Config::bShowInfo);
 
         // 生物列表
         LOAD_STRING(g_Config::entitySearchBuf, 256);

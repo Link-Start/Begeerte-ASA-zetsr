@@ -12,18 +12,25 @@ namespace g_CheatData {
 	namespace Signature {
 		namespace AShooterPlayerController {
 			// 48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 55 48 8D 6C 24 ? 48 81 EC ? ? ? ? 80 65 ? ? 33 DB 0F
+
+			// 应该不再需要这个东西了，没有用处，只是视觉效果
 			std::string ClientChatMessage = "OUTDATED";
      	}
 
 		namespace APrimalPlayerController {
 			
 			// 他妈的特别特别特别长的特征码
+			// 应该不再需要这个东西了，它似乎什么都没做，idk，我没有去检查它的call状态
 			std::string ClientNotifyReconnected = "OUTDATED";
+
+
+			// 跳过重生动画
 			std::string ClientNotifyRespawned = "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC ? 33 FF 48 8B DA 48 89 7C 24 ? 4C 8B F1 E8 ? ? ? ? 48 8B 43 ? 48 8D 2D ? ? ? ? 48 85 C0 74 ? 0F B6 10 4C 8D 44 24 ? 48 8B 4B ? 48 FF C0 48 89 43 ? 8B C2 48 8B D3 FF 54 C5 ? 48 8D B3 ? ? ? ? EB ? 48 8D B3 ? ? ? ? 48 8B 0E 48 8B 41 ? 48 89 06 8B 41 ? 48 0F BA E0 ? 73 ? 48 8B 83 ? ? ? ? 48 39 08 74 ? 48 8B 40 ? 48 39 08 75 ? 48 8B 40 ? 48 89 43 ? 48 89 7B ? EB ? 48 63 41 ? 48 8D 54 24 ? 4C 8B 43 ? 49 03 C0 4C 89 43 ? 48 89 43 ? 48 8B 01 FF 90 ? ? ? ? 89 7C 24 ? E8 ? ? ? ? 48 8B 43 ? 48 85 C0 74 ? 0F B6 08 4C 8D 44 24 ? 48 FF C0 48 8B D3 48 89 43 ? 8B C1 48 8B 4B ? FF 54 C5 ? EB ? 48 8B 0E 48 8B 41 ? 48 89 06 8B 41 ? 48 0F BA E0 ? 73 ? 48 8B 83 ? ? ? ? 48 39 08 74 ? 0F 1F 84 00 ? ? ? ? 48 8B 40 ? 48 39 08 75 ? 48 8B 40 ? 48 89 43 ? 48 89 7B ? EB ? 48 63 41 ? 48 8D 54 24 ? 4C 8B 43 ? 49 03 C0 4C 89 43 ? 48 89 43 ? 48 8B 01 FF 90 ? ? ? ? 48 8B 43 ? 49 8B CE 48 8B 54 24 ? 48 85 C0 40 0F 95 C7 48 03 F8 83 7C 24 ? ? 48 89 7B ? 49 8B 06 41 0F 95 C0 FF 90 ? ? ? ? 48 8B 5C 24 ? 48 8B 6C 24 ? 48 83 C4 ? 41 5E 5F 5E C3 CC CC CC CC CC CC CC CC CC 48 83 EC ? 48 8B 05 ? ? ? ? 48 85 C0 75 ? 48 8D 15 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8B 05 ? ? ? ? 48 83 C4 ? C3 CC 48 8B C4 53 41";
 		}
 
 		namespace AActor {
 			// push rbp | push rbx | push rsi | push rdi | push r12 | push r13 | push r14 | push r15 | lea rbp, [rsp+offset] | sub rsp, alloc | movaps [rsp+offset], xmm11
+			// 无法在服务器工作，需要找到ASA重写的TakeDamage，或者UI Hit Damage，idk
 			std::string TakeDamage = "OUTDATED";
 
 			// 470
@@ -32,6 +39,8 @@ namespace g_CheatData {
 
 		namespace UNetConnection {
 			// 7FF7A8D25520
+			// 也没啥用，退出服务器的时候会触发一次。
+			// 不敢相信这个特征码能存活这么长时间
 			std::string HandleDisconnect = "? ? ? ? ? ? ? 55 57 48 8D 68 A1 48 81 EC D8 00 00 00 48 89 58 E8 48 8D 55 E7 48 89 70 E0";
 		}
 
