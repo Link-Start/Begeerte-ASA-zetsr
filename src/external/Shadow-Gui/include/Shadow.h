@@ -1398,7 +1398,7 @@ namespace Shadow {
         SDK::FVector2D shadowOff{ 1.0f, 1.0f };
 
         std::wstring wstr = ToWString(text);
-        g_Ctx.Canvas->K2_DrawText(font, SDK::FString(wstr.c_str()), uePos, scale, ueColor, 0.0f, shadow, shadowOff, false, false, false, outline);
+        g_Ctx.Canvas->K2_DrawText(font, SDK::FString(wstr.c_str()), uePos, scale, ueColor, 0.0f, shadow, shadowOff, false, false, true, outline);
     }
 
     inline void InternalDrawTriangleFilled(Vec2 p1, Vec2 p2, Vec2 p3, Color color, bool clipEnabled, Vec2 clipMin, Vec2 clipMax) {
