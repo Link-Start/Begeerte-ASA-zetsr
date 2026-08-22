@@ -16,6 +16,7 @@ namespace g_Hook {
 	inline bool PostRenderOK = false;
 	inline bool PhysicsRotationOK = false;
 	inline bool TakeDamageOK = false;
+	inline bool ClientAddFloatingDamageTextOK = false;
 
 	inline bool ClientNotifyReconnectedOK = false;
 	inline bool ClientNotifyRespawnedOK = false;

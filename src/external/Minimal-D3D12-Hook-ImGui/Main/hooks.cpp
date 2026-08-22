@@ -59,6 +59,15 @@ namespace g_Hook {
     typedef void(__fastcall* tClientChatMessage)(SDK::AShooterPlayerController* rcx, SDK::FPrimalChatMessage& Chat);
     tClientChatMessage oClientChatMessage = nullptr;
 
+    typedef void(__fastcall* tClientAddFloatingDamageText)(
+        SDK::AShooterPlayerController* _this,
+        SDK::FVector_NetQuantize& AtLocation,
+        SDK::int32 DamageAmount,
+        SDK::int32 FromTeamID
+        );
+
+    tClientAddFloatingDamageText oClientAddFloatingDamageText = nullptr;
+
     void __fastcall hkActorTick(SDK::AActor* rcx, float DeltaTime) {
         // g_LogManager::AddLog(255, 255, 255, 255, std::format("[{}]", DeltaTime));
         
@@ -146,6 +155,16 @@ namespace g_Hook {
         }
 
         oClientChatMessage(rcx, Chat);
+    }
+
+    void __fastcall hkClientAddFloatingDamageText(
+        SDK::AShooterPlayerController* _this,
+        SDK::FVector_NetQuantize& AtLocation,
+        SDK::int32 DamageAmount,
+        SDK::int32 FromTeamID)
+    {
+        // g_LogManager::AddLog(255, 0, 0, 255, std::format("{} {}", _this->GetPlayerCharacterName().ToString(), DamageAmount));
+        oClientAddFloatingDamageText(_this, AtLocation, DamageAmount, FromTeamID);
     }
 
     // 2026/3/29 @zetsr
@@ -371,6 +390,11 @@ namespace g_Hook {
         }
         */
     }
+
+    void initClientAddFloatingDamageText() {
+        void* targetAddr = g_Util::FindUFunction("Function ShooterGame.ShooterPlayerController.ClientAddFloatingDamageText");
+        g_Util::ADD_MH(targetAddr, &ClientAddFloatingDamageTextOK, &hkClientAddFloatingDamageText, &oClientAddFloatingDamageText);
+    }
 }
 
 // 应该不需要每个都单独检查一次
@@ -393,6 +417,7 @@ void g_Hook::StartAllHooks() {
         g_Hook::initClientNotifyReconnected();
         g_Hook::initClientNotifyRespawned();
         g_Hook::initClientChatMessage();
+        g_Hook::initClientAddFloatingDamageText();
     }
 }
 
