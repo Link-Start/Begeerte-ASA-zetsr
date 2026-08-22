@@ -788,4 +788,13 @@ namespace g_Util {
             }
         }
     }
+
+    __forceinline void ADD_MH(void* targetAddr, bool* hookOK, void* hk, void* o) {
+        if (targetAddr) {
+            if (MH_CreateHook(targetAddr, hk, reinterpret_cast<LPVOID*>(o)) == MH_OK) {
+                MH_EnableHook(targetAddr);
+                *hookOK = true;
+            }
+        }
+    }
 }

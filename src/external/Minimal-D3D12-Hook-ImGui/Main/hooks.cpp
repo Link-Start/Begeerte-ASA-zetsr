@@ -344,12 +344,16 @@ namespace g_Hook {
         // 另一种方法
         void* targetAddr = g_Util::FindUFunction("Function Engine.PrimalPlayerController.ClientNotifyRespawned");
 
+        /*
         if (targetAddr) {
             if (MH_CreateHook(targetAddr, &hkClientNotifyRespawned, reinterpret_cast<LPVOID*>(&oClientNotifyRespawned)) == MH_OK) {
                 MH_EnableHook(targetAddr);
                 ClientNotifyRespawnedOK = true;
             }
         }
+        */
+
+        g_Util::ADD_MH(targetAddr, &ClientNotifyRespawnedOK, &hkClientNotifyRespawned, &oClientNotifyRespawned);
     }
 
     void initClientChatMessage() {
