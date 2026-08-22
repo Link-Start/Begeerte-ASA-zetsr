@@ -1,3 +1,4 @@
+#pragma once
 #include <windows.h>
 #include <vector>
 #include <string>
@@ -30,7 +31,7 @@ public:
         std::vector<PatternEntry> entries;
     };
 
-    static Result Scan(const std::string& pattern) {
+    inline static Result Scan(const std::string& pattern) {
         // 判断特征码是否过期，如果为 "OUTDATED"，直接返回未匹配的结果
         if (pattern == "OUTDATED") return {};
 
@@ -101,7 +102,7 @@ public:
 private:
     // 优化点 3: 移除 SEH (__try/__except)，允许编译器执行更激进的 SIMD/自动矢量化
     // 由于我们严格限定在 .text 段且预先校验了 VirtualQuery，移除 SEH 是安全的
-    static void ScanSection(uintptr_t start, uintptr_t end, const PatternData& pmd, std::vector<void*>& found) {
+    inline static void ScanSection(uintptr_t start, uintptr_t end, const PatternData& pmd, std::vector<void*>& found) {
         if (end - start < pmd.length) return;
 
         const uint8_t* scan_ptr = (const uint8_t*)start;
@@ -145,7 +146,7 @@ private:
         }
     }
 
-    static PatternData PreprocessPattern(const std::string& pattern) {
+    inline static PatternData PreprocessPattern(const std::string& pattern) {
         PatternData pmd;
         pmd.has_known_byte = false;
         pmd.first_known_idx = 0;
