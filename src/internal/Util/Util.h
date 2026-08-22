@@ -751,4 +751,34 @@ namespace g_Util {
 
         return last_fps;
     }
+
+    __forceinline void DropOrUseItem() {
+        SDK::AShooterPlayerController* LocalPC = static_cast<SDK::AShooterPlayerController*>(g_Util::GetLocalPC());
+        if (LocalPC && LocalPC->Pawn && LocalPC->Pawn->IsA(SDK::APrimalCharacter::StaticClass())) {
+            SDK::APrimalCharacter* LocalCharacter = static_cast<SDK::APrimalCharacter*>(LocalPC->Pawn);
+
+            if (LocalCharacter) {
+                SDK::UPrimalInventoryComponent* LocalInventory = LocalCharacter->MyInventoryComponent;
+
+                if (LocalInventory) {
+                    // 执行丢弃逻辑
+                    if (g_Config::bDropItem) {
+                        LocalPC->ServerDropFromRemoteInventory(LocalInventory, g_Config::dropItemID);
+                        // 重置状态
+                        g_Config::bDropItem = false;
+                    }
+
+                    // 执行使用逻辑
+                    if (g_Config::bUseItem) {
+                        // 执行操作
+                        LocalPC->ServerRequestInventoryUseItem(LocalInventory, g_Config::useItemID, g_Config::useItemSlotID);
+
+                        // 重置状态
+                        g_Config::bUseItem = false;
+                        // SDK::FItemNetID 通常是结构体，不需要像字符串一样手动清理，下次会被覆盖
+                    }
+                }
+            }
+        }
+    }
 }
