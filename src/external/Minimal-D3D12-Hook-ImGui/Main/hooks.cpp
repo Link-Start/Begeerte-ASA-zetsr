@@ -11,6 +11,7 @@
 #include "../Font/HarmonyOS_Sans_SC_Regular.h"
 
 #include "../MinHook/include/MinHook.h"
+#include "../../ezVMT/include/ezVMT.hpp"
 
 #include "../../../internal/Util/Util.h"
 #include "../../../internal/Log/LogManager.h"
@@ -198,6 +199,7 @@ namespace g_Hook {
     }
 
     void initOutputTextLine() {
+        /*
         std::string pattern = g_CheatData::Signature::UConsole::OutputTextLine;
         AOB::Result ok = AOB::Scan(pattern);
 
@@ -206,12 +208,32 @@ namespace g_Hook {
 
             if (MH_CreateHook(targetAddr, &hkOutputTextLine, reinterpret_cast<LPVOID*>(&oOutputTextLine)) == MH_OK) {
                 MH_EnableHook(targetAddr);
-				OutputTextLineOK = true;
+                OutputTextLineOK = true;
             }
+        }
+        */
+
+        SDK::UEngine* pEngine = SDK::UEngine::GetEngine();
+
+        while (true) {
+            if (pEngine && pEngine->GameViewport && pEngine->GameViewport->ViewportConsole) {
+                break;
+            }
+
+            Sleep(100);
+        }
+
+        SDK::UConsole* ViewportConsole = pEngine->GameViewport->ViewportConsole;
+
+        if (ViewportConsole) {
+            ezVMT::CreateHook((void*)&hkOutputTextLine, ViewportConsole, g_CheatData::VTable::UConsole::OutputTextLine, (void**)&oOutputTextLine);
+            ezVMT::EnableHook((void*)&hkOutputTextLine);
+            OutputTextLineOK = true;
         }
     }
 
     void initPostRender() {
+        /*
         std::string pattern = g_CheatData::Signature::UGameViewportClient::PostRender;
         AOB::Result ok = AOB::Scan(pattern);
 
@@ -222,6 +244,25 @@ namespace g_Hook {
                 MH_EnableHook(targetAddr);
                 PostRenderOK = true;
             }
+        }
+        */
+
+        SDK::UEngine* pEngine = SDK::UEngine::GetEngine();
+
+        while (true) {
+            if (pEngine && pEngine->GameViewport) {
+                break;
+            }
+
+            Sleep(100);
+        }
+
+        SDK::UGameViewportClient* GameViewport = pEngine->GameViewport;
+
+        if (GameViewport) {
+            ezVMT::CreateHook((void*)&hkPostRender, GameViewport, g_CheatData::VTable::UGameViewportClient::PostRender, (void**)&oPostRender);
+            ezVMT::EnableHook((void*)&hkPostRender);
+            PostRenderOK = true;
         }
     }
 
@@ -356,6 +397,8 @@ void g_Hook::StopAllHooks() {
     }
 
     MH_DisableHook(MH_ALL_HOOKS);
+    ezVMT::RemoveHook(oPhysicsRotation);
+    ezVMT::RemoveHook(oPostRender);
 }
 
 namespace g_MDX12 {

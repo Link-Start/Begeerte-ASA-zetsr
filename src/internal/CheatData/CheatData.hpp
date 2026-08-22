@@ -7,6 +7,22 @@ namespace g_CheatData {
 			int ExecuteCommandLists = 10;
 			int ResizeBuffers = 13;
 		}
+
+		namespace AActor {
+			int Tick = 470;
+		}
+
+		namespace UMovementComponent {
+			int PhysicsRotation = 318;
+		}
+
+		namespace UGameViewportClient {
+			int PostRender = 122;
+		}
+
+		namespace UConsole {
+			int OutputTextLine = 99;
+		}
 	}
 
 	namespace Signature {

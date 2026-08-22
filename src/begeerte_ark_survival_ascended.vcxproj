@@ -24,6 +24,7 @@
     <ClInclude Include="external\CppSDK\SDK.hpp" />
     <ClInclude Include="external\CppSDK\UnrealContainers.hpp" />
     <ClInclude Include="external\CppSDK\UtfN.hpp" />
+    <ClInclude Include="external\ezVMT\include\ezVMT.hpp" />
     <ClInclude Include="external\LuaJIT-2.1\src\lauxlib.h" />
     <ClInclude Include="external\LuaJIT-2.1\src\lj_alloc.h" />
     <ClInclude Include="external\LuaJIT-2.1\src\lj_arch.h" />

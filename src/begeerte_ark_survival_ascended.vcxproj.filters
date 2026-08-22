@@ -106,6 +106,12 @@
     <Filter Include="external\CppSDK\SDK">
       <UniqueIdentifier>{e80af9e1-a64f-4b45-85ff-a3bc9862ee83}</UniqueIdentifier>
     </Filter>
+    <Filter Include="external\ezVMT">
+      <UniqueIdentifier>{95f049fd-8885-4c63-87c4-dbe4735b887e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\ezVMT\include">
+      <UniqueIdentifier>{7850a1c1-59dd-4258-9b19-012097c98c0f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\LuaJIT-2.1\src\lj_vm.h">
@@ -524,6 +530,9 @@
     </ClInclude>
     <ClInclude Include="internal\ESP\Indicators.h">
       <Filter>internal\ESP</Filter>
+    </ClInclude>
+    <ClInclude Include="external\ezVMT\include\ezVMT.hpp">
+      <Filter>external\ezVMT\include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
