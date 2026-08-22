@@ -280,6 +280,7 @@ namespace g_Hook {
     }
 
     void initClientNotifyRespawned() {
+        /*
         std::string pattern = g_CheatData::Signature::APrimalPlayerController::ClientNotifyRespawned;
         AOB::Result ok = AOB::Scan(pattern);
 
@@ -291,10 +292,10 @@ namespace g_Hook {
                 ClientNotifyRespawnedOK = true;
             }
         }
+        */
 
         // 另一种方法
-        /*
-        void* targetAddr = g_Util::FindUFunction("ClientNotifyRespawned");
+        void* targetAddr = g_Util::FindUFunction("Function Engine.PrimalPlayerController.ClientNotifyRespawned");
 
         if (targetAddr) {
             if (MH_CreateHook(targetAddr, &hkClientNotifyRespawned, reinterpret_cast<LPVOID*>(&oClientNotifyRespawned)) == MH_OK) {
@@ -302,7 +303,6 @@ namespace g_Hook {
                 ClientNotifyRespawnedOK = true;
             }
         }
-        */
     }
 
     void initClientChatMessage() {

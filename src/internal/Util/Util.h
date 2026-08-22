@@ -387,28 +387,20 @@ namespace g_Util {
     }
 
     __forceinline void* FindUFunction(std::string FuncName) {
-        SDK::TUObjectArray* ObjectArray = SDK::UObject::GObjects.operator->();
-        void* targetNativeFuncAddress = nullptr;
+        void* Address = nullptr;
+        SDK::UObject* Obj = nullptr;
+        SDK::UFunction* Func = nullptr;
 
-        if (ObjectArray) {
-            SDK::int32 TotalObjects = ObjectArray->Num();
-            for (SDK::int32 i = 0; i < TotalObjects; ++i) {
-                SDK::UObject* Obj = ObjectArray->GetByIndex(i);
-                if (!Obj) continue;
-
-                std::string FullName = Obj->GetFullName();
-                if (FullName.contains(FuncName)) {
-                    if (Obj->IsA(SDK::UFunction::StaticClass())) {
-                        SDK::UFunction* FuncObj = static_cast<SDK::UFunction*>(Obj);
-                        targetNativeFuncAddress = reinterpret_cast<void*>(FuncObj->ExecFunction);
-                        break;
-                    }
-                }
-            }
+        Obj = SDK::UObject::FindObject(FuncName);
+        if (Obj && Obj->IsA(SDK::UFunction::StaticClass())) {
+            Func = static_cast<SDK::UFunction*>(Obj);
         }
 
+        if (Func && Func->ExecFunction) {
+            Address = reinterpret_cast<void*>(Func->ExecFunction);
+        }
 
-        return targetNativeFuncAddress;
+        return Address;
     }
 
     __forceinline void PotatoGraphics(SDK::UObject* WorldContextObject, SDK::UGameViewportClient* GameViewportClient) {
