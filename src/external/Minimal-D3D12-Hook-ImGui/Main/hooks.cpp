@@ -170,7 +170,7 @@ namespace g_Hook {
     }
     */
 
-    void initUWorldTick() {
+    void initActorTick() {
         std::string pattern = g_CheatData::Signature::AActor::Tick;
         AOB::Result ok = AOB::Scan(pattern);
 
@@ -372,7 +372,7 @@ void g_Hook::StartAllHooks() {
 
     if (pWorld) {
         // 理论上来说如果用户在UWorld非常不稳定的时候注入有极低概率发生检查后使用，但是这应该不是问题，因为如果环境不稳定，d3d12 hook会先崩溃
-        g_Hook::initUWorldTick();
+        g_Hook::initActorTick();
         g_Hook::initHandleDisconnect();
         g_Hook::initOutputTextLine();
         g_Hook::initPostRender();
