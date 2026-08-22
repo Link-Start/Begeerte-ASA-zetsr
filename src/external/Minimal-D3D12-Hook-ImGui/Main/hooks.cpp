@@ -171,6 +171,7 @@ namespace g_Hook {
     */
 
     void initActorTick() {
+        /*
         std::string pattern = g_CheatData::Signature::AActor::Tick;
         AOB::Result ok = AOB::Scan(pattern);
 
@@ -182,9 +183,13 @@ namespace g_Hook {
                 ActorTickOK = true;
             }
         }
+        */
+
+        g_Util::ADD_MH(g_CheatData::Signature::AActor::Tick, &ActorTickOK, &hkActorTick, &oActorTick);
     }
 
     void initHandleDisconnect() {
+        /*
         std::string pattern = g_CheatData::Signature::UNetConnection::HandleDisconnect;
         AOB::Result ok = AOB::Scan(pattern);
 
@@ -196,6 +201,9 @@ namespace g_Hook {
 				HandleDisconnectOK = true;
             }
         }
+        */
+
+        g_Util::ADD_MH(g_CheatData::Signature::UNetConnection::HandleDisconnect, &HandleDisconnectOK, &hkHandleDisconnect, &oHandleDisconnect);
     }
 
     void initOutputTextLine() {
@@ -214,16 +222,16 @@ namespace g_Hook {
         */
 
         SDK::UEngine* pEngine = SDK::UEngine::GetEngine();
+        SDK::UConsole* ViewportConsole = nullptr;
 
         while (true) {
             if (pEngine && pEngine->GameViewport && pEngine->GameViewport->ViewportConsole) {
+                ViewportConsole = pEngine->GameViewport->ViewportConsole;
                 break;
             }
 
             Sleep(100);
         }
-
-        SDK::UConsole* ViewportConsole = pEngine->GameViewport->ViewportConsole;
 
         if (ViewportConsole) {
             ezVMT::CreateHook((void*)&hkOutputTextLine, ViewportConsole, g_CheatData::VTable::UConsole::OutputTextLine, (void**)&oOutputTextLine);
@@ -248,16 +256,16 @@ namespace g_Hook {
         */
 
         SDK::UEngine* pEngine = SDK::UEngine::GetEngine();
+        SDK::UGameViewportClient* GameViewport = nullptr;
 
         while (true) {
             if (pEngine && pEngine->GameViewport) {
+                GameViewport = pEngine->GameViewport;
                 break;
             }
 
             Sleep(100);
         }
-
-        SDK::UGameViewportClient* GameViewport = pEngine->GameViewport;
 
         if (GameViewport) {
             ezVMT::CreateHook((void*)&hkPostRender, GameViewport, g_CheatData::VTable::UGameViewportClient::PostRender, (void**)&oPostRender);
@@ -267,6 +275,7 @@ namespace g_Hook {
     }
 
     void initPhysicsRotation() {
+        /*
         std::string pattern = g_CheatData::Signature::UMovementComponent::PhysicsRotation;
         AOB::Result ok = AOB::Scan(pattern);
 
@@ -278,9 +287,13 @@ namespace g_Hook {
 				PhysicsRotationOK = true;
             }
         }
+        */
+
+        g_Util::ADD_MH(g_CheatData::Signature::UMovementComponent::PhysicsRotation, &PhysicsRotationOK, &hkPhysicsRotation, &oPhysicsRotation);
     }
 
     void initTakeDamage() {
+        /*
         std::string pattern = g_CheatData::Signature::AActor::TakeDamage;
         AOB::Result ok = AOB::Scan(pattern);
 
@@ -292,26 +305,19 @@ namespace g_Hook {
                 TakeDamageOK = true;
             }
         }
+        */
+
+        g_Util::ADD_MH(g_CheatData::Signature::AActor::TakeDamage, &TakeDamageOK, &hkTakeDamage, &oTakeDamage);
     }
 
     void initClientNotifyReconnected() {
+        /*
         std::string pattern = g_CheatData::Signature::APrimalPlayerController::ClientNotifyReconnected;
         AOB::Result ok = AOB::Scan(pattern);
 
         if (ok && ok.size() == 1) {
             void* targetAddr = ok[0];
 
-            if (MH_CreateHook(targetAddr, &hkClientNotifyReconnected, reinterpret_cast<LPVOID*>(&oClientNotifyReconnected)) == MH_OK) {
-                MH_EnableHook(targetAddr);
-                ClientNotifyReconnectedOK = true;
-            }
-        }
-
-        // 另一种方法
-        /*
-        void* targetAddr = g_Util::FindUFunction("ClientNotifyReconnected");
-
-        if (targetAddr) {
             if (MH_CreateHook(targetAddr, &hkClientNotifyReconnected, reinterpret_cast<LPVOID*>(&oClientNotifyReconnected)) == MH_OK) {
                 MH_EnableHook(targetAddr);
                 ClientNotifyReconnectedOK = true;
@@ -347,6 +353,7 @@ namespace g_Hook {
     }
 
     void initClientChatMessage() {
+        /*
         std::string pattern = g_CheatData::Signature::AShooterPlayerController::ClientChatMessage;
         AOB::Result ok = AOB::Scan(pattern);
 
@@ -358,6 +365,7 @@ namespace g_Hook {
                 ClientChatMessageOK = true;
             }
         }
+        */
     }
 }
 

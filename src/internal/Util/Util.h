@@ -1,5 +1,7 @@
 #pragma once
 #include "../../external/Minimal-D3D12-Hook-ImGui/Main/mdx12_api.h"
+#include "../../external/Minimal-D3D12-Hook-ImGui/MinHook/include/MinHook.h"
+#include "../../external/AOBScan/AOBScan.hpp"
 #include "../../external/CppSDK/SDK.hpp"
 #include "../../external/Shadow-Gui/include/Shadow.h"
 #include "../Config/Configs.h"
@@ -770,6 +772,19 @@ namespace g_Util {
                         // SDK::FItemNetID 通常是结构体，不需要像字符串一样手动清理，下次会被覆盖
                     }
                 }
+            }
+        }
+    }
+
+    __forceinline void ADD_MH(std::string pattern, bool* hookOK, void* hk, void* o) {
+        AOB::Result ok = AOB::Scan(pattern);
+
+        if (ok && ok.size() == 1) {
+            void* targetAddr = ok[0];
+
+            if (MH_CreateHook(targetAddr, hk, reinterpret_cast<LPVOID*>(o)) == MH_OK) {
+                MH_EnableHook(targetAddr);
+                *hookOK = true;
             }
         }
     }
