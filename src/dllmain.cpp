@@ -11,6 +11,15 @@
 #include "internal/Lua/LuaManager.h"
 
 void init(LPVOID lpParam) {
+    while (true) {
+        SDK::UWorld* World = SDK::UWorld::GetWorld();
+        SDK::UEngine* Engine = SDK::UEngine::GetEngine();
+
+        if (World && Engine)  break;
+
+        Sleep(100);
+    }
+
     g_MDX12::Initialize(lpParam);
     g_MDX12::SetSetupImGuiCallback(g_DrawImGui::MyImGuiDraw);
     g_MDX12::SetSetupActorTickCallback(g_AActor::Tick);
