@@ -40,6 +40,7 @@ namespace g_Hook {
     typedef void(__fastcall* tPhysicsRotation)(SDK::UMovementComponent* rcx, float DeltaTime);
     tPhysicsRotation oPhysicsRotation = nullptr;
 
+    /*
     typedef float(__fastcall* tTakeDamage)(
         SDK::AActor* _this,             // RCX
         float DamageAmount,             // XMM1
@@ -49,6 +50,7 @@ namespace g_Hook {
         );
 
     tTakeDamage oTakeDamage = nullptr;
+    */
 
     typedef void(__fastcall* tClientNotifyReconnected)(SDK::APrimalPlayerController* rcx, SDK::APawn* NewPawn);
     tClientNotifyReconnected oClientNotifyReconnected = nullptr;
@@ -118,6 +120,7 @@ namespace g_Hook {
         return oPhysicsRotation(rcx, DeltaTime);
     }
 
+    /*
     float __fastcall hkTakeDamage(
         SDK::AActor* _this,
         float DamageAmount,
@@ -129,6 +132,7 @@ namespace g_Hook {
 
         return oTakeDamage(_this, DamageAmount, DamageEvent, Instigator, DamageCauser);
     }
+    */
 
     void __fastcall hkClientNotifyReconnected(SDK::APrimalPlayerController* rcx, SDK::APawn* NewPawn) {
         if (g_Config::bFastReconnected) {
@@ -311,23 +315,11 @@ namespace g_Hook {
         g_Util::ADD_MH(g_CheatData::Signature::UMovementComponent::PhysicsRotation, &PhysicsRotationOK, &hkPhysicsRotation, &oPhysicsRotation);
     }
 
+    /*
     void initTakeDamage() {
-        /*
-        std::string pattern = g_CheatData::Signature::AActor::TakeDamage;
-        AOB::Result ok = AOB::Scan(pattern);
-
-        if (ok && ok.size() == 1) {
-            void* targetAddr = ok[0];
-
-            if (MH_CreateHook(targetAddr, &hkTakeDamage, reinterpret_cast<LPVOID*>(&oTakeDamage)) == MH_OK) {
-                MH_EnableHook(targetAddr);
-                TakeDamageOK = true;
-            }
-        }
-        */
-
         g_Util::ADD_MH(g_CheatData::Signature::AActor::TakeDamage, &TakeDamageOK, &hkTakeDamage, &oTakeDamage);
     }
+    */
 
     void initClientNotifyReconnected() {
         /*
@@ -413,7 +405,7 @@ void g_Hook::StartAllHooks() {
         g_Hook::initOutputTextLine();
         g_Hook::initPostRender();
         g_Hook::initPhysicsRotation();
-        g_Hook::initTakeDamage();
+        // g_Hook::initTakeDamage();
         g_Hook::initClientNotifyReconnected();
         g_Hook::initClientNotifyRespawned();
         g_Hook::initClientChatMessage();
@@ -434,8 +426,8 @@ void g_Hook::StopAllHooks() {
     }
 
     MH_DisableHook(MH_ALL_HOOKS);
-    ezVMT::RemoveHook(oPhysicsRotation);
-    ezVMT::RemoveHook(oPostRender);
+    ezVMT::RemoveHook((void*)&hkPhysicsRotation);
+    ezVMT::RemoveHook((void*)&hkPostRender);
 }
 
 namespace g_MDX12 {
