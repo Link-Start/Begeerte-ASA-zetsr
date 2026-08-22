@@ -131,6 +131,7 @@
     <ClInclude Include="internal\AActor\TakeDamage.h" />
     <ClInclude Include="internal\AActor\Tick.h" />
     <ClInclude Include="internal\CheatData\CheatData.hpp" />
+    <ClInclude Include="internal\CheatData\DynamicData.hpp" />
     <ClInclude Include="internal\Config\ConfigManager.h" />
     <ClInclude Include="internal\Config\Configs.h" />
     <ClInclude Include="internal\ESP\DrawESP.h" />

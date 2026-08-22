@@ -534,6 +534,9 @@
     <ClInclude Include="external\ezVMT\include\ezVMT.hpp">
       <Filter>external\ezVMT\include</Filter>
     </ClInclude>
+    <ClInclude Include="internal\CheatData\DynamicData.hpp">
+      <Filter>internal\CheatData</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Object Include="external\LuaJIT-2.1\src\lj_vm.obj">

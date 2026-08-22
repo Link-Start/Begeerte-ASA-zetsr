@@ -1,6 +1,7 @@
 // DrawESP.cpp
 #include "../../external/CppSDK/SDK.hpp"
 #include "../../external/Shadow-Gui/include/Shadow.h"
+#include "../CheatData/DynamicData.hpp"
 #include "ESP.h"
 #include "../Config/Configs.h"
 #include "DrawESP.h"
@@ -139,10 +140,10 @@ namespace g_DrawESP {
             return;
         }
 
-        SDK::UWorld* World = SDK::UWorld::GetWorld();
+        SDK::UWorld* World = _DD::World;
         if (!World || !World->GameState || !World->PersistentLevel) return;
 
-        SDK::APlayerController* LocalPC = g_Util::GetLocalPC();
+        SDK::APlayerController* LocalPC = _DD::LocalSPC;
         if (!LocalPC || !LocalPC->Pawn) {
             for (auto& kv : s_entries) {
                 kv.second.targetAlpha = 0.0f;
@@ -151,7 +152,7 @@ namespace g_DrawESP {
             return;
         }
 
-        SDK::APlayerState* LocalPS = LocalPC->PlayerState;
+        SDK::AShooterPlayerState* LocalPS = _DD::LocalSPS;
         if (!LocalPS) {
             for (auto& kv : s_entries) {
                 kv.second.targetAlpha = 0.0f;
@@ -160,15 +161,13 @@ namespace g_DrawESP {
             return;
         }
 
-        const float screenW = Canvas->SizeX;
-        const float screenH = Canvas->SizeY;
+        Shadow::ShadowIO& IO = Shadow::GetIO();
 
-        static auto s_lastTime = std::chrono::high_resolution_clock::now();
-        auto s_currentTime = std::chrono::high_resolution_clock::now();
-        const float deltaTime = std::chrono::duration<float>(s_currentTime - s_lastTime).count();
-        s_lastTime = s_currentTime;
+        const float screenW = IO.DisplaySize.x;
+        const float screenH = IO.DisplaySize.y;
+        const float deltaTime = IO.DeltaTime;
 
-        SDK::APrimalCharacter* LocalChar = static_cast<SDK::APrimalCharacter*>(LocalPC->Pawn);
+        SDK::AShooterCharacter* LocalChar = _DD::LocalSC;
 
         SDK::TArray<SDK::AActor*>& Actors = World->PersistentLevel->Actors;
         const int actorCount = Actors.Num();
