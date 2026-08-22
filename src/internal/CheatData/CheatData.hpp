@@ -1,27 +1,28 @@
+#pragma once
 #include <string>
 
 namespace g_CheatData {
 	namespace VTable {
 		namespace D3D12 {
-			int Present = 8;
-			int ExecuteCommandLists = 10;
-			int ResizeBuffers = 13;
+			inline int Present = 8;
+			inline int ExecuteCommandLists = 10;
+			inline int ResizeBuffers = 13;
 		}
 
 		namespace AActor {
-			int Tick = 470;
+			inline int Tick = 470;
 		}
 
 		namespace UMovementComponent {
-			int PhysicsRotation = 318;
+			inline int PhysicsRotation = 318;
 		}
 
 		namespace UGameViewportClient {
-			int PostRender = 122;
+			inline int PostRender = 122;
 		}
 
 		namespace UConsole {
-			int OutputTextLine = 99;
+			inline int OutputTextLine = 99;
 		}
 	}
 
@@ -30,34 +31,34 @@ namespace g_CheatData {
 			// 48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 55 48 8D 6C 24 ? 48 81 EC ? ? ? ? 80 65 ? ? 33 DB 0F
 
 			// 应该不再需要这个东西了，没有用处，只是视觉效果
-			std::string ClientChatMessage = "OUTDATED";
+			inline std::string ClientChatMessage = "OUTDATED";
      	}
 
 		namespace APrimalPlayerController {
 			
 			// 他妈的特别特别特别长的特征码
 			// 应该不再需要这个东西了，它似乎什么都没做，idk，我没有去检查它的call状态
-			std::string ClientNotifyReconnected = "OUTDATED";
+			inline std::string ClientNotifyReconnected = "OUTDATED";
 
 
 			// 跳过重生动画
-			std::string ClientNotifyRespawned = "48 89 5C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? 33 FF 48 8B DA 48 89 7C 24 ? 4C 8B F1 E8 ? ? ? ? 48 8B 43 ? 4C 8D 3D ? ? ? ? 48 85 C0 74 ? 0F B6 08 4C 8D 44 24 ? 48 FF C0 48 8B D3 48 89 43 ? 4D 8B 0C CF 48 8B 4B ? 41 FF D1 EB ? 48 8B 8B ? ? ? ? 48 8B 41 ? 48 89 83 ? ? ? ? 8B 41 ? 48 0F BA E0 ? 73 ? 48 8B 83 ? ? ? ? 48 39 08 74 ? 0F 1F 40 ? 48 8B 40 ? 48 39 08 75 ? 48 8B 40 ? 48 89 43 ? 48 89 7B ? EB ? 48 63 41 ? 48 8D 54 24 ? 4C 8B 43 ? 49 03 C0 4C 89 43 ? 48 89 43 ? 48 8B 01 FF 90 ? ? ? ? B8 ? ? ? ? 89 7C 24 ? 48 8B CB 48 8D 34 18 E8 ? ? ? ? 48 8B 43 ? 48 85 C0 74 ? 0F B6 08 4C 8D 44 24 ? 48 FF C0 48 8B D3 48 89 43 ? 4D 8B 0C CF 48 8B 4B ? 41 FF D1 EB ? 48 8B 0E 48 8B 41 ? 48 89 06 8B 41 ? 48 0F BA E0 ? 73 ? 48 8B 83 ? ? ? ? 48 39 08 74 ? 48 8B 40 ? 48 39 08 75 ? 48 8B 40 ? 48 89 43 ? 48 89 7B ? EB ? 48 63 41 ? 48 8D 54 24 ? 4C 8B 43 ? 49 03 C0 4C 89 43 ? 48 89 43 ? 48 8B 01 FF 90 ? ? ? ? 48 8B 43 ? 49 8B CE 48 8B 54 24 ? 48 85 C0 40 0F 95 C7 48 03 F8 83 7C 24 ? ? 48 89 7B ? 49 8B 06 41 0F 95 C0 FF 90 ? ? ? ? 48 8B 5C 24 ? 48 8B 74 24 ? 48 83 C4 ? 41 5F 41 5E 5F C3 CC CC CC 48 83 EC ? 48 8B 05 ? ? ? ? 48 85 C0 75 ? 48 8D 15 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8B 05 ? ? ? ? 48 83 C4 ? C3 CC 48 8B C4 53 41";
+			inline std::string ClientNotifyRespawned = "48 89 5C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? 33 FF 48 8B DA 48 89 7C 24 ? 4C 8B F1 E8 ? ? ? ? 48 8B 43 ? 4C 8D 3D ? ? ? ? 48 85 C0 74 ? 0F B6 08 4C 8D 44 24 ? 48 FF C0 48 8B D3 48 89 43 ? 4D 8B 0C CF 48 8B 4B ? 41 FF D1 EB ? 48 8B 8B ? ? ? ? 48 8B 41 ? 48 89 83 ? ? ? ? 8B 41 ? 48 0F BA E0 ? 73 ? 48 8B 83 ? ? ? ? 48 39 08 74 ? 0F 1F 40 ? 48 8B 40 ? 48 39 08 75 ? 48 8B 40 ? 48 89 43 ? 48 89 7B ? EB ? 48 63 41 ? 48 8D 54 24 ? 4C 8B 43 ? 49 03 C0 4C 89 43 ? 48 89 43 ? 48 8B 01 FF 90 ? ? ? ? B8 ? ? ? ? 89 7C 24 ? 48 8B CB 48 8D 34 18 E8 ? ? ? ? 48 8B 43 ? 48 85 C0 74 ? 0F B6 08 4C 8D 44 24 ? 48 FF C0 48 8B D3 48 89 43 ? 4D 8B 0C CF 48 8B 4B ? 41 FF D1 EB ? 48 8B 0E 48 8B 41 ? 48 89 06 8B 41 ? 48 0F BA E0 ? 73 ? 48 8B 83 ? ? ? ? 48 39 08 74 ? 48 8B 40 ? 48 39 08 75 ? 48 8B 40 ? 48 89 43 ? 48 89 7B ? EB ? 48 63 41 ? 48 8D 54 24 ? 4C 8B 43 ? 49 03 C0 4C 89 43 ? 48 89 43 ? 48 8B 01 FF 90 ? ? ? ? 48 8B 43 ? 49 8B CE 48 8B 54 24 ? 48 85 C0 40 0F 95 C7 48 03 F8 83 7C 24 ? ? 48 89 7B ? 49 8B 06 41 0F 95 C0 FF 90 ? ? ? ? 48 8B 5C 24 ? 48 8B 74 24 ? 48 83 C4 ? 41 5F 41 5E 5F C3 CC CC CC 48 83 EC ? 48 8B 05 ? ? ? ? 48 85 C0 75 ? 48 8D 15 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8B 05 ? ? ? ? 48 83 C4 ? C3 CC 48 8B C4 53 41";
 		}
 
 		namespace AActor {
 			// push rbp | push rbx | push rsi | push rdi | push r12 | push r13 | push r14 | push r15 | lea rbp, [rsp+offset] | sub rsp, alloc | movaps [rsp+offset], xmm11
 			// 无法在服务器工作，需要找到ASA重写的TakeDamage，或者UI Hit Damage，idk
-			std::string TakeDamage = "OUTDATED";
+			inline std::string TakeDamage = "OUTDATED";
 
 			// 470
-			std::string Tick = "40 53 48 83 EC ? 0F B6 81 ? ? ? ? 48 8B D9 A8 ? 75 ? A8 ? 74";
+			inline std::string Tick = "40 53 48 83 EC ? 0F B6 81 ? ? ? ? 48 8B D9 A8 ? 75 ? A8 ? 74";
 		}
 
 		namespace UNetConnection {
 			// 7FF7A8D25520
 			// 也没啥用，退出服务器的时候会触发一次。
 			// 不敢相信这个特征码能存活这么长时间
-			std::string HandleDisconnect = "? ? ? ? ? ? ? 55 57 48 8D 68 A1 48 81 EC D8 00 00 00 48 89 58 E8 48 8D 55 E7 48 89 70 E0";
+			inline std::string HandleDisconnect = "? ? ? ? ? ? ? 55 57 48 8D 68 A1 48 81 EC D8 00 00 00 48 89 58 E8 48 8D 55 E7 48 89 70 E0";
 		}
 
 		namespace UMovementComponent {
@@ -67,7 +68,7 @@ namespace g_CheatData {
 			// 48 8B C4 53 48 81 EC 00 01 00 00 0F 29 70 E8 48 8B D9 0F 29 78 D8 0F 28
 
 			// 318
-			std::string PhysicsRotation = "48 8B C4 53 48 81 EC ? ? ? ? 0F 29 70 ? 48 8B D9 0F 29 78 ? 0F 28 F1 44 0F 29 40 ? 0F";
+			inline std::string PhysicsRotation = "48 8B C4 53 48 81 EC ? ? ? ? 0F 29 70 ? 48 8B D9 0F 29 78 ? 0F 28 F1 44 0F 29 40 ? 0F";
 		}
 
 		/*
@@ -118,7 +119,7 @@ namespace g_CheatData {
 			// mov eax, edx | xor eax, imm32 | mov r8d, eax | imul eax, eax, imm32 | shr r8d, imm8 | xor r8d, eax | imul r8d, r8d, imm32
 			
 			// 122
-			std::string PostRender = "8B C2 35 ? ? ? ? 44";
+			inline std::string PostRender = "8B C2 35 ? ? ? ? 44";
 		}
 
 		namespace UConsole {
@@ -148,7 +149,7 @@ namespace g_CheatData {
 			// mov rax, rsp | push r12 | sub rsp, alloc | mov [rax+8], rbx | mov
 
 			// 99
-			std::string OutputTextLine = "48 8B C4 41 54 48 83 EC ? 48 89 58 ? 48";
+			inline std::string OutputTextLine = "48 8B C4 41 54 48 83 EC ? 48 89 58 ? 48";
 		}
 	}
 }
