@@ -10,6 +10,8 @@
 #include <string>
 #include <sstream>
 #include <numbers>
+#include <cwctype> 
+#include <shellapi.h> 
 
 namespace g_Util {
     static const float inv255 = 1.0f / 255.0f; 
@@ -514,6 +516,8 @@ namespace g_Util {
 
     __forceinline bool Welcome(SDK::UWorld* World, SDK::UCanvas* Canvas)
     {
+        if (g_Config::bInitWelcome) return true;
+
         // 只播放一次
         static bool bFinished = false;
         if (bFinished) {
@@ -796,5 +800,45 @@ namespace g_Util {
                 *hookOK = true;
             }
         }
+    }
+
+    static __forceinline bool HasCommandLineArg(std::wstring_view targetArg) noexcept {
+        struct CmdCache {
+            int argc = 0;
+            LPWSTR* argv = nullptr;
+
+            CmdCache() noexcept {
+                argv = CommandLineToArgvW(GetCommandLineW(), &argc);
+            }
+        };
+
+        static const CmdCache cache;
+
+        if (cache.argv == nullptr) {
+            return false;
+        }
+
+        const size_t targetLen = targetArg.size();
+
+        for (int i = 0; i < cache.argc; ++i) {
+            const wchar_t* currentArg = cache.argv[i];
+            if (currentArg == nullptr) continue;
+
+            if (wcslen(currentArg) != targetLen) continue;
+
+            bool isMatch = true;
+            for (size_t j = 0; j < targetLen; ++j) {
+                if (towlower(targetArg[j]) != towlower(currentArg[j])) {
+                    isMatch = false;
+                    break;
+                }
+            }
+
+            if (isMatch) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

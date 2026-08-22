@@ -14,6 +14,7 @@
 
 #define SOL_ALL_SAFETIES_ON 1
 #include "../../external/sol2/sol.hpp"
+#include "../Util/Util.h"
 
 namespace fs = std::filesystem;
 
@@ -71,20 +72,7 @@ public:
 
 private:
     static bool CheckNoLuaFlag() {
-        int argc;
-        LPWSTR* argv = CommandLineToArgvW(GetCommandLineW(), &argc);
-        if (!argv) return false;
-
-        bool found = false;
-        for (int i = 0; i < argc; i++) {
-            // _wcsicmp 返回 0 表示字符串相等（忽略大小写）
-            if (_wcsicmp(argv[i], L"-nolua") == 0 || _wcsicmp(argv[i], L"nolua") == 0) {
-                found = true;
-                break;
-            }
-        }
-        LocalFree(argv);
-        return found; // 找到返回 true
+        return g_Util::HasCommandLineArg(L"-nolua");
     }
 
     bool m_enabled = !CheckNoLuaFlag();

@@ -9,6 +9,7 @@
 #include "internal/Config/ConfigManager.h"
 #include "internal/Language/LanguageManager.h"
 #include "internal/Lua/LuaManager.h"
+#include "internal/Util/Util.h"
 
 void init(LPVOID lpParam) {
     while (true) {
@@ -19,6 +20,9 @@ void init(LPVOID lpParam) {
 
         Sleep(100);
     }
+
+    if (g_Util::HasCommandLineArg(L"-lowspec")) g_Config::bPotatoGraphics = true;
+    if (g_Util::HasCommandLineArg(L"-novid")) g_Config::bInitWelcome = true;
 
     g_MDX12::Initialize(lpParam);
     g_MDX12::SetSetupImGuiCallback(g_DrawImGui::MyImGuiDraw);
