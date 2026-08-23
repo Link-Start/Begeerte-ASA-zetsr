@@ -86,7 +86,7 @@ namespace g_DrawImGui {
 
 			ImGui::SameLine();
 			if (DrawCustomButton(btnDump)) {
-				g_Hack::DumpServerInfo();
+				g_Config::bDumpServerInfo = true;
 			}
 
 			DrawAnimatedSeparator();

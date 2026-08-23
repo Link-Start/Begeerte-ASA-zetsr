@@ -2,6 +2,7 @@
 #include "../Config/Configs.h"
 #include "../Util/Util.h"
 #include "../Log/LogManager.h"
+#include "../CheatData/DynamicData.hpp"
 #include "Hack.h"
 
 namespace g_Hack {
@@ -9,7 +10,7 @@ namespace g_Hack {
     static const int32_t g_MaxNoteIndex = 1000;
 
     void DumpServerInfo() {
-        SDK::UWorld* World = SDK::UWorld::GetWorld();
+        SDK::UWorld* World = _TICK::World;
         if (!World || !World->NetDriver || !World->NetDriver->ServerConnection) {
             g_LogManager::AddLog(255, 50, 55, 255, "当前不在服务器内");
             return;
@@ -21,14 +22,8 @@ namespace g_Hack {
     }
 
     void Suicide(SDK::UWorld* World) {
-        if (!World || !World->OwningGameInstance || World->OwningGameInstance->LocalPlayers.Num() == 0) return;
-
-        SDK::ULocalPlayer* LP = World->OwningGameInstance->LocalPlayers[0];
-        if (!LP || !LP->PlayerController) return;
-
-        if (!LP->PlayerController->IsA(SDK::AShooterPlayerController::StaticClass())) return;
-        SDK::AShooterPlayerController* PC = static_cast<SDK::AShooterPlayerController*>(LP->PlayerController);
-
+        if (!World) return;
+        SDK::AShooterPlayerController* PC = _TICK::LocalSPC;
         if (!PC || !PC->Character) return;
 
         SDK::AShooterCharacter* TargetHuman = nullptr;
@@ -54,14 +49,9 @@ namespace g_Hack {
     }
 
     void UnlockExplorerNotes(SDK::UWorld* World) {
-        if (!World || !World->OwningGameInstance || World->OwningGameInstance->LocalPlayers.Num() == 0) return;
+        if (!World) return;
 
-        SDK::ULocalPlayer* LP = World->OwningGameInstance->LocalPlayers[0];
-        if (!LP || !LP->PlayerController || !LP->PlayerController->Pawn) return;
-
-        if (!LP->PlayerController->IsA(SDK::AShooterPlayerController::StaticClass())) return;
-        SDK::AShooterPlayerController* PC = static_cast<SDK::AShooterPlayerController*>(LP->PlayerController);
-
+        SDK::AShooterPlayerController* PC = _TICK::LocalSPC;
         if (!PC)  return;
 
         if (g_CurrentNoteIndex <= g_MaxNoteIndex) {
@@ -74,12 +64,11 @@ namespace g_Hack {
     }
 
     void AutoFeed(SDK::UWorld* World) {
-        if (!World || !World->OwningGameInstance || World->OwningGameInstance->LocalPlayers.Num() == 0) return;
+        if (!World) return;
 
-        SDK::ULocalPlayer* LP = World->OwningGameInstance->LocalPlayers[0];
-        if (!LP || !LP->PlayerController) return;
+        SDK::AShooterPlayerController* PC = _TICK::LocalSPC;
+        if (!PC)  return;
 
-        SDK::AShooterPlayerController* PC = static_cast<SDK::AShooterPlayerController*>(LP->PlayerController);
         SDK::APrimalDinoCharacter* TargetDino = nullptr;
 
         if (PC->Pawn && PC->Pawn->IsA(SDK::APrimalDinoCharacter::StaticClass())) {
@@ -101,49 +90,90 @@ namespace g_Hack {
     }
 
     void SuperFlyer(SDK::UWorld* World) {
-        if (!World || !World->OwningGameInstance || World->OwningGameInstance->LocalPlayers.Num() == 0) return;
+        if (!World) return;
 
-        SDK::ULocalPlayer* LP = World->OwningGameInstance->LocalPlayers[0];
-        if (!LP || !LP->PlayerController) return;
+        SDK::AShooterPlayerController* PC = _TICK::LocalSPC;
+        if (!PC)  return;
 
-        SDK::AShooterPlayerController* PC = static_cast<SDK::AShooterPlayerController*>(LP->PlayerController);
         SDK::APrimalDinoCharacter* TargetDino = nullptr;
 
         if (PC->Pawn && PC->Pawn->IsA(SDK::APrimalDinoCharacter::StaticClass())) {
             TargetDino = static_cast<SDK::APrimalDinoCharacter*>(PC->Pawn);
 
+            // 静态变量用于保存状态与备份数据
+            static bool bIsBackedUp = false;
+            static bool orig_bFlyerDinoAllowBackwardsFlight = false;
+            static bool orig_bFlyerDinoAllowStrafing = false;
+
+            // 当功能关闭时，如果之前已备份过，则恢复一次原始属性
+            if (!g_Config::bSuperFlyer) {
+                if (bIsBackedUp) {
+                    TargetDino->bFlyerDinoAllowBackwardsFlight = orig_bFlyerDinoAllowBackwardsFlight;
+                    TargetDino->bFlyerDinoAllowStrafing = orig_bFlyerDinoAllowStrafing;
+                    bIsBackedUp = false;
+                }
+                return;
+            }
+
+            // 在开启功能前先备份原始状态
+            if (!bIsBackedUp) {
+                orig_bFlyerDinoAllowBackwardsFlight = TargetDino->bFlyerDinoAllowBackwardsFlight;
+                orig_bFlyerDinoAllowStrafing = TargetDino->bFlyerDinoAllowStrafing;
+                bIsBackedUp = true;
+            }
+
             // 允许恐龙左右飞，倒飞
             TargetDino->bFlyerDinoAllowBackwardsFlight = true;
-            TargetDino->bFlyerDinoAllowStrafing= true;
+            TargetDino->bFlyerDinoAllowStrafing = true;
         }
     }
 
     void ForceTurn(SDK::UMovementComponent* rcx, float DeltaTime) {
-        SDK::APlayerController* LocalPC = g_Util::GetLocalPC();
+        SDK::AShooterPlayerController* LocalPC = _PR::LocalSPC;
+        if (!LocalPC || !LocalPC->Pawn || !LocalPC->PlayerCameraManager) return;
 
-        if (!LocalPC || !LocalPC->Pawn) return;
+        // 转换为 UCharacterMovementComponent 以访问其属性
+        SDK::UCharacterMovementComponent* moveComp = static_cast<SDK::UCharacterMovementComponent*>(rcx);
+        if (!moveComp) return;
+        if (!moveComp->UpdatedComponent) return;
 
         // 只为玩家骑乘的恐龙启用
-        if (!LocalPC->Pawn->IsA(SDK::APrimalDinoCharacter::StaticClass())) return;
+        SDK::APrimalDinoCharacter* DinoCharacter = static_cast<SDK::APrimalDinoCharacter*>(LocalPC->Pawn);
+        if (!DinoCharacter || !DinoCharacter->IsA(SDK::APrimalDinoCharacter::StaticClass())) return;
 
         // 由于此函数是共用的，所以必须过滤掉除player与riding外的movement。最好的方法是每帧检查并hook虚函数
         // 可以增加一个过滤，只为恐龙启用
-        SDK::AShooterCharacter* character = (SDK::AShooterCharacter*)LocalPC->Character;
-        if (!character || (uintptr_t)character->CharacterMovement != (uintptr_t)rcx || !LocalPC->PlayerCameraManager) {
+        if (DinoCharacter->CharacterMovement != rcx) {
             return;
         }
 
-        // 转换为 UCharacterMovementComponent 以访问其属性
-        SDK::UCharacterMovementComponent* moveComp = (SDK::UCharacterMovementComponent*)rcx;
-        if (!moveComp) return;
+        // 静态变量用于保存状态与备份数据
+        static bool bIsBackedUp = false;
+        static bool orig_bOrientRotationToMovement = false;
+        static bool orig_bUseControllerDesiredRotation = false;
+
+        // 当功能关闭时，如果之前已备份过，则恢复一次原始属性
+        if (!g_Config::bForceTurn) {
+            if (bIsBackedUp) {
+                moveComp->bOrientRotationToMovement = orig_bOrientRotationToMovement;
+                moveComp->bUseControllerDesiredRotation = orig_bUseControllerDesiredRotation;
+                bIsBackedUp = false;
+            }
+            return;
+        }
+
+        // 在开启功能前先备份原始状态
+        if (!bIsBackedUp) {
+            orig_bOrientRotationToMovement = moveComp->bOrientRotationToMovement;
+            orig_bUseControllerDesiredRotation = moveComp->bUseControllerDesiredRotation;
+            bIsBackedUp = true;
+        }
 
         // 禁用所有自动旋转机制
         moveComp->bOrientRotationToMovement = false;
         moveComp->bUseControllerDesiredRotation = false;
 
         SDK::FRotator rot = LocalPC->PlayerCameraManager->GetCameraRotation();
-
-        if (!moveComp->UpdatedComponent) return;
 
         // 保存当前速度
         SDK::FVector oldVelocity = moveComp->Velocity;
@@ -157,13 +187,10 @@ namespace g_Hack {
     }
 
     void DamageLog(SDK::AActor* _this, float DamageAmount, SDK::FDamageEvent* DamageEvent, SDK::AController* Instigator, SDK::AActor* DamageCauser) {
-        SDK::UWorld* World = SDK::UWorld::GetWorld();
-        if (!World || !World->OwningGameInstance || World->OwningGameInstance->LocalPlayers.Num() == 0) return;
+        SDK::AShooterPlayerController* PC = _TICK::LocalSPC;
+        if (!PC)  return;
 
-        SDK::ULocalPlayer* LP = World->OwningGameInstance->LocalPlayers[0];
-        if (!LP || !LP->PlayerController || !LP->PlayerController->Pawn) return;
-
-        SDK::APawn* LPawn = LP->PlayerController->Pawn;
+        SDK::APawn* LPawn = PC->Pawn;
         if (!LPawn || DamageCauser != LPawn || _this == LPawn) return;
 
         std::string targetName = "";
@@ -229,13 +256,13 @@ namespace g_Hack {
 
         if (globalTick % 3 != 0) return;
 
-        SDK::AShooterPlayerController* PC = (SDK::AShooterPlayerController*)g_Util::GetLocalPC();
+        SDK::AShooterPlayerController* PC = _TICK::LocalSPC;
         if (!PC || !PC->Pawn) return;
 
-        auto Character = (SDK::APrimalCharacter*)PC->Pawn;
+        SDK::APrimalCharacter* Character = static_cast<SDK::APrimalCharacter*>(PC->Pawn);
         if (!Character || !Character->MyInventoryComponent) return;
 
-        auto Inv = Character->MyInventoryComponent;
+        SDK::UPrimalInventoryComponent* Inv = Character->MyInventoryComponent;
         auto& EquippedItems = Inv->EquippedItems;
         auto& InventoryItems = Inv->InventoryItems;
 
@@ -340,11 +367,13 @@ namespace g_Hack {
 
     void OutBody()
     {
-        SDK::APlayerController* LocalPC = g_Util::GetLocalPC();
-        if (!LocalPC || !LocalPC->Pawn) return;
+        SDK::AShooterPlayerController* LocalPC = _TICK::LocalSPC;
+        if (!LocalPC) return;
 
-        auto Character = (SDK::APrimalCharacter*)LocalPC->Pawn;
-        auto MovementComp = Character->CharacterMovement;
+        SDK::ACharacter* Character = LocalPC->Character;
+        if (!Character) return;
+
+        SDK::UCharacterMovementComponent* MovementComp = Character->CharacterMovement;
         if (!MovementComp) return;
 
         static bool bLastGhostState = false;

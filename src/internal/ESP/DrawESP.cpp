@@ -167,7 +167,10 @@ namespace g_DrawESP {
         const float screenH = IO.DisplaySize.y;
         const float deltaTime = IO.DeltaTime;
 
-        SDK::AShooterCharacter* LocalChar = _DD::LocalSC;
+        SDK::APrimalCharacter* LocalChar = nullptr;
+        if (LocalPC->Character && LocalPC->Character->IsA(SDK::APrimalCharacter::StaticClass())) {
+            LocalChar = static_cast<SDK::APrimalCharacter*>(LocalPC->Character);
+        }
 
         SDK::TArray<SDK::AActor*>& Actors = World->PersistentLevel->Actors;
         const int actorCount = Actors.Num();

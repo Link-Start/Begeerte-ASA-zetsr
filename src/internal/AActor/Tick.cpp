@@ -6,6 +6,7 @@
 #include "../Hack/Hack.h"
 #include "../../external/CppSDK/SDK.hpp"
 #include "../Legit/Aimbot/Aimbot.h"
+#include "../CheatData/DynamicData.hpp"
 
 namespace g_AActor {
     /*
@@ -22,32 +23,35 @@ namespace g_AActor {
     */
 
 	void Tick(SDK::AActor* actor) {
-		SDK::UWorld* world = SDK::UWorld::GetWorld();
+        _TICK::Update();
+        SDK::UWorld* World = _TICK::World;
 
         g_Aimbot::Tick();
         g_Hack::OutBody();
+        g_Hack::SuperFlyer(World);
+        g_Util::DropOrUseItem();
+
 		if (g_Config::bSuicide) {
-			g_Hack::Suicide(world);
+			g_Hack::Suicide(World);
 			g_Config::bSuicide = false;
 		}
 
+        if (g_Config::bDumpServerInfo) {
+            g_Hack::DumpServerInfo();
+            g_Config::bDumpServerInfo = false;
+        }
+
 		if (g_Config::bUnlockExplorerNotes) {
-			g_Hack::UnlockExplorerNotes(world);
+			g_Hack::UnlockExplorerNotes(World);
 		}
 
 		if (g_Config::bAutoFeed) {
-			g_Hack::AutoFeed(world);
-		}
-
-        if (g_Config::bSuperFlyer) {
-			g_Hack::SuperFlyer(world);
+			g_Hack::AutoFeed(World);
 		}
 
         if (g_Config::bAutomatic) {
             g_Hack::AutoSwapBrokenEquipment();
         }
-
-        g_Util::DropOrUseItem();
 
 		LuaManager::Get().Lua_OnWorldTick();
 	}

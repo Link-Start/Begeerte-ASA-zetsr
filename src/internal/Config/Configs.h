@@ -16,6 +16,7 @@ namespace g_Config {
     inline bool bAutoFeed = false;
     inline bool bUnlockExplorerNotes = false;
     inline bool bSuicide = false;
+    inline bool bDumpServerInfo = false;
     inline bool bDropItem = false;
     inline SDK::FItemNetID dropItemID;
     inline bool bUseItem = false;
