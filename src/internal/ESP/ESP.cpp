@@ -182,7 +182,7 @@ namespace g_ESP {
         Shadow::Color shadowCol = { 0.0f, 0.0f, 0.0f, color.a };
 
         // 渲染文字
-        dl->AddText(currentFont, g_Config::ESPScale, shadowCol, shadowCol, drawPos, color, text);
+        dl->AddText(currentFont, g_Config::ESPScale, shadowCol, shadowCol, drawPos, color, text, true, false);
         // Canvas->K2_DrawText(currentFont, fText, drawPos, scaleSize, color, 0.0f, shadowCol, SDK::FVector2D{ 1.0f, 1.0f }, false, false, true, shadowCol);
     }
 

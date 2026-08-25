@@ -30,8 +30,10 @@ namespace g_Indicators {
         if (!OpenSansRegular12) return;
 
         Shadow::PushFont(OpenSansRegular12);
+        Shadow::PushTextOutline();
         Shadow::GetBackgroundDrawList()->AddText({ kStartX, g_CurrentY }, color, text);
         float textHeight = Shadow::MeasureTextSize(text).y;
+        Shadow::PopTextOutline();
         Shadow::PopFont();
 
         g_CurrentY += textHeight + kPaddingY;
