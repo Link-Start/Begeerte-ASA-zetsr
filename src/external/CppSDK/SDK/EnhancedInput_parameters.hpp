@@ -290,7 +290,7 @@ DUMPER7_ASSERTS_EnhancedInputUserSettings_IsMappingContextRegistered;
 struct EnhancedInputComponent_GetBoundActionValue final
 {
 public:
-	const class UInputAction*                     action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UInputAction*                     Action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FInputActionValue                      ReturnValue;                                       // 0x0008(0x0020)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_EnhancedInputComponent_GetBoundActionValue;
@@ -386,7 +386,7 @@ struct EnhancedInputLibrary_GetBoundActionValue final
 {
 public:
 	class AActor*                                 Actor;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	const class UInputAction*                     action;                                            // 0x0008(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UInputAction*                     Action;                                            // 0x0008(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FInputActionValue                      ReturnValue;                                       // 0x0010(0x0020)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_EnhancedInputLibrary_GetBoundActionValue;
@@ -523,7 +523,7 @@ DUMPER7_ASSERTS_EnhancedInputSubsystemInterface_AddMappingContext;
 struct EnhancedInputSubsystemInterface_InjectInputForAction final
 {
 public:
-	const class UInputAction*                     action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UInputAction*                     Action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FInputActionValue                      RawValue;                                          // 0x0008(0x0020)(Parm, NoDestructor, NativeAccessSpecifierPublic)
 	TArray<class UInputModifier*>                 Modifiers;                                         // 0x0028(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 	TArray<class UInputTrigger*>                  Triggers;                                          // 0x0038(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
@@ -547,7 +547,7 @@ DUMPER7_ASSERTS_EnhancedInputSubsystemInterface_InjectInputForPlayerMapping;
 struct EnhancedInputSubsystemInterface_InjectInputVectorForAction final
 {
 public:
-	const class UInputAction*                     action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UInputAction*                     Action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FVector                                Value;                                             // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<class UInputModifier*>                 Modifiers;                                         // 0x0020(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 	TArray<class UInputTrigger*>                  Triggers;                                          // 0x0030(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
@@ -590,7 +590,7 @@ struct EnhancedInputSubsystemInterface_QueryMapKeyInActiveContextSet final
 {
 public:
 	const class UInputMappingContext*             InputContext;                                      // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	const class UInputAction*                     action;                                            // 0x0008(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UInputAction*                     Action;                                            // 0x0008(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FKey                                   Key;                                               // 0x0010(0x0018)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<struct FMappingQueryIssue>             OutIssues;                                         // 0x0028(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 	EMappingQueryIssue                            BlockingIssues;                                    // 0x0038(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -606,7 +606,7 @@ struct EnhancedInputSubsystemInterface_QueryMapKeyInContextSet final
 public:
 	TArray<class UInputMappingContext*>           PrioritizedActiveContexts;                         // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 	const class UInputMappingContext*             InputContext;                                      // 0x0010(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	const class UInputAction*                     action;                                            // 0x0018(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UInputAction*                     Action;                                            // 0x0018(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FKey                                   Key;                                               // 0x0020(0x0018)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<struct FMappingQueryIssue>             OutIssues;                                         // 0x0038(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 	EMappingQueryIssue                            BlockingIssues;                                    // 0x0048(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -641,7 +641,7 @@ DUMPER7_ASSERTS_EnhancedInputSubsystemInterface_RequestRebuildControlMappings;
 struct EnhancedInputSubsystemInterface_StartContinuousInputInjectionForAction final
 {
 public:
-	const class UInputAction*                     action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UInputAction*                     Action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FInputActionValue                      RawValue;                                          // 0x0008(0x0020)(Parm, NoDestructor, NativeAccessSpecifierPublic)
 	TArray<class UInputModifier*>                 Modifiers;                                         // 0x0028(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 	TArray<class UInputTrigger*>                  Triggers;                                          // 0x0038(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
@@ -665,7 +665,7 @@ DUMPER7_ASSERTS_EnhancedInputSubsystemInterface_StartContinuousInputInjectionFor
 struct EnhancedInputSubsystemInterface_StopContinuousInputInjectionForAction final
 {
 public:
-	const class UInputAction*                     action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UInputAction*                     Action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_EnhancedInputSubsystemInterface_StopContinuousInputInjectionForAction;
 
@@ -683,7 +683,7 @@ DUMPER7_ASSERTS_EnhancedInputSubsystemInterface_StopContinuousInputInjectionForP
 struct EnhancedInputSubsystemInterface_UpdateValueOfContinuousInputInjectionForAction final
 {
 public:
-	const class UInputAction*                     action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UInputAction*                     Action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FInputActionValue                      RawValue;                                          // 0x0008(0x0020)(Parm, NoDestructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_EnhancedInputSubsystemInterface_UpdateValueOfContinuousInputInjectionForAction;
@@ -733,7 +733,7 @@ DUMPER7_ASSERTS_EnhancedInputSubsystemInterface_HasMappingContext;
 struct EnhancedInputSubsystemInterface_QueryKeysMappedToAction final
 {
 public:
-	const class UInputAction*                     action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UInputAction*                     Action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<struct FKey>                           ReturnValue;                                       // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_EnhancedInputSubsystemInterface_QueryKeysMappedToAction;
@@ -763,7 +763,7 @@ DUMPER7_ASSERTS_EnhancedInputWorldSubsystem_RemoveActorInputComponent;
 struct InputMappingContext_MapKey final
 {
 public:
-	const class UInputAction*                     action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UInputAction*                     Action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FKey                                   ToKey;                                             // 0x0008(0x0018)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FEnhancedActionKeyMapping              ReturnValue;                                       // 0x0020(0x0050)(Parm, OutParm, ReturnParm, ContainsInstancedReference, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
@@ -774,7 +774,7 @@ DUMPER7_ASSERTS_InputMappingContext_MapKey;
 struct InputMappingContext_UnmapAction final
 {
 public:
-	const class UInputAction*                     action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UInputAction*                     Action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_InputMappingContext_UnmapAction;
 
@@ -783,7 +783,7 @@ DUMPER7_ASSERTS_InputMappingContext_UnmapAction;
 struct InputMappingContext_UnmapAllKeysFromAction final
 {
 public:
-	const class UInputAction*                     action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UInputAction*                     Action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_InputMappingContext_UnmapAllKeysFromAction;
 
@@ -792,7 +792,7 @@ DUMPER7_ASSERTS_InputMappingContext_UnmapAllKeysFromAction;
 struct InputMappingContext_UnmapKey final
 {
 public:
-	const class UInputAction*                     action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class UInputAction*                     Action;                                            // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FKey                                   Key;                                               // 0x0008(0x0018)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_InputMappingContext_UnmapKey;

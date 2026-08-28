@@ -23,8 +23,8 @@
 #include "AudioPlatformConfiguration_structs.hpp"
 #include "DeveloperSettings_structs.hpp"
 #include "DeveloperSettings_classes.hpp"
-#include "IrisStub_classes.hpp"
 #include "Chaos_structs.hpp"
+#include "IrisStub_classes.hpp"
 #include "MeshDescription_classes.hpp"
 #include "AudioExtensions_structs.hpp"
 #include "AudioExtensions_classes.hpp"
@@ -3231,7 +3231,7 @@ DUMPER7_ASSERTS_UAnimationAssetExtensions;
 class UInterpTrackInstVisibility final : public UInterpTrackInst
 {
 public:
-	EVisibilityTrackAction                        action;                                            // 0x0028(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EVisibilityTrackAction                        Action;                                            // 0x0028(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_29[0x3];                                       // 0x0029(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         LastUpdatePosition;                                // 0x002C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
@@ -5791,8 +5791,8 @@ public:
 	uint8                                         Pad_28[0x18];                                      // 0x0028(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
 	double                                        ForceMipLevelsToBeResidentTimestamp;               // 0x0040(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 	int32                                         NumCinematicMipLevels;                             // 0x0048(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         bConsoleDropLOD0 : 1;                              // 0x004C(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bConsoleDropLOD0onLowMemPlatform : 1;              // 0x004C(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bConsoleDropLOD0 : 1;                              // 0x004C(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, AssetRegistrySearchable, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bConsoleDropLOD0onLowMemPlatform : 1;              // 0x004C(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, BlueprintVisible, NoDestructor, AssetRegistrySearchable, HasGetValueTypeHash, NativeAccessSpecifierPublic))
 	uint8                                         Pad_4D[0x3];                                       // 0x004D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FPerQualityLevelInt                    NoRefStreamingLODBias;                             // 0x0050(0x0068)(Protected, NativeAccessSpecifierProtected)
 	int32                                         StreamingIndex;                                    // 0x00B8(0x0004)(ZeroConstructor, Transient, DuplicateTransient, IsPlainOldData, NonTransactional, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
@@ -15003,7 +15003,7 @@ DUMPER7_ASSERTS_UMaterialExpressionInverseLinearInterpolate;
 class UInterpTrackInstToggle final : public UInterpTrackInst
 {
 public:
-	ETrackToggleAction                            action;                                            // 0x0028(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	ETrackToggleAction                            Action;                                            // 0x0028(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_29[0x3];                                       // 0x0029(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
 	float                                         LastUpdatePosition;                                // 0x002C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         bSavedActiveState : 1;                             // 0x0030(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -22360,7 +22360,7 @@ public:
 	void LocalTravel(const class FString& URL);
 	void OnServerStartedVisualLogger(bool bIsLogging);
 	void Pause();
-	void PlayDynamicForceFeedback(float Intensity, float Duration, bool bAffectsLeftLarge, bool bAffectsLeftSmall, bool bAffectsRightLarge, bool bAffectsRightSmall, EDynamicForceFeedbackAction action, const struct FLatentActionInfo& LatentInfo);
+	void PlayDynamicForceFeedback(float Intensity, float Duration, bool bAffectsLeftLarge, bool bAffectsLeftSmall, bool bAffectsRightLarge, bool bAffectsRightSmall, EDynamicForceFeedbackAction Action, const struct FLatentActionInfo& LatentInfo);
 	void PlayHapticEffect(class UHapticFeedbackEffect_Base* HapticEffect, EControllerHand Hand, float Scale, bool bLoop);
 	void ResetControllerDeadZones();
 	void ResetControllerLightColor();
@@ -40669,10 +40669,10 @@ public:
 	static EScreenOrientation GetAllowedDeviceOrientation();
 	static EScreenOrientation GetDeviceOrientation();
 	static void GetLaunchNotification(bool* NotificationLaunchedApp, class FString* ActivationEvent, int32* FireDate);
-	static int32 ScheduleLocalNotificationAtTime(const struct FDateTime& FireDateTime, bool LocalTime, const class FText& Title, const class FText& Body, const class FText& action, const class FString& ActivationEvent);
+	static int32 ScheduleLocalNotificationAtTime(const struct FDateTime& FireDateTime, bool LocalTime, const class FText& Title, const class FText& Body, const class FText& Action, const class FString& ActivationEvent);
 	static int32 ScheduleLocalNotificationBadgeAtTime(const struct FDateTime& FireDateTime, bool LocalTime, const class FString& ActivationEvent);
 	static void ScheduleLocalNotificationBadgeFromNow(int32 inSecondsFromNow, const class FString& ActivationEvent);
-	static int32 ScheduleLocalNotificationFromNow(int32 inSecondsFromNow, const class FText& Title, const class FText& Body, const class FText& action, const class FString& ActivationEvent);
+	static int32 ScheduleLocalNotificationFromNow(int32 inSecondsFromNow, const class FText& Title, const class FText& Body, const class FText& Action, const class FString& ActivationEvent);
 	static void SetAllowedDeviceOrientation(EScreenOrientation NewAllowedDeviceOrientation);
 
 public:

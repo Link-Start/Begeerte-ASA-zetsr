@@ -17,6 +17,42 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
+// Function GeometryFramework.DynamicMesh.Reset
+// 0x0008 (0x0008 - 0x0000)
+struct DynamicMesh_Reset final
+{
+public:
+	class UDynamicMesh*                           ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_DynamicMesh_Reset;
+
+// Function GeometryFramework.DynamicMesh.ResetToCube
+// 0x0008 (0x0008 - 0x0000)
+struct DynamicMesh_ResetToCube final
+{
+public:
+	class UDynamicMesh*                           ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_DynamicMesh_ResetToCube;
+
+// Function GeometryFramework.DynamicMesh.GetTriangleCount
+// 0x0004 (0x0004 - 0x0000)
+struct DynamicMesh_GetTriangleCount final
+{
+public:
+	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_DynamicMesh_GetTriangleCount;
+
+// Function GeometryFramework.DynamicMesh.IsEmpty
+// 0x0001 (0x0001 - 0x0000)
+struct DynamicMesh_IsEmpty final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_DynamicMesh_IsEmpty;
+
 // Function GeometryFramework.BaseDynamicMeshComponent.GetDynamicMesh
 // 0x0008 (0x0008 - 0x0000)
 struct BaseDynamicMeshComponent_GetDynamicMesh final
@@ -427,42 +463,6 @@ public:
 	class UDynamicMeshComponent*                  ReturnValue;                                       // 0x0000(0x0008)(ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_DynamicMeshActor_GetDynamicMeshComponent;
-
-// Function GeometryFramework.DynamicMesh.Reset
-// 0x0008 (0x0008 - 0x0000)
-struct DynamicMesh_Reset final
-{
-public:
-	class UDynamicMesh*                           ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_DynamicMesh_Reset;
-
-// Function GeometryFramework.DynamicMesh.ResetToCube
-// 0x0008 (0x0008 - 0x0000)
-struct DynamicMesh_ResetToCube final
-{
-public:
-	class UDynamicMesh*                           ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_DynamicMesh_ResetToCube;
-
-// Function GeometryFramework.DynamicMesh.GetTriangleCount
-// 0x0004 (0x0004 - 0x0000)
-struct DynamicMesh_GetTriangleCount final
-{
-public:
-	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_DynamicMesh_GetTriangleCount;
-
-// Function GeometryFramework.DynamicMesh.IsEmpty
-// 0x0001 (0x0001 - 0x0000)
-struct DynamicMesh_IsEmpty final
-{
-public:
-	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_DynamicMesh_IsEmpty;
 
 // Function GeometryFramework.DynamicMeshPool.RequestMesh
 // 0x0008 (0x0008 - 0x0000)

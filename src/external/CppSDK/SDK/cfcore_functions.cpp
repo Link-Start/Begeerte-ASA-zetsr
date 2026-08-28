@@ -1422,6 +1422,37 @@ void UCFCoreSubsystem::ApiSearchMods(const struct FCFCoreSearchModsFilter& Filte
 }
 
 
+// Function cfcore.CFCoreSubsystem.ApiSearchMyLibrary
+// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const struct FCFCoreSearchMyLibraryFilters&Filter                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// const struct FCFCoreApiRequestPagination&pagination                                             (ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+// const TDelegate<void(const struct FCFCoreMyLibrarySections& library, const struct FCFCoreApiResponsePagination& pagination)>&OnLibrary                                              (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const TDelegate<void(const struct FCFCoreError& Error)>&OnError                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCFCoreSubsystem::ApiSearchMyLibrary(const struct FCFCoreSearchMyLibraryFilters& Filter, const struct FCFCoreApiRequestPagination& pagination, const TDelegate<void(const struct FCFCoreMyLibrarySections& library, const struct FCFCoreApiResponsePagination& pagination)>& OnLibrary, const TDelegate<void(const struct FCFCoreError& Error)>& OnError)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreSubsystem", "ApiSearchMyLibrary");
+
+	Params::CFCoreSubsystem_ApiSearchMyLibrary Parms{};
+
+	Parms.Filter = std::move(Filter);
+	Parms.pagination = std::move(pagination);
+	Parms.OnLibrary = OnLibrary;
+	Parms.OnError = OnError;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function cfcore.CFCoreSubsystem.ApiSubscribe
 // (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
@@ -2093,6 +2124,35 @@ void UCFCoreSubsystem::GetMyPremiumModsV2(const TDelegate<void(const struct FOwn
 }
 
 
+// Function cfcore.CFCoreSubsystem.GetPremiumModFileDetails
+// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const struct FGetPremiumModFileDetailsRequest&InRequest                                              (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// const TDelegate<void(const struct FPremiumModFileDetails& FileDetails)>&OnSuccess                                              (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const TDelegate<void(const struct FCFCoreError& Error)>&OnError                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCFCoreSubsystem::GetPremiumModFileDetails(const struct FGetPremiumModFileDetailsRequest& InRequest, const TDelegate<void(const struct FPremiumModFileDetails& FileDetails)>& OnSuccess, const TDelegate<void(const struct FCFCoreError& Error)>& OnError)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreSubsystem", "GetPremiumModFileDetails");
+
+	Params::CFCoreSubsystem_GetPremiumModFileDetails Parms{};
+
+	Parms.InRequest = std::move(InRequest);
+	Parms.OnSuccess = OnSuccess;
+	Parms.OnError = OnError;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function cfcore.CFCoreSubsystem.GetSyncPlan
 // (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
@@ -2309,6 +2369,35 @@ void UCFCoreSubsystem::OnSuccessGeneratePremium(const class FString& URL)
 	Params::CFCoreSubsystem_OnSuccessGeneratePremium Parms{};
 
 	Parms.URL = std::move(URL);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function cfcore.CFCoreSubsystem.OverridePrivateKey
+// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const class FString&                    InPrivateKeyPem                                        (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const TDelegate<void()>&                OnSuccess                                              (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const TDelegate<void(const struct FCFCoreError& Error)>&OnError                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCFCoreSubsystem::OverridePrivateKey(const class FString& InPrivateKeyPem, const TDelegate<void()>& OnSuccess, const TDelegate<void(const struct FCFCoreError& Error)>& OnError)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreSubsystem", "OverridePrivateKey");
+
+	Params::CFCoreSubsystem_OverridePrivateKey Parms{};
+
+	Parms.InPrivateKeyPem = std::move(InPrivateKeyPem);
+	Parms.OnSuccess = OnSuccess;
+	Parms.OnError = OnError;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -2599,6 +2688,33 @@ void UCFCoreSubsystem::SyncSubscriptions(const TDelegate<void(const TArray<struc
 }
 
 
+// Function cfcore.CFCoreSubsystem.Uninitialize
+// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const TDelegate<void()>&                OnUninitialized                                        (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const TDelegate<void(const struct FCFCoreError& Error)>&OnError                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UCFCoreSubsystem::Uninitialize(const TDelegate<void()>& OnUninitialized, const TDelegate<void(const struct FCFCoreError& Error)>& OnError)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CFCoreSubsystem", "Uninitialize");
+
+	Params::CFCoreSubsystem_Uninitialize Parms{};
+
+	Parms.OnUninitialized = OnUninitialized;
+	Parms.OnError = OnError;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function cfcore.CFCoreSubsystem.UninstallMod
 // (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
@@ -2618,33 +2734,6 @@ void UCFCoreSubsystem::UninstallMod(int64 mod_id, TDelegate<void(const struct FI
 	Parms.mod_id = mod_id;
 	Parms.on_uninstalled = on_uninstalled;
 	Parms.on_error = on_error;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function cfcore.CFCoreSubsystem.Unitialize
-// (Final, RequiredAPI, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const TDelegate<void()>&                OnUninitialized                                        (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const TDelegate<void(const struct FCFCoreError& Error)>&OnError                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UCFCoreSubsystem::Unitialize(const TDelegate<void()>& OnUninitialized, const TDelegate<void(const struct FCFCoreError& Error)>& OnError)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("CFCoreSubsystem", "Unitialize");
-
-	Params::CFCoreSubsystem_Unitialize Parms{};
-
-	Parms.OnUninitialized = OnUninitialized;
-	Parms.OnError = OnError;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

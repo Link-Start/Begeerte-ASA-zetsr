@@ -37,7 +37,7 @@ public:
 	static void DEBUG_Premium_WaitingBuyResponse(TArray<int64>& Array, const class UObject* WorldContextObject, class UObject* __WorldContext);
 	static void GetIsModPremium(const struct FInstallProgressMod& ModInfo, class UObject* __WorldContext, struct FPremiumDetails* Premium_Details);
 	static void GetNotifManager(class UObject* __WorldContext, class UUI_CFCore_NotificationManager_C** Output);
-	static void GetIsModPaidStatus(const struct FInstallProgressMod& ModInfo, TArray<int64>& PurchasedModsIDs, class UObject* __WorldContext, bool* premium, bool* Is_Freemium, bool* Purchased, double* Tier_Price, class FString* Currency_Symbol, struct FPremiumDetailsPlatformData* Platform_Data, struct FPremiumDetailsDiscount* Discount_Data);
+	static void GetIsModPaidStatus(const struct FInstallProgressMod& ModInfo, TArray<int64>& PurchasedModsIDs, class UObject* __WorldContext, bool* premium, bool* Is_Freemium, bool* purchased, double* Tier_Price, class FString* Currency_Symbol, struct FPremiumDetailsPlatformData* Platform_Data, struct FPremiumDetailsDiscount* Discount_Data);
 	static class UUI_CFCore_ModPage_C* CreateModPageFromStandalone(int64 Mod_Id, int32 DrawUIOnZOrder, class UUI_CFCore_GameSlot_C* UI_GameSlotRef, class UObject* __WorldContext);
 	static void GetIsModValid(const struct FInstallProgressMod& ModInfo, class UObject* __WorldContext, bool* IsValid);
 	static void DebugMod(const struct FInstallProgressMod& InstallProgressMod, const class UObject* WorldContextObject, bool Debug_BroadcastEvent, EGameModsEvent Event, bool DebugInstallingUpdating, class UObject* __WorldContext);

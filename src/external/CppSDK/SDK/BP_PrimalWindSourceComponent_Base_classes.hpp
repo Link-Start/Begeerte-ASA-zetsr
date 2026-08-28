@@ -18,7 +18,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass BP_PrimalWindSourceComponent_Base.BP_PrimalWindSourceComponent_Base_C
-// 0x0118 (0x03C8 - 0x02B0)
+// 0x0128 (0x03D8 - 0x02B0)
 class UBP_PrimalWindSourceComponent_Base_C final : public UPrimalWindSourceComponent
 {
 public:
@@ -48,6 +48,8 @@ public:
 	bool                                          debug_bubbles;                                     // 0x03B8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Transient, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_3B9[0x7];                                      // 0x03B9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	double                                        BubbleCountMultiplier;                             // 0x03C0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        Current_Velocity_Direction;                        // 0x03C8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          VFX_USE_NDC;                                       // 0x03D0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void BPDeactivateBubbleComponent();

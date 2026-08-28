@@ -10,10 +10,10 @@
 
 #include "Basic.hpp"
 
+#include "UnrealUSDWrapper_structs.hpp"
 #include "Engine_classes.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "UnrealUSDWrapper_structs.hpp"
 #include "USDStage_structs.hpp"
 #include "USDClasses_structs.hpp"
 

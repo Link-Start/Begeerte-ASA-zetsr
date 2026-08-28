@@ -10,12 +10,12 @@
 
 #include "Basic.hpp"
 
-#include "InputCore_structs.hpp"
 #include "ScriptableToolsFramework_structs.hpp"
-#include "Engine_classes.hpp"
+#include "CoreUObject_classes.hpp"
 #include "InteractiveToolsFramework_structs.hpp"
 #include "InteractiveToolsFramework_classes.hpp"
-#include "CoreUObject_classes.hpp"
+#include "Engine_classes.hpp"
+#include "InputCore_structs.hpp"
 
 
 SDK_NAMESPACE_START

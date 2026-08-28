@@ -19,12 +19,12 @@ SDK_NAMESPACE_START
 // Function GameAnalytics.GameAnalytics.AddAdEvent
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// EGAAdAction                             action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EGAAdAction                             Action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EGAAdType                               adType                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adSdkName                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adPlacement                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UGameAnalytics::AddAdEvent(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement)
+void UGameAnalytics::AddAdEvent(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement)
 {
 	static class UFunction* Func = nullptr;
 
@@ -33,7 +33,7 @@ void UGameAnalytics::AddAdEvent(EGAAdAction action, EGAAdType adType, const clas
 
 	Params::GameAnalytics_AddAdEvent Parms{};
 
-	Parms.action = action;
+	Parms.Action = Action;
 	Parms.adType = adType;
 	Parms.adSdkName = std::move(adSdkName);
 	Parms.adPlacement = std::move(adPlacement);
@@ -50,13 +50,13 @@ void UGameAnalytics::AddAdEvent(EGAAdAction action, EGAAdType adType, const clas
 // Function GameAnalytics.GameAnalytics.AddAdEventWithDuration
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// EGAAdAction                             action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EGAAdAction                             Action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EGAAdType                               adType                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adSdkName                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adPlacement                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int64                                   Duration                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UGameAnalytics::AddAdEventWithDuration(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, int64 Duration)
+void UGameAnalytics::AddAdEventWithDuration(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, int64 Duration)
 {
 	static class UFunction* Func = nullptr;
 
@@ -65,7 +65,7 @@ void UGameAnalytics::AddAdEventWithDuration(EGAAdAction action, EGAAdType adType
 
 	Params::GameAnalytics_AddAdEventWithDuration Parms{};
 
-	Parms.action = action;
+	Parms.Action = Action;
 	Parms.adType = adType;
 	Parms.adSdkName = std::move(adSdkName);
 	Parms.adPlacement = std::move(adPlacement);
@@ -83,14 +83,14 @@ void UGameAnalytics::AddAdEventWithDuration(EGAAdAction action, EGAAdType adType
 // Function GameAnalytics.GameAnalytics.AddAdEventWithDurationAndFields
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// EGAAdAction                             action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EGAAdAction                             Action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EGAAdType                               adType                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adSdkName                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adPlacement                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int64                                   Duration                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const TArray<struct FGameAnalyticsCustomEventField>&CustomFields                                           (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 
-void UGameAnalytics::AddAdEventWithDurationAndFields(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, int64 Duration, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields)
+void UGameAnalytics::AddAdEventWithDurationAndFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, int64 Duration, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields)
 {
 	static class UFunction* Func = nullptr;
 
@@ -99,7 +99,7 @@ void UGameAnalytics::AddAdEventWithDurationAndFields(EGAAdAction action, EGAAdTy
 
 	Params::GameAnalytics_AddAdEventWithDurationAndFields Parms{};
 
-	Parms.action = action;
+	Parms.Action = Action;
 	Parms.adType = adType;
 	Parms.adSdkName = std::move(adSdkName);
 	Parms.adPlacement = std::move(adPlacement);
@@ -118,14 +118,14 @@ void UGameAnalytics::AddAdEventWithDurationAndFields(EGAAdAction action, EGAAdTy
 // Function GameAnalytics.GameAnalytics.AddAdEventWithDurationAndMergeFields
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// EGAAdAction                             action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EGAAdAction                             Action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EGAAdType                               adType                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adSdkName                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adPlacement                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int64                                   Duration                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const TArray<struct FGameAnalyticsCustomEventField>&CustomFields                                           (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 
-void UGameAnalytics::AddAdEventWithDurationAndMergeFields(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, int64 Duration, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields)
+void UGameAnalytics::AddAdEventWithDurationAndMergeFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, int64 Duration, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields)
 {
 	static class UFunction* Func = nullptr;
 
@@ -134,7 +134,7 @@ void UGameAnalytics::AddAdEventWithDurationAndMergeFields(EGAAdAction action, EG
 
 	Params::GameAnalytics_AddAdEventWithDurationAndMergeFields Parms{};
 
-	Parms.action = action;
+	Parms.Action = Action;
 	Parms.adType = adType;
 	Parms.adSdkName = std::move(adSdkName);
 	Parms.adPlacement = std::move(adPlacement);
@@ -153,13 +153,13 @@ void UGameAnalytics::AddAdEventWithDurationAndMergeFields(EGAAdAction action, EG
 // Function GameAnalytics.GameAnalytics.AddAdEventWithFields
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// EGAAdAction                             action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EGAAdAction                             Action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EGAAdType                               adType                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adSdkName                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adPlacement                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const TArray<struct FGameAnalyticsCustomEventField>&CustomFields                                           (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 
-void UGameAnalytics::AddAdEventWithFields(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields)
+void UGameAnalytics::AddAdEventWithFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields)
 {
 	static class UFunction* Func = nullptr;
 
@@ -168,7 +168,7 @@ void UGameAnalytics::AddAdEventWithFields(EGAAdAction action, EGAAdType adType, 
 
 	Params::GameAnalytics_AddAdEventWithFields Parms{};
 
-	Parms.action = action;
+	Parms.Action = Action;
 	Parms.adType = adType;
 	Parms.adSdkName = std::move(adSdkName);
 	Parms.adPlacement = std::move(adPlacement);
@@ -186,13 +186,13 @@ void UGameAnalytics::AddAdEventWithFields(EGAAdAction action, EGAAdType adType, 
 // Function GameAnalytics.GameAnalytics.AddAdEventWithMergeFields
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// EGAAdAction                             action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EGAAdAction                             Action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EGAAdType                               adType                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adSdkName                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adPlacement                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const TArray<struct FGameAnalyticsCustomEventField>&CustomFields                                           (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 
-void UGameAnalytics::AddAdEventWithMergeFields(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields)
+void UGameAnalytics::AddAdEventWithMergeFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields)
 {
 	static class UFunction* Func = nullptr;
 
@@ -201,7 +201,7 @@ void UGameAnalytics::AddAdEventWithMergeFields(EGAAdAction action, EGAAdType adT
 
 	Params::GameAnalytics_AddAdEventWithMergeFields Parms{};
 
-	Parms.action = action;
+	Parms.Action = Action;
 	Parms.adType = adType;
 	Parms.adSdkName = std::move(adSdkName);
 	Parms.adPlacement = std::move(adPlacement);
@@ -219,13 +219,13 @@ void UGameAnalytics::AddAdEventWithMergeFields(EGAAdAction action, EGAAdType adT
 // Function GameAnalytics.GameAnalytics.AddAdEventWithNoAdReason
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
-// EGAAdAction                             action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EGAAdAction                             Action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EGAAdType                               adType                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adSdkName                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adPlacement                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EGAAdError                              noAdReason                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-void UGameAnalytics::AddAdEventWithNoAdReason(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, EGAAdError noAdReason)
+void UGameAnalytics::AddAdEventWithNoAdReason(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, EGAAdError noAdReason)
 {
 	static class UFunction* Func = nullptr;
 
@@ -234,7 +234,7 @@ void UGameAnalytics::AddAdEventWithNoAdReason(EGAAdAction action, EGAAdType adTy
 
 	Params::GameAnalytics_AddAdEventWithNoAdReason Parms{};
 
-	Parms.action = action;
+	Parms.Action = Action;
 	Parms.adType = adType;
 	Parms.adSdkName = std::move(adSdkName);
 	Parms.adPlacement = std::move(adPlacement);
@@ -252,14 +252,14 @@ void UGameAnalytics::AddAdEventWithNoAdReason(EGAAdAction action, EGAAdType adTy
 // Function GameAnalytics.GameAnalytics.AddAdEventWithNoAdReasonAndFields
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// EGAAdAction                             action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EGAAdAction                             Action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EGAAdType                               adType                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adSdkName                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adPlacement                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EGAAdError                              noAdReason                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const TArray<struct FGameAnalyticsCustomEventField>&CustomFields                                           (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 
-void UGameAnalytics::AddAdEventWithNoAdReasonAndFields(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, EGAAdError noAdReason, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields)
+void UGameAnalytics::AddAdEventWithNoAdReasonAndFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, EGAAdError noAdReason, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields)
 {
 	static class UFunction* Func = nullptr;
 
@@ -268,7 +268,7 @@ void UGameAnalytics::AddAdEventWithNoAdReasonAndFields(EGAAdAction action, EGAAd
 
 	Params::GameAnalytics_AddAdEventWithNoAdReasonAndFields Parms{};
 
-	Parms.action = action;
+	Parms.Action = Action;
 	Parms.adType = adType;
 	Parms.adSdkName = std::move(adSdkName);
 	Parms.adPlacement = std::move(adPlacement);
@@ -287,14 +287,14 @@ void UGameAnalytics::AddAdEventWithNoAdReasonAndFields(EGAAdAction action, EGAAd
 // Function GameAnalytics.GameAnalytics.AddAdEventWithNoAdReasonAndMergeFields
 // (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
 // Parameters:
-// EGAAdAction                             action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EGAAdAction                             Action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EGAAdType                               adType                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adSdkName                                              (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    adPlacement                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EGAAdError                              noAdReason                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const TArray<struct FGameAnalyticsCustomEventField>&CustomFields                                           (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 
-void UGameAnalytics::AddAdEventWithNoAdReasonAndMergeFields(EGAAdAction action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, EGAAdError noAdReason, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields)
+void UGameAnalytics::AddAdEventWithNoAdReasonAndMergeFields(EGAAdAction Action, EGAAdType adType, const class FString& adSdkName, const class FString& adPlacement, EGAAdError noAdReason, const TArray<struct FGameAnalyticsCustomEventField>& CustomFields)
 {
 	static class UFunction* Func = nullptr;
 
@@ -303,7 +303,7 @@ void UGameAnalytics::AddAdEventWithNoAdReasonAndMergeFields(EGAAdAction action, 
 
 	Params::GameAnalytics_AddAdEventWithNoAdReasonAndMergeFields Parms{};
 
-	Parms.action = action;
+	Parms.Action = Action;
 	Parms.adType = adType;
 	Parms.adSdkName = std::move(adSdkName);
 	Parms.adPlacement = std::move(adPlacement);

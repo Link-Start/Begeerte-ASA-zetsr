@@ -68,7 +68,7 @@ namespace g_CheatData {
 			// 48 8B C4 53 48 81 EC 00 01 00 00 0F 29 70 E8 48 8B D9 0F 29 78 D8 0F 28
 
 			// 318
-			inline std::string PhysicsRotation = "48 8B C4 53 48 81 EC ? ? ? ? 0F 29 70 ? 48 8B D9 0F 29 78 ? 0F 28 F1 44 0F 29 40 ? 0F";
+			inline std::string PhysicsRotation = "48 8B C4 53 48 81 EC ? ? ? ? 0F 29 70 ? 48 8B D9 0F 29 78 ? 0F";
 		}
 
 		/*

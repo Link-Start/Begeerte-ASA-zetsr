@@ -49,6 +49,41 @@ public:
 };
 DUMPER7_ASSERTS_IMeshCommandChangeTarget;
 
+// Class GeometryFramework.DynamicMesh
+// 0x0088 (0x00B0 - 0x0028)
+class UDynamicMesh final : public UObject
+{
+public:
+	uint8                                         Pad_28[0x48];                                      // 0x0028(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(class UDynamicMesh* Mesh)> MeshModifiedBPEvent;                    // 0x0070(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	uint8                                         Pad_80[0x20];                                      // 0x0080(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
+	class UDynamicMeshGenerator*                  MeshGenerator;                                     // 0x00A0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	bool                                          bEnableMeshGenerator;                              // 0x00A8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A9[0x7];                                       // 0x00A9(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	class UDynamicMesh* Reset();
+	class UDynamicMesh* ResetToCube();
+
+	int32 GetTriangleCount() const;
+	bool IsEmpty() const;
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("DynamicMesh")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"DynamicMesh")
+	}
+	static class UDynamicMesh* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UDynamicMesh>();
+	}
+};
+DUMPER7_ASSERTS_UDynamicMesh;
+
 // Class GeometryFramework.MeshReplacementCommandChangeTarget
 // 0x0000 (0x0000 - 0x0000)
 class IMeshReplacementCommandChangeTarget final
@@ -183,7 +218,7 @@ DUMPER7_ASSERTS_UBaseDynamicMeshComponent;
 
 // Class GeometryFramework.DynamicMeshComponent
 // 0x0330 (0x09F0 - 0x06C0)
-class UDynamicMeshComponent final : public UBaseDynamicMeshComponent
+class UDynamicMeshComponent : public UBaseDynamicMeshComponent
 {
 public:
 	uint8                                         Pad_6C0[0x8];                                      // 0x06C0(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
@@ -237,6 +272,26 @@ public:
 };
 DUMPER7_ASSERTS_UDynamicMeshComponent;
 
+// Class GeometryFramework.DynamicMeshGenerator
+// 0x0000 (0x0028 - 0x0028)
+class UDynamicMeshGenerator final : public UObject
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("DynamicMeshGenerator")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"DynamicMeshGenerator")
+	}
+	static class UDynamicMeshGenerator* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UDynamicMeshGenerator>();
+	}
+};
+DUMPER7_ASSERTS_UDynamicMeshGenerator;
+
 // Class GeometryFramework.DynamicMeshActor
 // 0x0018 (0x04A8 - 0x0490)
 class ADynamicMeshActor final : public AActor
@@ -271,61 +326,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_ADynamicMeshActor;
-
-// Class GeometryFramework.DynamicMeshGenerator
-// 0x0000 (0x0028 - 0x0028)
-class UDynamicMeshGenerator final : public UObject
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("DynamicMeshGenerator")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"DynamicMeshGenerator")
-	}
-	static class UDynamicMeshGenerator* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UDynamicMeshGenerator>();
-	}
-};
-DUMPER7_ASSERTS_UDynamicMeshGenerator;
-
-// Class GeometryFramework.DynamicMesh
-// 0x0088 (0x00B0 - 0x0028)
-class UDynamicMesh final : public UObject
-{
-public:
-	uint8                                         Pad_28[0x48];                                      // 0x0028(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(class UDynamicMesh* Mesh)> MeshModifiedBPEvent;                    // 0x0070(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	uint8                                         Pad_80[0x20];                                      // 0x0080(0x0020)(Fixing Size After Last Property [ Dumper-7 ])
-	class UDynamicMeshGenerator*                  MeshGenerator;                                     // 0x00A0(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, Protected, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	bool                                          bEnableMeshGenerator;                              // 0x00A8(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_A9[0x7];                                       // 0x00A9(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	class UDynamicMesh* Reset();
-	class UDynamicMesh* ResetToCube();
-
-	int32 GetTriangleCount() const;
-	bool IsEmpty() const;
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("DynamicMesh")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"DynamicMesh")
-	}
-	static class UDynamicMesh* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UDynamicMesh>();
-	}
-};
-DUMPER7_ASSERTS_UDynamicMesh;
 
 // Class GeometryFramework.DynamicMeshPool
 // 0x0020 (0x0048 - 0x0028)

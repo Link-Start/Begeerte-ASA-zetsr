@@ -15,29 +15,6 @@
 
 SDK_NAMESPACE_START
 
-// Class DataflowEnginePlugin.DataflowActor
-// 0x0008 (0x0498 - 0x0490)
-class ADataflowActor final : public AActor
-{
-public:
-	class UDataflowComponent*                     DataflowComponent;                                 // 0x0490(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("DataflowActor")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"DataflowActor")
-	}
-	static class ADataflowActor* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<ADataflowActor>();
-	}
-};
-DUMPER7_ASSERTS_ADataflowActor;
-
 // Class DataflowEnginePlugin.DataflowComponent
 // 0x0150 (0x0770 - 0x0620)
 class UDataflowComponent final : public UPrimitiveComponent
@@ -60,5 +37,28 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UDataflowComponent;
+
+// Class DataflowEnginePlugin.DataflowActor
+// 0x0008 (0x0498 - 0x0490)
+class ADataflowActor final : public AActor
+{
+public:
+	class UDataflowComponent*                     DataflowComponent;                                 // 0x0490(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("DataflowActor")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"DataflowActor")
+	}
+	static class ADataflowActor* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<ADataflowActor>();
+	}
+};
+DUMPER7_ASSERTS_ADataflowActor;
 
 SDK_NAMESPACE_END

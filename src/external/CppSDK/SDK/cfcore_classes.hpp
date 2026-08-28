@@ -54,7 +54,7 @@ public:
 DUMPER7_ASSERTS_UCFCoreBPLibrary;
 
 // Class cfcore.CFCoreEditorSettings
-// 0x0150 (0x0178 - 0x0028)
+// 0x0160 (0x0188 - 0x0028)
 class UCFCoreEditorSettings final : public UObject
 {
 public:
@@ -73,17 +73,17 @@ public:
 	bool                                          isServerPcOnly;                                    // 0x0091(0x0001)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_92[0x6];                                       // 0x0092(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FCFCoreSettingsThrottling              throttling;                                        // 0x0098(0x0008)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
-	struct FCFCoreSettingsPremiumMods             premiumMods;                                       // 0x00A0(0x0010)(Edit, Config, NativeAccessSpecifierPublic)
-	struct FCFCoreSettingsLogger                  logger;                                            // 0x00B0(0x000C)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_BC[0x4];                                       // 0x00BC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TSet<int64>                                   dynamicContentCategoryIds;                         // 0x00C0(0x0050)(Edit, Config, NativeAccessSpecifierPublic)
-	struct FCFCoreSettingsAnalytics               Analytics;                                         // 0x0110(0x0002)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_112[0x6];                                      // 0x0112(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	TSet<class FString>                           ignoredDynamicModFiles;                            // 0x0118(0x0050)(Edit, Config, NativeAccessSpecifierPublic)
-	struct FCFCoreSettingsUnmanagedMods           unmanagedMods;                                     // 0x0168(0x0002)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_16A[0x2];                                      // 0x016A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FCFCoreSettingsSubscriptions           subscriptions;                                     // 0x016C(0x0008)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
-	struct FCFCoreSettingsDownloads               downloads;                                         // 0x0174(0x0004)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
+	struct FCFCoreSettingsPremiumMods             premiumMods;                                       // 0x00A0(0x0020)(Edit, Config, NativeAccessSpecifierPublic)
+	struct FCFCoreSettingsLogger                  logger;                                            // 0x00C0(0x000C)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_CC[0x4];                                       // 0x00CC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TSet<int64>                                   dynamicContentCategoryIds;                         // 0x00D0(0x0050)(Edit, Config, NativeAccessSpecifierPublic)
+	struct FCFCoreSettingsAnalytics               Analytics;                                         // 0x0120(0x0002)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_122[0x6];                                      // 0x0122(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	TSet<class FString>                           ignoredDynamicModFiles;                            // 0x0128(0x0050)(Edit, Config, NativeAccessSpecifierPublic)
+	struct FCFCoreSettingsUnmanagedMods           unmanagedMods;                                     // 0x0178(0x0002)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_17A[0x2];                                      // 0x017A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FCFCoreSettingsSubscriptions           subscriptions;                                     // 0x017C(0x0008)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
+	struct FCFCoreSettingsDownloads               downloads;                                         // 0x0184(0x0004)(Edit, Config, NoDestructor, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -147,6 +147,7 @@ public:
 	void ApiRemoveRating(int64 modId, TDelegate<void()> on_success, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void ApiReportMod(int64 modId, int64 reasonId, const class FString& report, TDelegate<void()> on_reasons, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void ApiSearchMods(const struct FCFCoreSearchModsFilter& Filter, const struct FCFCoreApiRequestPagination& pagination, TDelegate<void(const TArray<struct FCFCoreMod>& mods, const struct FCFCoreApiResponsePagination& pagination)> on_results, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
+	void ApiSearchMyLibrary(const struct FCFCoreSearchMyLibraryFilters& Filter, const struct FCFCoreApiRequestPagination& pagination, const TDelegate<void(const struct FCFCoreMyLibrarySections& library, const struct FCFCoreApiResponsePagination& pagination)>& OnLibrary, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
 	void ApiSubscribe(const struct FSubscribeRequest& Request, const TDelegate<void(const struct FCFCoreMod& mod)>& on_success, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void ApiSubscribeMods(const struct FSubscribeModsRequest& Request, const TDelegate<void()>& on_success, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void ApiUnblockMods(const struct FUnblockModsRequest& Request, TDelegate<void(bool success)> OnResult, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
@@ -170,6 +171,7 @@ public:
 	void GetModsDirInfo(TDelegate<void(const struct FModsDirInfo& ModsDirInfo)> OnModsDirInfo, TDelegate<void(const struct FCFCoreError& Error)> OnError);
 	void GetMyPremiumMods(const TDelegate<void(const TArray<int64>& modIds)>& OnSuccess, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
 	void GetMyPremiumModsV2(const TDelegate<void(const struct FOwnedPremiumMods& OwnedPremiumMods)>& OnSuccess, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
+	void GetPremiumModFileDetails(const struct FGetPremiumModFileDetailsRequest& InRequest, const TDelegate<void(const struct FPremiumModFileDetails& FileDetails)>& OnSuccess, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
 	void GetSyncPlan(const TDelegate<void(const TArray<struct FSubscriptionSyncPlanItem>& plan_items)>& on_success, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void GetSystemInstalledMods(TDelegate<void(const TArray<struct FInstalledMod>& installed_mods)> on_installed_mods, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void Initialize(const struct FCFCoreSettings& Settings, const TDelegate<void()>& OnInitialized, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
@@ -178,6 +180,7 @@ public:
 	void IsAuthenticated(TDelegate<void(bool is_authenticated)> on_is_auth);
 	void Logout(TDelegate<void()> on_success, TDelegate<void(const struct FCFCoreError& Error)> on_error);
 	void OnSuccessGeneratePremium(const class FString& URL);
+	void OverridePrivateKey(const class FString& InPrivateKeyPem, const TDelegate<void()>& OnSuccess, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
 	void OverridePublicKey(const class FString& InPublicKeyPem, const TDelegate<void()>& OnSuccess, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
 	void PerformModsValidation(const TArray<struct FInstalledMod>& installed_mods, TDelegate<void(const TArray<struct FInstalledMod>& invalid_installed_mods)> on_success, TDelegate<void(const struct FCFCoreError& Error)> on_error);
 	void PollModPurchase(const struct FPollPurchaseParams& InParams, const TDelegate<void(const TArray<int64>& OwnedModIds)>& OnPurchased, const TDelegate<void(const struct FCFCoreError& Error)>& OnError, const TDelegate<void()>& OnPurchasePollingTimeout, const TDelegate<void()>& OnPurchasePollingStopped);
@@ -188,8 +191,8 @@ public:
 	void SubscribeMod(const struct FSubscribeRequest& Request, const TDelegate<void(const struct FCFCoreMod& mod)>& on_success, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void SynchronizeWithServer(TDelegate<void()> on_success, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void SyncSubscriptions(const TDelegate<void(const TArray<struct FSubscriptionSyncResultItem>& result_items)>& on_success, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
+	void Uninitialize(const TDelegate<void()>& OnUninitialized, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
 	void UninstallMod(int64 mod_id, TDelegate<void(const struct FInstalledMod& uninstalled_mod)> on_uninstalled, TDelegate<void(const struct FCFCoreError& Error)> on_error);
-	void Unitialize(const TDelegate<void()>& OnUninitialized, const TDelegate<void(const struct FCFCoreError& Error)>& OnError);
 	void UnsubscribeMod(const struct FSubscribeRequest& Request, const TDelegate<void()>& on_success, const TDelegate<void(const struct FCFCoreError& Error)>& on_error);
 	void UpdateInstalledModsProperties(const TArray<struct FInstalledModProperties>& InInstalledModsProperties, TDelegate<void()> OnSuccess, TDelegate<void(const struct FCFCoreError& Error)> OnError);
 	void UpdateMod(int64 mod_id, const struct FUpdateModRequest& update_mod_request, const class FString& avatar_image_filename, TDelegate<void(const struct FCFCoreMod& mod)> on_success, TDelegate<void(const struct FCFCoreError& Error)> on_error);

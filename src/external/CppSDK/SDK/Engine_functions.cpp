@@ -49985,10 +49985,10 @@ void APlayerController::Pause()
 // bool                                    bAffectsLeftSmall                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bAffectsRightLarge                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    bAffectsRightSmall                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// EDynamicForceFeedbackAction             action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EDynamicForceFeedbackAction             Action                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const struct FLatentActionInfo&         LatentInfo                                             (Parm, NoDestructor, NativeAccessSpecifierPublic)
 
-void APlayerController::PlayDynamicForceFeedback(float Intensity, float Duration, bool bAffectsLeftLarge, bool bAffectsLeftSmall, bool bAffectsRightLarge, bool bAffectsRightSmall, EDynamicForceFeedbackAction action, const struct FLatentActionInfo& LatentInfo)
+void APlayerController::PlayDynamicForceFeedback(float Intensity, float Duration, bool bAffectsLeftLarge, bool bAffectsLeftSmall, bool bAffectsRightLarge, bool bAffectsRightSmall, EDynamicForceFeedbackAction Action, const struct FLatentActionInfo& LatentInfo)
 {
 	static class UFunction* Func = nullptr;
 
@@ -50003,7 +50003,7 @@ void APlayerController::PlayDynamicForceFeedback(float Intensity, float Duration
 	Parms.bAffectsLeftSmall = bAffectsLeftSmall;
 	Parms.bAffectsRightLarge = bAffectsRightLarge;
 	Parms.bAffectsRightSmall = bAffectsRightSmall;
-	Parms.action = action;
+	Parms.Action = Action;
 	Parms.LatentInfo = std::move(LatentInfo);
 
 	auto Flgs = Func->FunctionFlags;
@@ -128466,11 +128466,11 @@ void UBlueprintPlatformLibrary::GetLaunchNotification(bool* NotificationLaunched
 // bool                                    LocalTime                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FText&                      Title                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // const class FText&                      Body                                                   (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// const class FText&                      action                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// const class FText&                      Action                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // const class FString&                    ActivationEvent                                        (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-int32 UBlueprintPlatformLibrary::ScheduleLocalNotificationAtTime(const struct FDateTime& FireDateTime, bool LocalTime, const class FText& Title, const class FText& Body, const class FText& action, const class FString& ActivationEvent)
+int32 UBlueprintPlatformLibrary::ScheduleLocalNotificationAtTime(const struct FDateTime& FireDateTime, bool LocalTime, const class FText& Title, const class FText& Body, const class FText& Action, const class FString& ActivationEvent)
 {
 	static class UFunction* Func = nullptr;
 
@@ -128483,7 +128483,7 @@ int32 UBlueprintPlatformLibrary::ScheduleLocalNotificationAtTime(const struct FD
 	Parms.LocalTime = LocalTime;
 	Parms.Title = std::move(Title);
 	Parms.Body = std::move(Body);
-	Parms.action = std::move(action);
+	Parms.Action = std::move(Action);
 	Parms.ActivationEvent = std::move(ActivationEvent);
 
 	auto Flgs = Func->FunctionFlags;
@@ -128562,11 +128562,11 @@ void UBlueprintPlatformLibrary::ScheduleLocalNotificationBadgeFromNow(int32 inSe
 // int32                                   inSecondsFromNow                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FText&                      Title                                                  (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // const class FText&                      Body                                                   (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-// const class FText&                      action                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// const class FText&                      Action                                                 (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 // const class FString&                    ActivationEvent                                        (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-int32 UBlueprintPlatformLibrary::ScheduleLocalNotificationFromNow(int32 inSecondsFromNow, const class FText& Title, const class FText& Body, const class FText& action, const class FString& ActivationEvent)
+int32 UBlueprintPlatformLibrary::ScheduleLocalNotificationFromNow(int32 inSecondsFromNow, const class FText& Title, const class FText& Body, const class FText& Action, const class FString& ActivationEvent)
 {
 	static class UFunction* Func = nullptr;
 
@@ -128578,7 +128578,7 @@ int32 UBlueprintPlatformLibrary::ScheduleLocalNotificationFromNow(int32 inSecond
 	Parms.inSecondsFromNow = inSecondsFromNow;
 	Parms.Title = std::move(Title);
 	Parms.Body = std::move(Body);
-	Parms.action = std::move(action);
+	Parms.Action = std::move(Action);
 	Parms.ActivationEvent = std::move(ActivationEvent);
 
 	auto Flgs = Func->FunctionFlags;

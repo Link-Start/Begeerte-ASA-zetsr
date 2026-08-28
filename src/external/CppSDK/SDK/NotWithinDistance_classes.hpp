@@ -10,28 +10,17 @@
 
 #include "Basic.hpp"
 
-#include "Engine_structs.hpp"
-#include "AIModule_structs.hpp"
-#include "AIModule_classes.hpp"
+#include "ShooterGame_classes.hpp"
 
 
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass NotWithinDistance.NotWithinDistance_C
-// 0x00B0 (0x0150 - 0x00A0)
-class UNotWithinDistance_C final : public UBTDecorator_BlueprintBase
+// 0x0008 (0x0118 - 0x0110)
+class UNotWithinDistance_C final : public UBTDecorator_NotWithinDistance
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x00A0(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	struct FBlackboardKeySelector                 Range;                                             // 0x00A8(0x0028)(Edit, BlueprintVisible)
-	double                                        RangeOffsetValue;                                  // 0x00D0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	struct FBlackboardKeySelector                 ShouldFlyKey;                                      // 0x00D8(0x0028)(Edit, BlueprintVisible)
-	struct FBlackboardKeySelector                 TargetBlackboardKey;                               // 0x0100(0x0028)(Edit, BlueprintVisible)
-	struct FBlackboardKeySelector                 FollowStoppingDistanceKey;                         // 0x0128(0x0028)(Edit, BlueprintVisible)
-
-public:
-	void ExecuteUbergraph_NotWithinDistance(int32 EntryPoint);
-	void ReceiveConditionCheck(class AActor* OwnerActor);
+	double                                        RangeOffsetValue_0;                                // 0x0110(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	static class UClass* StaticClass()

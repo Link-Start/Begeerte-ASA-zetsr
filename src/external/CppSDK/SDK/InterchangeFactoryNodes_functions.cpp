@@ -250,63 +250,6 @@ bool UInterchangeActorFactoryNode::GetCustomMobility(uint8* AttributeValue) cons
 }
 
 
-// Function InterchangeFactoryNodes.InterchangeLevelInstanceActorFactoryNode.SetCustomLevelReference
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    AttributeValue                                         (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UInterchangeLevelInstanceActorFactoryNode::SetCustomLevelReference(const class FString& AttributeValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InterchangeLevelInstanceActorFactoryNode", "SetCustomLevelReference");
-
-	Params::InterchangeLevelInstanceActorFactoryNode_SetCustomLevelReference Parms{};
-
-	Parms.AttributeValue = std::move(AttributeValue);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function InterchangeFactoryNodes.InterchangeLevelInstanceActorFactoryNode.GetCustomLevelReference
-// (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FString*                          AttributeValue                                         (Parm, OutParm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UInterchangeLevelInstanceActorFactoryNode::GetCustomLevelReference(class FString* AttributeValue) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InterchangeLevelInstanceActorFactoryNode", "GetCustomLevelReference");
-
-	Params::InterchangeLevelInstanceActorFactoryNode_GetCustomLevelReference Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (AttributeValue != nullptr)
-		*AttributeValue = std::move(Parms.AttributeValue);
-
-	return Parms.ReturnValue;
-}
-
-
 // Function InterchangeFactoryNodes.InterchangePhysicalCameraFactoryNode.SetCustomFocalLength
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
@@ -528,242 +471,6 @@ bool UInterchangePhysicalCameraFactoryNode::GetCustomSensorWidth(float* Attribut
 		Func = Class->GetFunction("InterchangePhysicalCameraFactoryNode", "GetCustomSensorWidth");
 
 	Params::InterchangePhysicalCameraFactoryNode_GetCustomSensorWidth Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (AttributeValue != nullptr)
-		*AttributeValue = Parms.AttributeValue;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function InterchangeFactoryNodes.InterchangeBaseLightFactoryNode.SetCustomIntensity
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   AttributeValue                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bAddApplyDelegate                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UInterchangeBaseLightFactoryNode::SetCustomIntensity(float AttributeValue, bool bAddApplyDelegate)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InterchangeBaseLightFactoryNode", "SetCustomIntensity");
-
-	Params::InterchangeBaseLightFactoryNode_SetCustomIntensity Parms{};
-
-	Parms.AttributeValue = AttributeValue;
-	Parms.bAddApplyDelegate = bAddApplyDelegate;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function InterchangeFactoryNodes.InterchangeBaseLightFactoryNode.SetCustomLightColor
-// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
-// Parameters:
-// const struct FColor&                    AttributeValue                                         (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bAddApplyDelegate                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UInterchangeBaseLightFactoryNode::SetCustomLightColor(const struct FColor& AttributeValue, bool bAddApplyDelegate)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InterchangeBaseLightFactoryNode", "SetCustomLightColor");
-
-	Params::InterchangeBaseLightFactoryNode_SetCustomLightColor Parms{};
-
-	Parms.AttributeValue = std::move(AttributeValue);
-	Parms.bAddApplyDelegate = bAddApplyDelegate;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function InterchangeFactoryNodes.InterchangeBaseLightFactoryNode.SetCustomTemperature
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// float                                   AttributeValue                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bAddApplyDelegate                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UInterchangeBaseLightFactoryNode::SetCustomTemperature(float AttributeValue, bool bAddApplyDelegate)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InterchangeBaseLightFactoryNode", "SetCustomTemperature");
-
-	Params::InterchangeBaseLightFactoryNode_SetCustomTemperature Parms{};
-
-	Parms.AttributeValue = AttributeValue;
-	Parms.bAddApplyDelegate = bAddApplyDelegate;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function InterchangeFactoryNodes.InterchangeBaseLightFactoryNode.SetCustomUseTemperature
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                                    AttributeValue                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    bAddApplyDelegate                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UInterchangeBaseLightFactoryNode::SetCustomUseTemperature(bool AttributeValue, bool bAddApplyDelegate)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InterchangeBaseLightFactoryNode", "SetCustomUseTemperature");
-
-	Params::InterchangeBaseLightFactoryNode_SetCustomUseTemperature Parms{};
-
-	Parms.AttributeValue = AttributeValue;
-	Parms.bAddApplyDelegate = bAddApplyDelegate;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function InterchangeFactoryNodes.InterchangeBaseLightFactoryNode.GetCustomIntensity
-// (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float*                                  AttributeValue                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UInterchangeBaseLightFactoryNode::GetCustomIntensity(float* AttributeValue) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InterchangeBaseLightFactoryNode", "GetCustomIntensity");
-
-	Params::InterchangeBaseLightFactoryNode_GetCustomIntensity Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (AttributeValue != nullptr)
-		*AttributeValue = Parms.AttributeValue;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function InterchangeFactoryNodes.InterchangeBaseLightFactoryNode.GetCustomLightColor
-// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// struct FColor*                          AttributeValue                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UInterchangeBaseLightFactoryNode::GetCustomLightColor(struct FColor* AttributeValue) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InterchangeBaseLightFactoryNode", "GetCustomLightColor");
-
-	Params::InterchangeBaseLightFactoryNode_GetCustomLightColor Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (AttributeValue != nullptr)
-		*AttributeValue = std::move(Parms.AttributeValue);
-
-	return Parms.ReturnValue;
-}
-
-
-// Function InterchangeFactoryNodes.InterchangeBaseLightFactoryNode.GetCustomTemperature
-// (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float*                                  AttributeValue                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UInterchangeBaseLightFactoryNode::GetCustomTemperature(float* AttributeValue) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InterchangeBaseLightFactoryNode", "GetCustomTemperature");
-
-	Params::InterchangeBaseLightFactoryNode_GetCustomTemperature Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (AttributeValue != nullptr)
-		*AttributeValue = Parms.AttributeValue;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function InterchangeFactoryNodes.InterchangeBaseLightFactoryNode.GetCustomUseTemperature
-// (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool*                                   AttributeValue                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UInterchangeBaseLightFactoryNode::GetCustomUseTemperature(bool* AttributeValue) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InterchangeBaseLightFactoryNode", "GetCustomUseTemperature");
-
-	Params::InterchangeBaseLightFactoryNode_GetCustomUseTemperature Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -1133,63 +840,6 @@ bool UInterchangeStandardCameraFactoryNode::GetCustomWidth(float* AttributeValue
 }
 
 
-// Function InterchangeFactoryNodes.InterchangeBaseMaterialFactoryNode.SetCustomIsMaterialImportEnabled
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const bool&                             AttributeValue                                         (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UInterchangeBaseMaterialFactoryNode::SetCustomIsMaterialImportEnabled(const bool& AttributeValue)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InterchangeBaseMaterialFactoryNode", "SetCustomIsMaterialImportEnabled");
-
-	Params::InterchangeBaseMaterialFactoryNode_SetCustomIsMaterialImportEnabled Parms{};
-
-	Parms.AttributeValue = AttributeValue;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function InterchangeFactoryNodes.InterchangeBaseMaterialFactoryNode.GetCustomIsMaterialImportEnabled
-// (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool*                                   AttributeValue                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-bool UInterchangeBaseMaterialFactoryNode::GetCustomIsMaterialImportEnabled(bool* AttributeValue) const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("InterchangeBaseMaterialFactoryNode", "GetCustomIsMaterialImportEnabled");
-
-	Params::InterchangeBaseMaterialFactoryNode_GetCustomIsMaterialImportEnabled Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	if (AttributeValue != nullptr)
-		*AttributeValue = Parms.AttributeValue;
-
-	return Parms.ReturnValue;
-}
-
-
 // Function InterchangeFactoryNodes.InterchangeDecalActorFactoryNode.SetCustomDecalMaterialPathName
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -1385,6 +1035,63 @@ class UClass* UInterchangeDecalActorFactoryNode::GetObjectClass() const
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function InterchangeFactoryNodes.InterchangeBaseMaterialFactoryNode.SetCustomIsMaterialImportEnabled
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const bool&                             AttributeValue                                         (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UInterchangeBaseMaterialFactoryNode::SetCustomIsMaterialImportEnabled(const bool& AttributeValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InterchangeBaseMaterialFactoryNode", "SetCustomIsMaterialImportEnabled");
+
+	Params::InterchangeBaseMaterialFactoryNode_SetCustomIsMaterialImportEnabled Parms{};
+
+	Parms.AttributeValue = AttributeValue;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function InterchangeFactoryNodes.InterchangeBaseMaterialFactoryNode.GetCustomIsMaterialImportEnabled
+// (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool*                                   AttributeValue                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UInterchangeBaseMaterialFactoryNode::GetCustomIsMaterialImportEnabled(bool* AttributeValue) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InterchangeBaseMaterialFactoryNode", "GetCustomIsMaterialImportEnabled");
+
+	Params::InterchangeBaseMaterialFactoryNode_GetCustomIsMaterialImportEnabled Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (AttributeValue != nullptr)
+		*AttributeValue = Parms.AttributeValue;
 
 	return Parms.ReturnValue;
 }
@@ -1861,6 +1568,63 @@ class UClass* UInterchangeLevelFactoryNode::GetObjectClass() const
 }
 
 
+// Function InterchangeFactoryNodes.InterchangeLevelInstanceActorFactoryNode.SetCustomLevelReference
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const class FString&                    AttributeValue                                         (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UInterchangeLevelInstanceActorFactoryNode::SetCustomLevelReference(const class FString& AttributeValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InterchangeLevelInstanceActorFactoryNode", "SetCustomLevelReference");
+
+	Params::InterchangeLevelInstanceActorFactoryNode_SetCustomLevelReference Parms{};
+
+	Parms.AttributeValue = std::move(AttributeValue);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function InterchangeFactoryNodes.InterchangeLevelInstanceActorFactoryNode.GetCustomLevelReference
+// (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class FString*                          AttributeValue                                         (Parm, OutParm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UInterchangeLevelInstanceActorFactoryNode::GetCustomLevelReference(class FString* AttributeValue) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InterchangeLevelInstanceActorFactoryNode", "GetCustomLevelReference");
+
+	Params::InterchangeLevelInstanceActorFactoryNode_GetCustomLevelReference Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (AttributeValue != nullptr)
+		*AttributeValue = std::move(Parms.AttributeValue);
+
+	return Parms.ReturnValue;
+}
+
+
 // Function InterchangeFactoryNodes.InterchangeLevelSequenceFactoryNode.AddCustomAnimationTrackUid
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -2074,6 +1838,242 @@ class UClass* UInterchangeLevelSequenceFactoryNode::GetObjectClass() const
 	UObject::ProcessEvent(Func, &Parms);
 
 	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function InterchangeFactoryNodes.InterchangeBaseLightFactoryNode.SetCustomIntensity
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   AttributeValue                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bAddApplyDelegate                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UInterchangeBaseLightFactoryNode::SetCustomIntensity(float AttributeValue, bool bAddApplyDelegate)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InterchangeBaseLightFactoryNode", "SetCustomIntensity");
+
+	Params::InterchangeBaseLightFactoryNode_SetCustomIntensity Parms{};
+
+	Parms.AttributeValue = AttributeValue;
+	Parms.bAddApplyDelegate = bAddApplyDelegate;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function InterchangeFactoryNodes.InterchangeBaseLightFactoryNode.SetCustomLightColor
+// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// Parameters:
+// const struct FColor&                    AttributeValue                                         (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bAddApplyDelegate                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UInterchangeBaseLightFactoryNode::SetCustomLightColor(const struct FColor& AttributeValue, bool bAddApplyDelegate)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InterchangeBaseLightFactoryNode", "SetCustomLightColor");
+
+	Params::InterchangeBaseLightFactoryNode_SetCustomLightColor Parms{};
+
+	Parms.AttributeValue = std::move(AttributeValue);
+	Parms.bAddApplyDelegate = bAddApplyDelegate;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function InterchangeFactoryNodes.InterchangeBaseLightFactoryNode.SetCustomTemperature
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                                   AttributeValue                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bAddApplyDelegate                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UInterchangeBaseLightFactoryNode::SetCustomTemperature(float AttributeValue, bool bAddApplyDelegate)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InterchangeBaseLightFactoryNode", "SetCustomTemperature");
+
+	Params::InterchangeBaseLightFactoryNode_SetCustomTemperature Parms{};
+
+	Parms.AttributeValue = AttributeValue;
+	Parms.bAddApplyDelegate = bAddApplyDelegate;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function InterchangeFactoryNodes.InterchangeBaseLightFactoryNode.SetCustomUseTemperature
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    AttributeValue                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bAddApplyDelegate                                      (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UInterchangeBaseLightFactoryNode::SetCustomUseTemperature(bool AttributeValue, bool bAddApplyDelegate)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InterchangeBaseLightFactoryNode", "SetCustomUseTemperature");
+
+	Params::InterchangeBaseLightFactoryNode_SetCustomUseTemperature Parms{};
+
+	Parms.AttributeValue = AttributeValue;
+	Parms.bAddApplyDelegate = bAddApplyDelegate;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function InterchangeFactoryNodes.InterchangeBaseLightFactoryNode.GetCustomIntensity
+// (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float*                                  AttributeValue                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UInterchangeBaseLightFactoryNode::GetCustomIntensity(float* AttributeValue) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InterchangeBaseLightFactoryNode", "GetCustomIntensity");
+
+	Params::InterchangeBaseLightFactoryNode_GetCustomIntensity Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (AttributeValue != nullptr)
+		*AttributeValue = Parms.AttributeValue;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function InterchangeFactoryNodes.InterchangeBaseLightFactoryNode.GetCustomLightColor
+// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// struct FColor*                          AttributeValue                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UInterchangeBaseLightFactoryNode::GetCustomLightColor(struct FColor* AttributeValue) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InterchangeBaseLightFactoryNode", "GetCustomLightColor");
+
+	Params::InterchangeBaseLightFactoryNode_GetCustomLightColor Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (AttributeValue != nullptr)
+		*AttributeValue = std::move(Parms.AttributeValue);
+
+	return Parms.ReturnValue;
+}
+
+
+// Function InterchangeFactoryNodes.InterchangeBaseLightFactoryNode.GetCustomTemperature
+// (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float*                                  AttributeValue                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UInterchangeBaseLightFactoryNode::GetCustomTemperature(float* AttributeValue) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InterchangeBaseLightFactoryNode", "GetCustomTemperature");
+
+	Params::InterchangeBaseLightFactoryNode_GetCustomTemperature Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (AttributeValue != nullptr)
+		*AttributeValue = Parms.AttributeValue;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function InterchangeFactoryNodes.InterchangeBaseLightFactoryNode.GetCustomUseTemperature
+// (Final, Native, Public, HasOutParams, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool*                                   AttributeValue                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool UInterchangeBaseLightFactoryNode::GetCustomUseTemperature(bool* AttributeValue) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("InterchangeBaseLightFactoryNode", "GetCustomUseTemperature");
+
+	Params::InterchangeBaseLightFactoryNode_GetCustomUseTemperature Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (AttributeValue != nullptr)
+		*AttributeValue = Parms.AttributeValue;
 
 	return Parms.ReturnValue;
 }

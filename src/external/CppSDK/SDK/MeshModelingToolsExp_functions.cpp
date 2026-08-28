@@ -66,25 +66,6 @@ const TArray<class FString> UBakeInputMeshProperties::GetTargetUVLayerNamesFunc(
 }
 
 
-// Function MeshModelingToolsExp.DynamicSculptToolActions.DiscardAttributes
-// (Final, Native, Public)
-
-void UDynamicSculptToolActions::DiscardAttributes()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("DynamicSculptToolActions", "DiscardAttributes");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
 // Function MeshModelingToolsExp.BakeTexture2DProperties.GetUVLayerNamesFunc
 // (Final, Native, Public, Const)
 // Parameters:
@@ -503,6 +484,25 @@ TArray<class FString> USelectiveTessellationProperties::GetMaterialIDsFunc()
 	Func->FunctionFlags = Flgs;
 
 	return Parms.ReturnValue;
+}
+
+
+// Function MeshModelingToolsExp.DynamicSculptToolActions.DiscardAttributes
+// (Final, Native, Public)
+
+void UDynamicSculptToolActions::DiscardAttributes()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("DynamicSculptToolActions", "DiscardAttributes");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
 }
 
 

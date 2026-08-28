@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "ConcertTransport_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "ConcertTransport_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -266,6 +266,18 @@ struct FConcertAdmin_GetAllSessionsRequest final : public FConcertRequestData
 };
 DUMPER7_ASSERTS_FConcertAdmin_GetAllSessionsRequest;
 
+// ScriptStruct Concert.ConcertSessionSettings
+// 0x0028 (0x0028 - 0x0000)
+struct FConcertSessionSettings final
+{
+public:
+	class FString                                 ProjectName;                                       // 0x0000(0x0010)(Edit, ZeroConstructor, Config, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint32                                        BaseRevision;                                      // 0x0010(0x0004)(Edit, ZeroConstructor, Config, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 ArchiveNameOverride;                               // 0x0018(0x0010)(Edit, ZeroConstructor, Config, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FConcertSessionSettings;
+
 // ScriptStruct Concert.ConcertFileVersionInfo
 // 0x000C (0x000C - 0x0000)
 struct FConcertFileVersionInfo final
@@ -311,18 +323,6 @@ public:
 	TArray<struct FConcertCustomVersionInfo>      CustomVersions;                                    // 0x0018(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FConcertSessionVersionInfo;
-
-// ScriptStruct Concert.ConcertSessionSettings
-// 0x0028 (0x0028 - 0x0000)
-struct FConcertSessionSettings final
-{
-public:
-	class FString                                 ProjectName;                                       // 0x0000(0x0010)(Edit, ZeroConstructor, Config, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint32                                        BaseRevision;                                      // 0x0010(0x0004)(Edit, ZeroConstructor, Config, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_14[0x4];                                       // 0x0014(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 ArchiveNameOverride;                               // 0x0018(0x0010)(Edit, ZeroConstructor, Config, EditConst, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FConcertSessionSettings;
 
 // ScriptStruct Concert.ConcertSessionInfo
 // 0x00B8 (0x00B8 - 0x0000)

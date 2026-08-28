@@ -10,17 +10,17 @@
 
 #include "Basic.hpp"
 
-#include "CFCoreWidget_classes.hpp"
+#include "Engine_structs.hpp"
 #include "cfcore_ui_structs.hpp"
 #include "cfcore_structs.hpp"
-#include "Engine_structs.hpp"
+#include "CFCoreWidget_classes.hpp"
 #include "UMG_structs.hpp"
 
 
 SDK_NAMESPACE_START
 
 // WidgetBlueprintGeneratedClass BP_CFCore_ServerModsWidget.BP_CFCore_ServerModsWidget_C
-// 0x0398 (0x0C08 - 0x0870)
+// 0x03A0 (0x0C10 - 0x0870)
 class UBP_CFCore_ServerModsWidget_C final : public UCFCoreWidget_C
 {
 public:
@@ -72,27 +72,27 @@ public:
 	TMulticastInlineDelegate<void(int64 ServerID)> FavoriteEvent;                                    // 0x09E0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	TMulticastInlineDelegate<void(int64 ServerID)> JoinEvent;                                        // 0x09F0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	TMulticastInlineDelegate<void()>              BackEvent;                                         // 0x0A00(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	struct FMe                                    SignInCredentials;                                 // 0x0A10(0x0088)(Edit, BlueprintVisible, DisableEditOnInstance)
-	bool                                          IsSignedIn;                                        // 0x0A98(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_A99[0x7];                                      // 0x0A99(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<int64>                                 FilesIds;                                          // 0x0AA0(0x0010)(Edit, BlueprintVisible, ExposeOnSpawn)
-	TArray<int64>                                 ModsIds;                                           // 0x0AB0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	TArray<struct FInstallProgressMod>            ModList;                                           // 0x0AC0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
-	TMap<int64, struct FFile>                     FilesByModId;                                      // 0x0AD0(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance)
-	TArray<int64>                                 PurchasedModIDs;                                   // 0x0B20(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	TMap<double, int32>                           PricingList;                                       // 0x0B30(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance)
-	double                                        FullPrice;                                         // 0x0B80(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	class FText                                   Server_Name;                                       // 0x0B88(0x0010)(Edit, BlueprintVisible, ExposeOnSpawn)
-	int64                                         Server_ID;                                         // 0x0B98(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
-	TMulticastInlineDelegate<void(int64 ServerID)> StartDownloads;                                   // 0x0BA0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	TArray<EGameModsEvent>                        evts;                                              // 0x0BB0(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	class UBP_CFCore_ServerModsLoading_C*         UI_ServerModLoading;                               // 0x0BC0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	TMulticastInlineDelegate<void()>              Error;                                             // 0x0BC8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	struct FModsDirInfo                           SpaceModsDirInfo;                                  // 0x0BD8(0x0020)(Edit, BlueprintVisible, DisableEditOnInstance)
-	int64                                         TotalDownloadSize;                                 // 0x0BF8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          SubMenuVisible;                                    // 0x0C00(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          TESTING_ForceAllModsBought;                        // 0x0C01(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          bMissingDLCReqs;                                   // 0x0C02(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	struct FMe                                    SignInCredentials;                                 // 0x0A10(0x0090)(Edit, BlueprintVisible, DisableEditOnInstance)
+	bool                                          IsSignedIn;                                        // 0x0AA0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_AA1[0x7];                                      // 0x0AA1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<int64>                                 FilesIds;                                          // 0x0AA8(0x0010)(Edit, BlueprintVisible, ExposeOnSpawn)
+	TArray<int64>                                 ModsIds;                                           // 0x0AB8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	TArray<struct FInstallProgressMod>            ModList;                                           // 0x0AC8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference)
+	TMap<int64, struct FFile>                     FilesByModId;                                      // 0x0AD8(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance)
+	TArray<int64>                                 PurchasedModIDs;                                   // 0x0B28(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	TMap<double, int32>                           PricingList;                                       // 0x0B38(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance)
+	double                                        FullPrice;                                         // 0x0B88(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class FText                                   Server_Name;                                       // 0x0B90(0x0010)(Edit, BlueprintVisible, ExposeOnSpawn)
+	int64                                         Server_ID;                                         // 0x0BA0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
+	TMulticastInlineDelegate<void(int64 ServerID)> StartDownloads;                                   // 0x0BA8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	TArray<EGameModsEvent>                        evts;                                              // 0x0BB8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	class UBP_CFCore_ServerModsLoading_C*         UI_ServerModLoading;                               // 0x0BC8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	TMulticastInlineDelegate<void()>              Error;                                             // 0x0BD0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	struct FModsDirInfo                           SpaceModsDirInfo;                                  // 0x0BE0(0x0020)(Edit, BlueprintVisible, DisableEditOnInstance)
+	int64                                         TotalDownloadSize;                                 // 0x0C00(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          SubMenuVisible;                                    // 0x0C08(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          TESTING_ForceAllModsBought;                        // 0x0C09(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          bMissingDLCReqs;                                   // 0x0C0A(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void AddToTotalSize(const struct FInstallProgressMod& ModInfo);

@@ -403,89 +403,6 @@ public:
 };
 DUMPER7_ASSERTS_OptimusNodeGraph_IsSubGraphReference;
 
-// Function OptimusCore.OptimusDeformer.GetComponentBindings
-// 0x0010 (0x0010 - 0x0000)
-struct OptimusDeformer_GetComponentBindings final
-{
-public:
-	TArray<class UOptimusComponentSourceBinding*> ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OptimusDeformer_GetComponentBindings;
-
-// Function OptimusCore.OptimusDeformer.GetPrimaryComponentBinding
-// 0x0008 (0x0008 - 0x0000)
-struct OptimusDeformer_GetPrimaryComponentBinding final
-{
-public:
-	class UOptimusComponentSourceBinding*         ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OptimusDeformer_GetPrimaryComponentBinding;
-
-// Function OptimusCore.OptimusDeformer.GetResources
-// 0x0010 (0x0010 - 0x0000)
-struct OptimusDeformer_GetResources final
-{
-public:
-	TArray<class UOptimusResourceDescription*>    ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OptimusDeformer_GetResources;
-
-// Function OptimusCore.OptimusDeformer.GetVariables
-// 0x0010 (0x0010 - 0x0000)
-struct OptimusDeformer_GetVariables final
-{
-public:
-	TArray<class UOptimusVariableDescription*>    ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OptimusDeformer_GetVariables;
-
-// Function OptimusCore.OptimusNode.SetGraphPosition
-// 0x0018 (0x0018 - 0x0000)
-struct OptimusNode_SetGraphPosition final
-{
-public:
-	struct FVector2D                              InPosition;                                        // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_OptimusNode_SetGraphPosition;
-
-// Function OptimusCore.OptimusNode.GetDisplayName
-// 0x0010 (0x0010 - 0x0000)
-struct OptimusNode_GetDisplayName final
-{
-public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OptimusNode_GetDisplayName;
-
-// Function OptimusCore.OptimusNode.GetGraphPosition
-// 0x0010 (0x0010 - 0x0000)
-struct OptimusNode_GetGraphPosition final
-{
-public:
-	struct FVector2D                              ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OptimusNode_GetGraphPosition;
-
-// Function OptimusCore.OptimusNode.GetNodeCategory
-// 0x0008 (0x0008 - 0x0000)
-struct OptimusNode_GetNodeCategory final
-{
-public:
-	class FName                                   ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OptimusNode_GetNodeCategory;
-
-// Function OptimusCore.OptimusNode.GetNodeName
-// 0x0008 (0x0008 - 0x0000)
-struct OptimusNode_GetNodeName final
-{
-public:
-	class FName                                   ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_OptimusNode_GetNodeName;
-
 // Function OptimusCore.OptimusDeformerInstance.EnqueueTriggerGraph
 // 0x000C (0x000C - 0x0000)
 struct OptimusDeformerInstance_EnqueueTriggerGraph final
@@ -835,6 +752,89 @@ public:
 	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_OptimusDeformerInstance_SetVectorVariable;
+
+// Function OptimusCore.OptimusNode.SetGraphPosition
+// 0x0018 (0x0018 - 0x0000)
+struct OptimusNode_SetGraphPosition final
+{
+public:
+	struct FVector2D                              InPosition;                                        // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_OptimusNode_SetGraphPosition;
+
+// Function OptimusCore.OptimusNode.GetDisplayName
+// 0x0010 (0x0010 - 0x0000)
+struct OptimusNode_GetDisplayName final
+{
+public:
+	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OptimusNode_GetDisplayName;
+
+// Function OptimusCore.OptimusNode.GetGraphPosition
+// 0x0010 (0x0010 - 0x0000)
+struct OptimusNode_GetGraphPosition final
+{
+public:
+	struct FVector2D                              ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OptimusNode_GetGraphPosition;
+
+// Function OptimusCore.OptimusNode.GetNodeCategory
+// 0x0008 (0x0008 - 0x0000)
+struct OptimusNode_GetNodeCategory final
+{
+public:
+	class FName                                   ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OptimusNode_GetNodeCategory;
+
+// Function OptimusCore.OptimusNode.GetNodeName
+// 0x0008 (0x0008 - 0x0000)
+struct OptimusNode_GetNodeName final
+{
+public:
+	class FName                                   ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OptimusNode_GetNodeName;
+
+// Function OptimusCore.OptimusDeformer.GetComponentBindings
+// 0x0010 (0x0010 - 0x0000)
+struct OptimusDeformer_GetComponentBindings final
+{
+public:
+	TArray<class UOptimusComponentSourceBinding*> ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OptimusDeformer_GetComponentBindings;
+
+// Function OptimusCore.OptimusDeformer.GetPrimaryComponentBinding
+// 0x0008 (0x0008 - 0x0000)
+struct OptimusDeformer_GetPrimaryComponentBinding final
+{
+public:
+	class UOptimusComponentSourceBinding*         ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OptimusDeformer_GetPrimaryComponentBinding;
+
+// Function OptimusCore.OptimusDeformer.GetResources
+// 0x0010 (0x0010 - 0x0000)
+struct OptimusDeformer_GetResources final
+{
+public:
+	TArray<class UOptimusResourceDescription*>    ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OptimusDeformer_GetResources;
+
+// Function OptimusCore.OptimusDeformer.GetVariables
+// 0x0010 (0x0010 - 0x0000)
+struct OptimusDeformer_GetVariables final
+{
+public:
+	TArray<class UOptimusVariableDescription*>    ReturnValue;                                       // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_OptimusDeformer_GetVariables;
 
 // Function OptimusCore.OptimusFunctionNodeGraph.GetAccessSpecifierOptions
 // 0x0010 (0x0010 - 0x0000)

@@ -272,34 +272,6 @@ enum class ELandscapeLODFalloff : uint8
 	ELandscapeLODFalloff_MAX                 = 2,
 };
 
-// ScriptStruct Landscape.LandscapeEditToolRenderData
-// 0x0038 (0x0038 - 0x0000)
-struct FLandscapeEditToolRenderData final
-{
-public:
-	class UMaterialInterface*                     ToolMaterial;                                      // 0x0000(0x0008)(ZeroConstructor, NonTransactional, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UMaterialInterface*                     GizmoMaterial;                                     // 0x0008(0x0008)(ZeroConstructor, NonTransactional, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	int32                                         SelectedType;                                      // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         DebugChannelR;                                     // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         DebugChannelG;                                     // 0x0018(0x0004)(ZeroConstructor, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         DebugChannelB;                                     // 0x001C(0x0004)(ZeroConstructor, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UTexture2D*                             DataTexture;                                       // 0x0020(0x0008)(ZeroConstructor, NonTransactional, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UTexture2D*                             LayerContributionTexture;                          // 0x0028(0x0008)(ZeroConstructor, NonTransactional, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UTexture2D*                             DirtyTexture;                                      // 0x0030(0x0008)(ZeroConstructor, NonTransactional, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FLandscapeEditToolRenderData;
-
-// ScriptStruct Landscape.LandscapeProxyMaterialOverride
-// 0x0010 (0x0010 - 0x0000)
-struct FLandscapeProxyMaterialOverride final
-{
-public:
-	struct FPerPlatformInt                        LODIndex;                                          // 0x0000(0x0004)(NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMaterialInterface*                     Material;                                          // 0x0008(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FLandscapeProxyMaterialOverride;
-
 // ScriptStruct Landscape.WeightmapLayerAllocationInfo
 // 0x0010 (0x0010 - 0x0000)
 struct FWeightmapLayerAllocationInfo final
@@ -320,6 +292,17 @@ public:
 	uint8                                         Pad_0[0x8];                                        // 0x0000(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FLandscapeLayerBrush;
+
+// ScriptStruct Landscape.LandscapePerLODMaterialOverride
+// 0x0010 (0x0010 - 0x0000)
+struct FLandscapePerLODMaterialOverride final
+{
+public:
+	int32                                         LODIndex;                                          // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMaterialInterface*                     Material;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FLandscapePerLODMaterialOverride;
 
 // ScriptStruct Landscape.LandscapeLayer
 // 0x0098 (0x0098 - 0x0000)
@@ -342,16 +325,22 @@ public:
 };
 DUMPER7_ASSERTS_FLandscapeLayer;
 
-// ScriptStruct Landscape.LandscapePerLODMaterialOverride
-// 0x0010 (0x0010 - 0x0000)
-struct FLandscapePerLODMaterialOverride final
+// ScriptStruct Landscape.LandscapeEditToolRenderData
+// 0x0038 (0x0038 - 0x0000)
+struct FLandscapeEditToolRenderData final
 {
 public:
-	int32                                         LODIndex;                                          // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMaterialInterface*                     Material;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UMaterialInterface*                     ToolMaterial;                                      // 0x0000(0x0008)(ZeroConstructor, NonTransactional, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UMaterialInterface*                     GizmoMaterial;                                     // 0x0008(0x0008)(ZeroConstructor, NonTransactional, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	int32                                         SelectedType;                                      // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         DebugChannelR;                                     // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         DebugChannelG;                                     // 0x0018(0x0004)(ZeroConstructor, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         DebugChannelB;                                     // 0x001C(0x0004)(ZeroConstructor, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UTexture2D*                             DataTexture;                                       // 0x0020(0x0008)(ZeroConstructor, NonTransactional, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UTexture2D*                             LayerContributionTexture;                          // 0x0028(0x0008)(ZeroConstructor, NonTransactional, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UTexture2D*                             DirtyTexture;                                      // 0x0030(0x0008)(ZeroConstructor, NonTransactional, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 };
-DUMPER7_ASSERTS_FLandscapePerLODMaterialOverride;
+DUMPER7_ASSERTS_FLandscapeEditToolRenderData;
 
 // ScriptStruct Landscape.LandscapeComponentMaterialOverride
 // 0x0010 (0x0010 - 0x0000)
@@ -638,6 +627,17 @@ public:
 	uint8                                         Pad_0[0x1];                                        // 0x0000(0x0001)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FLandscapeImportLayerInfo;
+
+// ScriptStruct Landscape.LandscapeProxyMaterialOverride
+// 0x0010 (0x0010 - 0x0000)
+struct FLandscapeProxyMaterialOverride final
+{
+public:
+	struct FPerPlatformInt                        LODIndex;                                          // 0x0000(0x0004)(NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMaterialInterface*                     Material;                                          // 0x0008(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FLandscapeProxyMaterialOverride;
 
 // ScriptStruct Landscape.LandscapeTexture2DMipMap
 // 0x0038 (0x0038 - 0x0000)

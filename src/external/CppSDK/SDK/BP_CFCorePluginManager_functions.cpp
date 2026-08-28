@@ -888,9 +888,9 @@ void ABP_CFCorePluginManager_C::OnSuccessGeneratePremium(const class FString& UR
 // Function BP_CFCorePluginManager.BP_CFCorePluginManager_C.OnSuccessGetMyPremiumMods
 // (HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// const TArray<int64>&                    modIds                                                 (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+// const struct FOwnedPremiumMods&         OwnedPremiumMods                                       (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 
-void ABP_CFCorePluginManager_C::OnSuccessGetMyPremiumMods(const TArray<int64>& modIds)
+void ABP_CFCorePluginManager_C::OnSuccessGetMyPremiumMods(const struct FOwnedPremiumMods& OwnedPremiumMods)
 {
 	static class UFunction* Func = nullptr;
 
@@ -899,7 +899,7 @@ void ABP_CFCorePluginManager_C::OnSuccessGetMyPremiumMods(const TArray<int64>& m
 
 	Params::BP_CFCorePluginManager_C_OnSuccessGetMyPremiumMods Parms{};
 
-	Parms.modIds = std::move(modIds);
+	Parms.OwnedPremiumMods = std::move(OwnedPremiumMods);
 
 	UObject::ProcessEvent(Func, &Parms);
 }

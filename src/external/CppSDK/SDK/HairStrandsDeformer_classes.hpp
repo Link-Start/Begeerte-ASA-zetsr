@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "ComputeFramework_classes.hpp"
 #include "OptimusCore_classes.hpp"
+#include "ComputeFramework_classes.hpp"
 #include "HairStrandsDeformer_structs.hpp"
 
 
@@ -66,7 +66,7 @@ class UOptimusGroomExecDataInterface final : public UOptimusComputeDataInterface
 {
 public:
 	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	EOptimusGroomExecDomain                       domain;                                            // 0x0030(0x0001)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EOptimusGroomExecDomain                       Domain;                                            // 0x0030(0x0001)(Edit, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
@@ -91,7 +91,7 @@ class UOptimusGroomExecDataProvider final : public UComputeDataProvider
 {
 public:
 	class UGroomComponent*                        GroomComponent;                                    // 0x0028(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	EOptimusGroomExecDomain                       domain;                                            // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EOptimusGroomExecDomain                       Domain;                                            // 0x0030(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:

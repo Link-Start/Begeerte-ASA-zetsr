@@ -10,25 +10,15 @@
 
 #include "Basic.hpp"
 
-#include "Engine_structs.hpp"
-#include "AIModule_structs.hpp"
-#include "AIModule_classes.hpp"
+#include "ShooterGame_classes.hpp"
 
 
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass IsFollowing_DK.IsFollowing_DK_C
-// 0x0030 (0x00D0 - 0x00A0)
-class UIsFollowing_DK_C final : public UBTDecorator_BlueprintBase
+// 0x0000 (0x0090 - 0x0090)
+class UIsFollowing_DK_C final : public UBTDecorator_IsFollowing_DK
 {
-public:
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x00A0(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-	struct FBlackboardKeySelector                 NavigationTargetObjectKey;                         // 0x00A8(0x0028)(Edit, BlueprintVisible)
-
-public:
-	void ExecuteUbergraph_IsFollowing_DK(int32 EntryPoint);
-	void ReceiveConditionCheck(class AActor* OwnerActor);
-
 public:
 	static class UClass* StaticClass()
 	{

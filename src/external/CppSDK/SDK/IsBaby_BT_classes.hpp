@@ -10,23 +10,15 @@
 
 #include "Basic.hpp"
 
-#include "Engine_structs.hpp"
-#include "AIModule_classes.hpp"
+#include "ShooterGame_classes.hpp"
 
 
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass IsBaby_BT.IsBaby_BT_C
-// 0x0008 (0x00A8 - 0x00A0)
-class UIsBaby_BT_C final : public UBTDecorator_BlueprintBase
+// 0x0000 (0x0068 - 0x0068)
+class UIsBaby_BT_C final : public UBTDecorator_IsBaby_BT
 {
-public:
-	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x00A0(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
-
-public:
-	void ExecuteUbergraph_IsBaby_BT(int32 EntryPoint);
-	void ReceiveConditionCheck(class AActor* OwnerActor);
-
 public:
 	static class UClass* StaticClass()
 	{

@@ -411,13 +411,13 @@ void UBPFL_CFCore_GlobalFunctions_C::GetNotifManager(class UObject* __WorldConte
 // class UObject*                          __WorldContext                                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 // bool*                                   premium                                                (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // bool*                                   Is_Freemium                                            (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// bool*                                   Purchased                                              (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool*                                   purchased                                              (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // double*                                 Tier_Price                                             (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 // class FString*                          Currency_Symbol                                        (Parm, OutParm, ZeroConstructor, HasGetValueTypeHash)
 // struct FPremiumDetailsPlatformData*     Platform_Data                                          (Parm, OutParm)
 // struct FPremiumDetailsDiscount*         Discount_Data                                          (Parm, OutParm)
 
-void UBPFL_CFCore_GlobalFunctions_C::GetIsModPaidStatus(const struct FInstallProgressMod& ModInfo, TArray<int64>& PurchasedModsIDs, class UObject* __WorldContext, bool* premium, bool* Is_Freemium, bool* Purchased, double* Tier_Price, class FString* Currency_Symbol, struct FPremiumDetailsPlatformData* Platform_Data, struct FPremiumDetailsDiscount* Discount_Data)
+void UBPFL_CFCore_GlobalFunctions_C::GetIsModPaidStatus(const struct FInstallProgressMod& ModInfo, TArray<int64>& PurchasedModsIDs, class UObject* __WorldContext, bool* premium, bool* Is_Freemium, bool* purchased, double* Tier_Price, class FString* Currency_Symbol, struct FPremiumDetailsPlatformData* Platform_Data, struct FPremiumDetailsDiscount* Discount_Data)
 {
 	static class UFunction* Func = nullptr;
 
@@ -440,8 +440,8 @@ void UBPFL_CFCore_GlobalFunctions_C::GetIsModPaidStatus(const struct FInstallPro
 	if (Is_Freemium != nullptr)
 		*Is_Freemium = Parms.Is_Freemium;
 
-	if (Purchased != nullptr)
-		*Purchased = Parms.Purchased;
+	if (purchased != nullptr)
+		*purchased = Parms.purchased;
 
 	if (Tier_Price != nullptr)
 		*Tier_Price = Parms.Tier_Price;

@@ -10,11 +10,11 @@
 
 #include "Basic.hpp"
 
-#include "Chooser_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
-#include "GameplayTags_structs.hpp"
 #include "Engine_classes.hpp"
+#include "Chooser_structs.hpp"
+#include "GameplayTags_structs.hpp"
 
 
 SDK_NAMESPACE_START

@@ -642,11 +642,11 @@ EAIRequestPriority UPawnAction::GetActionPriority()
 // (Final, RequiredAPI, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class APawn*                            Pawn                                                   (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPawnAction*                      action                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPawnAction*                      Action                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EAIRequestPriority                      Priority                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-bool UPawnActionsComponent::K2_PerformAction(class APawn* Pawn, class UPawnAction* action, EAIRequestPriority Priority)
+bool UPawnActionsComponent::K2_PerformAction(class APawn* Pawn, class UPawnAction* Action, EAIRequestPriority Priority)
 {
 	static class UFunction* Func = nullptr;
 
@@ -656,7 +656,7 @@ bool UPawnActionsComponent::K2_PerformAction(class APawn* Pawn, class UPawnActio
 	Params::PawnActionsComponent_K2_PerformAction Parms{};
 
 	Parms.Pawn = Pawn;
-	Parms.action = action;
+	Parms.Action = Action;
 	Parms.Priority = Priority;
 
 	auto Flgs = Func->FunctionFlags;

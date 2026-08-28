@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
+#include "GameplayTags_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "Engine_structs.hpp"
-#include "GameplayTags_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -81,15 +81,6 @@ public:
 };
 DUMPER7_ASSERTS_FSoundscapeColorSpawnSettings;
 
-// ScriptStruct Soundscape.SoundscapePaletteCollectionLoaded
-// 0x0050 (0x0050 - 0x0000)
-struct FSoundscapePaletteCollectionLoaded final
-{
-public:
-	TSet<class USoundscapePalette*>               SoundscapePaletteCollection;                       // 0x0000(0x0050)(Edit, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FSoundscapePaletteCollectionLoaded;
-
 // ScriptStruct Soundscape.SoundscapeColorModulationSettings
 // 0x0030 (0x0030 - 0x0000)
 struct FSoundscapeColorModulationSettings final
@@ -114,15 +105,6 @@ public:
 };
 DUMPER7_ASSERTS_FSoundscapeColorModulationSettings;
 
-// ScriptStruct Soundscape.SoundscapeColorVoiceParams
-// 0x0040 (0x0040 - 0x0000)
-struct alignas(0x08) FSoundscapeColorVoiceParams final
-{
-public:
-	uint8                                         Pad_0[0x40];                                       // 0x0000(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FSoundscapeColorVoiceParams;
-
 // ScriptStruct Soundscape.SoundscapeColorPlaybackSettings
 // 0x000C (0x000C - 0x0000)
 struct FSoundscapeColorPlaybackSettings final
@@ -135,6 +117,15 @@ public:
 	float                                         MaxPlaybackDuration;                               // 0x0008(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FSoundscapeColorPlaybackSettings;
+
+// ScriptStruct Soundscape.SoundscapeColorVoiceParams
+// 0x0040 (0x0040 - 0x0000)
+struct alignas(0x08) FSoundscapeColorVoiceParams final
+{
+public:
+	uint8                                         Pad_0[0x40];                                       // 0x0000(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FSoundscapeColorVoiceParams;
 
 // ScriptStruct Soundscape.SoundscapeColorPoint
 // 0x0020 (0x0020 - 0x0000)
@@ -177,6 +168,15 @@ public:
 	TSet<struct FSoftObjectPath>                  SoundscapePaletteCollection;                       // 0x0000(0x0050)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FSoundscapePaletteCollection;
+
+// ScriptStruct Soundscape.SoundscapePaletteCollectionLoaded
+// 0x0050 (0x0050 - 0x0000)
+struct FSoundscapePaletteCollectionLoaded final
+{
+public:
+	TSet<class USoundscapePalette*>               SoundscapePaletteCollection;                       // 0x0000(0x0050)(Edit, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FSoundscapePaletteCollectionLoaded;
 
 // ScriptStruct Soundscape.SoundscapeColorPointCollection
 // 0x0010 (0x0010 - 0x0000)
