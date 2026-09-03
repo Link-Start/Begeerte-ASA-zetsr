@@ -2143,6 +2143,15 @@ public:
 };
 DUMPER7_ASSERTS_PrimalStructure_IsCompatibleWithGhostStructure;
 
+// Function ShooterGame.PrimalStructure.IsCriticalShipStructure
+// 0x0001 (0x0001 - 0x0000)
+struct PrimalStructure_IsCriticalShipStructure final
+{
+public:
+	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_PrimalStructure_IsCriticalShipStructure;
+
 // Function ShooterGame.PrimalStructure.IsCustomCosmeticOwned
 // 0x0001 (0x0001 - 0x0000)
 struct PrimalStructure_IsCustomCosmeticOwned final
@@ -25057,6 +25066,20 @@ public:
 };
 DUMPER7_ASSERTS_PrimalShip_GetRaftPhysicsVolume;
 
+// Function ShooterGame.PrimalShip.GetRammingDamage
+// 0x0138 (0x0138 - 0x0000)
+struct PrimalShip_GetRammingDamage final
+{
+public:
+	class AActor*                                 HitTarget;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    HitComponent;                                      // 0x0008(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Impulse;                                           // 0x0010(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FHitResult                             HitResult;                                         // 0x0028(0x0108)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0130(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_134[0x4];                                      // 0x0134(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_PrimalShip_GetRammingDamage;
+
 // Function ShooterGame.PrimalShip.GetReplicatedShipRepairRequirementData
 // 0x0020 (0x0020 - 0x0000)
 struct PrimalShip_GetReplicatedShipRepairRequirementData final
@@ -25645,6 +25668,18 @@ public:
 };
 DUMPER7_ASSERTS_PrimalShip_TryActivateShipSkill;
 
+// Function ShooterGame.PrimalShip.TryApplyRammingDamage
+// 0x0130 (0x0130 - 0x0000)
+struct PrimalShip_TryApplyRammingDamage final
+{
+public:
+	class AActor*                                 ToTarget;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPrimitiveComponent*                    ForComponent;                                      // 0x0008(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                NormalImpulse;                                     // 0x0010(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FHitResult                             Hit;                                               // 0x0028(0x0108)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_PrimalShip_TryApplyRammingDamage;
+
 // Function ShooterGame.PrimalShip.TryToggleLadders
 // 0x0010 (0x0010 - 0x0000)
 struct PrimalShip_TryToggleLadders final
@@ -25781,6 +25816,17 @@ public:
 };
 DUMPER7_ASSERTS_PrimalShip_GetDriver;
 
+// Function ShooterGame.PrimalShip.GetForwardVelocity
+// 0x0020 (0x0020 - 0x0000)
+struct PrimalShip_GetForwardVelocity final
+{
+public:
+	struct FVector                                OverrideVelocity;                                  // 0x0000(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0018(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_PrimalShip_GetForwardVelocity;
+
 // Function ShooterGame.PrimalShip.GetLastRowTime
 // 0x0008 (0x0008 - 0x0000)
 struct PrimalShip_GetLastRowTime final
@@ -25840,13 +25886,14 @@ public:
 DUMPER7_ASSERTS_PrimalShip_GetMaxThrottleForce;
 
 // Function ShooterGame.PrimalShip.GetRammingDamageMultiplier
-// 0x0020 (0x0020 - 0x0000)
+// 0x0028 (0x0028 - 0x0000)
 struct PrimalShip_GetRammingDamageMultiplier final
 {
 public:
 	struct FVector                                ImpactPoint;                                       // 0x0000(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ReturnValue;                                       // 0x0018(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class AActor*                                 ForTarget;                                         // 0x0018(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0020(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_PrimalShip_GetRammingDamageMultiplier;
 
@@ -26209,6 +26256,17 @@ public:
 	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_PrimalShip_IsPlayerAtHelm;
+
+// Function ShooterGame.PrimalShip.IsPointInRamSocketRadius
+// 0x0020 (0x0020 - 0x0000)
+struct PrimalShip_IsPointInRamSocketRadius final
+{
+public:
+	struct FVector                                Location;                                          // 0x0000(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_PrimalShip_IsPointInRamSocketRadius;
 
 // Function ShooterGame.PrimalShip.IsRaisingAnchor
 // 0x0001 (0x0001 - 0x0000)
@@ -59595,6 +59653,17 @@ public:
 };
 DUMPER7_ASSERTS_ShooterPlayerController_CacheNewCosmeticsForNewPlayer;
 
+// Function ShooterGame.ShooterPlayerController.CallServerMultiUse
+// 0x0010 (0x0010 - 0x0000)
+struct ShooterPlayerController_CallServerMultiUse final
+{
+public:
+	class UObject*                                ForObject;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         UseIndex;                                          // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_ShooterPlayerController_CallServerMultiUse;
+
 // Function ShooterGame.ShooterPlayerController.CanDismissPOI
 // 0x01F0 (0x01F0 - 0x0000)
 struct ShooterPlayerController_CanDismissPOI final
@@ -82804,6 +82873,18 @@ public:
 	TArray<class AActor*>                         ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_VictoryCore_GetSelectedLevelActors;
+
+// Function ShooterGame.VictoryCore.GetShipFromShipOrShipStructure
+// 0x0018 (0x0018 - 0x0000)
+struct VictoryCore_GetShipFromShipOrShipStructure final
+{
+public:
+	class AActor*                                 Target;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOnlyCriticalShipStructures;                       // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class APrimalShip*                            ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_VictoryCore_GetShipFromShipOrShipStructure;
 
 // Function ShooterGame.VictoryCore.GetShooterCharacterFromController
 // 0x0010 (0x0010 - 0x0000)

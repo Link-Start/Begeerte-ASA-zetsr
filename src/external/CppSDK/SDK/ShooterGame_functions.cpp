@@ -5525,6 +5525,31 @@ bool APrimalStructure::IsCompatibleWithGhostStructure(class APrimalStructure* In
 }
 
 
+// Function ShooterGame.PrimalStructure.IsCriticalShipStructure
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool APrimalStructure::IsCriticalShipStructure()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalStructure", "IsCriticalShipStructure");
+
+	Params::PrimalStructure_IsCriticalShipStructure Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function ShooterGame.PrimalStructure.IsCustomCosmeticOwned
 // (Native, Public, BlueprintCallable)
 // Parameters:
@@ -68897,6 +68922,40 @@ class APhysicsVolume* APrimalShip::GetRaftPhysicsVolume()
 }
 
 
+// Function ShooterGame.PrimalShip.GetRammingDamage
+// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// Parameters:
+// class AActor*                           HitTarget                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              HitComponent                                           (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector&                   Impulse                                                (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FHitResult&                HitResult                                              (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float APrimalShip::GetRammingDamage(class AActor* HitTarget, class UPrimitiveComponent* HitComponent, const struct FVector& Impulse, const struct FHitResult& HitResult)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalShip", "GetRammingDamage");
+
+	Params::PrimalShip_GetRammingDamage Parms{};
+
+	Parms.HitTarget = HitTarget;
+	Parms.HitComponent = HitComponent;
+	Parms.Impulse = std::move(Impulse);
+	Parms.HitResult = std::move(HitResult);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function ShooterGame.PrimalShip.GetReplicatedShipRepairRequirementData
 // (Final, Native, Public, HasOutParams, BlueprintCallable)
 // Parameters:
@@ -70871,6 +70930,37 @@ bool APrimalShip::TryActivateShipSkill(class FName SkillTag, class AShooterPlaye
 }
 
 
+// Function ShooterGame.PrimalShip.TryApplyRammingDamage
+// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// Parameters:
+// class AActor*                           ToTarget                                               (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPrimitiveComponent*              ForComponent                                           (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FVector&                   NormalImpulse                                          (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FHitResult&                Hit                                                    (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+
+void APrimalShip::TryApplyRammingDamage(class AActor* ToTarget, class UPrimitiveComponent* ForComponent, const struct FVector& NormalImpulse, const struct FHitResult& Hit)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalShip", "TryApplyRammingDamage");
+
+	Params::PrimalShip_TryApplyRammingDamage Parms{};
+
+	Parms.ToTarget = ToTarget;
+	Parms.ForComponent = ForComponent;
+	Parms.NormalImpulse = std::move(NormalImpulse);
+	Parms.Hit = std::move(Hit);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function ShooterGame.PrimalShip.TryToggleLadders
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -71380,6 +71470,34 @@ class AShooterCharacter* APrimalShip::GetDriver() const
 }
 
 
+// Function ShooterGame.PrimalShip.GetForwardVelocity
+// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// const struct FVector&                   OverrideVelocity                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+float APrimalShip::GetForwardVelocity(const struct FVector& OverrideVelocity) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalShip", "GetForwardVelocity");
+
+	Params::PrimalShip_GetForwardVelocity Parms{};
+
+	Parms.OverrideVelocity = std::move(OverrideVelocity);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function ShooterGame.PrimalShip.GetLastRowTime
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
@@ -71543,9 +71661,10 @@ float APrimalShip::GetMaxThrottleForce() const
 // (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
 // const struct FVector&                   ImpactPoint                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class AActor*                           ForTarget                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-float APrimalShip::GetRammingDamageMultiplier(const struct FVector& ImpactPoint) const
+float APrimalShip::GetRammingDamageMultiplier(const struct FVector& ImpactPoint, class AActor* ForTarget) const
 {
 	static class UFunction* Func = nullptr;
 
@@ -71555,6 +71674,7 @@ float APrimalShip::GetRammingDamageMultiplier(const struct FVector& ImpactPoint)
 	Params::PrimalShip_GetRammingDamageMultiplier Parms{};
 
 	Parms.ImpactPoint = std::move(ImpactPoint);
+	Parms.ForTarget = ForTarget;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -72537,6 +72657,34 @@ bool APrimalShip::IsPlayerAtHelm(class AShooterPlayerController* PC) const
 	Params::PrimalShip_IsPlayerAtHelm Parms{};
 
 	Parms.PC = PC;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.PrimalShip.IsPointInRamSocketRadius
+// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// const struct FVector&                   Location                                               (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+bool APrimalShip::IsPointInRamSocketRadius(const struct FVector& Location) const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("PrimalShip", "IsPointInRamSocketRadius");
+
+	Params::PrimalShip_IsPointInRamSocketRadius Parms{};
+
+	Parms.Location = std::move(Location);
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -169776,6 +169924,33 @@ void AShooterPlayerController::CacheNewCosmeticsForNewPlayer(const TArray<struct
 }
 
 
+// Function ShooterGame.ShooterPlayerController.CallServerMultiUse
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                          ForObject                                              (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   UseIndex                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void AShooterPlayerController::CallServerMultiUse(class UObject* ForObject, int32 UseIndex)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("ShooterPlayerController", "CallServerMultiUse");
+
+	Params::ShooterPlayerController_CallServerMultiUse Parms{};
+
+	Parms.ForObject = ForObject;
+	Parms.UseIndex = UseIndex;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function ShooterGame.ShooterPlayerController.CallServerRestartPlayer
 // (Final, Native, Public, BlueprintCallable)
 
@@ -240801,6 +240976,36 @@ TArray<class AActor*> UVictoryCore::GetSelectedLevelActors()
 		Func = StaticClass()->GetFunction("VictoryCore", "GetSelectedLevelActors");
 
 	Params::VictoryCore_GetSelectedLevelActors Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.VictoryCore.GetShipFromShipOrShipStructure
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AActor*                           Target                                                 (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// bool                                    bOnlyCriticalShipStructures                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class APrimalShip*                      ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class APrimalShip* UVictoryCore::GetShipFromShipOrShipStructure(class AActor* Target, bool bOnlyCriticalShipStructures)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("VictoryCore", "GetShipFromShipOrShipStructure");
+
+	Params::VictoryCore_GetShipFromShipOrShipStructure Parms{};
+
+	Parms.Target = Target;
+	Parms.bOnlyCriticalShipStructures = bOnlyCriticalShipStructures;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
