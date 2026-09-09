@@ -51899,6 +51899,31 @@ class APrimalDinoCharacter* APrimalDinoCharacter::BPStaticCreateBabyDinoNoAncest
 }
 
 
+// Function ShooterGame.PrimalDinoCharacter.DestroyPeekedDino
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class APrimalDinoCharacter*             PeekedDino                                             (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void APrimalDinoCharacter::DestroyPeekedDino(class APrimalDinoCharacter* PeekedDino)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("PrimalDinoCharacter", "DestroyPeekedDino");
+
+	Params::PrimalDinoCharacter_DestroyPeekedDino Parms{};
+
+	Parms.PeekedDino = PeekedDino;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function ShooterGame.PrimalDinoCharacter.GetDinoIdleFidgetAnimationsEnabled
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
@@ -51937,6 +51962,36 @@ bool APrimalDinoCharacter::GetDinoRandomLookAtEnabled()
 		Func = StaticClass()->GetFunction("PrimalDinoCharacter", "GetDinoRandomLookAtEnabled");
 
 	Params::PrimalDinoCharacter_GetDinoRandomLookAtEnabled Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function ShooterGame.PrimalDinoCharacter.PeekDinoData
+// (Final, Native, Static, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const struct FARKDinoData&              InDinoData                                             (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+// bool                                    bRunBlueprintConstruction                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class APrimalDinoCharacter*             ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class APrimalDinoCharacter* APrimalDinoCharacter::PeekDinoData(const struct FARKDinoData& InDinoData, bool bRunBlueprintConstruction)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("PrimalDinoCharacter", "PeekDinoData");
+
+	Params::PrimalDinoCharacter_PeekDinoData Parms{};
+
+	Parms.InDinoData = std::move(InDinoData);
+	Parms.bRunBlueprintConstruction = bRunBlueprintConstruction;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

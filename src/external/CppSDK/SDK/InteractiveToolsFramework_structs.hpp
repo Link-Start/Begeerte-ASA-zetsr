@@ -281,6 +281,20 @@ enum class ESceneSnapQueryTargetType : uint8
 	ESceneSnapQueryTargetType_MAX            = 8,
 };
 
+// ScriptStruct InteractiveToolsFramework.DeviceButtonState
+// 0x0020 (0x0020 - 0x0000)
+struct FDeviceButtonState final
+{
+public:
+	struct FKey                                   Button;                                            // 0x0000(0x0018)(BlueprintVisible, Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bPressed;                                          // 0x0018(0x0001)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bDown;                                             // 0x0019(0x0001)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bReleased;                                         // 0x001A(0x0001)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bDoubleClicked;                                    // 0x001B(0x0001)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FDeviceButtonState;
+
 // ScriptStruct InteractiveToolsFramework.InputRayHit
 // 0x0040 (0x0040 - 0x0000)
 struct FInputRayHit final
@@ -308,19 +322,15 @@ public:
 };
 DUMPER7_ASSERTS_FGizmoVec2ParameterChange;
 
-// ScriptStruct InteractiveToolsFramework.DeviceButtonState
-// 0x0020 (0x0020 - 0x0000)
-struct FDeviceButtonState final
+// ScriptStruct InteractiveToolsFramework.ActiveGizmo
+// 0x0030 (0x0030 - 0x0000)
+struct FActiveGizmo final
 {
 public:
-	struct FKey                                   Button;                                            // 0x0000(0x0018)(BlueprintVisible, Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bPressed;                                          // 0x0018(0x0001)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDown;                                             // 0x0019(0x0001)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bReleased;                                         // 0x001A(0x0001)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDoubleClicked;                                    // 0x001B(0x0001)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UInteractiveGizmo*                      Gizmo;                                             // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	uint8                                         Pad_8[0x28];                                       // 0x0008(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FDeviceButtonState;
+DUMPER7_ASSERTS_FActiveGizmo;
 
 // ScriptStruct InteractiveToolsFramework.InputDeviceRay
 // 0x0048 (0x0048 - 0x0000)
@@ -450,15 +460,5 @@ public:
 	uint8                                         Pad_8[0x18];                                       // 0x0008(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 DUMPER7_ASSERTS_FBehaviorInfo;
-
-// ScriptStruct InteractiveToolsFramework.ActiveGizmo
-// 0x0030 (0x0030 - 0x0000)
-struct FActiveGizmo final
-{
-public:
-	class UInteractiveGizmo*                      Gizmo;                                             // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_8[0x28];                                       // 0x0008(0x0028)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FActiveGizmo;
 
 SDK_NAMESPACE_END

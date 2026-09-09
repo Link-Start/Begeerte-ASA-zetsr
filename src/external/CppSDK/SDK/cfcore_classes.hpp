@@ -28,12 +28,12 @@ public:
 	static struct FCFCoreApiRequestPagination MakeApiRequestPagination(int32 Index_0, int32 page_size);
 	static struct FAssureServerModsUpdatedParams MakeAssureServerModsUpdatedParams(const TArray<int64>& modIds, const TArray<int64>& devModIds);
 	static struct FCreateModFileRequest MakeCreateModFileRequest(ECFCoreChangelogMarkupType changelog_type, const class FString& changelog, const class FString& Filename, const class FString& DisplayName, const TArray<int64>& gameVersionIds, ECFCoreFileReleaseType releaseType, const struct FModFileCookingOptions& cookingOptions, bool isMarkedForManualRelease);
-	static struct FCreateModRequest MakeCreateModRequest(int64 class_id, const class FString& Name_0, const class FString& summary, ECFCoreMakrupType description_type, const class FString& Description, int64 primary_category_id, const TArray<int64>& game_category_ids, bool is_experimental);
+	static struct FCreateModRequest MakeCreateModRequest(int64 class_id, const class FString& Name_0, const class FString& summary, ECFCoreMarkupType description_type, const class FString& Description, int64 primary_category_id, const TArray<int64>& game_category_ids, bool is_experimental);
 	static struct FExternalAuthAdditionalInfo MakeExternalAuthAdditionalInfo(const struct FDateTime& eulaAcceptTime);
 	static struct FCFCoreGetCategoriesFilter MakeGetCategoriesFilter(int32 class_id);
 	static struct FCFCoreSettings MakeSettings(const class FString& default_language, int64 game_id, const class FString& api_key, const class FString& mods_directory, const class FString& user_data_directory, int32 max_concurrent_installations);
 	static struct FCFCoreSettings MakeSettingsFromProjectConfig();
-	static struct FUpdateModRequest MakeUpdateModRequest(int64 class_id, const class FString& Name_0, const class FString& summary, ECFCoreMakrupType description_type, const class FString& Description, int64 primary_category_id, const TArray<int64>& game_category_ids, bool is_experimental);
+	static struct FUpdateModRequest MakeUpdateModRequest(int64 class_id, const class FString& Name_0, const class FString& summary, ECFCoreMarkupType description_type, const class FString& Description, int64 primary_category_id, const TArray<int64>& game_category_ids, bool is_experimental);
 	static void SplitInstalledMods(const TArray<struct FInstalledMod>& InInstalledMods, const struct FSplitInstalledModsOptions& InOptions, TArray<struct FInstalledMod>* OutFirstInstalledMods, TArray<struct FInstalledMod>* OutSecondInstalledMods);
 	static void UpdateInstalledModsLoadOrder(const TArray<struct FInstalledMod>& InInstalledMods, int32 InModIndexToUpdate, int32 InNewLoadOrder, TArray<struct FInstalledMod>* OutOrderedInstalledMods, TArray<struct FInstalledModProperties>* OutOrderedInstalledModsProperties);
 

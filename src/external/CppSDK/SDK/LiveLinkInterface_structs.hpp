@@ -255,6 +255,16 @@ public:
 };
 DUMPER7_ASSERTS_FLiveLinkGamepadInputDeviceBlueprintData;
 
+// ScriptStruct LiveLinkInterface.LiveLinkTime
+// 0x0018 (0x0018 - 0x0000)
+struct FLiveLinkTime final
+{
+public:
+	double                                        WorldTime;                                         // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FQualifiedFrameTime                    SceneTime;                                         // 0x0008(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FLiveLinkTime;
+
 // ScriptStruct LiveLinkInterface.LiveLinkLightStaticData
 // 0x0010 (0x0028 - 0x0018)
 struct FLiveLinkLightStaticData final : public FLiveLinkTransformStaticData
@@ -291,23 +301,15 @@ public:
 };
 DUMPER7_ASSERTS_FLiveLinkLightFrameData;
 
-// ScriptStruct LiveLinkInterface.LiveLinkFrameRate
-// 0x0000 (0x0008 - 0x0008)
-struct FLiveLinkFrameRate final : public FFrameRate
-{
-};
-DUMPER7_ASSERTS_FLiveLinkFrameRate;
-
-// ScriptStruct LiveLinkInterface.LiveLinkTimeCode_Base_DEPRECATED
-// 0x0010 (0x0010 - 0x0000)
-struct FLiveLinkTimeCode_Base_DEPRECATED
+// ScriptStruct LiveLinkInterface.LiveLinkTransformBlueprintData
+// 0x0118 (0x0120 - 0x0008)
+struct FLiveLinkTransformBlueprintData final : public FLiveLinkBaseBlueprintData
 {
 public:
-	int32                                         Seconds;                                           // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         Frames;                                            // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FLiveLinkFrameRate                     FrameRate;                                         // 0x0008(0x0008)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FLiveLinkTransformStaticData           StaticData;                                        // 0x0008(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FLiveLinkTransformFrameData            FrameData;                                         // 0x0020(0x0100)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FLiveLinkTimeCode_Base_DEPRECATED;
+DUMPER7_ASSERTS_FLiveLinkTransformBlueprintData;
 
 // ScriptStruct LiveLinkInterface.LiveLinkLightBlueprintData
 // 0x0158 (0x0160 - 0x0008)
@@ -329,37 +331,6 @@ public:
 	class FText                                   SourceType;                                        // 0x0018(0x0010)(Edit, EditConst, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FLiveLinkSourcePreset;
-
-// ScriptStruct LiveLinkInterface.LiveLinkSourceBufferManagementSettings
-// 0x0060 (0x0060 - 0x0000)
-struct FLiveLinkSourceBufferManagementSettings final
-{
-public:
-	bool                                          bValidEngineTimeEnabled;                           // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         ValidEngineTime;                                   // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         EngineTimeOffset;                                  // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        EngineTimeClockOffset;                             // 0x0010(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        SmoothEngineTimeOffset;                            // 0x0018(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bGenerateSubFrame;                                 // 0x0020(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_21[0x3];                                       // 0x0021(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FFrameRate                             DetectedFrameRate;                                 // 0x0024(0x0008)(Edit, EditConst, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUseTimecodeSmoothLatest;                          // 0x002C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2D[0x3];                                       // 0x002D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FFrameRate                             SourceTimecodeFrameRate;                           // 0x0030(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bValidTimecodeFrameEnabled;                        // 0x0038(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_39[0x3];                                       // 0x0039(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         ValidTimecodeFrame;                                // 0x003C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         TimecodeFrameOffset;                               // 0x0040(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_44[0x4];                                       // 0x0044(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        TimecodeClockOffset;                               // 0x0048(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         LatestOffset;                                      // 0x0050(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         MaxNumberOfFrameToBuffered;                        // 0x0054(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bKeepAtLeastOneFrame;                              // 0x0058(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_59[0x7];                                       // 0x0059(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FLiveLinkSourceBufferManagementSettings;
 
 // ScriptStruct LiveLinkInterface.LiveLinkSubjectName
 // 0x0008 (0x0008 - 0x0000)
@@ -394,6 +365,16 @@ public:
 };
 DUMPER7_ASSERTS_FLiveLinkSubjectPreset;
 
+// ScriptStruct LiveLinkInterface.LiveLinkTimeSynchronizationSettings
+// 0x000C (0x000C - 0x0000)
+struct FLiveLinkTimeSynchronizationSettings final
+{
+public:
+	struct FFrameRate                             FrameRate;                                         // 0x0000(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FFrameNumber                           FrameOffset;                                       // 0x0008(0x0004)(Edit, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FLiveLinkTimeSynchronizationSettings;
+
 // ScriptStruct LiveLinkInterface.LiveLinkRefSkeleton
 // 0x0020 (0x0020 - 0x0000)
 struct FLiveLinkRefSkeleton final
@@ -403,16 +384,6 @@ public:
 	TArray<int32>                                 BoneParents;                                       // 0x0010(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FLiveLinkRefSkeleton;
-
-// ScriptStruct LiveLinkInterface.LiveLinkTime
-// 0x0018 (0x0018 - 0x0000)
-struct FLiveLinkTime final
-{
-public:
-	double                                        WorldTime;                                         // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FQualifiedFrameTime                    SceneTime;                                         // 0x0008(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FLiveLinkTime;
 
 // ScriptStruct LiveLinkInterface.LiveLinkSubjectRepresentation
 // 0x0010 (0x0010 - 0x0000)
@@ -424,16 +395,6 @@ public:
 };
 DUMPER7_ASSERTS_FLiveLinkSubjectRepresentation;
 
-// ScriptStruct LiveLinkInterface.LiveLinkTransformBlueprintData
-// 0x0118 (0x0120 - 0x0008)
-struct FLiveLinkTransformBlueprintData final : public FLiveLinkBaseBlueprintData
-{
-public:
-	struct FLiveLinkTransformStaticData           StaticData;                                        // 0x0008(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FLiveLinkTransformFrameData            FrameData;                                         // 0x0020(0x0100)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FLiveLinkTransformBlueprintData;
-
 // ScriptStruct LiveLinkInterface.LiveLinkCurveConversionSettings
 // 0x0050 (0x0050 - 0x0000)
 struct FLiveLinkCurveConversionSettings final
@@ -442,6 +403,37 @@ public:
 	TMap<class FString, struct FSoftObjectPath>   CurveConversionAssetMap;                           // 0x0000(0x0050)(Edit, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FLiveLinkCurveConversionSettings;
+
+// ScriptStruct LiveLinkInterface.LiveLinkSourceBufferManagementSettings
+// 0x0060 (0x0060 - 0x0000)
+struct FLiveLinkSourceBufferManagementSettings final
+{
+public:
+	bool                                          bValidEngineTimeEnabled;                           // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         ValidEngineTime;                                   // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         EngineTimeOffset;                                  // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        EngineTimeClockOffset;                             // 0x0010(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        SmoothEngineTimeOffset;                            // 0x0018(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bGenerateSubFrame;                                 // 0x0020(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_21[0x3];                                       // 0x0021(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FFrameRate                             DetectedFrameRate;                                 // 0x0024(0x0008)(Edit, EditConst, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUseTimecodeSmoothLatest;                          // 0x002C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2D[0x3];                                       // 0x002D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FFrameRate                             SourceTimecodeFrameRate;                           // 0x0030(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bValidTimecodeFrameEnabled;                        // 0x0038(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_39[0x3];                                       // 0x0039(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         ValidTimecodeFrame;                                // 0x003C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         TimecodeFrameOffset;                               // 0x0040(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_44[0x4];                                       // 0x0044(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        TimecodeClockOffset;                               // 0x0048(0x0008)(Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         LatestOffset;                                      // 0x0050(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         MaxNumberOfFrameToBuffered;                        // 0x0054(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bKeepAtLeastOneFrame;                              // 0x0058(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_59[0x7];                                       // 0x0059(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FLiveLinkSourceBufferManagementSettings;
 
 // ScriptStruct LiveLinkInterface.LiveLinkSourceDebugInfo
 // 0x0010 (0x0010 - 0x0000)
@@ -454,16 +446,6 @@ public:
 };
 DUMPER7_ASSERTS_FLiveLinkSourceDebugInfo;
 
-// ScriptStruct LiveLinkInterface.LiveLinkTimeSynchronizationSettings
-// 0x000C (0x000C - 0x0000)
-struct FLiveLinkTimeSynchronizationSettings final
-{
-public:
-	struct FFrameRate                             FrameRate;                                         // 0x0000(0x0008)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FFrameNumber                           FrameOffset;                                       // 0x0008(0x0004)(Edit, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FLiveLinkTimeSynchronizationSettings;
-
 // ScriptStruct LiveLinkInterface.LiveLinkInterpolationSettings
 // 0x0008 (0x0008 - 0x0000)
 struct FLiveLinkInterpolationSettings final
@@ -474,6 +456,24 @@ public:
 	float                                         InterpolationOffset;                               // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FLiveLinkInterpolationSettings;
+
+// ScriptStruct LiveLinkInterface.LiveLinkFrameRate
+// 0x0000 (0x0008 - 0x0008)
+struct FLiveLinkFrameRate final : public FFrameRate
+{
+};
+DUMPER7_ASSERTS_FLiveLinkFrameRate;
+
+// ScriptStruct LiveLinkInterface.LiveLinkTimeCode_Base_DEPRECATED
+// 0x0010 (0x0010 - 0x0000)
+struct FLiveLinkTimeCode_Base_DEPRECATED
+{
+public:
+	int32                                         Seconds;                                           // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Frames;                                            // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FLiveLinkFrameRate                     FrameRate;                                         // 0x0008(0x0008)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FLiveLinkTimeCode_Base_DEPRECATED;
 
 // ScriptStruct LiveLinkInterface.LiveLinkTimeCode
 // 0x0000 (0x0010 - 0x0010)

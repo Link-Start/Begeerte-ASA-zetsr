@@ -39,25 +39,14 @@ enum class ETargetingTraceType : uint8
 	ETargetingTraceType_MAX                  = 4,
 };
 
-// ScriptStruct TargetingSystem.TargetingDefaultResultData
-// 0x0110 (0x0110 - 0x0000)
-struct FTargetingDefaultResultData final
-{
-public:
-	struct FHitResult                             HitResult;                                         // 0x0000(0x0108)(BlueprintVisible, BlueprintReadOnly, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	float                                         score;                                             // 0x0108(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_10C[0x4];                                      // 0x010C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FTargetingDefaultResultData;
-
-// ScriptStruct TargetingSystem.TargetingDefaultResultsSet
+// ScriptStruct TargetingSystem.TargetingTaskSet
 // 0x0010 (0x0010 - 0x0000)
-struct FTargetingDefaultResultsSet final
+struct FTargetingTaskSet final
 {
 public:
-	TArray<struct FTargetingDefaultResultData>    TargetResults;                                     // 0x0000(0x0010)(ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	TArray<class UTargetingTask*>                 Tasks;                                             // 0x0000(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 };
-DUMPER7_ASSERTS_FTargetingDefaultResultsSet;
+DUMPER7_ASSERTS_FTargetingTaskSet;
 
 // ScriptStruct TargetingSystem.TargetingRequestHandle
 // 0x0004 (0x0004 - 0x0000)
@@ -77,14 +66,25 @@ public:
 };
 DUMPER7_ASSERTS_FCollisionQueryTaskData;
 
-// ScriptStruct TargetingSystem.TargetingTaskSet
-// 0x0010 (0x0010 - 0x0000)
-struct FTargetingTaskSet final
+// ScriptStruct TargetingSystem.TargetingDefaultResultData
+// 0x0110 (0x0110 - 0x0000)
+struct FTargetingDefaultResultData final
 {
 public:
-	TArray<class UTargetingTask*>                 Tasks;                                             // 0x0000(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	struct FHitResult                             HitResult;                                         // 0x0000(0x0108)(BlueprintVisible, BlueprintReadOnly, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	float                                         score;                                             // 0x0108(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_10C[0x4];                                      // 0x010C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-DUMPER7_ASSERTS_FTargetingTaskSet;
+DUMPER7_ASSERTS_FTargetingDefaultResultData;
+
+// ScriptStruct TargetingSystem.TargetingDefaultResultsSet
+// 0x0010 (0x0010 - 0x0000)
+struct FTargetingDefaultResultsSet final
+{
+public:
+	TArray<struct FTargetingDefaultResultData>    TargetResults;                                     // 0x0000(0x0010)(ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FTargetingDefaultResultsSet;
 
 // ScriptStruct TargetingSystem.TargetingSourceContext
 // 0x0038 (0x0038 - 0x0000)

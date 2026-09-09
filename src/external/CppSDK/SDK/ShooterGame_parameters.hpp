@@ -18836,6 +18836,15 @@ public:
 };
 DUMPER7_ASSERTS_PrimalDinoCharacter_BPStaticCreateBabyDinoNoAncestors_V2;
 
+// Function ShooterGame.PrimalDinoCharacter.DestroyPeekedDino
+// 0x0008 (0x0008 - 0x0000)
+struct PrimalDinoCharacter_DestroyPeekedDino final
+{
+public:
+	class APrimalDinoCharacter*                   PeekedDino;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_PrimalDinoCharacter_DestroyPeekedDino;
+
 // Function ShooterGame.PrimalDinoCharacter.GetDinoIdleFidgetAnimationsEnabled
 // 0x0001 (0x0001 - 0x0000)
 struct PrimalDinoCharacter_GetDinoIdleFidgetAnimationsEnabled final
@@ -18853,6 +18862,18 @@ public:
 	bool                                          ReturnValue;                                       // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_PrimalDinoCharacter_GetDinoRandomLookAtEnabled;
+
+// Function ShooterGame.PrimalDinoCharacter.PeekDinoData
+// 0x0070 (0x0070 - 0x0000)
+struct PrimalDinoCharacter_PeekDinoData final
+{
+public:
+	struct FARKDinoData                           InDinoData;                                        // 0x0000(0x0060)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	bool                                          bRunBlueprintConstruction;                         // 0x0060(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_61[0x7];                                       // 0x0061(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class APrimalDinoCharacter*                   ReturnValue;                                       // 0x0068(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_PrimalDinoCharacter_PeekDinoData;
 
 // Function ShooterGame.PrimalDinoCharacter.SpawnDino
 // 0x0068 (0x0068 - 0x0000)

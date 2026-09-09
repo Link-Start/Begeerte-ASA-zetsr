@@ -10,17 +10,16 @@
 
 #include "Basic.hpp"
 
-#include "Enum_VoiceCollectionLine_structs.hpp"
 #include "Engine_structs.hpp"
 #include "ShooterGame_classes.hpp"
+#include "Enum_VoiceCollectionLine_structs.hpp"
 
 
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass PlayerPawnTest.PlayerPawnTest_C
 // 0x01E0 (0x2920 - 0x2740)
-#pragma pack(push, 0x1)
-class SDK_ALIGN(0x10) APlayerPawnTest_C : public AShooterCharacter
+class APlayerPawnTest_C final : public AShooterCharacter
 {
 public:
 	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x2740(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
@@ -154,7 +153,6 @@ public:
 		return GetDefaultObjImpl<APlayerPawnTest_C>();
 	}
 };
-#pragma pack(pop)
 DUMPER7_ASSERTS_APlayerPawnTest_C;
 
 SDK_NAMESPACE_END

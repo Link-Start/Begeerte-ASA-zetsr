@@ -210,14 +210,14 @@ struct FCreateModFileRequest UCFCoreBPLibrary::MakeCreateModFileRequest(ECFCoreC
 // int64                                   class_id                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    Name_0                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    summary                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// ECFCoreMakrupType                       description_type                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// ECFCoreMarkupType                       description_type                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    Description                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int64                                   primary_category_id                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const TArray<int64>&                    game_category_ids                                      (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 // bool                                    is_experimental                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FCreateModRequest                ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
-struct FCreateModRequest UCFCoreBPLibrary::MakeCreateModRequest(int64 class_id, const class FString& Name_0, const class FString& summary, ECFCoreMakrupType description_type, const class FString& Description, int64 primary_category_id, const TArray<int64>& game_category_ids, bool is_experimental)
+struct FCreateModRequest UCFCoreBPLibrary::MakeCreateModRequest(int64 class_id, const class FString& Name_0, const class FString& summary, ECFCoreMarkupType description_type, const class FString& Description, int64 primary_category_id, const TArray<int64>& game_category_ids, bool is_experimental)
 {
 	static class UFunction* Func = nullptr;
 
@@ -371,14 +371,14 @@ struct FCFCoreSettings UCFCoreBPLibrary::MakeSettingsFromProjectConfig()
 // int64                                   class_id                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    Name_0                                                 (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    summary                                                (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// ECFCoreMakrupType                       description_type                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// ECFCoreMarkupType                       description_type                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const class FString&                    Description                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int64                                   primary_category_id                                    (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // const TArray<int64>&                    game_category_ids                                      (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 // bool                                    is_experimental                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FUpdateModRequest                ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 
-struct FUpdateModRequest UCFCoreBPLibrary::MakeUpdateModRequest(int64 class_id, const class FString& Name_0, const class FString& summary, ECFCoreMakrupType description_type, const class FString& Description, int64 primary_category_id, const TArray<int64>& game_category_ids, bool is_experimental)
+struct FUpdateModRequest UCFCoreBPLibrary::MakeUpdateModRequest(int64 class_id, const class FString& Name_0, const class FString& summary, ECFCoreMarkupType description_type, const class FString& Description, int64 primary_category_id, const TArray<int64>& game_category_ids, bool is_experimental)
 {
 	static class UFunction* Func = nullptr;
 
