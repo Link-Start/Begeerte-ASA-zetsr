@@ -237263,6 +237263,35 @@ TArray<class AActor*> UVictoryCore::GetAllMissionDispatchers(class UObject* Worl
 }
 
 
+// Function ShooterGame.VictoryCore.GetAllNPCManagerSpawnableDinos
+// (Final, BlueprintAuthorityOnly, Native, Static, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// class UWorld*                           World                                                  (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// TSet<TSoftClassPtr<class UClass>>*      OutSpawnableClasses                                    (Parm, OutParm, UObjectWrapper, NativeAccessSpecifierPublic)
+
+void UVictoryCore::GetAllNPCManagerSpawnableDinos(class UWorld* World, TSet<TSoftClassPtr<class UClass>>* OutSpawnableClasses)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = StaticClass()->GetFunction("VictoryCore", "GetAllNPCManagerSpawnableDinos");
+
+	Params::VictoryCore_GetAllNPCManagerSpawnableDinos Parms{};
+
+	Parms.World = World;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	GetDefaultObj()->ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	if (OutSpawnableClasses != nullptr)
+		*OutSpawnableClasses = std::move(Parms.OutSpawnableClasses);
+}
+
+
 // Function ShooterGame.VictoryCore.GetAllPlayerStarts
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:

@@ -9,23 +9,21 @@
 // FORWARD DECLARATIONS
 
 
-namespace Human_Female_TPV_PPAnimBP { struct FAnimBlueprintGeneratedConstantData; }
+namespace TPV_Hatchet_MaleAnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
-namespace WeaponFistsAnimBlueprint { struct FAnimBlueprintGeneratedConstantData; }
-
-namespace Human_Male_TPV_PPAnimBP { struct FAnimBlueprintGeneratedConstantData; }
-
-namespace HM_TPV_ClimbPick_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
-
-namespace TPV_ClimbPick_MaleAnimBP { struct FAnimBlueprintGeneratedConstantData; }
+namespace Human_Female_TPV_PPAnimBP_Child { struct FAnimBlueprintGeneratedConstantData; }
 
 namespace HM_TPV_Empty_PoseLayer_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
+namespace Human_Male_TPV_PPAnimBP { struct FAnimBlueprintGeneratedConstantData; }
+
+namespace Human_Male_TPV_GroundConform_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
+
 namespace GameplayAbilities { struct FServerAbilityRPCBatch; }
 
-namespace TPV_Lance_MaleAnimBP { struct FAnimBlueprintGeneratedConstantData; }
+namespace BaseHumanAnimBP_Fists_Female { struct FAnimBlueprintGeneratedConstantData; }
 
-namespace SimpleHumanTPoseAnimBP { struct FAnimBlueprintGeneratedConstantData; }
+namespace GPSHumanAnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
 namespace Human_Male_Face_Retargeting_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
@@ -33,20 +31,386 @@ namespace Human_Female_Face_Retargeting_AnimBP { struct FAnimBlueprintGeneratedC
 
 namespace HM_TPV_Empty_WeaponAdditive_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
-namespace Human_Male_TPV_GroundConform_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
+namespace SimpleHumanTPoseAnimBP { struct FAnimBlueprintGeneratedConstantData; }
+
+namespace Human_Female_TPV_PPAnimBP { struct FAnimBlueprintGeneratedConstantData; }
+
+namespace TPV_Lance_MaleAnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
 namespace BaseHumanAnimBP_Fists { struct FAnimBlueprintGeneratedConstantData; }
 
-namespace GPSHumanAnimBP { struct FAnimBlueprintGeneratedConstantData; }
+namespace HM_TPV_ClimbPick_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
+
+namespace TPV_ClimbPick_MaleAnimBP { struct FAnimBlueprintGeneratedConstantData; }
+
+namespace WeaponFistsAnimBlueprint { struct FAnimBlueprintGeneratedConstantData; }
+
+namespace EngramEntry_GlowStick { class UEngramEntry_Glowstick_C; }
+
+namespace EngramEntry_Glowstick { class UEngramEntry_Glowstick_C; }
 
 
-namespace BaseHumanAnimBP
+namespace SK_Male_Hair_Afro_Long_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Female_Hair_Mohawk_Long_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Female_Hair_Default_Short_AnimBP
 {
 	struct FAnimBlueprintGeneratedMutableData;
 	struct FAnimBlueprintGeneratedConstantData;
 }
 
+namespace DinoBase_FlySwimming_LinkedGraph_FootIK
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Female_Hair_Dreadlocks_Short_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SimpleHumanTPoseAnimBP_Rotated
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Male_Hair_Romantic_Short_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace Male_Hair_Afro_Long_CtrlRig
+{
+	class URigVMMemory_Literal;
+	class URigVMMemory_Work;
+}
+
+namespace FPVClimbPickWeaponAnimBP_Base
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace Female_Hair_Mohawk_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace SK_Male_Hair_Dreadlocks_Short_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Female_Hair_Default_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace SK_Female_Hair_Braids_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Male_FacialHair_Viking_Short_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Male_Hair_Bang_Long_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace SK_Male_Hair_Afro_Short_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Male_Viking_Hair_Long_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Male_Hair_Bang_Short_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace Human_M_Hair_Ponytail_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace Female_Hair_Mohawk_Long_CtrlRig
+{
+	class URigVMMemory_Literal;
+	class URigVMMemory_Work;
+}
+
+namespace SK_Female_FacialHair_Viking_Long_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Female_Hair_Afro_Long_CtrlRig
+{
+	class URigVMMemory_Literal;
+	class URigVMMemory_Work;
+}
+
 namespace Human_FaceCustomization_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Female_Hair_Bang_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Male_Hair_Mohawk_animBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Male_Hair_Romantic_Long_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace FPVMeleeWeaponAnimBP_Lance
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Female_Hair_Ponytail_Short_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace Female_Hair_Default_Long_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace SK_Female_Hair_Afro_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace SK_Male_FacialHair_Viking_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Male_Hair_Braids_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Male_Hair_Mohawk_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace Male_Hair_Mohawk_Mid_CtrlRig
+{
+	class URigVMMemory_Literal;
+	class URigVMMemory_Work;
+}
+
+namespace SK_Female_Hair_Braids_Long_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace FPVWeaponAnimBP_Base_Carrying
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Ptero_GroundConform_CtrlRig
+{
+	class URigVMMemory_Work;
+	class URigVMMemory_Literal;
+}
+
+namespace Female_Hair_Mohawk_Short_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Female_Hair_Viking_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace Female_Hair_Romantic_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Female_Hair_Ponytail_Long_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace SK_Male_FacialHair_Viking_Long_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Male_Hair_Dreadlocks_Long_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Male_Hair_Default_long_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Male_Hair_Default_short_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Male_Hair_Afro_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace Female_Hair_Romantic_Short_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Female_Hair_Bang_Long_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Female_Hair_Ponytail_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Human_M_Hair_Ponytail_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Female_Hair_Dreadlocks_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Male_Hair_Dreadlocks_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Male_Hair_Braids_Long_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Ptero_GroundConform_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace DinoBlueprintBase_RootTransformIK_Diving
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace SK_Female_Hair_Afro_Short_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace SK_Male_Hair_Braids_Short_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace SK_Female_Hair_Bang_Short_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace FPVMeleeWeaponAnimBP_Base
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Female_FacialHair_Viking_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace BaseHumanAnimBP
 {
 	struct FAnimBlueprintGeneratedConstantData;
 	struct FAnimBlueprintGeneratedMutableData;
@@ -58,19 +422,91 @@ namespace Human_Riding_LinkedGraph
 	struct FAnimBlueprintGeneratedMutableData;
 }
 
-namespace FPVMeleeWeaponAnimBP_Lance
+namespace SK_Female_Hair_Afro_Long_AnimBP
 {
 	struct FAnimBlueprintGeneratedConstantData;
 	struct FAnimBlueprintGeneratedMutableData;
 }
 
-namespace FPVWeaponAnimBP_Base_Carrying
+namespace SK_Male_Viking_Hair_Short_AnimBP
 {
 	struct FAnimBlueprintGeneratedConstantData;
 	struct FAnimBlueprintGeneratedMutableData;
 }
 
-namespace FPVClimbPickWeaponAnimBP_Base
+namespace Female_Hair_Romantic_Long_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Female_Hair_Afro_Mid_CtrlRig
+{
+	class URigVMMemory_Literal;
+	class URigVMMemory_Work;
+}
+
+namespace SK_Female_FacialHair_Viking_Short_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Female_Hair_Mohawk_Mid_CtrlRig
+{
+	class URigVMMemory_Literal;
+	class URigVMMemory_Work;
+}
+
+namespace SK_Female_Hair_Viking_Short_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Male_Hair_Afro_Mid_CtrlRig
+{
+	class URigVMMemory_Literal;
+	class URigVMMemory_Work;
+}
+
+namespace SK_Male_Hair_Mohawk_CtrlRig
+{
+	class URigVMMemory_Literal;
+	class URigVMMemory_Work;
+}
+
+namespace Male_Hair_Romantic_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Male_Viking_Hair_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Male_Hair_Bang_Skeleton_Mid_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Female_Hair_Dreadlocks_Long_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Female_Hair_Viking_Long_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace SK_Male_Hair_Default_Mid_AnimBP
 {
 	struct FAnimBlueprintGeneratedConstantData;
 	struct FAnimBlueprintGeneratedMutableData;

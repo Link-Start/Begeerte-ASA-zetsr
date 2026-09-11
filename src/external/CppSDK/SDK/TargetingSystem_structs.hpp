@@ -39,14 +39,14 @@ enum class ETargetingTraceType : uint8
 	ETargetingTraceType_MAX                  = 4,
 };
 
-// ScriptStruct TargetingSystem.TargetingTaskSet
+// ScriptStruct TargetingSystem.CollisionQueryTaskData
 // 0x0010 (0x0010 - 0x0000)
-struct FTargetingTaskSet final
+struct FCollisionQueryTaskData final
 {
 public:
-	TArray<class UTargetingTask*>                 Tasks;                                             // 0x0000(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TArray<class AActor*>                         IgnoredActors;                                     // 0x0000(0x0010)(BlueprintVisible, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 };
-DUMPER7_ASSERTS_FTargetingTaskSet;
+DUMPER7_ASSERTS_FCollisionQueryTaskData;
 
 // ScriptStruct TargetingSystem.TargetingRequestHandle
 // 0x0004 (0x0004 - 0x0000)
@@ -57,14 +57,14 @@ public:
 };
 DUMPER7_ASSERTS_FTargetingRequestHandle;
 
-// ScriptStruct TargetingSystem.CollisionQueryTaskData
+// ScriptStruct TargetingSystem.TargetingTaskSet
 // 0x0010 (0x0010 - 0x0000)
-struct FCollisionQueryTaskData final
+struct FTargetingTaskSet final
 {
 public:
-	TArray<class AActor*>                         IgnoredActors;                                     // 0x0000(0x0010)(BlueprintVisible, ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	TArray<class UTargetingTask*>                 Tasks;                                             // 0x0000(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 };
-DUMPER7_ASSERTS_FCollisionQueryTaskData;
+DUMPER7_ASSERTS_FTargetingTaskSet;
 
 // ScriptStruct TargetingSystem.TargetingDefaultResultData
 // 0x0110 (0x0110 - 0x0000)

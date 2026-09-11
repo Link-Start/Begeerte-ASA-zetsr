@@ -5061,7 +5061,7 @@ DUMPER7_ASSERTS_UPrimalCharacterStatusComponent;
 
 // Class ShooterGame.PrimalPlayerStatusComponent
 // 0x0000 (0x1178 - 0x1178)
-class UPrimalPlayerStatusComponent final : public UPrimalCharacterStatusComponent
+class UPrimalPlayerStatusComponent : public UPrimalCharacterStatusComponent
 {
 public:
 	static class UClass* StaticClass()
@@ -5115,7 +5115,7 @@ DUMPER7_ASSERTS_UBeamWeaponController;
 
 // Class ShooterGame.BinocularsWidgetUI
 // 0x0028 (0x0820 - 0x07F8)
-class UBinocularsWidgetUI final : public UPrimalUI
+class UBinocularsWidgetUI : public UPrimalUI
 {
 public:
 	uint8                                         Pad_7F8[0x10];                                     // 0x07F8(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
@@ -10066,7 +10066,7 @@ DUMPER7_ASSERTS_UBTTask_PrimalMoveTo;
 
 // Class ShooterGame.HUDActiveMissionWidget
 // 0x0410 (0x0C08 - 0x07F8)
-class UHUDActiveMissionWidget final : public UPrimalUI
+class UHUDActiveMissionWidget : public UPrimalUI
 {
 public:
 	uint8                                         Pad_7F8[0x8];                                      // 0x07F8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
@@ -10271,7 +10271,7 @@ DUMPER7_ASSERTS_UBucketPerfDA;
 
 // Class ShooterGame.InventoryPanelWidget
 // 0x0388 (0x0B80 - 0x07F8)
-class UInventoryPanelWidget final : public UPrimalUI
+class UInventoryPanelWidget : public UPrimalUI
 {
 public:
 	class FName                                   TabBgSwitcherName;                                 // 0x07F8(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -10412,7 +10412,7 @@ DUMPER7_ASSERTS_UMissionModuleBase;
 
 // Class ShooterGame.BuildingUI
 // 0x0000 (0x07F8 - 0x07F8)
-class UBuildingUI final : public UPrimalUI
+class UBuildingUI : public UPrimalUI
 {
 public:
 	class UTexture2D* GetStructureIcon(class APrimalStructure* Structure);
@@ -10582,7 +10582,7 @@ DUMPER7_ASSERTS_UPrimalDinoDB;
 
 // Class ShooterGame.HUDPointsOfInterestContainer
 // 0x0048 (0x0840 - 0x07F8)
-class UHUDPointsOfInterestContainer final : public UPrimalUI
+class UHUDPointsOfInterestContainer : public UPrimalUI
 {
 public:
 	class FName                                   PointContainerCanvasName;                          // 0x07F8(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -10825,7 +10825,7 @@ DUMPER7_ASSERTS_UCFCoreStoreBackgroundLibrary;
 
 // Class ShooterGame.PanelBuffTypeUI
 // 0x0080 (0x03F8 - 0x0378)
-class UPanelBuffTypeUI final : public UPrimalUserWidget
+class UPanelBuffTypeUI : public UPrimalUserWidget
 {
 public:
 	uint8                                         Pad_378[0x80];                                     // 0x0378(0x0080)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -11102,7 +11102,7 @@ DUMPER7_ASSERTS_UUI_Spawn;
 
 // Class ShooterGame.InventoryStatsPanel
 // 0x00E8 (0x08E0 - 0x07F8)
-class UInventoryStatsPanel final : public UPrimalUI
+class UInventoryStatsPanel : public UPrimalUI
 {
 public:
 	class FName                                   TabBgSwitcherName;                                 // 0x07F8(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -11167,7 +11167,7 @@ DUMPER7_ASSERTS_UCharacterChangerUI;
 
 // Class ShooterGame.CharacterViewPanelWidget
 // 0x0060 (0x03D8 - 0x0378)
-class UCharacterViewPanelWidget final : public UPrimalUserWidget
+class UCharacterViewPanelWidget : public UPrimalUserWidget
 {
 public:
 	class FString                                 PreviewWidgetName;                                 // 0x0378(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic, TObjectPtr)
@@ -11359,7 +11359,7 @@ DUMPER7_ASSERTS_UColorizationFunctionLibrary;
 
 // Class ShooterGame.PlayerHUDUI
 // 0x0198 (0x0990 - 0x07F8)
-class UPlayerHUDUI final : public UPrimalUI
+class UPlayerHUDUI : public UPrimalUI
 {
 public:
 	class FString                                 SlotItemsDataListName;                             // 0x07F8(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic, TObjectPtr)
@@ -11630,7 +11630,7 @@ DUMPER7_ASSERTS_IPointOfInterestInterface;
 
 // Class ShooterGame.ConsoleCommandButtonWidget
 // 0x0018 (0x0810 - 0x07F8)
-class UConsoleCommandButtonWidget final : public UBaseSelectableButtonWidget
+class UConsoleCommandButtonWidget : public UBaseSelectableButtonWidget
 {
 public:
 	uint8                                         Pad_7F8[0x18];                                     // 0x07F8(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -11653,7 +11653,7 @@ DUMPER7_ASSERTS_UConsoleCommandButtonWidget;
 
 // Class ShooterGame.InventoryDinoAncestryPanel
 // 0x0080 (0x0878 - 0x07F8)
-class UInventoryDinoAncestryPanel final : public UPrimalUI
+class UInventoryDinoAncestryPanel : public UPrimalUI
 {
 public:
 	TSubclassOf<class UDinoAncestryEntryWidget>   AncestryEntryWidgetTemplate;                       // 0x07F8(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -11709,7 +11709,7 @@ DUMPER7_ASSERTS_UContextMenu;
 
 // Class ShooterGame.VolumetricDispatcher
 // 0x0180 (0x0610 - 0x0490)
-class AVolumetricDispatcher final : public AActor
+class AVolumetricDispatcher : public AActor
 {
 public:
 	TArray<struct FVolumetricDispatchDetailLevel> DetailLevels;                                      // 0x0490(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
@@ -11824,7 +11824,7 @@ DUMPER7_ASSERTS_UContextMenuItem;
 
 // Class ShooterGame.ContextMenuItem_CosmeticEntry
 // 0x0020 (0x0488 - 0x0468)
-class UContextMenuItem_CosmeticEntry final : public UContextMenuItem
+class UContextMenuItem_CosmeticEntry : public UContextMenuItem
 {
 public:
 	uint8                                         Pad_468[0x20];                                     // 0x0468(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -11874,7 +11874,7 @@ DUMPER7_ASSERTS_UPrimalSubMenuUI;
 
 // Class ShooterGame.MinimapSubMenuUI
 // 0x0000 (0x0808 - 0x0808)
-class UMinimapSubMenuUI final : public UPrimalSubMenuUI
+class UMinimapSubMenuUI : public UPrimalSubMenuUI
 {
 public:
 	static class UClass* StaticClass()
@@ -11894,7 +11894,7 @@ DUMPER7_ASSERTS_UMinimapSubMenuUI;
 
 // Class ShooterGame.ContextMenuItem_Sort
 // 0x0018 (0x0480 - 0x0468)
-class UContextMenuItem_Sort final : public UContextMenuItem
+class UContextMenuItem_Sort : public UContextMenuItem
 {
 public:
 	class FName                                   SorDirSwitcherName;                                // 0x0468(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -11990,7 +11990,7 @@ DUMPER7_ASSERTS_UMaterialExpressionWaveWorksHeight;
 
 // Class ShooterGame.ContextMenuItem_Spinner
 // 0x0038 (0x04A0 - 0x0468)
-class UContextMenuItem_Spinner final : public UContextMenuItem
+class UContextMenuItem_Spinner : public UContextMenuItem
 {
 public:
 	TMulticastInlineDelegate<void(class UContextMenuItem_Spinner* Item, int32 InValue, ETextCommit CommitMethod)> OnValueCommitted; // 0x0468(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
@@ -12062,7 +12062,7 @@ DUMPER7_ASSERTS_UContextMenu_DinoGroupEntry;
 
 // Class ShooterGame.ContextMenu_InventorySort
 // 0x0008 (0x03D8 - 0x03D0)
-class UContextMenu_InventorySort final : public UContextMenu
+class UContextMenu_InventorySort : public UContextMenu
 {
 public:
 	TSubclassOf<class UContextMenuItem_Sort>      ItemClass_SortButton;                              // 0x03D0(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -12269,7 +12269,7 @@ DUMPER7_ASSERTS_ACorruptedAvatarAttackCoordinator;
 
 // Class ShooterGame.CosmeticSelectorPanelUI
 // 0x0088 (0x0880 - 0x07F8)
-class UCosmeticSelectorPanelUI final : public UPrimalUI
+class UCosmeticSelectorPanelUI : public UPrimalUI
 {
 public:
 	uint8                                         Pad_7F8[0x88];                                     // 0x07F8(0x0088)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -12299,7 +12299,7 @@ DUMPER7_ASSERTS_UCosmeticSelectorPanelUI;
 
 // Class ShooterGame.MissionListEntryWidget
 // 0x0020 (0x0818 - 0x07F8)
-class UMissionListEntryWidget final : public UBaseSelectableButtonWidget
+class UMissionListEntryWidget : public UBaseSelectableButtonWidget
 {
 public:
 	class FString                                 ItemLabelName;                                     // 0x07F8(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -12384,7 +12384,7 @@ DUMPER7_ASSERTS_UPrimalNavigationSystemConfig;
 
 // Class ShooterGame.MinimapData
 // 0x0020 (0x0048 - 0x0028)
-class UMinimapData final : public UObject
+class UMinimapData : public UObject
 {
 public:
 	TArray<struct FMapData>                       MinimapData;                                       // 0x0028(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
@@ -14090,7 +14090,7 @@ DUMPER7_ASSERTS_UDataListEntryButton_MarketItemIcon;
 
 // Class ShooterGame.HUDElementBarWidget
 // 0x0188 (0x0500 - 0x0378)
-class UHUDElementBarWidget final : public UPrimalUserWidget
+class UHUDElementBarWidget : public UPrimalUserWidget
 {
 public:
 	uint8                                         Pad_378[0x8];                                      // 0x0378(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
@@ -14175,7 +14175,7 @@ DUMPER7_ASSERTS_UDataListEntryButton_PrimalFolder;
 
 // Class ShooterGame.MissionObjectiveEntryWidget
 // 0x0028 (0x03A0 - 0x0378)
-class UMissionObjectiveEntryWidget final : public UPrimalUserWidget
+class UMissionObjectiveEntryWidget : public UPrimalUserWidget
 {
 public:
 	class FString                                 ItemLabelName;                                     // 0x0378(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -14251,7 +14251,7 @@ DUMPER7_ASSERTS_UDataListEntryButton_SkillEntry;
 
 // Class ShooterGame.DataListEntryEngramList
 // 0x00B8 (0x08B0 - 0x07F8)
-class UDataListEntryEngramList final : public UPrimalUI
+class UDataListEntryEngramList : public UPrimalUI
 {
 public:
 	TSubclassOf<class UDataListEntryWidget>       EntryWidgetTemplate;                               // 0x07F8(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -14492,7 +14492,7 @@ DUMPER7_ASSERTS_IDataListInterface;
 
 // Class ShooterGame.NinjaLiveBaseComponent
 // 0x0000 (0x00D0 - 0x00D0)
-class UNinjaLiveBaseComponent final : public UActorComponent
+class UNinjaLiveBaseComponent : public UActorComponent
 {
 public:
 	int32 ScaleResolutionForSettings(int32 ToScale);
@@ -15075,7 +15075,7 @@ DUMPER7_ASSERTS_AOceanVolume;
 
 // Class ShooterGame.DinoAncestryEntryWidget
 // 0x0020 (0x0818 - 0x07F8)
-class UDinoAncestryEntryWidget final : public UPrimalUI
+class UDinoAncestryEntryWidget : public UPrimalUI
 {
 public:
 	uint8                                         Pad_7F8[0x20];                                     // 0x07F8(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -15260,7 +15260,7 @@ DUMPER7_ASSERTS_UBuoIslandHeightAtlasAsset;
 
 // Class ShooterGame.DinoListButtonWidget
 // 0x0190 (0x0988 - 0x07F8)
-class UDinoListButtonWidget final : public UBaseSelectableButtonWidget
+class UDinoListButtonWidget : public UBaseSelectableButtonWidget
 {
 public:
 	class FName                                   ContextMenuAnchorName;                             // 0x07F8(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -15600,7 +15600,7 @@ DUMPER7_ASSERTS_APrimalDestroyedMeshActor;
 
 // Class ShooterGame.DinoTrackFilterOption
 // 0x0020 (0x0050 - 0x0030)
-class UDinoTrackFilterOption final : public UObject_WithWorldContext
+class UDinoTrackFilterOption : public UObject_WithWorldContext
 {
 public:
 	class FString                                 FilterDisplayName;                                 // 0x0030(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -16768,7 +16768,7 @@ DUMPER7_ASSERTS_UDiscordFriendActionPanelWidget;
 
 // Class ShooterGame.PrimalEggToolTipWidget_Crop
 // 0x0258 (0x0658 - 0x0400)
-class UPrimalEggToolTipWidget_Crop final : public UToolTipWidget
+class UPrimalEggToolTipWidget_Crop : public UToolTipWidget
 {
 public:
 	struct FLinearColor                           TemperatureColor_Perfect;                          // 0x0400(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -17715,7 +17715,7 @@ DUMPER7_ASSERTS_UPrimalAIStateDinoRangedState;
 
 // Class ShooterGame.WorldBuffEntryWidget
 // 0x00C0 (0x0438 - 0x0378)
-class UWorldBuffEntryWidget final : public UPrimalUserWidget
+class UWorldBuffEntryWidget : public UPrimalUserWidget
 {
 public:
 	float                                         DefaultDisplayTime;                                // 0x0378(0x0004)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -18967,7 +18967,7 @@ DUMPER7_ASSERTS_UFallDamageType;
 
 // Class ShooterGame.MissionRequirementEntryWidget
 // 0x0020 (0x0398 - 0x0378)
-class UMissionRequirementEntryWidget final : public UPrimalUserWidget
+class UMissionRequirementEntryWidget : public UPrimalUserWidget
 {
 public:
 	class FString                                 DisplayText;                                       // 0x0378(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -19295,7 +19295,7 @@ DUMPER7_ASSERTS_APointOfInterestCosmeticActor_Base;
 
 // Class ShooterGame.FogOfWar
 // 0x00A0 (0x00C8 - 0x0028)
-class UFogOfWar final : public UObject
+class UFogOfWar : public UObject
 {
 public:
 	class FString                                 MapName;                                           // 0x0028(0x0010)(ZeroConstructor, Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20126,7 +20126,7 @@ DUMPER7_ASSERTS_UMultiUseActionWidget;
 
 // Class ShooterGame.GeneTrait
 // 0x0000 (0x0028 - 0x0028)
-class UGeneTrait final : public UObject
+class UGeneTrait : public UObject
 {
 public:
 	bool BPGetCustomBlueprintData(class FName DataName, const struct FFunctionParams_NoArrays& InData, struct FFunctionParams_NoArrays* OutData);
@@ -20208,7 +20208,7 @@ DUMPER7_ASSERTS_UPrimalAIStateBPBase;
 
 // Class ShooterGame.GeneTraitDefinitions
 // 0x0160 (0x0188 - 0x0028)
-class UGeneTraitDefinitions final : public UObject
+class UGeneTraitDefinitions : public UObject
 {
 public:
 	TMap<class FName, TSubclassOf<class UObject>> GeneTraits_GeneTraitDefinitions;                   // 0x0028(0x0050)(Edit, BlueprintVisible, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic, TObjectPtr)
@@ -20262,7 +20262,7 @@ DUMPER7_ASSERTS_UGeneTraitDefinitions;
 
 // Class ShooterGame.GlobalBoneModifiers
 // 0x0020 (0x0048 - 0x0028)
-class UGlobalBoneModifiers final : public UObject
+class UGlobalBoneModifiers : public UObject
 {
 public:
 	class FString                                 Description;                                       // 0x0028(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20399,7 +20399,7 @@ DUMPER7_ASSERTS_UHostSessionEntryButton;
 
 // Class ShooterGame.HUDCustomStatusWidget
 // 0x00D8 (0x08D0 - 0x07F8)
-class UHUDCustomStatusWidget final : public UPrimalUI
+class UHUDCustomStatusWidget : public UPrimalUI
 {
 public:
 	uint8                                         Pad_7F8[0x8];                                      // 0x07F8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
@@ -20525,7 +20525,7 @@ DUMPER7_ASSERTS_UHUDPingsContainer;
 
 // Class ShooterGame.HUDPointOfInterestWidget
 // 0x0328 (0x0B20 - 0x07F8)
-class UHUDPointOfInterestWidget final : public UPrimalUI
+class UHUDPointOfInterestWidget : public UPrimalUI
 {
 public:
 	class FName                                   OuterContainerName;                                // 0x07F8(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -20592,7 +20592,7 @@ DUMPER7_ASSERTS_UHUDPointOfInterestWidget;
 
 // Class ShooterGame.HUDStatusBarsWidget
 // 0x0168 (0x04E0 - 0x0378)
-class UHUDStatusBarsWidget final : public UPrimalUserWidget
+class UHUDStatusBarsWidget : public UPrimalUserWidget
 {
 public:
 	uint8                                         Pad_378[0x8];                                      // 0x0378(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
@@ -20633,7 +20633,7 @@ DUMPER7_ASSERTS_UHUDStatusBarsWidget;
 
 // Class ShooterGame.InventoryArkCreaturesPanel
 // 0x0328 (0x0B20 - 0x07F8)
-class UInventoryArkCreaturesPanel final : public UPrimalUI
+class UInventoryArkCreaturesPanel : public UPrimalUI
 {
 public:
 	uint8                                         Pad_7F8[0x4];                                      // 0x07F8(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
@@ -20690,7 +20690,7 @@ DUMPER7_ASSERTS_UInventoryPanelContainerWidget;
 
 // Class ShooterGame.InventoryQuickSlotsPanel
 // 0x0010 (0x0808 - 0x07F8)
-class UInventoryQuickSlotsPanel final : public UPrimalUI
+class UInventoryQuickSlotsPanel : public UPrimalUI
 {
 public:
 	uint8                                         Pad_7F8[0x10];                                     // 0x07F8(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -20713,7 +20713,7 @@ DUMPER7_ASSERTS_UInventoryQuickSlotsPanel;
 
 // Class ShooterGame.ItemFilterWidget
 // 0x0038 (0x03B0 - 0x0378)
-class UItemFilterWidget final : public UPrimalUserWidget
+class UItemFilterWidget : public UPrimalUserWidget
 {
 public:
 	uint8                                         Pad_378[0x28];                                     // 0x0378(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
@@ -21050,7 +21050,7 @@ DUMPER7_ASSERTS_AMatineeCapture;
 
 // Class ShooterGame.MissionBiomeCompletionWidget
 // 0x00B8 (0x08B0 - 0x07F8)
-class UMissionBiomeCompletionWidget final : public UBaseSelectableButtonWidget
+class UMissionBiomeCompletionWidget : public UBaseSelectableButtonWidget
 {
 public:
 	class UTexture2D*                             ButtonIcon;                                        // 0x07F8(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -21177,7 +21177,7 @@ DUMPER7_ASSERTS_UMissionDispatcherToolTipWidget;
 
 // Class ShooterGame.MissionMetaTagInfo
 // 0x0088 (0x00B0 - 0x0028)
-class UMissionMetaTagInfo final : public UObject
+class UMissionMetaTagInfo : public UObject
 {
 public:
 	struct FMetaTagIDInfo                         MetaTagInfo[0xB];                                  // 0x0028(0x000C)(Edit, DisableEditOnInstance, NoDestructor, NativeAccessSpecifierPublic)
@@ -21290,7 +21290,7 @@ DUMPER7_ASSERTS_UMissionPrerequisite;
 
 // Class ShooterGame.MissionTimerWidget
 // 0x0010 (0x0388 - 0x0378)
-class UMissionTimerWidget final : public UPrimalUserWidget
+class UMissionTimerWidget : public UPrimalUserWidget
 {
 public:
 	uint8                                         Pad_378[0x10];                                     // 0x0378(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -21362,7 +21362,7 @@ DUMPER7_ASSERTS_UMultiMapPerfTestSubsystem;
 
 // Class ShooterGame.MultiUseTooltip
 // 0x0038 (0x0438 - 0x0400)
-class UMultiUseTooltip final : public UToolTipWidget
+class UMultiUseTooltip : public UToolTipWidget
 {
 public:
 	uint8                                         Pad_400[0x38];                                     // 0x0400(0x0038)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -22566,7 +22566,7 @@ DUMPER7_ASSERTS_APrimalStructureItemContainer_CropPlot;
 
 // Class ShooterGame.PrimalBotAIController
 // 0x0068 (0x0AD8 - 0x0A70)
-class APrimalBotAIController final : public APrimalDinoAIController
+class APrimalBotAIController : public APrimalDinoAIController
 {
 public:
 	float                                         DinoSearchRadius;                                  // 0x0A70(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -22635,7 +22635,7 @@ DUMPER7_ASSERTS_APrimalBotAIController;
 
 // Class ShooterGame.PrimalBotCharacter
 // 0x0430 (0x2EB0 - 0x2A80)
-class APrimalBotCharacter final : public APrimalDinoCharacter
+class APrimalBotCharacter : public APrimalDinoCharacter
 {
 public:
 	TArray<struct FItemAttachmentInfo>            DefaultAttachmentInfos;                            // 0x2A80(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, ContainsInstancedReference, NativeAccessSpecifierPublic)
@@ -22920,7 +22920,7 @@ DUMPER7_ASSERTS_URadialSelectorHUD;
 
 // Class ShooterGame.RadialSelectorHUD_Custom
 // 0x0070 (0x0190 - 0x0120)
-class URadialSelectorHUD_Custom final : public URadialSelectorHUD
+class URadialSelectorHUD_Custom : public URadialSelectorHUD
 {
 public:
 	uint8                                         Pad_120[0x68];                                     // 0x0120(0x0068)(Fixing Size After Last Property [ Dumper-7 ])
@@ -24352,7 +24352,7 @@ DUMPER7_ASSERTS_APrimalBuff_Skill;
 
 // Class ShooterGame.PrimalStructurePlacer
 // 0x0238 (0x06C8 - 0x0490)
-class APrimalStructurePlacer final : public AInfo
+class APrimalStructurePlacer : public AInfo
 {
 public:
 	uint8                                         Pad_490[0x70];                                     // 0x0490(0x0070)(Fixing Size After Last Property [ Dumper-7 ])
@@ -25335,7 +25335,7 @@ DUMPER7_ASSERTS_APrimalStructureSeaMine;
 
 // Class ShooterGame.PrimalCryopodTooltipWidget
 // 0x0300 (0x0700 - 0x0400)
-class UPrimalCryopodTooltipWidget final : public UTooltipSmartLayoutWidget
+class UPrimalCryopodTooltipWidget : public UTooltipSmartLayoutWidget
 {
 public:
 	class UTexture2D*                             FemaleIcon;                                        // 0x0400(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -25436,7 +25436,7 @@ DUMPER7_ASSERTS_UPrimalDinoAnimInstance;
 
 // Class ShooterGame.PrimalDinoEntry
 // 0x0058 (0x0080 - 0x0028)
-class UPrimalDinoEntry final : public UObject
+class UPrimalDinoEntry : public UObject
 {
 public:
 	uint8                                         Pad_28[0x28];                                      // 0x0028(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
@@ -25492,7 +25492,7 @@ DUMPER7_ASSERTS_UPrimalDinoMeshComponent;
 
 // Class ShooterGame.PrimalDinoStatusComponent
 // 0x0000 (0x1178 - 0x1178)
-class UPrimalDinoStatusComponent final : public UPrimalCharacterStatusComponent
+class UPrimalDinoStatusComponent : public UPrimalCharacterStatusComponent
 {
 public:
 	static class UClass* StaticClass()
@@ -25562,7 +25562,7 @@ DUMPER7_ASSERTS_UPrimalDinoToolTipWidget;
 
 // Class ShooterGame.PrimalEggToolTipWidget
 // 0x0278 (0x0678 - 0x0400)
-class UPrimalEggToolTipWidget final : public UToolTipWidget
+class UPrimalEggToolTipWidget : public UToolTipWidget
 {
 public:
 	struct FLinearColor                           TemperatureColor_Perfect;                          // 0x0400(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -25600,7 +25600,7 @@ DUMPER7_ASSERTS_UPrimalEggToolTipWidget;
 
 // Class ShooterGame.PrimalEngramEntry
 // 0x0088 (0x00B0 - 0x0028)
-class UPrimalEngramEntry final : public UObject
+class UPrimalEngramEntry : public UObject
 {
 public:
 	uint8                                         Pad_28[0x28];                                      // 0x0028(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
@@ -25745,7 +25745,7 @@ DUMPER7_ASSERTS_APrimalFallingTreeActor;
 
 // Class ShooterGame.PrimalFieldSystemActor
 // 0x0000 (0x0498 - 0x0498)
-class APrimalFieldSystemActor final : public AFieldSystemActor
+class APrimalFieldSystemActor : public AFieldSystemActor
 {
 public:
 	void CE_Trigger(const struct FVector& IncomingImpactVector, float DirectionalForceStrengthMultiplier, float RadialForceStrengthMultiplier, float IncomingVelocity);
@@ -25842,7 +25842,7 @@ DUMPER7_ASSERTS_UVRBattleGroupDataAsset;
 
 // Class ShooterGame.DLC
 // 0x0060 (0x0088 - 0x0028)
-class UDLC final : public UObject
+class UDLC : public UObject
 {
 public:
 	uint8                                         Pad_28[0x28];                                      // 0x0028(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
@@ -25878,7 +25878,7 @@ DUMPER7_ASSERTS_UDLC;
 
 // Class ShooterGame.DLCs
 // 0x0010 (0x0038 - 0x0028)
-class UDLCs final : public UObject
+class UDLCs : public UObject
 {
 public:
 	TArray<TSubclassOf<class UDLC>>               DLCs;                                              // 0x0028(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
@@ -26043,7 +26043,7 @@ DUMPER7_ASSERTS_APrimalWeaponGPS;
 
 // Class ShooterGame.PrimalGameData
 // 0x3A68 (0x3A90 - 0x0028)
-class UPrimalGameData final : public UObject
+class UPrimalGameData : public UObject
 {
 public:
 	uint8                                         Pad_28[0x40];                                      // 0x0028(0x0040)(Fixing Size After Last Property [ Dumper-7 ])
@@ -27199,7 +27199,7 @@ DUMPER7_ASSERTS_IPrimalGroupInterface;
 
 // Class ShooterGame.PrimalWorldBuffCustomImplement
 // 0x0008 (0x0030 - 0x0028)
-class UPrimalWorldBuffCustomImplement final : public UObject
+class UPrimalWorldBuffCustomImplement : public UObject
 {
 public:
 	class FName                                   WorldBuffID;                                       // 0x0028(0x0008)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -27841,7 +27841,7 @@ public:
 DUMPER7_ASSERTS_UPrimalInventoryComponent_Static;
 
 // Class ShooterGame.PrimalWorldSettings
-// 0x0C38 (0x27B0 - 0x1B78)
+// 0x0CB0 (0x2828 - 0x1B78)
 class APrimalWorldSettings final : public AARKNXWorldSettings
 {
 public:
@@ -28070,6 +28070,8 @@ public:
 	uint8                                         Pad_2708[0x8];                                     // 0x2708(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	TMap<ECVARTargetPlatformEnum, struct FPlatformCommandsToExecute> PlatformSpecificCommandsOnInitWorld; // 0x2710(0x0050)(Edit, BlueprintVisible, BlueprintReadOnly, Protected, NativeAccessSpecifierProtected)
 	TMap<ECVARTargetPlatformEnum, struct FPlatformCommandsToExecute> PlatformSpecificCommandsOnEndPlay; // 0x2760(0x0050)(Edit, BlueprintVisible, BlueprintReadOnly, Protected, NativeAccessSpecifierProtected)
+	uint8                                         Pad_27B0[0x28];                                    // 0x27B0(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
+	TMap<class FName, struct FMissionTriggerActorSet> MissionTriggerActorSets;                       // 0x27D8(0x0050)(Transient, NativeAccessSpecifierPrivate)
 
 public:
 	bool CanSpawnGloballyLimitedParticle(class UNiagaraComponent* ForNiagaraComponent);
@@ -28365,7 +28367,7 @@ DUMPER7_ASSERTS_ASaveGameActorTickable;
 
 // Class ShooterGame.PrimalItemToolTipWidget
 // 0x0278 (0x0678 - 0x0400)
-class UPrimalItemToolTipWidget final : public UToolTipWidget
+class UPrimalItemToolTipWidget : public UToolTipWidget
 {
 public:
 	class FString                                 ItemNameLabelName;                                 // 0x0400(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic, TObjectPtr)
@@ -28414,7 +28416,7 @@ DUMPER7_ASSERTS_UPrimalItemToolTipWidget;
 
 // Class ShooterGame.PrimalItem_CruiseMissile
 // 0x0000 (0x0B80 - 0x0B80)
-class UPrimalItem_CruiseMissile final : public UPrimalItem
+class UPrimalItem_CruiseMissile : public UPrimalItem
 {
 public:
 	static class UClass* StaticClass()
@@ -28483,7 +28485,7 @@ DUMPER7_ASSERTS_URCONServer;
 
 // Class ShooterGame.PrimalItem_HotbarSkill
 // 0x0010 (0x0B90 - 0x0B80)
-class UPrimalItem_HotbarSkill final : public UPrimalItem
+class UPrimalItem_HotbarSkill : public UPrimalItem
 {
 public:
 	uint8                                         Pad_B78[0x4];                                      // 0x0B78(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
@@ -28599,7 +28601,7 @@ DUMPER7_ASSERTS_APrimalLevelInstance;
 
 // Class ShooterGame.RadialSelectorHUD_MultiUse
 // 0x0048 (0x0168 - 0x0120)
-class URadialSelectorHUD_MultiUse final : public URadialSelectorHUD
+class URadialSelectorHUD_MultiUse : public URadialSelectorHUD
 {
 public:
 	uint8                                         Pad_120[0x34];                                     // 0x0120(0x0034)(Fixing Size After Last Property [ Dumper-7 ])
@@ -29819,7 +29821,7 @@ DUMPER7_ASSERTS_APrimalStructureElevatorTrack;
 
 // Class ShooterGame.PrimalStructureGhost
 // 0x0068 (0x0D68 - 0x0D00)
-class APrimalStructureGhost final : public APrimalStructure
+class APrimalStructureGhost : public APrimalStructure
 {
 public:
 	TSubclassOf<class APrimalStructure>           GhostClass;                                        // 0x0D00(0x0008)(BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, Transient, SaveGame, RepNotify, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -29885,7 +29887,7 @@ DUMPER7_ASSERTS_APrimalStructureItemContainer_CropPlot_VisualItems;
 
 // Class ShooterGame.PrimalStructureItemContainer_VisualItems
 // 0x0030 (0x13D0 - 0x13A0)
-class APrimalStructureItemContainer_VisualItems final : public APrimalStructureItemContainer
+class APrimalStructureItemContainer_VisualItems : public APrimalStructureItemContainer
 {
 public:
 	class UStaticMeshComponent*                   MyExtraStaticMesh;                                 // 0x13A0(0x0008)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, DisableEditOnInstance, EditConst, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -30170,7 +30172,7 @@ DUMPER7_ASSERTS_UBuoBakerLibrary;
 
 // Class ShooterGame.PrimalStructureSettings
 // 0x0030 (0x0058 - 0x0028)
-class UPrimalStructureSettings final : public UObject
+class UPrimalStructureSettings : public UObject
 {
 public:
 	class FName                                   TierTag;                                           // 0x0028(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -30229,7 +30231,7 @@ DUMPER7_ASSERTS_APrimalStructureSkeletalDoor;
 
 // Class ShooterGame.PrimalStructureToolTipWidget
 // 0x0098 (0x0498 - 0x0400)
-class UPrimalStructureToolTipWidget final : public UToolTipWidget
+class UPrimalStructureToolTipWidget : public UToolTipWidget
 {
 public:
 	TSubclassOf<class UToolTipWidgetPrimalStructureModuleItemsToDisplay> ItemsToDisplayModuleTemplate; // 0x0400(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -30757,7 +30759,7 @@ DUMPER7_ASSERTS_UPrimalWordFilter;
 
 // Class ShooterGame.PrimalWorldBuffData
 // 0x0028 (0x0050 - 0x0028)
-class UPrimalWorldBuffData final : public UObject
+class UPrimalWorldBuffData : public UObject
 {
 public:
 	TArray<struct FWorldBuffDefinition>           WorldBuffDefinitions;                              // 0x0028(0x0010)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic)
@@ -30863,7 +30865,7 @@ DUMPER7_ASSERTS_UProgressionTreeGraph_Skills;
 
 // Class ShooterGame.RadialSelectorHUD_Inventory
 // 0x0098 (0x01B8 - 0x0120)
-class URadialSelectorHUD_Inventory final : public URadialSelectorHUD
+class URadialSelectorHUD_Inventory : public URadialSelectorHUD
 {
 public:
 	class UPrimalInventoryComponent*              PlayerInventory;                                   // 0x0120(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
@@ -30897,7 +30899,7 @@ DUMPER7_ASSERTS_URadialSelectorHUD_Inventory;
 
 // Class ShooterGame.RadialSelectorHUD_PlayerAction
 // 0x00A0 (0x01C0 - 0x0120)
-class URadialSelectorHUD_PlayerAction final : public URadialSelectorHUD
+class URadialSelectorHUD_PlayerAction : public URadialSelectorHUD
 {
 public:
 	TArray<EPlayerActionIndex>                    ActionBindings;                                    // 0x0120(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, Protected, NativeAccessSpecifierProtected)
@@ -31539,7 +31541,7 @@ DUMPER7_ASSERTS_UPrimalCheatManagerExtension;
 
 // Class ShooterGame.ShooterPlayerController
 // 0x2CD8 (0x3800 - 0x0B28)
-class alignas(0x10) AShooterPlayerController final : public ABasePlayerController
+class alignas(0x10) AShooterPlayerController : public ABasePlayerController
 {
 public:
 	uint8                                         Pad_B28[0x8];                                      // 0x0B28(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
@@ -32658,7 +32660,7 @@ DUMPER7_ASSERTS_AShooterPlayerController;
 
 // Class ShooterGame.ShooterCheatManager
 // 0x0058 (0x00E0 - 0x0088)
-class UShooterCheatManager final : public UCheatManager
+class UShooterCheatManager : public UCheatManager
 {
 public:
 	TArray<TSoftClassPtr<class UClass>>           CheatManagerExtentions;                            // 0x0088(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, UObjectWrapper, NativeAccessSpecifierPublic)
@@ -34097,7 +34099,7 @@ DUMPER7_ASSERTS_UShooterHaptics;
 
 // Class ShooterGame.ShooterHUD
 // 0x09B0 (0x0F38 - 0x0588)
-class AShooterHUD final : public AHUD
+class AShooterHUD : public AHUD
 {
 public:
 	TSubclassOf<class ULegacyCameraShake>         HurtCameraShake;                                   // 0x0588(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -34535,7 +34537,7 @@ DUMPER7_ASSERTS_UShooterPersistentUser;
 
 // Class ShooterGame.ShooterPlayerCameraManager
 // 0x27C0 (0x5490 - 0x2CD0)
-class AShooterPlayerCameraManager final : public APlayerCameraManager
+class AShooterPlayerCameraManager : public APlayerCameraManager
 {
 public:
 	TMap<class UMaterialInterface*, float>        MatFadeDown;                                       // 0x2CC8(0x0050)(NativeAccessSpecifierPublic)
@@ -35340,7 +35342,7 @@ DUMPER7_ASSERTS_UShooterReplicationGraph;
 
 // Class ShooterGame.ShooterSpectatorPawn
 // 0x0078 (0x05E8 - 0x0570)
-class AShooterSpectatorPawn final : public ASpectatorPawn
+class AShooterSpectatorPawn : public ASpectatorPawn
 {
 public:
 	uint8                                         Pad_570[0x18];                                     // 0x0570(0x0018)(Fixing Size After Last Property [ Dumper-7 ])
@@ -35820,7 +35822,7 @@ DUMPER7_ASSERTS_AShooterWeapon_InstantPenetrating;
 
 // Class ShooterGame.ShooterWeapon_MeleeLock
 // 0x00D8 (0x1210 - 0x1138)
-class AShooterWeapon_MeleeLock final : public AShooterWeapon_Melee
+class AShooterWeapon_MeleeLock : public AShooterWeapon_Melee
 {
 public:
 	uint8                                         Pad_1138[0x8];                                     // 0x1138(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
@@ -36980,7 +36982,7 @@ DUMPER7_ASSERTS_UStatsPanelWidget;
 
 // Class ShooterGame.StatsPanelWidget_Character
 // 0x03E0 (0x1020 - 0x0C40)
-class UStatsPanelWidget_Character final : public UStatsPanelWidget
+class UStatsPanelWidget_Character : public UStatsPanelWidget
 {
 public:
 	class FName                                   PlayerStatusBoxName;                               // 0x0C38(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -37048,7 +37050,7 @@ DUMPER7_ASSERTS_UStatsPanelWidget_Character;
 
 // Class ShooterGame.StatsPanelWidget_Obelisk
 // 0x0080 (0x0CC0 - 0x0C40)
-class UStatsPanelWidget_Obelisk final : public UStatsPanelWidget
+class UStatsPanelWidget_Obelisk : public UStatsPanelWidget
 {
 public:
 	class FName                                   NameLabelName;                                     // 0x0C38(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -37079,7 +37081,7 @@ DUMPER7_ASSERTS_UStatsPanelWidget_Obelisk;
 
 // Class ShooterGame.StatsPanelWidget_Structure
 // 0x00A0 (0x0CE0 - 0x0C40)
-class UStatsPanelWidget_Structure final : public UStatsPanelWidget
+class UStatsPanelWidget_Structure : public UStatsPanelWidget
 {
 public:
 	class FName                                   EquipmentDataListPanelName;                        // 0x0C38(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -37143,7 +37145,7 @@ DUMPER7_ASSERTS_UVisualSettingsUI;
 
 // Class ShooterGame.StatWidget
 // 0x00A0 (0x0418 - 0x0378)
-class UStatWidget final : public UPrimalUserWidget
+class UStatWidget : public UPrimalUserWidget
 {
 public:
 	class FText                                   StatName;                                          // 0x0378(0x0010)(Edit, NativeAccessSpecifierPublic)
@@ -37333,7 +37335,7 @@ DUMPER7_ASSERTS_AStructurePreventionZoneVolume;
 
 // Class ShooterGame.StructureStatWidget
 // 0x0058 (0x0850 - 0x07F8)
-class UStructureStatWidget final : public UPrimalUI
+class UStructureStatWidget : public UPrimalUI
 {
 public:
 	class FText                                   StatName;                                          // 0x07F8(0x0010)(Edit, NativeAccessSpecifierPublic)
@@ -37487,7 +37489,7 @@ DUMPER7_ASSERTS_USwitchMountedDLCManager;
 
 // Class ShooterGame.TamingListEntryWidget
 // 0x0168 (0x0960 - 0x07F8)
-class UTamingListEntryWidget final : public UBaseSelectableButtonWidget
+class UTamingListEntryWidget : public UBaseSelectableButtonWidget
 {
 public:
 	class FString                                 ItemLabelName;                                     // 0x07F8(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -37762,7 +37764,7 @@ DUMPER7_ASSERTS_ATogglePainVolume;
 
 // Class ShooterGame.ToolTipWidgetPrimalStructureModuleItemsToDisplay
 // 0x0018 (0x0390 - 0x0378)
-class UToolTipWidgetPrimalStructureModuleItemsToDisplay final : public UPrimalUserWidget
+class UToolTipWidgetPrimalStructureModuleItemsToDisplay : public UPrimalUserWidget
 {
 public:
 	TSubclassOf<class UToolTipWidgetPrimalStructureModuleItemsToDisplayListItem> DisplayItemListEntryTemplate; // 0x0378(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -37786,7 +37788,7 @@ DUMPER7_ASSERTS_UToolTipWidgetPrimalStructureModuleItemsToDisplay;
 
 // Class ShooterGame.ToolTipWidgetPrimalStructureModuleItemsToDisplayListItem
 // 0x0010 (0x0388 - 0x0378)
-class UToolTipWidgetPrimalStructureModuleItemsToDisplayListItem final : public UPrimalUserWidget
+class UToolTipWidgetPrimalStructureModuleItemsToDisplayListItem : public UPrimalUserWidget
 {
 public:
 	uint8                                         Pad_378[0x10];                                     // 0x0378(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -37809,7 +37811,7 @@ DUMPER7_ASSERTS_UToolTipWidgetPrimalStructureModuleItemsToDisplayListItem;
 
 // Class ShooterGame.TrackedDinoListEntryWidget
 // 0x08D8 (0x10D0 - 0x07F8)
-class UTrackedDinoListEntryWidget final : public UBaseSelectableButtonWidget
+class UTrackedDinoListEntryWidget : public UBaseSelectableButtonWidget
 {
 public:
 	class FString                                 ItemLabelName;                                     // 0x07F8(0x0010)(Edit, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -37858,7 +37860,7 @@ DUMPER7_ASSERTS_UTrackedDinoListEntryWidget;
 
 // Class ShooterGame.TrackingItemUI
 // 0x00B0 (0x08A8 - 0x07F8)
-class UTrackingItemUI final : public UPrimalUI
+class UTrackingItemUI : public UPrimalUI
 {
 public:
 	uint8                                         Pad_7F8[0x98];                                     // 0x07F8(0x0098)(Fixing Size After Last Property [ Dumper-7 ])
@@ -37925,7 +37927,7 @@ DUMPER7_ASSERTS_UTradeItemButtonWidget;
 
 // Class ShooterGame.TribeManagerListButton
 // 0x0018 (0x0810 - 0x07F8)
-class UTribeManagerListButton final : public UBaseSelectableButtonWidget
+class UTribeManagerListButton : public UBaseSelectableButtonWidget
 {
 public:
 	uint8                                         bSelectOnClicked : 1;                              // 0x07F8(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -37949,7 +37951,7 @@ DUMPER7_ASSERTS_UTribeManagerListButton;
 
 // Class ShooterGame.TribeMemberButtonWidget
 // 0x0040 (0x0838 - 0x07F8)
-class UTribeMemberButtonWidget final : public UBaseSelectableButtonWidget
+class UTribeMemberButtonWidget : public UBaseSelectableButtonWidget
 {
 public:
 	uint8                                         bSelectOnClicked : 1;                              // 0x07F8(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -37984,7 +37986,7 @@ DUMPER7_ASSERTS_UTribeMemberButtonWidget;
 
 // Class ShooterGame.TribeWarButtonWidget
 // 0x0030 (0x0828 - 0x07F8)
-class UTribeWarButtonWidget final : public UBaseSelectableButtonWidget
+class UTribeWarButtonWidget : public UBaseSelectableButtonWidget
 {
 public:
 	uint8                                         bSelectOnClicked : 1;                              // 0x07F8(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -38064,7 +38066,7 @@ DUMPER7_ASSERTS_UUIMainModShop;
 
 // Class ShooterGame.UI_AdminMangment
 // 0x0498 (0x0C90 - 0x07F8)
-class UUI_AdminMangment final : public UPrimalUI
+class UUI_AdminMangment : public UPrimalUI
 {
 public:
 	uint8                                         Pad_7F8[0x58];                                     // 0x07F8(0x0058)(Fixing Size After Last Property [ Dumper-7 ])
@@ -38174,7 +38176,7 @@ DUMPER7_ASSERTS_UUI_AdminMangment;
 
 // Class ShooterGame.UI_AllPlayersList
 // 0x0090 (0x0888 - 0x07F8)
-class UUI_AllPlayersList final : public UPrimalUI
+class UUI_AllPlayersList : public UPrimalUI
 {
 public:
 	class FName                                   CloseButtonName;                                   // 0x07F8(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -38232,7 +38234,7 @@ DUMPER7_ASSERTS_UUI_BackupSaveList;
 
 // Class ShooterGame.UI_ChatBox
 // 0x00E0 (0x08D8 - 0x07F8)
-class UUI_ChatBox final : public UPrimalUI
+class UUI_ChatBox : public UPrimalUI
 {
 public:
 	TSubclassOf<class UUI_ChatMessage>            ChatMessageUITemplate;                             // 0x07F8(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -38271,7 +38273,7 @@ DUMPER7_ASSERTS_UUI_ChatBox;
 
 // Class ShooterGame.UI_ChatMessage
 // 0x0078 (0x0870 - 0x07F8)
-class UUI_ChatMessage final : public UPrimalUI
+class UUI_ChatMessage : public UPrimalUI
 {
 public:
 	class FString                                 ChatBlockName;                                     // 0x07F8(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic, TObjectPtr)
@@ -38386,7 +38388,7 @@ DUMPER7_ASSERTS_UUI_ListSessions;
 
 // Class ShooterGame.UI_ClusterServersListSessions
 // 0x0020 (0x1420 - 0x1400)
-class UUI_ClusterServersListSessions final : public UUI_ListSessions
+class UUI_ClusterServersListSessions : public UUI_ListSessions
 {
 public:
 	uint8                                         bClubArkSessionsOnly : 1;                          // 0x1400(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
@@ -38455,7 +38457,7 @@ DUMPER7_ASSERTS_UUI_Compass;
 
 // Class ShooterGame.UI_ConsoleCommand
 // 0x0060 (0x0858 - 0x07F8)
-class UUI_ConsoleCommand final : public UPrimalUI
+class UUI_ConsoleCommand : public UPrimalUI
 {
 public:
 	uint8                                         Pad_7F8[0x58];                                     // 0x07F8(0x0058)(Fixing Size After Last Property [ Dumper-7 ])
@@ -38483,7 +38485,7 @@ DUMPER7_ASSERTS_UUI_ConsoleCommand;
 
 // Class ShooterGame.UI_ConsoleDedicated
 // 0x0298 (0x0A90 - 0x07F8)
-class UUI_ConsoleDedicated final : public UPrimalUI
+class UUI_ConsoleDedicated : public UPrimalUI
 {
 public:
 	uint8                                         Pad_7F8[0x90];                                     // 0x07F8(0x0090)(Fixing Size After Last Property [ Dumper-7 ])
@@ -38643,7 +38645,7 @@ DUMPER7_ASSERTS_UUI_CustomOverlay;
 
 // Class ShooterGame.UI_CustomTrackedDinoList
 // 0x0248 (0x0A50 - 0x0808)
-class UUI_CustomTrackedDinoList final : public UPrimalSubMenuUI
+class UUI_CustomTrackedDinoList : public UPrimalSubMenuUI
 {
 public:
 	TSubclassOf<class UTrackedDinoListEntryWidget> TrackedActorListEntryTemplate;                    // 0x0808(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -38840,7 +38842,7 @@ DUMPER7_ASSERTS_UUI_DepthOfFieldMenu;
 
 // Class ShooterGame.UI_DinoOrderGroups
 // 0x00E8 (0x08F0 - 0x0808)
-class UUI_DinoOrderGroups final : public UPrimalSubMenuUI
+class UUI_DinoOrderGroups : public UPrimalSubMenuUI
 {
 public:
 	TSubclassOf<class UDinoListButtonWidget>      DinoOrderGroupEntryTemplate;                       // 0x0808(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -39094,7 +39096,7 @@ DUMPER7_ASSERTS_UUI_DyeItem;
 
 // Class ShooterGame.UI_EngramsMenu
 // 0x0190 (0x0998 - 0x0808)
-class UUI_EngramsMenu final : public UPrimalSubMenuUI
+class UUI_EngramsMenu : public UPrimalSubMenuUI
 {
 public:
 	class FName                                   ARKPrimeEngramsButtonName;                         // 0x0808(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -39963,7 +39965,7 @@ DUMPER7_ASSERTS_UUI_HostSession;
 
 // Class ShooterGame.UI_Hub
 // 0x0280 (0x0A78 - 0x07F8)
-class UUI_Hub final : public UPrimalUI
+class UUI_Hub : public UPrimalUI
 {
 public:
 	class FName                                   TopRecenteringSpacerName;                          // 0x07F8(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -40023,7 +40025,7 @@ DUMPER7_ASSERTS_UUI_Hub;
 
 // Class ShooterGame.UI_HudOverlay
 // 0x0028 (0x0820 - 0x07F8)
-class UUI_HudOverlay final : public UPrimalUI
+class UUI_HudOverlay : public UPrimalUI
 {
 public:
 	class FName                                   HudOverlayWidgetName;                              // 0x07F8(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -40051,7 +40053,7 @@ DUMPER7_ASSERTS_UUI_HudOverlay;
 
 // Class ShooterGame.UI_Inventory
 // 0x03E8 (0x0BF0 - 0x0808)
-class UUI_Inventory final : public UPrimalSubMenuUI
+class UUI_Inventory : public UPrimalSubMenuUI
 {
 public:
 	class FName                                   PanelContainerLeftName;                            // 0x0808(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -40315,7 +40317,7 @@ DUMPER7_ASSERTS_UUI_MainMenu;
 
 // Class ShooterGame.UI_MapMarkersEntry
 // 0x01A8 (0x09A0 - 0x07F8)
-class UUI_MapMarkersEntry final : public UPrimalUI
+class UUI_MapMarkersEntry : public UPrimalUI
 {
 public:
 	TSubclassOf<class UDinoListButtonWidget>      SlotButtonTemplate;                                // 0x07F8(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -40639,7 +40641,7 @@ DUMPER7_ASSERTS_UUI_MenuCarouselPipWidget;
 
 // Class ShooterGame.UI_MilestonesNotificationFeed
 // 0x0000 (0x07F8 - 0x07F8)
-class UUI_MilestonesNotificationFeed final : public UPrimalUI
+class UUI_MilestonesNotificationFeed : public UPrimalUI
 {
 public:
 	void PushMilestoneNotify(const class FName MilestoneID, const float NewProgress, const bool LockNotification, const class FName MilestoneTree);
@@ -40663,7 +40665,7 @@ DUMPER7_ASSERTS_UUI_MilestonesNotificationFeed;
 
 // Class ShooterGame.UI_MissionList
 // 0x0590 (0x0D98 - 0x0808)
-class UUI_MissionList final : public UPrimalSubMenuUI
+class UUI_MissionList : public UPrimalSubMenuUI
 {
 public:
 	class FName                                   CloseButtonName;                                   // 0x0808(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -40754,7 +40756,7 @@ DUMPER7_ASSERTS_UUI_MissionList;
 
 // Class ShooterGame.UI_MultiUse
 // 0x0048 (0x0840 - 0x07F8)
-class UUI_MultiUse final : public UPrimalUI
+class UUI_MultiUse : public UPrimalUI
 {
 public:
 	class FName                                   MyScrollBoxName;                                   // 0x07F8(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -40964,7 +40966,7 @@ DUMPER7_ASSERTS_UUI_PartySystem;
 
 // Class ShooterGame.UI_PauseMenu
 // 0x02B8 (0x0AB0 - 0x07F8)
-class UUI_PauseMenu final : public UPrimalUI
+class UUI_PauseMenu : public UPrimalUI
 {
 public:
 	class FString                                 CloseButtonName;                                   // 0x07F8(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic, TObjectPtr)
@@ -41126,7 +41128,7 @@ DUMPER7_ASSERTS_UUI_PCOptionsMenu;
 
 // Class ShooterGame.UI_PinEntry
 // 0x00C0 (0x08B8 - 0x07F8)
-class UUI_PinEntry final : public UPrimalUI
+class UUI_PinEntry : public UPrimalUI
 {
 public:
 	class FName                                   CloseButtonName;                                   // 0x07F8(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -41434,7 +41436,7 @@ DUMPER7_ASSERTS_UUI_SavePainting;
 
 // Class ShooterGame.UI_SavingOverlay
 // 0x0008 (0x0800 - 0x07F8)
-class UUI_SavingOverlay final : public UPrimalUI
+class UUI_SavingOverlay : public UPrimalUI
 {
 public:
 	uint8                                         Pad_7F8[0x8];                                      // 0x07F8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -41457,7 +41459,7 @@ DUMPER7_ASSERTS_UUI_SavingOverlay;
 
 // Class ShooterGame.UI_ServerBroadcastMessage
 // 0x00D8 (0x08D0 - 0x07F8)
-class UUI_ServerBroadcastMessage final : public UPrimalUI
+class UUI_ServerBroadcastMessage : public UPrimalUI
 {
 public:
 	class FString                                 MessageTextBlockName;                              // 0x07F8(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -41597,7 +41599,7 @@ DUMPER7_ASSERTS_UUI_SpawnPoint;
 
 // Class ShooterGame.UI_SteamInventoryStatusPopup
 // 0x0090 (0x0888 - 0x07F8)
-class UUI_SteamInventoryStatusPopup final : public UPrimalUI
+class UUI_SteamInventoryStatusPopup : public UPrimalUI
 {
 public:
 	class FName                                   CloseButtonName;                                   // 0x07F8(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -41629,7 +41631,7 @@ DUMPER7_ASSERTS_UUI_SteamInventoryStatusPopup;
 
 // Class ShooterGame.UI_Subtitles
 // 0x0090 (0x0888 - 0x07F8)
-class UUI_Subtitles final : public UPrimalUI
+class UUI_Subtitles : public UPrimalUI
 {
 public:
 	class FName                                   SubtitlesTextBoxName;                              // 0x07F8(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -41676,7 +41678,7 @@ DUMPER7_ASSERTS_UUI_Subtitles;
 
 // Class ShooterGame.UI_SurvivorProfile
 // 0x05A8 (0x0DB0 - 0x0808)
-class UUI_SurvivorProfile final : public UPrimalSubMenuUI
+class UUI_SurvivorProfile : public UPrimalSubMenuUI
 {
 public:
 	uint8                                         Pad_808[0x208];                                    // 0x0808(0x0208)(Fixing Size After Last Property [ Dumper-7 ])
@@ -41738,7 +41740,7 @@ DUMPER7_ASSERTS_UUI_SurvivorProfile;
 
 // Class ShooterGame.UI_TamingList
 // 0x0108 (0x0910 - 0x0808)
-class UUI_TamingList final : public UPrimalSubMenuUI
+class UUI_TamingList : public UPrimalSubMenuUI
 {
 public:
 	TSubclassOf<class UTamingListEntryWidget>     TamingListEntryTemplate;                           // 0x0808(0x0008)(Edit, ZeroConstructor, DisableEditOnInstance, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -41766,7 +41768,7 @@ DUMPER7_ASSERTS_UUI_TamingList;
 
 // Class ShooterGame.UI_TextEntry
 // 0x0098 (0x0890 - 0x07F8)
-class UUI_TextEntry final : public UPrimalUI
+class UUI_TextEntry : public UPrimalUI
 {
 public:
 	class FName                                   CloseButtonName;                                   // 0x07F8(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -41865,7 +41867,7 @@ DUMPER7_ASSERTS_UUI_Tinkering;
 
 // Class ShooterGame.UI_TribeManager
 // 0x04C8 (0x0CD0 - 0x0808)
-class UUI_TribeManager final : public UPrimalSubMenuUI
+class UUI_TribeManager : public UPrimalSubMenuUI
 {
 public:
 	class FName                                   CreateNewTribeButtonName;                          // 0x0808(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -41916,7 +41918,7 @@ DUMPER7_ASSERTS_UUI_TribeManager;
 
 // Class ShooterGame.UI_TribeWarEntry
 // 0x0058 (0x0850 - 0x07F8)
-class UUI_TribeWarEntry final : public UPrimalUI
+class UUI_TribeWarEntry : public UPrimalUI
 {
 public:
 	uint8                                         Pad_7F8[0x58];                                     // 0x07F8(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
@@ -41943,7 +41945,7 @@ DUMPER7_ASSERTS_UUI_TribeWarEntry;
 
 // Class ShooterGame.UI_Tutorial
 // 0x0030 (0x0828 - 0x07F8)
-class UUI_Tutorial final : public UPrimalUI
+class UUI_Tutorial : public UPrimalUI
 {
 public:
 	class FName                                   TutorialTitleLabelName;                            // 0x07F8(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -42374,6 +42376,7 @@ public:
 	static TArray<class AActor*> GetAllMissionActors(class UObject* WorldContextObject);
 	static TArray<class AActor*> GetAllMissionDispatcherPoints(class UObject* WorldContextObject);
 	static TArray<class AActor*> GetAllMissionDispatchers(class UObject* WorldContextObject);
+	static void GetAllNPCManagerSpawnableDinos(class UWorld* World, TSet<TSoftClassPtr<class UClass>>* OutSpawnableClasses);
 	static TArray<class AActor*> GetAllPlayerStarts(class UObject* WorldContextObject);
 	static TArray<class AActor*> GetAllStructurePreventionVolumes(class UObject* WorldContextObject);
 	static float GetAngleBetweenVectors(const struct FVector& VectorA, const struct FVector& VectorB, const struct FVector& AroundAxis);
@@ -43037,7 +43040,7 @@ DUMPER7_ASSERTS_UWorldModifiersContainer;
 
 // Class ShooterGame.W_MilestoneNotification
 // 0x0000 (0x0378 - 0x0378)
-class UW_MilestoneNotification final : public UPrimalUserWidget
+class UW_MilestoneNotification : public UPrimalUserWidget
 {
 public:
 	static class UClass* StaticClass()

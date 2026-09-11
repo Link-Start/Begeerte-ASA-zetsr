@@ -81467,6 +81467,16 @@ public:
 };
 DUMPER7_ASSERTS_VictoryCore_GetAllMissionDispatchers;
 
+// Function ShooterGame.VictoryCore.GetAllNPCManagerSpawnableDinos
+// 0x0058 (0x0058 - 0x0000)
+struct VictoryCore_GetAllNPCManagerSpawnableDinos final
+{
+public:
+	class UWorld*                                 World;                                             // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSet<TSoftClassPtr<class UClass>>             OutSpawnableClasses;                               // 0x0008(0x0050)(Parm, OutParm, UObjectWrapper, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_VictoryCore_GetAllNPCManagerSpawnableDinos;
+
 // Function ShooterGame.VictoryCore.GetAllPlayerStarts
 // 0x0018 (0x0018 - 0x0000)
 struct VictoryCore_GetAllPlayerStarts final

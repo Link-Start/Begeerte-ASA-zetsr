@@ -49,12 +49,12 @@ enum class EMetaSoundBuilderResult : uint8
 	EMetaSoundBuilderResult_MAX              = 2,
 };
 
-// ScriptStruct MetasoundEngine.MetaSoundBuilderNodeOutputHandle
+// ScriptStruct MetasoundEngine.MetaSoundBuilderNodeInputHandle
 // 0x0000 (0x0020 - 0x0020)
-struct FMetaSoundBuilderNodeOutputHandle final : public FMetasoundFrontendVertexHandle
+struct FMetaSoundBuilderNodeInputHandle final : public FMetasoundFrontendVertexHandle
 {
 };
-DUMPER7_ASSERTS_FMetaSoundBuilderNodeOutputHandle;
+DUMPER7_ASSERTS_FMetaSoundBuilderNodeInputHandle;
 
 // ScriptStruct MetasoundEngine.MetaSoundOutput
 // 0x0008 (0x0010 - 0x0008)
@@ -116,12 +116,12 @@ public:
 };
 DUMPER7_ASSERTS_FMetaSoundAsyncAssetDependencies;
 
-// ScriptStruct MetasoundEngine.MetaSoundBuilderNodeInputHandle
+// ScriptStruct MetasoundEngine.MetaSoundBuilderNodeOutputHandle
 // 0x0000 (0x0020 - 0x0020)
-struct FMetaSoundBuilderNodeInputHandle final : public FMetasoundFrontendVertexHandle
+struct FMetaSoundBuilderNodeOutputHandle final : public FMetasoundFrontendVertexHandle
 {
 };
-DUMPER7_ASSERTS_FMetaSoundBuilderNodeInputHandle;
+DUMPER7_ASSERTS_FMetaSoundBuilderNodeOutputHandle;
 
 // ScriptStruct MetasoundEngine.MetaSoundNodeHandle
 // 0x0010 (0x0010 - 0x0000)
