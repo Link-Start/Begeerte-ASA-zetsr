@@ -534,7 +534,7 @@
     <ClInclude Include="external\ezVMT\include\ezVMT.hpp">
       <Filter>external\ezVMT\include</Filter>
     </ClInclude>
-    <ClInclude Include="internal\CheatData\DynamicData.hpp">
+    <ClInclude Include="internal\CheatData\CheatCache.hpp">
       <Filter>internal\CheatData</Filter>
     </ClInclude>
   </ItemGroup>

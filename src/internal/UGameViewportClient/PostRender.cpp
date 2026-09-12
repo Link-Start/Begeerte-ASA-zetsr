@@ -1,7 +1,7 @@
 #pragma once
 #include "../../external/CppSDK/SDK.hpp"
 #include "../../external/Shadow-Gui/include/Shadow.h"
-#include "../CheatData/DynamicData.hpp"
+#include "../CheatData/CheatCache.hpp"
 #include "../ESP/DrawESP.h"
 #include "../ESP/Indicators.h"
 #include "../Lua/LuaManager.h"
@@ -182,15 +182,15 @@ namespace g_UGameViewportClient {
 
         // ApplyCrossVersionViewportScan(rcx);
 
-        _DD::Update();
+        CheatCache::PostRender::Update();
 
         if (g_Config::bPotatoGraphics) {
-            g_Util::PotatoGraphics(_DD::World, rcx);
+            g_Util::PotatoGraphics(CheatCache::PostRender::World, rcx);
             g_Config::bPotatoGraphics = false;
         }
 
         Shadow::NewFrame(canvas);
-        g_Util::Welcome(_DD::World, canvas);
+        g_Util::Welcome(CheatCache::PostRender::World, canvas);
         g_DrawESP::DrawESP(canvas);
         g_Indicators::OnRender();
         LuaManager::Get().Lua_OnPostRender();

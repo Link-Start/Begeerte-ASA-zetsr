@@ -2,7 +2,7 @@
 #include "../Config/Configs.h"
 #include "../Util/Util.h"
 #include "../Log/LogManager.h"
-#include "../CheatData/DynamicData.hpp"
+#include "../CheatData/CheatCache.hpp"
 #include "Hack.h"
 
 namespace g_Hack {
@@ -10,7 +10,7 @@ namespace g_Hack {
     static const int32_t g_MaxNoteIndex = 1000;
 
     void DumpServerInfo() {
-        SDK::UWorld* World = _TICK::World;
+        SDK::UWorld* World = CheatCache::Tick::World;
         if (!World || !World->NetDriver || !World->NetDriver->ServerConnection) {
             g_LogManager::AddLog(255, 50, 55, 255, "当前不在服务器内");
             return;
@@ -23,7 +23,7 @@ namespace g_Hack {
 
     void Suicide(SDK::UWorld* World) {
         if (!World) return;
-        SDK::AShooterPlayerController* PC = _TICK::LocalSPC;
+        SDK::AShooterPlayerController* PC = CheatCache::Tick::LocalSPC;
         if (!PC || !PC->Character) return;
 
         SDK::AShooterCharacter* TargetHuman = nullptr;
@@ -51,7 +51,7 @@ namespace g_Hack {
     void UnlockExplorerNotes(SDK::UWorld* World) {
         if (!World) return;
 
-        SDK::AShooterPlayerController* PC = _TICK::LocalSPC;
+        SDK::AShooterPlayerController* PC = CheatCache::Tick::LocalSPC;
         if (!PC)  return;
 
         if (g_CurrentNoteIndex <= g_MaxNoteIndex) {
@@ -66,7 +66,7 @@ namespace g_Hack {
     void AutoFeed(SDK::UWorld* World) {
         if (!World) return;
 
-        SDK::AShooterPlayerController* PC = _TICK::LocalSPC;
+        SDK::AShooterPlayerController* PC = CheatCache::Tick::LocalSPC;
         if (!PC)  return;
 
         SDK::APrimalDinoCharacter* TargetDino = nullptr;
@@ -92,7 +92,7 @@ namespace g_Hack {
     void SuperFlyer(SDK::UWorld* World) {
         if (!World) return;
 
-        SDK::AShooterPlayerController* PC = _TICK::LocalSPC;
+        SDK::AShooterPlayerController* PC = CheatCache::Tick::LocalSPC;
         if (!PC)  return;
 
         SDK::APrimalDinoCharacter* TargetDino = nullptr;
@@ -129,7 +129,7 @@ namespace g_Hack {
     }
 
     void ForceTurn(SDK::UMovementComponent* rcx, float DeltaTime) {
-        SDK::AShooterPlayerController* LocalPC = _PR::LocalSPC;
+        SDK::AShooterPlayerController* LocalPC = CheatCache::PhysicsRotation::LocalSPC;
         if (!LocalPC || !LocalPC->Pawn || !LocalPC->PlayerCameraManager) return;
 
         // 转换为 UCharacterMovementComponent 以访问其属性
@@ -187,7 +187,7 @@ namespace g_Hack {
     }
 
     void DamageLog(SDK::AActor* _this, float DamageAmount, SDK::FDamageEvent* DamageEvent, SDK::AController* Instigator, SDK::AActor* DamageCauser) {
-        SDK::AShooterPlayerController* PC = _TICK::LocalSPC;
+        SDK::AShooterPlayerController* PC = CheatCache::Tick::LocalSPC;
         if (!PC)  return;
 
         SDK::APawn* LPawn = PC->Pawn;
@@ -256,7 +256,7 @@ namespace g_Hack {
 
         if (globalTick % 3 != 0) return;
 
-        SDK::AShooterPlayerController* PC = _TICK::LocalSPC;
+        SDK::AShooterPlayerController* PC = CheatCache::Tick::LocalSPC;
         if (!PC || !PC->Pawn) return;
 
         SDK::APrimalCharacter* Character = static_cast<SDK::APrimalCharacter*>(PC->Pawn);
@@ -367,7 +367,7 @@ namespace g_Hack {
 
     void OutBody()
     {
-        SDK::AShooterPlayerController* LocalPC = _TICK::LocalSPC;
+        SDK::AShooterPlayerController* LocalPC = CheatCache::Tick::LocalSPC;
         if (!LocalPC) return;
 
         SDK::ACharacter* Character = LocalPC->Character;

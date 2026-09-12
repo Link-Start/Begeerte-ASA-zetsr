@@ -1,7 +1,7 @@
 // DrawESP.cpp
 #include "../../external/CppSDK/SDK.hpp"
 #include "../../external/Shadow-Gui/include/Shadow.h"
-#include "../CheatData/DynamicData.hpp"
+#include "../CheatData/CheatCache.hpp"
 #include "ESP.h"
 #include "../Config/Configs.h"
 #include "DrawESP.h"
@@ -140,10 +140,10 @@ namespace g_DrawESP {
             return;
         }
 
-        SDK::UWorld* World = _DD::World;
+        SDK::UWorld* World = CheatCache::PostRender::World;
         if (!World || !World->GameState || !World->PersistentLevel) return;
 
-        SDK::APlayerController* LocalPC = _DD::LocalSPC;
+        SDK::APlayerController* LocalPC = CheatCache::PostRender::LocalSPC;
         if (!LocalPC || !LocalPC->Pawn) {
             for (auto& kv : s_entries) {
                 kv.second.targetAlpha = 0.0f;
@@ -152,7 +152,7 @@ namespace g_DrawESP {
             return;
         }
 
-        SDK::AShooterPlayerState* LocalPS = _DD::LocalSPS;
+        SDK::AShooterPlayerState* LocalPS = CheatCache::PostRender::LocalSPS;
         if (!LocalPS) {
             for (auto& kv : s_entries) {
                 kv.second.targetAlpha = 0.0f;

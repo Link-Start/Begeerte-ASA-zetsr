@@ -6,7 +6,7 @@
 #include "../Hack/Hack.h"
 #include "../../external/CppSDK/SDK.hpp"
 #include "../Legit/Aimbot/Aimbot.h"
-#include "../CheatData/DynamicData.hpp"
+#include "../CheatData/CheatCache.hpp"
 
 namespace g_AActor {
     /*
@@ -23,8 +23,8 @@ namespace g_AActor {
     */
 
 	void Tick(SDK::AActor* actor) {
-        _TICK::Update();
-        SDK::UWorld* World = _TICK::World;
+        CheatCache::Tick::Update();
+        SDK::UWorld* World = CheatCache::Tick::World;
 
         g_Aimbot::Tick();
         g_Hack::OutBody();
