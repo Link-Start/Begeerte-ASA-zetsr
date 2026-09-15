@@ -86,7 +86,13 @@ namespace g_Hack {
 
         // 只有找到恐龙时才执行喂食逻辑
         if (TargetDino) {
-            g_Util::ProcessDinoFeed(PC, TargetDino);
+            if (
+                strstr(TargetDino->MyDinoSettingsCDO->DinoFoodTypeName.ToString().c_str(), _XOR_("食肉动物").crypt()) || 
+                strstr(TargetDino->MyDinoSettingsCDO->DinoFoodTypeName.ToString().c_str(), _XOR_("Carnivore").crypt())
+                ) {
+
+                g_Util::ProcessDinoFeed(PC, TargetDino);
+            }
         }
     }
 
