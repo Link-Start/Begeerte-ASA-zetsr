@@ -1,12 +1,12 @@
 ﻿// Indicators.h
 #pragma once
-#define U8(str) reinterpret_cast<const char*>(u8##str)
 
 #include <string>
 #include "../../external/CppSDK/SDK.hpp"
 #include "../../external/Shadow-Gui/include/Shadow.h"
 #include "../Util/Util.h"
 #include "../Config/Configs.h"
+#include "../../XorStr.h"
 
 namespace g_Indicators {
     // 起始点
@@ -67,8 +67,8 @@ namespace g_Indicators {
         std::string fps_text = std::format("FPS: {:.0f}", fps);
         std::string server_fps_text = std::format("SV: {:.1f}", server_fps);
 
-        std::string player = U8("玩家");
-        std::string tamed = U8("驯养");
+        std::string player = _XOR_(u8"玩家").str();
+        std::string tamed = _XOR_(u8"驯养").str();
 
         std::string NumPlayerConnected_test = std::format("{}: {}", player, NumPlayerConnected);
         std::string TamedDinos_test = std::format("{}: {}/{}", tamed, NumTamedDinos, MaxTamedDinos );

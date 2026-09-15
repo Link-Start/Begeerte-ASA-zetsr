@@ -160,6 +160,7 @@
     <ClInclude Include="internal\Util\infoCPU.h" />
     <ClInclude Include="internal\Util\infoGPU.h" />
     <ClInclude Include="internal\Util\Util.h" />
+    <ClInclude Include="XorStr.h" />
   </ItemGroup>
   <ItemGroup>
     <Object Include="external\LuaJIT-2.1\src\lj_vm.obj" />

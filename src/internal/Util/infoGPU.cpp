@@ -4,6 +4,7 @@
 #include <pdhmsg.h>
 #include <vector>
 #include <string>
+#include "../../XorStr.h"
 
 #pragma comment(lib, "pdh.lib")
 
@@ -31,7 +32,7 @@ namespace g_infoGPU {
 
             // 使用通配符路径：获取所有 GPU 引擎的 Utilization Percentage
             // 这是 Windows 任务管理器底层使用的标准路径
-            const wchar_t* gpuPath = L"\\GPU Engine(*)\\Utilization Percentage";
+            const wchar_t* gpuPath = _XOR_(L"\\GPU Engine(*)\\Utilization Percentage").crypt();
 
             // 展开通配符，获取所有匹配的实例路径
             DWORD dwPathListSize = 0;

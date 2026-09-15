@@ -6,6 +6,7 @@
 #include "../Config/Configs.h"
 #include "DrawESP.h"
 #include "../Util/Util.h"
+#include "../../XorStr.h"
 #include <vector>
 #include <string>
 #include <unordered_map>
@@ -325,7 +326,7 @@ namespace g_DrawESP {
                     }
                     if (entry.shouldDrawDistance) {
                         entry.flags.push_back({
-                            std::to_string((int)dist) + "m",
+                            std::to_string((int)dist) + _XOR_("m").str(),
                             entry.distanceColor,
                             g_ESP::FlagPos::Right
                             });
@@ -439,7 +440,7 @@ namespace g_DrawESP {
                 entry.shouldDrawTorpor = bDrawTorpor;
 
                 if (bDrawName) {
-                    const char* genderSuffix = TargetActor->IsFemale() ? "-F" : "-M";
+                    const char* genderSuffix = TargetActor->IsFemale() ? _XOR_("-F").crypt() : _XOR_("-M").crypt();
                     entry.name = TargetPS
                         ? TargetPS->GetPlayerName().ToString() + genderSuffix
                         : TargetChar->GetDescriptiveName().ToString() + genderSuffix;
@@ -468,14 +469,14 @@ namespace g_DrawESP {
                 if (bDrawTorpor && entry.cachedMaxTorpor > 0.0f) {
                     const Shadow::Color torporCol = Shadow::Color{ TorporColor[0], TorporColor[1], TorporColor[2], TorporColor[3] };
                     entry.flags.push_back({
-                        std::to_string((int)entry.cachedTorpor) + "/" + std::to_string((int)entry.cachedMaxTorpor),
+                        std::to_string((int)entry.cachedTorpor) + _XOR_("/").str() + std::to_string((int)entry.cachedMaxTorpor),
                         torporCol, g_ESP::FlagPos::Bottom
                         });
                     entry.bars.push_back({ entry.cachedTorpor, entry.cachedMaxTorpor, torporCol, g_ESP::BarPos::Bottom, g_ESP::BarOrientation::Horizontal });
                 }
 
                 if (bDrawDistance)
-                    entry.flags.push_back({ std::to_string((int)dist) + "m", Shadow::Color{DistanceColor[0], DistanceColor[1], DistanceColor[2], DistanceColor[3]}, g_ESP::FlagPos::Right });
+                    entry.flags.push_back({ std::to_string((int)dist) + _XOR_("m").str(), Shadow::Color{DistanceColor[0], DistanceColor[1], DistanceColor[2], DistanceColor[3]}, g_ESP::FlagPos::Right });
 
                 SDK::FVector2D screenPos;
                 if (LocalPC->ProjectWorldLocationToScreen(actorLoc, &screenPos, false)) {
@@ -576,7 +577,7 @@ namespace g_DrawESP {
                     itemName = Item->DescriptiveNameBase.ToString();
                 }
                 else {
-                    itemName = Item->Class ? Item->Class->GetName() : "Unknown Item";
+                    itemName = Item->Class ? Item->Class->GetName() : _XOR_("Unknown Item").str();
                 }
 
                 const Shadow::Color finalCol = U32ToFLinearColor(g_Util::ResolveDroppedItemColor(className, Item->ItemRating, quantity));
@@ -584,11 +585,11 @@ namespace g_DrawESP {
                 entry.flags.clear();
                 entry.bars.clear();
 
-                std::string label = "[" + itemName + "";
+                std::string label = _XOR_("[").str() + itemName + _XOR_("]").str();
                 if (quantity > 1) label += " x" + std::to_string(quantity);
-                if (Item->bIsBlueprint) label = "[BP] " + label;
+                if (Item->bIsBlueprint) label = _XOR_("[BP] ").str() + label;
 
-                entry.flags.push_back({ std::move(label) + "] (" + std::to_string((int)dist) + "m" + ")", finalCol, g_ESP::FlagPos::Right });
+                entry.flags.push_back({ std::move(label) + _XOR_(" (").str() + std::to_string((int)dist) + _XOR_("m").str() + _XOR_(")").str(), finalCol, g_ESP::FlagPos::Right });
 
                 entry.boxColor = finalCol;
                 entry.nameColor = Shadow::Color{ g_Config::DroppedItemNameColor[0], g_Config::DroppedItemNameColor[1], g_Config::DroppedItemNameColor[2], g_Config::DroppedItemNameColor[3] };
@@ -633,7 +634,7 @@ namespace g_DrawESP {
 
                 if (hasStructureFilter) {
                     std::string sName = Structure->GetDescriptiveName().ToString();
-                    if (sName.empty() || sName == "None") sName = "Structure";
+                    if (sName.empty() || sName == _XOR_("None").str()) sName = _XOR_(u8"Structure").str();
                     if (!g_Util::IsStructureMatchMulti(sName, rawStructFilter)) {
                         entry.targetAlpha = 0.0f;
                         entry.aliveThisFrame = false;
@@ -672,7 +673,7 @@ namespace g_DrawESP {
                 }
 
                 std::string sName = Structure->GetDescriptiveName().ToString();
-                if (sName.empty() || sName == "None") sName = "Structure";
+                if (sName.empty() || sName == _XOR_("None").str()) sName = _XOR_(u8"Structure").str();
 
                 const float curHP = Structure->Health;
                 const float maxHP = Structure->MaxHealth;
@@ -685,13 +686,13 @@ namespace g_DrawESP {
                 const Shadow::Color hpColor = GetHealthColorLinear(healthPct, sColMax, sColMin);
 
                 std::string owner = Structure->OwnerName.ToString();
-                std::string ownerStf = (owner.empty() || owner == "None") ? "" : " [" + owner + "]";
+                std::string ownerStf = (owner.empty() || owner == _XOR_("None").str()) ? "" : _XOR_(" [").str() + owner + _XOR_("]").str();
 
                 entry.flags.clear();
                 entry.bars.clear();
 
                 entry.flags.push_back({
-                    "[" + sName + "]" + std::move(ownerStf) + " [" + std::to_string(hpPctInt) + "%] (" + std::to_string((int)dist) + "m" + ")",
+                    _XOR_("[").str() + sName + _XOR_("]").str() + std::move(ownerStf) + _XOR_(" [").str() + std::to_string(hpPctInt) + _XOR_("%] (").str() + std::to_string((int)dist) + _XOR_("m").str() + _XOR_(")").str(),
                     hpColor,
                     g_ESP::FlagPos::Right
                     });
@@ -733,7 +734,7 @@ namespace g_DrawESP {
             const Shadow::Color waterColor = Shadow::Color{ g_Config::WaterNameColor[0], g_Config::WaterNameColor[1], g_Config::WaterNameColor[2], g_Config::WaterNameColor[3] };
             const Shadow::Color waterDistColor = Shadow::Color{ g_Config::WaterDistanceColor[0], g_Config::WaterDistanceColor[1], g_Config::WaterDistanceColor[2], g_Config::WaterDistanceColor[3] };
 
-            static const std::string kWaterLabel = SDK::FString(L"[ˮԴ").ToString();
+            static const std::string kWaterLabel =_XOR_(u8"[ˮԴ").str();
 
             for (int wi = 0; wi < showCount; wi++) {
                 const WaterCandidate& wc = waterCandidates[wi];
@@ -756,7 +757,7 @@ namespace g_DrawESP {
 
                         wEntry.flags.clear();
                         wEntry.bars.clear();
-                        wEntry.flags.push_back({ kWaterLabel + "] (" + std::to_string((int)wc.dist) + "m" + ")", waterColor, g_ESP::FlagPos::Right });
+                        wEntry.flags.push_back({ kWaterLabel + _XOR_("] (").str() + std::to_string((int)wc.dist) + _XOR_("m").str() + _XOR_(")").str(), waterColor, g_ESP::FlagPos::Right });
 
                         wEntry.shouldDrawBox = false;
                         wEntry.shouldDrawHealthBar = false;

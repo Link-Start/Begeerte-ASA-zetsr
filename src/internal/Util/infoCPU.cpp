@@ -2,6 +2,7 @@
 #include <windows.h>
 #include <pdh.h>
 #include <pdhmsg.h>
+#include "../../XorStr.h"
 
 // 链接 PDH 库
 #pragma comment(lib, "pdh.lib")
@@ -23,11 +24,11 @@ namespace g_infoCPU {
             }
 
             // 1. 使用率计数器
-            PDH_STATUS s1 = PdhAddCounter(cpuQuery, L"\\Processor Information(_Total)\\% Processor Utility", NULL, &usageCounter);
+            PDH_STATUS s1 = PdhAddCounter(cpuQuery, _XOR_(L"\\Processor Information(_Total)\\% Processor Utility").crypt(), NULL, &usageCounter);
             // 2. 基准频率计数器
-            PDH_STATUS s2 = PdhAddCounter(cpuQuery, L"\\Processor Information(_Total)\\Processor Frequency", NULL, &baseFreqCounter);
+            PDH_STATUS s2 = PdhAddCounter(cpuQuery, _XOR_(L"\\Processor Information(_Total)\\Processor Frequency").crypt(), NULL, &baseFreqCounter);
             // 3. 性能百分比计数器 (用于计算动态加速/睿频)
-            PDH_STATUS s3 = PdhAddCounter(cpuQuery, L"\\Processor Information(_Total)\\% Processor Performance", NULL, &percPerfCounter);
+            PDH_STATUS s3 = PdhAddCounter(cpuQuery, _XOR_(L"\\Processor Information(_Total)\\% Processor Performance").crypt(), NULL, &percPerfCounter);
 
             if (s1 != ERROR_SUCCESS || s2 != ERROR_SUCCESS || s3 != ERROR_SUCCESS) {
                 return false;

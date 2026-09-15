@@ -5,6 +5,7 @@
 #include "../../external/CppSDK/SDK.hpp"
 #include "../../external/Shadow-Gui/include/Shadow.h"
 #include "../Config/Configs.h"
+#include "../../XorStr.h"
 #include <cmath>
 #include <algorithm>
 #include <string>
@@ -68,13 +69,13 @@ namespace g_Util {
     __forceinline bool IsCookedMeat(SDK::UPrimalItem* Item) {
         if (!Item || !Item->Class) return false;
         std::string name = Item->Class->GetName();
-        return name.find("PrimalItemConsumable_CookedMeat") != std::string::npos;
+        return strstr(name.c_str(), _XOR_("PrimalItemConsumable_CookedMeat").crypt()) != nullptr;
     }
 
     __forceinline bool IsRawMeat(SDK::UPrimalItem* Item) {
         if (!Item || !Item->Class) return false;
         std::string name = Item->Class->GetName();
-        return name.find("PrimalItemConsumable_RawMeat") != std::string::npos;
+        return strstr(name.c_str(), _XOR_("PrimalItemConsumable_RawMeat").crypt()) != nullptr;
     }
 
     __forceinline bool IsEntityMatch(std::string displayName, std::string filter) {
@@ -239,7 +240,7 @@ namespace g_Util {
     __forceinline static std::string IntToStr(int v)
     {
         char buf[32];
-        snprintf(buf, sizeof(buf), "%d", v);
+        snprintf(buf, sizeof(buf), _XOR_("%d").crypt(), v);
         return buf; // NRVO / SSO，比 std::to_string 开销低
     }
 
@@ -256,62 +257,62 @@ namespace g_Util {
     {
         const char* cn = className.c_str();
 
-        if (strstr(cn, "PrimalItem_WeaponEmptyCryopod"))
+        if (strstr(cn, _XOR_("PrimalItem_WeaponEmptyCryopod").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemCryopodColor);
-        if (strstr(cn, "Egg"))
+        if (strstr(cn, _XOR_("Egg").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemEggColor);
         if (quantity >= 1000)
             return g_Util::GetU32Color(g_Config::DroppedItemPiledColor);
-        if (strstr(cn, "PrimalItemResource_FungalWood") || strstr(cn, "PrimalItemResource_Wood"))
+        if (strstr(cn, _XOR_("PrimalItemResource_FungalWood").crypt()) || strstr(cn, _XOR_("PrimalItemResource_Wood").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemWoodColor);
-        if (strstr(cn, "PrimalItemResource_Thatch"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Thatch").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemThatchColor);
-        if (strstr(cn, "PrimalItemResource_Hide"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Hide").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemHideColor);
-        if (strstr(cn, "PrimalItemResource_Pelt"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Pelt").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemPeltColor);
-        if (strstr(cn, "PrimalItemResource_Keratin"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Keratin").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemKeratinColor);
-        if (strstr(cn, "PrimalItemResource_Chitin"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Chitin").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemChitinColor);
-        if (strstr(cn, "PrimalItemResource_CorruptedPolymer"))
+        if (strstr(cn, _XOR_("PrimalItemResource_CorruptedPolymer").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemCorruptedPolymerColor);
-        if (strstr(cn, "PrimalItemResource_Polymer_Organic"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Polymer_Organic").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemPolymer_OrganicColor);
-        if (strstr(cn, "PrimalItemResource_Polymer"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Polymer").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemPolymerColor);
-        if (strstr(cn, "PrimalItemResource_ScrapMetalIngot") ||
-            strstr(cn, "PrimalItemResource_MetalIngot") ||
-            strstr(cn, "PrimalItemResource_ScrapMetal") ||
-            strstr(cn, "PrimalItemResource_Metal"))
+        if (strstr(cn, _XOR_("PrimalItemResource_ScrapMetalIngot").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemResource_MetalIngot").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemResource_ScrapMetal").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemResource_Metal").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemMetalColor);
-        if (strstr(cn, "PrimalItemResource_Stone"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Stone").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemStoneColor);
-        if (strstr(cn, "PrimalItemResource_Crystal"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Crystal").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemCrystalColor);
-        if (strstr(cn, "PrimalItemResource_Gem_Fertile") ||
-            strstr(cn, "PrimalItemResource_Gem_BioLum") ||
-            strstr(cn, "PrimalItemResource_Gem_Element") ||
-            strstr(cn, "PrimalItemResource_BlueSap") ||
-            strstr(cn, "PrimalItemResource_RedSap"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Gem_Fertile").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemResource_Gem_BioLum").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemResource_Gem_Element").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemResource_BlueSap").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemResource_RedSap").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemGemColor);
-        if (strstr(cn, "PrimalItemResource_Silicon") ||
-            strstr(cn, "PrimalItemResource_BlackPearl"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Silicon").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemResource_BlackPearl").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemPearlColor);
-        if (strstr(cn, "PrimalItemConsumable_SpoiledMeat"))
+        if (strstr(cn, _XOR_("PrimalItemConsumable_SpoiledMeat").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemSpoiledMeatColor);
-        if (strstr(cn, "PrimalItemConsumable_RawMeat") ||
-            strstr(cn, "PrimalItemConsumable_RawPrimeMeat") ||
-            strstr(cn, "PrimalItemConsumable_RawMutton") ||
-            strstr(cn, "PrimalItemConsumable_RawPrimeMeat_Fish") ||
-            strstr(cn, "PrimalItemConsumable_RawMeat_Fish") ||
-            strstr(cn, "PrimalItemConsumable_CookedMeat") ||
-            strstr(cn, "PrimalItemConsumable_CookedPrimeMeat") ||
-            strstr(cn, "PrimalItemConsumable_CookedLambChop") ||
-            strstr(cn, "PrimalItemConsumable_CookedPrimeMeat_Fish") ||
-            strstr(cn, "PrimalItemConsumable_CookedMeat_Fish") ||
-            strstr(cn, "PrimalItemConsumable_CookedMeat_Jerky") ||
-            strstr(cn, "PrimalItemConsumable_CookedPrimeMeat_Jerky"))
+        if (strstr(cn, _XOR_("PrimalItemConsumable_RawMeat").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_RawPrimeMeat").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_RawMutton").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_RawPrimeMeat_Fish").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_RawMeat_Fish").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_CookedMeat").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_CookedPrimeMeat").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_CookedLambChop").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_CookedPrimeMeat_Fish").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_CookedMeat_Fish").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_CookedMeat_Jerky").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_CookedPrimeMeat_Jerky").crypt()))
             return g_Util::GetU32Color(g_Config::DroppedItemMeatColor);
 
         // 按品质评级上色
@@ -328,62 +329,62 @@ namespace g_Util {
     {
         const char* cn = className.c_str();
 
-        if (strstr(cn, "PrimalItem_WeaponEmptyCryopod"))
+        if (strstr(cn, _XOR_("PrimalItem_WeaponEmptyCryopod").crypt()))
             return g_Config::bDroppedItemCryopod;
-        if (strstr(cn, "Egg"))
+        if (strstr(cn, _XOR_("Egg").crypt()))
             return g_Config::bDroppedItemEgg;
         if (quantity >= 1000)
             return g_Config::bDroppedItemPiled;
-        if (strstr(cn, "PrimalItemResource_FungalWood") || strstr(cn, "PrimalItemResource_Wood"))
+        if (strstr(cn, _XOR_("PrimalItemResource_FungalWood").crypt()) || strstr(cn, _XOR_("PrimalItemResource_Wood").crypt()))
             return g_Config::bDroppedItemWood;
-        if (strstr(cn, "PrimalItemResource_Thatch"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Thatch").crypt()))
             return g_Config::bDroppedItemThatch;
-        if (strstr(cn, "PrimalItemResource_Hide"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Hide").crypt()))
             return g_Config::bDroppedItemHide;
-        if (strstr(cn, "PrimalItemResource_Pelt"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Pelt").crypt()))
             return g_Config::bDroppedItemPelt;
-        if (strstr(cn, "PrimalItemResource_Keratin"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Keratin").crypt()))
             return g_Config::bDroppedItemKeratin;
-        if (strstr(cn, "PrimalItemResource_Chitin"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Chitin").crypt()))
             return g_Config::bDroppedItemChitin;
-        if (strstr(cn, "PrimalItemResource_CorruptedPolymer"))
+        if (strstr(cn, _XOR_("PrimalItemResource_CorruptedPolymer").crypt()))
             return g_Config::bDroppedItemCorruptedPolymer;
-        if (strstr(cn, "PrimalItemResource_Polymer_Organic"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Polymer_Organic").crypt()))
             return g_Config::bDroppedItemPolymer_Organic;
-        if (strstr(cn, "PrimalItemResource_Polymer"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Polymer").crypt()))
             return g_Config::bDroppedItemPolymer;
-        if (strstr(cn, "PrimalItemResource_ScrapMetalIngot") ||
-            strstr(cn, "PrimalItemResource_MetalIngot") ||
-            strstr(cn, "PrimalItemResource_ScrapMetal") ||
-            strstr(cn, "PrimalItemResource_Metal"))
+        if (strstr(cn, _XOR_("PrimalItemResource_ScrapMetalIngot").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemResource_MetalIngot").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemResource_ScrapMetal").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemResource_Metal").crypt()))
             return g_Config::bDroppedItemMetal;
-        if (strstr(cn, "PrimalItemResource_Stone"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Stone").crypt()))
             return g_Config::bDroppedItemStone;
-        if (strstr(cn, "PrimalItemResource_Crystal"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Crystal").crypt()))
             return g_Config::bDroppedItemCrystal;
-        if (strstr(cn, "PrimalItemResource_Gem_Fertile") ||
-            strstr(cn, "PrimalItemResource_Gem_BioLum") ||
-            strstr(cn, "PrimalItemResource_Gem_Element") ||
-            strstr(cn, "PrimalItemResource_BlueSap") ||
-            strstr(cn, "PrimalItemResource_RedSap"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Gem_Fertile").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemResource_Gem_BioLum").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemResource_Gem_Element").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemResource_BlueSap").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemResource_RedSap").crypt()))
             return g_Config::bDroppedItemGem;
-        if (strstr(cn, "PrimalItemResource_Silicon") ||
-            strstr(cn, "PrimalItemResource_BlackPearl"))
+        if (strstr(cn, _XOR_("PrimalItemResource_Silicon").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemResource_BlackPearl").crypt()))
             return g_Config::bDroppedItemPearl;
-        if (strstr(cn, "PrimalItemConsumable_SpoiledMeat"))
+        if (strstr(cn, _XOR_("PrimalItemConsumable_SpoiledMeat").crypt()))
             return g_Config::bDroppedItemSpoiledMeat;
-        if (strstr(cn, "PrimalItemConsumable_RawMeat") ||
-            strstr(cn, "PrimalItemConsumable_RawPrimeMeat") ||
-            strstr(cn, "PrimalItemConsumable_RawMutton") ||
-            strstr(cn, "PrimalItemConsumable_RawPrimeMeat_Fish") ||
-            strstr(cn, "PrimalItemConsumable_RawMeat_Fish") ||
-            strstr(cn, "PrimalItemConsumable_CookedMeat") ||
-            strstr(cn, "PrimalItemConsumable_CookedPrimeMeat") ||
-            strstr(cn, "PrimalItemConsumable_CookedLambChop") ||
-            strstr(cn, "PrimalItemConsumable_CookedPrimeMeat_Fish") ||
-            strstr(cn, "PrimalItemConsumable_CookedMeat_Fish") ||
-            strstr(cn, "PrimalItemConsumable_CookedMeat_Jerky") ||
-            strstr(cn, "PrimalItemConsumable_CookedPrimeMeat_Jerky"))
+        if (strstr(cn, _XOR_("PrimalItemConsumable_RawMeat").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_RawPrimeMeat").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_RawMutton").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_RawPrimeMeat_Fish").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_RawMeat_Fish").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_CookedMeat").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_CookedPrimeMeat").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_CookedLambChop").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_CookedPrimeMeat_Fish").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_CookedMeat_Fish").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_CookedMeat_Jerky").crypt()) ||
+            strstr(cn, _XOR_("PrimalItemConsumable_CookedPrimeMeat_Jerky").crypt()))
             return g_Config::bDroppedItemMeat;
 
         // 如果没有被上述特定分类命中，默认允许绘制（例如武器、装备等普通物品）
@@ -436,82 +437,82 @@ namespace g_Util {
             SDK::UKismetSystemLibrary::ExecuteConsoleCommand(WorldContextObject, SDK::FString(Cmd), nullptr);
             };
 
-        Exec(L"r.TemporalAA.Upsampling 1");     // 开启 TAA 时空抗锯齿超采样 (提高边缘平滑度与画面重建质量)
-        Exec(L"r.AntiAliasingMethod 2");        // 将抗锯齿算法切换为 TAA (0 = 关闭, 1 = FXAA, 2 = TAA, 3 = TSR)
-        Exec(L"r.SkeletalMeshLODBias 2");       // 骨骼网格体 (如角色、生物模型) 细节等级偏移，强行降低模型面数以提升性能
-        Exec(L"r.MaterialQualityLevel 0");      // 将全局材质质量设为最低级 (0 = Low, 1 = Medium, 2 = High)，简化复杂材质计算
-        Exec(L"r.SubsurfaceScattering 0");      // 禁用次表面散射 (SSS) 特效，关闭皮肤、树叶等透光与漫射计算
-        Exec(L"r.ParticleLODBias 5");           // 粒子系统细节等级偏移，大幅简化或远距离隐藏烟雾、火花等粒子特效
-        Exec(L"p.ClothPhysics 0");              // 禁用服装与布料物理模拟 (如斗篷、装备披风)，降低 CPU 物理计算负担
-        Exec(L"r.DisableDistortion 1");         // 禁用画面扭曲效果 (如爆炸热浪、水下波纹等折射特效)
+        Exec(_XOR_(L"r.TemporalAA.Upsampling 1").crypt());     // 开启 TAA 时空抗锯齿超采样 (提高边缘平滑度与画面重建质量)
+        Exec(_XOR_(L"r.AntiAliasingMethod 2").crypt());        // 将抗锯齿算法切换为 TAA (0 = 关闭, 1 = FXAA, 2 = TAA, 3 = TSR)
+        Exec(_XOR_(L"r.SkeletalMeshLODBias 2").crypt());       // 骨骼网格体 (如角色、生物模型) 细节等级偏移，强行降低模型面数以提升性能
+        Exec(_XOR_(L"r.MaterialQualityLevel 0").crypt());      // 将全局材质质量设为最低级 (0 = Low, 1 = Medium, 2 = High)，简化复杂材质计算
+        Exec(_XOR_(L"r.SubsurfaceScattering 0").crypt());      // 禁用次表面散射 (SSS) 特效，关闭皮肤、树叶等透光与漫射计算
+        Exec(_XOR_(L"r.ParticleLODBias 5").crypt());           // 粒子系统细节等级偏移，大幅简化或远距离隐藏烟雾、火花等粒子特效
+        Exec(_XOR_(L"p.ClothPhysics 0").crypt());              // 禁用服装与布料物理模拟 (如斗篷、装备披风)，降低 CPU 物理计算负担
+        Exec(_XOR_(L"r.DisableDistortion 1").crypt());         // 禁用画面扭曲效果 (如爆炸热浪、水下波纹等折射特效)
 
         // 1. 阴影
-        Exec(L"r.ShadowQuality 0");                     // 关闭通用阴影质量级别 (0 = Off/Lowest)
-        Exec(L"r.Shadow.MaxResolution 0");              // 阴影贴图最大分辨率设为 0，禁用阴影纹理生成
-        Exec(L"r.Shadow.DistanceScale 0");              // 阴影渲染渲染距离归零，超出 0 距离不再渲染阴影
-        Exec(L"r.Shadow.CSM.MaxCascades 0");            // 级联阴影 (CSM) 层级设为 0，关闭级联动态阴影
-        Exec(L"r.Shadow.Virtual.Enable 0");             // 禁用 UE5 虚拟阴影贴图 (Virtual Shadow Maps / VSM)
-        Exec(L"r.DistanceFieldShadowing 0");            // 禁用网格体距离场阴影 (Distance Field Shadows)
-        Exec(L"r.ContactShadows 0");                    // 禁用屏幕空间接触阴影 (Contact Shadows)
-        Exec(L"grass.DisableDynamicShadows 1");         // 强制禁用草地与细小植被的动态投射阴影
+        Exec(_XOR_(L"r.ShadowQuality 0").crypt());                     // 关闭通用阴影质量级别 (0 = Off/Lowest)
+        Exec(_XOR_(L"r.Shadow.MaxResolution 0").crypt());              // 阴影贴图最大分辨率设为 0，禁用阴影纹理生成
+        Exec(_XOR_(L"r.Shadow.DistanceScale 0").crypt());              // 阴影渲染渲染距离归零，超出 0 距离不再渲染阴影
+        Exec(_XOR_(L"r.Shadow.CSM.MaxCascades 0").crypt());            // 级联阴影 (CSM) 层级设为 0，关闭级联动态阴影
+        Exec(_XOR_(L"r.Shadow.Virtual.Enable 0").crypt());             // 禁用 UE5 虚拟阴影贴图 (Virtual Shadow Maps / VSM)
+        Exec(_XOR_(L"r.DistanceFieldShadowing 0").crypt());            // 禁用网格体距离场阴影 (Distance Field Shadows)
+        Exec(_XOR_(L"r.ContactShadows 0").crypt());                    // 禁用屏幕空间接触阴影 (Contact Shadows)
+        Exec(_XOR_(L"grass.DisableDynamicShadows 1").crypt());         // 强制禁用草地与细小植被的动态投射阴影
 
         // 2. 光照
-        Exec(L"r.LightFunctionQuality 0");              // 禁用灯光函数 (Light Function) 材质特效
-        Exec(L"r.DynamicGlobalIlluminationMethod 0");   // 关掉水会闪烁
-        Exec(L"r.LightShaftQuality 0");                 // 禁用光轴与体积光斑 (丁达尔效应/Light Shafts)
+        Exec(_XOR_(L"r.LightFunctionQuality 0").crypt());              // 禁用灯光函数 (Light Function) 材质特效
+        Exec(_XOR_(L"r.DynamicGlobalIlluminationMethod 0").crypt());   // 关掉水会闪烁
+        Exec(_XOR_(L"r.LightShaftQuality 0").crypt());                 // 禁用光轴与体积光斑 (丁达尔效应/Light Shafts)
 
-        Exec(L"r.LightMaxDrawDistanceScale 1");         //  不要光源最大绘制距离倍率
+        Exec(_XOR_(L"r.LightMaxDrawDistanceScale 1").crypt());         //  不要光源最大绘制距离倍率
 
-        Exec(L"r.SkylightIntensityMultiplier 5");       // 天光
-        Exec(L"r.Lumen.ScreenProbeGather.ScreenTraces 0"); // 禁用 Lumen 屏幕空间光线追踪探测
-        Exec(L"r.Lumen.ScreenProbeGather.RadianceCache.ProbeResolution 16"); // 将 Radiance Cache 探针分辨率降至最低 (16)
+        Exec(_XOR_(L"r.SkylightIntensityMultiplier 5").crypt());       // 天光
+        Exec(_XOR_(L"r.Lumen.ScreenProbeGather.ScreenTraces 0").crypt()); // 禁用 Lumen 屏幕空间光线追踪探测
+        Exec(_XOR_(L"r.Lumen.ScreenProbeGather.RadianceCache.ProbeResolution 16").crypt()); // 将 Radiance Cache 探针分辨率降至最低 (16)
 
         // 3. 反射
-        Exec(L"r.ReflectionEnvironment 0");             // 反射环境
-        Exec(L"r.SSR.Quality 0");                       // 禁用屏幕空间反射 (Screen Space Reflections)
-        Exec(L"r.Lumen.Reflections.Allow 0");           // 禁用 Lumen 动态高精度反射
-        Exec(L"r.Lumen.Reflections.Contrast 0");        // 将 Lumen 反射对比度归零，降低计算复杂度
-        Exec(L"r.MinRoughnessOverride 1");              // 强制所有材质粗糙度设为最大值 1.0 (消除光滑高光与反射)
+        Exec(_XOR_(L"r.ReflectionEnvironment 0").crypt());             // 反射环境
+        Exec(_XOR_(L"r.SSR.Quality 0").crypt());                       // 禁用屏幕空间反射 (Screen Space Reflections)
+        Exec(_XOR_(L"r.Lumen.Reflections.Allow 0").crypt());           // 禁用 Lumen 动态高精度反射
+        Exec(_XOR_(L"r.Lumen.Reflections.Contrast 0").crypt());        // 将 Lumen 反射对比度归零，降低计算复杂度
+        Exec(_XOR_(L"r.MinRoughnessOverride 1").crypt());              // 强制所有材质粗糙度设为最大值 1.0 (消除光滑高光与反射)
 
         // 4. 植被
-        Exec(L"foliage.DensityScale 0");                // 植被生成密度归零 (隐藏大部分渲染植被)
-        Exec(L"foliage.LODDistanceScale 0");            // 植被 LOD 距离比例归零 (强制使用最低面数模型)
-        Exec(L"grass.DensityScale 0");                  // 草地生成密度归零 (隐藏地表小草)
-        Exec(L"grass.SizeScale 0");                     // 草地渲染尺寸归零
-        Exec(L"r.Foliage.WPODisableMultiplier 1");      // 禁用植被的世界位置偏移 (WPO / 风吹风动动画)
-        Exec(L"r.Foliage.AutoBoundsWPODisableMax 1");   // 自动关闭远距离植被的动画计算
-        Exec(L"r.Nanite.MaxPixelsPerEdge 10");          // 极简化 Nanite 几何体 (增加每条边的像素网格大小以降低几何面数)
-        Exec(L"wp.Runtime.HLOD.ForceDisable 1");        // 强制禁用世界分区 (World Partition) 远景 HLOD 生成
+        Exec(_XOR_(L"foliage.DensityScale 0").crypt());                // 植被生成密度归零 (隐藏大部分渲染植被)
+        Exec(_XOR_(L"foliage.LODDistanceScale 0").crypt());            // 植被 LOD 距离比例归零 (强制使用最低面数模型)
+        Exec(_XOR_(L"grass.DensityScale 0").crypt());                  // 草地生成密度归零 (隐藏地表小草)
+        Exec(_XOR_(L"grass.SizeScale 0").crypt());                     // 草地渲染尺寸归零
+        Exec(_XOR_(L"r.Foliage.WPODisableMultiplier 1").crypt());      // 禁用植被的世界位置偏移 (WPO / 风吹风动动画)
+        Exec(_XOR_(L"r.Foliage.AutoBoundsWPODisableMax 1").crypt());   // 自动关闭远距离植被的动画计算
+        Exec(_XOR_(L"r.Nanite.MaxPixelsPerEdge 10").crypt());          // 极简化 Nanite 几何体 (增加每条边的像素网格大小以降低几何面数)
+        Exec(_XOR_(L"wp.Runtime.HLOD.ForceDisable 1").crypt());        // 强制禁用世界分区 (World Partition) 远景 HLOD 生成
 
         // 5. 后处理
-        Exec(L"r.BloomQuality 0");                      // 禁用辉光/泛光 (Bloom) 特效
-        Exec(L"r.DepthOfFieldQuality 0");               // 禁用景深 (Depth of Field) 模糊效果
-        Exec(L"r.MotionBlurQuality 0");                 // 禁用运动模糊 (Motion Blur) 采样质量
-        Exec(L"r.MotionBlur.Amount 0");                 // 将运动模糊强度设为 0
-        Exec(L"r.AmbientOcclusionLevels 0");            // 关闭环境光遮蔽 (AO / SSAO) 级别
-        Exec(L"r.AOOverwriteSceneColor 0");             // 为 1 会导致色彩搞砸
-        Exec(L"r.LensFlareQuality 0");                  // 禁用镜头光晕 (Lens Flare) 特效
-        Exec(L"fx.EnableNiagaraSpriteRendering 0");     // 禁用 Niagara 粒子系统的 Sprite 纹理渲染
-        Exec(L"ark.MaxActiveDestroyedMeshGeoCollectionCount 0"); // 禁用破碎网格体 (Geometry Collection) 物理碎片生成
-        Exec(L"r.EyeAdaptationQuality 0");              // 不要禁用曝光采样质量
+        Exec(_XOR_(L"r.BloomQuality 0").crypt());                      // 禁用辉光/泛光 (Bloom) 特效
+        Exec(_XOR_(L"r.DepthOfFieldQuality 0").crypt());               // 禁用景深 (Depth of Field) 模糊效果
+        Exec(_XOR_(L"r.MotionBlurQuality 0").crypt());                 // 禁用运动模糊 (Motion Blur) 采样质量
+        Exec(_XOR_(L"r.MotionBlur.Amount 0").crypt());                 // 将运动模糊强度设为 0
+        Exec(_XOR_(L"r.AmbientOcclusionLevels 0").crypt());            // 关闭环境光遮蔽 (AO / SSAO) 级别
+        Exec(_XOR_(L"r.AOOverwriteSceneColor 0").crypt());             // 为 1 会导致色彩搞砸
+        Exec(_XOR_(L"r.LensFlareQuality 0").crypt());                  // 禁用镜头光晕 (Lens Flare) 特效
+        Exec(_XOR_(L"fx.EnableNiagaraSpriteRendering 0").crypt());     // 禁用 Niagara 粒子系统的 Sprite 纹理渲染
+        Exec(_XOR_(L"ark.MaxActiveDestroyedMeshGeoCollectionCount 0").crypt()); // 禁用破碎网格体 (Geometry Collection) 物理碎片生成
+        Exec(_XOR_(L"r.EyeAdaptationQuality 0").crypt());              // 不要禁用曝光采样质量
 
         // 6. 大气
-        Exec(L"r.SkyAtmosphere 0");                     // 天空大气渲染
-        Exec(L"r.Fog 0");                               // 禁用通用场景雾效 (Height Fog)
-        Exec(L"r.VolumetricFog 0");                     // 禁用体积雾 (Volumetric Fog) 高消耗渲染
-        Exec(L"r.VolumetricCloud 0");                   // 禁用 UE5 3D 动态体积云 (Volumetric Cloud)
+        Exec(_XOR_(L"r.SkyAtmosphere 0").crypt());                     // 天空大气渲染
+        Exec(_XOR_(L"r.Fog 0").crypt());                               // 禁用通用场景雾效 (Height Fog)
+        Exec(_XOR_(L"r.VolumetricFog 0").crypt());                     // 禁用体积雾 (Volumetric Fog) 高消耗渲染
+        Exec(_XOR_(L"r.VolumetricCloud 0").crypt());                   // 禁用 UE5 3D 动态体积云 (Volumetric Cloud)
 
         // 7. 材质
-        Exec(L"r.MipMapLODBias 0");                     // 纹理 MipMap 偏移 (设为 0 保持正常贴图，若需贴图极糊可改大如 3~5)
-        Exec(L"r.EmitterSpawnRateScale 0");             // 传统级联粒子 (Cascade Particle) 生成速率归零
-        Exec(L"r.ParticleLODBias 10");                  // 强制粒子系统使用最低细节级别 (LOD)
-        Exec(L"r.TranslucencyVolumeBlur 0");            // 禁用半透明体积模糊计算
-        Exec(L"r.VT.EnableFeedback 0");                 // 禁用虚拟纹理 (Virtual Texture) 采样反馈机制
+        Exec(_XOR_(L"r.MipMapLODBias 0").crypt());                     // 纹理 MipMap 偏移 (设为 0 保持正常贴图，若需贴图极糊可改大如 3~5)
+        Exec(_XOR_(L"r.EmitterSpawnRateScale 0").crypt());             // 传统级联粒子 (Cascade Particle) 生成速率归零
+        Exec(_XOR_(L"r.ParticleLODBias 10").crypt());                  // 强制粒子系统使用最低细节级别 (LOD)
+        Exec(_XOR_(L"r.TranslucencyVolumeBlur 0").crypt());            // 禁用半透明体积模糊计算
+        Exec(_XOR_(L"r.VT.EnableFeedback 0").crypt());                 // 禁用虚拟纹理 (Virtual Texture) 采样反馈机制
 
         // 已经被flags关了
         // 8. 水体系统
-        // Exec(L"r.Water.SingleLayer 0");                 // 关闭单层水体 (Single Layer Water) 渲染管线
-        // Exec(L"r.Water.SingleLayer.Reflection 0");      // 关闭水面反射计算
+        // Exec(_XOR_(L"r.Water.SingleLayer 0").crypt());                 // 关闭单层水体 (Single Layer Water) 渲染管线
+        // Exec(_XOR_(L"r.Water.SingleLayer.Reflection 0").crypt());      // 关闭水面反射计算
     }
 
     __forceinline bool Welcome(SDK::UWorld* World, SDK::UCanvas* Canvas)
@@ -709,7 +710,7 @@ namespace g_Util {
         static SDK::UFont* OpenSansRegular12 = nullptr;
 
         if (!OpenSansRegular12) {
-            SDK::UObject* _Font = SDK::UObject::FindObject("Font OpenSansRegular12.OpenSansRegular12");
+            SDK::UObject* _Font = SDK::UObject::FindObject(_XOR_("Font OpenSansRegular12.OpenSansRegular12").str());
             if (_Font && _Font->IsA(SDK::UFont::StaticClass())) OpenSansRegular12 = (SDK::UFont*)_Font;
         }
 
@@ -720,7 +721,7 @@ namespace g_Util {
         static SDK::UFont* SansationBold18 = nullptr;
 
         if (!SansationBold18) {
-            SDK::UObject* _Font = SDK::UObject::FindObject("Font SansationBold18.SansationBold18");
+            SDK::UObject* _Font = SDK::UObject::FindObject(_XOR_("Font SansationBold18.SansationBold18").str());
             if (_Font && _Font->IsA(SDK::UFont::StaticClass())) SansationBold18 = (SDK::UFont*)_Font;
         }
 
@@ -802,7 +803,7 @@ namespace g_Util {
         }
     }
 
-    static __forceinline bool HasCommandLineArg(std::wstring_view targetArg) noexcept {
+    static __forceinline bool HasCommandLineArg(std::wstring targetArg) noexcept {
         struct CmdCache {
             int argc = 0;
             LPWSTR* argv = nullptr;

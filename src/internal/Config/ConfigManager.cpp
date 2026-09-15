@@ -2,6 +2,7 @@
 #include "Configs.h"
 #include <regex>
 #include <unordered_set>
+#include "../../XorStr.h"
 
 void ConfigManager::Initialize(const std::string& configDir) {
     if (configDir.empty()) return;
@@ -38,7 +39,7 @@ void ConfigManager::RefreshFileList() {
     fs::directory_iterator dirIt(dirPath, ec);
     if (!ec) {
         for (const auto& entry : dirIt) {
-            if (entry.is_regular_file(ec) && entry.path().extension() == ".ini") {
+            if (entry.is_regular_file(ec) && entry.path().extension() == _XOR_(".ini").str()) {
                 fs::path fullPath = fs::absolute(entry.path(), ec);
                 if (!ec) {
                     currentFiles.insert(std::move(fullPath));
@@ -69,7 +70,7 @@ void ConfigManager::RefreshFileList() {
 
 bool ConfigManager::IsValidConfigName(const std::string& name) {
     if (name.empty() || name.length() > 16) return false;
-    std::regex validPattern("^[a-zA-Z0-9_-]+$");
+    std::regex validPattern(_XOR_("^[a-zA-Z0-9_-]+$").str());
     if (!std::regex_match(name, validPattern)) return false;
     if (name[0] == '.') return false;
 
@@ -80,13 +81,13 @@ bool ConfigManager::CreateConfig(const std::string& name) {
     if (!IsValidConfigName(name)) return false;
 
     try {
-        fs::path configPath = fs::path(m_configDir) / (name + ".ini");
+        fs::path configPath = fs::path(m_configDir) / (name + _XOR_(".ini").str());
         if (fs::exists(configPath)) return false;
         std::ofstream file(configPath);
         if (!file.is_open()) return false;
 
-        file << "# Configuration File: " << name << "\n";
-        file << "# Auto-generated\n\n";
+        file << _XOR_("# Configuration File: ").str() << name << "\n";
+        file << _XOR_("# Auto-generated\n\n").str();
         file.close();
 
         RefreshFileList();
@@ -103,16 +104,16 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
         std::ofstream file(configPath);
         if (!file.is_open()) return false;
 
-        file << "# Configuration File\n";
-        file << "# Format: key=value\n\n";
+        file << _XOR_("# Configuration File\n").str();
+        file << _XOR_("# Format: key=value\n\n").str();
 
         // 菜单功能
-        file << "[Menu]\n";
+        file << _XOR_("[Menu]\n").str();
         CONFIG_COLOR(g_Config::MenuColor);
         file << "\n";
 
         // 其他功能
-        file << "[Misc]\n";
+        file << _XOR_("[Misc]\n").str();
         CONFIG_BOOL(g_Config::bAutoFeed);
         CONFIG_BOOL(g_Config::bSuperFlyer);
         // 由于船只的角度会在开启此功能后在不经意间导致角度怪异，所以最好不要保存此配置
@@ -134,24 +135,24 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
         file << "\n";
 
         // 生物列表
-        file << "[EntityList]\n";
+        file << _XOR_("[EntityList]\n").str();
         CONFIG_STRING(g_Config::entitySearchBuf, 256);
         CONFIG_BOOL(g_Config::bEnableFilter);
         file << "\n";
 
         // 建筑列表
-        file << "[StructureList]\n";
+        file << _XOR_("[StructureList]\n").str();
         CONFIG_STRING(g_Config::structureSearchBuf, 256);
         CONFIG_BOOL(g_Config::bEnableStructureFilter);
         file << "\n";
 
         // 物品列表
-        file << "[ItemList]\n";
+        file << _XOR_("[ItemList]\n").str();
         CONFIG_STRING(g_Config::itemSearchBuf, 256);
         file << "\n";
 
         // 自瞄
-        file << "[Aimbot]\n";
+        file << _XOR_("[Aimbot]\n").str();
         CONFIG_BOOL(g_Config::bAimbotEnabled);
         CONFIG_FLOAT(g_Config::AimbotFOV);
         CONFIG_FLOAT(g_Config::AimbotSmooth);
@@ -160,7 +161,7 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
         file << "\n";
 
         // 扳机
-        file << "[Triggerbot]\n";
+        file << _XOR_("[Triggerbot]\n").str();
         CONFIG_BOOL(g_Config::bTriggerbotEnabled);
         CONFIG_FLOAT(g_Config::TriggerDelay);
         CONFIG_FLOAT(g_Config::TriggerRandomPercent);
@@ -168,7 +169,7 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
         file << "\n";
 
         // 掉落物
-        file << "[DroppedItems]\n";
+        file << _XOR_("[DroppedItems]\n").str();
         CONFIG_BOOL(g_Config::bDrawDroppedItems);
         CONFIG_FLOAT(g_Config::DroppedItemMaxDistance);
         CONFIG_COLOR(g_Config::DroppedItemNameColor);
@@ -216,13 +217,13 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
         file << "\n";
 
         // 宝箱
-        file << "[SupplyDrops]\n";
+        file << _XOR_("[SupplyDrops]\n").str();
         CONFIG_BOOL(g_Config::bDrawSupplyDrops);
         CONFIG_FLOAT(g_Config::SupplyDropMaxDistance);
         file << "\n";
 
         // 建筑
-        file << "[Structures]\n";
+        file << _XOR_("[Structures]\n").str();
         CONFIG_BOOL(g_Config::bDrawStructures);
         CONFIG_BOOL(g_Config::bOnlyDrawStructuresEnemy);
         CONFIG_FLOAT(g_Config::StructureMaxDistance);
@@ -240,7 +241,7 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
         file << "\n";
 
         // 水源
-        file << "[Water]\n";
+        file << _XOR_("[Water]\n").str();
         CONFIG_BOOL(g_Config::bDrawWater);
         CONFIG_FLOAT(g_Config::WaterMaxDistance);
         CONFIG_COLOR(g_Config::WaterNameColor);
@@ -248,7 +249,7 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
         file << "\n";
 
         // 全局
-        file << "[Global]\n";
+        file << _XOR_("[Global]\n").str();
         CONFIG_BOOL(g_Config::bESPEnabled);
         CONFIG_INT(g_Config::ESPScaleIdx);
         // CONFIG_FLOAT(g_Config::ESPScale);
@@ -288,7 +289,7 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
         file << "\n";
 
         // 队友
-        file << "[Team]\n";
+        file << _XOR_("[Team]\n").str();
         CONFIG_BOOL(g_Config::bESPTeamEnabled);
 
         CONFIG_BOOL(g_Config::bDrawBoxTeam);
@@ -322,7 +323,7 @@ bool ConfigManager::SaveConfig(const std::string& filename) {
         file << "\n";
 
         // OOF
-        file << "[OOF]\n";
+        file << _XOR_("[OOF]\n").str();
         CONFIG_BOOL(g_Config::bEnableOOF);
         CONFIG_COLOR(g_Config::OOFColor);
         CONFIG_FLOAT(g_Config::OOFRadius);
@@ -595,11 +596,11 @@ bool ConfigManager::ReadValue(const std::string& value, bool& out) {
     std::string lower = value;
     std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
 
-    if (lower == "true" || lower == "1") {
+    if (lower == _XOR_("true").str() || lower == _XOR_("1").str()) {
         out = true;
         return true;
     }
-    else if (lower == "false" || lower == "0") {
+    else if (lower == _XOR_("false").str() || lower == _XOR_("0").str()) {
         out = false;
         return true;
     }

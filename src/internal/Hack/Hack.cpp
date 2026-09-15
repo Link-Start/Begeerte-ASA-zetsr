@@ -3,6 +3,7 @@
 #include "../Util/Util.h"
 #include "../Log/LogManager.h"
 #include "../CheatData/CheatCache.hpp"
+#include "../../XorStr.h"
 #include "Hack.h"
 
 namespace g_Hack {
@@ -12,7 +13,7 @@ namespace g_Hack {
     void DumpServerInfo() {
         SDK::UWorld* World = CheatCache::Tick::World;
         if (!World || !World->NetDriver || !World->NetDriver->ServerConnection) {
-            g_LogManager::AddLog(255, 50, 55, 255, "当前不在服务器内");
+            g_LogManager::AddLog(255, 50, 55, 255, _XOR_("当前不在服务器内").str());
             return;
         }
 

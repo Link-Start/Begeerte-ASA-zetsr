@@ -3,6 +3,8 @@
 
 #include "../MinHook/include/MinHook.h"
 
+#include "../../../XorStr.h"
+
 #pragma warning(push)
 #pragma warning(disable: 26451)
 #pragma warning(disable: 26812)
@@ -116,16 +118,16 @@ namespace g_MDX12 {
         }
 
         void Init() {
-            HMODULE user32 = GetModuleHandleA("user32.dll");
+            HMODULE user32 = GetModuleHandleA(_XOR_("user32.dll").c_str());
             if (!user32) return;
 
-            FARPROC getCursorPosAddr = GetProcAddress(user32, "GetCursorPos");
-            FARPROC setCursorPosAddr = GetProcAddress(user32, "SetCursorPos");
-            FARPROC setCursorAddr = GetProcAddress(user32, "SetCursor");
-            FARPROC showCursorAddr = GetProcAddress(user32, "ShowCursor");
-            FARPROC clipCursorAddr = GetProcAddress(user32, "ClipCursor");
-            FARPROC getMouseMovePointsExAddr = GetProcAddress(user32, "GetMouseMovePointsEx");
-            FARPROC getClipCursorAddr = GetProcAddress(user32, "GetClipCursor");
+            FARPROC getCursorPosAddr = GetProcAddress(user32, _XOR_("GetCursorPos").c_str());
+            FARPROC setCursorPosAddr = GetProcAddress(user32, _XOR_("SetCursorPos").c_str());
+            FARPROC setCursorAddr = GetProcAddress(user32, _XOR_("SetCursor").c_str());
+            FARPROC showCursorAddr = GetProcAddress(user32, _XOR_("ShowCursor").c_str());
+            FARPROC clipCursorAddr = GetProcAddress(user32, _XOR_("ClipCursor").c_str());
+            FARPROC getMouseMovePointsExAddr = GetProcAddress(user32, _XOR_("GetMouseMovePointsEx").c_str());
+            FARPROC getClipCursorAddr = GetProcAddress(user32, _XOR_("GetClipCursor").c_str()); 
 
             if (getCursorPosAddr) {
                 MH_CreateHook(getCursorPosAddr, reinterpret_cast<LPVOID>(hkGetCursorPos), reinterpret_cast<LPVOID*>(&g_HookFunctions::g_oGetCursorPos));
@@ -169,15 +171,15 @@ namespace g_MDX12 {
         void Remove() {
             if (!g_initialized) return;
 
-            HMODULE user32 = GetModuleHandleA("user32.dll");
+            HMODULE user32 = GetModuleHandleA(_XOR_("user32.dll").c_str());
             if (!user32) return;
 
-            FARPROC getCursorPosAddr = GetProcAddress(user32, "GetCursorPos");
-            FARPROC setCursorPosAddr = GetProcAddress(user32, "SetCursorPos");
-            FARPROC setCursorAddr = GetProcAddress(user32, "SetCursor");
-            FARPROC showCursorAddr = GetProcAddress(user32, "ShowCursor");
-            FARPROC clipCursorAddr = GetProcAddress(user32, "ClipCursor");
-            FARPROC getMouseMovePointsExAddr = GetProcAddress(user32, "GetMouseMovePointsEx");
+            FARPROC getCursorPosAddr = GetProcAddress(user32, _XOR_("GetCursorPos").c_str());
+            FARPROC setCursorPosAddr = GetProcAddress(user32, _XOR_("SetCursorPos").c_str());
+            FARPROC setCursorAddr = GetProcAddress(user32, _XOR_("SetCursor").c_str());
+            FARPROC showCursorAddr = GetProcAddress(user32, _XOR_("ShowCursor").c_str());
+            FARPROC clipCursorAddr = GetProcAddress(user32, _XOR_("ClipCursor").c_str());
+            FARPROC getMouseMovePointsExAddr = GetProcAddress(user32, _XOR_("GetMouseMovePointsEx").c_str());
 
             if (getCursorPosAddr) MH_DisableHook(getCursorPosAddr);
             if (setCursorPosAddr) MH_DisableHook(setCursorPosAddr);
@@ -227,11 +229,11 @@ namespace g_MDX12 {
         }
 
         void Init() {
-            HMODULE user32 = GetModuleHandleA("user32.dll");
+            HMODULE user32 = GetModuleHandleA(_XOR_("user32.dll").c_str());
             if (!user32) return;
 
-            FARPROC getRawInputDataAddr = GetProcAddress(user32, "GetRawInputData");
-            FARPROC getRawInputBufferAddr = GetProcAddress(user32, "GetRawInputBuffer");
+            FARPROC getRawInputDataAddr = GetProcAddress(user32, _XOR_("GetRawInputData").c_str());
+            FARPROC getRawInputBufferAddr = GetProcAddress(user32, _XOR_("GetRawInputBuffer").c_str());
 
             if (getRawInputDataAddr) {
                 MH_CreateHook(getRawInputDataAddr, reinterpret_cast<LPVOID>(hkGetRawInputData), reinterpret_cast<LPVOID*>(&g_HookFunctions::g_oGetRawInputData));
@@ -246,11 +248,11 @@ namespace g_MDX12 {
         }
 
         void Remove() {
-            HMODULE user32 = GetModuleHandleA("user32.dll");
+            HMODULE user32 = GetModuleHandleA(_XOR_("user32.dll").c_str());
             if (!user32) return;
 
-            FARPROC getRawInputDataAddr = GetProcAddress(user32, "GetRawInputData");
-            FARPROC getRawInputBufferAddr = GetProcAddress(user32, "GetRawInputBuffer");
+            FARPROC getRawInputDataAddr = GetProcAddress(user32, _XOR_("GetRawInputData").c_str());
+            FARPROC getRawInputBufferAddr = GetProcAddress(user32, _XOR_("GetRawInputBuffer").c_str());
 
             if (getRawInputDataAddr && g_HookFunctions::g_oGetRawInputData) {
                 MH_DisableHook(getRawInputDataAddr);
@@ -281,10 +283,10 @@ namespace g_MDX12 {
             }
 
             std::unordered_set<std::string> menuClasses = {
-                "#32770",
-                "ConsoleWindowClass",
-                "Edit",
-                "ListBox",
+                _XOR_("#32770").str(),
+                _XOR_("ConsoleWindowClass").str(),
+                _XOR_("Edit").str(),
+                _XOR_("ListBox").str(),
             };
 
             bool gameHasMenuOpen = false;

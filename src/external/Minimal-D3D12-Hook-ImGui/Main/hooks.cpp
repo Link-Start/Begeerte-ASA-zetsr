@@ -18,6 +18,8 @@
 
 #include "../../../internal/Menu/ConfigImGui.h"
 
+#include "../../../XorStr.h"
+
 #pragma warning(push)
 #pragma warning(disable: 26451)
 #pragma warning(disable: 26812)
@@ -353,7 +355,7 @@ namespace g_Hook {
         */
 
         // 另一种方法
-        void* targetAddr = g_Util::FindUFunction("Function Engine.PrimalPlayerController.ClientNotifyRespawned");
+        void* targetAddr = g_Util::FindUFunction(_XOR_("Function Engine.PrimalPlayerController.ClientNotifyRespawned").str());
 
         /*
         if (targetAddr) {
@@ -384,7 +386,7 @@ namespace g_Hook {
     }
 
     void initClientAddFloatingDamageText() {
-        void* targetAddr = g_Util::FindUFunction("Function ShooterGame.ShooterPlayerController.ClientAddFloatingDamageText");
+        void* targetAddr = g_Util::FindUFunction(_XOR_("Function ShooterGame.ShooterPlayerController.ClientAddFloatingDamageText").str());
         g_Util::ADD_MH(targetAddr, &ClientAddFloatingDamageTextOK, &hkClientAddFloatingDamageText, &oClientAddFloatingDamageText);
     }
 }
@@ -820,7 +822,7 @@ namespace g_MDX12 {
         while (true) {
             WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, DefWindowProcW, 0, 0, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, L"TempDX12", nullptr };
             RegisterClassEx(&wc);
-            HWND tempWnd = CreateWindow(wc.lpszClassName, L"Temp", WS_OVERLAPPEDWINDOW, 0, 0, 100, 100, nullptr, nullptr, wc.hInstance, nullptr);
+            HWND tempWnd = CreateWindow(wc.lpszClassName, _XOR_(L"Temp").c_str(), WS_OVERLAPPEDWINDOW, 0, 0, 100, 100, nullptr, nullptr, wc.hInstance, nullptr);
             if (!tempWnd) { UnregisterClass(wc.lpszClassName, wc.hInstance); Sleep(1); continue; }
 
             ID3D12Device* tempDevice = nullptr;
