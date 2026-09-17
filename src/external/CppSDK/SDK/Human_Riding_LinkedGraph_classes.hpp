@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
+#include "Human_Riding_LinkedGraph_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
-#include "Human_Riding_LinkedGraph_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "AnimGraphRuntime_structs.hpp"
 
