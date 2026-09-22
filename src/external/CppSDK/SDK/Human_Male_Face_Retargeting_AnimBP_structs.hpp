@@ -33,4 +33,11 @@ public:
 };
 DUMPER7_ASSERTS_Human_Male_Face_Retargeting_AnimBP__FAnimBlueprintGeneratedConstantData;
 
+// ScriptStruct Human_Male_Face_Retargeting_AnimBP.Human_Male_Face_Retargeting_AnimBP_C.AnimBlueprintGeneratedMutableData
+// 0x0000 (0x0001 - 0x0001)
+struct Human_Male_Face_Retargeting_AnimBP::FAnimBlueprintGeneratedMutableData final : public FAnimBlueprintMutableData
+{
+};
+DUMPER7_ASSERTS_Human_Male_Face_Retargeting_AnimBP__FAnimBlueprintGeneratedMutableData;
+
 SDK_NAMESPACE_END

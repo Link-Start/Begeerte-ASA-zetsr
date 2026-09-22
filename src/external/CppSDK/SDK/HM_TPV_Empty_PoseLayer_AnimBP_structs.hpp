@@ -32,4 +32,11 @@ public:
 };
 DUMPER7_ASSERTS_HM_TPV_Empty_PoseLayer_AnimBP__FAnimBlueprintGeneratedConstantData;
 
+// ScriptStruct HM_TPV_Empty_PoseLayer_AnimBP.HM_TPV_Empty_PoseLayer_AnimBP_C.AnimBlueprintGeneratedMutableData
+// 0x0000 (0x0001 - 0x0001)
+struct HM_TPV_Empty_PoseLayer_AnimBP::FAnimBlueprintGeneratedMutableData final : public FAnimBlueprintMutableData
+{
+};
+DUMPER7_ASSERTS_HM_TPV_Empty_PoseLayer_AnimBP__FAnimBlueprintGeneratedMutableData;
+
 SDK_NAMESPACE_END

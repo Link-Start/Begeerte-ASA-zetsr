@@ -11,7 +11,12 @@
 #include "../Font/HarmonyOS_Sans_SC_Regular.h"
 
 #include "../MinHook/include/MinHook.h"
+
+// 2026/9/20 @zetsr
+// 换回 minhook 可能更好，我的水平可能并不足以绕过ac
+// 总之有很多工作要做
 #include "../../ezVMT/include/ezVMT.hpp"
+// 
 
 #include "../../../internal/Util/Util.h"
 #include "../../../internal/Log/LogManager.h"

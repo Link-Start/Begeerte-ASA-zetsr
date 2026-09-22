@@ -9,50 +9,28 @@
 // FORWARD DECLARATIONS
 
 
-namespace GPSHumanAnimBP { struct FAnimBlueprintGeneratedConstantData; }
-
-namespace WeaponFistsAnimBlueprint { struct FAnimBlueprintGeneratedConstantData; }
-
-namespace Human_Male_TPV_PPAnimBP { struct FAnimBlueprintGeneratedConstantData; }
-
-namespace HM_TPV_Empty_PoseLayer_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
-
 namespace GameplayAbilities { struct FServerAbilityRPCBatch; }
-
-namespace Human_Female_Face_Retargeting_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
-
-namespace Human_Female_TPV_PPAnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
 namespace TPV_Lance_MaleAnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
-namespace Human_Male_Face_Retargeting_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
+namespace GPSHumanAnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
-namespace HM_TPV_Empty_WeaponAdditive_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
-
-namespace Human_Male_TPV_GroundConform_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
-
-namespace SimpleHumanTPoseAnimBP { struct FAnimBlueprintGeneratedConstantData; }
+namespace HM_TPV_ClimbPick_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
 namespace BaseHumanAnimBP_Fists { struct FAnimBlueprintGeneratedConstantData; }
 
-namespace HM_TPV_ClimbPick_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
+namespace WeaponFistsAnimBlueprint { struct FAnimBlueprintGeneratedConstantData; }
 
 namespace TPV_ClimbPick_MaleAnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
 
-namespace BaseHumanAnimBP
+namespace FPVWeaponAnimBP_Base_Carrying
 {
-	struct FAnimBlueprintGeneratedMutableData;
 	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
 }
 
 namespace FPVMeleeWeaponAnimBP_Lance
-{
-	struct FAnimBlueprintGeneratedConstantData;
-	struct FAnimBlueprintGeneratedMutableData;
-}
-
-namespace Human_Riding_LinkedGraph
 {
 	struct FAnimBlueprintGeneratedConstantData;
 	struct FAnimBlueprintGeneratedMutableData;
@@ -64,13 +42,117 @@ namespace FPVClimbPickWeaponAnimBP_Base
 	struct FAnimBlueprintGeneratedConstantData;
 }
 
-namespace FPVWeaponAnimBP_Base_Carrying
+namespace Human_Male_TPV_PPAnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace BaseHumanAnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Human_Female_Face_Retargeting_AnimBP
 {
 	struct FAnimBlueprintGeneratedMutableData;
 	struct FAnimBlueprintGeneratedConstantData;
 }
 
 namespace Human_FaceCustomization_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Human_AlternateIK_CtrlRig
+{
+	class URigVMMemory_Debug;
+	class URigVMMemory_Literal;
+	class URigVMMemory_Work;
+}
+
+namespace Human_WeaponIK_CtrlRig
+{
+	class URigVMMemory_Literal;
+	class URigVMMemory_Work;
+}
+
+namespace Human_Male_Face_Retargeting_AnimBP
+{
+	struct FAnimBlueprintGeneratedMutableData;
+	struct FAnimBlueprintGeneratedConstantData;
+}
+
+namespace Human_GroundConform_CtrlRig
+{
+	class URigVMMemory_Work;
+	class URigVMMemory_Literal;
+}
+
+namespace Human_Female_TPV_PPAnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Human_Male_TPV_LegIK_CtrlRig
+{
+	class URigVMMemory_Literal;
+	class URigVMMemory_Work;
+}
+
+namespace SimpleHumanTPoseAnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Human_Rider_CtrlRig
+{
+	class URigVMMemory_Debug;
+	class URigVMMemory_Literal;
+	class URigVMMemory_Work;
+}
+
+namespace Human_Male_TPV_Twist_CtrlRig
+{
+	class URigVMMemory_Literal;
+	class URigVMMemory_Work;
+}
+
+namespace Human_Male_TPV_OrientationWarping_CtrlRig
+{
+	class URigVMMemory_Literal;
+	class URigVMMemory_Work;
+}
+
+namespace HM_TPV_Empty_PoseLayer_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace HM_TPV_Empty_WeaponAdditive_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Human_Male_TPV_GroundConform_AnimBP
+{
+	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
+}
+
+namespace Human_ModifyPose_CtrlRig
+{
+	class URigVMMemory_Literal;
+	class URigVMMemory_Work;
+}
+
+namespace Human_Riding_LinkedGraph
 {
 	struct FAnimBlueprintGeneratedConstantData;
 	struct FAnimBlueprintGeneratedMutableData;

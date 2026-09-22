@@ -165,7 +165,7 @@ DUMPER7_ASSERTS_UCFCoreRichText;
 
 // Class cfcore_ui.CFCoreRichTextBlockImageDecorator
 // 0x0028 (0x0058 - 0x0030)
-class UCFCoreRichTextBlockImageDecorator : public URichTextBlockImageDecorator
+class UCFCoreRichTextBlockImageDecorator final : public URichTextBlockImageDecorator
 {
 public:
 	class UCFCoreRichText*                        CoreRichText;                                      // 0x0030(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
@@ -326,7 +326,7 @@ DUMPER7_ASSERTS_UCFCoreUIInstallProgressModHelperFunctionsLibrary;
 
 // Class cfcore_ui.CFCoreUIModel
 // 0x0058 (0x0080 - 0x0028)
-class UCFCoreUIModel : public UObject
+class UCFCoreUIModel final : public UObject
 {
 public:
 	uint8                                         Pad_28[0x58];                                      // 0x0028(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])

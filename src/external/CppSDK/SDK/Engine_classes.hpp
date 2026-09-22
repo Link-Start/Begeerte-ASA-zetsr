@@ -41021,7 +41021,7 @@ DUMPER7_ASSERTS_ILevelInstanceInterface;
 
 // Class Engine.LevelScriptActor
 // 0x0008 (0x0498 - 0x0490)
-class ALevelScriptActor : public AActor
+class ALevelScriptActor final : public AActor
 {
 public:
 	uint8                                         bInputEnabled : 1;                                 // 0x0490(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
