@@ -1,6 +1,6 @@
 #pragma once
 #include "../../external/CppSDK/SDK.hpp"
-#include "../../external/Shadow-Gui/include/Shadow.h"
+#include "../../external/Shadow-Gui/src/Shadow.h"
 #include "../CheatData/CheatCache.hpp"
 #include "../ESP/DrawESP.h"
 #include "../ESP/Indicators.h"

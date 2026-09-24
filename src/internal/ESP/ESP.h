@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 #include "../../external/CppSDK/SDK.hpp"
-#include "../../external/Shadow-Gui/include/Shadow.h"
+#include "../../external/Shadow-Gui/src/Shadow.h"
 
 namespace g_ESP {
     struct BoxRect {

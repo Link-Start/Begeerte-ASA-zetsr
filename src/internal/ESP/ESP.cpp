@@ -1,6 +1,6 @@
 ﻿// ESP.cpp
 #include "../../external/CppSDK/SDK.hpp"
-#include "../../external/Shadow-Gui/include/Shadow.h"
+#include "../../external/Shadow-Gui/src/Shadow.h"
 #include "ESP.h"
 #include "../Config/Configs.h"
 #include "../Util/Util.h"

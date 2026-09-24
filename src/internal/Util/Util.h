@@ -3,7 +3,7 @@
 #include "../../external/Minimal-D3D12-Hook-ImGui/MinHook/include/MinHook.h"
 #include "../../external/AOBScan/AOBScan.hpp"
 #include "../../external/CppSDK/SDK.hpp"
-#include "../../external/Shadow-Gui/include/Shadow.h"
+#include "../../external/Shadow-Gui/src/Shadow.h"
 #include "../Config/Configs.h"
 #include "../../XorStr.h"
 #include <cmath>
@@ -704,6 +704,15 @@ namespace g_Util {
         }
 
         return ping;
+    }
+
+    __forceinline float GetServerFPS() {
+        SDK::AShooterGameState* GS = g_Util::GetAShooterGameState();
+        if (GS) {
+            return GS->ServerFramerate;
+        }
+
+        return 0.f;
     }
 
     __forceinline SDK::UFont* GetOpenSansRegular12() {
