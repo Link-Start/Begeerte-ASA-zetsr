@@ -45,11 +45,4 @@ public:
 };
 DUMPER7_ASSERTS_Human_Male_TPV_PPAnimBP__FAnimBlueprintGeneratedConstantData;
 
-// ScriptStruct Human_Male_TPV_PPAnimBP.Human_Male_TPV_PPAnimBP_C.AnimBlueprintGeneratedMutableData
-// 0x0000 (0x0001 - 0x0001)
-struct Human_Male_TPV_PPAnimBP::FAnimBlueprintGeneratedMutableData final : public FAnimBlueprintMutableData
-{
-};
-DUMPER7_ASSERTS_Human_Male_TPV_PPAnimBP__FAnimBlueprintGeneratedMutableData;
-
 SDK_NAMESPACE_END
