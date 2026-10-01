@@ -285,6 +285,289 @@ bool UPropertyValue::HasRecordedData() const
 }
 
 
+// Function VariantManagerContent.VariantSet.GetParent
+// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class ULevelVariantSets*                ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class ULevelVariantSets* UVariantSet::GetParent()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("VariantSet", "GetParent");
+
+	Params::VariantSet_GetParent Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function VariantManagerContent.VariantSet.GetThumbnail
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UTexture2D*                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UTexture2D* UVariantSet::GetThumbnail()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("VariantSet", "GetThumbnail");
+
+	Params::VariantSet_GetThumbnail Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function VariantManagerContent.VariantSet.GetVariant
+// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// int32                                   VariantIndex                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UVariant*                         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UVariant* UVariantSet::GetVariant(int32 VariantIndex)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("VariantSet", "GetVariant");
+
+	Params::VariantSet_GetVariant Parms{};
+
+	Parms.VariantIndex = VariantIndex;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function VariantManagerContent.VariantSet.GetVariantByName
+// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// const class FString&                    VariantName                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UVariant*                         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UVariant* UVariantSet::GetVariantByName(const class FString& VariantName)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("VariantSet", "GetVariantByName");
+
+	Params::VariantSet_GetVariantByName Parms{};
+
+	Parms.VariantName = std::move(VariantName);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function VariantManagerContent.VariantSet.SetDisplayText
+// (Final, Native, Public, HasOutParams, BlueprintCallable)
+// Parameters:
+// const class FText&                      NewDisplayText                                         (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+
+void UVariantSet::SetDisplayText(const class FText& NewDisplayText)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("VariantSet", "SetDisplayText");
+
+	Params::VariantSet_SetDisplayText Parms{};
+
+	Parms.NewDisplayText = std::move(NewDisplayText);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function VariantManagerContent.VariantSet.SetThumbnailFromCamera
+// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
+// Parameters:
+// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// const struct FTransform&                CameraTransform                                        (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   FOVDegrees                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   MinZ                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Gamma                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UVariantSet::SetThumbnailFromCamera(class UObject* WorldContextObject, const struct FTransform& CameraTransform, float FOVDegrees, float MinZ, float Gamma)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("VariantSet", "SetThumbnailFromCamera");
+
+	Params::VariantSet_SetThumbnailFromCamera Parms{};
+
+	Parms.WorldContextObject = WorldContextObject;
+	Parms.CameraTransform = std::move(CameraTransform);
+	Parms.FOVDegrees = FOVDegrees;
+	Parms.MinZ = MinZ;
+	Parms.Gamma = Gamma;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function VariantManagerContent.VariantSet.SetThumbnailFromEditorViewport
+// (Final, Native, Public, BlueprintCallable)
+
+void UVariantSet::SetThumbnailFromEditorViewport()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("VariantSet", "SetThumbnailFromEditorViewport");
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, nullptr);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function VariantManagerContent.VariantSet.SetThumbnailFromFile
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// const class FString&                    FilePath                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UVariantSet::SetThumbnailFromFile(const class FString& FilePath)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("VariantSet", "SetThumbnailFromFile");
+
+	Params::VariantSet_SetThumbnailFromFile Parms{};
+
+	Parms.FilePath = std::move(FilePath);
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function VariantManagerContent.VariantSet.SetThumbnailFromTexture
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UTexture2D*                       NewThumbnail                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UVariantSet::SetThumbnailFromTexture(class UTexture2D* NewThumbnail)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("VariantSet", "SetThumbnailFromTexture");
+
+	Params::VariantSet_SetThumbnailFromTexture Parms{};
+
+	Parms.NewThumbnail = NewThumbnail;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
+// Function VariantManagerContent.VariantSet.GetDisplayText
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+
+class FText UVariantSet::GetDisplayText() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("VariantSet", "GetDisplayText");
+
+	Params::VariantSet_GetDisplayText Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function VariantManagerContent.VariantSet.GetNumVariants
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+int32 UVariantSet::GetNumVariants() const
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("VariantSet", "GetNumVariants");
+
+	Params::VariantSet_GetNumVariants Parms{};
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
 // Function VariantManagerContent.SwitchActor.SelectOption
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -813,289 +1096,6 @@ class FText UVariant::GetDisplayText() const
 		Func = Class->GetFunction("Variant", "GetDisplayText");
 
 	Params::Variant_GetDisplayText Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function VariantManagerContent.VariantSet.GetParent
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class ULevelVariantSets*                ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class ULevelVariantSets* UVariantSet::GetParent()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("VariantSet", "GetParent");
-
-	Params::VariantSet_GetParent Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function VariantManagerContent.VariantSet.GetThumbnail
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class UTexture2D*                       ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UTexture2D* UVariantSet::GetThumbnail()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("VariantSet", "GetThumbnail");
-
-	Params::VariantSet_GetThumbnail Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function VariantManagerContent.VariantSet.GetVariant
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// int32                                   VariantIndex                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UVariant*                         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UVariant* UVariantSet::GetVariant(int32 VariantIndex)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("VariantSet", "GetVariant");
-
-	Params::VariantSet_GetVariant Parms{};
-
-	Parms.VariantIndex = VariantIndex;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function VariantManagerContent.VariantSet.GetVariantByName
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// const class FString&                    VariantName                                            (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UVariant*                         ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-class UVariant* UVariantSet::GetVariantByName(const class FString& VariantName)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("VariantSet", "GetVariantByName");
-
-	Params::VariantSet_GetVariantByName Parms{};
-
-	Parms.VariantName = std::move(VariantName);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function VariantManagerContent.VariantSet.SetDisplayText
-// (Final, Native, Public, HasOutParams, BlueprintCallable)
-// Parameters:
-// const class FText&                      NewDisplayText                                         (ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-
-void UVariantSet::SetDisplayText(const class FText& NewDisplayText)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("VariantSet", "SetDisplayText");
-
-	Params::VariantSet_SetDisplayText Parms{};
-
-	Parms.NewDisplayText = std::move(NewDisplayText);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function VariantManagerContent.VariantSet.SetThumbnailFromCamera
-// (Final, Native, Public, HasOutParams, HasDefaults, BlueprintCallable)
-// Parameters:
-// class UObject*                          WorldContextObject                                     (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// const struct FTransform&                CameraTransform                                        (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   FOVDegrees                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   MinZ                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// float                                   Gamma                                                  (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UVariantSet::SetThumbnailFromCamera(class UObject* WorldContextObject, const struct FTransform& CameraTransform, float FOVDegrees, float MinZ, float Gamma)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("VariantSet", "SetThumbnailFromCamera");
-
-	Params::VariantSet_SetThumbnailFromCamera Parms{};
-
-	Parms.WorldContextObject = WorldContextObject;
-	Parms.CameraTransform = std::move(CameraTransform);
-	Parms.FOVDegrees = FOVDegrees;
-	Parms.MinZ = MinZ;
-	Parms.Gamma = Gamma;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function VariantManagerContent.VariantSet.SetThumbnailFromEditorViewport
-// (Final, Native, Public, BlueprintCallable)
-
-void UVariantSet::SetThumbnailFromEditorViewport()
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("VariantSet", "SetThumbnailFromEditorViewport");
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, nullptr);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function VariantManagerContent.VariantSet.SetThumbnailFromFile
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// const class FString&                    FilePath                                               (Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UVariantSet::SetThumbnailFromFile(const class FString& FilePath)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("VariantSet", "SetThumbnailFromFile");
-
-	Params::VariantSet_SetThumbnailFromFile Parms{};
-
-	Parms.FilePath = std::move(FilePath);
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function VariantManagerContent.VariantSet.SetThumbnailFromTexture
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class UTexture2D*                       NewThumbnail                                           (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-void UVariantSet::SetThumbnailFromTexture(class UTexture2D* NewThumbnail)
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("VariantSet", "SetThumbnailFromTexture");
-
-	Params::VariantSet_SetThumbnailFromTexture Parms{};
-
-	Parms.NewThumbnail = NewThumbnail;
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-}
-
-
-// Function VariantManagerContent.VariantSet.GetDisplayText
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class FText                             ReturnValue                                            (Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-
-class FText UVariantSet::GetDisplayText() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("VariantSet", "GetDisplayText");
-
-	Params::VariantSet_GetDisplayText Parms{};
-
-	auto Flgs = Func->FunctionFlags;
-	Func->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(Func, &Parms);
-
-	Func->FunctionFlags = Flgs;
-
-	return Parms.ReturnValue;
-}
-
-
-// Function VariantManagerContent.VariantSet.GetNumVariants
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int32                                   ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-int32 UVariantSet::GetNumVariants() const
-{
-	static class UFunction* Func = nullptr;
-
-	if (Func == nullptr)
-		Func = Class->GetFunction("VariantSet", "GetNumVariants");
-
-	Params::VariantSet_GetNumVariants Parms{};
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;

@@ -81,17 +81,6 @@ public:
 };
 DUMPER7_ASSERTS_FDataRegistryLookup;
 
-// ScriptStruct DataRegistry.DataRegistrySource_DataTableRules
-// 0x0008 (0x0008 - 0x0000)
-struct FDataRegistrySource_DataTableRules final
-{
-public:
-	bool                                          bPrecacheTable;                                    // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         CachedTableKeepSeconds;                            // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FDataRegistrySource_DataTableRules;
-
 // ScriptStruct DataRegistry.DataRegistryType
 // 0x0008 (0x0008 - 0x0000)
 struct FDataRegistryType final
@@ -100,6 +89,18 @@ public:
 	class FName                                   Name;                                              // 0x0000(0x0008)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
 };
 DUMPER7_ASSERTS_FDataRegistryType;
+
+// ScriptStruct DataRegistry.SoftDataRegistryOrTable
+// 0x0038 (0x0038 - 0x0000)
+struct FSoftDataRegistryOrTable final
+{
+public:
+	bool                                          bUseDataRegistry;                                  // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TSoftObjectPtr<class UDataTable>              Table;                                             // 0x0008(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FDataRegistryType                      RegistryType;                                      // 0x0030(0x0008)(Edit, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FSoftDataRegistryOrTable;
 
 // ScriptStruct DataRegistry.DataRegistryId
 // 0x0010 (0x0010 - 0x0000)
@@ -120,6 +121,17 @@ public:
 };
 DUMPER7_ASSERTS_FDataRegistrySourceItemId;
 
+// ScriptStruct DataRegistry.DataRegistrySource_DataTableRules
+// 0x0008 (0x0008 - 0x0000)
+struct FDataRegistrySource_DataTableRules final
+{
+public:
+	bool                                          bPrecacheTable;                                    // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x3];                                        // 0x0001(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         CachedTableKeepSeconds;                            // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FDataRegistrySource_DataTableRules;
+
 // ScriptStruct DataRegistry.DataRegistryCachePolicy
 // 0x0014 (0x0014 - 0x0000)
 struct FDataRegistryCachePolicy final
@@ -134,18 +146,6 @@ public:
 	float                                         ForceReleaseSeconds;                               // 0x0010(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FDataRegistryCachePolicy;
-
-// ScriptStruct DataRegistry.SoftDataRegistryOrTable
-// 0x0038 (0x0038 - 0x0000)
-struct FSoftDataRegistryOrTable final
-{
-public:
-	bool                                          bUseDataRegistry;                                  // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TSoftObjectPtr<class UDataTable>              Table;                                             // 0x0008(0x0028)(Edit, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FDataRegistryType                      RegistryType;                                      // 0x0030(0x0008)(Edit, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FSoftDataRegistryOrTable;
 
 // ScriptStruct DataRegistry.DataRegistryOrTableRow
 // 0x0028 (0x0028 - 0x0000)

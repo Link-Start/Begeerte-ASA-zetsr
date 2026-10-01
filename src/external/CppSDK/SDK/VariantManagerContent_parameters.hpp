@@ -118,6 +118,105 @@ public:
 };
 DUMPER7_ASSERTS_PropertyValue_HasRecordedData;
 
+// Function VariantManagerContent.VariantSet.GetParent
+// 0x0008 (0x0008 - 0x0000)
+struct VariantSet_GetParent final
+{
+public:
+	class ULevelVariantSets*                      ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_VariantSet_GetParent;
+
+// Function VariantManagerContent.VariantSet.GetThumbnail
+// 0x0008 (0x0008 - 0x0000)
+struct VariantSet_GetThumbnail final
+{
+public:
+	class UTexture2D*                             ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_VariantSet_GetThumbnail;
+
+// Function VariantManagerContent.VariantSet.GetVariant
+// 0x0010 (0x0010 - 0x0000)
+struct VariantSet_GetVariant final
+{
+public:
+	int32                                         VariantIndex;                                      // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UVariant*                               ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_VariantSet_GetVariant;
+
+// Function VariantManagerContent.VariantSet.GetVariantByName
+// 0x0018 (0x0018 - 0x0000)
+struct VariantSet_GetVariantByName final
+{
+public:
+	class FString                                 VariantName;                                       // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UVariant*                               ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_VariantSet_GetVariantByName;
+
+// Function VariantManagerContent.VariantSet.SetDisplayText
+// 0x0010 (0x0010 - 0x0000)
+struct VariantSet_SetDisplayText final
+{
+public:
+	class FText                                   NewDisplayText;                                    // 0x0000(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_VariantSet_SetDisplayText;
+
+// Function VariantManagerContent.VariantSet.SetThumbnailFromCamera
+// 0x0080 (0x0080 - 0x0000)
+struct VariantSet_SetThumbnailFromCamera final
+{
+public:
+	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FTransform                             CameraTransform;                                   // 0x0010(0x0060)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         FOVDegrees;                                        // 0x0070(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         MinZ;                                              // 0x0074(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Gamma;                                             // 0x0078(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_7C[0x4];                                       // 0x007C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_VariantSet_SetThumbnailFromCamera;
+
+// Function VariantManagerContent.VariantSet.SetThumbnailFromFile
+// 0x0010 (0x0010 - 0x0000)
+struct VariantSet_SetThumbnailFromFile final
+{
+public:
+	class FString                                 FilePath;                                          // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_VariantSet_SetThumbnailFromFile;
+
+// Function VariantManagerContent.VariantSet.SetThumbnailFromTexture
+// 0x0008 (0x0008 - 0x0000)
+struct VariantSet_SetThumbnailFromTexture final
+{
+public:
+	class UTexture2D*                             NewThumbnail;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_VariantSet_SetThumbnailFromTexture;
+
+// Function VariantManagerContent.VariantSet.GetDisplayText
+// 0x0010 (0x0010 - 0x0000)
+struct VariantSet_GetDisplayText final
+{
+public:
+	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_VariantSet_GetDisplayText;
+
+// Function VariantManagerContent.VariantSet.GetNumVariants
+// 0x0004 (0x0004 - 0x0000)
+struct VariantSet_GetNumVariants final
+{
+public:
+	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_VariantSet_GetNumVariants;
+
 // Function VariantManagerContent.SwitchActor.SelectOption
 // 0x0004 (0x0004 - 0x0000)
 struct SwitchActor_SelectOption final
@@ -305,105 +404,6 @@ public:
 	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_Variant_GetDisplayText;
-
-// Function VariantManagerContent.VariantSet.GetParent
-// 0x0008 (0x0008 - 0x0000)
-struct VariantSet_GetParent final
-{
-public:
-	class ULevelVariantSets*                      ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_VariantSet_GetParent;
-
-// Function VariantManagerContent.VariantSet.GetThumbnail
-// 0x0008 (0x0008 - 0x0000)
-struct VariantSet_GetThumbnail final
-{
-public:
-	class UTexture2D*                             ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_VariantSet_GetThumbnail;
-
-// Function VariantManagerContent.VariantSet.GetVariant
-// 0x0010 (0x0010 - 0x0000)
-struct VariantSet_GetVariant final
-{
-public:
-	int32                                         VariantIndex;                                      // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UVariant*                               ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_VariantSet_GetVariant;
-
-// Function VariantManagerContent.VariantSet.GetVariantByName
-// 0x0018 (0x0018 - 0x0000)
-struct VariantSet_GetVariantByName final
-{
-public:
-	class FString                                 VariantName;                                       // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UVariant*                               ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_VariantSet_GetVariantByName;
-
-// Function VariantManagerContent.VariantSet.SetDisplayText
-// 0x0010 (0x0010 - 0x0000)
-struct VariantSet_SetDisplayText final
-{
-public:
-	class FText                                   NewDisplayText;                                    // 0x0000(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_VariantSet_SetDisplayText;
-
-// Function VariantManagerContent.VariantSet.SetThumbnailFromCamera
-// 0x0080 (0x0080 - 0x0000)
-struct VariantSet_SetThumbnailFromCamera final
-{
-public:
-	class UObject*                                WorldContextObject;                                // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FTransform                             CameraTransform;                                   // 0x0010(0x0060)(ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         FOVDegrees;                                        // 0x0070(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MinZ;                                              // 0x0074(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Gamma;                                             // 0x0078(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_7C[0x4];                                       // 0x007C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_VariantSet_SetThumbnailFromCamera;
-
-// Function VariantManagerContent.VariantSet.SetThumbnailFromFile
-// 0x0010 (0x0010 - 0x0000)
-struct VariantSet_SetThumbnailFromFile final
-{
-public:
-	class FString                                 FilePath;                                          // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_VariantSet_SetThumbnailFromFile;
-
-// Function VariantManagerContent.VariantSet.SetThumbnailFromTexture
-// 0x0008 (0x0008 - 0x0000)
-struct VariantSet_SetThumbnailFromTexture final
-{
-public:
-	class UTexture2D*                             NewThumbnail;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_VariantSet_SetThumbnailFromTexture;
-
-// Function VariantManagerContent.VariantSet.GetDisplayText
-// 0x0010 (0x0010 - 0x0000)
-struct VariantSet_GetDisplayText final
-{
-public:
-	class FText                                   ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_VariantSet_GetDisplayText;
-
-// Function VariantManagerContent.VariantSet.GetNumVariants
-// 0x0004 (0x0004 - 0x0000)
-struct VariantSet_GetNumVariants final
-{
-public:
-	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_VariantSet_GetNumVariants;
 
 SDK_PARAM_NAMESPACE_END
 SDK_NAMESPACE_END

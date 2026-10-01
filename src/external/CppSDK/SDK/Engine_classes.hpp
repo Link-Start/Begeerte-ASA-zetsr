@@ -23,9 +23,9 @@
 #include "AudioPlatformConfiguration_structs.hpp"
 #include "DeveloperSettings_structs.hpp"
 #include "DeveloperSettings_classes.hpp"
+#include "MeshDescription_classes.hpp"
 #include "Chaos_structs.hpp"
 #include "IrisStub_classes.hpp"
-#include "MeshDescription_classes.hpp"
 #include "AudioExtensions_structs.hpp"
 #include "AudioExtensions_classes.hpp"
 #include "SlateCore_structs.hpp"
@@ -2293,9 +2293,9 @@ public:
 	void RemoveTickPrerequisiteActor(class AActor* PrerequisiteActor);
 	void RemoveTickPrerequisiteComponent(class UActorComponent* PrerequisiteComponent);
 	void ReregisterAllComponents();
-	void ServerSendExecCommandToEveryone(class FName CommandName, const struct FBPNetExecParams& ExecParams, bool bIsReliable, bool bForceSendToLocalPlayer, bool bIgnoreRelevancy);
-	void ServerSendExecCommandToPlayer(class APrimalPlayerController* ToPC, class FName CommandName, const struct FBPNetExecParams& ExecParams, bool bIsReliable, bool bForceSendToLocalPlayer, bool bIgnoreRelevancy);
-	void ServerSendSimpleExecCommandToEveryone(class FName CommandName, bool bIsReliable, bool bForceSendToLocalPlayer, bool bIgnoreRelevancy);
+	void ServerSendExecCommandToEveryone(class FName CommandName, const struct FBPNetExecParams& ExecParams, bool bIsReliable, bool bForceSendToLocalPlayer, bool bIgnoreRelevancy, bool bAllowAsPlayerServer);
+	void ServerSendExecCommandToPlayer(class APrimalPlayerController* ToPC, class FName CommandName, const struct FBPNetExecParams& ExecParams, bool bIsReliable, bool bForceSendToLocalPlayer, bool bIgnoreRelevancy, bool bAllowAsPlayerServer);
+	void ServerSendSimpleExecCommandToEveryone(class FName CommandName, bool bIsReliable, bool bForceSendToLocalPlayer, bool bIgnoreRelevancy, bool bAllowAsPlayerServer);
 	void SetActorEnableCollision(bool bNewActorEnableCollision);
 	void SetActorHiddenInGame(bool bNewHidden);
 	void SetActorRelativeScale3D(const struct FVector& NewRelativeScale);
@@ -11200,13 +11200,13 @@ public:
 	class AActor*                                 OwningActor;                                       // 0x00A0(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
 	int32                                         MaxPacket;                                         // 0x00A8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         InternalAck : 1;                                   // 0x00AC(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate))
-	// uint8                                         Pad_AD[0xBB];                                      // 0x00AD(0x00BB)(Fixing Size After Last Property [ Dumper-7 ])
 	
 	uint8                                          Pad_AD_To_C0[0x13];                                // 0x00AD(0x0013)(填充到 0xC0)
 	class FString                                  RemoteIPList;                                      // 0x00C0(0x0010)(我们发现的 IP 列表)
 	int32                                          RemotePort;
 	uint8                                          Pad_D4_To_168[0x94];                               // 0x00D4(0x0094)(填充到 PlayerID)
 
+	// uint8                                         Pad_AD[0xBB];                                      // 0x00AD(0x00BB)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FUniqueNetIdRepl                       PlayerID;                                          // 0x0168(0x0030)(HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_198[0x48];                                     // 0x0198(0x0048)(Fixing Size After Last Property [ Dumper-7 ])
 	double                                        LastReceiveTime;                                   // 0x01E0(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)

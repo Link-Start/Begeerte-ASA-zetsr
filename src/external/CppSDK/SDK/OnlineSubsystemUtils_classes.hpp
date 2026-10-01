@@ -413,6 +413,29 @@ public:
 };
 DUMPER7_ASSERTS_UInAppPurchaseQueryCallbackProxy2;
 
+// Class OnlineSubsystemUtils.OnlineEngineInterfaceImpl
+// 0x0158 (0x0180 - 0x0028)
+class UOnlineEngineInterfaceImpl final : public UOnlineEngineInterface
+{
+public:
+	uint8                                         Pad_28[0x158];                                     // 0x0028(0x0158)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("OnlineEngineInterfaceImpl")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"OnlineEngineInterfaceImpl")
+	}
+	static class UOnlineEngineInterfaceImpl* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UOnlineEngineInterfaceImpl>();
+	}
+};
+DUMPER7_ASSERTS_UOnlineEngineInterfaceImpl;
+
 // Class OnlineSubsystemUtils.InAppPurchaseReceiptsCallbackProxy
 // 0x0060 (0x0088 - 0x0028)
 class UInAppPurchaseReceiptsCallbackProxy final : public UObject
@@ -852,29 +875,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UOnlineServicesEngineInterfaceImpl;
-
-// Class OnlineSubsystemUtils.OnlineEngineInterfaceImpl
-// 0x0158 (0x0180 - 0x0028)
-class UOnlineEngineInterfaceImpl final : public UOnlineEngineInterface
-{
-public:
-	uint8                                         Pad_28[0x158];                                     // 0x0028(0x0158)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("OnlineEngineInterfaceImpl")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"OnlineEngineInterfaceImpl")
-	}
-	static class UOnlineEngineInterfaceImpl* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UOnlineEngineInterfaceImpl>();
-	}
-};
-DUMPER7_ASSERTS_UOnlineEngineInterfaceImpl;
 
 // Class OnlineSubsystemUtils.OnlineSessionClient
 // 0x01B8 (0x01E0 - 0x0028)

@@ -169,6 +169,15 @@ enum class EMoviePipelineShutterTiming : uint8
 	EMoviePipelineShutterTiming_MAX          = 3,
 };
 
+// ScriptStruct MovieRenderPipelineCore.MoviePipelineCameraCutInfo
+// 0x00C8 (0x00C8 - 0x0000)
+struct alignas(0x08) FMoviePipelineCameraCutInfo final
+{
+public:
+	uint8                                         Pad_0[0xC8];                                       // 0x0000(0x00C8)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FMoviePipelineCameraCutInfo;
+
 // ScriptStruct MovieRenderPipelineCore.MoviePipelinePassIdentifier
 // 0x0020 (0x0020 - 0x0000)
 struct FMoviePipelinePassIdentifier final
@@ -244,6 +253,33 @@ public:
 };
 DUMPER7_ASSERTS_FMoviePipelineOutputData;
 
+// ScriptStruct MovieRenderPipelineCore.MovieGraphEvaluatedSettingsStack
+// 0x0010 (0x0010 - 0x0000)
+struct FMovieGraphEvaluatedSettingsStack final
+{
+public:
+	TArray<class UMovieGraphNode*>                NodeInstances;                                     // 0x0000(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FMovieGraphEvaluatedSettingsStack;
+
+// ScriptStruct MovieRenderPipelineCore.MovieGraphEvaluatedBranchConfig
+// 0x0050 (0x0050 - 0x0000)
+struct FMovieGraphEvaluatedBranchConfig final
+{
+public:
+	TMap<class FString, struct FMovieGraphEvaluatedSettingsStack> NamedNodes;                        // 0x0000(0x0050)(Transient, NativeAccessSpecifierPrivate)
+};
+DUMPER7_ASSERTS_FMovieGraphEvaluatedBranchConfig;
+
+// ScriptStruct MovieRenderPipelineCore.MovieGraphEvaluationContext_VisitedNodeInfo
+// 0x0050 (0x0050 - 0x0000)
+struct FMovieGraphEvaluationContext_VisitedNodeInfo final
+{
+public:
+	TSet<class UMovieGraphNode*>                  VisitedNodes;                                      // 0x0000(0x0050)(UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+};
+DUMPER7_ASSERTS_FMovieGraphEvaluationContext_VisitedNodeInfo;
+
 // ScriptStruct MovieRenderPipelineCore.MovieGraphTimeStepData
 // 0x0078 (0x0078 - 0x0000)
 struct FMovieGraphTimeStepData final
@@ -272,33 +308,6 @@ public:
 	struct FFrameNumber                           ShotFrameNumber;                                   // 0x0074(0x0004)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FMovieGraphTimeStepData;
-
-// ScriptStruct MovieRenderPipelineCore.MovieGraphEvaluatedSettingsStack
-// 0x0010 (0x0010 - 0x0000)
-struct FMovieGraphEvaluatedSettingsStack final
-{
-public:
-	TArray<class UMovieGraphNode*>                NodeInstances;                                     // 0x0000(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FMovieGraphEvaluatedSettingsStack;
-
-// ScriptStruct MovieRenderPipelineCore.MovieGraphEvaluatedBranchConfig
-// 0x0050 (0x0050 - 0x0000)
-struct FMovieGraphEvaluatedBranchConfig final
-{
-public:
-	TMap<class FString, struct FMovieGraphEvaluatedSettingsStack> NamedNodes;                        // 0x0000(0x0050)(Transient, NativeAccessSpecifierPrivate)
-};
-DUMPER7_ASSERTS_FMovieGraphEvaluatedBranchConfig;
-
-// ScriptStruct MovieRenderPipelineCore.MovieGraphEvaluationContext_VisitedNodeInfo
-// 0x0050 (0x0050 - 0x0000)
-struct FMovieGraphEvaluationContext_VisitedNodeInfo final
-{
-public:
-	TSet<class UMovieGraphNode*>                  VisitedNodes;                                      // 0x0000(0x0050)(UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-};
-DUMPER7_ASSERTS_FMovieGraphEvaluationContext_VisitedNodeInfo;
 
 // ScriptStruct MovieRenderPipelineCore.MovieGraphTraversalContext
 // 0x00E0 (0x00E0 - 0x0000)
@@ -510,15 +519,6 @@ public:
 	int32                                         TotalEngineWarmUpFrameCount;                       // 0x0024(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FMoviePipelineSegmentWorkMetrics;
-
-// ScriptStruct MovieRenderPipelineCore.MoviePipelineCameraCutInfo
-// 0x00C8 (0x00C8 - 0x0000)
-struct alignas(0x08) FMoviePipelineCameraCutInfo final
-{
-public:
-	uint8                                         Pad_0[0xC8];                                       // 0x0000(0x00C8)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FMoviePipelineCameraCutInfo;
 
 // ScriptStruct MovieRenderPipelineCore.MoviePipelineFormatArgs
 // 0x00A8 (0x00A8 - 0x0000)

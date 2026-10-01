@@ -132,6 +132,32 @@ public:
 };
 DUMPER7_ASSERTS_FZoneGraphBuilderRegisteredComponent;
 
+// ScriptStruct ZoneGraph.ZoneGraphTagMask
+// 0x0004 (0x0004 - 0x0000)
+struct FZoneGraphTagMask final
+{
+public:
+	uint32                                        Mask;                                              // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+};
+DUMPER7_ASSERTS_FZoneGraphTagMask;
+
+// ScriptStruct ZoneGraph.ZoneLaneData
+// 0x0020 (0x0020 - 0x0000)
+struct FZoneLaneData final
+{
+public:
+	float                                         Width;                                             // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FZoneGraphTagMask                      Tags;                                              // 0x0004(0x0004)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         PointsBegin;                                       // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         PointsEnd;                                         // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         LinksBegin;                                        // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         LinksEnd;                                          // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         ZoneIndex;                                         // 0x0018(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint16                                        StartEntryId;                                      // 0x001C(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint16                                        EndEntryId;                                        // 0x001E(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FZoneLaneData;
+
 // ScriptStruct ZoneGraph.ZoneGraphDataHandle
 // 0x0004 (0x0004 - 0x0000)
 struct FZoneGraphDataHandle final
@@ -163,6 +189,18 @@ public:
 };
 DUMPER7_ASSERTS_FZoneShapeComponentBuildData;
 
+// ScriptStruct ZoneGraph.ZoneGraphLinkedLane
+// 0x000C (0x000C - 0x0000)
+struct FZoneGraphLinkedLane final
+{
+public:
+	struct FZoneGraphLaneHandle                   DestLane;                                          // 0x0000(0x0008)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EZoneLaneLinkType                             Type;                                              // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Flags;                                             // 0x0009(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A[0x2];                                        // 0x000A(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FZoneGraphLinkedLane;
+
 // ScriptStruct ZoneGraph.ZoneGraphBuildData
 // 0x0050 (0x0050 - 0x0000)
 struct FZoneGraphBuildData final
@@ -185,70 +223,6 @@ public:
 };
 DUMPER7_ASSERTS_FZoneGraphBuilder;
 
-// ScriptStruct ZoneGraph.ZoneGraphBVNode
-// 0x0010 (0x0010 - 0x0000)
-struct FZoneGraphBVNode final
-{
-public:
-	uint16                                        MinX;                                              // 0x0000(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint16                                        MinY;                                              // 0x0002(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint16                                        MinZ;                                              // 0x0004(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint16                                        MaxX;                                              // 0x0006(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint16                                        MaxY;                                              // 0x0008(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint16                                        MaxZ;                                              // 0x000A(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         Index;                                             // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FZoneGraphBVNode;
-
-// ScriptStruct ZoneGraph.ZoneGraphBVTree
-// 0x0030 (0x0030 - 0x0000)
-struct FZoneGraphBVTree final
-{
-public:
-	struct FVector                                Origin;                                            // 0x0000(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	float                                         QuantizationScale;                                 // 0x0018(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FZoneGraphBVNode>               Nodes;                                             // 0x0020(0x0010)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
-};
-DUMPER7_ASSERTS_FZoneGraphBVTree;
-
-// ScriptStruct ZoneGraph.RegisteredZoneGraphData
-// 0x0010 (0x0010 - 0x0000)
-struct FRegisteredZoneGraphData final
-{
-public:
-	class AZoneGraphData*                         ZoneGraphData;                                     // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FRegisteredZoneGraphData;
-
-// ScriptStruct ZoneGraph.ZoneHandle
-// 0x0004 (0x0004 - 0x0000)
-struct FZoneHandle final
-{
-public:
-	uint32                                        Index;                                             // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-};
-DUMPER7_ASSERTS_FZoneHandle;
-
-// ScriptStruct ZoneGraph.ZoneGraphTag
-// 0x0001 (0x0001 - 0x0000)
-struct FZoneGraphTag final
-{
-public:
-	uint8                                         Bit;                                               // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-};
-DUMPER7_ASSERTS_FZoneGraphTag;
-
-// ScriptStruct ZoneGraph.ZoneGraphTagMask
-// 0x0004 (0x0004 - 0x0000)
-struct FZoneGraphTagMask final
-{
-public:
-	uint32                                        Mask;                                              // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-};
-DUMPER7_ASSERTS_FZoneGraphTagMask;
-
 // ScriptStruct ZoneGraph.ZoneGraphTagFilter
 // 0x000C (0x000C - 0x0000)
 struct FZoneGraphTagFilter final
@@ -259,16 +233,6 @@ public:
 	struct FZoneGraphTagMask                      NotTags;                                           // 0x0008(0x0004)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FZoneGraphTagFilter;
-
-// ScriptStruct ZoneGraph.ZoneGraphTessellationSettings
-// 0x0010 (0x0010 - 0x0000)
-struct FZoneGraphTessellationSettings final
-{
-public:
-	struct FZoneGraphTagFilter                    LaneFilter;                                        // 0x0000(0x000C)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	float                                         TessellationTolerance;                             // 0x000C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FZoneGraphTessellationSettings;
 
 // ScriptStruct ZoneGraph.ZoneLaneProfileRef
 // 0x0018 (0x0018 - 0x0000)
@@ -299,28 +263,113 @@ public:
 };
 DUMPER7_ASSERTS_FZoneGraphLaneRoutingRule;
 
-// ScriptStruct ZoneGraph.ZoneGraphBuildSettings
-// 0x0060 (0x0060 - 0x0000)
-struct FZoneGraphBuildSettings final
+// ScriptStruct ZoneGraph.ZoneGraphBVNode
+// 0x0010 (0x0010 - 0x0000)
+struct FZoneGraphBVNode final
 {
 public:
-	float                                         CommonTessellationTolerance;                       // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FZoneGraphTessellationSettings> SpecificTessellationTolerances;                    // 0x0008(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	float                                         LaneConnectionAngle;                               // 0x0018(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FZoneGraphTagMask                      LaneConnectionMask;                                // 0x001C(0x0004)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         TurnThresholdAngle;                                // 0x0020(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FZoneGraphLaneRoutingRule>      PolygonRoutingRules;                               // 0x0028(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
-	float                                         ConnectionSnapDistance;                            // 0x0038(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ConnectionSnapAngle;                               // 0x003C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        DragEndpointAutoConnectRange;                      // 0x0040(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        DragEndpointAutoIntersectionRange;                 // 0x0048(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        SnapAutoIntersectionToClosestPointTolerance;       // 0x0050(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bShow3DRadiusForAutoConnectionAndIntersection;     // 0x0058(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_59[0x7];                                       // 0x0059(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint16                                        MinX;                                              // 0x0000(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint16                                        MinY;                                              // 0x0002(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint16                                        MinZ;                                              // 0x0004(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint16                                        MaxX;                                              // 0x0006(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint16                                        MaxY;                                              // 0x0008(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint16                                        MaxZ;                                              // 0x000A(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Index;                                             // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FZoneGraphBuildSettings;
+DUMPER7_ASSERTS_FZoneGraphBVNode;
+
+// ScriptStruct ZoneGraph.ZoneGraphBVTree
+// 0x0030 (0x0030 - 0x0000)
+struct FZoneGraphBVTree final
+{
+public:
+	struct FVector                                Origin;                                            // 0x0000(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	float                                         QuantizationScale;                                 // 0x0018(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FZoneGraphBVNode>               Nodes;                                             // 0x0020(0x0010)(ZeroConstructor, Protected, NativeAccessSpecifierProtected)
+};
+DUMPER7_ASSERTS_FZoneGraphBVTree;
+
+// ScriptStruct ZoneGraph.ZoneData
+// 0x0050 (0x0050 - 0x0000)
+struct FZoneData final
+{
+public:
+	int32                                         BoundaryPointsBegin;                               // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         BoundaryPointsEnd;                                 // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         LanesBegin;                                        // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         LanesEnd;                                          // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FBox                                   Bounds;                                            // 0x0010(0x0038)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	struct FZoneGraphTagMask                      Tags;                                              // 0x0048(0x0004)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4C[0x4];                                       // 0x004C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FZoneData;
+
+// ScriptStruct ZoneGraph.RegisteredZoneGraphData
+// 0x0010 (0x0010 - 0x0000)
+struct FRegisteredZoneGraphData final
+{
+public:
+	class AZoneGraphData*                         ZoneGraphData;                                     // 0x0000(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	uint8                                         Pad_8[0x8];                                        // 0x0008(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FRegisteredZoneGraphData;
+
+// ScriptStruct ZoneGraph.ZoneShapeConnector
+// 0x0068 (0x0068 - 0x0000)
+struct FZoneShapeConnector final
+{
+public:
+	struct FVector                                position;                                          // 0x0000(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Normal;                                            // 0x0018(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Up;                                                // 0x0030(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         PointIndex;                                        // 0x0048(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FZoneLaneProfileRef                    LaneProfile;                                       // 0x004C(0x0018)(NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          bReverseLaneProfile;                               // 0x0064(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EFZoneShapeType                               ShapeType;                                         // 0x0065(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_66[0x2];                                       // 0x0066(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FZoneShapeConnector;
+
+// ScriptStruct ZoneGraph.ZoneHandle
+// 0x0004 (0x0004 - 0x0000)
+struct FZoneHandle final
+{
+public:
+	uint32                                        Index;                                             // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+};
+DUMPER7_ASSERTS_FZoneHandle;
+
+// ScriptStruct ZoneGraph.ZoneGraphTag
+// 0x0001 (0x0001 - 0x0000)
+struct FZoneGraphTag final
+{
+public:
+	uint8                                         Bit;                                               // 0x0000(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+};
+DUMPER7_ASSERTS_FZoneGraphTag;
+
+// ScriptStruct ZoneGraph.ZoneLaneLinkData
+// 0x0008 (0x0008 - 0x0000)
+struct FZoneLaneLinkData final
+{
+public:
+	int32                                         DestLaneIndex;                                     // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EZoneLaneLinkType                             Type;                                              // 0x0004(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Flags;                                             // 0x0005(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6[0x2];                                        // 0x0006(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FZoneLaneLinkData;
+
+// ScriptStruct ZoneGraph.ZoneShapeLaneInternalLink
+// 0x000C (0x000C - 0x0000)
+struct FZoneShapeLaneInternalLink final
+{
+public:
+	int32                                         LaneIndex;                                         // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FZoneLaneLinkData                      LinkData;                                          // 0x0004(0x0008)(NoDestructor, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_FZoneShapeLaneInternalLink;
 
 // ScriptStruct ZoneGraph.ZoneGraphTagInfo
 // 0x0010 (0x0010 - 0x0000)
@@ -357,50 +406,6 @@ public:
 };
 DUMPER7_ASSERTS_FZoneLaneProfile;
 
-// ScriptStruct ZoneGraph.ZoneLaneLinkData
-// 0x0008 (0x0008 - 0x0000)
-struct FZoneLaneLinkData final
-{
-public:
-	int32                                         DestLaneIndex;                                     // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EZoneLaneLinkType                             Type;                                              // 0x0004(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Flags;                                             // 0x0005(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_6[0x2];                                        // 0x0006(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FZoneLaneLinkData;
-
-// ScriptStruct ZoneGraph.ZoneLaneData
-// 0x0020 (0x0020 - 0x0000)
-struct FZoneLaneData final
-{
-public:
-	float                                         Width;                                             // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FZoneGraphTagMask                      Tags;                                              // 0x0004(0x0004)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         PointsBegin;                                       // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         PointsEnd;                                         // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         LinksBegin;                                        // 0x0010(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         LinksEnd;                                          // 0x0014(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         ZoneIndex;                                         // 0x0018(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint16                                        StartEntryId;                                      // 0x001C(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint16                                        EndEntryId;                                        // 0x001E(0x0002)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_FZoneLaneData;
-
-// ScriptStruct ZoneGraph.ZoneData
-// 0x0050 (0x0050 - 0x0000)
-struct FZoneData final
-{
-public:
-	int32                                         BoundaryPointsBegin;                               // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         BoundaryPointsEnd;                                 // 0x0004(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         LanesBegin;                                        // 0x0008(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         LanesEnd;                                          // 0x000C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FBox                                   Bounds;                                            // 0x0010(0x0038)(ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	struct FZoneGraphTagMask                      Tags;                                              // 0x0048(0x0004)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4C[0x4];                                       // 0x004C(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FZoneData;
-
 // ScriptStruct ZoneGraph.ZoneGraphLaneLocation
 // 0x0070 (0x0070 - 0x0000)
 struct FZoneGraphLaneLocation final
@@ -436,18 +441,6 @@ public:
 	float                                         EndDistanceAlongLane;                              // 0x000C(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_FZoneGraphLaneSection;
-
-// ScriptStruct ZoneGraph.ZoneGraphLinkedLane
-// 0x000C (0x000C - 0x0000)
-struct FZoneGraphLinkedLane final
-{
-public:
-	struct FZoneGraphLaneHandle                   DestLane;                                          // 0x0000(0x0008)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EZoneLaneLinkType                             Type;                                              // 0x0008(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Flags;                                             // 0x0009(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_A[0x2];                                        // 0x000A(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FZoneGraphLinkedLane;
 
 // ScriptStruct ZoneGraph.ZoneGraphStorage
 // 0x00F0 (0x00F0 - 0x0000)
@@ -487,22 +480,6 @@ public:
 };
 DUMPER7_ASSERTS_FZoneShapePoint;
 
-// ScriptStruct ZoneGraph.ZoneShapeConnector
-// 0x0068 (0x0068 - 0x0000)
-struct FZoneShapeConnector final
-{
-public:
-	struct FVector                                position;                                          // 0x0000(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                Normal;                                            // 0x0018(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                Up;                                                // 0x0030(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         PointIndex;                                        // 0x0048(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FZoneLaneProfileRef                    LaneProfile;                                       // 0x004C(0x0018)(NoDestructor, NativeAccessSpecifierPublic)
-	bool                                          bReverseLaneProfile;                               // 0x0064(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EFZoneShapeType                               ShapeType;                                         // 0x0065(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_66[0x2];                                       // 0x0066(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_FZoneShapeConnector;
-
 // ScriptStruct ZoneGraph.ZoneShapeConnection
 // 0x000C (0x000C - 0x0000)
 struct FZoneShapeConnection final
@@ -513,14 +490,37 @@ public:
 };
 DUMPER7_ASSERTS_FZoneShapeConnection;
 
-// ScriptStruct ZoneGraph.ZoneShapeLaneInternalLink
-// 0x000C (0x000C - 0x0000)
-struct FZoneShapeLaneInternalLink final
+// ScriptStruct ZoneGraph.ZoneGraphTessellationSettings
+// 0x0010 (0x0010 - 0x0000)
+struct FZoneGraphTessellationSettings final
 {
 public:
-	int32                                         LaneIndex;                                         // 0x0000(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FZoneLaneLinkData                      LinkData;                                          // 0x0004(0x0008)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FZoneGraphTagFilter                    LaneFilter;                                        // 0x0000(0x000C)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	float                                         TessellationTolerance;                             // 0x000C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_FZoneShapeLaneInternalLink;
+DUMPER7_ASSERTS_FZoneGraphTessellationSettings;
+
+// ScriptStruct ZoneGraph.ZoneGraphBuildSettings
+// 0x0060 (0x0060 - 0x0000)
+struct FZoneGraphBuildSettings final
+{
+public:
+	float                                         CommonTessellationTolerance;                       // 0x0000(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FZoneGraphTessellationSettings> SpecificTessellationTolerances;                    // 0x0008(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	float                                         LaneConnectionAngle;                               // 0x0018(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FZoneGraphTagMask                      LaneConnectionMask;                                // 0x001C(0x0004)(Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         TurnThresholdAngle;                                // 0x0020(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FZoneGraphLaneRoutingRule>      PolygonRoutingRules;                               // 0x0028(0x0010)(Edit, ZeroConstructor, NativeAccessSpecifierPublic)
+	float                                         ConnectionSnapDistance;                            // 0x0038(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ConnectionSnapAngle;                               // 0x003C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        DragEndpointAutoConnectRange;                      // 0x0040(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        DragEndpointAutoIntersectionRange;                 // 0x0048(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        SnapAutoIntersectionToClosestPointTolerance;       // 0x0050(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bShow3DRadiusForAutoConnectionAndIntersection;     // 0x0058(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_59[0x7];                                       // 0x0059(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FZoneGraphBuildSettings;
 
 SDK_NAMESPACE_END

@@ -33,6 +33,17 @@ enum class ETypedElementSelectionMethod : uint8
 	ETypedElementSelectionMethod_MAX         = 3,
 };
 
+// ScriptStruct TypedElementRuntime.TypedElementSelectionNormalizationOptions
+// 0x000C (0x000C - 0x0000)
+struct alignas(0x04) FTypedElementSelectionNormalizationOptions final
+{
+public:
+	bool                                          bExpandGroups;                                     // 0x0000(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bFollowAttachment;                                 // 0x0001(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_2[0xA];                                        // 0x0002(0x000A)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_FTypedElementSelectionNormalizationOptions;
+
 // ScriptStruct TypedElementRuntime.TypedElementSelectionOptions
 // 0x0010 (0x0010 - 0x0000)
 struct alignas(0x04) FTypedElementSelectionOptions final
@@ -48,15 +59,6 @@ public:
 };
 DUMPER7_ASSERTS_FTypedElementSelectionOptions;
 
-// ScriptStruct TypedElementRuntime.TypedElementAssetDataReferencedOptions
-// 0x0001 (0x0001 - 0x0000)
-struct FTypedElementAssetDataReferencedOptions final
-{
-public:
-	bool                                          bOnlyTopLevelAsset;                                // 0x0000(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-};
-DUMPER7_ASSERTS_FTypedElementAssetDataReferencedOptions;
-
 // ScriptStruct TypedElementRuntime.TypedElementSelectionSetState
 // 0x0018 (0x0018 - 0x0000)
 struct alignas(0x08) FTypedElementSelectionSetState final
@@ -67,16 +69,14 @@ public:
 };
 DUMPER7_ASSERTS_FTypedElementSelectionSetState;
 
-// ScriptStruct TypedElementRuntime.TypedElementSelectionNormalizationOptions
-// 0x000C (0x000C - 0x0000)
-struct alignas(0x04) FTypedElementSelectionNormalizationOptions final
+// ScriptStruct TypedElementRuntime.TypedElementAssetDataReferencedOptions
+// 0x0001 (0x0001 - 0x0000)
+struct FTypedElementAssetDataReferencedOptions final
 {
 public:
-	bool                                          bExpandGroups;                                     // 0x0000(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bFollowAttachment;                                 // 0x0001(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_2[0xA];                                        // 0x0002(0x000A)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bOnlyTopLevelAsset;                                // 0x0000(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 };
-DUMPER7_ASSERTS_FTypedElementSelectionNormalizationOptions;
+DUMPER7_ASSERTS_FTypedElementAssetDataReferencedOptions;
 
 // ScriptStruct TypedElementRuntime.TypedElementIsSelectedOptions
 // 0x000C (0x000C - 0x0000)

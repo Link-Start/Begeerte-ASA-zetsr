@@ -84,6 +84,54 @@ public:
 };
 DUMPER7_ASSERTS_UMovieGraphDeferredRenderPassNode;
 
+// Class MovieRenderPipelineRenderPasses.MoviePipelineImageSequenceOutputBase
+// 0x0020 (0x0068 - 0x0048)
+class UMoviePipelineImageSequenceOutputBase : public UMoviePipelineOutputBase
+{
+public:
+	uint8                                         Pad_48[0x20];                                      // 0x0048(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("MoviePipelineImageSequenceOutputBase")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"MoviePipelineImageSequenceOutputBase")
+	}
+	static class UMoviePipelineImageSequenceOutputBase* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMoviePipelineImageSequenceOutputBase>();
+	}
+};
+DUMPER7_ASSERTS_UMoviePipelineImageSequenceOutputBase;
+
+// Class MovieRenderPipelineRenderPasses.MoviePipelineImageSequenceOutput_EXR
+// 0x0008 (0x0070 - 0x0068)
+class UMoviePipelineImageSequenceOutput_EXR final : public UMoviePipelineImageSequenceOutputBase
+{
+public:
+	EEXRCompressionFormat                         Compression;                                       // 0x0068(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bMultilayer;                                       // 0x0069(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_6A[0x6];                                       // 0x006A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("MoviePipelineImageSequenceOutput_EXR")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"MoviePipelineImageSequenceOutput_EXR")
+	}
+	static class UMoviePipelineImageSequenceOutput_EXR* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMoviePipelineImageSequenceOutput_EXR>();
+	}
+};
+DUMPER7_ASSERTS_UMoviePipelineImageSequenceOutput_EXR;
+
 // Class MovieRenderPipelineRenderPasses.MovieGraphImageSequenceOutputNode
 // 0x0100 (0x01C0 - 0x00C0)
 class UMovieGraphImageSequenceOutputNode : public UMovieGraphFileOutputNode
@@ -136,6 +184,84 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UMovieGraphImageSequenceOutputNode_EXR;
+
+// Class MovieRenderPipelineRenderPasses.MoviePipelineImagePassBase
+// 0x0130 (0x0178 - 0x0048)
+class UMoviePipelineImagePassBase : public UMoviePipelineRenderPass
+{
+public:
+	uint8                                         Pad_48[0x130];                                     // 0x0048(0x0130)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("MoviePipelineImagePassBase")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"MoviePipelineImagePassBase")
+	}
+	static class UMoviePipelineImagePassBase* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMoviePipelineImagePassBase>();
+	}
+};
+DUMPER7_ASSERTS_UMoviePipelineImagePassBase;
+
+// Class MovieRenderPipelineRenderPasses.MoviePipelineDeferredPassBase
+// 0x0100 (0x0278 - 0x0178)
+class UMoviePipelineDeferredPassBase : public UMoviePipelineImagePassBase
+{
+public:
+	bool                                          bAccumulatorIncludesAlpha;                         // 0x0178(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bDisableMultisampleEffects;                        // 0x0179(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_17A[0x6];                                      // 0x017A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FMoviePipelinePostProcessPass>  AdditionalPostProcessMaterials;                    // 0x0180(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	bool                                          bRenderMainPass;                                   // 0x0190(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAddDefaultLayer;                                  // 0x0191(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_192[0x6];                                      // 0x0192(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FActorLayer>                    ActorLayers;                                       // 0x0198(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FSoftObjectPath>                DataLayers;                                        // 0x01A8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<class UMaterialInterface*>             ActivePostProcessMaterials;                        // 0x01B8(0x0010)(ZeroConstructor, Transient, DuplicateTransient, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	TSet<class UMaterialInterface*>               ActiveHighPrecisionPostProcessMaterials;           // 0x01C8(0x0050)(Transient, DuplicateTransient, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	class UMaterialInterface*                     StencilLayerMaterial;                              // 0x0218(0x0008)(ZeroConstructor, Transient, DuplicateTransient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	uint8                                         Pad_220[0x58];                                     // 0x0220(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("MoviePipelineDeferredPassBase")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"MoviePipelineDeferredPassBase")
+	}
+	static class UMoviePipelineDeferredPassBase* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMoviePipelineDeferredPassBase>();
+	}
+};
+DUMPER7_ASSERTS_UMoviePipelineDeferredPassBase;
+
+// Class MovieRenderPipelineRenderPasses.MoviePipelineDeferredPass_Unlit
+// 0x0000 (0x0278 - 0x0278)
+class UMoviePipelineDeferredPass_Unlit final : public UMoviePipelineDeferredPassBase
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("MoviePipelineDeferredPass_Unlit")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"MoviePipelineDeferredPass_Unlit")
+	}
+	static class UMoviePipelineDeferredPass_Unlit* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMoviePipelineDeferredPass_Unlit>();
+	}
+};
+DUMPER7_ASSERTS_UMoviePipelineDeferredPass_Unlit;
 
 // Class MovieRenderPipelineRenderPasses.MovieGraphImageSequenceOutputNode_MultiLayerEXR
 // 0x0000 (0x01C8 - 0x01C8)
@@ -217,6 +343,30 @@ public:
 };
 DUMPER7_ASSERTS_UMovieGraphImageSequenceOutputNode_PNG;
 
+// Class MovieRenderPipelineRenderPasses.MoviePipelineDeferredPass_PathTracer
+// 0x0008 (0x0280 - 0x0278)
+class UMoviePipelineDeferredPass_PathTracer final : public UMoviePipelineDeferredPassBase
+{
+public:
+	bool                                          bReferenceMotionBlur;                              // 0x0278(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_279[0x7];                                      // 0x0279(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("MoviePipelineDeferredPass_PathTracer")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"MoviePipelineDeferredPass_PathTracer")
+	}
+	static class UMoviePipelineDeferredPass_PathTracer* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UMoviePipelineDeferredPass_PathTracer>();
+	}
+};
+DUMPER7_ASSERTS_UMoviePipelineDeferredPass_PathTracer;
+
 // Class MovieRenderPipelineRenderPasses.MovieGraphPathTracerRenderPassNode
 // 0x0040 (0x0108 - 0x00C8)
 class UMovieGraphPathTracerRenderPassNode final : public UMovieGraphImagePassBaseNode
@@ -274,84 +424,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UMovieGraphPathTracerRenderPassNode;
-
-// Class MovieRenderPipelineRenderPasses.MoviePipelineImagePassBase
-// 0x0130 (0x0178 - 0x0048)
-class UMoviePipelineImagePassBase : public UMoviePipelineRenderPass
-{
-public:
-	uint8                                         Pad_48[0x130];                                     // 0x0048(0x0130)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MoviePipelineImagePassBase")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MoviePipelineImagePassBase")
-	}
-	static class UMoviePipelineImagePassBase* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMoviePipelineImagePassBase>();
-	}
-};
-DUMPER7_ASSERTS_UMoviePipelineImagePassBase;
-
-// Class MovieRenderPipelineRenderPasses.MoviePipelineDeferredPassBase
-// 0x0100 (0x0278 - 0x0178)
-class UMoviePipelineDeferredPassBase : public UMoviePipelineImagePassBase
-{
-public:
-	bool                                          bAccumulatorIncludesAlpha;                         // 0x0178(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDisableMultisampleEffects;                        // 0x0179(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_17A[0x6];                                      // 0x017A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FMoviePipelinePostProcessPass>  AdditionalPostProcessMaterials;                    // 0x0180(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	bool                                          bRenderMainPass;                                   // 0x0190(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAddDefaultLayer;                                  // 0x0191(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_192[0x6];                                      // 0x0192(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FActorLayer>                    ActorLayers;                                       // 0x0198(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FSoftObjectPath>                DataLayers;                                        // 0x01A8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<class UMaterialInterface*>             ActivePostProcessMaterials;                        // 0x01B8(0x0010)(ZeroConstructor, Transient, DuplicateTransient, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	TSet<class UMaterialInterface*>               ActiveHighPrecisionPostProcessMaterials;           // 0x01C8(0x0050)(Transient, DuplicateTransient, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	class UMaterialInterface*                     StencilLayerMaterial;                              // 0x0218(0x0008)(ZeroConstructor, Transient, DuplicateTransient, NoDestructor, Protected, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
-	uint8                                         Pad_220[0x58];                                     // 0x0220(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MoviePipelineDeferredPassBase")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MoviePipelineDeferredPassBase")
-	}
-	static class UMoviePipelineDeferredPassBase* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMoviePipelineDeferredPassBase>();
-	}
-};
-DUMPER7_ASSERTS_UMoviePipelineDeferredPassBase;
-
-// Class MovieRenderPipelineRenderPasses.MoviePipelineDeferredPass_Unlit
-// 0x0000 (0x0278 - 0x0278)
-class UMoviePipelineDeferredPass_Unlit final : public UMoviePipelineDeferredPassBase
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MoviePipelineDeferredPass_Unlit")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MoviePipelineDeferredPass_Unlit")
-	}
-	static class UMoviePipelineDeferredPass_Unlit* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMoviePipelineDeferredPass_Unlit>();
-	}
-};
-DUMPER7_ASSERTS_UMoviePipelineDeferredPass_Unlit;
 
 // Class MovieRenderPipelineRenderPasses.MoviePipelineDeferredPass_DetailLighting
 // 0x0000 (0x0278 - 0x0278)
@@ -412,78 +484,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UMoviePipelineDeferredPass_ReflectionsOnly;
-
-// Class MovieRenderPipelineRenderPasses.MoviePipelineDeferredPass_PathTracer
-// 0x0008 (0x0280 - 0x0278)
-class UMoviePipelineDeferredPass_PathTracer final : public UMoviePipelineDeferredPassBase
-{
-public:
-	bool                                          bReferenceMotionBlur;                              // 0x0278(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_279[0x7];                                      // 0x0279(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MoviePipelineDeferredPass_PathTracer")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MoviePipelineDeferredPass_PathTracer")
-	}
-	static class UMoviePipelineDeferredPass_PathTracer* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMoviePipelineDeferredPass_PathTracer>();
-	}
-};
-DUMPER7_ASSERTS_UMoviePipelineDeferredPass_PathTracer;
-
-// Class MovieRenderPipelineRenderPasses.MoviePipelineImageSequenceOutputBase
-// 0x0020 (0x0068 - 0x0048)
-class UMoviePipelineImageSequenceOutputBase : public UMoviePipelineOutputBase
-{
-public:
-	uint8                                         Pad_48[0x20];                                      // 0x0048(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MoviePipelineImageSequenceOutputBase")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MoviePipelineImageSequenceOutputBase")
-	}
-	static class UMoviePipelineImageSequenceOutputBase* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMoviePipelineImageSequenceOutputBase>();
-	}
-};
-DUMPER7_ASSERTS_UMoviePipelineImageSequenceOutputBase;
-
-// Class MovieRenderPipelineRenderPasses.MoviePipelineImageSequenceOutput_EXR
-// 0x0008 (0x0070 - 0x0068)
-class UMoviePipelineImageSequenceOutput_EXR final : public UMoviePipelineImageSequenceOutputBase
-{
-public:
-	EEXRCompressionFormat                         Compression;                                       // 0x0068(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bMultilayer;                                       // 0x0069(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_6A[0x6];                                       // 0x006A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("MoviePipelineImageSequenceOutput_EXR")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"MoviePipelineImageSequenceOutput_EXR")
-	}
-	static class UMoviePipelineImageSequenceOutput_EXR* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UMoviePipelineImageSequenceOutput_EXR>();
-	}
-};
-DUMPER7_ASSERTS_UMoviePipelineImageSequenceOutput_EXR;
 
 // Class MovieRenderPipelineRenderPasses.MoviePipelineImageSequenceOutput_BMP
 // 0x0000 (0x0068 - 0x0068)

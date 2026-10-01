@@ -34,17 +34,19 @@ public:
 };
 DUMPER7_ASSERTS_AbilityTask_WaitGameplayEffectBlockedImmunity_WaitGameplayEffectBlockedByImmunity;
 
-// Function GameplayAbilities.AbilityTask_Repeat.RepeatAction
-// 0x0018 (0x0018 - 0x0000)
-struct AbilityTask_Repeat_RepeatAction final
+// Function GameplayAbilities.AbilityAsync_WaitGameplayTagQuery.WaitGameplayTagQueryOnActor
+// 0x0060 (0x0060 - 0x0000)
+struct AbilityAsync_WaitGameplayTagQuery_WaitGameplayTagQueryOnActor final
 {
 public:
-	class UGameplayAbility*                       OwningAbility;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         TimeBetweenActions;                                // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         TotalActionCount;                                  // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UAbilityTask_Repeat*                    ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AActor*                                 TargetActor;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGameplayTagQuery                      TagQuery;                                          // 0x0008(0x0048)(ConstParm, Parm, NativeAccessSpecifierPublic)
+	EWaitGameplayTagQueryTriggerCondition         TriggerCondition;                                  // 0x0050(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOnlyTriggerOnce;                                  // 0x0051(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_52[0x6];                                       // 0x0052(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	class UAbilityAsync_WaitGameplayTagQuery*     ReturnValue;                                       // 0x0058(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-DUMPER7_ASSERTS_AbilityTask_Repeat_RepeatAction;
+DUMPER7_ASSERTS_AbilityAsync_WaitGameplayTagQuery_WaitGameplayTagQueryOnActor;
 
 // Function GameplayAbilities.AbilityTask_WaitCancel.WaitCancel
 // 0x0010 (0x0010 - 0x0000)
@@ -66,6 +68,20 @@ public:
 	class UAbilityAsync_WaitGameplayTagCountChanged* ReturnValue;                                    // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_AbilityAsync_WaitGameplayTagCountChanged_WaitGameplayTagCountChangedOnActor;
+
+// Function GameplayAbilities.AbilityAsync_WaitGameplayEvent.WaitGameplayEventToActor
+// 0x0020 (0x0020 - 0x0000)
+struct AbilityAsync_WaitGameplayEvent_WaitGameplayEventToActor final
+{
+public:
+	class AActor*                                 TargetActor;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGameplayTag                           EventTag;                                          // 0x0008(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          OnlyTriggerOnce;                                   // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          OnlyMatchExact;                                    // 0x0011(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_12[0x6];                                       // 0x0012(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	class UAbilityAsync_WaitGameplayEvent*        ReturnValue;                                       // 0x0018(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_AbilityAsync_WaitGameplayEvent_WaitGameplayEventToActor;
 
 // Function GameplayAbilities.AbilitySystemCheatManagerExtension.AbilityActivate
 // 0x0010 (0x0010 - 0x0000)
@@ -279,6 +295,19 @@ public:
 	class AActor*                                 SpawnedActor;                                      // 0x0030(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_AbilityTask_SpawnActor_FinishSpawningActor;
+
+// Function GameplayAbilities.AbilityAsync_WaitGameplayTagAdded.WaitGameplayTagAddToActor
+// 0x0020 (0x0020 - 0x0000)
+struct AbilityAsync_WaitGameplayTagAdded_WaitGameplayTagAddToActor final
+{
+public:
+	class AActor*                                 TargetActor;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGameplayTag                           Tag;                                               // 0x0008(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          OnlyTriggerOnce;                                   // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UAbilityAsync_WaitGameplayTagAdded*     ReturnValue;                                       // 0x0018(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_AbilityAsync_WaitGameplayTagAdded_WaitGameplayTagAddToActor;
 
 // Function GameplayAbilities.AbilityTask_WaitAttributeChangeRatioThreshold.WaitForAttributeChangeRatioThreshold
 // 0x0098 (0x0098 - 0x0000)
@@ -539,6 +568,48 @@ public:
 	struct FGameplayEffectCustomExecutionOutput   OutExecutionOutput;                                // 0x00F0(0x0018)(Parm, OutParm, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_GameplayEffectExecutionCalculation_Execute;
+
+// Function GameplayAbilities.AbilityAsync_WaitAttributeChanged.WaitForAttributeChanged
+// 0x0050 (0x0050 - 0x0000)
+struct AbilityAsync_WaitAttributeChanged_WaitForAttributeChanged final
+{
+public:
+	class AActor*                                 TargetActor;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGameplayAttribute                     Attribute;                                         // 0x0008(0x0038)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          OnlyTriggerOnce;                                   // 0x0040(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_41[0x7];                                       // 0x0041(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UAbilityAsync_WaitAttributeChanged*     ReturnValue;                                       // 0x0048(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_AbilityAsync_WaitAttributeChanged_WaitForAttributeChanged;
+
+// Function GameplayAbilities.AbilityAsync_WaitGameplayEffectApplied.WaitGameplayEffectAppliedToActor
+// 0x0138 (0x0138 - 0x0000)
+struct AbilityAsync_WaitGameplayEffectApplied_WaitGameplayEffectAppliedToActor final
+{
+public:
+	class AActor*                                 TargetActor;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGameplayTargetDataFilterHandle        SourceFilter;                                      // 0x0008(0x0010)(ConstParm, Parm, NativeAccessSpecifierPublic)
+	struct FGameplayTagRequirements               SourceTagRequirements;                             // 0x0018(0x0088)(Parm, NativeAccessSpecifierPublic)
+	struct FGameplayTagRequirements               TargetTagRequirements;                             // 0x00A0(0x0088)(Parm, NativeAccessSpecifierPublic)
+	bool                                          TriggerOnce;                                       // 0x0128(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ListenForPeriodicEffect;                           // 0x0129(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_12A[0x6];                                      // 0x012A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	class UAbilityAsync_WaitGameplayEffectApplied* ReturnValue;                                      // 0x0130(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_AbilityAsync_WaitGameplayEffectApplied_WaitGameplayEffectAppliedToActor;
+
+// Function GameplayAbilities.AbilityAsync_WaitGameplayTagRemoved.WaitGameplayTagRemoveFromActor
+// 0x0020 (0x0020 - 0x0000)
+struct AbilityAsync_WaitGameplayTagRemoved_WaitGameplayTagRemoveFromActor final
+{
+public:
+	class AActor*                                 TargetActor;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGameplayTag                           Tag;                                               // 0x0008(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          OnlyTriggerOnce;                                   // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UAbilityAsync_WaitGameplayTagRemoved*   ReturnValue;                                       // 0x0018(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_AbilityAsync_WaitGameplayTagRemoved_WaitGameplayTagRemoveFromActor;
 
 // Function GameplayAbilities.GameplayAbility.BP_ApplyGameplayEffectToOwner
 // 0x0018 (0x0018 - 0x0000)
@@ -1032,61 +1103,6 @@ public:
 };
 DUMPER7_ASSERTS_GameplayAbility_MakeOutgoingGameplayEffectSpec;
 
-// Function GameplayAbilities.AbilityTask_WaitDelay.WaitDelay
-// 0x0018 (0x0018 - 0x0000)
-struct AbilityTask_WaitDelay_WaitDelay final
-{
-public:
-	class UGameplayAbility*                       OwningAbility;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Time;                                              // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAbilityTask_WaitDelay*                 ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AbilityTask_WaitDelay_WaitDelay;
-
-// Function GameplayAbilities.AbilityAsync_WaitAttributeChanged.WaitForAttributeChanged
-// 0x0050 (0x0050 - 0x0000)
-struct AbilityAsync_WaitAttributeChanged_WaitForAttributeChanged final
-{
-public:
-	class AActor*                                 TargetActor;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGameplayAttribute                     Attribute;                                         // 0x0008(0x0038)(Parm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          OnlyTriggerOnce;                                   // 0x0040(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_41[0x7];                                       // 0x0041(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAbilityAsync_WaitAttributeChanged*     ReturnValue;                                       // 0x0048(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AbilityAsync_WaitAttributeChanged_WaitForAttributeChanged;
-
-// Function GameplayAbilities.AbilityAsync_WaitGameplayEffectApplied.WaitGameplayEffectAppliedToActor
-// 0x0138 (0x0138 - 0x0000)
-struct AbilityAsync_WaitGameplayEffectApplied_WaitGameplayEffectAppliedToActor final
-{
-public:
-	class AActor*                                 TargetActor;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGameplayTargetDataFilterHandle        SourceFilter;                                      // 0x0008(0x0010)(ConstParm, Parm, NativeAccessSpecifierPublic)
-	struct FGameplayTagRequirements               SourceTagRequirements;                             // 0x0018(0x0088)(Parm, NativeAccessSpecifierPublic)
-	struct FGameplayTagRequirements               TargetTagRequirements;                             // 0x00A0(0x0088)(Parm, NativeAccessSpecifierPublic)
-	bool                                          TriggerOnce;                                       // 0x0128(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ListenForPeriodicEffect;                           // 0x0129(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_12A[0x6];                                      // 0x012A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAbilityAsync_WaitGameplayEffectApplied* ReturnValue;                                      // 0x0130(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AbilityAsync_WaitGameplayEffectApplied_WaitGameplayEffectAppliedToActor;
-
-// Function GameplayAbilities.AbilityAsync_WaitGameplayEvent.WaitGameplayEventToActor
-// 0x0020 (0x0020 - 0x0000)
-struct AbilityAsync_WaitGameplayEvent_WaitGameplayEventToActor final
-{
-public:
-	class AActor*                                 TargetActor;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGameplayTag                           EventTag;                                          // 0x0008(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          OnlyTriggerOnce;                                   // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          OnlyMatchExact;                                    // 0x0011(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_12[0x6];                                       // 0x0012(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAbilityAsync_WaitGameplayEvent*        ReturnValue;                                       // 0x0018(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AbilityAsync_WaitGameplayEvent_WaitGameplayEventToActor;
-
 // Function GameplayAbilities.AbilityTask_ApplyRootMotionConstantForce.ApplyRootMotionConstantForce
 // 0x0070 (0x0070 - 0x0000)
 struct AbilityTask_ApplyRootMotionConstantForce_ApplyRootMotionConstantForce final
@@ -1109,185 +1125,6 @@ public:
 	class UAbilityTask_ApplyRootMotionConstantForce* ReturnValue;                                    // 0x0068(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_AbilityTask_ApplyRootMotionConstantForce_ApplyRootMotionConstantForce;
-
-// Function GameplayAbilities.AbilityAsync_WaitGameplayTagAdded.WaitGameplayTagAddToActor
-// 0x0020 (0x0020 - 0x0000)
-struct AbilityAsync_WaitGameplayTagAdded_WaitGameplayTagAddToActor final
-{
-public:
-	class AActor*                                 TargetActor;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGameplayTag                           Tag;                                               // 0x0008(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          OnlyTriggerOnce;                                   // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAbilityAsync_WaitGameplayTagAdded*     ReturnValue;                                       // 0x0018(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AbilityAsync_WaitGameplayTagAdded_WaitGameplayTagAddToActor;
-
-// Function GameplayAbilities.AbilityAsync_WaitGameplayTagRemoved.WaitGameplayTagRemoveFromActor
-// 0x0020 (0x0020 - 0x0000)
-struct AbilityAsync_WaitGameplayTagRemoved_WaitGameplayTagRemoveFromActor final
-{
-public:
-	class AActor*                                 TargetActor;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGameplayTag                           Tag;                                               // 0x0008(0x0008)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          OnlyTriggerOnce;                                   // 0x0010(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAbilityAsync_WaitGameplayTagRemoved*   ReturnValue;                                       // 0x0018(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AbilityAsync_WaitGameplayTagRemoved_WaitGameplayTagRemoveFromActor;
-
-// Function GameplayAbilities.AbilityAsync_WaitGameplayTagQuery.WaitGameplayTagQueryOnActor
-// 0x0060 (0x0060 - 0x0000)
-struct AbilityAsync_WaitGameplayTagQuery_WaitGameplayTagQueryOnActor final
-{
-public:
-	class AActor*                                 TargetActor;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGameplayTagQuery                      TagQuery;                                          // 0x0008(0x0048)(ConstParm, Parm, NativeAccessSpecifierPublic)
-	EWaitGameplayTagQueryTriggerCondition         TriggerCondition;                                  // 0x0050(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOnlyTriggerOnce;                                  // 0x0051(0x0001)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_52[0x6];                                       // 0x0052(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAbilityAsync_WaitGameplayTagQuery*     ReturnValue;                                       // 0x0058(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AbilityAsync_WaitGameplayTagQuery_WaitGameplayTagQueryOnActor;
-
-// Function GameplayAbilities.AbilityTask_VisualizeTargeting.VisualizeTargeting
-// 0x0028 (0x0028 - 0x0000)
-struct AbilityTask_VisualizeTargeting_VisualizeTargeting final
-{
-public:
-	class UGameplayAbility*                       OwningAbility;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class AGameplayAbilityTargetActor> Class_0;                                          // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   TaskInstanceName;                                  // 0x0010(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Duration;                                          // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAbilityTask_VisualizeTargeting*        ReturnValue;                                       // 0x0020(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AbilityTask_VisualizeTargeting_VisualizeTargeting;
-
-// Function GameplayAbilities.AbilityTask_VisualizeTargeting.VisualizeTargetingUsingActor
-// 0x0028 (0x0028 - 0x0000)
-struct AbilityTask_VisualizeTargeting_VisualizeTargetingUsingActor final
-{
-public:
-	class UGameplayAbility*                       OwningAbility;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AGameplayAbilityTargetActor*            TargetActor;                                       // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   TaskInstanceName;                                  // 0x0010(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Duration;                                          // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UAbilityTask_VisualizeTargeting*        ReturnValue;                                       // 0x0020(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AbilityTask_VisualizeTargeting_VisualizeTargetingUsingActor;
-
-// Function GameplayAbilities.AbilityTask_VisualizeTargeting.BeginSpawningActor
-// 0x0020 (0x0020 - 0x0000)
-struct AbilityTask_VisualizeTargeting_BeginSpawningActor final
-{
-public:
-	class UGameplayAbility*                       OwningAbility;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSubclassOf<class AGameplayAbilityTargetActor> Class_0;                                          // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AGameplayAbilityTargetActor*            SpawnedActor;                                      // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_AbilityTask_VisualizeTargeting_BeginSpawningActor;
-
-// Function GameplayAbilities.AbilityTask_VisualizeTargeting.FinishSpawningActor
-// 0x0010 (0x0010 - 0x0000)
-struct AbilityTask_VisualizeTargeting_FinishSpawningActor final
-{
-public:
-	class UGameplayAbility*                       OwningAbility;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class AGameplayAbilityTargetActor*            SpawnedActor;                                      // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AbilityTask_VisualizeTargeting_FinishSpawningActor;
-
-// Function GameplayAbilities.AbilityTask_WaitConfirm.WaitConfirm
-// 0x0010 (0x0010 - 0x0000)
-struct AbilityTask_WaitConfirm_WaitConfirm final
-{
-public:
-	class UGameplayAbility*                       OwningAbility;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UAbilityTask_WaitConfirm*               ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AbilityTask_WaitConfirm_WaitConfirm;
-
-// Function GameplayAbilities.AbilityTask_WaitConfirm.OnConfirmCallback
-// 0x0008 (0x0008 - 0x0000)
-struct AbilityTask_WaitConfirm_OnConfirmCallback final
-{
-public:
-	class UGameplayAbility*                       InAbility;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_AbilityTask_WaitConfirm_OnConfirmCallback;
-
-// Function GameplayAbilities.GameplayCueNotify_Actor.K2_HandleGameplayCue
-// 0x00E8 (0x00E8 - 0x0000)
-struct GameplayCueNotify_Actor_K2_HandleGameplayCue final
-{
-public:
-	class AActor*                                 MyTarget;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EGameplayCueEvent                             EventType;                                         // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FGameplayCueParameters                 Parameters;                                        // 0x0010(0x00D8)(ConstParm, Parm, OutParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GameplayCueNotify_Actor_K2_HandleGameplayCue;
-
-// Function GameplayAbilities.GameplayCueNotify_Actor.OnActive
-// 0x00E8 (0x00E8 - 0x0000)
-struct GameplayCueNotify_Actor_OnActive final
-{
-public:
-	class AActor*                                 MyTarget;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGameplayCueParameters                 Parameters;                                        // 0x0008(0x00D8)(ConstParm, Parm, OutParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x00E0(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_E1[0x7];                                       // 0x00E1(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_GameplayCueNotify_Actor_OnActive;
-
-// Function GameplayAbilities.GameplayCueNotify_Actor.OnExecute
-// 0x00E8 (0x00E8 - 0x0000)
-struct GameplayCueNotify_Actor_OnExecute final
-{
-public:
-	class AActor*                                 MyTarget;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGameplayCueParameters                 Parameters;                                        // 0x0008(0x00D8)(ConstParm, Parm, OutParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x00E0(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_E1[0x7];                                       // 0x00E1(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_GameplayCueNotify_Actor_OnExecute;
-
-// Function GameplayAbilities.GameplayCueNotify_Actor.OnOwnerDestroyed
-// 0x0008 (0x0008 - 0x0000)
-struct GameplayCueNotify_Actor_OnOwnerDestroyed final
-{
-public:
-	class AActor*                                 DestroyedActor;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-DUMPER7_ASSERTS_GameplayCueNotify_Actor_OnOwnerDestroyed;
-
-// Function GameplayAbilities.GameplayCueNotify_Actor.OnRemove
-// 0x00E8 (0x00E8 - 0x0000)
-struct GameplayCueNotify_Actor_OnRemove final
-{
-public:
-	class AActor*                                 MyTarget;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGameplayCueParameters                 Parameters;                                        // 0x0008(0x00D8)(ConstParm, Parm, OutParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x00E0(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_E1[0x7];                                       // 0x00E1(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_GameplayCueNotify_Actor_OnRemove;
-
-// Function GameplayAbilities.GameplayCueNotify_Actor.WhileActive
-// 0x00E8 (0x00E8 - 0x0000)
-struct GameplayCueNotify_Actor_WhileActive final
-{
-public:
-	class AActor*                                 MyTarget;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FGameplayCueParameters                 Parameters;                                        // 0x0008(0x00D8)(ConstParm, Parm, OutParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	bool                                          ReturnValue;                                       // 0x00E0(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_E1[0x7];                                       // 0x00E1(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-DUMPER7_ASSERTS_GameplayCueNotify_Actor_WhileActive;
 
 // Function GameplayAbilities.AbilityTask_ApplyRootMotionJumpForce.ApplyRootMotionJumpForce
 // 0x0078 (0x0078 - 0x0000)
@@ -1408,6 +1245,18 @@ public:
 };
 DUMPER7_ASSERTS_AbilityTask_PlayMontageAndWait_OnMontageEnded;
 
+// Function GameplayAbilities.AbilityTask_Repeat.RepeatAction
+// 0x0018 (0x0018 - 0x0000)
+struct AbilityTask_Repeat_RepeatAction final
+{
+public:
+	class UGameplayAbility*                       OwningAbility;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         TimeBetweenActions;                                // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         TotalActionCount;                                  // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UAbilityTask_Repeat*                    ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_AbilityTask_Repeat_RepeatAction;
+
 // Function GameplayAbilities.AbilityTask_StartAbilityState.StartAbilityState
 // 0x0020 (0x0020 - 0x0000)
 struct AbilityTask_StartAbilityState_StartAbilityState final
@@ -1420,6 +1269,57 @@ public:
 	class UAbilityTask_StartAbilityState*         ReturnValue;                                       // 0x0018(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_AbilityTask_StartAbilityState_StartAbilityState;
+
+// Function GameplayAbilities.AbilityTask_VisualizeTargeting.VisualizeTargeting
+// 0x0028 (0x0028 - 0x0000)
+struct AbilityTask_VisualizeTargeting_VisualizeTargeting final
+{
+public:
+	class UGameplayAbility*                       OwningAbility;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class AGameplayAbilityTargetActor> Class_0;                                          // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   TaskInstanceName;                                  // 0x0010(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Duration;                                          // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UAbilityTask_VisualizeTargeting*        ReturnValue;                                       // 0x0020(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_AbilityTask_VisualizeTargeting_VisualizeTargeting;
+
+// Function GameplayAbilities.AbilityTask_VisualizeTargeting.VisualizeTargetingUsingActor
+// 0x0028 (0x0028 - 0x0000)
+struct AbilityTask_VisualizeTargeting_VisualizeTargetingUsingActor final
+{
+public:
+	class UGameplayAbility*                       OwningAbility;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AGameplayAbilityTargetActor*            TargetActor;                                       // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   TaskInstanceName;                                  // 0x0010(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Duration;                                          // 0x0018(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UAbilityTask_VisualizeTargeting*        ReturnValue;                                       // 0x0020(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_AbilityTask_VisualizeTargeting_VisualizeTargetingUsingActor;
+
+// Function GameplayAbilities.AbilityTask_VisualizeTargeting.BeginSpawningActor
+// 0x0020 (0x0020 - 0x0000)
+struct AbilityTask_VisualizeTargeting_BeginSpawningActor final
+{
+public:
+	class UGameplayAbility*                       OwningAbility;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class AGameplayAbilityTargetActor> Class_0;                                          // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AGameplayAbilityTargetActor*            SpawnedActor;                                      // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x0018(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_AbilityTask_VisualizeTargeting_BeginSpawningActor;
+
+// Function GameplayAbilities.AbilityTask_VisualizeTargeting.FinishSpawningActor
+// 0x0010 (0x0010 - 0x0000)
+struct AbilityTask_VisualizeTargeting_FinishSpawningActor final
+{
+public:
+	class UGameplayAbility*                       OwningAbility;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class AGameplayAbilityTargetActor*            SpawnedActor;                                      // 0x0008(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_AbilityTask_VisualizeTargeting_FinishSpawningActor;
 
 // Function GameplayAbilities.AbilityTask_WaitAbilityActivate.WaitForAbilityActivate
 // 0x0028 (0x0028 - 0x0000)
@@ -1525,6 +1425,25 @@ public:
 };
 DUMPER7_ASSERTS_AbilityTask_WaitAttributeChangeThreshold_WaitForAttributeChangeThreshold;
 
+// Function GameplayAbilities.AbilityTask_WaitConfirm.WaitConfirm
+// 0x0010 (0x0010 - 0x0000)
+struct AbilityTask_WaitConfirm_WaitConfirm final
+{
+public:
+	class UGameplayAbility*                       OwningAbility;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UAbilityTask_WaitConfirm*               ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_AbilityTask_WaitConfirm_WaitConfirm;
+
+// Function GameplayAbilities.AbilityTask_WaitConfirm.OnConfirmCallback
+// 0x0008 (0x0008 - 0x0000)
+struct AbilityTask_WaitConfirm_OnConfirmCallback final
+{
+public:
+	class UGameplayAbility*                       InAbility;                                         // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_AbilityTask_WaitConfirm_OnConfirmCallback;
+
 // Function GameplayAbilities.AbilityTask_WaitConfirmCancel.WaitConfirmCancel
 // 0x0010 (0x0010 - 0x0000)
 struct AbilityTask_WaitConfirmCancel_WaitConfirmCancel final
@@ -1534,6 +1453,18 @@ public:
 	class UAbilityTask_WaitConfirmCancel*         ReturnValue;                                       // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_AbilityTask_WaitConfirmCancel_WaitConfirmCancel;
+
+// Function GameplayAbilities.AbilityTask_WaitDelay.WaitDelay
+// 0x0018 (0x0018 - 0x0000)
+struct AbilityTask_WaitDelay_WaitDelay final
+{
+public:
+	class UGameplayAbility*                       OwningAbility;                                     // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Time;                                              // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UAbilityTask_WaitDelay*                 ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_AbilityTask_WaitDelay_WaitDelay;
 
 // Function GameplayAbilities.AbilityTask_WaitGameplayEffectApplied.OnApplyGameplayEffectCallback
 // 0x02A8 (0x02A8 - 0x0000)
@@ -3908,6 +3839,75 @@ public:
 	struct FGameplayCueParameters                 Parameters;                                        // 0x0008(0x00D8)(ConstParm, Parm, OutParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
 };
 DUMPER7_ASSERTS_GameplayCueInterface_BlueprintCustomHandler;
+
+// Function GameplayAbilities.GameplayCueNotify_Actor.K2_HandleGameplayCue
+// 0x00E8 (0x00E8 - 0x0000)
+struct GameplayCueNotify_Actor_K2_HandleGameplayCue final
+{
+public:
+	class AActor*                                 MyTarget;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EGameplayCueEvent                             EventType;                                         // 0x0008(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9[0x7];                                        // 0x0009(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FGameplayCueParameters                 Parameters;                                        // 0x0010(0x00D8)(ConstParm, Parm, OutParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_GameplayCueNotify_Actor_K2_HandleGameplayCue;
+
+// Function GameplayAbilities.GameplayCueNotify_Actor.OnActive
+// 0x00E8 (0x00E8 - 0x0000)
+struct GameplayCueNotify_Actor_OnActive final
+{
+public:
+	class AActor*                                 MyTarget;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGameplayCueParameters                 Parameters;                                        // 0x0008(0x00D8)(ConstParm, Parm, OutParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x00E0(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E1[0x7];                                       // 0x00E1(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_GameplayCueNotify_Actor_OnActive;
+
+// Function GameplayAbilities.GameplayCueNotify_Actor.OnExecute
+// 0x00E8 (0x00E8 - 0x0000)
+struct GameplayCueNotify_Actor_OnExecute final
+{
+public:
+	class AActor*                                 MyTarget;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGameplayCueParameters                 Parameters;                                        // 0x0008(0x00D8)(ConstParm, Parm, OutParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x00E0(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E1[0x7];                                       // 0x00E1(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_GameplayCueNotify_Actor_OnExecute;
+
+// Function GameplayAbilities.GameplayCueNotify_Actor.OnOwnerDestroyed
+// 0x0008 (0x0008 - 0x0000)
+struct GameplayCueNotify_Actor_OnOwnerDestroyed final
+{
+public:
+	class AActor*                                 DestroyedActor;                                    // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+DUMPER7_ASSERTS_GameplayCueNotify_Actor_OnOwnerDestroyed;
+
+// Function GameplayAbilities.GameplayCueNotify_Actor.OnRemove
+// 0x00E8 (0x00E8 - 0x0000)
+struct GameplayCueNotify_Actor_OnRemove final
+{
+public:
+	class AActor*                                 MyTarget;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGameplayCueParameters                 Parameters;                                        // 0x0008(0x00D8)(ConstParm, Parm, OutParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x00E0(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E1[0x7];                                       // 0x00E1(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_GameplayCueNotify_Actor_OnRemove;
+
+// Function GameplayAbilities.GameplayCueNotify_Actor.WhileActive
+// 0x00E8 (0x00E8 - 0x0000)
+struct GameplayCueNotify_Actor_WhileActive final
+{
+public:
+	class AActor*                                 MyTarget;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FGameplayCueParameters                 Parameters;                                        // 0x0008(0x00D8)(ConstParm, Parm, OutParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	bool                                          ReturnValue;                                       // 0x00E0(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E1[0x7];                                       // 0x00E1(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+DUMPER7_ASSERTS_GameplayCueNotify_Actor_WhileActive;
 
 // Function GameplayAbilities.GameplayCueNotify_Burst.OnBurst
 // 0x0140 (0x0140 - 0x0000)

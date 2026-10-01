@@ -15,29 +15,6 @@
 
 SDK_NAMESPACE_START
 
-// Class DataflowEnginePlugin.DataflowComponent
-// 0x0150 (0x0770 - 0x0620)
-class UDataflowComponent final : public UPrimitiveComponent
-{
-public:
-	uint8                                         Pad_620[0x150];                                    // 0x0620(0x0150)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("DataflowComponent")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"DataflowComponent")
-	}
-	static class UDataflowComponent* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UDataflowComponent>();
-	}
-};
-DUMPER7_ASSERTS_UDataflowComponent;
-
 // Class DataflowEnginePlugin.DataflowActor
 // 0x0008 (0x0498 - 0x0490)
 class ADataflowActor final : public AActor
@@ -60,5 +37,28 @@ public:
 	}
 };
 DUMPER7_ASSERTS_ADataflowActor;
+
+// Class DataflowEnginePlugin.DataflowComponent
+// 0x0150 (0x0770 - 0x0620)
+class UDataflowComponent final : public UPrimitiveComponent
+{
+public:
+	uint8                                         Pad_620[0x150];                                    // 0x0620(0x0150)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("DataflowComponent")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"DataflowComponent")
+	}
+	static class UDataflowComponent* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UDataflowComponent>();
+	}
+};
+DUMPER7_ASSERTS_UDataflowComponent;
 
 SDK_NAMESPACE_END

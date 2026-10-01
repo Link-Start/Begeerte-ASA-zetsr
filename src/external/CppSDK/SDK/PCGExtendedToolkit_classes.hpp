@@ -15,12 +15,32 @@
 #include "PCG_structs.hpp"
 #include "PCG_classes.hpp"
 #include "PCGExtendedToolkit_structs.hpp"
+#include "GeometryFramework_classes.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
-#include "GeometryFramework_classes.hpp"
 
 
 SDK_NAMESPACE_START
+
+// Class PCGExtendedToolkit.PCGExPointData
+// 0x0000 (0x01B0 - 0x01B0)
+class UPCGExPointData : public UPCGPointData
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExPointData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExPointData")
+	}
+	static class UPCGExPointData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExPointData>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExPointData;
 
 // Class PCGExtendedToolkit.PCGExInstancedFactory
 // 0x0080 (0x00A8 - 0x0028)
@@ -100,68 +120,25 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExFittingRelaxBase;
 
-// Class PCGExtendedToolkit.PCGExEdgeRefineOperation
-// 0x0040 (0x00E8 - 0x00A8)
-class UPCGExEdgeRefineOperation : public UPCGExInstancedFactory
-{
-public:
-	uint8                                         Pad_A8[0x40];                                      // 0x00A8(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExEdgeRefineOperation")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExEdgeRefineOperation")
-	}
-	static class UPCGExEdgeRefineOperation* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExEdgeRefineOperation>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExEdgeRefineOperation;
-
-// Class PCGExtendedToolkit.PCGExEdgeKeepLowestScore
-// 0x0000 (0x00E8 - 0x00E8)
-class UPCGExEdgeKeepLowestScore final : public UPCGExEdgeRefineOperation
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExEdgeKeepLowestScore")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExEdgeKeepLowestScore")
-	}
-	static class UPCGExEdgeKeepLowestScore* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExEdgeKeepLowestScore>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExEdgeKeepLowestScore;
-
-// Class PCGExtendedToolkit.PCGExPointData
+// Class PCGExtendedToolkit.PCGExParamDataBase
 // 0x0000 (0x01B0 - 0x01B0)
-class UPCGExPointData : public UPCGPointData
+class UPCGExParamDataBase : public UPCGExPointData
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExPointData")
+		STATIC_CLASS_IMPL("PCGExParamDataBase")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExPointData")
+		STATIC_NAME_IMPL(L"PCGExParamDataBase")
 	}
-	static class UPCGExPointData* GetDefaultObj()
+	static class UPCGExParamDataBase* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExPointData>();
+		return GetDefaultObjImpl<UPCGExParamDataBase>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExPointData;
+DUMPER7_ASSERTS_UPCGExParamDataBase;
 
 // Class PCGExtendedToolkit.PCGExPointsProcessorSettings
 // 0x0030 (0x00E8 - 0x00B8)
@@ -194,85 +171,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExPointsProcessorSettings;
-
-// Class PCGExtendedToolkit.PCGExPathProcessorSettings
-// 0x0038 (0x0120 - 0x00E8)
-class UPCGExPathProcessorSettings : public UPCGExPointsProcessorSettings
-{
-public:
-	bool                                          bSupportClosedLoops;                               // 0x00E8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_E9[0x7];                                       // 0x00E9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGExPathClosedLoopDetails            ClosedLoop;                                        // 0x00F0(0x0028)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	bool                                          bOmitInvalidPathsOutputs;                          // 0x0118(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_119[0x7];                                      // 0x0119(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExPathProcessorSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExPathProcessorSettings")
-	}
-	static class UPCGExPathProcessorSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExPathProcessorSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExPathProcessorSettings;
-
-// Class PCGExtendedToolkit.PCGExShiftPathSettings
-// 0x0020 (0x0140 - 0x0120)
-class UPCGExShiftPathSettings final : public UPCGExPathProcessorSettings
-{
-public:
-	EPCGExShiftType                               ShiftType;                                         // 0x0120(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExShiftPathMode                           InputMode;                                         // 0x0121(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_122[0x6];                                      // 0x0122(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        RelativeConstant;                                  // 0x0128(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExTruncateMode                            Truncate;                                          // 0x0130(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_131[0x3];                                      // 0x0131(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	int32                                         DiscreteConstant;                                  // 0x0134(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExIndexSafety                             IndexSafety;                                       // 0x0138(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bReverseShift;                                     // 0x0139(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_13A[0x6];                                      // 0x013A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExShiftPathSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExShiftPathSettings")
-	}
-	static class UPCGExShiftPathSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExShiftPathSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExShiftPathSettings;
-
-// Class PCGExtendedToolkit.PCGExParamDataBase
-// 0x0000 (0x01B0 - 0x01B0)
-class UPCGExParamDataBase : public UPCGExPointData
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExParamDataBase")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExParamDataBase")
-	}
-	static class UPCGExParamDataBase* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExParamDataBase>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExParamDataBase;
 
 // Class PCGExtendedToolkit.PCGExBuildVoronoiGraphSettings
 // 0x0070 (0x0158 - 0x00E8)
@@ -402,51 +300,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExActionFactoryData;
 
-// Class PCGExtendedToolkit.PCGExSplineToPathSettings
-// 0x00D8 (0x01C0 - 0x00E8)
-class UPCGExSplineToPathSettings final : public UPCGExPointsProcessorSettings
-{
-public:
-	struct FPCGExLeanTransformDetails             TransformDetails;                                  // 0x00E8(0x0002)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-	EPCGExSplineSamplingIncludeMode               SampleInputs;                                      // 0x00EA(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteArriveTangent;                               // 0x00EB(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   ArriveTangentAttributeName;                        // 0x00EC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteLeaveTangent;                                // 0x00F4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_F5[0x3];                                       // 0x00F5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   LeaveTangentAttributeName;                         // 0x00F8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteLengthAtPoint;                               // 0x0100(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_101[0x3];                                      // 0x0101(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   LengthAtPointAttributeName;                        // 0x0104(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteAlpha;                                       // 0x010C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_10D[0x3];                                      // 0x010D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   AlphaAttributeName;                                // 0x0110(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWritePointType;                                   // 0x0118(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_119[0x3];                                      // 0x0119(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   PointTypeAttributeName;                            // 0x011C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bTagIfClosedLoop;                                  // 0x0124(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_125[0x3];                                      // 0x0125(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 IsClosedLoopTag;                                   // 0x0128(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bTagIfOpenSpline;                                  // 0x0138(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_139[0x7];                                      // 0x0139(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 IsOpenSplineTag;                                   // 0x0140(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FPCGExNameFiltersDetails               TagForwarding;                                     // 0x0150(0x0070)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExSplineToPathSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExSplineToPathSettings")
-	}
-	static class UPCGExSplineToPathSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExSplineToPathSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExSplineToPathSettings;
-
 // Class PCGExtendedToolkit.PCGExFactoryProviderSettings
 // 0x0008 (0x00C0 - 0x00B8)
 class UPCGExFactoryProviderSettings : public UPCGSettings
@@ -516,29 +369,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExFillControlsEdgeFiltersProviderSettings;
-
-// Class PCGExtendedToolkit.PCGExSortingRule
-// 0x0060 (0x0220 - 0x01C0)
-class UPCGExSortingRule final : public UPCGExFactoryData
-{
-public:
-	uint8                                         Pad_1B8[0x68];                                     // 0x01B8(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExSortingRule")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExSortingRule")
-	}
-	static class UPCGExSortingRule* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExSortingRule>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExSortingRule;
 
 // Class PCGExtendedToolkit.PCGExActionProviderSettings
 // 0x0008 (0x00C8 - 0x00C0)
@@ -709,29 +539,28 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExBuildDelaunayGraphSettings;
 
-// Class PCGExtendedToolkit.PCGExSharedDataComponent
-// 0x0078 (0x0148 - 0x00D0)
-class UPCGExSharedDataComponent final : public UActorComponent
+// Class PCGExtendedToolkit.PCGExEdgeRefineOperation
+// 0x0040 (0x00E8 - 0x00A8)
+class UPCGExEdgeRefineOperation : public UPCGExInstancedFactory
 {
 public:
-	TSoftObjectPtr<class UPCGComponent>           PCGComponentInstance;                              // 0x00D0(0x0028)(ExportObject, InstancedReference, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TMap<class FName, struct FPCGDataCollection>  Collections;                                       // 0x00F8(0x0050)(NativeAccessSpecifierPublic)
+	uint8                                         Pad_A8[0x40];                                      // 0x00A8(0x0040)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExSharedDataComponent")
+		STATIC_CLASS_IMPL("PCGExEdgeRefineOperation")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExSharedDataComponent")
+		STATIC_NAME_IMPL(L"PCGExEdgeRefineOperation")
 	}
-	static class UPCGExSharedDataComponent* GetDefaultObj()
+	static class UPCGExEdgeRefineOperation* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExSharedDataComponent>();
+		return GetDefaultObjImpl<UPCGExEdgeRefineOperation>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExSharedDataComponent;
+DUMPER7_ASSERTS_UPCGExEdgeRefineOperation;
 
 // Class PCGExtendedToolkit.PCGExEdgeRemoveShortest
 // 0x0000 (0x00E8 - 0x00E8)
@@ -806,45 +635,29 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExActorCollection;
 
-// Class PCGExtendedToolkit.PCGExClusterFilterFactoryData
-// 0x0000 (0x01C0 - 0x01C0)
-class UPCGExClusterFilterFactoryData : public UPCGExFilterFactoryData
+// Class PCGExtendedToolkit.PCGExFillControlsDepthProviderSettings
+// 0x0018 (0x00D8 - 0x00C0)
+class UPCGExFillControlsDepthProviderSettings final : public UPCGExFillControlsFactoryProviderSettings
 {
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExClusterFilterFactoryData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExClusterFilterFactoryData")
-	}
-	static class UPCGExClusterFilterFactoryData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExClusterFilterFactoryData>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExClusterFilterFactoryData;
+	struct FPCGExFillControlConfigDepth           Config;                                            // 0x00C0(0x0014)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	uint8                                         Pad_D4[0x4];                                       // 0x00D4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
-// Class PCGExtendedToolkit.PCGExNodeFilterFactoryData
-// 0x0000 (0x01C0 - 0x01C0)
-class UPCGExNodeFilterFactoryData : public UPCGExClusterFilterFactoryData
-{
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExNodeFilterFactoryData")
+		STATIC_CLASS_IMPL("PCGExFillControlsDepthProviderSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExNodeFilterFactoryData")
+		STATIC_NAME_IMPL(L"PCGExFillControlsDepthProviderSettings")
 	}
-	static class UPCGExNodeFilterFactoryData* GetDefaultObj()
+	static class UPCGExFillControlsDepthProviderSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExNodeFilterFactoryData>();
+		return GetDefaultObjImpl<UPCGExFillControlsDepthProviderSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExNodeFilterFactoryData;
+DUMPER7_ASSERTS_UPCGExFillControlsDepthProviderSettings;
 
 // Class PCGExtendedToolkit.PCGExAssetCollectionToSetSettings
 // 0x0088 (0x0140 - 0x00B8)
@@ -987,33 +800,28 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExAttributeBlendFactory;
 
-// Class PCGExtendedToolkit.PCGExCollocationCountSettings
-// 0x0020 (0x0108 - 0x00E8)
-class UPCGExCollocationCountSettings final : public UPCGExPointsProcessorSettings
+// Class PCGExtendedToolkit.PCGExFillControlsKeepDirectionProviderSettings
+// 0x0080 (0x0140 - 0x00C0)
+class UPCGExFillControlsKeepDirectionProviderSettings final : public UPCGExFillControlsFactoryProviderSettings
 {
 public:
-	class FName                                   CollicationNumAttributeName;                       // 0x00E8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteLinearOccurences;                            // 0x00F0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_F1[0x3];                                       // 0x00F1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   LinearOccurencesAttributeName;                     // 0x00F4(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_FC[0x4];                                       // 0x00FC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        Tolerance;                                         // 0x0100(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FPCGExFillControlConfigKeepDirection   Config;                                            // 0x00C0(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExCollocationCountSettings")
+		STATIC_CLASS_IMPL("PCGExFillControlsKeepDirectionProviderSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExCollocationCountSettings")
+		STATIC_NAME_IMPL(L"PCGExFillControlsKeepDirectionProviderSettings")
 	}
-	static class UPCGExCollocationCountSettings* GetDefaultObj()
+	static class UPCGExFillControlsKeepDirectionProviderSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExCollocationCountSettings>();
+		return GetDefaultObjImpl<UPCGExFillControlsKeepDirectionProviderSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExCollocationCountSettings;
+DUMPER7_ASSERTS_UPCGExFillControlsKeepDirectionProviderSettings;
 
 // Class PCGExtendedToolkit.PCGExAttributeBlendFactoryProviderSettings
 // 0x0188 (0x0248 - 0x00C0)
@@ -1040,28 +848,29 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExAttributeBlendFactoryProviderSettings;
 
-// Class PCGExtendedToolkit.PCGExClusterEdgesData
-// 0x0010 (0x01C0 - 0x01B0)
-class UPCGExClusterEdgesData final : public UPCGExClusterData
+// Class PCGExtendedToolkit.PCGExFillControlsCountProviderSettings
+// 0x0018 (0x00D8 - 0x00C0)
+class UPCGExFillControlsCountProviderSettings final : public UPCGExFillControlsFactoryProviderSettings
 {
 public:
-	uint8                                         Pad_1B0[0x10];                                     // 0x01B0(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FPCGExFillControlConfigCount           Config;                                            // 0x00C0(0x0014)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	uint8                                         Pad_D4[0x4];                                       // 0x00D4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExClusterEdgesData")
+		STATIC_CLASS_IMPL("PCGExFillControlsCountProviderSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExClusterEdgesData")
+		STATIC_NAME_IMPL(L"PCGExFillControlsCountProviderSettings")
 	}
-	static class UPCGExClusterEdgesData* GetDefaultObj()
+	static class UPCGExFillControlsCountProviderSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExClusterEdgesData>();
+		return GetDefaultObjImpl<UPCGExFillControlsCountProviderSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExClusterEdgesData;
+DUMPER7_ASSERTS_UPCGExFillControlsCountProviderSettings;
 
 // Class PCGExtendedToolkit.PCGExAttributeCheckFilterFactory
 // 0x0020 (0x01E0 - 0x01C0)
@@ -1086,6 +895,73 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExAttributeCheckFilterFactory;
+
+// Class PCGExtendedToolkit.PCGExVtxPropertyFactoryData
+// 0x0000 (0x01C0 - 0x01C0)
+class UPCGExVtxPropertyFactoryData : public UPCGExFactoryData
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExVtxPropertyFactoryData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExVtxPropertyFactoryData")
+	}
+	static class UPCGExVtxPropertyFactoryData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExVtxPropertyFactoryData>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExVtxPropertyFactoryData;
+
+// Class PCGExtendedToolkit.PCGExVtxPropertySpecialEdgesFactory
+// 0x0190 (0x0350 - 0x01C0)
+class UPCGExVtxPropertySpecialEdgesFactory final : public UPCGExVtxPropertyFactoryData
+{
+public:
+	uint8                                         Pad_1C0[0x190];                                    // 0x01C0(0x0190)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExVtxPropertySpecialEdgesFactory")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExVtxPropertySpecialEdgesFactory")
+	}
+	static class UPCGExVtxPropertySpecialEdgesFactory* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExVtxPropertySpecialEdgesFactory>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExVtxPropertySpecialEdgesFactory;
+
+// Class PCGExtendedToolkit.PCGExBitmaskFilterFactory
+// 0x0030 (0x01F0 - 0x01C0)
+class UPCGExBitmaskFilterFactory final : public UPCGExFilterFactoryData
+{
+public:
+	struct FPCGExBitmaskFilterConfig              Config;                                            // 0x01C0(0x0028)(NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1E8[0x8];                                      // 0x01E8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExBitmaskFilterFactory")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExBitmaskFilterFactory")
+	}
+	static class UPCGExBitmaskFilterFactory* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExBitmaskFilterFactory>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExBitmaskFilterFactory;
 
 // Class PCGExtendedToolkit.PCGExFilterProviderSettings
 // 0x0008 (0x00C8 - 0x00C0)
@@ -1156,6 +1032,29 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExAttributeCheckFilterProviderSettings;
+
+// Class PCGExtendedToolkit.PCGExTangentsOperation
+// 0x0008 (0x00B0 - 0x00A8)
+class UPCGExTangentsOperation : public UPCGExInstancedFactory
+{
+public:
+	uint8                                         Pad_A8[0x8];                                       // 0x00A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExTangentsOperation")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExTangentsOperation")
+	}
+	static class UPCGExTangentsOperation* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExTangentsOperation>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExTangentsOperation;
 
 // Class PCGExtendedToolkit.PCGExAttributeHashSettings
 // 0x0048 (0x0130 - 0x00E8)
@@ -1274,6 +1173,53 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExAttributeRemapSettings;
 
+// Class PCGExtendedToolkit.PCGExPathProcessorSettings
+// 0x0038 (0x0120 - 0x00E8)
+class UPCGExPathProcessorSettings : public UPCGExPointsProcessorSettings
+{
+public:
+	bool                                          bSupportClosedLoops;                               // 0x00E8(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E9[0x7];                                       // 0x00E9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGExPathClosedLoopDetails            ClosedLoop;                                        // 0x00F0(0x0028)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	bool                                          bOmitInvalidPathsOutputs;                          // 0x0118(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_119[0x7];                                      // 0x0119(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExPathProcessorSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExPathProcessorSettings")
+	}
+	static class UPCGExPathProcessorSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExPathProcessorSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExPathProcessorSettings;
+
+// Class PCGExtendedToolkit.PCGExClusterFilterFactoryData
+// 0x0000 (0x01C0 - 0x01C0)
+class UPCGExClusterFilterFactoryData : public UPCGExFilterFactoryData
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExClusterFilterFactoryData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExClusterFilterFactoryData")
+	}
+	static class UPCGExClusterFilterFactoryData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExClusterFilterFactoryData>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExClusterFilterFactoryData;
+
 // Class PCGExtendedToolkit.PCGExFilterGroupFactoryData
 // 0x0020 (0x01E0 - 0x01C0)
 class UPCGExFilterGroupFactoryData : public UPCGExClusterFilterFactoryData
@@ -1366,6 +1312,48 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExAttributeRollingSettings;
+
+// Class PCGExtendedToolkit.PCGExBinPackingSettings
+// 0x00D8 (0x01C0 - 0x00E8)
+class UPCGExBinPackingSettings final : public UPCGExPointsProcessorSettings
+{
+public:
+	EPCGExSortDirection                           SortDirection;                                     // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExBinSeedMode                             SeedMode;                                          // 0x00E9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_EA[0x6];                                       // 0x00EA(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                SeedUVW;                                           // 0x00F0(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FPCGAttributePropertyInputSelector     SeedUVWAttribute;                                  // 0x0108(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                SeedPosition;                                      // 0x0130(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FPCGAttributePropertyInputSelector     SeedPositionAttribute;                             // 0x0148(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bInferSplitAxisFromSeed;                           // 0x0170(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExAxis                                    SplitAxis;                                         // 0x0171(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExSpaceSplitMode                          SplitMode;                                         // 0x0172(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAvoidWastedSpace;                                 // 0x0173(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExPlacementFavor                          PlacementFavor;                                    // 0x0174(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExInputValueType                          OccupationPaddingInput;                            // 0x0175(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_176[0x2];                                      // 0x0176(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGAttributePropertyInputSelector     OccupationPaddingAttribute;                        // 0x0178(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                OccupationPadding;                                 // 0x01A0(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAbsolutePadding;                                  // 0x01B8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bQuietTooManyBinsWarning;                          // 0x01B9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bQuietTooFewBinsWarning;                           // 0x01BA(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1BB[0x5];                                      // 0x01BB(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExBinPackingSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExBinPackingSettings")
+	}
+	static class UPCGExBinPackingSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExBinPackingSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExBinPackingSettings;
 
 // Class PCGExtendedToolkit.PCGExAttributeStatsSettings
 // 0x0158 (0x0240 - 0x00E8)
@@ -1504,55 +1492,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExAttributesToTagsSettings;
 
-// Class PCGExtendedToolkit.PCGExFindClustersDataSettings
-// 0x0008 (0x00F0 - 0x00E8)
-class UPCGExFindClustersDataSettings final : public UPCGExPointsProcessorSettings
-{
-public:
-	EPCGExClusterDataSearchMode                   SearchMode;                                        // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bSkipTrivialWarnings;                              // 0x00E9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bSkipImportantWarnings;                            // 0x00EA(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_EB[0x5];                                       // 0x00EB(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExFindClustersDataSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExFindClustersDataSettings")
-	}
-	static class UPCGExFindClustersDataSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExFindClustersDataSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExFindClustersDataSettings;
-
-// Class PCGExtendedToolkit.PCGExTangentsOperation
-// 0x0008 (0x00B0 - 0x00A8)
-class UPCGExTangentsOperation : public UPCGExInstancedFactory
-{
-public:
-	uint8                                         Pad_A8[0x8];                                       // 0x00A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExTangentsOperation")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExTangentsOperation")
-	}
-	static class UPCGExTangentsOperation* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExTangentsOperation>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExTangentsOperation;
-
 // Class PCGExtendedToolkit.PCGExAutoTangents
 // 0x0000 (0x00B0 - 0x00B0)
 class UPCGExAutoTangents final : public UPCGExTangentsOperation
@@ -1573,45 +1512,33 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExAutoTangents;
 
-// Class PCGExtendedToolkit.PCGExFuseClustersSettings
-// 0x0620 (0x0710 - 0x00F0)
-class UPCGExFuseClustersSettings final : public UPCGExEdgesProcessorSettings
+// Class PCGExtendedToolkit.PCGExWriteVtxPropertiesSettings
+// 0x0018 (0x0108 - 0x00F0)
+class UPCGExWriteVtxPropertiesSettings final : public UPCGExEdgesProcessorSettings
 {
 public:
-	struct FPCGExPointPointIntersectionDetails    PointPointIntersectionDetails;                     // 0x00F0(0x00E0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	bool                                          bFindPointEdgeIntersections;                       // 0x01D0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D1[0x7];                                      // 0x01D1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGExPointEdgeIntersectionDetails     PointEdgeIntersectionDetails;                      // 0x01D8(0x0088)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	bool                                          bFindEdgeEdgeIntersections;                        // 0x0260(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_261[0x7];                                      // 0x0261(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGExEdgeEdgeIntersectionDetails      EdgeEdgeIntersectionDetails;                       // 0x0268(0x0068)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-	struct FPCGExBlendingDetails                  DefaultPointsBlendingDetails;                      // 0x02D0(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FPCGExBlendingDetails                  DefaultEdgesBlendingDetails;                       // 0x0350(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	bool                                          bUseCustomPointEdgeBlending;                       // 0x03D0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3D1[0x7];                                      // 0x03D1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGExBlendingDetails                  CustomPointEdgeBlendingDetails;                    // 0x03D8(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	bool                                          bUseCustomEdgeEdgeBlending;                        // 0x0458(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_459[0x7];                                      // 0x0459(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGExBlendingDetails                  CustomEdgeEdgeBlendingDetails;                     // 0x0460(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FPCGExCarryOverDetails                 VtxCarryOverDetails;                               // 0x04E0(0x00F0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FPCGExCarryOverDetails                 EdgesCarryOverDetails;                             // 0x05D0(0x00F0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FPCGExGraphBuilderDetails              GraphBuilderDetails;                               // 0x06C0(0x0050)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	bool                                          bWriteVtxEdgeCount;                                // 0x00F0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_F1[0x3];                                       // 0x00F1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   VtxEdgeCountAttributeName;                         // 0x00F4(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteVtxNormal;                                   // 0x00FC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_FD[0x3];                                       // 0x00FD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   VtxNormalAttributeName;                            // 0x0100(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExFuseClustersSettings")
+		STATIC_CLASS_IMPL("PCGExWriteVtxPropertiesSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExFuseClustersSettings")
+		STATIC_NAME_IMPL(L"PCGExWriteVtxPropertiesSettings")
 	}
-	static class UPCGExFuseClustersSettings* GetDefaultObj()
+	static class UPCGExWriteVtxPropertiesSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExFuseClustersSettings>();
+		return GetDefaultObjImpl<UPCGExWriteVtxPropertiesSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExFuseClustersSettings;
+DUMPER7_ASSERTS_UPCGExWriteVtxPropertiesSettings;
 
 // Class PCGExtendedToolkit.PCGExBatchActionsSettings
 // 0x00E8 (0x01D0 - 0x00E8)
@@ -1696,77 +1623,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExBevelPathSettings;
 
-// Class PCGExtendedToolkit.PCGExFlatProjectionSettings
-// 0x00B8 (0x01A0 - 0x00E8)
-class UPCGExFlatProjectionSettings final : public UPCGExPointsProcessorSettings
-{
-public:
-	bool                                          bRestorePreviousProjection;                        // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_E9[0x3];                                       // 0x00E9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   AttributePrefix;                                   // 0x00EC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bSaveAttributeForRestore;                          // 0x00F4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAlignLocalTransform;                              // 0x00F5(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_F6[0xA];                                       // 0x00F6(0x000A)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGExGeo2DProjectionDetails           ProjectionDetails;                                 // 0x0100(0x00A0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExFlatProjectionSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExFlatProjectionSettings")
-	}
-	static class UPCGExFlatProjectionSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExFlatProjectionSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExFlatProjectionSettings;
-
-// Class PCGExtendedToolkit.PCGExBinPackingSettings
-// 0x00D8 (0x01C0 - 0x00E8)
-class UPCGExBinPackingSettings final : public UPCGExPointsProcessorSettings
-{
-public:
-	EPCGExSortDirection                           SortDirection;                                     // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExBinSeedMode                             SeedMode;                                          // 0x00E9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_EA[0x6];                                       // 0x00EA(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FVector                                SeedUVW;                                           // 0x00F0(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FPCGAttributePropertyInputSelector     SeedUVWAttribute;                                  // 0x0108(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                SeedPosition;                                      // 0x0130(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FPCGAttributePropertyInputSelector     SeedPositionAttribute;                             // 0x0148(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bInferSplitAxisFromSeed;                           // 0x0170(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExAxis                                    SplitAxis;                                         // 0x0171(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExSpaceSplitMode                          SplitMode;                                         // 0x0172(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAvoidWastedSpace;                                 // 0x0173(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExPlacementFavor                          PlacementFavor;                                    // 0x0174(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExInputValueType                          OccupationPaddingInput;                            // 0x0175(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_176[0x2];                                      // 0x0176(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGAttributePropertyInputSelector     OccupationPaddingAttribute;                        // 0x0178(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                OccupationPadding;                                 // 0x01A0(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAbsolutePadding;                                  // 0x01B8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bQuietTooManyBinsWarning;                          // 0x01B9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bQuietTooFewBinsWarning;                           // 0x01BA(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1BB[0x5];                                      // 0x01BB(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExBinPackingSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExBinPackingSettings")
-	}
-	static class UPCGExBinPackingSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExBinPackingSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExBinPackingSettings;
-
 // Class PCGExtendedToolkit.PCGExBitmaskSettings
 // 0x0028 (0x00E0 - 0x00B8)
 class UPCGExBitmaskSettings final : public UPCGSettings
@@ -1790,56 +1646,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExBitmaskSettings;
 
-// Class PCGExtendedToolkit.PCGExFilterGroupProviderSettings
-// 0x0008 (0x00C8 - 0x00C0)
-class UPCGExFilterGroupProviderSettings final : public UPCGExFactoryProviderSettings
-{
-public:
-	int32                                         Priority;                                          // 0x00C0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExFilterGroupMode                         Mode;                                              // 0x00C4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bInvert;                                           // 0x00C5(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C6[0x2];                                       // 0x00C6(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExFilterGroupProviderSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExFilterGroupProviderSettings")
-	}
-	static class UPCGExFilterGroupProviderSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExFilterGroupProviderSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExFilterGroupProviderSettings;
-
-// Class PCGExtendedToolkit.PCGExBitmaskFilterFactory
-// 0x0030 (0x01F0 - 0x01C0)
-class UPCGExBitmaskFilterFactory final : public UPCGExFilterFactoryData
-{
-public:
-	struct FPCGExBitmaskFilterConfig              Config;                                            // 0x01C0(0x0028)(NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1E8[0x8];                                      // 0x01E8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExBitmaskFilterFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExBitmaskFilterFactory")
-	}
-	static class UPCGExBitmaskFilterFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExBitmaskFilterFactory>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExBitmaskFilterFactory;
-
 // Class PCGExtendedToolkit.PCGExBitmaskFilterProviderSettings
 // 0x0028 (0x00F0 - 0x00C8)
 class UPCGExBitmaskFilterProviderSettings final : public UPCGExFilterProviderSettings
@@ -1862,26 +1668,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExBitmaskFilterProviderSettings;
-
-// Class PCGExtendedToolkit.PCGExFromNeighborsTangents
-// 0x0000 (0x00B0 - 0x00B0)
-class UPCGExFromNeighborsTangents final : public UPCGExTangentsOperation
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExFromNeighborsTangents")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExFromNeighborsTangents")
-	}
-	static class UPCGExFromNeighborsTangents* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExFromNeighborsTangents>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExFromNeighborsTangents;
 
 // Class PCGExtendedToolkit.PCGExBitmaskMergeSettings
 // 0x0008 (0x00C0 - 0x00B8)
@@ -1935,30 +1721,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExBitwiseOperationSettings;
-
-// Class PCGExtendedToolkit.PCGExGoalPicker
-// 0x0008 (0x00B0 - 0x00A8)
-class UPCGExGoalPicker : public UPCGExInstancedFactory
-{
-public:
-	EPCGExIndexSafety                             IndexSafety;                                       // 0x00A8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_A9[0x7];                                       // 0x00A9(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExGoalPicker")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExGoalPicker")
-	}
-	static class UPCGExGoalPicker* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExGoalPicker>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExGoalPicker;
 
 // Class PCGExtendedToolkit.PCGExBlendAttributesSettings
 // 0x0008 (0x00F0 - 0x00E8)
@@ -2015,33 +1777,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExBlendPathSettings;
 
-// Class PCGExtendedToolkit.PCGExFusePointsSettings
-// 0x0258 (0x0340 - 0x00E8)
-class UPCGExFusePointsSettings final : public UPCGExPointsProcessorSettings
-{
-public:
-	struct FPCGExPointPointIntersectionDetails    PointPointIntersectionDetails;                     // 0x00E8(0x00E0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	bool                                          bPreserveOrder;                                    // 0x01C8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C9[0x7];                                      // 0x01C9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGExBlendingDetails                  BlendingDetails;                                   // 0x01D0(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FPCGExCarryOverDetails                 CarryOverDetails;                                  // 0x0250(0x00F0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExFusePointsSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExFusePointsSettings")
-	}
-	static class UPCGExFusePointsSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExFusePointsSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExFusePointsSettings;
-
 // Class PCGExtendedToolkit.PCGExBlueprintHelpers
 // 0x0000 (0x0028 - 0x0028)
 class UPCGExBlueprintHelpers final : public UBlueprintFunctionLibrary
@@ -2067,29 +1802,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExBlueprintHelpers;
 
-// Class PCGExtendedToolkit.PCGExBoundsPathIntersectionSettings
-// 0x0188 (0x02A8 - 0x0120)
-class UPCGExBoundsPathIntersectionSettings final : public UPCGExPathProcessorSettings
-{
-public:
-	struct FPCGExBoxIntersectionDetails           OutputSettings;                                    // 0x0120(0x0188)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExBoundsPathIntersectionSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExBoundsPathIntersectionSettings")
-	}
-	static class UPCGExBoundsPathIntersectionSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExBoundsPathIntersectionSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExBoundsPathIntersectionSettings;
-
 // Class PCGExtendedToolkit.PCGExBooleanCompareFilterFactory
 // 0x0060 (0x0220 - 0x01C0)
 class UPCGExBooleanCompareFilterFactory final : public UPCGExFilterFactoryData
@@ -2113,31 +1825,28 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExBooleanCompareFilterFactory;
 
-// Class PCGExtendedToolkit.PCGExDebugSettings
-// 0x0018 (0x00D0 - 0x00B8)
-class UPCGExDebugSettings final : public UPCGSettings
+// Class PCGExtendedToolkit.PCGExWriteGUIDSettings
+// 0x00F0 (0x01D8 - 0x00E8)
+class UPCGExWriteGUIDSettings final : public UPCGExPointsProcessorSettings
 {
 public:
-	bool                                          bPCGExDebug;                                       // 0x00B8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_B9[0x3];                                       // 0x00B9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FLinearColor                           CustomColor;                                       // 0x00BC(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
-	uint8                                         Pad_CC[0x4];                                       // 0x00CC(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FPCGExGUIDDetails                      Config;                                            // 0x00E8(0x00F0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExDebugSettings")
+		STATIC_CLASS_IMPL("PCGExWriteGUIDSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExDebugSettings")
+		STATIC_NAME_IMPL(L"PCGExWriteGUIDSettings")
 	}
-	static class UPCGExDebugSettings* GetDefaultObj()
+	static class UPCGExWriteGUIDSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExDebugSettings>();
+		return GetDefaultObjImpl<UPCGExWriteGUIDSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExDebugSettings;
+DUMPER7_ASSERTS_UPCGExWriteGUIDSettings;
 
 // Class PCGExtendedToolkit.PCGExBooleanCompareFilterProviderSettings
 // 0x0060 (0x0128 - 0x00C8)
@@ -2202,6 +1911,29 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExBoundsAxisToPointsSettings;
+
+// Class PCGExtendedToolkit.PCGExVtxPropertyEdgeMatchFactory
+// 0x0160 (0x0320 - 0x01C0)
+class UPCGExVtxPropertyEdgeMatchFactory final : public UPCGExVtxPropertyFactoryData
+{
+public:
+	uint8                                         Pad_1C0[0x160];                                    // 0x01C0(0x0160)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExVtxPropertyEdgeMatchFactory")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExVtxPropertyEdgeMatchFactory")
+	}
+	static class UPCGExVtxPropertyEdgeMatchFactory* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExVtxPropertyEdgeMatchFactory>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExVtxPropertyEdgeMatchFactory;
 
 // Class PCGExtendedToolkit.PCGExBoundsClustersIntersectionSettings
 // 0x0188 (0x0278 - 0x00F0)
@@ -2273,6 +2005,52 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExBoundsFilterProviderSettings;
 
+// Class PCGExtendedToolkit.PCGExVtxPropertySpecialNeighborsFactory
+// 0x0150 (0x0310 - 0x01C0)
+class UPCGExVtxPropertySpecialNeighborsFactory final : public UPCGExVtxPropertyFactoryData
+{
+public:
+	uint8                                         Pad_1C0[0x150];                                    // 0x01C0(0x0150)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExVtxPropertySpecialNeighborsFactory")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExVtxPropertySpecialNeighborsFactory")
+	}
+	static class UPCGExVtxPropertySpecialNeighborsFactory* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExVtxPropertySpecialNeighborsFactory>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExVtxPropertySpecialNeighborsFactory;
+
+// Class PCGExtendedToolkit.PCGExBoundsPathIntersectionSettings
+// 0x0188 (0x02A8 - 0x0120)
+class UPCGExBoundsPathIntersectionSettings final : public UPCGExPathProcessorSettings
+{
+public:
+	struct FPCGExBoxIntersectionDetails           OutputSettings;                                    // 0x0120(0x0188)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExBoundsPathIntersectionSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExBoundsPathIntersectionSettings")
+	}
+	static class UPCGExBoundsPathIntersectionSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExBoundsPathIntersectionSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExBoundsPathIntersectionSettings;
+
 // Class PCGExtendedToolkit.PCGExBoundsToPointsSettings
 // 0x0180 (0x0268 - 0x00E8)
 class UPCGExBoundsToPointsSettings final : public UPCGExPointsProcessorSettings
@@ -2306,6 +2084,29 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExBoundsToPointsSettings;
+
+// Class PCGExtendedToolkit.PCGExWithinRangeFilterProviderSettings
+// 0x0040 (0x0108 - 0x00C8)
+class UPCGExWithinRangeFilterProviderSettings final : public UPCGExFilterProviderSettings
+{
+public:
+	struct FPCGExWithinRangeFilterConfig          Config;                                            // 0x00C8(0x0040)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExWithinRangeFilterProviderSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExWithinRangeFilterProviderSettings")
+	}
+	static class UPCGExWithinRangeFilterProviderSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExWithinRangeFilterProviderSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExWithinRangeFilterProviderSettings;
 
 // Class PCGExtendedToolkit.PCGExBoxFittingRelax
 // 0x0018 (0x0170 - 0x0158)
@@ -2424,6 +2225,106 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExBuildConvexHull2DSettings;
+
+// Class PCGExtendedToolkit.PCGExWritePathPropertiesSettings
+// 0x01F0 (0x0310 - 0x0120)
+class UPCGExWritePathPropertiesSettings final : public UPCGExPathProcessorSettings
+{
+public:
+	struct FPCGExGeo2DProjectionDetails           ProjectionDetails;                                 // 0x0120(0x00A0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	EPCGExAttributeSetPackingMode                 PathAttributePackingMode;                          // 0x01C0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWritePathDataToPoints;                            // 0x01C1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWritePathLength;                                  // 0x01C2(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C3[0x1];                                      // 0x01C3(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   PathLengthAttributeName;                           // 0x01C4(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWritePathDirection;                               // 0x01CC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1CD[0x3];                                      // 0x01CD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   PathDirectionAttributeName;                        // 0x01D0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWritePathCentroid;                                // 0x01D8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D9[0x3];                                      // 0x01D9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   PathCentroidAttributeName;                         // 0x01DC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteIsClockwise;                                 // 0x01E4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1E5[0x3];                                      // 0x01E5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   IsClockwiseAttributeName;                          // 0x01E8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteArea;                                        // 0x01F0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1F1[0x3];                                      // 0x01F1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   AreaAttributeName;                                 // 0x01F4(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWritePerimeter;                                   // 0x01FC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1FD[0x3];                                      // 0x01FD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   PerimeterAttributeName;                            // 0x0200(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteCompactness;                                 // 0x0208(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_209[0x3];                                      // 0x0209(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   CompactnessAttributeName;                          // 0x020C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteBoundingBoxCenter;                           // 0x0214(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_215[0x3];                                      // 0x0215(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   BoundingBoxCenterAttributeName;                    // 0x0218(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteBoundingBoxExtent;                           // 0x0220(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_221[0x3];                                      // 0x0221(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   BoundingBoxExtentAttributeName;                    // 0x0224(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteBoundingBoxOrientation;                      // 0x022C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_22D[0x3];                                      // 0x022D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   BoundingBoxOrientationAttributeName;               // 0x0230(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                UpVector;                                          // 0x0238(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteDot;                                         // 0x0250(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_251[0x3];                                      // 0x0251(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   DotAttributeName;                                  // 0x0254(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteAngle;                                       // 0x025C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_25D[0x3];                                      // 0x025D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   AngleAttributeName;                                // 0x0260(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExAngleRange                              AngleRange;                                        // 0x0268(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteDistanceToNext;                              // 0x0269(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_26A[0x2];                                      // 0x026A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   DistanceToNextAttributeName;                       // 0x026C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteDistanceToPrev;                              // 0x0274(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_275[0x3];                                      // 0x0275(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   DistanceToPrevAttributeName;                       // 0x0278(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteDistanceToStart;                             // 0x0280(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_281[0x3];                                      // 0x0281(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   DistanceToStartAttributeName;                      // 0x0284(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteDistanceToEnd;                               // 0x028C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_28D[0x3];                                      // 0x028D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   DistanceToEndAttributeName;                        // 0x0290(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWritePointTime;                                   // 0x0298(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_299[0x3];                                      // 0x0299(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   PointTimeAttributeName;                            // 0x029C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bTimeOneMinus;                                     // 0x02A4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWritePointNormal;                                 // 0x02A5(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2A6[0x2];                                      // 0x02A6(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   PointNormalAttributeName;                          // 0x02A8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWritePointAvgNormal;                              // 0x02B0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2B1[0x3];                                      // 0x02B1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   PointAvgNormalAttributeName;                       // 0x02B4(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWritePointBinormal;                               // 0x02BC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2BD[0x3];                                      // 0x02BD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   PointBinormalAttributeName;                        // 0x02C0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteDirectionToNext;                             // 0x02C8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2C9[0x3];                                      // 0x02C9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   DirectionToNextAttributeName;                      // 0x02CC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteDirectionToPrev;                             // 0x02D4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2D5[0x3];                                      // 0x02D5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   DirectionToPrevAttributeName;                      // 0x02D8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bTagConcave;                                       // 0x02E0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2E1[0x7];                                      // 0x02E1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 ConcaveTag;                                        // 0x02E8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bTagConvex;                                        // 0x02F8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2F9[0x7];                                      // 0x02F9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 ConvexTag;                                         // 0x0300(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExWritePathPropertiesSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExWritePathPropertiesSettings")
+	}
+	static class UPCGExWritePathPropertiesSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExWritePathPropertiesSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExWritePathPropertiesSettings;
 
 // Class PCGExtendedToolkit.PCGExCustomGraphSettings
 // 0x00E8 (0x0110 - 0x0028)
@@ -2549,30 +2450,30 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExBuildCustomGraphSettings;
 
-// Class PCGExtendedToolkit.PCGExMeshSelectorStaged
-// 0x0018 (0x0040 - 0x0028)
-class UPCGExMeshSelectorStaged final : public UPCGMeshSelectorBase
+// Class PCGExtendedToolkit.PCGExTensorFactoryData
+// 0x03E0 (0x05A0 - 0x01C0)
+#pragma pack(push, 0x1)
+class SDK_ALIGN(0x10) UPCGExTensorFactoryData : public UPCGExFactoryData
 {
 public:
-	bool                                          bUseAttributeMaterialOverrides;                    // 0x0028(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class FName>                           MaterialOverrideAttributes;                        // 0x0030(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1B8[0x3E0];                                    // 0x01B8(0x03E0)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExMeshSelectorStaged")
+		STATIC_CLASS_IMPL("PCGExTensorFactoryData")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExMeshSelectorStaged")
+		STATIC_NAME_IMPL(L"PCGExTensorFactoryData")
 	}
-	static class UPCGExMeshSelectorStaged* GetDefaultObj()
+	static class UPCGExTensorFactoryData* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExMeshSelectorStaged>();
+		return GetDefaultObjImpl<UPCGExTensorFactoryData>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExMeshSelectorStaged;
+#pragma pack(pop)
+DUMPER7_ASSERTS_UPCGExTensorFactoryData;
 
 // Class PCGExtendedToolkit.PCGExBuildDelaunayGraph2DSettings
 // 0x0118 (0x0200 - 0x00E8)
@@ -2667,6 +2568,31 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExCatmullRomTangents;
 
+// Class PCGExtendedToolkit.PCGExTensorDotFilterFactory
+// 0x0120 (0x02E0 - 0x01C0)
+class UPCGExTensorDotFilterFactory final : public UPCGExFilterFactoryData
+{
+public:
+	struct FPCGExTensorDotFilterConfig            Config;                                            // 0x01C0(0x00F8)(NativeAccessSpecifierPublic)
+	TArray<class UPCGExTensorFactoryData*>        TensorFactories;                                   // 0x02B8(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	uint8                                         Pad_2C8[0x18];                                     // 0x02C8(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExTensorDotFilterFactory")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExTensorDotFilterFactory")
+	}
+	static class UPCGExTensorDotFilterFactory* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExTensorDotFilterFactory>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExTensorDotFilterFactory;
+
 // Class PCGExtendedToolkit.PCGExCherryPickPointsSettings
 // 0x0008 (0x00F0 - 0x00E8)
 class UPCGExCherryPickPointsSettings final : public UPCGExPointsProcessorSettings
@@ -2716,6 +2642,97 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExClusterNodesData;
 
+// Class PCGExtendedToolkit.PCGExClusterEdgesData
+// 0x0010 (0x01C0 - 0x01B0)
+class UPCGExClusterEdgesData final : public UPCGExClusterData
+{
+public:
+	uint8                                         Pad_1B0[0x10];                                     // 0x01B0(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExClusterEdgesData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExClusterEdgesData")
+	}
+	static class UPCGExClusterEdgesData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExClusterEdgesData>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExClusterEdgesData;
+
+// Class PCGExtendedToolkit.PCGExTensorPointFactoryData
+// 0x0020 (0x05C0 - 0x05A0)
+#pragma pack(push, 0x1)
+class SDK_ALIGN(0x10) UPCGExTensorPointFactoryData : public UPCGExTensorFactoryData
+{
+public:
+	uint8                                         Pad_598[0x20];                                     // 0x0598(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExTensorPointFactoryData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExTensorPointFactoryData")
+	}
+	static class UPCGExTensorPointFactoryData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExTensorPointFactoryData>();
+	}
+};
+#pragma pack(pop)
+DUMPER7_ASSERTS_UPCGExTensorPointFactoryData;
+
+// Class PCGExtendedToolkit.PCGExTensorFlowFactory
+// 0x0410 (0x09D0 - 0x05C0)
+class UPCGExTensorFlowFactory final : public UPCGExTensorPointFactoryData
+{
+public:
+	struct FPCGExTensorFlowConfig                 Config;                                            // 0x05B8(0x0418)(NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExTensorFlowFactory")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExTensorFlowFactory")
+	}
+	static class UPCGExTensorFlowFactory* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExTensorFlowFactory>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExTensorFlowFactory;
+
+// Class PCGExtendedToolkit.PCGExNodeFilterFactoryData
+// 0x0000 (0x01C0 - 0x01C0)
+class UPCGExNodeFilterFactoryData : public UPCGExClusterFilterFactoryData
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExNodeFilterFactoryData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExNodeFilterFactoryData")
+	}
+	static class UPCGExNodeFilterFactoryData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExNodeFilterFactoryData>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExNodeFilterFactoryData;
+
 // Class PCGExtendedToolkit.PCGExEdgeFilterFactoryData
 // 0x0000 (0x01C0 - 0x01C0)
 class UPCGExEdgeFilterFactoryData : public UPCGExClusterFilterFactoryData
@@ -2761,6 +2778,29 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExClusterStateFactoryData;
 
+// Class PCGExtendedToolkit.PCGExTensorInertiaConstantFactory
+// 0x0400 (0x09A0 - 0x05A0)
+class UPCGExTensorInertiaConstantFactory final : public UPCGExTensorFactoryData
+{
+public:
+	struct FPCGExTensorInertiaConstantConfig      Config;                                            // 0x0598(0x0408)(NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExTensorInertiaConstantFactory")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExTensorInertiaConstantFactory")
+	}
+	static class UPCGExTensorInertiaConstantFactory* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExTensorInertiaConstantFactory>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExTensorInertiaConstantFactory;
+
 // Class PCGExtendedToolkit.PCGExClusterStateFactoryProviderSettings
 // 0x0088 (0x0148 - 0x00C0)
 class UPCGExClusterStateFactoryProviderSettings final : public UPCGExFactoryProviderSettings
@@ -2786,6 +2826,34 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExClusterStateFactoryProviderSettings;
+
+// Class PCGExtendedToolkit.PCGExCollocationCountSettings
+// 0x0020 (0x0108 - 0x00E8)
+class UPCGExCollocationCountSettings final : public UPCGExPointsProcessorSettings
+{
+public:
+	class FName                                   CollicationNumAttributeName;                       // 0x00E8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteLinearOccurences;                            // 0x00F0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_F1[0x3];                                       // 0x00F1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   LinearOccurencesAttributeName;                     // 0x00F4(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_FC[0x4];                                       // 0x00FC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        Tolerance;                                         // 0x0100(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExCollocationCountSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExCollocationCountSettings")
+	}
+	static class UPCGExCollocationCountSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExCollocationCountSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExCollocationCountSettings;
 
 // Class PCGExtendedToolkit.PCGExConnectClustersSettings
 // 0x0200 (0x02F0 - 0x00F0)
@@ -2844,54 +2912,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExConnectPointsSettings;
-
-// Class PCGExtendedToolkit.PCGExTensorFactoryData
-// 0x03E0 (0x05A0 - 0x01C0)
-#pragma pack(push, 0x1)
-class SDK_ALIGN(0x10) UPCGExTensorFactoryData : public UPCGExFactoryData
-{
-public:
-	uint8                                         Pad_1B8[0x3E0];                                    // 0x01B8(0x03E0)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExTensorFactoryData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExTensorFactoryData")
-	}
-	static class UPCGExTensorFactoryData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExTensorFactoryData>();
-	}
-};
-#pragma pack(pop)
-DUMPER7_ASSERTS_UPCGExTensorFactoryData;
-
-// Class PCGExtendedToolkit.PCGExTensorSplineFactoryData
-// 0x0050 (0x05F0 - 0x05A0)
-class UPCGExTensorSplineFactoryData : public UPCGExTensorFactoryData
-{
-public:
-	uint8                                         Pad_598[0x58];                                     // 0x0598(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExTensorSplineFactoryData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExTensorSplineFactoryData")
-	}
-	static class UPCGExTensorSplineFactoryData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExTensorSplineFactoryData>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExTensorSplineFactoryData;
 
 // Class PCGExtendedToolkit.PCGExConstantEnumSettings
 // 0x00B0 (0x0168 - 0x00B8)
@@ -3020,73 +3040,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExConstantsSettings;
 
-// Class PCGExtendedToolkit.PCGExTensorFactoryProviderSettings
-// 0x0008 (0x00C8 - 0x00C0)
-class UPCGExTensorFactoryProviderSettings : public UPCGExFactoryProviderSettings
-{
-public:
-	int32                                         Priority;                                          // 0x00C0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C4[0x4];                                       // 0x00C4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExTensorFactoryProviderSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExTensorFactoryProviderSettings")
-	}
-	static class UPCGExTensorFactoryProviderSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExTensorFactoryProviderSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExTensorFactoryProviderSettings;
-
-// Class PCGExtendedToolkit.PCGExTensorSplineFactoryProviderSettings
-// 0x0000 (0x00C8 - 0x00C8)
-class UPCGExTensorSplineFactoryProviderSettings : public UPCGExTensorFactoryProviderSettings
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExTensorSplineFactoryProviderSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExTensorSplineFactoryProviderSettings")
-	}
-	static class UPCGExTensorSplineFactoryProviderSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExTensorSplineFactoryProviderSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExTensorSplineFactoryProviderSettings;
-
-// Class PCGExtendedToolkit.PCGExCreateTensorPathFlowSettings
-// 0x0420 (0x04E8 - 0x00C8)
-class UPCGExCreateTensorPathFlowSettings final : public UPCGExTensorSplineFactoryProviderSettings
-{
-public:
-	struct FPCGExTensorPathFlowConfig             Config;                                            // 0x00C8(0x0420)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExCreateTensorPathFlowSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExCreateTensorPathFlowSettings")
-	}
-	static class UPCGExCreateTensorPathFlowSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExCreateTensorPathFlowSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExCreateTensorPathFlowSettings;
-
 // Class PCGExtendedToolkit.PCGExCopyClustersToPointsSettings
 // 0x0440 (0x0530 - 0x00F0)
 class UPCGExCopyClustersToPointsSettings final : public UPCGExEdgesProcessorSettings
@@ -3200,49 +3153,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExCreateShapesSettings;
 
-// Class PCGExtendedToolkit.PCGExTensorPointFactoryProviderSettings
-// 0x0000 (0x00C8 - 0x00C8)
-class UPCGExTensorPointFactoryProviderSettings : public UPCGExTensorFactoryProviderSettings
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExTensorPointFactoryProviderSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExTensorPointFactoryProviderSettings")
-	}
-	static class UPCGExTensorPointFactoryProviderSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExTensorPointFactoryProviderSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExTensorPointFactoryProviderSettings;
-
-// Class PCGExtendedToolkit.PCGExCreateTensorPoleSettings
-// 0x03E0 (0x04A8 - 0x00C8)
-class UPCGExCreateTensorPoleSettings final : public UPCGExTensorPointFactoryProviderSettings
-{
-public:
-	struct FPCGExTensorPoleConfig                 Config;                                            // 0x00C8(0x03E0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExCreateTensorPoleSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExCreateTensorPoleSettings")
-	}
-	static class UPCGExCreateTensorPoleSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExCreateTensorPoleSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExCreateTensorPoleSettings;
-
 // Class PCGExtendedToolkit.PCGExCreateSplineSettings
 // 0x0060 (0x0180 - 0x0120)
 class UPCGExCreateSplineSettings final : public UPCGExPathProcessorSettings
@@ -3312,6 +3222,57 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExCutEdgesSettings;
 
+// Class PCGExtendedToolkit.PCGExWaitForPCGDataSettings
+// 0x00E0 (0x01C8 - 0x00E8)
+class UPCGExWaitForPCGDataSettings final : public UPCGExPointsProcessorSettings
+{
+public:
+	class FName                                   ActorReferenceAttribute;                           // 0x00E8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSoftObjectPtr<class UPCGGraph>               TemplateGraph;                                     // 0x00F0(0x0028)(Edit, BlueprintVisible, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bMustMatchTemplate;                                // 0x0118(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_119[0x3];                                      // 0x0119(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   MustHaveTag;                                       // 0x011C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bDoMatchGenerationTrigger;                         // 0x0124(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGComponentGenerationTrigger                MatchGenerationTrigger;                            // 0x0125(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bInvertGenerationTrigger;                          // 0x0126(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWaitForMissingActors;                             // 0x0127(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        WaitForActorTimeout;                               // 0x0128(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWaitForMissingComponents;                         // 0x0130(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_131[0x7];                                      // 0x0131(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        WaitForComponentTimeout;                           // 0x0138(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExGenerationTriggerAction                 GenerateOnLoadAction;                              // 0x0140(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExGenerationTriggerAction                 GenerateOnDemandAction;                            // 0x0141(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExRuntimeGenerationTriggerAction          GenerateAtRuntime;                                 // 0x0142(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIgnoreRequiredPin;                                // 0x0143(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bDedupeData;                                       // 0x0144(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bCarryOverTargetTags;                              // 0x0145(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_146[0x2];                                      // 0x0146(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGExAttributeToTagDetails            TargetAttributesToDataTags;                        // 0x0148(0x0060)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	bool                                          bOutputRoaming;                                    // 0x01A8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1A9[0x3];                                      // 0x01A9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   RoamingPin;                                        // 0x01AC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bQuietActorNotFoundWarning;                        // 0x01B4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bQuietComponentNotFoundWarning;                    // 0x01B5(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bQuietTimeoutError;                                // 0x01B6(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1B7[0x1];                                      // 0x01B7(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FPCGPinProperties>              CachedPins;                                        // 0x01B8(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExWaitForPCGDataSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExWaitForPCGDataSettings")
+	}
+	static class UPCGExWaitForPCGDataSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExWaitForPCGDataSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExWaitForPCGDataSettings;
+
 // Class PCGExtendedToolkit.PCGExDataOwnedItem
 // 0x0058 (0x0080 - 0x0028)
 class UPCGExDataOwnedItem final : public UObject
@@ -3360,54 +3321,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExDataBucket;
-
-// Class PCGExtendedToolkit.PCGExTensorPointFactoryData
-// 0x0020 (0x05C0 - 0x05A0)
-#pragma pack(push, 0x1)
-class SDK_ALIGN(0x10) UPCGExTensorPointFactoryData : public UPCGExTensorFactoryData
-{
-public:
-	uint8                                         Pad_598[0x20];                                     // 0x0598(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExTensorPointFactoryData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExTensorPointFactoryData")
-	}
-	static class UPCGExTensorPointFactoryData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExTensorPointFactoryData>();
-	}
-};
-#pragma pack(pop)
-DUMPER7_ASSERTS_UPCGExTensorPointFactoryData;
-
-// Class PCGExtendedToolkit.PCGExTensorSpinFactory
-// 0x0410 (0x09D0 - 0x05C0)
-class UPCGExTensorSpinFactory final : public UPCGExTensorPointFactoryData
-{
-public:
-	uint8                                         Pad_5B8[0x418];                                    // 0x05B8(0x0418)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExTensorSpinFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExTensorSpinFactory")
-	}
-	static class UPCGExTensorSpinFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExTensorSpinFactory>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExTensorSpinFactory;
 
 // Class PCGExtendedToolkit.PCGExSharedDataManager
 // 0x0068 (0x0090 - 0x0028)
@@ -3886,6 +3799,104 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExEdgeLengthFilterProviderSettings;
 
+// Class PCGExtendedToolkit.PCGExSampleNearestPointSettings
+// 0x0310 (0x03F8 - 0x00E8)
+class UPCGExSampleNearestPointSettings final : public UPCGExPointsProcessorSettings
+{
+public:
+	EPCGExSampleMethod                            SampleMethod;                                      // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExSortDirection                           SortDirection;                                     // 0x00E9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_EA[0x6];                                       // 0x00EA(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        RangeMin;                                          // 0x00F0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        RangeMax;                                          // 0x00F8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUseLocalRangeMin;                                 // 0x0100(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_101[0x7];                                      // 0x0101(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGAttributePropertyInputSelector     LocalRangeMin;                                     // 0x0108(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUseLocalRangeMax;                                 // 0x0130(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_131[0x7];                                      // 0x0131(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGAttributePropertyInputSelector     LocalRangeMax;                                     // 0x0138(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExSampleWeightMode                        WeightMode;                                        // 0x0160(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_161[0x7];                                      // 0x0161(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGAttributePropertyInputSelector     WeightAttribute;                                   // 0x0168(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FPCGExDistanceDetails                  DistanceDetails;                                   // 0x0190(0x0003)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	EPCGExRangeType                               WeightMethod;                                      // 0x0193(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bUseLocalCurve;                                    // 0x0194(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_195[0x3];                                      // 0x0195(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FRuntimeFloatCurve                     LocalWeightOverDistance;                           // 0x0198(0x0088)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	TSoftObjectPtr<class UCurveFloat>             WeightOverDistance;                                // 0x0220(0x0028)(Edit, BlueprintVisible, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TMap<class FName, EPCGExDataBlendingType>     TargetAttributes;                                  // 0x0248(0x0050)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	bool                                          bBlendPointProperties;                             // 0x0298(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FPCGExPropertiesBlendingDetails        PointPropertiesBlendingSettings;                   // 0x0299(0x000A)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2A3[0x5];                                      // 0x02A3(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGExApplySamplingDetails             ApplySampling;                                     // 0x02A8(0x0050)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	bool                                          bWriteSuccess;                                     // 0x02F8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2F9[0x3];                                      // 0x02F9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   SuccessAttributeName;                              // 0x02FC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteTransform;                                   // 0x0304(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_305[0x3];                                      // 0x0305(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   TransformAttributeName;                            // 0x0308(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteLookAtTransform;                             // 0x0310(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_311[0x3];                                      // 0x0311(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   LookAtTransformAttributeName;                      // 0x0314(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExAxisAlign                               LookAtAxisAlign;                                   // 0x031C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExSampleSource                            LookAtUpSelection;                                 // 0x031D(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_31E[0x2];                                      // 0x031E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGAttributePropertyInputSelector     LookAtUpSource;                                    // 0x0320(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                LookAtUpConstant;                                  // 0x0348(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteDistance;                                    // 0x0360(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_361[0x3];                                      // 0x0361(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   DistanceAttributeName;                             // 0x0364(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOutputNormalizedDistance;                         // 0x036C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOutputOneMinusDistance;                           // 0x036D(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_36E[0x2];                                      // 0x036E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        DistanceScale;                                     // 0x0370(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteSignedDistance;                              // 0x0378(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_379[0x3];                                      // 0x0379(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   SignedDistanceAttributeName;                       // 0x037C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExAxis                                    SignAxis;                                          // 0x0384(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_385[0x3];                                      // 0x0385(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        SignedDistanceScale;                               // 0x0388(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteComponentWiseDistance;                       // 0x0390(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_391[0x3];                                      // 0x0391(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   ComponentWiseDistanceAttributeName;                // 0x0394(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAbsoluteComponentWiseDistance;                    // 0x039C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteAngle;                                       // 0x039D(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_39E[0x2];                                      // 0x039E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   AngleAttributeName;                                // 0x03A0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExAxis                                    AngleAxis;                                         // 0x03A8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExAngleRange                              AngleRange;                                        // 0x03A9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteNumSamples;                                  // 0x03AA(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3AB[0x1];                                      // 0x03AB(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   NumSamplesAttributeName;                           // 0x03AC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteSampledIndex;                                // 0x03B4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3B5[0x3];                                      // 0x03B5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   SampledIndexAttributeName;                         // 0x03B8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bTagIfHasSuccesses;                                // 0x03C0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3C1[0x7];                                      // 0x03C1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 HasSuccessesTag;                                   // 0x03C8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bTagIfHasNoSuccesses;                              // 0x03D8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3D9[0x7];                                      // 0x03D9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 HasNoSuccessesTag;                                 // 0x03E0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bProcessFilteredOutAsFails;                        // 0x03F0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bPruneFailedSamples;                               // 0x03F1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3F2[0x6];                                      // 0x03F2(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExSampleNearestPointSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExSampleNearestPointSettings")
+	}
+	static class UPCGExSampleNearestPointSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExSampleNearestPointSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExSampleNearestPointSettings;
+
 // Class PCGExtendedToolkit.PCGExEdgeNeighborsCountFilterFactory
 // 0x0040 (0x0200 - 0x01C0)
 class UPCGExEdgeNeighborsCountFilterFactory final : public UPCGExEdgeFilterFactoryData
@@ -3954,6 +3965,52 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExEdgeOrderSettings;
+
+// Class PCGExtendedToolkit.PCGExSampleOverlapStatsSettings
+// 0x0078 (0x0160 - 0x00E8)
+class UPCGExSampleOverlapStatsSettings final : public UPCGExPointsProcessorSettings
+{
+public:
+	EPCGExOverlapTestMode                         TestMode;                                          // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExPointBoundsSource                       BoundsSource;                                      // 0x00E9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_EA[0x6];                                       // 0x00EA(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        Expansion;                                         // 0x00F0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        MinThreshold;                                      // 0x00F8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExMeanMeasure                             ThresholdMeasure;                                  // 0x0100(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteOverlapCount;                                // 0x0101(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_102[0x2];                                      // 0x0102(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   OverlapCountAttributeName;                         // 0x0104(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteOverlapSubCount;                             // 0x010C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_10D[0x3];                                      // 0x010D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   OverlapSubCountAttributeName;                      // 0x0110(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteRelativeOverlapCount;                        // 0x0118(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_119[0x3];                                      // 0x0119(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   RelativeOverlapCountAttributeName;                 // 0x011C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteRelativeOverlapSubCount;                     // 0x0124(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_125[0x3];                                      // 0x0125(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   RelativeOverlapSubCountAttributeName;              // 0x0128(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bTagIfHasAnyOverlap;                               // 0x0130(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_131[0x7];                                      // 0x0131(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 HasAnyOverlapTag;                                  // 0x0138(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bTagIfHasNoOverlap;                                // 0x0148(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_149[0x7];                                      // 0x0149(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 HasNoOverlapTag;                                   // 0x0150(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExSampleOverlapStatsSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExSampleOverlapStatsSettings")
+	}
+	static class UPCGExSampleOverlapStatsSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExSampleOverlapStatsSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExSampleOverlapStatsSettings;
 
 // Class PCGExtendedToolkit.PCGExEdgeRefineByFilter
 // 0x0008 (0x00F0 - 0x00E8)
@@ -4045,6 +4102,49 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExEdgeKeepLongest;
 
+// Class PCGExtendedToolkit.PCGExSanitizeClustersSettings
+// 0x0050 (0x0140 - 0x00F0)
+class UPCGExSanitizeClustersSettings final : public UPCGExEdgesProcessorSettings
+{
+public:
+	struct FPCGExGraphBuilderDetails              GraphBuilderDetails;                               // 0x00F0(0x0050)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExSanitizeClustersSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExSanitizeClustersSettings")
+	}
+	static class UPCGExSanitizeClustersSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExSanitizeClustersSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExSanitizeClustersSettings;
+
+// Class PCGExtendedToolkit.PCGExEdgeKeepLowestScore
+// 0x0000 (0x00E8 - 0x00E8)
+class UPCGExEdgeKeepLowestScore final : public UPCGExEdgeRefineOperation
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExEdgeKeepLowestScore")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExEdgeKeepLowestScore")
+	}
+	static class UPCGExEdgeKeepLowestScore* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExEdgeKeepLowestScore>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExEdgeKeepLowestScore;
+
 // Class PCGExtendedToolkit.PCGExEdgeKeepShortest
 // 0x0000 (0x00E8 - 0x00E8)
 class UPCGExEdgeKeepShortest final : public UPCGExEdgeRefineOperation
@@ -4114,6 +4214,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExEdgeRefinePrimMST;
+
+// Class PCGExtendedToolkit.PCGExShapeBuilderFactoryData
+// 0x0000 (0x01C0 - 0x01C0)
+class UPCGExShapeBuilderFactoryData : public UPCGExFactoryData
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExShapeBuilderFactoryData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExShapeBuilderFactoryData")
+	}
+	static class UPCGExShapeBuilderFactoryData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExShapeBuilderFactoryData>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExShapeBuilderFactoryData;
 
 // Class PCGExtendedToolkit.PCGExEdgeRemoveHighestScore
 // 0x0000 (0x00E8 - 0x00E8)
@@ -4209,6 +4329,31 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExEdgeRemoveOverlap;
 
+// Class PCGExtendedToolkit.PCGExMeshSelectorStaged
+// 0x0018 (0x0040 - 0x0028)
+class UPCGExMeshSelectorStaged final : public UPCGMeshSelectorBase
+{
+public:
+	bool                                          bUseAttributeMaterialOverrides;                    // 0x0028(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_29[0x7];                                       // 0x0029(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class FName>                           MaterialOverrideAttributes;                        // 0x0030(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExMeshSelectorStaged")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExMeshSelectorStaged")
+	}
+	static class UPCGExMeshSelectorStaged* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExMeshSelectorStaged>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExMeshSelectorStaged;
+
 // Class PCGExtendedToolkit.PCGExEdgeRefineSkeleton
 // 0x0018 (0x0100 - 0x00E8)
 class UPCGExEdgeRefineSkeleton final : public UPCGExEdgeRefineOperation
@@ -4257,42 +4402,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExEntryCountFilterProviderSettings;
-
-// Class PCGExtendedToolkit.PCGExSmoothSettings
-// 0x0108 (0x0228 - 0x0120)
-class UPCGExSmoothSettings final : public UPCGExPathProcessorSettings
-{
-public:
-	bool                                          bPreserveStart;                                    // 0x0120(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bPreserveEnd;                                      // 0x0121(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_122[0x6];                                      // 0x0122(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	class UPCGExSmoothingOperation*               SmoothingMethod;                                   // 0x0128(0x0008)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	EPCGExInputValueType                          InfluenceInput;                                    // 0x0130(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_131[0x7];                                      // 0x0131(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGAttributePropertyInputSelector     InfluenceAttribute;                                // 0x0138(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        InfluenceConstant;                                 // 0x0160(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExInputValueType                          SmoothingAmountType;                               // 0x0168(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_169[0x7];                                      // 0x0169(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGAttributePropertyInputSelector     SmoothingAmountAttribute;                          // 0x0170(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        SmoothingAmountConstant;                           // 0x0198(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        ScaleSmoothingAmountAttribute;                     // 0x01A0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FPCGExBlendingDetails                  BlendingSettings;                                  // 0x01A8(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExSmoothSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExSmoothSettings")
-	}
-	static class UPCGExSmoothSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExSmoothSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExSmoothSettings;
 
 // Class PCGExtendedToolkit.PCGExExtrudeTensorsSettings
 // 0x0310 (0x03F8 - 0x00E8)
@@ -4388,54 +4497,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExExtrudeTensorsSettings;
 
-// Class PCGExtendedToolkit.PCGExSplineAlphaFilterFactory
-// 0x0060 (0x0220 - 0x01C0)
-class UPCGExSplineAlphaFilterFactory final : public UPCGExFilterFactoryData
-{
-public:
-	struct FPCGExSplineAlphaFilterConfig          Config;                                            // 0x01C0(0x0040)(NativeAccessSpecifierPublic)
-	uint8                                         Pad_200[0x20];                                     // 0x0200(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExSplineAlphaFilterFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExSplineAlphaFilterFactory")
-	}
-	static class UPCGExSplineAlphaFilterFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExSplineAlphaFilterFactory>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExSplineAlphaFilterFactory;
-
-// Class PCGExtendedToolkit.PCGExFillControlsCountProviderSettings
-// 0x0018 (0x00D8 - 0x00C0)
-class UPCGExFillControlsCountProviderSettings final : public UPCGExFillControlsFactoryProviderSettings
-{
-public:
-	struct FPCGExFillControlConfigCount           Config;                                            // 0x00C0(0x0014)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	uint8                                         Pad_D4[0x4];                                       // 0x00D4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExFillControlsCountProviderSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExFillControlsCountProviderSettings")
-	}
-	static class UPCGExFillControlsCountProviderSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExFillControlsCountProviderSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExFillControlsCountProviderSettings;
-
 // Class PCGExtendedToolkit.PCGExFillControlsFactoryDepth
 // 0x0020 (0x01E0 - 0x01C0)
 class UPCGExFillControlsFactoryDepth final : public UPCGExFillControlsFactoryData
@@ -4459,30 +4520,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExFillControlsFactoryDepth;
-
-// Class PCGExtendedToolkit.PCGExFillControlsDepthProviderSettings
-// 0x0018 (0x00D8 - 0x00C0)
-class UPCGExFillControlsDepthProviderSettings final : public UPCGExFillControlsFactoryProviderSettings
-{
-public:
-	struct FPCGExFillControlConfigDepth           Config;                                            // 0x00C0(0x0014)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	uint8                                         Pad_D4[0x4];                                       // 0x00D4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExFillControlsDepthProviderSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExFillControlsDepthProviderSettings")
-	}
-	static class UPCGExFillControlsDepthProviderSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExFillControlsDepthProviderSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExFillControlsDepthProviderSettings;
 
 // Class PCGExtendedToolkit.PCGExFillControlsFactoryEdgeFilters
 // 0x0020 (0x01E0 - 0x01C0)
@@ -4532,29 +4569,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExFillControlsFactoryKeepDirection;
-
-// Class PCGExtendedToolkit.PCGExFillControlsKeepDirectionProviderSettings
-// 0x0080 (0x0140 - 0x00C0)
-class UPCGExFillControlsKeepDirectionProviderSettings final : public UPCGExFillControlsFactoryProviderSettings
-{
-public:
-	struct FPCGExFillControlConfigKeepDirection   Config;                                            // 0x00C0(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExFillControlsKeepDirectionProviderSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExFillControlsKeepDirectionProviderSettings")
-	}
-	static class UPCGExFillControlsKeepDirectionProviderSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExFillControlsKeepDirectionProviderSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExFillControlsKeepDirectionProviderSettings;
 
 // Class PCGExtendedToolkit.PCGExFillControlsFactoryLength
 // 0x0020 (0x01E0 - 0x01C0)
@@ -4649,6 +4663,32 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExFilterGroupFactoryDataOR;
 
+// Class PCGExtendedToolkit.PCGExFilterGroupProviderSettings
+// 0x0008 (0x00C8 - 0x00C0)
+class UPCGExFilterGroupProviderSettings final : public UPCGExFactoryProviderSettings
+{
+public:
+	int32                                         Priority;                                          // 0x00C0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExFilterGroupMode                         Mode;                                              // 0x00C4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bInvert;                                           // 0x00C5(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C6[0x2];                                       // 0x00C6(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExFilterGroupProviderSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExFilterGroupProviderSettings")
+	}
+	static class UPCGExFilterGroupProviderSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExFilterGroupProviderSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExFilterGroupProviderSettings;
+
 // Class PCGExtendedToolkit.PCGExFilterVtxSettings
 // 0x00A0 (0x0190 - 0x00F0)
 class UPCGExFilterVtxSettings final : public UPCGExEdgesProcessorSettings
@@ -4679,6 +4719,32 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExFilterVtxSettings;
+
+// Class PCGExtendedToolkit.PCGExFindClustersDataSettings
+// 0x0008 (0x00F0 - 0x00E8)
+class UPCGExFindClustersDataSettings final : public UPCGExPointsProcessorSettings
+{
+public:
+	EPCGExClusterDataSearchMode                   SearchMode;                                        // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bSkipTrivialWarnings;                              // 0x00E9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bSkipImportantWarnings;                            // 0x00EA(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_EB[0x5];                                       // 0x00EB(0x0005)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExFindClustersDataSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExFindClustersDataSettings")
+	}
+	static class UPCGExFindClustersDataSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExFindClustersDataSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExFindClustersDataSettings;
 
 // Class PCGExtendedToolkit.PCGExFindPointOnBoundsSettings
 // 0x0120 (0x0208 - 0x00E8)
@@ -4733,6 +4799,35 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExFlagNodesSettings;
 
+// Class PCGExtendedToolkit.PCGExFlatProjectionSettings
+// 0x00B8 (0x01A0 - 0x00E8)
+class UPCGExFlatProjectionSettings final : public UPCGExPointsProcessorSettings
+{
+public:
+	bool                                          bRestorePreviousProjection;                        // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E9[0x3];                                       // 0x00E9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   AttributePrefix;                                   // 0x00EC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bSaveAttributeForRestore;                          // 0x00F4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAlignLocalTransform;                              // 0x00F5(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_F6[0xA];                                       // 0x00F6(0x000A)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGExGeo2DProjectionDetails           ProjectionDetails;                                 // 0x0100(0x00A0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExFlatProjectionSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExFlatProjectionSettings")
+	}
+	static class UPCGExFlatProjectionSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExFlatProjectionSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExFlatProjectionSettings;
+
 // Class PCGExtendedToolkit.PCGExClusterDiffusionSettings
 // 0x0148 (0x0238 - 0x00F0)
 class UPCGExClusterDiffusionSettings final : public UPCGExEdgesProcessorSettings
@@ -4777,6 +4872,78 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExClusterDiffusionSettings;
 
+// Class PCGExtendedToolkit.PCGExProbeFactoryData
+// 0x0000 (0x01C0 - 0x01C0)
+#pragma pack(push, 0x1)
+class SDK_ALIGN(0x10) UPCGExProbeFactoryData : public UPCGExFactoryData
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExProbeFactoryData")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExProbeFactoryData")
+	}
+	static class UPCGExProbeFactoryData* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExProbeFactoryData>();
+	}
+};
+#pragma pack(pop)
+DUMPER7_ASSERTS_UPCGExProbeFactoryData;
+
+// Class PCGExtendedToolkit.PCGExProbeFactoryNumericCompare
+// 0x0080 (0x0240 - 0x01C0)
+class UPCGExProbeFactoryNumericCompare final : public UPCGExProbeFactoryData
+{
+public:
+	struct FPCGExProbeConfigNumericCompare        Config;                                            // 0x01B8(0x0080)(NativeAccessSpecifierPublic)
+	uint8                                         Pad_238[0x8];                                      // 0x0238(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExProbeFactoryNumericCompare")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExProbeFactoryNumericCompare")
+	}
+	static class UPCGExProbeFactoryNumericCompare* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExProbeFactoryNumericCompare>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExProbeFactoryNumericCompare;
+
+// Class PCGExtendedToolkit.PCGExDebugSettings
+// 0x0018 (0x00D0 - 0x00B8)
+class UPCGExDebugSettings final : public UPCGSettings
+{
+public:
+	bool                                          bPCGExDebug;                                       // 0x00B8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_B9[0x3];                                       // 0x00B9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FLinearColor                           CustomColor;                                       // 0x00BC(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected)
+	uint8                                         Pad_CC[0x4];                                       // 0x00CC(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExDebugSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExDebugSettings")
+	}
+	static class UPCGExDebugSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExDebugSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExDebugSettings;
+
 // Class PCGExtendedToolkit.PCGExForceDirectedRelax
 // 0x0010 (0x00D8 - 0x00C8)
 class UPCGExForceDirectedRelax final : public UPCGExRelaxClusterOperation
@@ -4801,6 +4968,26 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExForceDirectedRelax;
 
+// Class PCGExtendedToolkit.PCGExFromNeighborsTangents
+// 0x0000 (0x00B0 - 0x00B0)
+class UPCGExFromNeighborsTangents final : public UPCGExTangentsOperation
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExFromNeighborsTangents")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExFromNeighborsTangents")
+	}
+	static class UPCGExFromNeighborsTangents* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExFromNeighborsTangents>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExFromNeighborsTangents;
+
 // Class PCGExtendedToolkit.PCGExFromTransformTangents
 // 0x0008 (0x00B8 - 0x00B0)
 class UPCGExFromTransformTangents final : public UPCGExTangentsOperation
@@ -4824,6 +5011,66 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExFromTransformTangents;
+
+// Class PCGExtendedToolkit.PCGExPruneEdgesByLengthSettings
+// 0x0000 (0x00F0 - 0x00F0)
+class UPCGExPruneEdgesByLengthSettings final : public UPCGExEdgesProcessorSettings
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExPruneEdgesByLengthSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExPruneEdgesByLengthSettings")
+	}
+	static class UPCGExPruneEdgesByLengthSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExPruneEdgesByLengthSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExPruneEdgesByLengthSettings;
+
+// Class PCGExtendedToolkit.PCGExFuseClustersSettings
+// 0x0620 (0x0710 - 0x00F0)
+class UPCGExFuseClustersSettings final : public UPCGExEdgesProcessorSettings
+{
+public:
+	struct FPCGExPointPointIntersectionDetails    PointPointIntersectionDetails;                     // 0x00F0(0x00E0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	bool                                          bFindPointEdgeIntersections;                       // 0x01D0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D1[0x7];                                      // 0x01D1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGExPointEdgeIntersectionDetails     PointEdgeIntersectionDetails;                      // 0x01D8(0x0088)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	bool                                          bFindEdgeEdgeIntersections;                        // 0x0260(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_261[0x7];                                      // 0x0261(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGExEdgeEdgeIntersectionDetails      EdgeEdgeIntersectionDetails;                       // 0x0268(0x0068)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	struct FPCGExBlendingDetails                  DefaultPointsBlendingDetails;                      // 0x02D0(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FPCGExBlendingDetails                  DefaultEdgesBlendingDetails;                       // 0x0350(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	bool                                          bUseCustomPointEdgeBlending;                       // 0x03D0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3D1[0x7];                                      // 0x03D1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGExBlendingDetails                  CustomPointEdgeBlendingDetails;                    // 0x03D8(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	bool                                          bUseCustomEdgeEdgeBlending;                        // 0x0458(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_459[0x7];                                      // 0x0459(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGExBlendingDetails                  CustomEdgeEdgeBlendingDetails;                     // 0x0460(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FPCGExCarryOverDetails                 VtxCarryOverDetails;                               // 0x04E0(0x00F0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FPCGExCarryOverDetails                 EdgesCarryOverDetails;                             // 0x05D0(0x00F0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FPCGExGraphBuilderDetails              GraphBuilderDetails;                               // 0x06C0(0x0050)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExFuseClustersSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExFuseClustersSettings")
+	}
+	static class UPCGExFuseClustersSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExFuseClustersSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExFuseClustersSettings;
 
 // Class PCGExtendedToolkit.PCGExFuseCollinearSettings
 // 0x0020 (0x0140 - 0x0120)
@@ -4854,6 +5101,57 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExFuseCollinearSettings;
 
+// Class PCGExtendedToolkit.PCGExSplineInclusionFilterFactory
+// 0x0040 (0x0200 - 0x01C0)
+class UPCGExSplineInclusionFilterFactory final : public UPCGExFilterFactoryData
+{
+public:
+	struct FPCGExSplineInclusionFilterConfig      Config;                                            // 0x01C0(0x0028)(NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1E8[0x18];                                     // 0x01E8(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExSplineInclusionFilterFactory")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExSplineInclusionFilterFactory")
+	}
+	static class UPCGExSplineInclusionFilterFactory* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExSplineInclusionFilterFactory>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExSplineInclusionFilterFactory;
+
+// Class PCGExtendedToolkit.PCGExFusePointsSettings
+// 0x0258 (0x0340 - 0x00E8)
+class UPCGExFusePointsSettings final : public UPCGExPointsProcessorSettings
+{
+public:
+	struct FPCGExPointPointIntersectionDetails    PointPointIntersectionDetails;                     // 0x00E8(0x00E0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	bool                                          bPreserveOrder;                                    // 0x01C8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1C9[0x7];                                      // 0x01C9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGExBlendingDetails                  BlendingDetails;                                   // 0x01D0(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FPCGExCarryOverDetails                 CarryOverDetails;                                  // 0x0250(0x00F0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExFusePointsSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExFusePointsSettings")
+	}
+	static class UPCGExFusePointsSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExFusePointsSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExFusePointsSettings;
+
 // Class PCGExtendedToolkit.PCGExGameplayTagsFilterFactory
 // 0x0070 (0x0230 - 0x01C0)
 class UPCGExGameplayTagsFilterFactory final : public UPCGExFilterFactoryData
@@ -4876,6 +5174,29 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExGameplayTagsFilterFactory;
+
+// Class PCGExtendedToolkit.PCGExRandomFilterProviderSettings
+// 0x0130 (0x01F8 - 0x00C8)
+class UPCGExRandomFilterProviderSettings final : public UPCGExFilterProviderSettings
+{
+public:
+	struct FPCGExRandomFilterConfig               Config;                                            // 0x00C8(0x0130)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExRandomFilterProviderSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExRandomFilterProviderSettings")
+	}
+	static class UPCGExRandomFilterProviderSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExRandomFilterProviderSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExRandomFilterProviderSettings;
 
 // Class PCGExtendedToolkit.PCGExGameplayTagsFilterProviderSettings
 // 0x0068 (0x0130 - 0x00C8)
@@ -4925,6 +5246,30 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExGetGUIDSettings;
+
+// Class PCGExtendedToolkit.PCGExProbeFactoryIndex
+// 0x0070 (0x0230 - 0x01C0)
+class UPCGExProbeFactoryIndex final : public UPCGExProbeFactoryData
+{
+public:
+	struct FPCGExProbeConfigIndex                 Config;                                            // 0x01B8(0x0070)(NativeAccessSpecifierPublic)
+	uint8                                         Pad_228[0x8];                                      // 0x0228(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExProbeFactoryIndex")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExProbeFactoryIndex")
+	}
+	static class UPCGExProbeFactoryIndex* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExProbeFactoryIndex>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExProbeFactoryIndex;
 
 // Class PCGExtendedToolkit.PCGExGetTextureDataSettings
 // 0x00D8 (0x01C0 - 0x00E8)
@@ -5050,6 +5395,60 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExGlobalSettings;
 
+// Class PCGExtendedToolkit.PCGExResamplePathSettings
+// 0x0098 (0x01B8 - 0x0120)
+class UPCGExResamplePathSettings final : public UPCGExPathProcessorSettings
+{
+public:
+	EPCGExResampleMode                            Mode;                                              // 0x0120(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bPreserveLastPoint;                                // 0x0121(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExResolutionMode                          ResolutionMode;                                    // 0x0122(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_123[0x5];                                      // 0x0123(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        Resolution;                                        // 0x0128(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExTruncateMode                            Truncate;                                          // 0x0130(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_131[0x7];                                      // 0x0131(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGExBlendingDetails                  BlendingSettings;                                  // 0x0138(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExResamplePathSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExResamplePathSettings")
+	}
+	static class UPCGExResamplePathSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExResamplePathSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExResamplePathSettings;
+
+// Class PCGExtendedToolkit.PCGExGoalPicker
+// 0x0008 (0x00B0 - 0x00A8)
+class UPCGExGoalPicker : public UPCGExInstancedFactory
+{
+public:
+	EPCGExIndexSafety                             IndexSafety;                                       // 0x00A8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A9[0x7];                                       // 0x00A9(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExGoalPicker")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExGoalPicker")
+	}
+	static class UPCGExGoalPicker* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExGoalPicker>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExGoalPicker;
+
 // Class PCGExtendedToolkit.PCGExGoalPickerAll
 // 0x0008 (0x00B8 - 0x00B0)
 class UPCGExGoalPickerAll final : public UPCGExGoalPicker
@@ -5072,6 +5471,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExGoalPickerAll;
+
+// Class PCGExtendedToolkit.PCGExPointStateFactoryProviderSettings
+// 0x0000 (0x00C0 - 0x00C0)
+class UPCGExPointStateFactoryProviderSettings final : public UPCGExFactoryProviderSettings
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExPointStateFactoryProviderSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExPointStateFactoryProviderSettings")
+	}
+	static class UPCGExPointStateFactoryProviderSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExPointStateFactoryProviderSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExPointStateFactoryProviderSettings;
 
 // Class PCGExtendedToolkit.PCGExGoalPickerAttribute
 // 0x0070 (0x0120 - 0x00B0)
@@ -5131,103 +5550,51 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExGoalPickerRandom;
 
-// Class PCGExtendedToolkit.PCGExSampleNearestPointSettings
-// 0x0310 (0x03F8 - 0x00E8)
-class UPCGExSampleNearestPointSettings final : public UPCGExPointsProcessorSettings
+// Class PCGExtendedToolkit.PCGExTensorSplineFactoryData
+// 0x0050 (0x05F0 - 0x05A0)
+class UPCGExTensorSplineFactoryData : public UPCGExTensorFactoryData
 {
 public:
-	EPCGExSampleMethod                            SampleMethod;                                      // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExSortDirection                           SortDirection;                                     // 0x00E9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_EA[0x6];                                       // 0x00EA(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        RangeMin;                                          // 0x00F0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        RangeMax;                                          // 0x00F8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUseLocalRangeMin;                                 // 0x0100(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_101[0x7];                                      // 0x0101(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGAttributePropertyInputSelector     LocalRangeMin;                                     // 0x0108(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUseLocalRangeMax;                                 // 0x0130(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_131[0x7];                                      // 0x0131(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGAttributePropertyInputSelector     LocalRangeMax;                                     // 0x0138(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExSampleWeightMode                        WeightMode;                                        // 0x0160(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_161[0x7];                                      // 0x0161(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGAttributePropertyInputSelector     WeightAttribute;                                   // 0x0168(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FPCGExDistanceDetails                  DistanceDetails;                                   // 0x0190(0x0003)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-	EPCGExRangeType                               WeightMethod;                                      // 0x0193(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bUseLocalCurve;                                    // 0x0194(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_195[0x3];                                      // 0x0195(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FRuntimeFloatCurve                     LocalWeightOverDistance;                           // 0x0198(0x0088)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	TSoftObjectPtr<class UCurveFloat>             WeightOverDistance;                                // 0x0220(0x0028)(Edit, BlueprintVisible, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TMap<class FName, EPCGExDataBlendingType>     TargetAttributes;                                  // 0x0248(0x0050)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	bool                                          bBlendPointProperties;                             // 0x0298(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FPCGExPropertiesBlendingDetails        PointPropertiesBlendingSettings;                   // 0x0299(0x000A)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2A3[0x5];                                      // 0x02A3(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGExApplySamplingDetails             ApplySampling;                                     // 0x02A8(0x0050)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	bool                                          bWriteSuccess;                                     // 0x02F8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2F9[0x3];                                      // 0x02F9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   SuccessAttributeName;                              // 0x02FC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteTransform;                                   // 0x0304(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_305[0x3];                                      // 0x0305(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   TransformAttributeName;                            // 0x0308(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteLookAtTransform;                             // 0x0310(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_311[0x3];                                      // 0x0311(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   LookAtTransformAttributeName;                      // 0x0314(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExAxisAlign                               LookAtAxisAlign;                                   // 0x031C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExSampleSource                            LookAtUpSelection;                                 // 0x031D(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_31E[0x2];                                      // 0x031E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGAttributePropertyInputSelector     LookAtUpSource;                                    // 0x0320(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                LookAtUpConstant;                                  // 0x0348(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteDistance;                                    // 0x0360(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_361[0x3];                                      // 0x0361(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   DistanceAttributeName;                             // 0x0364(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOutputNormalizedDistance;                         // 0x036C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOutputOneMinusDistance;                           // 0x036D(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_36E[0x2];                                      // 0x036E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        DistanceScale;                                     // 0x0370(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteSignedDistance;                              // 0x0378(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_379[0x3];                                      // 0x0379(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   SignedDistanceAttributeName;                       // 0x037C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExAxis                                    SignAxis;                                          // 0x0384(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_385[0x3];                                      // 0x0385(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        SignedDistanceScale;                               // 0x0388(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteComponentWiseDistance;                       // 0x0390(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_391[0x3];                                      // 0x0391(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   ComponentWiseDistanceAttributeName;                // 0x0394(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAbsoluteComponentWiseDistance;                    // 0x039C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteAngle;                                       // 0x039D(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_39E[0x2];                                      // 0x039E(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   AngleAttributeName;                                // 0x03A0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExAxis                                    AngleAxis;                                         // 0x03A8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExAngleRange                              AngleRange;                                        // 0x03A9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteNumSamples;                                  // 0x03AA(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3AB[0x1];                                      // 0x03AB(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   NumSamplesAttributeName;                           // 0x03AC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteSampledIndex;                                // 0x03B4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3B5[0x3];                                      // 0x03B5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   SampledIndexAttributeName;                         // 0x03B8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bTagIfHasSuccesses;                                // 0x03C0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3C1[0x7];                                      // 0x03C1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 HasSuccessesTag;                                   // 0x03C8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bTagIfHasNoSuccesses;                              // 0x03D8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3D9[0x7];                                      // 0x03D9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 HasNoSuccessesTag;                                 // 0x03E0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bProcessFilteredOutAsFails;                        // 0x03F0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bPruneFailedSamples;                               // 0x03F1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3F2[0x6];                                      // 0x03F2(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_598[0x58];                                     // 0x0598(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExSampleNearestPointSettings")
+		STATIC_CLASS_IMPL("PCGExTensorSplineFactoryData")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExSampleNearestPointSettings")
+		STATIC_NAME_IMPL(L"PCGExTensorSplineFactoryData")
 	}
-	static class UPCGExSampleNearestPointSettings* GetDefaultObj()
+	static class UPCGExTensorSplineFactoryData* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExSampleNearestPointSettings>();
+		return GetDefaultObjImpl<UPCGExTensorSplineFactoryData>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExSampleNearestPointSettings;
+DUMPER7_ASSERTS_UPCGExTensorSplineFactoryData;
+
+// Class PCGExtendedToolkit.PCGExTensorSplineFlowFactory
+// 0x0400 (0x09F0 - 0x05F0)
+class UPCGExTensorSplineFlowFactory : public UPCGExTensorSplineFactoryData
+{
+public:
+	uint8                                         Pad_5F0[0x400];                                    // 0x05F0(0x0400)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExTensorSplineFlowFactory")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExTensorSplineFlowFactory")
+	}
+	static class UPCGExTensorSplineFlowFactory* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExTensorSplineFlowFactory>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExTensorSplineFlowFactory;
 
 // Class PCGExtendedToolkit.PCGExGridEventObserverComponent
 // 0x0050 (0x0120 - 0x00D0)
@@ -5374,51 +5741,28 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExPCGComponentCallback;
 
-// Class PCGExtendedToolkit.PCGExSampleOverlapStatsSettings
-// 0x0078 (0x0160 - 0x00E8)
-class UPCGExSampleOverlapStatsSettings final : public UPCGExPointsProcessorSettings
+// Class PCGExtendedToolkit.PCGExTensorPathPoleFactory
+// 0x0410 (0x0E00 - 0x09F0)
+class UPCGExTensorPathPoleFactory final : public UPCGExTensorSplineFlowFactory
 {
 public:
-	EPCGExOverlapTestMode                         TestMode;                                          // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExPointBoundsSource                       BoundsSource;                                      // 0x00E9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_EA[0x6];                                       // 0x00EA(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        Expansion;                                         // 0x00F0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        MinThreshold;                                      // 0x00F8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExMeanMeasure                             ThresholdMeasure;                                  // 0x0100(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteOverlapCount;                                // 0x0101(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_102[0x2];                                      // 0x0102(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   OverlapCountAttributeName;                         // 0x0104(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteOverlapSubCount;                             // 0x010C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_10D[0x3];                                      // 0x010D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   OverlapSubCountAttributeName;                      // 0x0110(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteRelativeOverlapCount;                        // 0x0118(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_119[0x3];                                      // 0x0119(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   RelativeOverlapCountAttributeName;                 // 0x011C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteRelativeOverlapSubCount;                     // 0x0124(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_125[0x3];                                      // 0x0125(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   RelativeOverlapSubCountAttributeName;              // 0x0128(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bTagIfHasAnyOverlap;                               // 0x0130(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_131[0x7];                                      // 0x0131(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 HasAnyOverlapTag;                                  // 0x0138(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bTagIfHasNoOverlap;                                // 0x0148(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_149[0x7];                                      // 0x0149(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 HasNoOverlapTag;                                   // 0x0150(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9F0[0x410];                                    // 0x09F0(0x0410)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExSampleOverlapStatsSettings")
+		STATIC_CLASS_IMPL("PCGExTensorPathPoleFactory")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExSampleOverlapStatsSettings")
+		STATIC_NAME_IMPL(L"PCGExTensorPathPoleFactory")
 	}
-	static class UPCGExSampleOverlapStatsSettings* GetDefaultObj()
+	static class UPCGExTensorPathPoleFactory* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExSampleOverlapStatsSettings>();
+		return GetDefaultObjImpl<UPCGExTensorPathPoleFactory>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExSampleOverlapStatsSettings;
+DUMPER7_ASSERTS_UPCGExTensorPathPoleFactory;
 
 // Class PCGExtendedToolkit.PCGExManagedObjectInterface
 // 0x0000 (0x0000 - 0x0000)
@@ -5478,33 +5822,28 @@ public:
 };
 DUMPER7_ASSERTS_IPCGExManagedComponentInterface;
 
-// Class PCGExtendedToolkit.PCGExSubSystem
-// 0x00A0 (0x00E0 - 0x0040)
-class UPCGExSubSystem final : public UTickableWorldSubsystem
+// Class PCGExtendedToolkit.PCGExProbeFactoryClosest
+// 0x0070 (0x0230 - 0x01C0)
+class UPCGExProbeFactoryClosest final : public UPCGExProbeFactoryData
 {
 public:
-	uint8                                         Pad_40[0x8];                                       // 0x0040(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(class UPCGComponent* Source, EPCGExSubsystemEventType EventType, uint32 EventId)> OnGlobalEvent; // 0x0048(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
-	class UPCGExSharedDataManager*                SharedDataManager;                                 // 0x0058(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPCGExGridIDTracker*                    GridIDTracker;                                     // 0x0060(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_68[0x68];                                      // 0x0068(0x0068)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<class UPCGComponent*>                  PCGComponentPool;                                  // 0x00D0(0x0010)(ExportObject, ZeroConstructor, ContainsInstancedReference, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
+	struct FPCGExProbeConfigClosest               Config;                                            // 0x01B8(0x0078)(NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExSubSystem")
+		STATIC_CLASS_IMPL("PCGExProbeFactoryClosest")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExSubSystem")
+		STATIC_NAME_IMPL(L"PCGExProbeFactoryClosest")
 	}
-	static class UPCGExSubSystem* GetDefaultObj()
+	static class UPCGExProbeFactoryClosest* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExSubSystem>();
+		return GetDefaultObjImpl<UPCGExProbeFactoryClosest>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExSubSystem;
+DUMPER7_ASSERTS_UPCGExProbeFactoryClosest;
 
 // Class PCGExtendedToolkit.PCGExFunctionPrototypes
 // 0x0000 (0x0028 - 0x0028)
@@ -5553,28 +5892,28 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExHeuristicsFactoryData;
 
-// Class PCGExtendedToolkit.PCGExSanitizeClustersSettings
-// 0x0050 (0x0140 - 0x00F0)
-class UPCGExSanitizeClustersSettings final : public UPCGExEdgesProcessorSettings
+// Class PCGExtendedToolkit.PCGExTensorSampler
+// 0x0008 (0x00B0 - 0x00A8)
+class UPCGExTensorSampler : public UPCGExInstancedFactory
 {
 public:
-	struct FPCGExGraphBuilderDetails              GraphBuilderDetails;                               // 0x00F0(0x0050)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	double                                        Radius;                                            // 0x00A8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExSanitizeClustersSettings")
+		STATIC_CLASS_IMPL("PCGExTensorSampler")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExSanitizeClustersSettings")
+		STATIC_NAME_IMPL(L"PCGExTensorSampler")
 	}
-	static class UPCGExSanitizeClustersSettings* GetDefaultObj()
+	static class UPCGExTensorSampler* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExSanitizeClustersSettings>();
+		return GetDefaultObjImpl<UPCGExTensorSampler>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExSanitizeClustersSettings;
+DUMPER7_ASSERTS_UPCGExTensorSampler;
 
 // Class PCGExtendedToolkit.PCGExHeuristicsFactoryAttribute
 // 0x0170 (0x0460 - 0x02F0)
@@ -5760,25 +6099,72 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExHeuristicsFactoryAzimuth;
 
-// Class PCGExtendedToolkit.PCGExShapeBuilderFactoryData
-// 0x0000 (0x01C0 - 0x01C0)
-class UPCGExShapeBuilderFactoryData : public UPCGExFactoryData
+// Class PCGExtendedToolkit.PCGExTensorFactoryProviderSettings
+// 0x0008 (0x00C8 - 0x00C0)
+class UPCGExTensorFactoryProviderSettings : public UPCGExFactoryProviderSettings
+{
+public:
+	int32                                         Priority;                                          // 0x00C0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C4[0x4];                                       // 0x00C4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExTensorFactoryProviderSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExTensorFactoryProviderSettings")
+	}
+	static class UPCGExTensorFactoryProviderSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExTensorFactoryProviderSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExTensorFactoryProviderSettings;
+
+// Class PCGExtendedToolkit.PCGExTensorPointFactoryProviderSettings
+// 0x0000 (0x00C8 - 0x00C8)
+class UPCGExTensorPointFactoryProviderSettings : public UPCGExTensorFactoryProviderSettings
 {
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExShapeBuilderFactoryData")
+		STATIC_CLASS_IMPL("PCGExTensorPointFactoryProviderSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExShapeBuilderFactoryData")
+		STATIC_NAME_IMPL(L"PCGExTensorPointFactoryProviderSettings")
 	}
-	static class UPCGExShapeBuilderFactoryData* GetDefaultObj()
+	static class UPCGExTensorPointFactoryProviderSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExShapeBuilderFactoryData>();
+		return GetDefaultObjImpl<UPCGExTensorPointFactoryProviderSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExShapeBuilderFactoryData;
+DUMPER7_ASSERTS_UPCGExTensorPointFactoryProviderSettings;
+
+// Class PCGExtendedToolkit.PCGExCreateTensorSpinSettings
+// 0x0418 (0x04E0 - 0x00C8)
+class UPCGExCreateTensorSpinSettings final : public UPCGExTensorPointFactoryProviderSettings
+{
+public:
+	struct FPCGExTensorSpinConfig                 Config;                                            // 0x00C8(0x0418)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExCreateTensorSpinSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExCreateTensorSpinSettings")
+	}
+	static class UPCGExCreateTensorSpinSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExCreateTensorSpinSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExCreateTensorSpinSettings;
 
 // Class PCGExtendedToolkit.PCGExHeuristicsAzimuthProviderSettings
 // 0x0130 (0x01F0 - 0x00C0)
@@ -5825,28 +6211,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExHeuristicsFactoryShortestDistance;
-
-// Class PCGExtendedToolkit.PCGExProbeFactoryData
-// 0x0000 (0x01C0 - 0x01C0)
-#pragma pack(push, 0x1)
-class SDK_ALIGN(0x10) UPCGExProbeFactoryData : public UPCGExFactoryData
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExProbeFactoryData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExProbeFactoryData")
-	}
-	static class UPCGExProbeFactoryData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExProbeFactoryData>();
-	}
-};
-#pragma pack(pop)
-DUMPER7_ASSERTS_UPCGExProbeFactoryData;
 
 // Class PCGExtendedToolkit.PCGExProbeFactoryTensor
 // 0x00D0 (0x0290 - 0x01C0)
@@ -5918,50 +6282,29 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExHeuristicsFactoryFeedback;
 
-// Class PCGExtendedToolkit.PCGExTensorsTransformSettings
-// 0x00A8 (0x0190 - 0x00E8)
-class UPCGExTensorsTransformSettings final : public UPCGExPointsProcessorSettings
+// Class PCGExtendedToolkit.PCGExSharedDataComponent
+// 0x0078 (0x0148 - 0x00D0)
+class UPCGExSharedDataComponent final : public UActorComponent
 {
 public:
-	bool                                          bTransformPosition;                                // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bTransformRotation;                                // 0x00E9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExTensorTransformMode                     Rotation;                                          // 0x00EA(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExAxis                                    AlignAxis;                                         // 0x00EB(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         Iterations;                                        // 0x00EC(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExTensorStopConditionHandling             StopConditionHandling;                             // 0x00F0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteEffectorsPings;                              // 0x00F1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_F2[0x2];                                       // 0x00F2(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   EffectorsPingsAttributeName;                       // 0x00F4(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteUpdateCount;                                 // 0x00FC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_FD[0x3];                                       // 0x00FD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   UpdateCountAttributeName;                          // 0x0100(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteTraveledDistance;                            // 0x0108(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_109[0x3];                                      // 0x0109(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   TraveledDistanceAttributeName;                     // 0x010C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteGracefullyStopped;                           // 0x0114(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_115[0x3];                                      // 0x0115(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   GracefullyStoppedAttributeName;                    // 0x0118(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteMaxIterationsReached;                        // 0x0120(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_121[0x3];                                      // 0x0121(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   MaxIterationsReachedAttributeName;                 // 0x0124(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_12C[0x4];                                      // 0x012C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGExTensorHandlerDetails             TensorHandlerDetails;                              // 0x0130(0x0060)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	TSoftObjectPtr<class UPCGComponent>           PCGComponentInstance;                              // 0x00D0(0x0028)(ExportObject, InstancedReference, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TMap<class FName, struct FPCGDataCollection>  Collections;                                       // 0x00F8(0x0050)(NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExTensorsTransformSettings")
+		STATIC_CLASS_IMPL("PCGExSharedDataComponent")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExTensorsTransformSettings")
+		STATIC_NAME_IMPL(L"PCGExSharedDataComponent")
 	}
-	static class UPCGExTensorsTransformSettings* GetDefaultObj()
+	static class UPCGExSharedDataComponent* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExTensorsTransformSettings>();
+		return GetDefaultObjImpl<UPCGExSharedDataComponent>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExTensorsTransformSettings;
+DUMPER7_ASSERTS_UPCGExSharedDataComponent;
 
 // Class PCGExtendedToolkit.PCGExHeuristicFeedbackProviderSettings
 // 0x0150 (0x0210 - 0x00C0)
@@ -6093,35 +6436,41 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExHeuristicsFactoryLeastNodes;
 
-// Class PCGExtendedToolkit.PCGExTopologyEdgesProcessorSettings
-// 0x0410 (0x0500 - 0x00F0)
-class UPCGExTopologyEdgesProcessorSettings : public UPCGExEdgesProcessorSettings
+// Class PCGExtendedToolkit.PCGExSmoothSettings
+// 0x0108 (0x0228 - 0x0120)
+class UPCGExSmoothSettings final : public UPCGExPathProcessorSettings
 {
 public:
-	struct FPCGExGeo2DProjectionDetails           ProjectionDetails;                                 // 0x00F0(0x00A0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	struct FPCGExCellConstraintsDetails           Constraints;                                       // 0x0190(0x00C0)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-	struct FPCGExTopologyDetails                  Topology;                                          // 0x0250(0x0258)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	TSoftObjectPtr<class AActor>                  TargetActor;                                       // 0x04A8(0x0028)(Edit, BlueprintVisible, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 CommaSeparatedComponentTags;                       // 0x04D0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<class FName>                           PostProcessFunctionNames;                          // 0x04E0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	struct FPCGExAttachmentRules                  AttachmentRules;                                   // 0x04F0(0x0004)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4F4[0xC];                                      // 0x04F4(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bPreserveStart;                                    // 0x0120(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bPreserveEnd;                                      // 0x0121(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_122[0x6];                                      // 0x0122(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	class UPCGExSmoothingOperation*               SmoothingMethod;                                   // 0x0128(0x0008)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	EPCGExInputValueType                          InfluenceInput;                                    // 0x0130(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_131[0x7];                                      // 0x0131(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGAttributePropertyInputSelector     InfluenceAttribute;                                // 0x0138(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        InfluenceConstant;                                 // 0x0160(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExInputValueType                          SmoothingAmountType;                               // 0x0168(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_169[0x7];                                      // 0x0169(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGAttributePropertyInputSelector     SmoothingAmountAttribute;                          // 0x0170(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        SmoothingAmountConstant;                           // 0x0198(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        ScaleSmoothingAmountAttribute;                     // 0x01A0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FPCGExBlendingDetails                  BlendingSettings;                                  // 0x01A8(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExTopologyEdgesProcessorSettings")
+		STATIC_CLASS_IMPL("PCGExSmoothSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExTopologyEdgesProcessorSettings")
+		STATIC_NAME_IMPL(L"PCGExSmoothSettings")
 	}
-	static class UPCGExTopologyEdgesProcessorSettings* GetDefaultObj()
+	static class UPCGExSmoothSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExTopologyEdgesProcessorSettings>();
+		return GetDefaultObjImpl<UPCGExSmoothSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExTopologyEdgesProcessorSettings;
+DUMPER7_ASSERTS_UPCGExSmoothSettings;
 
 // Class PCGExtendedToolkit.PCGExHeuristicsLeastNodesProviderSettings
 // 0x0130 (0x01F0 - 0x00C0)
@@ -6169,30 +6518,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExHeuristicsFactorySteepness;
-
-// Class PCGExtendedToolkit.PCGExRefreshSeedSettings
-// 0x0008 (0x00F0 - 0x00E8)
-class UPCGExRefreshSeedSettings final : public UPCGExPointsProcessorSettings
-{
-public:
-	int32                                         base;                                              // 0x00E8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_EC[0x4];                                       // 0x00EC(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExRefreshSeedSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExRefreshSeedSettings")
-	}
-	static class UPCGExRefreshSeedSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExRefreshSeedSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExRefreshSeedSettings;
 
 // Class PCGExtendedToolkit.PCGExHeuristicsSteepnessProviderSettings
 // 0x0158 (0x0218 - 0x00C0)
@@ -6242,40 +6567,29 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExHeuristicsFactoryTensor;
 
-// Class PCGExtendedToolkit.PCGExUberFilterSettings
-// 0x0050 (0x0138 - 0x00E8)
-class UPCGExUberFilterSettings final : public UPCGExPointsProcessorSettings
+// Class PCGExtendedToolkit.PCGExSplineAlphaFilterFactory
+// 0x0060 (0x0220 - 0x01C0)
+class UPCGExSplineAlphaFilterFactory final : public UPCGExFilterFactoryData
 {
 public:
-	EPCGExUberFilterMode                          Mode;                                              // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_E9[0x3];                                       // 0x00E9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   ResultAttributeName;                               // 0x00EC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bSwap;                                             // 0x00F4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bTagIfAnyPointPassed;                              // 0x00F5(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_F6[0x2];                                       // 0x00F6(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 HasAnyPointPassedTag;                              // 0x00F8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bTagIfAllPointsPassed;                             // 0x0108(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_109[0x7];                                      // 0x0109(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 AllPointsPassedTag;                                // 0x0110(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bTagIfNoPointPassed;                               // 0x0120(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_121[0x7];                                      // 0x0121(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 NoPointPassedTag;                                  // 0x0128(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FPCGExSplineAlphaFilterConfig          Config;                                            // 0x01C0(0x0040)(NativeAccessSpecifierPublic)
+	uint8                                         Pad_200[0x20];                                     // 0x0200(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExUberFilterSettings")
+		STATIC_CLASS_IMPL("PCGExSplineAlphaFilterFactory")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExUberFilterSettings")
+		STATIC_NAME_IMPL(L"PCGExSplineAlphaFilterFactory")
 	}
-	static class UPCGExUberFilterSettings* GetDefaultObj()
+	static class UPCGExSplineAlphaFilterFactory* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExUberFilterSettings>();
+		return GetDefaultObjImpl<UPCGExSplineAlphaFilterFactory>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExUberFilterSettings;
+DUMPER7_ASSERTS_UPCGExSplineAlphaFilterFactory;
 
 // Class PCGExtendedToolkit.PCGExHeuristicsTensorProviderSettings
 // 0x0198 (0x0258 - 0x00C0)
@@ -6398,48 +6712,50 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExIterationsSettings;
 
-// Class PCGExtendedToolkit.PCGExVtxPropertyFactoryData
-// 0x0000 (0x01C0 - 0x01C0)
-class UPCGExVtxPropertyFactoryData : public UPCGExFactoryData
+// Class PCGExtendedToolkit.PCGExSplineToPathSettings
+// 0x00D8 (0x01C0 - 0x00E8)
+class UPCGExSplineToPathSettings final : public UPCGExPointsProcessorSettings
 {
+public:
+	struct FPCGExLeanTransformDetails             TransformDetails;                                  // 0x00E8(0x0002)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	EPCGExSplineSamplingIncludeMode               SampleInputs;                                      // 0x00EA(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteArriveTangent;                               // 0x00EB(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   ArriveTangentAttributeName;                        // 0x00EC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteLeaveTangent;                                // 0x00F4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_F5[0x3];                                       // 0x00F5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   LeaveTangentAttributeName;                         // 0x00F8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteLengthAtPoint;                               // 0x0100(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_101[0x3];                                      // 0x0101(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   LengthAtPointAttributeName;                        // 0x0104(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteAlpha;                                       // 0x010C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_10D[0x3];                                      // 0x010D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   AlphaAttributeName;                                // 0x0110(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWritePointType;                                   // 0x0118(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_119[0x3];                                      // 0x0119(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   PointTypeAttributeName;                            // 0x011C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bTagIfClosedLoop;                                  // 0x0124(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_125[0x3];                                      // 0x0125(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 IsClosedLoopTag;                                   // 0x0128(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bTagIfOpenSpline;                                  // 0x0138(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_139[0x7];                                      // 0x0139(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 IsOpenSplineTag;                                   // 0x0140(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FPCGExNameFiltersDetails               TagForwarding;                                     // 0x0150(0x0070)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExVtxPropertyFactoryData")
+		STATIC_CLASS_IMPL("PCGExSplineToPathSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExVtxPropertyFactoryData")
+		STATIC_NAME_IMPL(L"PCGExSplineToPathSettings")
 	}
-	static class UPCGExVtxPropertyFactoryData* GetDefaultObj()
+	static class UPCGExSplineToPathSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExVtxPropertyFactoryData>();
+		return GetDefaultObjImpl<UPCGExSplineToPathSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExVtxPropertyFactoryData;
-
-// Class PCGExtendedToolkit.PCGExVtxPropertyAmplitudeFactory
-// 0x0070 (0x0230 - 0x01C0)
-class UPCGExVtxPropertyAmplitudeFactory final : public UPCGExVtxPropertyFactoryData
-{
-public:
-	uint8                                         Pad_1C0[0x70];                                     // 0x01C0(0x0070)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExVtxPropertyAmplitudeFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExVtxPropertyAmplitudeFactory")
-	}
-	static class UPCGExVtxPropertyAmplitudeFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExVtxPropertyAmplitudeFactory>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExVtxPropertyAmplitudeFactory;
+DUMPER7_ASSERTS_UPCGExSplineToPathSettings;
 
 // Class PCGExtendedToolkit.PCGExLaplacianRelax
 // 0x0000 (0x00C8 - 0x00C8)
@@ -6602,28 +6918,25 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExMakeClustersUniqueSettings;
 
-// Class PCGExtendedToolkit.PCGExStringSelfCompareFilterFactory
-// 0x0040 (0x0200 - 0x01C0)
-class UPCGExStringSelfCompareFilterFactory final : public UPCGExFilterFactoryData
+// Class PCGExtendedToolkit.PCGExFilterCollectionFactoryData
+// 0x0000 (0x01C0 - 0x01C0)
+class UPCGExFilterCollectionFactoryData final : public UPCGExFilterFactoryData
 {
-public:
-	struct FPCGExStringSelfCompareFilterConfig    Config;                                            // 0x01C0(0x0040)(NativeAccessSpecifierPublic)
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExStringSelfCompareFilterFactory")
+		STATIC_CLASS_IMPL("PCGExFilterCollectionFactoryData")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExStringSelfCompareFilterFactory")
+		STATIC_NAME_IMPL(L"PCGExFilterCollectionFactoryData")
 	}
-	static class UPCGExStringSelfCompareFilterFactory* GetDefaultObj()
+	static class UPCGExFilterCollectionFactoryData* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExStringSelfCompareFilterFactory>();
+		return GetDefaultObjImpl<UPCGExFilterCollectionFactoryData>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExStringSelfCompareFilterFactory;
+DUMPER7_ASSERTS_UPCGExFilterCollectionFactoryData;
 
 // Class PCGExtendedToolkit.PCGExMeanFilterFactory
 // 0x0060 (0x0220 - 0x01C0)
@@ -6754,28 +7067,29 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExMergePointsByTagSettings;
 
-// Class PCGExtendedToolkit.PCGExSubPointsOperation
-// 0x0008 (0x00B0 - 0x00A8)
-class UPCGExSubPointsOperation : public UPCGExInstancedFactory
+// Class PCGExtendedToolkit.PCGExPolygonInclusionFilterFactory
+// 0x0040 (0x0200 - 0x01C0)
+class UPCGExPolygonInclusionFilterFactory final : public UPCGExFilterFactoryData
 {
 public:
-	uint8                                         Pad_A8[0x8];                                       // 0x00A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FPCGExPolygonInclusionFilterConfig     Config;                                            // 0x01C0(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1D4[0x2C];                                     // 0x01D4(0x002C)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExSubPointsOperation")
+		STATIC_CLASS_IMPL("PCGExPolygonInclusionFilterFactory")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExSubPointsOperation")
+		STATIC_NAME_IMPL(L"PCGExPolygonInclusionFilterFactory")
 	}
-	static class UPCGExSubPointsOperation* GetDefaultObj()
+	static class UPCGExPolygonInclusionFilterFactory* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExSubPointsOperation>();
+		return GetDefaultObjImpl<UPCGExPolygonInclusionFilterFactory>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExSubPointsOperation;
+DUMPER7_ASSERTS_UPCGExPolygonInclusionFilterFactory;
 
 // Class PCGExtendedToolkit.PCGExMergeVerticesSettings
 // 0x00F0 (0x01E0 - 0x00F0)
@@ -6822,6 +7136,51 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExMeshCollection;
+
+// Class PCGExtendedToolkit.PCGExSearchOperation
+// 0x0010 (0x00B8 - 0x00A8)
+class UPCGExSearchOperation : public UPCGExInstancedFactory
+{
+public:
+	uint8                                         Pad_A8[0x8];                                       // 0x00A8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bEarlyExit;                                        // 0x00B0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_B1[0x7];                                       // 0x00B1(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExSearchOperation")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExSearchOperation")
+	}
+	static class UPCGExSearchOperation* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExSearchOperation>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExSearchOperation;
+
+// Class PCGExtendedToolkit.PCGExSearchAStar
+// 0x0000 (0x00B8 - 0x00B8)
+class UPCGExSearchAStar final : public UPCGExSearchOperation
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExSearchAStar")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExSearchAStar")
+	}
+	static class UPCGExSearchAStar* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExSearchAStar>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExSearchAStar;
 
 // Class PCGExtendedToolkit.PCGExMeshToClustersSettings
 // 0x03D8 (0x04C0 - 0x00E8)
@@ -6881,54 +7240,25 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExMetaCleanupSettings;
 
-// Class PCGExtendedToolkit.PCGExSubPointsBlendOperation
-// 0x0090 (0x0140 - 0x00B0)
-class UPCGExSubPointsBlendOperation : public UPCGExSubPointsOperation
+// Class PCGExtendedToolkit.PCGExProbeFactoryProviderSettings
+// 0x0000 (0x00C0 - 0x00C0)
+class UPCGExProbeFactoryProviderSettings : public UPCGExFactoryProviderSettings
 {
-public:
-	struct FPCGExBlendingDetails                  BlendingDetails;                                   // 0x00B0(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	uint8                                         Pad_130[0x10];                                     // 0x0130(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExSubPointsBlendOperation")
+		STATIC_CLASS_IMPL("PCGExProbeFactoryProviderSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExSubPointsBlendOperation")
+		STATIC_NAME_IMPL(L"PCGExProbeFactoryProviderSettings")
 	}
-	static class UPCGExSubPointsBlendOperation* GetDefaultObj()
+	static class UPCGExProbeFactoryProviderSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExSubPointsBlendOperation>();
+		return GetDefaultObjImpl<UPCGExProbeFactoryProviderSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExSubPointsBlendOperation;
-
-// Class PCGExtendedToolkit.PCGExSubPointsBlendInterpolate
-// 0x0010 (0x0150 - 0x0140)
-class UPCGExSubPointsBlendInterpolate final : public UPCGExSubPointsBlendOperation
-{
-public:
-	EPCGExBlendOver                               BlendOver;                                         // 0x0140(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_141[0x7];                                      // 0x0141(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        Lerp;                                              // 0x0148(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExSubPointsBlendInterpolate")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExSubPointsBlendInterpolate")
-	}
-	static class UPCGExSubPointsBlendInterpolate* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExSubPointsBlendInterpolate>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExSubPointsBlendInterpolate;
+DUMPER7_ASSERTS_UPCGExProbeFactoryProviderSettings;
 
 // Class PCGExtendedToolkit.PCGExMetaFilterSettings
 // 0x00F0 (0x01D8 - 0x00E8)
@@ -7056,28 +7386,29 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExPartitionByValuesBaseSettings;
 
-// Class PCGExtendedToolkit.PCGExTagCheckFilterProviderSettings
-// 0x0018 (0x00E0 - 0x00C8)
-class UPCGExTagCheckFilterProviderSettings final : public UPCGExFilterProviderSettings
+// Class PCGExtendedToolkit.PCGExProbeFactoryDirection
+// 0x00B0 (0x0270 - 0x01C0)
+class UPCGExProbeFactoryDirection final : public UPCGExProbeFactoryData
 {
 public:
-	struct FPCGExTagCheckFilterConfig             Config;                                            // 0x00C8(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FPCGExProbeConfigDirection             Config;                                            // 0x01B8(0x00B0)(NativeAccessSpecifierPublic)
+	uint8                                         Pad_268[0x8];                                      // 0x0268(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExTagCheckFilterProviderSettings")
+		STATIC_CLASS_IMPL("PCGExProbeFactoryDirection")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExTagCheckFilterProviderSettings")
+		STATIC_NAME_IMPL(L"PCGExProbeFactoryDirection")
 	}
-	static class UPCGExTagCheckFilterProviderSettings* GetDefaultObj()
+	static class UPCGExProbeFactoryDirection* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExTagCheckFilterProviderSettings>();
+		return GetDefaultObjImpl<UPCGExProbeFactoryDirection>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExTagCheckFilterProviderSettings;
+DUMPER7_ASSERTS_UPCGExProbeFactoryDirection;
 
 // Class PCGExtendedToolkit.PCGExModularPartitionByValuesSettings
 // 0x0000 (0x00F8 - 0x00F8)
@@ -7200,29 +7531,30 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExModuloCompareFilterFactory;
 
-// Class PCGExtendedToolkit.PCGExProbeFactoryNumericCompare
-// 0x0080 (0x0240 - 0x01C0)
-class UPCGExProbeFactoryNumericCompare final : public UPCGExProbeFactoryData
+// Class PCGExtendedToolkit.PCGExTensorConstantFactory
+// 0x0410 (0x09B0 - 0x05A0)
+class UPCGExTensorConstantFactory final : public UPCGExTensorFactoryData
 {
 public:
-	struct FPCGExProbeConfigNumericCompare        Config;                                            // 0x01B8(0x0080)(NativeAccessSpecifierPublic)
-	uint8                                         Pad_238[0x8];                                      // 0x0238(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FPCGExTensorConstantConfig             Config;                                            // 0x0598(0x03F8)(NativeAccessSpecifierPublic)
+	struct FVector                                Constant;                                          // 0x0990(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9A8[0x8];                                      // 0x09A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExProbeFactoryNumericCompare")
+		STATIC_CLASS_IMPL("PCGExTensorConstantFactory")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExProbeFactoryNumericCompare")
+		STATIC_NAME_IMPL(L"PCGExTensorConstantFactory")
 	}
-	static class UPCGExProbeFactoryNumericCompare* GetDefaultObj()
+	static class UPCGExTensorConstantFactory* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExProbeFactoryNumericCompare>();
+		return GetDefaultObjImpl<UPCGExTensorConstantFactory>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExProbeFactoryNumericCompare;
+DUMPER7_ASSERTS_UPCGExTensorConstantFactory;
 
 // Class PCGExtendedToolkit.PCGExModuloCompareFilterProviderSettings
 // 0x00A8 (0x0170 - 0x00C8)
@@ -7270,6 +7602,53 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExMovePivotSettings;
 
+// Class PCGExtendedToolkit.PCGExSubPointsOperation
+// 0x0008 (0x00B0 - 0x00A8)
+class UPCGExSubPointsOperation : public UPCGExInstancedFactory
+{
+public:
+	uint8                                         Pad_A8[0x8];                                       // 0x00A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExSubPointsOperation")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExSubPointsOperation")
+	}
+	static class UPCGExSubPointsOperation* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExSubPointsOperation>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExSubPointsOperation;
+
+// Class PCGExtendedToolkit.PCGExSubPointsBlendOperation
+// 0x0090 (0x0140 - 0x00B0)
+class UPCGExSubPointsBlendOperation : public UPCGExSubPointsOperation
+{
+public:
+	struct FPCGExBlendingDetails                  BlendingDetails;                                   // 0x00B0(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	uint8                                         Pad_130[0x10];                                     // 0x0130(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExSubPointsBlendOperation")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExSubPointsBlendOperation")
+	}
+	static class UPCGExSubPointsBlendOperation* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExSubPointsBlendOperation>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExSubPointsBlendOperation;
+
 // Class PCGExtendedToolkit.PCGExSubPointsBlendInheritEnd
 // 0x0000 (0x0140 - 0x0140)
 class UPCGExSubPointsBlendInheritEnd final : public UPCGExSubPointsBlendOperation
@@ -7310,25 +7689,28 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExMovingAverageSmoothing;
 
-// Class PCGExtendedToolkit.PCGExPruneEdgesByLengthSettings
-// 0x0000 (0x00F0 - 0x00F0)
-class UPCGExPruneEdgesByLengthSettings final : public UPCGExEdgesProcessorSettings
+// Class PCGExtendedToolkit.PCGExTensorDotFilterProviderSettings
+// 0x00F8 (0x01C0 - 0x00C8)
+class UPCGExTensorDotFilterProviderSettings final : public UPCGExFilterProviderSettings
 {
+public:
+	struct FPCGExTensorDotFilterConfig            Config;                                            // 0x00C8(0x00F8)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExPruneEdgesByLengthSettings")
+		STATIC_CLASS_IMPL("PCGExTensorDotFilterProviderSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExPruneEdgesByLengthSettings")
+		STATIC_NAME_IMPL(L"PCGExTensorDotFilterProviderSettings")
 	}
-	static class UPCGExPruneEdgesByLengthSettings* GetDefaultObj()
+	static class UPCGExTensorDotFilterProviderSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExPruneEdgesByLengthSettings>();
+		return GetDefaultObjImpl<UPCGExTensorDotFilterProviderSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExPruneEdgesByLengthSettings;
+DUMPER7_ASSERTS_UPCGExTensorDotFilterProviderSettings;
 
 // Class PCGExtendedToolkit.PCGExNeighborSamplerFactoryData
 // 0x0110 (0x02D0 - 0x01C0)
@@ -7380,29 +7762,29 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExNeighborSamplerFactoryAttribute;
 
-// Class PCGExtendedToolkit.PCGExSplineInclusionFilterFactory
-// 0x0040 (0x0200 - 0x01C0)
-class UPCGExSplineInclusionFilterFactory final : public UPCGExFilterFactoryData
+// Class PCGExtendedToolkit.PCGExUnpackClustersSettings
+// 0x0008 (0x00F0 - 0x00E8)
+class UPCGExUnpackClustersSettings final : public UPCGExPointsProcessorSettings
 {
 public:
-	struct FPCGExSplineInclusionFilterConfig      Config;                                            // 0x01C0(0x0028)(NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1E8[0x18];                                     // 0x01E8(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bFlatten;                                          // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E9[0x7];                                       // 0x00E9(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExSplineInclusionFilterFactory")
+		STATIC_CLASS_IMPL("PCGExUnpackClustersSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExSplineInclusionFilterFactory")
+		STATIC_NAME_IMPL(L"PCGExUnpackClustersSettings")
 	}
-	static class UPCGExSplineInclusionFilterFactory* GetDefaultObj()
+	static class UPCGExUnpackClustersSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExSplineInclusionFilterFactory>();
+		return GetDefaultObjImpl<UPCGExUnpackClustersSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExSplineInclusionFilterFactory;
+DUMPER7_ASSERTS_UPCGExUnpackClustersSettings;
 
 // Class PCGExtendedToolkit.PCGExNeighborSampleProviderSettings
 // 0x00E8 (0x01A8 - 0x00C0)
@@ -7452,28 +7834,28 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExNeighborSampleAttributeSettings;
 
-// Class PCGExtendedToolkit.PCGExRandomFilterProviderSettings
-// 0x0130 (0x01F8 - 0x00C8)
-class UPCGExRandomFilterProviderSettings final : public UPCGExFilterProviderSettings
+// Class PCGExtendedToolkit.PCGExCreateTensorFlowSettings
+// 0x0418 (0x04E0 - 0x00C8)
+class UPCGExCreateTensorFlowSettings final : public UPCGExTensorPointFactoryProviderSettings
 {
 public:
-	struct FPCGExRandomFilterConfig               Config;                                            // 0x00C8(0x0130)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FPCGExTensorFlowConfig                 Config;                                            // 0x00C8(0x0418)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExRandomFilterProviderSettings")
+		STATIC_CLASS_IMPL("PCGExCreateTensorFlowSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExRandomFilterProviderSettings")
+		STATIC_NAME_IMPL(L"PCGExCreateTensorFlowSettings")
 	}
-	static class UPCGExRandomFilterProviderSettings* GetDefaultObj()
+	static class UPCGExCreateTensorFlowSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExRandomFilterProviderSettings>();
+		return GetDefaultObjImpl<UPCGExCreateTensorFlowSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExRandomFilterProviderSettings;
+DUMPER7_ASSERTS_UPCGExCreateTensorFlowSettings;
 
 // Class PCGExtendedToolkit.PCGExNeighborSamplerFactoryFilters
 // 0x0040 (0x0310 - 0x02D0)
@@ -7591,35 +7973,35 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExNeighborSamplePropertiesSettings;
 
-// Class PCGExtendedToolkit.PCGExResamplePathSettings
-// 0x0098 (0x01B8 - 0x0120)
-class UPCGExResamplePathSettings final : public UPCGExPathProcessorSettings
+// Class PCGExtendedToolkit.PCGExCreateTensorInertiaConstantSettings
+// 0x0440 (0x0508 - 0x00C8)
+class UPCGExCreateTensorInertiaConstantSettings final : public UPCGExTensorFactoryProviderSettings
 {
 public:
-	EPCGExResampleMode                            Mode;                                              // 0x0120(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bPreserveLastPoint;                                // 0x0121(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExResolutionMode                          ResolutionMode;                                    // 0x0122(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_123[0x5];                                      // 0x0123(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        Resolution;                                        // 0x0128(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExTruncateMode                            Truncate;                                          // 0x0130(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_131[0x7];                                      // 0x0131(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGExBlendingDetails                  BlendingSettings;                                  // 0x0138(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	EPCGExAxis                                    Axis;                                              // 0x00C8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C9[0x7];                                       // 0x00C9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FRotator                               Offset;                                            // 0x00D0(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	double                                        TensorWeight;                                      // 0x00E8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        Potency;                                           // 0x00F0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bSetInertiaOnce;                                   // 0x00F8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_F9[0x7];                                       // 0x00F9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGExTensorInertiaConstantConfig      Config;                                            // 0x0100(0x0408)(NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExResamplePathSettings")
+		STATIC_CLASS_IMPL("PCGExCreateTensorInertiaConstantSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExResamplePathSettings")
+		STATIC_NAME_IMPL(L"PCGExCreateTensorInertiaConstantSettings")
 	}
-	static class UPCGExResamplePathSettings* GetDefaultObj()
+	static class UPCGExCreateTensorInertiaConstantSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExResamplePathSettings>();
+		return GetDefaultObjImpl<UPCGExCreateTensorInertiaConstantSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExResamplePathSettings;
+DUMPER7_ASSERTS_UPCGExCreateTensorInertiaConstantSettings;
 
 // Class PCGExtendedToolkit.PCGExNodeAdjacencyFilterFactory
 // 0x00D0 (0x0290 - 0x01C0)
@@ -7753,29 +8135,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExNodeEdgeAngleFilterProviderSettings;
 
-// Class PCGExtendedToolkit.PCGExTensorSplineFlowFactory
-// 0x0400 (0x09F0 - 0x05F0)
-class UPCGExTensorSplineFlowFactory : public UPCGExTensorSplineFactoryData
-{
-public:
-	uint8                                         Pad_5F0[0x400];                                    // 0x05F0(0x0400)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExTensorSplineFlowFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExTensorSplineFlowFactory")
-	}
-	static class UPCGExTensorSplineFlowFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExTensorSplineFlowFactory>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExTensorSplineFlowFactory;
-
 // Class PCGExtendedToolkit.PCGExNodeEdgeDirectionFilterFactory
 // 0x0170 (0x0330 - 0x01C0)
 class UPCGExNodeEdgeDirectionFilterFactory final : public UPCGExNodeFilterFactoryData
@@ -7869,29 +8228,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExNodeNeighborsCountFilterProviderSettings;
 
-// Class PCGExtendedToolkit.PCGExTensorPathPoleFactory
-// 0x0410 (0x0E00 - 0x09F0)
-class UPCGExTensorPathPoleFactory final : public UPCGExTensorSplineFlowFactory
-{
-public:
-	uint8                                         Pad_9F0[0x410];                                    // 0x09F0(0x0410)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExTensorPathPoleFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExTensorPathPoleFactory")
-	}
-	static class UPCGExTensorPathPoleFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExTensorPathPoleFactory>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExTensorPathPoleFactory;
-
 // Class PCGExtendedToolkit.PCGExNumericCompareFilterFactory
 // 0x0070 (0x0230 - 0x01C0)
 class UPCGExNumericCompareFilterFactory final : public UPCGExFilterFactoryData
@@ -7939,46 +8275,33 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExNumericCompareFilterProviderSettings;
 
-// Class PCGExtendedToolkit.PCGExWriteIndexSettings
-// 0x0030 (0x0118 - 0x00E8)
-class UPCGExWriteIndexSettings final : public UPCGExPointsProcessorSettings
+// Class PCGExtendedToolkit.PCGExSubSystem
+// 0x00A0 (0x00E0 - 0x0040)
+class UPCGExSubSystem final : public UTickableWorldSubsystem
 {
 public:
-	bool                                          bOutputPointIndex;                                 // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_E9[0x3];                                       // 0x00E9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   OutputAttributeName;                               // 0x00EC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOneMinus;                                         // 0x00F4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOutputNormalizedIndex;                            // 0x00F5(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOutputCollectionIndex;                            // 0x00F6(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_F7[0x1];                                       // 0x00F7(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   CollectionIndexAttributeName;                      // 0x00F8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOutputCollectionIndexToPoints;                    // 0x0100(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOutputCollectionIndexToTags;                      // 0x0101(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOutputCollectionNumEntries;                       // 0x0102(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_103[0x1];                                      // 0x0103(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   NumEntriesAttributeName;                           // 0x0104(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOutputNumEntriesToPoints;                         // 0x010C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOutputNormalizedNumEntriesToPoints;               // 0x010D(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOutputNumEntriesToTags;                           // 0x010E(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bOutputNormalizedNumEntriesToTags;                 // 0x010F(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAllowInterpolation;                               // 0x0110(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_111[0x7];                                      // 0x0111(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_40[0x8];                                       // 0x0040(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(class UPCGComponent* Source, EPCGExSubsystemEventType EventType, uint32 EventId)> OnGlobalEvent; // 0x0048(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
+	class UPCGExSharedDataManager*                SharedDataManager;                                 // 0x0058(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPCGExGridIDTracker*                    GridIDTracker;                                     // 0x0060(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	uint8                                         Pad_68[0x68];                                      // 0x0068(0x0068)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<class UPCGComponent*>                  PCGComponentPool;                                  // 0x00D0(0x0010)(ExportObject, ZeroConstructor, ContainsInstancedReference, Protected, UObjectWrapper, NativeAccessSpecifierProtected, ExperimentalNeverOverriden)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExWriteIndexSettings")
+		STATIC_CLASS_IMPL("PCGExSubSystem")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExWriteIndexSettings")
+		STATIC_NAME_IMPL(L"PCGExSubSystem")
 	}
-	static class UPCGExWriteIndexSettings* GetDefaultObj()
+	static class UPCGExSubSystem* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExWriteIndexSettings>();
+		return GetDefaultObjImpl<UPCGExSubSystem>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExWriteIndexSettings;
+DUMPER7_ASSERTS_UPCGExSubSystem;
 
 // Class PCGExtendedToolkit.PCGExNumericCompareNearestFilterFactory
 // 0x0080 (0x0240 - 0x01C0)
@@ -8026,29 +8349,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExNumericCompareNearestFilterProviderSettings;
-
-// Class PCGExtendedToolkit.PCGExTensorSampler
-// 0x0008 (0x00B0 - 0x00A8)
-class UPCGExTensorSampler : public UPCGExInstancedFactory
-{
-public:
-	double                                        Radius;                                            // 0x00A8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExTensorSampler")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExTensorSampler")
-	}
-	static class UPCGExTensorSampler* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExTensorSampler>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExTensorSampler;
 
 // Class PCGExtendedToolkit.PCGExNumericSelfCompareFilterFactory
 // 0x0070 (0x0230 - 0x01C0)
@@ -8200,29 +8500,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExOrientSettings;
 
-// Class PCGExtendedToolkit.PCGExCreateTensorSpinSettings
-// 0x0418 (0x04E0 - 0x00C8)
-class UPCGExCreateTensorSpinSettings final : public UPCGExTensorPointFactoryProviderSettings
-{
-public:
-	struct FPCGExTensorSpinConfig                 Config;                                            // 0x00C8(0x0418)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExCreateTensorSpinSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExCreateTensorSpinSettings")
-	}
-	static class UPCGExCreateTensorSpinSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExCreateTensorSpinSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExCreateTensorSpinSettings;
-
 // Class PCGExtendedToolkit.PCGExOrientOperation
 // 0x0018 (0x00C0 - 0x00A8)
 class UPCGExOrientOperation : public UPCGExInstancedFactory
@@ -8342,6 +8619,51 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExOrientWeighted;
+
+// Class PCGExtendedToolkit.PCGExTensorsTransformSettings
+// 0x00A8 (0x0190 - 0x00E8)
+class UPCGExTensorsTransformSettings final : public UPCGExPointsProcessorSettings
+{
+public:
+	bool                                          bTransformPosition;                                // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bTransformRotation;                                // 0x00E9(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExTensorTransformMode                     Rotation;                                          // 0x00EA(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExAxis                                    AlignAxis;                                         // 0x00EB(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         Iterations;                                        // 0x00EC(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExTensorStopConditionHandling             StopConditionHandling;                             // 0x00F0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteEffectorsPings;                              // 0x00F1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_F2[0x2];                                       // 0x00F2(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   EffectorsPingsAttributeName;                       // 0x00F4(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteUpdateCount;                                 // 0x00FC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_FD[0x3];                                       // 0x00FD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   UpdateCountAttributeName;                          // 0x0100(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteTraveledDistance;                            // 0x0108(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_109[0x3];                                      // 0x0109(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   TraveledDistanceAttributeName;                     // 0x010C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteGracefullyStopped;                           // 0x0114(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_115[0x3];                                      // 0x0115(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   GracefullyStoppedAttributeName;                    // 0x0118(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteMaxIterationsReached;                        // 0x0120(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_121[0x3];                                      // 0x0121(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   MaxIterationsReachedAttributeName;                 // 0x0124(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_12C[0x4];                                      // 0x012C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGExTensorHandlerDetails             TensorHandlerDetails;                              // 0x0130(0x0060)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExTensorsTransformSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExTensorsTransformSettings")
+	}
+	static class UPCGExTensorsTransformSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExTensorsTransformSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExTensorsTransformSettings;
 
 // Class PCGExtendedToolkit.PCGExCustomActorDataPacker
 // 0x00F0 (0x0198 - 0x00A8)
@@ -8520,6 +8842,36 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExPackClustersSettings;
 
+// Class PCGExtendedToolkit.PCGExTopologyEdgesProcessorSettings
+// 0x0410 (0x0500 - 0x00F0)
+class UPCGExTopologyEdgesProcessorSettings : public UPCGExEdgesProcessorSettings
+{
+public:
+	struct FPCGExGeo2DProjectionDetails           ProjectionDetails;                                 // 0x00F0(0x00A0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FPCGExCellConstraintsDetails           Constraints;                                       // 0x0190(0x00C0)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	struct FPCGExTopologyDetails                  Topology;                                          // 0x0250(0x0258)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	TSoftObjectPtr<class AActor>                  TargetActor;                                       // 0x04A8(0x0028)(Edit, BlueprintVisible, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 CommaSeparatedComponentTags;                       // 0x04D0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<class FName>                           PostProcessFunctionNames;                          // 0x04E0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
+	struct FPCGExAttachmentRules                  AttachmentRules;                                   // 0x04F0(0x0004)(Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4F4[0xC];                                      // 0x04F4(0x000C)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExTopologyEdgesProcessorSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExTopologyEdgesProcessorSettings")
+	}
+	static class UPCGExTopologyEdgesProcessorSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExTopologyEdgesProcessorSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExTopologyEdgesProcessorSettings;
+
 // Class PCGExtendedToolkit.PCGExPartitionByValuesSettings
 // 0x0010 (0x0108 - 0x00F8)
 class UPCGExPartitionByValuesSettings final : public UPCGExPartitionByValuesBaseSettings
@@ -8563,28 +8915,29 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExPartitionVerticesSettings;
 
-// Class PCGExtendedToolkit.PCGExCreateTensorInertiaSettings
-// 0x03E8 (0x04B0 - 0x00C8)
-class UPCGExCreateTensorInertiaSettings final : public UPCGExTensorPointFactoryProviderSettings
+// Class PCGExtendedToolkit.PCGExRefreshSeedSettings
+// 0x0008 (0x00F0 - 0x00E8)
+class UPCGExRefreshSeedSettings final : public UPCGExPointsProcessorSettings
 {
 public:
-	struct FPCGExTensorInertiaConfig              Config;                                            // 0x00C8(0x03E8)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	int32                                         base;                                              // 0x00E8(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_EC[0x4];                                       // 0x00EC(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExCreateTensorInertiaSettings")
+		STATIC_CLASS_IMPL("PCGExRefreshSeedSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExCreateTensorInertiaSettings")
+		STATIC_NAME_IMPL(L"PCGExRefreshSeedSettings")
 	}
-	static class UPCGExCreateTensorInertiaSettings* GetDefaultObj()
+	static class UPCGExRefreshSeedSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExCreateTensorInertiaSettings>();
+		return GetDefaultObjImpl<UPCGExRefreshSeedSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExCreateTensorInertiaSettings;
+DUMPER7_ASSERTS_UPCGExRefreshSeedSettings;
 
 // Class PCGExtendedToolkit.PCGExPathAlphaFilterFactory
 // 0x0090 (0x0250 - 0x01C0)
@@ -8632,6 +8985,41 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExPathAlphaFilterProviderSettings;
+
+// Class PCGExtendedToolkit.PCGExUberFilterSettings
+// 0x0050 (0x0138 - 0x00E8)
+class UPCGExUberFilterSettings final : public UPCGExPointsProcessorSettings
+{
+public:
+	EPCGExUberFilterMode                          Mode;                                              // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E9[0x3];                                       // 0x00E9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   ResultAttributeName;                               // 0x00EC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bSwap;                                             // 0x00F4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bTagIfAnyPointPassed;                              // 0x00F5(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_F6[0x2];                                       // 0x00F6(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 HasAnyPointPassedTag;                              // 0x00F8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bTagIfAllPointsPassed;                             // 0x0108(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_109[0x7];                                      // 0x0109(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 AllPointsPassedTag;                                // 0x0110(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bTagIfNoPointPassed;                               // 0x0120(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_121[0x7];                                      // 0x0121(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 NoPointPassedTag;                                  // 0x0128(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExUberFilterSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExUberFilterSettings")
+	}
+	static class UPCGExUberFilterSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExUberFilterSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExUberFilterSettings;
 
 // Class PCGExtendedToolkit.PCGExPathCrossingsSettings
 // 0x0268 (0x0388 - 0x0120)
@@ -8809,6 +9197,29 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExFindContoursSettings;
 
+// Class PCGExtendedToolkit.PCGExVtxPropertyAmplitudeFactory
+// 0x0070 (0x0230 - 0x01C0)
+class UPCGExVtxPropertyAmplitudeFactory final : public UPCGExVtxPropertyFactoryData
+{
+public:
+	uint8                                         Pad_1C0[0x70];                                     // 0x01C0(0x0070)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExVtxPropertyAmplitudeFactory")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExVtxPropertyAmplitudeFactory")
+	}
+	static class UPCGExVtxPropertyAmplitudeFactory* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExVtxPropertyAmplitudeFactory>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExVtxPropertyAmplitudeFactory;
+
 // Class PCGExtendedToolkit.PCGExPathfindingGrowPathsSettings
 // 0x0260 (0x0350 - 0x00F0)
 class UPCGExPathfindingGrowPathsSettings final : public UPCGExEdgesProcessorSettings
@@ -8903,6 +9314,26 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExPathfindingNavmeshSettings;
 
+// Class PCGExtendedToolkit.PCGExTensorSplineFactoryProviderSettings
+// 0x0000 (0x00C8 - 0x00C8)
+class UPCGExTensorSplineFactoryProviderSettings : public UPCGExTensorFactoryProviderSettings
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExTensorSplineFactoryProviderSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExTensorSplineFactoryProviderSettings")
+	}
+	static class UPCGExTensorSplineFactoryProviderSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExTensorSplineFactoryProviderSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExTensorSplineFactoryProviderSettings;
+
 // Class PCGExtendedToolkit.PCGExPathfindingPlotEdgesSettings
 // 0x0090 (0x0180 - 0x00F0)
 class UPCGExPathfindingPlotEdgesSettings final : public UPCGExEdgesProcessorSettings
@@ -8979,48 +9410,28 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExPathfindingPlotNavmeshSettings;
 
-// Class PCGExtendedToolkit.PCGExVtxPropertyProviderSettings
-// 0x0000 (0x00C0 - 0x00C0)
-class UPCGExVtxPropertyProviderSettings : public UPCGExFactoryProviderSettings
+// Class PCGExtendedToolkit.PCGExStringSelfCompareFilterFactory
+// 0x0040 (0x0200 - 0x01C0)
+class UPCGExStringSelfCompareFilterFactory final : public UPCGExFilterFactoryData
 {
 public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExVtxPropertyProviderSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExVtxPropertyProviderSettings")
-	}
-	static class UPCGExVtxPropertyProviderSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExVtxPropertyProviderSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExVtxPropertyProviderSettings;
-
-// Class PCGExtendedToolkit.PCGExVtxPropertyEdgeMatchSettings
-// 0x0160 (0x0220 - 0x00C0)
-class UPCGExVtxPropertyEdgeMatchSettings final : public UPCGExVtxPropertyProviderSettings
-{
-public:
-	struct FPCGExEdgeMatchConfig                  Config;                                            // 0x00C0(0x0160)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	struct FPCGExStringSelfCompareFilterConfig    Config;                                            // 0x01C0(0x0040)(NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExVtxPropertyEdgeMatchSettings")
+		STATIC_CLASS_IMPL("PCGExStringSelfCompareFilterFactory")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExVtxPropertyEdgeMatchSettings")
+		STATIC_NAME_IMPL(L"PCGExStringSelfCompareFilterFactory")
 	}
-	static class UPCGExVtxPropertyEdgeMatchSettings* GetDefaultObj()
+	static class UPCGExStringSelfCompareFilterFactory* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExVtxPropertyEdgeMatchSettings>();
+		return GetDefaultObjImpl<UPCGExStringSelfCompareFilterFactory>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExVtxPropertyEdgeMatchSettings;
+DUMPER7_ASSERTS_UPCGExStringSelfCompareFilterFactory;
 
 // Class PCGExtendedToolkit.PCGExPathInclusionFilterFactory
 // 0x0060 (0x0220 - 0x01C0)
@@ -9190,29 +9601,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExPathSplineMeshSettings;
 
-// Class PCGExtendedToolkit.PCGExVtxPropertySpecialNeighborsSettings
-// 0x0150 (0x0210 - 0x00C0)
-class UPCGExVtxPropertySpecialNeighborsSettings final : public UPCGExVtxPropertyProviderSettings
-{
-public:
-	struct FPCGExSpecialNeighborsConfig           Config;                                            // 0x00C0(0x0150)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExVtxPropertySpecialNeighborsSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExVtxPropertySpecialNeighborsSettings")
-	}
-	static class UPCGExVtxPropertySpecialNeighborsSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExVtxPropertySpecialNeighborsSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExVtxPropertySpecialNeighborsSettings;
-
 // Class PCGExtendedToolkit.PCGExPathSplineMeshSimpleSettings
 // 0x03D0 (0x04F0 - 0x0120)
 class UPCGExPathSplineMeshSimpleSettings final : public UPCGExPathProcessorSettings
@@ -9305,50 +9693,28 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExPathToClustersSettings;
 
-// Class PCGExtendedToolkit.PCGExSearchOperation
-// 0x0010 (0x00B8 - 0x00A8)
-class UPCGExSearchOperation : public UPCGExInstancedFactory
+// Class PCGExtendedToolkit.PCGExTensorSamplerSixPoints
+// 0x0090 (0x0140 - 0x00B0)
+class UPCGExTensorSamplerSixPoints final : public UPCGExTensorSampler
 {
 public:
-	uint8                                         Pad_A8[0x8];                                       // 0x00A8(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	bool                                          bEarlyExit;                                        // 0x00B0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_B1[0x7];                                       // 0x00B1(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_B0[0x90];                                      // 0x00B0(0x0090)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExSearchOperation")
+		STATIC_CLASS_IMPL("PCGExTensorSamplerSixPoints")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExSearchOperation")
+		STATIC_NAME_IMPL(L"PCGExTensorSamplerSixPoints")
 	}
-	static class UPCGExSearchOperation* GetDefaultObj()
+	static class UPCGExTensorSamplerSixPoints* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExSearchOperation>();
+		return GetDefaultObjImpl<UPCGExTensorSamplerSixPoints>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExSearchOperation;
-
-// Class PCGExtendedToolkit.PCGExSearchAStar
-// 0x0000 (0x00B8 - 0x00B8)
-class UPCGExSearchAStar final : public UPCGExSearchOperation
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExSearchAStar")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExSearchAStar")
-	}
-	static class UPCGExSearchAStar* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExSearchAStar>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExSearchAStar;
+DUMPER7_ASSERTS_UPCGExTensorSamplerSixPoints;
 
 // Class PCGExtendedToolkit.PCGExPickClosestClustersSettings
 // 0x0100 (0x01F0 - 0x00F0)
@@ -9411,68 +9777,30 @@ public:
 #pragma pack(pop)
 DUMPER7_ASSERTS_UPCGExPickerFactoryData;
 
-// Class PCGExtendedToolkit.PCGExWriteEdgePropertiesSettings
-// 0x01F8 (0x02E8 - 0x00F0)
-class UPCGExWriteEdgePropertiesSettings final : public UPCGExEdgesProcessorSettings
+// Class PCGExtendedToolkit.PCGExSubPointsBlendInterpolate
+// 0x0010 (0x0150 - 0x0140)
+class UPCGExSubPointsBlendInterpolate final : public UPCGExSubPointsBlendOperation
 {
 public:
-	struct FPCGExEdgeDirectionSettings            DirectionSettings;                                 // 0x00F0(0x0058)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	bool                                          bWriteEdgeLength;                                  // 0x0148(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_149[0x3];                                      // 0x0149(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   EdgeLengthAttributeName;                           // 0x014C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteEdgeDirection;                               // 0x0154(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_155[0x3];                                      // 0x0155(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   EdgeDirectionAttributeName;                        // 0x0158(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bEndpointsBlending;                                // 0x0160(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_161[0x7];                                      // 0x0161(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        EndpointsWeights;                                  // 0x0168(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FPCGExBlendingDetails                  BlendingSettings;                                  // 0x0170(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	bool                                          bWriteHeuristics;                                  // 0x01F0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1F1[0x3];                                      // 0x01F1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   HeuristicsAttributeName;                           // 0x01F4(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExHeuristicsWriteMode                     HeuristicsMode;                                    // 0x01FC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteEdgePosition;                                // 0x01FD(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1FE[0x2];                                      // 0x01FE(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        EdgePositionLerp;                                  // 0x0200(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExMinimalAxis                             SolidificationAxis;                                // 0x0208(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExInputValueType                          SolidificationLerpInput;                           // 0x0209(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_20A[0x6];                                      // 0x020A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGAttributePropertyInputSelector     SolidificationLerpAttribute;                       // 0x0210(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        SolidificationLerpConstant;                        // 0x0238(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteRadiusX;                                     // 0x0240(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExInputValueType                          RadiusXInput;                                      // 0x0241(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExClusterComponentSource                  RadiusXSource;                                     // 0x0242(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_243[0x5];                                      // 0x0243(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGAttributePropertyInputSelector     RadiusXSourceAttribute;                            // 0x0248(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        RadiusXConstant;                                   // 0x0270(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteRadiusY;                                     // 0x0278(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExInputValueType                          RadiusYInput;                                      // 0x0279(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExClusterComponentSource                  RadiusYSource;                                     // 0x027A(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_27B[0x5];                                      // 0x027B(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGAttributePropertyInputSelector     RadiusYSourceAttribute;                            // 0x0280(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        RadiusYConstant;                                   // 0x02A8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteRadiusZ;                                     // 0x02B0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExInputValueType                          RadiusZInput;                                      // 0x02B1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExClusterComponentSource                  RadiusZSource;                                     // 0x02B2(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2B3[0x5];                                      // 0x02B3(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGAttributePropertyInputSelector     RadiusZSourceAttribute;                            // 0x02B8(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        RadiusZConstant;                                   // 0x02E0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExBlendOver                               BlendOver;                                         // 0x0140(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_141[0x7];                                      // 0x0141(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        Lerp;                                              // 0x0148(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExWriteEdgePropertiesSettings")
+		STATIC_CLASS_IMPL("PCGExSubPointsBlendInterpolate")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExWriteEdgePropertiesSettings")
+		STATIC_NAME_IMPL(L"PCGExSubPointsBlendInterpolate")
 	}
-	static class UPCGExWriteEdgePropertiesSettings* GetDefaultObj()
+	static class UPCGExSubPointsBlendInterpolate* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExWriteEdgePropertiesSettings>();
+		return GetDefaultObjImpl<UPCGExSubPointsBlendInterpolate>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExWriteEdgePropertiesSettings;
+DUMPER7_ASSERTS_UPCGExSubPointsBlendInterpolate;
 
 // Class PCGExtendedToolkit.PCGExPickerConstantFactory
 // 0x0020 (0x0210 - 0x01F0)
@@ -9517,6 +9845,26 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExPickerFactoryProviderSettings;
+
+// Class PCGExtendedToolkit.PCGExVtxPropertyProviderSettings
+// 0x0000 (0x00C0 - 0x00C0)
+class UPCGExVtxPropertyProviderSettings : public UPCGExFactoryProviderSettings
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExVtxPropertyProviderSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExVtxPropertyProviderSettings")
+	}
+	static class UPCGExVtxPropertyProviderSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExVtxPropertyProviderSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExVtxPropertyProviderSettings;
 
 // Class PCGExtendedToolkit.PCGExVtxPropertyAmplitudeSettings
 // 0x0078 (0x0138 - 0x00C0)
@@ -9588,40 +9936,28 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExPickerConstantRangeFactory;
 
-// Class PCGExtendedToolkit.PCGExWriteTangentsSettings
-// 0x0098 (0x01B8 - 0x0120)
-class UPCGExWriteTangentsSettings final : public UPCGExPathProcessorSettings
+// Class PCGExtendedToolkit.PCGExTagCheckFilterProviderSettings
+// 0x0018 (0x00E0 - 0x00C8)
+class UPCGExTagCheckFilterProviderSettings final : public UPCGExFilterProviderSettings
 {
 public:
-	class FName                                   ArriveName;                                        // 0x0120(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FName                                   LeaveName;                                         // 0x0128(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UPCGExTangentsOperation*                Tangents;                                          // 0x0130(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPCGExTangentsOperation*                StartTangents;                                     // 0x0138(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	class UPCGExTangentsOperation*                EndTangents;                                       // 0x0140(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	EPCGExInputValueType                          ArriveScaleInput;                                  // 0x0148(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_149[0x7];                                      // 0x0149(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGAttributePropertyInputSelector     ArriveScaleAttribute;                              // 0x0150(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        ArriveScaleConstant;                               // 0x0178(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExInputValueType                          LeaveScaleInput;                                   // 0x0180(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_181[0x7];                                      // 0x0181(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGAttributePropertyInputSelector     LeaveScaleAttribute;                               // 0x0188(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        LeaveScaleConstant;                                // 0x01B0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FPCGExTagCheckFilterConfig             Config;                                            // 0x00C8(0x0018)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExWriteTangentsSettings")
+		STATIC_CLASS_IMPL("PCGExTagCheckFilterProviderSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExWriteTangentsSettings")
+		STATIC_NAME_IMPL(L"PCGExTagCheckFilterProviderSettings")
 	}
-	static class UPCGExWriteTangentsSettings* GetDefaultObj()
+	static class UPCGExTagCheckFilterProviderSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExWriteTangentsSettings>();
+		return GetDefaultObjImpl<UPCGExTagCheckFilterProviderSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExWriteTangentsSettings;
+DUMPER7_ASSERTS_UPCGExTagCheckFilterProviderSettings;
 
 // Class PCGExtendedToolkit.PCGExPickerConstantRangeSettings
 // 0x0030 (0x00F0 - 0x00C0)
@@ -9742,31 +10078,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExPickerFilterFactory;
 
-// Class PCGExtendedToolkit.PCGExTensorConstantFactory
-// 0x0410 (0x09B0 - 0x05A0)
-class UPCGExTensorConstantFactory final : public UPCGExTensorFactoryData
-{
-public:
-	struct FPCGExTensorConstantConfig             Config;                                            // 0x0598(0x03F8)(NativeAccessSpecifierPublic)
-	struct FVector                                Constant;                                          // 0x0990(0x0018)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_9A8[0x8];                                      // 0x09A8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExTensorConstantFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExTensorConstantFactory")
-	}
-	static class UPCGExTensorConstantFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExTensorConstantFactory>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExTensorConstantFactory;
-
 // Class PCGExtendedToolkit.PCGExPickerFilterProviderSettings
 // 0x0008 (0x00D0 - 0x00C8)
 class UPCGExPickerFilterProviderSettings final : public UPCGExFilterProviderSettings
@@ -9791,49 +10102,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExPickerFilterProviderSettings;
 
-// Class PCGExtendedToolkit.PCGExFilterCollectionFactoryData
-// 0x0000 (0x01C0 - 0x01C0)
-class UPCGExFilterCollectionFactoryData final : public UPCGExFilterFactoryData
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExFilterCollectionFactoryData")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExFilterCollectionFactoryData")
-	}
-	static class UPCGExFilterCollectionFactoryData* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExFilterCollectionFactoryData>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExFilterCollectionFactoryData;
-
-// Class PCGExtendedToolkit.PCGExWithinRangeFilterFactory
-// 0x0040 (0x0200 - 0x01C0)
-class UPCGExWithinRangeFilterFactory final : public UPCGExFilterFactoryData
-{
-public:
-	struct FPCGExWithinRangeFilterConfig          Config;                                            // 0x01C0(0x0040)(NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExWithinRangeFilterFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExWithinRangeFilterFactory")
-	}
-	static class UPCGExWithinRangeFilterFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExWithinRangeFilterFactory>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExWithinRangeFilterFactory;
-
 // Class PCGExtendedToolkit.PCGExPointStateFactoryData
 // 0x0010 (0x01D0 - 0x01C0)
 class UPCGExPointStateFactoryData final : public UPCGExFilterFactoryData
@@ -9856,49 +10124,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExPointStateFactoryData;
-
-// Class PCGExtendedToolkit.PCGExPointStateFactoryProviderSettings
-// 0x0000 (0x00C0 - 0x00C0)
-class UPCGExPointStateFactoryProviderSettings final : public UPCGExFactoryProviderSettings
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExPointStateFactoryProviderSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExPointStateFactoryProviderSettings")
-	}
-	static class UPCGExPointStateFactoryProviderSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExPointStateFactoryProviderSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExPointStateFactoryProviderSettings;
-
-// Class PCGExtendedToolkit.PCGExTensorDotFilterProviderSettings
-// 0x00F8 (0x01C0 - 0x00C8)
-class UPCGExTensorDotFilterProviderSettings final : public UPCGExFilterProviderSettings
-{
-public:
-	struct FPCGExTensorDotFilterConfig            Config;                                            // 0x00C8(0x00F8)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExTensorDotFilterProviderSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExTensorDotFilterProviderSettings")
-	}
-	static class UPCGExTensorDotFilterProviderSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExTensorDotFilterProviderSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExTensorDotFilterProviderSettings;
 
 // Class PCGExtendedToolkit.PCGExPointsToBoundsSettings
 // 0x0098 (0x0180 - 0x00E8)
@@ -9931,54 +10156,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExPointsToBoundsSettings;
 
-// Class PCGExtendedToolkit.PCGExPolygonInclusionFilterFactory
-// 0x0040 (0x0200 - 0x01C0)
-class UPCGExPolygonInclusionFilterFactory final : public UPCGExFilterFactoryData
-{
-public:
-	struct FPCGExPolygonInclusionFilterConfig     Config;                                            // 0x01C0(0x0014)(NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D4[0x2C];                                     // 0x01D4(0x002C)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExPolygonInclusionFilterFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExPolygonInclusionFilterFactory")
-	}
-	static class UPCGExPolygonInclusionFilterFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExPolygonInclusionFilterFactory>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExPolygonInclusionFilterFactory;
-
-// Class PCGExtendedToolkit.PCGExUnpackClustersSettings
-// 0x0008 (0x00F0 - 0x00E8)
-class UPCGExUnpackClustersSettings final : public UPCGExPointsProcessorSettings
-{
-public:
-	bool                                          bFlatten;                                          // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_E9[0x7];                                       // 0x00E9(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExUnpackClustersSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExUnpackClustersSettings")
-	}
-	static class UPCGExUnpackClustersSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExUnpackClustersSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExUnpackClustersSettings;
-
 // Class PCGExtendedToolkit.PCGExPolygonInclusionFilterProviderSettings
 // 0x0018 (0x00E0 - 0x00C8)
 class UPCGExPolygonInclusionFilterProviderSettings final : public UPCGExFilterProviderSettings
@@ -10003,29 +10180,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExPolygonInclusionFilterProviderSettings;
 
-// Class PCGExtendedToolkit.PCGExCreateTensorFlowSettings
-// 0x0418 (0x04E0 - 0x00C8)
-class UPCGExCreateTensorFlowSettings final : public UPCGExTensorPointFactoryProviderSettings
-{
-public:
-	struct FPCGExTensorFlowConfig                 Config;                                            // 0x00C8(0x0418)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExCreateTensorFlowSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExCreateTensorFlowSettings")
-	}
-	static class UPCGExCreateTensorFlowSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExCreateTensorFlowSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExCreateTensorFlowSettings;
-
 // Class PCGExtendedToolkit.PCGExProbeFactoryAnisotropic
 // 0x0040 (0x0200 - 0x01C0)
 class UPCGExProbeFactoryAnisotropic final : public UPCGExProbeFactoryData
@@ -10048,46 +10202,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExProbeFactoryAnisotropic;
-
-// Class PCGExtendedToolkit.PCGExProbeFactoryProviderSettings
-// 0x0000 (0x00C0 - 0x00C0)
-class UPCGExProbeFactoryProviderSettings : public UPCGExFactoryProviderSettings
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExProbeFactoryProviderSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExProbeFactoryProviderSettings")
-	}
-	static class UPCGExProbeFactoryProviderSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExProbeFactoryProviderSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExProbeFactoryProviderSettings;
-
-// Class PCGExtendedToolkit.PCGExZeroTangents
-// 0x0000 (0x00B0 - 0x00B0)
-class UPCGExZeroTangents final : public UPCGExTangentsOperation
-{
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExZeroTangents")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExZeroTangents")
-	}
-	static class UPCGExZeroTangents* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExZeroTangents>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExZeroTangents;
 
 // Class PCGExtendedToolkit.PCGExProbeAnisotropicProviderSettings
 // 0x0048 (0x0108 - 0x00C0)
@@ -10112,59 +10226,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExProbeAnisotropicProviderSettings;
 
-// Class PCGExtendedToolkit.PCGExProbeFactoryClosest
-// 0x0070 (0x0230 - 0x01C0)
-class UPCGExProbeFactoryClosest final : public UPCGExProbeFactoryData
-{
-public:
-	struct FPCGExProbeConfigClosest               Config;                                            // 0x01B8(0x0078)(NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExProbeFactoryClosest")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExProbeFactoryClosest")
-	}
-	static class UPCGExProbeFactoryClosest* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExProbeFactoryClosest>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExProbeFactoryClosest;
-
-// Class PCGExtendedToolkit.PCGExCreateTensorInertiaConstantSettings
-// 0x0440 (0x0508 - 0x00C8)
-class UPCGExCreateTensorInertiaConstantSettings final : public UPCGExTensorFactoryProviderSettings
-{
-public:
-	EPCGExAxis                                    Axis;                                              // 0x00C8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C9[0x7];                                       // 0x00C9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FRotator                               Offset;                                            // 0x00D0(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	double                                        TensorWeight;                                      // 0x00E8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        Potency;                                           // 0x00F0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bSetInertiaOnce;                                   // 0x00F8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_F9[0x7];                                       // 0x00F9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGExTensorInertiaConstantConfig      Config;                                            // 0x0100(0x0408)(NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExCreateTensorInertiaConstantSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExCreateTensorInertiaConstantSettings")
-	}
-	static class UPCGExCreateTensorInertiaConstantSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExCreateTensorInertiaConstantSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExCreateTensorInertiaConstantSettings;
-
 // Class PCGExtendedToolkit.PCGExProbeClosestProviderSettings
 // 0x0078 (0x0138 - 0x00C0)
 class UPCGExProbeClosestProviderSettings final : public UPCGExProbeFactoryProviderSettings
@@ -10188,53 +10249,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExProbeClosestProviderSettings;
 
-// Class PCGExtendedToolkit.PCGExProbeFactoryDirection
-// 0x00B0 (0x0270 - 0x01C0)
-class UPCGExProbeFactoryDirection final : public UPCGExProbeFactoryData
-{
-public:
-	struct FPCGExProbeConfigDirection             Config;                                            // 0x01B8(0x00B0)(NativeAccessSpecifierPublic)
-	uint8                                         Pad_268[0x8];                                      // 0x0268(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExProbeFactoryDirection")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExProbeFactoryDirection")
-	}
-	static class UPCGExProbeFactoryDirection* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExProbeFactoryDirection>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExProbeFactoryDirection;
-
-// Class PCGExtendedToolkit.PCGExVtxPropertySpecialEdgesSettings
-// 0x0198 (0x0258 - 0x00C0)
-class UPCGExVtxPropertySpecialEdgesSettings final : public UPCGExVtxPropertyProviderSettings
-{
-public:
-	struct FPCGExSpecialEdgesConfig               Config;                                            // 0x00C0(0x0198)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExVtxPropertySpecialEdgesSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExVtxPropertySpecialEdgesSettings")
-	}
-	static class UPCGExVtxPropertySpecialEdgesSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExVtxPropertySpecialEdgesSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExVtxPropertySpecialEdgesSettings;
-
 // Class PCGExtendedToolkit.PCGExProbeDirectionProviderSettings
 // 0x00B0 (0x0170 - 0x00C0)
 class UPCGExProbeDirectionProviderSettings final : public UPCGExProbeFactoryProviderSettings
@@ -10257,30 +10271,6 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExProbeDirectionProviderSettings;
-
-// Class PCGExtendedToolkit.PCGExProbeFactoryIndex
-// 0x0070 (0x0230 - 0x01C0)
-class UPCGExProbeFactoryIndex final : public UPCGExProbeFactoryData
-{
-public:
-	struct FPCGExProbeConfigIndex                 Config;                                            // 0x01B8(0x0070)(NativeAccessSpecifierPublic)
-	uint8                                         Pad_228[0x8];                                      // 0x0228(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExProbeFactoryIndex")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExProbeFactoryIndex")
-	}
-	static class UPCGExProbeFactoryIndex* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExProbeFactoryIndex>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExProbeFactoryIndex;
 
 // Class PCGExtendedToolkit.PCGExProbeIndexProviderSettings
 // 0x0070 (0x0130 - 0x00C0)
@@ -10908,6 +10898,38 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExCreateShapeCircleSettings;
 
+// Class PCGExtendedToolkit.PCGExShiftPathSettings
+// 0x0020 (0x0140 - 0x0120)
+class UPCGExShiftPathSettings final : public UPCGExPathProcessorSettings
+{
+public:
+	EPCGExShiftType                               ShiftType;                                         // 0x0120(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExShiftPathMode                           InputMode;                                         // 0x0121(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_122[0x6];                                      // 0x0122(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        RelativeConstant;                                  // 0x0128(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExTruncateMode                            Truncate;                                          // 0x0130(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_131[0x3];                                      // 0x0131(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         DiscreteConstant;                                  // 0x0134(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExIndexSafety                             IndexSafety;                                       // 0x0138(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bReverseShift;                                     // 0x0139(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_13A[0x6];                                      // 0x013A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExShiftPathSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExShiftPathSettings")
+	}
+	static class UPCGExShiftPathSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExShiftPathSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExShiftPathSettings;
+
 // Class PCGExtendedToolkit.PCGExSimplifyClustersSettings
 // 0x01F0 (0x02E0 - 0x00F0)
 class UPCGExSimplifyClustersSettings final : public UPCGExEdgesProcessorSettings
@@ -10940,6 +10962,29 @@ public:
 	}
 };
 DUMPER7_ASSERTS_UPCGExSimplifyClustersSettings;
+
+// Class PCGExtendedToolkit.PCGExSortingRule
+// 0x0060 (0x0220 - 0x01C0)
+class UPCGExSortingRule final : public UPCGExFactoryData
+{
+public:
+	uint8                                         Pad_1B8[0x68];                                     // 0x01B8(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExSortingRule")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExSortingRule")
+	}
+	static class UPCGExSortingRule* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExSortingRule>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExSortingRule;
 
 // Class PCGExtendedToolkit.PCGExSortPointsSettings
 // 0x0010 (0x0100 - 0x00F0)
@@ -11222,54 +11267,6 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExTagValueFilterFactory;
 
-// Class PCGExtendedToolkit.PCGExTensorDotFilterFactory
-// 0x0120 (0x02E0 - 0x01C0)
-class UPCGExTensorDotFilterFactory final : public UPCGExFilterFactoryData
-{
-public:
-	struct FPCGExTensorDotFilterConfig            Config;                                            // 0x01C0(0x00F8)(NativeAccessSpecifierPublic)
-	TArray<class UPCGExTensorFactoryData*>        TensorFactories;                                   // 0x02B8(0x0010)(ZeroConstructor, UObjectWrapper, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
-	uint8                                         Pad_2C8[0x18];                                     // 0x02C8(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExTensorDotFilterFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExTensorDotFilterFactory")
-	}
-	static class UPCGExTensorDotFilterFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExTensorDotFilterFactory>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExTensorDotFilterFactory;
-
-// Class PCGExtendedToolkit.PCGExTensorFlowFactory
-// 0x0410 (0x09D0 - 0x05C0)
-class UPCGExTensorFlowFactory final : public UPCGExTensorPointFactoryData
-{
-public:
-	struct FPCGExTensorFlowConfig                 Config;                                            // 0x05B8(0x0418)(NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExTensorFlowFactory")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExTensorFlowFactory")
-	}
-	static class UPCGExTensorFlowFactory* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExTensorFlowFactory>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExTensorFlowFactory;
-
 // Class PCGExtendedToolkit.PCGExTensorInertiaFactory
 // 0x03E0 (0x09A0 - 0x05C0)
 class UPCGExTensorInertiaFactory final : public UPCGExTensorPointFactoryData
@@ -11293,28 +11290,28 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExTensorInertiaFactory;
 
-// Class PCGExtendedToolkit.PCGExTensorInertiaConstantFactory
-// 0x0400 (0x09A0 - 0x05A0)
-class UPCGExTensorInertiaConstantFactory final : public UPCGExTensorFactoryData
+// Class PCGExtendedToolkit.PCGExCreateTensorInertiaSettings
+// 0x03E8 (0x04B0 - 0x00C8)
+class UPCGExCreateTensorInertiaSettings final : public UPCGExTensorPointFactoryProviderSettings
 {
 public:
-	struct FPCGExTensorInertiaConstantConfig      Config;                                            // 0x0598(0x0408)(NativeAccessSpecifierPublic)
+	struct FPCGExTensorInertiaConfig              Config;                                            // 0x00C8(0x03E8)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExTensorInertiaConstantFactory")
+		STATIC_CLASS_IMPL("PCGExCreateTensorInertiaSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExTensorInertiaConstantFactory")
+		STATIC_NAME_IMPL(L"PCGExCreateTensorInertiaSettings")
 	}
-	static class UPCGExTensorInertiaConstantFactory* GetDefaultObj()
+	static class UPCGExCreateTensorInertiaSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExTensorInertiaConstantFactory>();
+		return GetDefaultObjImpl<UPCGExCreateTensorInertiaSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExTensorInertiaConstantFactory;
+DUMPER7_ASSERTS_UPCGExCreateTensorInertiaSettings;
 
 // Class PCGExtendedToolkit.PCGExTensorNullFactory
 // 0x03E0 (0x09A0 - 0x05C0)
@@ -11362,6 +11359,29 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExTensorPathFlowFactory;
 
+// Class PCGExtendedToolkit.PCGExCreateTensorPathFlowSettings
+// 0x0420 (0x04E8 - 0x00C8)
+class UPCGExCreateTensorPathFlowSettings final : public UPCGExTensorSplineFactoryProviderSettings
+{
+public:
+	struct FPCGExTensorPathFlowConfig             Config;                                            // 0x00C8(0x0420)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExCreateTensorPathFlowSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExCreateTensorPathFlowSettings")
+	}
+	static class UPCGExCreateTensorPathFlowSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExCreateTensorPathFlowSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExCreateTensorPathFlowSettings;
+
 // Class PCGExtendedToolkit.PCGExCreateTensorPathPoleSettings
 // 0x0418 (0x04E0 - 0x00C8)
 class UPCGExCreateTensorPathPoleSettings final : public UPCGExTensorSplineFactoryProviderSettings
@@ -11385,6 +11405,29 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExCreateTensorPathPoleSettings;
 
+// Class PCGExtendedToolkit.PCGExCreateTensorPoleSettings
+// 0x03E0 (0x04A8 - 0x00C8)
+class UPCGExCreateTensorPoleSettings final : public UPCGExTensorPointFactoryProviderSettings
+{
+public:
+	struct FPCGExTensorPoleConfig                 Config;                                            // 0x00C8(0x03E0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExCreateTensorPoleSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExCreateTensorPoleSettings")
+	}
+	static class UPCGExCreateTensorPoleSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExCreateTensorPoleSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExCreateTensorPoleSettings;
+
 // Class PCGExtendedToolkit.PCGExTensorSamplerRK4
 // 0x0000 (0x00B0 - 0x00B0)
 class UPCGExTensorSamplerRK4 final : public UPCGExTensorSampler
@@ -11405,28 +11448,28 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExTensorSamplerRK4;
 
-// Class PCGExtendedToolkit.PCGExTensorSamplerSixPoints
-// 0x0090 (0x0140 - 0x00B0)
-class UPCGExTensorSamplerSixPoints final : public UPCGExTensorSampler
+// Class PCGExtendedToolkit.PCGExTensorSpinFactory
+// 0x0410 (0x09D0 - 0x05C0)
+class UPCGExTensorSpinFactory final : public UPCGExTensorPointFactoryData
 {
 public:
-	uint8                                         Pad_B0[0x90];                                      // 0x00B0(0x0090)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_5B8[0x418];                                    // 0x05B8(0x0418)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExTensorSamplerSixPoints")
+		STATIC_CLASS_IMPL("PCGExTensorSpinFactory")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExTensorSamplerSixPoints")
+		STATIC_NAME_IMPL(L"PCGExTensorSpinFactory")
 	}
-	static class UPCGExTensorSamplerSixPoints* GetDefaultObj()
+	static class UPCGExTensorSpinFactory* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExTensorSamplerSixPoints>();
+		return GetDefaultObjImpl<UPCGExTensorSpinFactory>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExTensorSamplerSixPoints;
+DUMPER7_ASSERTS_UPCGExTensorSpinFactory;
 
 // Class PCGExtendedToolkit.PCGExCreateTensorSplineFlowSettings
 // 0x03F8 (0x04C0 - 0x00C8)
@@ -11607,298 +11650,255 @@ public:
 };
 DUMPER7_ASSERTS_UPCGExUberFilterCollectionsSettings;
 
-// Class PCGExtendedToolkit.PCGExVtxPropertyEdgeMatchFactory
-// 0x0160 (0x0320 - 0x01C0)
-class UPCGExVtxPropertyEdgeMatchFactory final : public UPCGExVtxPropertyFactoryData
+// Class PCGExtendedToolkit.PCGExVtxPropertyEdgeMatchSettings
+// 0x0160 (0x0220 - 0x00C0)
+class UPCGExVtxPropertyEdgeMatchSettings final : public UPCGExVtxPropertyProviderSettings
 {
 public:
-	uint8                                         Pad_1C0[0x160];                                    // 0x01C0(0x0160)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FPCGExEdgeMatchConfig                  Config;                                            // 0x00C0(0x0160)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExVtxPropertyEdgeMatchFactory")
+		STATIC_CLASS_IMPL("PCGExVtxPropertyEdgeMatchSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExVtxPropertyEdgeMatchFactory")
+		STATIC_NAME_IMPL(L"PCGExVtxPropertyEdgeMatchSettings")
 	}
-	static class UPCGExVtxPropertyEdgeMatchFactory* GetDefaultObj()
+	static class UPCGExVtxPropertyEdgeMatchSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExVtxPropertyEdgeMatchFactory>();
+		return GetDefaultObjImpl<UPCGExVtxPropertyEdgeMatchSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExVtxPropertyEdgeMatchFactory;
+DUMPER7_ASSERTS_UPCGExVtxPropertyEdgeMatchSettings;
 
-// Class PCGExtendedToolkit.PCGExVtxPropertySpecialEdgesFactory
-// 0x0190 (0x0350 - 0x01C0)
-class UPCGExVtxPropertySpecialEdgesFactory final : public UPCGExVtxPropertyFactoryData
+// Class PCGExtendedToolkit.PCGExVtxPropertySpecialEdgesSettings
+// 0x0198 (0x0258 - 0x00C0)
+class UPCGExVtxPropertySpecialEdgesSettings final : public UPCGExVtxPropertyProviderSettings
 {
 public:
-	uint8                                         Pad_1C0[0x190];                                    // 0x01C0(0x0190)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FPCGExSpecialEdgesConfig               Config;                                            // 0x00C0(0x0198)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExVtxPropertySpecialEdgesFactory")
+		STATIC_CLASS_IMPL("PCGExVtxPropertySpecialEdgesSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExVtxPropertySpecialEdgesFactory")
+		STATIC_NAME_IMPL(L"PCGExVtxPropertySpecialEdgesSettings")
 	}
-	static class UPCGExVtxPropertySpecialEdgesFactory* GetDefaultObj()
+	static class UPCGExVtxPropertySpecialEdgesSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExVtxPropertySpecialEdgesFactory>();
+		return GetDefaultObjImpl<UPCGExVtxPropertySpecialEdgesSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExVtxPropertySpecialEdgesFactory;
+DUMPER7_ASSERTS_UPCGExVtxPropertySpecialEdgesSettings;
 
-// Class PCGExtendedToolkit.PCGExVtxPropertySpecialNeighborsFactory
-// 0x0150 (0x0310 - 0x01C0)
-class UPCGExVtxPropertySpecialNeighborsFactory final : public UPCGExVtxPropertyFactoryData
+// Class PCGExtendedToolkit.PCGExVtxPropertySpecialNeighborsSettings
+// 0x0150 (0x0210 - 0x00C0)
+class UPCGExVtxPropertySpecialNeighborsSettings final : public UPCGExVtxPropertyProviderSettings
 {
 public:
-	uint8                                         Pad_1C0[0x150];                                    // 0x01C0(0x0150)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FPCGExSpecialNeighborsConfig           Config;                                            // 0x00C0(0x0150)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExVtxPropertySpecialNeighborsFactory")
+		STATIC_CLASS_IMPL("PCGExVtxPropertySpecialNeighborsSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExVtxPropertySpecialNeighborsFactory")
+		STATIC_NAME_IMPL(L"PCGExVtxPropertySpecialNeighborsSettings")
 	}
-	static class UPCGExVtxPropertySpecialNeighborsFactory* GetDefaultObj()
+	static class UPCGExVtxPropertySpecialNeighborsSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExVtxPropertySpecialNeighborsFactory>();
+		return GetDefaultObjImpl<UPCGExVtxPropertySpecialNeighborsSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExVtxPropertySpecialNeighborsFactory;
+DUMPER7_ASSERTS_UPCGExVtxPropertySpecialNeighborsSettings;
 
-// Class PCGExtendedToolkit.PCGExWaitForPCGDataSettings
-// 0x00E0 (0x01C8 - 0x00E8)
-class UPCGExWaitForPCGDataSettings final : public UPCGExPointsProcessorSettings
+// Class PCGExtendedToolkit.PCGExWithinRangeFilterFactory
+// 0x0040 (0x0200 - 0x01C0)
+class UPCGExWithinRangeFilterFactory final : public UPCGExFilterFactoryData
 {
 public:
-	class FName                                   ActorReferenceAttribute;                           // 0x00E8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSoftObjectPtr<class UPCGGraph>               TemplateGraph;                                     // 0x00F0(0x0028)(Edit, BlueprintVisible, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bMustMatchTemplate;                                // 0x0118(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_119[0x3];                                      // 0x0119(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   MustHaveTag;                                       // 0x011C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDoMatchGenerationTrigger;                         // 0x0124(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGComponentGenerationTrigger                MatchGenerationTrigger;                            // 0x0125(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bInvertGenerationTrigger;                          // 0x0126(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWaitForMissingActors;                             // 0x0127(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	double                                        WaitForActorTimeout;                               // 0x0128(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWaitForMissingComponents;                         // 0x0130(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_131[0x7];                                      // 0x0131(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	double                                        WaitForComponentTimeout;                           // 0x0138(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExGenerationTriggerAction                 GenerateOnLoadAction;                              // 0x0140(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExGenerationTriggerAction                 GenerateOnDemandAction;                            // 0x0141(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExRuntimeGenerationTriggerAction          GenerateAtRuntime;                                 // 0x0142(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIgnoreRequiredPin;                                // 0x0143(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bDedupeData;                                       // 0x0144(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bCarryOverTargetTags;                              // 0x0145(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_146[0x2];                                      // 0x0146(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPCGExAttributeToTagDetails            TargetAttributesToDataTags;                        // 0x0148(0x0060)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	bool                                          bOutputRoaming;                                    // 0x01A8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1A9[0x3];                                      // 0x01A9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   RoamingPin;                                        // 0x01AC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bQuietActorNotFoundWarning;                        // 0x01B4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bQuietComponentNotFoundWarning;                    // 0x01B5(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bQuietTimeoutError;                                // 0x01B6(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1B7[0x1];                                      // 0x01B7(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FPCGPinProperties>              CachedPins;                                        // 0x01B8(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	struct FPCGExWithinRangeFilterConfig          Config;                                            // 0x01C0(0x0040)(NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExWaitForPCGDataSettings")
+		STATIC_CLASS_IMPL("PCGExWithinRangeFilterFactory")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExWaitForPCGDataSettings")
+		STATIC_NAME_IMPL(L"PCGExWithinRangeFilterFactory")
 	}
-	static class UPCGExWaitForPCGDataSettings* GetDefaultObj()
+	static class UPCGExWithinRangeFilterFactory* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExWaitForPCGDataSettings>();
+		return GetDefaultObjImpl<UPCGExWithinRangeFilterFactory>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExWaitForPCGDataSettings;
+DUMPER7_ASSERTS_UPCGExWithinRangeFilterFactory;
 
-// Class PCGExtendedToolkit.PCGExWithinRangeFilterProviderSettings
-// 0x0040 (0x0108 - 0x00C8)
-class UPCGExWithinRangeFilterProviderSettings final : public UPCGExFilterProviderSettings
+// Class PCGExtendedToolkit.PCGExWriteEdgePropertiesSettings
+// 0x01F8 (0x02E8 - 0x00F0)
+class UPCGExWriteEdgePropertiesSettings final : public UPCGExEdgesProcessorSettings
 {
 public:
-	struct FPCGExWithinRangeFilterConfig          Config;                                            // 0x00C8(0x0040)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExWithinRangeFilterProviderSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExWithinRangeFilterProviderSettings")
-	}
-	static class UPCGExWithinRangeFilterProviderSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExWithinRangeFilterProviderSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExWithinRangeFilterProviderSettings;
-
-// Class PCGExtendedToolkit.PCGExWriteGUIDSettings
-// 0x00F0 (0x01D8 - 0x00E8)
-class UPCGExWriteGUIDSettings final : public UPCGExPointsProcessorSettings
-{
-public:
-	struct FPCGExGUIDDetails                      Config;                                            // 0x00E8(0x00F0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		STATIC_CLASS_IMPL("PCGExWriteGUIDSettings")
-	}
-	static const class FName& StaticName()
-	{
-		STATIC_NAME_IMPL(L"PCGExWriteGUIDSettings")
-	}
-	static class UPCGExWriteGUIDSettings* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UPCGExWriteGUIDSettings>();
-	}
-};
-DUMPER7_ASSERTS_UPCGExWriteGUIDSettings;
-
-// Class PCGExtendedToolkit.PCGExWritePathPropertiesSettings
-// 0x01F0 (0x0310 - 0x0120)
-class UPCGExWritePathPropertiesSettings final : public UPCGExPathProcessorSettings
-{
-public:
-	struct FPCGExGeo2DProjectionDetails           ProjectionDetails;                                 // 0x0120(0x00A0)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
-	EPCGExAttributeSetPackingMode                 PathAttributePackingMode;                          // 0x01C0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWritePathDataToPoints;                            // 0x01C1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWritePathLength;                                  // 0x01C2(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1C3[0x1];                                      // 0x01C3(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   PathLengthAttributeName;                           // 0x01C4(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWritePathDirection;                               // 0x01CC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1CD[0x3];                                      // 0x01CD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   PathDirectionAttributeName;                        // 0x01D0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWritePathCentroid;                                // 0x01D8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1D9[0x3];                                      // 0x01D9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   PathCentroidAttributeName;                         // 0x01DC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteIsClockwise;                                 // 0x01E4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1E5[0x3];                                      // 0x01E5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   IsClockwiseAttributeName;                          // 0x01E8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteArea;                                        // 0x01F0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FPCGExEdgeDirectionSettings            DirectionSettings;                                 // 0x00F0(0x0058)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	bool                                          bWriteEdgeLength;                                  // 0x0148(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_149[0x3];                                      // 0x0149(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   EdgeLengthAttributeName;                           // 0x014C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteEdgeDirection;                               // 0x0154(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_155[0x3];                                      // 0x0155(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   EdgeDirectionAttributeName;                        // 0x0158(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bEndpointsBlending;                                // 0x0160(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_161[0x7];                                      // 0x0161(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        EndpointsWeights;                                  // 0x0168(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FPCGExBlendingDetails                  BlendingSettings;                                  // 0x0170(0x0080)(Edit, BlueprintVisible, NativeAccessSpecifierPublic)
+	bool                                          bWriteHeuristics;                                  // 0x01F0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_1F1[0x3];                                      // 0x01F1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   AreaAttributeName;                                 // 0x01F4(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWritePerimeter;                                   // 0x01FC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_1FD[0x3];                                      // 0x01FD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   PerimeterAttributeName;                            // 0x0200(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteCompactness;                                 // 0x0208(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_209[0x3];                                      // 0x0209(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   CompactnessAttributeName;                          // 0x020C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteBoundingBoxCenter;                           // 0x0214(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_215[0x3];                                      // 0x0215(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   BoundingBoxCenterAttributeName;                    // 0x0218(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteBoundingBoxExtent;                           // 0x0220(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_221[0x3];                                      // 0x0221(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   BoundingBoxExtentAttributeName;                    // 0x0224(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteBoundingBoxOrientation;                      // 0x022C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_22D[0x3];                                      // 0x022D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   BoundingBoxOrientationAttributeName;               // 0x0230(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                UpVector;                                          // 0x0238(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteDot;                                         // 0x0250(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_251[0x3];                                      // 0x0251(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   DotAttributeName;                                  // 0x0254(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteAngle;                                       // 0x025C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_25D[0x3];                                      // 0x025D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   AngleAttributeName;                                // 0x0260(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EPCGExAngleRange                              AngleRange;                                        // 0x0268(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteDistanceToNext;                              // 0x0269(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_26A[0x2];                                      // 0x026A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   DistanceToNextAttributeName;                       // 0x026C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteDistanceToPrev;                              // 0x0274(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_275[0x3];                                      // 0x0275(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   DistanceToPrevAttributeName;                       // 0x0278(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteDistanceToStart;                             // 0x0280(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_281[0x3];                                      // 0x0281(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   DistanceToStartAttributeName;                      // 0x0284(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteDistanceToEnd;                               // 0x028C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_28D[0x3];                                      // 0x028D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   DistanceToEndAttributeName;                        // 0x0290(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWritePointTime;                                   // 0x0298(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_299[0x3];                                      // 0x0299(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   PointTimeAttributeName;                            // 0x029C(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bTimeOneMinus;                                     // 0x02A4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWritePointNormal;                                 // 0x02A5(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2A6[0x2];                                      // 0x02A6(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   PointNormalAttributeName;                          // 0x02A8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWritePointAvgNormal;                              // 0x02B0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2B1[0x3];                                      // 0x02B1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   PointAvgNormalAttributeName;                       // 0x02B4(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWritePointBinormal;                               // 0x02BC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2BD[0x3];                                      // 0x02BD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   PointBinormalAttributeName;                        // 0x02C0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteDirectionToNext;                             // 0x02C8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2C9[0x3];                                      // 0x02C9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   DirectionToNextAttributeName;                      // 0x02CC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteDirectionToPrev;                             // 0x02D4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2D5[0x3];                                      // 0x02D5(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   DirectionToPrevAttributeName;                      // 0x02D8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bTagConcave;                                       // 0x02E0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2E1[0x7];                                      // 0x02E1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 ConcaveTag;                                        // 0x02E8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bTagConvex;                                        // 0x02F8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2F9[0x7];                                      // 0x02F9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class FString                                 ConvexTag;                                         // 0x0300(0x0010)(Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   HeuristicsAttributeName;                           // 0x01F4(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExHeuristicsWriteMode                     HeuristicsMode;                                    // 0x01FC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteEdgePosition;                                // 0x01FD(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1FE[0x2];                                      // 0x01FE(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        EdgePositionLerp;                                  // 0x0200(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExMinimalAxis                             SolidificationAxis;                                // 0x0208(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExInputValueType                          SolidificationLerpInput;                           // 0x0209(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_20A[0x6];                                      // 0x020A(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGAttributePropertyInputSelector     SolidificationLerpAttribute;                       // 0x0210(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        SolidificationLerpConstant;                        // 0x0238(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteRadiusX;                                     // 0x0240(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExInputValueType                          RadiusXInput;                                      // 0x0241(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExClusterComponentSource                  RadiusXSource;                                     // 0x0242(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_243[0x5];                                      // 0x0243(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGAttributePropertyInputSelector     RadiusXSourceAttribute;                            // 0x0248(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        RadiusXConstant;                                   // 0x0270(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteRadiusY;                                     // 0x0278(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExInputValueType                          RadiusYInput;                                      // 0x0279(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExClusterComponentSource                  RadiusYSource;                                     // 0x027A(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_27B[0x5];                                      // 0x027B(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGAttributePropertyInputSelector     RadiusYSourceAttribute;                            // 0x0280(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        RadiusYConstant;                                   // 0x02A8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bWriteRadiusZ;                                     // 0x02B0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExInputValueType                          RadiusZInput;                                      // 0x02B1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExClusterComponentSource                  RadiusZSource;                                     // 0x02B2(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2B3[0x5];                                      // 0x02B3(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGAttributePropertyInputSelector     RadiusZSourceAttribute;                            // 0x02B8(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        RadiusZConstant;                                   // 0x02E0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExWritePathPropertiesSettings")
+		STATIC_CLASS_IMPL("PCGExWriteEdgePropertiesSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExWritePathPropertiesSettings")
+		STATIC_NAME_IMPL(L"PCGExWriteEdgePropertiesSettings")
 	}
-	static class UPCGExWritePathPropertiesSettings* GetDefaultObj()
+	static class UPCGExWriteEdgePropertiesSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExWritePathPropertiesSettings>();
+		return GetDefaultObjImpl<UPCGExWriteEdgePropertiesSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExWritePathPropertiesSettings;
+DUMPER7_ASSERTS_UPCGExWriteEdgePropertiesSettings;
 
-// Class PCGExtendedToolkit.PCGExWriteVtxPropertiesSettings
-// 0x0018 (0x0108 - 0x00F0)
-class UPCGExWriteVtxPropertiesSettings final : public UPCGExEdgesProcessorSettings
+// Class PCGExtendedToolkit.PCGExWriteIndexSettings
+// 0x0030 (0x0118 - 0x00E8)
+class UPCGExWriteIndexSettings final : public UPCGExPointsProcessorSettings
 {
 public:
-	bool                                          bWriteVtxEdgeCount;                                // 0x00F0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_F1[0x3];                                       // 0x00F1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   VtxEdgeCountAttributeName;                         // 0x00F4(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bWriteVtxNormal;                                   // 0x00FC(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_FD[0x3];                                       // 0x00FD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class FName                                   VtxNormalAttributeName;                            // 0x0100(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOutputPointIndex;                                 // 0x00E8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_E9[0x3];                                       // 0x00E9(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   OutputAttributeName;                               // 0x00EC(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOneMinus;                                         // 0x00F4(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOutputNormalizedIndex;                            // 0x00F5(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOutputCollectionIndex;                            // 0x00F6(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_F7[0x1];                                       // 0x00F7(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   CollectionIndexAttributeName;                      // 0x00F8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOutputCollectionIndexToPoints;                    // 0x0100(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOutputCollectionIndexToTags;                      // 0x0101(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOutputCollectionNumEntries;                       // 0x0102(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_103[0x1];                                      // 0x0103(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	class FName                                   NumEntriesAttributeName;                           // 0x0104(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOutputNumEntriesToPoints;                         // 0x010C(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOutputNormalizedNumEntriesToPoints;               // 0x010D(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOutputNumEntriesToTags;                           // 0x010E(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bOutputNormalizedNumEntriesToTags;                 // 0x010F(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAllowInterpolation;                               // 0x0110(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_111[0x7];                                      // 0x0111(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		STATIC_CLASS_IMPL("PCGExWriteVtxPropertiesSettings")
+		STATIC_CLASS_IMPL("PCGExWriteIndexSettings")
 	}
 	static const class FName& StaticName()
 	{
-		STATIC_NAME_IMPL(L"PCGExWriteVtxPropertiesSettings")
+		STATIC_NAME_IMPL(L"PCGExWriteIndexSettings")
 	}
-	static class UPCGExWriteVtxPropertiesSettings* GetDefaultObj()
+	static class UPCGExWriteIndexSettings* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UPCGExWriteVtxPropertiesSettings>();
+		return GetDefaultObjImpl<UPCGExWriteIndexSettings>();
 	}
 };
-DUMPER7_ASSERTS_UPCGExWriteVtxPropertiesSettings;
+DUMPER7_ASSERTS_UPCGExWriteIndexSettings;
+
+// Class PCGExtendedToolkit.PCGExWriteTangentsSettings
+// 0x0098 (0x01B8 - 0x0120)
+class UPCGExWriteTangentsSettings final : public UPCGExPathProcessorSettings
+{
+public:
+	class FName                                   ArriveName;                                        // 0x0120(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   LeaveName;                                         // 0x0128(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UPCGExTangentsOperation*                Tangents;                                          // 0x0130(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPCGExTangentsOperation*                StartTangents;                                     // 0x0138(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	class UPCGExTangentsOperation*                EndTangents;                                       // 0x0140(0x0008)(Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, ExperimentalNeverOverriden)
+	EPCGExInputValueType                          ArriveScaleInput;                                  // 0x0148(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_149[0x7];                                      // 0x0149(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGAttributePropertyInputSelector     ArriveScaleAttribute;                              // 0x0150(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        ArriveScaleConstant;                               // 0x0178(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EPCGExInputValueType                          LeaveScaleInput;                                   // 0x0180(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_181[0x7];                                      // 0x0181(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPCGAttributePropertyInputSelector     LeaveScaleAttribute;                               // 0x0188(0x0028)(Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	double                                        LeaveScaleConstant;                                // 0x01B0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExWriteTangentsSettings")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExWriteTangentsSettings")
+	}
+	static class UPCGExWriteTangentsSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExWriteTangentsSettings>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExWriteTangentsSettings;
+
+// Class PCGExtendedToolkit.PCGExZeroTangents
+// 0x0000 (0x00B0 - 0x00B0)
+class UPCGExZeroTangents final : public UPCGExTangentsOperation
+{
+public:
+	static class UClass* StaticClass()
+	{
+		STATIC_CLASS_IMPL("PCGExZeroTangents")
+	}
+	static const class FName& StaticName()
+	{
+		STATIC_NAME_IMPL(L"PCGExZeroTangents")
+	}
+	static class UPCGExZeroTangents* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UPCGExZeroTangents>();
+	}
+};
+DUMPER7_ASSERTS_UPCGExZeroTangents;
 
 SDK_NAMESPACE_END
