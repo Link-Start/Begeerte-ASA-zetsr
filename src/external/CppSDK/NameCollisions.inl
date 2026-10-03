@@ -11,19 +11,19 @@
 
 namespace GameplayAbilities { struct FServerAbilityRPCBatch; }
 
-namespace Human_Male_Face_Retargeting_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
-
-namespace WeaponFistsAnimBlueprint { struct FAnimBlueprintGeneratedConstantData; }
-
 namespace TPV_ClimbPick_MaleAnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
 namespace HM_TPV_ClimbPick_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
-namespace HM_TPV_Empty_WeaponAdditive_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
+namespace WeaponFistsAnimBlueprint { struct FAnimBlueprintGeneratedConstantData; }
 
 namespace GPSHumanAnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
 namespace Human_Female_Face_Retargeting_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
+
+namespace Human_Male_Face_Retargeting_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
+
+namespace HM_TPV_Empty_WeaponAdditive_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
 namespace HM_TPV_Empty_PoseLayer_AnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
@@ -66,8 +66,8 @@ namespace Human_Riding_LinkedGraph
 
 namespace FPVClimbPickWeaponAnimBP_Base
 {
-	struct FAnimBlueprintGeneratedMutableData;
 	struct FAnimBlueprintGeneratedConstantData;
+	struct FAnimBlueprintGeneratedMutableData;
 }
 
 namespace BaseHumanAnimBP
